@@ -34,6 +34,7 @@ The task's six state names override the vocabulary in `fields.md`. `confirmed` m
 | C04 | lifecycle and access stage | PostgreSQL 14: end of support November 12, 2026; remaining instances scheduled for forced upgrade to PostgreSQL 15 on January 11, 2027. | confirmed | https://doc.scalingo.com/changelog | 2026-11-05 | Changelog, June 9, 2026 PostgreSQL 14 deprecation. Dates are close to this check; recheck before listing or selecting a version. |
 | C04 | lifecycle and access stage | MySQL 8.0 LTS: end of support April 30, 2026; forced-upgrade campaign to 8.4 LTS was scheduled for October 12, 2026. | confirmed | https://doc.scalingo.com/changelog; https://doc.scalingo.com/databases/mysql/about/overview | 2026-11-05 | Changelog, June 9 deprecation; MySQL Overview still lists 8.0. This confirms the announced schedule, not that every customer's upgrade completed. |
 | C04 | lifecycle and access stage | Current Caching default and transition to Valkey cannot be fully reconciled from the public pages. | unclear | https://doc.scalingo.com/databases/redis/start; https://doc.scalingo.com/databases/about/backup-policies; https://doc.scalingo.com/changelog; https://scalingo.com/general-terms-and-conditions; https://scalingo.com/data-processing-agreement | 2026-11-05 | Caching lists Redis OSS 7.2.16-1 by default; Backup Policies has Valkey-specific retention and the changelog has Redis-to-Valkey completion events. Searched these docs, lifecycle entries and legal pages; no complete migration timetable or universal Valkey default was found. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Scalingo Databases. | not_published | https://scalingo.com/blog ; https://doc.scalingo.com/databases ; https://status.scalingo.com/ | 2026-11-09 | Checked Scalingo blog, database documentation and status. No qualifying sale, shutdown, rebrand, major paid retirement or breach notice found. |
 | C05 | vendor home and main markets | SCALINGO SAS, registered in Strasbourg, France; the database page describes European hosting and customers worldwide. | confirmed | https://scalingo.com/general-terms-and-conditions; https://scalingo.com/databases | 2026-11-05 | GTC, company identification; Databases, hosting introduction. Vendor headquarters and customer reach are distinct from database region selection. |
 | C06 | signup and use restrictions | Terms define a Client as a professional natural/legal person registered in a trade/company or equivalent commercial register. | confirmed | https://scalingo.com/general-terms-of-use; https://scalingo.com/general-terms-and-conditions | 2026-11-05 | GTU Article 1, Client; GTC scope. A registered solo business fits the stated category; eligibility of an unregistered hobbyist is not established. |
 | C06 | signup and use restrictions | Eligible accounts get a 30-day trial after setting a billing profile and valid payment method. Fraud/eligibility checks apply. | confirmed | https://doc.scalingo.com/platform/getting-started/free-trial; https://scalingo.com/general-terms-and-conditions | 2026-11-05 | Free Trial, activation; GTC Article 4. A valid payment method is required, so this is not a no-payment-details free tier. |
@@ -226,11 +227,11 @@ All URLs in this section were checked on 2026-11-05.
 
 - Fields attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
 - Facts-table rows: **119**. Counts are rows, so plan/region splits count separately.
-- confirmed: **93**.
-- not_published: **8**.
-- unclear: **4**.
-- conflicting: **1**.
-- not_applicable: **13**.
-- check_failed: **0**.
+- confirmed: 93.
+- not_published: 9.
+- unclear: 4.
+- conflicting: 1.
+- not_applicable: 13.
+- check_failed: 0.
 - Distinct exact source URLs cited: **60** (repeated links count once).
 

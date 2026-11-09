@@ -109,6 +109,7 @@ The owner's six states override the vocabulary in fields.md. `confirmed` means a
 | J05 | logs and run history | Current Workers Logs: Free 200,000 events/day retained 3 days; Paid 20 million/month included then USD 0.60/million, retained 7 days. The docs announce a pricing change on December 1, 2026. | confirmed | https://developers.cloudflare.com/workers/observability/logs/workers-logs/ | 2026-11-05 | Pricing table and Pricing change. This is an explicitly linked shared observability service, not a DO request allowance; current rates are dated before the announced change. |
 | J05 | logs and run history | A built-in alarm run-history retention period, result-artifact store, dead-letter inbox and one-click failed-job replay were not established. | not_published | https://developers.cloudflare.com/durable-objects/api/alarms/ ; https://developers.cloudflare.com/durable-objects/observability/metrics-and-analytics/ ; https://developers.cloudflare.com/workers/observability/logs/workers-logs/ ; https://www.cloudflare.com/terms/ ; https://www.cloudflare.com/service-specific-terms-developer-platform/ ; https://www.cloudflare.com/cloudflare-customer-dpa/ | 2026-11-05 | Searched alarms, DO metrics/logging, Workers Logs and terms/DPA. Applications can persist their own run status, which consumes storage/row operations. |
 | H01 | operating requirements and feature gaps | Not applicable to operating the Cloudflare-hosted service. Local Wrangler development is available, but is not a self-hosted production Durable Objects edition with a published minimum server shape. | not_applicable | https://developers.cloudflare.com/durable-objects/get-started/ ; https://developers.cloudflare.com/durable-objects/ | 2026-11-05 | Getting started, Local development and Deploy. No invented cheapest-server, replica or backup budget. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or data-exposure incident found for Durable Objects. | confirmed | https://blog.cloudflare.com/ ; https://developers.cloudflare.com/changelog/product/durable-objects/ ; https://www.cloudflarestatus.com/ | 2026-11-09 | Checked Cloudflare Blog, Durable Objects changelog and system status. The July 2026 restriction on creating new legacy KV-backed namespaces is a storage-backend change; SQLite-backed Durable Objects remain publicly offered. |
 
 ## Cost examples — our calculations
 
@@ -189,12 +190,12 @@ The full-backend scenario has no complete total here: 1,000 monthly active users
 ## Counts
 
 - Distinct field IDs attempted: 46 (all 22 core fields; 8 database, 7 file, 3 vector, 5 job and 1 self-host field).
-- Fact rows: 88. Multiple rows split editions, plan limits or separate unresolved subparts.
-- confirmed: 62.
+- Fact rows: 89. Multiple rows split editions, plan limits or separate unresolved subparts.
+- confirmed: 63.
 - not_published: 12.
 - unclear: 2.
 - conflicting: 1.
 - not_applicable: 11.
 - check_failed: 0.
-- Distinct exact official source URLs linked in this file: 30. Repeated links count once; this is not a count of every search result or failed guessed path.
+- Distinct exact official source URLs linked in this file: 32. Repeated links count once; this is not a count of every search result or failed guessed path.
 

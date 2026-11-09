@@ -10,7 +10,7 @@ Minutes taken: 9.00
 
 Scope: official product/docs pages, legal and privacy notice, software license, project announcements, release metadata and targeted public source files. No signup, login, form submission, crawl, installation, demo execution, tracking request, application API request or database access. Public GitHub file/metadata reads resolved web-fetch gaps.
 
-Row assessment: the web/open-source/self-hosted description and C detection class fit. The `active` status needs a maintenance-mode qualifier if readers might interpret it as active development. The unknown owner can be expanded to creators Frederik Ring and Hendrik Niefeld; the legal website contact is Frederik Ring. No evidence of a renamed core analytics product or company acquisition was found. Offen Consent Tool and Offen Protocol are related projects, not replacement names.
+Row assessment: the web/open-source/self-hosted description and C detection class fit. The `active` status needs a maintenance-mode qualifier if readers might interpret it as active development. The unknown owner can be recorded as the project creators; the legal notice identifies an individual website operator in Berlin, Germany. No evidence of a renamed core analytics product or company acquisition was found. Offen Consent Tool and Offen Protocol are related projects, not replacement names.
 
 ## Facts
 
@@ -19,9 +19,10 @@ Confirmed means documented or visible in official public source, not independent
 | Field ID | Field name | Value | State | Applies to | Exact source URL | Checked date | Evidence note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Name and official URL | Offen Fair Web Analytics (also shortened to Offen); https://www.offen.dev/ | confirmed | Analytics product | https://www.offen.dev/ | 2026-11-04 | Keep separate from Offen Protocol, Offen Consent Tool and the team's software-development business. |
-| F01 | Creators | Frederik Ring and Hendrik Niefeld | confirmed | Project | https://www.offen.dev/about/ | 2026-11-04 | Official about page identifies both developers; no incorporated software-vendor entity established. |
-| F01 | Responsible website operator | Frederik Ring, Berlin, Germany | confirmed | offen.dev website | https://www.offen.dev/legal-privacy/ | 2026-11-04 | Legal notice identifies responsibility for the project website; not an analytics hosting-region promise. |
+| F01 | Creators | The project creators | confirmed | Project | https://www.offen.dev/about/ | 2026-11-04 | The official about page identifies the project creators; no incorporated software-vendor entity established. |
+| F01 | Responsible website operator | An individual website operator in Berlin, Germany | confirmed | offen.dev website | https://www.offen.dev/legal-privacy/ | 2026-11-04 | Legal notice identifies responsibility for the project website; not an analytics hosting-region promise. |
 | F01 | Lifecycle and availability | Maintenance mode since summer 2024; no active feature development; available for self-hosting | confirmed | Product | https://www.offen.dev/blog/reach-maturity/ | 2026-11-04 | Notice dated 2024-07-03 says maintained until further notice. No later closure or acquisition notice located; current release checked separately. |
+| F01 | News check 2026-11-09 | No sale, shutdown, rebrand, or incident found; product remains in maintenance mode and available for self-hosting | not_published | Product lifecycle | https://www.offen.dev/blog/ ; https://www.offen.dev/about/ ; https://github.com/offen/offen/releases | 2026-11-09 | Checked official blog, About page, release history, and public project status; no official status page found. The 2024 maintenance notice remains the latest product-status announcement. |
 | F02 | Primary category | Consent-based self-hosted web analytics with visitor access to their own data | confirmed | Product | https://docs.offen.dev/using-offen/ | 2026-11-04 | Both operators and website visitors are intended users of the analytics interface. |
 | F02 | Secondary jobs and overlap | Traffic acquisition reports, weekly visitor retention and page-load performance | confirmed | Web reports | https://docs.offen.dev/running-offen/metrics-explained/ | 2026-11-04 | Our category tags describe web reporting. Native application telemetry and billing accounting are not established. |
 | F03 | Web platforms | Websites and web apps; page load and client-side pushState navigation | confirmed | Browser tracker | https://docs.offen.dev/developing-offen/understanding-architecture/ | 2026-11-04 | Script is included on tracked pages; SPA pageviews are supported without claiming native SDK parity. |
@@ -141,7 +142,7 @@ The [2020 hosting-budget article](https://www.offen.dev/blog/hosting-offen-on-bu
 
 ## Public detection record
 
-Stable product ID: `offen-fair-web-analytics`; current name: Offen Fair Web Analytics; short brand: Offen. Creators: Frederik Ring and Hendrik Niefeld. The Protocol and Consent Tool require separate product identification. Class **C**, matching apps.md.
+Stable product ID: `offen-fair-web-analytics`; current name: Offen Fair Web Analytics; short brand: Offen. Creators: the project team. The Protocol and Consent Tool require separate product identification. Class **C**, matching apps.md.
 
 Official installation evidence uses an actual script URL ending `/script.js` together with `data-account-id`. Because both are generic, require corroborating Offen-specific code or component behavior before classifying an installation. Current source exposes `window.__offen__`, constructs an instance `/vault` iframe and provides pageview/consent methods. Its component architecture explains the Auditorium and encrypted event exchange. Exact evidence URLs and checked dates are in F32.
 

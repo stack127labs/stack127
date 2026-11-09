@@ -1,5 +1,7 @@
 # AcyMailing
 
+Security notice: The official changelog records a user-creation vulnerability patched in AcyMailing 10.8.2 on 2026-03-13, an SQL-injection vulnerability patched in 10.11.1 on 2026-07-09, and a separate mailbox-action security issue fixed in 11.1.0 on 2026-09-24. The changelog does not say these issues were exploited. Source: https://www.acymailing.com/changelog/ . Checked 2026-11-09.
+
 Status and ownership check: AcyMailing is available and maintained. No shutdown, sunset or acquisition notice was found in official-domain searches or the inspected product, terms and release pages. Current terms identify DATASOLUTION in France as the operator; they do not establish an acquisition date. Sources: https://www.acymailing.com/ ; https://www.acymailing.com/terms-and-conditions/ ; https://www.acymailing.com/changelog/ . Checked 2026-11-05.
 
 - Official URL: https://www.acymailing.com/
@@ -10,6 +12,8 @@ Status and ownership check: AcyMailing is available and maintained. No shutdown,
 
 Minutes taken: 20.45
 
+Security note (not a finding, checked 2026-11-09): the official changelog lists security patches in versions 10.8.2 (2026-03-13), 10.11.1 (2026-07-09) and 11.1.0 (2026-09-24); it does not say they were exploited. Source: https://www.acymailing.com/changelog/
+
 ## Facts
 
 Checked dates and source dates are separate. “Not stated” means no absolute source update date was captured. A recorded unknown describes the sources searched, not proof that no answer exists. Software-only licences, bundled delivery and the direct AcyMailer API are distinct scopes.
@@ -17,6 +21,7 @@ Checked dates and source dates are separate. “Not stated” means no absolute 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Source update date | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Name, URL and status | AcyMailing; https://www.acymailing.com/; available WordPress and Joomla product | confirmed | https://www.acymailing.com/ ; https://www.acymailing.com/changelog/ | 2026-11-05 | Latest release: 2026-10-05 | Current product pages and version 11.1.1 release are live. No shutdown, sunset or acquisition notice was found in the official-site searches described below. |
+| F01 | News check | News check 2026-11-09: no sale, shutdown, rebrand, or incident found | not_published | https://www.acymailing.com/blog/<br>https://www.acymailing.com/changelog/<br>https://www.acymailing.com/terms-and-conditions/ | 2026-11-09 | Blog and changelog checked 2026-11-09 | Checked the official blog, changelog, terms and quick web searches for sale, shutdown, rebrand and security incidents since 2025-01-01. The blog’s latest listed posts are from 2024; no public status page was found. Routine patched vulnerabilities are noted above, not counted as incidents. |
 | F02 | Email jobs: newsletters and marketing | Newsletters, scheduled campaigns, follow-up sequences and event-based marketing | confirmed | https://www.acymailing.com/segments-and-automations/ ; https://docs.acymailing.com/main-pages/campaigns/follow-up.md | 2026-11-05 | Not stated | The docs show delayed emails after user actions. Automatic campaign generation and advanced automations are Enterprise features. |
 | F02 | Email jobs: app-generated email | Plugin template-send REST endpoint and separate hosted AcyMailer MIME-send API | confirmed | https://docs.acymailing.com/rest-api/emails.md ; https://docs.acymailing.com/acymailer/send-email.md | 2026-11-05 | Not stated | The hosted send body includes isTransactional. This establishes an app-mail route, not an inbox-placement promise or a complete transactional event platform. |
 | F03 | Hosting and sender: plugin | Self-hosted WordPress/Joomla plugin; connect own PHP mail, SMTP or a supported sending provider | confirmed | https://docs.acymailing.com/setup/installation/install-acymailing.md ; https://docs.acymailing.com/setup/configuration/mail-configuration.md | 2026-11-05 | Not stated | A website, CMS and working sending transport are needed. A software licence alone does not include site hosting or an external provider's email charges. |

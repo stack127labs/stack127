@@ -8,7 +8,7 @@ Minutes taken: 8.60
 
 Scope: official website, linked publisher terms/privacy/imprint, project docs, tracker docs, source files and releases. No signup, login, form submission, crawl, installation, tracker execution, tracking request, application API request or database access. Public GitHub file/metadata reads were used to resolve missing or stale web-fetch results.
 
-Ackee remains available as self-hosted software, with a current v3.7.1 release dated 2026-10-23. The apps.md row's web/open-source/self-hosted description and C detection class fit the evidence. Its unknown owner can now be replaced with project author Tobias Reich (Electerious). No official Ackee-operated hosted purchase or free hosting offer was located. No clear row error found.
+Ackee remains available as self-hosted software, with a current v3.7.1 release dated 2026-10-23. The apps.md row's web/open-source/self-hosted description and C detection class fit the evidence. Its unknown owner can be recorded as the project author (Electerious). No official Ackee-operated hosted purchase or free hosting offer was located. No clear row error found.
 
 ## Facts
 
@@ -17,9 +17,10 @@ Each row is an evidence record. Confirmed means documented or visible in officia
 | Field ID | Field name | Value | State | Applies to | Exact source URL | Checked date | Evidence note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Current name and URL | Ackee; https://ackee.electerious.com/ | confirmed | Product | https://ackee.electerious.com/ | 2026-11-04 | Official site describes the current self-hosted analytics application. |
-| F01 | Author and publisher | Tobias Reich (Electerious) | confirmed | Project | https://raw.githubusercontent.com/electerious/Ackee/master/LICENSE | 2026-11-04 | Copyright holder named by the application license; linked imprint identifies the same person. |
+| F01 | Author and publisher | the project author (Electerious) | confirmed | Project | https://raw.githubusercontent.com/electerious/Ackee/master/LICENSE | 2026-11-04 | Copyright holder named by the application license; linked imprint identifies the same person. |
 | F01 | Availability and lifecycle | Source download and installation guides offered; latest release v3.7.1 dated 2026-10-23 | confirmed | Self-hosted | https://github.com/electerious/Ackee/blob/master/CHANGELOG.md | 2026-11-04 | Current release activity supports availability. No installation or runtime availability test performed. |
 | F01 | Former names and ownership events | No former name, acquisition or shutdown notice established | not_published | Product | https://github.com/electerious/Ackee | 2026-11-04 | Checked home, README, imprint and release/changelog pages; do not infer ownership history from the repository username. |
+| F01 | News check | News check 2026-11-09: no sale, shutdown, rebrand, or incident found | not_published | Product lifecycle | https://ackee.electerious.com/ ; https://github.com/electerious/Ackee ; https://github.com/electerious/Ackee/blob/master/CHANGELOG.md ; https://github.com/electerious/Ackee/releases | 2026-11-09 | Checked the official home, repository, changelog, releases and official-domain news search. Ackee is self-hosted, so no vendor-operated service status page applies. |
 | F02 | Primary category | Self-hosted website traffic analytics | confirmed | Product | https://ackee.electerious.com/ | 2026-11-04 | Main job is reporting visits to the user's websites. |
 | F02 | Secondary jobs and overlap | Custom event counts/values; GraphQL-based custom reporting and integrations | confirmed | Events and API | https://github.com/electerious/Ackee/blob/master/docs/Events.md | 2026-11-04 | Our overlap classification follows documented events, not a claim of full product analytics or subscription accounting. |
 | F03 | Supported website setup | Static/multipage sites; manual/programmatic capture for client-side routing | confirmed | Browser tracker | https://github.com/electerious/ackee-tracker | 2026-11-04 | Automatic script capture only covers the initial page in a client-routed app; route hooks need manual calls. |
@@ -33,7 +34,7 @@ Each row is an evidence record. Confirmed means documented or visible in officia
 | F06 | Deployment edition | Own Node.js server and MongoDB, receiving tracking-script/API requests | confirmed | Self-hosted | https://github.com/electerious/Ackee/blob/master/docs/Get%20started.md | 2026-11-04 | Container, manual and platform deployment routes run the user's installation. |
 | F06 | Serverless/platform hosting | Guides include Netlify, Vercel, Heroku, Render, Railway, Koyeb and other providers | confirmed | Operator-managed platform deployments | https://github.com/electerious/Ackee | 2026-11-04 | A deployment guide does not establish current provider pricing, supported free tiers or an Ackee-managed service. |
 | F07 | Application source license | MIT; use, modify, redistribute and sell allowed with required license/copyright notice | confirmed | Application source | https://raw.githubusercontent.com/electerious/Ackee/master/LICENSE | 2026-11-04 | Whole-project license, not merely a tracker SDK license. |
-| F07 | Tracker source license | MIT, copyright Tobias Reich | confirmed | ackee-tracker | https://raw.githubusercontent.com/electerious/ackee-tracker/master/LICENSE | 2026-11-04 | Checked the separate tracker license directly after the web fetch failed. |
+| F07 | Tracker source license | MIT, copyright the project author | confirmed | ackee-tracker | https://raw.githubusercontent.com/electerious/ackee-tracker/master/LICENSE | 2026-11-04 | Checked the separate tracker license directly after the web fetch failed. |
 | F07 | Website terms versus software license | Scope unclear: website use-license restricts commercial use/copying while application MIT license permits them | unclear | Publisher website materials versus downloaded software | https://electerious.com/terms-of-service | 2026-11-04 | Both documents were read. Do not apply the generic website restriction as an unqualified ban on commercial MIT software use; see conflicts section. |
 | F08 | Software price structure | Free software license; no per-pageview/event/user charge specified by that license | confirmed | Self-hosted software | https://raw.githubusercontent.com/electerious/Ackee/master/LICENSE | 2026-11-04 | License grants permission without charge. Infrastructure and work remain separate costs; no currency or billing period applies to the license. |
 | F08 | Funding | Voluntary GitHub sponsorship, PayPal and Buy Me a Coffee links | confirmed | Project donations | https://github.com/electerious/Ackee | 2026-11-04 | Donation links support development; they are not published paid usage tiers. |
@@ -151,7 +152,7 @@ The [tracker source](https://raw.githubusercontent.com/electerious/ackee-tracker
 
 ## Public detection record
 
-Stable product ID: `ackee`. Current brand: Ackee. Project author/publisher: Tobias Reich / Electerious. No legacy brand established. Overall class: **C**, matching apps.md.
+Stable product ID: `ackee`. Current brand: Ackee. Project/publisher: Electerious (individual author name omitted). No legacy brand established. Overall class: **C**, matching apps.md.
 
 The official install uses `data-ackee-server` with `data-ackee-domain-id` and an instance-served tracker. This combination in an actual installed element, with the tracker or initializer corroborating it, is strong product-specific evidence even though the collector hostname varies. Programmatic `ackeeTracker.create(server).record(domainId)` is a second candidate. Exact sources, scope and checked date are in F32.
 

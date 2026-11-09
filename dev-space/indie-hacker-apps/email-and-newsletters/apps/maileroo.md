@@ -1,5 +1,7 @@
 # Maileroo
 
+News finding (2026-01-30): Maileroo spun its email-marketing tools into CampaignLark, a separate product, and refocused Maileroo on SMTP and Email API. The company says Maileroo itself was not rebranded. Sources checked 2026-11-09: https://maileroo.com/blog/introducing-campaignlark ; https://maileroo.com/changelog .
+
 - Official URL: https://maileroo.com/
 - apps.md row status: active (row checked 2026-11-04). The status fits the current product evidence. No row error found; note the product split below.
 - Research started: 2026-11-06 10:34:58 UTC (date -u).
@@ -17,6 +19,7 @@ Every row was checked on 2026-11-06. Source update dates are separate from the c
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Name, official site, and status | Maileroo; https://maileroo.com/; active hosted email service | confirmed | https://maileroo.com/; https://maileroo.com/changelog | 2026-11-06 | Changelog entries through 2026-10-30 | Current site and changelog show live product pages and ongoing releases. |
 | F01 | Name, official site, and status | Maileroo is not being rebranded. Its former email-marketing tools were spun off into CampaignLark, which the company says replaces the former marketing service. | confirmed | https://maileroo.com/blog/introducing-campaignlark | 2026-11-06 | 2026-01-30 | CampaignLark is a related, separately priced product from Maileroo Group Pty Ltd, not an alias for the SMTP/API service. |
+| F01 | Product pivot and marketing-service spin-off | Maileroo spun its email-marketing tools into CampaignLark and refocused Maileroo on SMTP relay and Email API; Maileroo says this was not a rebrand of the Maileroo service | confirmed | https://maileroo.com/blog/introducing-campaignlark<br>https://maileroo.com/changelog<br>https://maileroo.com/features/email-marketing-platform | 2026-11-09 | 2026-01-30; 2026-02-08 | The blog describes the spin-off and scope change; the changelog says CampaignLark will replace Maileroo’s former Email Marketing service. Maileroo’s SMTP/API service remains active. |
 | F02 | Email jobs | Transactional app email through SMTP relay and REST API, including account, password, order, and service messages | confirmed | https://maileroo.com/docs | 2026-11-06 | Not stated | Docs describe sending transactional email with SMTP or API. |
 | F02 | Email jobs | Consent-based marketing email is allowed through Maileroo SMTP if the sender discloses marketing use during account verification and includes an opt-out | confirmed | https://maileroo.com/help/what-kind-emails-can-i-send-maileroo | 2026-11-06 | 2026-09-14 | This is a relay feature; it does not turn the Maileroo SMTP dashboard into the current standalone campaign editor. |
 | F02 | Email jobs | CampaignLark provides newsletters, bulk and scheduled campaigns, segments, forms, A/B tests, and automated journeys | confirmed | https://maileroo.com/features/email-marketing-platform | 2026-11-06 | Not stated | CampaignLark is presented as the current dedicated marketing product. |

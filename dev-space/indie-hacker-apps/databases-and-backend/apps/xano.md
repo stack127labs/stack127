@@ -105,6 +105,7 @@ Checked date is the actual UTC research date. Each row gives exact official sour
 | H01 | Operating requirements and feature gaps | BYOC/on-prem is Custom-only with one license per instance. Operator cloud must supply backend, Deno, Node/realtime, database, task, builder-UI frontend and Redis resources or supported managed substitutes. | confirmed | <https://docs.xano.com/enterprise/enterprise-features/deployment.md>; <https://docs.xano.com/enterprise/enterprise-features/resource-management.md>; <https://www.xano.com/pricing/> | 2026-11-04 | Deployment / Resource Management: Kubernetes pod requests/limits/autoscaler controls are documented. No complete standard minimum machine count/RAM/disk or public deployment license price established; no cheapest-host estimate. |
 | H01 | Operating requirements and feature gaps | Hosted Free/Essential/Pro use Xano-managed infrastructure. BYOC adds customer cloud cost/capacity planning and deployment-specific responsibilities; exact update/support/backup division needs the Custom agreement. | unclear | <https://docs.xano.com/enterprise/enterprise-features/deployment.md>; <https://docs.xano.com/enterprise/enterprise-features/resource-management.md>; <https://docs.xano.com/legal.md>; <https://docs.xano.com/xano-features/instance-settings/backup-and-restore.md>; <https://www.xano.com/pricing/> | 2026-11-04 | Compared cloud ownership/resource safeguards with managed-service and backup docs. No public runbook establishes equal support/automation across every on-prem configuration; do not claim free feature parity. |
 
+| C04 | lifecycle and access stage | Xano news check 2026-11-09: no sale, shutdown, rebrand, or customer-data incident found. Checked the official blog, product changelog and status page, plus a quick web search; the status page reported the service fully operational. | confirmed | https://www.xano.com/blog/ ; https://nocodebackend.olvy.co/ ; https://status.xano.com/ | 2026-11-09 | Dated sweep check: official product/news sources and status page (where available) checked with a quick web search. This is a bounded news check, not an uptime guarantee. |
 ## Cost examples — our calculations
 
 Checked 2026-11-04. Use **Germany (Frankfurt)** for current paid hosted plans, as named in the region guide. Amounts are **USD before any applicable sales tax**, exclude promotions, and use monthly billing unless explicitly annual. Free is U.S.-only, so it is a separate development comparison, not a free Frankfurt deployment. No actual workload or capacity test was run. [Pricing](https://www.xano.com/pricing/), [Regions](https://docs.xano.com/xano-features/instance-settings/change-server-region.md), [Currency/tax terms](https://docs.xano.com/legal.md).
@@ -210,16 +211,16 @@ No `apps.md` row error found: “Backend platform”, active status and `auth; h
 
 ## Counts
 
-Fields attempted: **46 of 46**. Facts-table rows: **88**. Counts are rows, because fields can have multiple plan scopes or evidence states.
+Fields attempted: **46 of 46**. Facts-table rows: **89**. Counts are rows, because fields can have multiple plan scopes or evidence states.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 61 |
+| confirmed | 62 |
 | not_published | 15 |
 | unclear | 8 |
 | conflicting | 4 |
 | not_applicable | 0 |
 | check_failed | 0 |
 
-Distinct exact source URLs linked: **56**. Repeated links count once. Six cost scenarios attempted; subscription bases and complete workload totals are explicitly distinguished.
+Distinct exact source URLs linked: 59. Repeated links count once. Six cost scenarios attempted; subscription bases and complete workload totals are explicitly distinguished.
 

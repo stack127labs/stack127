@@ -111,6 +111,7 @@ All facts and our calculations checked **2026-11-04**. No signup, login, payment
 | 35 | Software license and hosted terms | Installable platform license not applicable to this managed offer. Service terms govern hosted use and reserve rights in the provider's software/API. | not_applicable | https://tiiny.host/termsofservice.html | 2026-11-04 | Customer hosted content retains its ownership/license rights, subject to the service's content license. No right to self-host Tiiny's platform is inferred from API documentation or readable client JavaScript. |
 | 36 | Self-host requirements and work | Not applicable to the managed platform. Customer maintains source, build/dependencies, credentials, domain setup, and independent backups. | not_applicable | https://helpdesk.tiiny.host/en/article/what-is-tiiny-host-87tbpx/ ; https://helpdesk.tiiny.host/en/article/do-you-support-php-1cp432u/ ; https://tiiny.host/termsofservice.html | 2026-11-04 | No server specification or control-panel install is invented. PHP's supported version does not remove the customer's responsibility for safe application code/dependencies or add database administration to the provider's offer. |
 | 37 | Evidence and freshness | All facts/calculations checked 2026-11-04. Pricing/help dates, older legal dates, public frontend defaults, and calculations remain distinct. | confirmed | https://helpdesk.tiiny.host/en/article/pricing-plans-1i3vkky/ ; https://helpdesk.tiiny.host/en/article/what-does-a-tiiny-host-account-offer-me-qevduq/ ; https://tiiny.host/termsofservice.html ; https://tiiny.host/privacypolicy.html ; https://tiiny.host/static/js/main.67082144.js | 2026-11-04 | Current pricing updated 2026-10-20; feature/PHP docs 2026-10-23. Terms header revised 2022-04-11 but footer also says 2020-10-27; privacy dated 2023-04-03. Recheck volatile quotas/runtime availability within 30 days and before publication. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, shutdown, rebrand, or qualifying security incident found. | confirmed | https://tiiny.host/; https://tiiny.host/blog/; https://tiiny.host/termsofservice.html; https://status.tiiny.host/en/ | 2026-11-09 | Checked the product, blog, terms and official status page. The status page reports healthy systems; blog entries cover product guides and hosting updates, with no qualifying notice found. |
 
 ## Cost examples: our calculations
 
@@ -195,11 +196,11 @@ Formula: `complete cost = qualified Tiiny B subtotal + external PostgreSQL plan 
 
 ## Counts
 
-Fields attempted: **37 of 37** field groups. Fact rows: **93**. Counts refer to facts-table rows, not repeated cost-input evidence or access-attempt notes.
+Fields attempted: **37 of 37** field groups. Fact rows: **94**. Counts refer to facts-table rows, not repeated cost-input evidence or access-attempt notes.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 64 |
+| confirmed | 65 |
 | not_published | 19 |
 | unclear | 5 |
 | conflicting | 2 |

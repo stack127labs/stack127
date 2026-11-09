@@ -36,14 +36,14 @@ These are proposals, not tested fingerprints. Every app has a route below. `W` m
 | Zendesk | [zendesk.com](https://www.zendesk.com/) | Help desk | Unknown | Customer tickets, messaging, and self-service. Research the entry plan separately from enterprise offers. | B; V1; L | active | 2026-11-04 | W / H |
 | Freshdesk | [freshworks.com/freshdesk](https://www.freshworks.com/freshdesk/) | Help desk | Unknown | Customer support tickets and automation. | B; V1; L | active | 2026-11-04 | W / H |
 | Zoho Desk | [zoho.com/desk](https://www.zoho.com/desk/) | Help desk | Unknown | Customer inbox, tickets, and help center. | V1; L | active | 2026-11-04 | W / H |
-| Plain | [plain.com](https://www.plain.com/) | Help desk | Unknown | Support for software businesses, including developer connections. | B; Q | active | 2026-11-04 | W / N |
-| Front | [front.com](https://front.com/) | Shared inbox | Unknown | Team inbox with customer service workflows. Check minimum seats. | B; V1; L | active | 2026-11-04 | W / N |
-| Missive | [missiveapp.com](https://missiveapp.com/) | Shared inbox | Unknown | Shared email with private team discussion. | Q | active | 2026-11-04 | N |
+| Plain | [plain.com](https://www.plain.com/) | Help desk | Unknown | Support for software businesses, including developer connections and hosted Help Centers. | B; Q | active | 2026-11-04 | W / H / N |
+| Front | [front.com](https://front.com/) | Shared inbox | Unknown | Team inbox with customer service workflows and hosted Help Centers. Check minimum seats. | B; V1; L | active | 2026-11-04 | W / H / N |
+| Missive | [missiveapp.com](https://missiveapp.com/) | Shared inbox | Unknown | Shared email, private team discussion, and a public website chat widget. | Q | active | 2026-11-04 | N / W |
 | Hiver | [hiverhq.com](https://hiverhq.com/) | Shared inbox | Unknown | Shared support inbox with chat and help center options. | V1; L | active | 2026-11-04 | W / H |
 | Gmelius | [gmelius.com](https://gmelius.com/) | Shared inbox | Unknown | Gmail collaboration and AI workflow product; confirm current support-specific package. | V1 | gray | 2026-11-04 | N |
-| Drag | [dragapp.com](https://www.dragapp.com/) | Shared inbox | Unknown | Shared Gmail inbox and customer service workflows. | Q; E | active | 2026-11-04 | N / W |
+| Drag | [dragapp.com](https://www.dragapp.com/) | Shared inbox | Unknown | Shared Gmail inbox, customer service workflows, and hosted Help Center. | Q; E | active | 2026-11-04 | N / W / H |
 | Helpwise | [helpwise.io](https://helpwise.io/) | Shared inbox | Unknown | Shared support inbox across email and messaging. | V1 | active | 2026-11-04 | W / H |
-| SupportBee | [supportbee.com](https://supportbee.com/) | Help desk | Unknown | Email tickets, customer portal, and knowledge base. | Q | active | 2026-11-04 | H / N |
+| SupportBee | [supportbee.com](https://supportbee.com/) | Help desk | Unknown | Email tickets, customer portal, knowledge base, and embedded website widgets. | Q | active | 2026-11-04 | H / N / W |
 | Helply | [helply.com](https://helply.com/) | Help desk | Unknown | Inbox, help center, and AI support. B2B software only; solo cost needs checking. | Q; Groove redirect | gray | 2026-11-04 | W / H |
 | HelpCrunch | [helpcrunch.com](https://helpcrunch.com/) | Help desk | Unknown | Chat, support inbox, help center, and email campaigns. Also email and newsletters. | V1 | active | 2026-11-04 | W / H |
 | LiveAgent | [liveagent.com](https://www.liveagent.com/) | Help desk | Unknown | Email, chat, calls, and self-service support. | V1; L | active | 2026-11-04 | W / H |
@@ -56,8 +56,8 @@ These are proposals, not tested fingerprints. Every app has a route below. `W` m
 | Trengo | [trengo.com](https://trengo.com/) | Shared inbox | European-owned; homepage | Email, WhatsApp, social messages, chat, and voice. Bundle cost needs checking. | V1 | gray | 2026-11-04 | W / N |
 | respond.io | [respond.io](https://respond.io/) | Shared inbox | Unknown | Messaging inbox includes conversational support as well as sales. | L; E | active | 2026-11-04 | W / N |
 | DelightChat | [delightchat.io](https://www.delightchat.io/) | Shared inbox | Unknown | Ecommerce support inbox and WhatsApp communications. | E | active | 2026-11-04 | W / N |
-| Desk365 | [desk365.io](https://www.desk365.io/) | Help desk | Unknown | Customer tickets and Microsoft Teams connection. Distinguish customer support from internal IT. | V1 | active | 2026-11-04 | H / N |
-| HelpDesk | [helpdesk.com](https://www.helpdesk.com/) | Help desk | Unknown | Text's separate ticketing product for customer teams. | O; E | active | 2026-11-04 | H / N |
+| Desk365 | [desk365.io](https://www.desk365.io/) | Help desk | Unknown | Customer tickets, Microsoft Teams connection, and website widgets. Distinguish customer support from internal IT. | V1 | active | 2026-11-04 | H / N / W |
+| HelpDesk | [helpdesk.com](https://www.helpdesk.com/) | Help desk | Unknown | Text ticketing for customer teams: new setups use Text App; the previous HelpDesk workflow remains for existing users. | O; E | active | 2026-11-04 | W / H / N |
 | Jitbit Helpdesk | [jitbit.com/helpdesk](https://www.jitbit.com/helpdesk/) | Help desk; self-host option | Unknown | Email tickets, public portal, and chat; hosted and self-hosted editions. | E | active | 2026-11-04 | S / W |
 | Deskpro | [deskpro.com](https://www.deskpro.com/) | Help desk | Unknown | Customer tickets, shared inbox, and knowledge base. Check entry contract and hosting editions. | E | active | 2026-11-04 | W / H |
 | HelpSpot | [helpspot.com](https://www.helpspot.com/) | Help desk; self-host option | Unknown | Email support and help content; cloud and self-hosted choices. | E | active | 2026-11-04 | S / H |
@@ -84,10 +84,10 @@ These are proposals, not tested fingerprints. Every app has a route below. `W` m
 | Znuny | [znuny.org](https://www.znuny.org/en) | Help desk; open source | Unknown | Maintained OTRS Community Edition fork. Broader service-desk scope. | E | gray | 2026-11-04 | S |
 | OpenSupports | [opensupports.com](https://www.opensupports.com/) | Help desk; open source | Unknown | Customer tickets and articles; current maintenance needs a repository check. | E | gray | 2026-11-04 | S |
 | Fluent Support | [fluentsupport.com](https://fluentsupport.com/) | Help desk; WordPress; self-hosted | Unknown | Support tickets inside a WordPress site. | E | active | 2026-11-04 | S |
-| SupportCandy | [supportcandy.net](https://supportcandy.net/) | Help desk; WordPress; self-hosted | Unknown | Customer ticket plugin and AI options. | E | active | 2026-11-04 | S |
+| SupportCandy | [supportcandy.net](https://supportcandy.net/) | Help desk; WordPress; self-hosted | Unknown | Customer ticket plugin, AI options, and a public chatbot widget. | E | active | 2026-11-04 | W / S / N |
 | ThriveDesk | [thrivedesk.com](https://www.thrivedesk.com/) | Help desk | Unknown | Ecommerce support inbox, chat, and help content. | E | active | 2026-11-04 | W / H |
 | Desku | [desku.io](https://desku.io/) | Help desk | Unknown | Shared support inbox, chat, and support automation. | E | active | 2026-11-04 | W / H |
-| Heroic Inbox | [herothemes.com](https://herothemes.com/plugins/heroic-inbox/) | Shared inbox; WordPress; self-hosted | Unknown | Shared email support inside WordPress. | O | active | 2026-11-04 | N / S |
+| Heroic Inbox | [herothemes.com](https://herothemes.com/plugins/heroic-inbox/) | Shared inbox; WordPress; self-hosted | Unknown | Shared email support inside WordPress admin; no public portal is established. | O | active | 2026-11-04 | N |
 | Enchant | [enchant.com](https://www.enchant.com/) | Help desk | Unknown | Support inbox, messenger, and knowledge base. Also email and newsletters. | E | active | 2026-11-04 | W / H |
 | HelpSpace | [helpspace.com](https://helpspace.com/) | Help desk | Unknown | Customer help desk for email support and help content. | E | active | 2026-11-04 | H / W |
 | Fernand | [getfernand.com](https://getfernand.com/) | Help desk | Unknown | Support inbox, help center, and AI aimed at software teams. | E | active | 2026-11-04 | W / H |
@@ -107,21 +107,21 @@ These are proposals, not tested fingerprints. Every app has a route below. `W` m
 | Name | Official URL | Type | Home region or main markets | Why it belongs / limits / overlap | Found | Status | Site confirmed | Detection |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Crisp | [crisp.chat](https://crisp.chat/en/) | Live chat and support suite | France; official pricing/footer | Website chat, support inbox, help center, and AI. | B; V1; R | active | 2026-11-04 | W / H |
-| Intercom | [intercom.com](https://www.intercom.com/) | Live chat and support suite | Unknown | Customer messenger, help desk, and help center; Fin recorded separately. | B; V1; Q | active | 2026-11-04 | W / H |
+| Intercom | [intercom.com](https://www.intercom.com/) | Live chat and support suite | Unknown | Customer messenger, help desk, and help center. The company renamed itself Fin on 2026-05-12; Salesforce completed its acquisition of Fin (formerly Intercom) on 2026-09-10. The Intercom customer-service product retains its name; Fin Agent is listed separately. | B; V1; Q | active | 2026-11-04 | W / H |
 | tawk.to | [tawk.to](https://www.tawk.to/) | Live chat and support suite | Unknown | Website chat and support inbox, with help content. | B; V1; R | active | 2026-11-04 | W / H |
-| Chatwoot | [chatwoot.com](https://www.chatwoot.com/) | Live chat and support suite; open source | Unknown | Shared support inbox, widget, AI, and help center; self-hostable edition. | B | active | 2026-11-04 | W / S |
+| Chatwoot | [chatwoot.com](https://www.chatwoot.com/) | Live chat and support suite; open source Community edition | Unknown | Shared support inbox, widget, AI, and help center; self-hostable edition. | B | active | 2026-11-04 | W / S |
 | Tidio | [tidio.com](https://www.tidio.com/) | Live chat and AI | Unknown | Live customer chat and AI support. Lyro belongs under this record. | V1; V3 | active | 2026-11-04 | W |
-| LiveChat | [livechat.com](https://www.livechat.com/) | Live chat | Unknown | Text's customer chat product; separate from HelpDesk and ChatBot. | V1 | active | 2026-11-04 | W |
+| LiveChat | [livechat.com](https://www.livechat.com/) | Live chat | Unknown | LiveChat continues for existing subscribers; main URL promotes separate Text. Separate from HelpDesk and ChatBot. As of 2026-11-09: new-customer LiveChat purchase access is unclear. | V1 | active | 2026-11-04 | W |
 | Olark | [olark.com](https://www.olark.com/) | Live chat and AI | Unknown | Customer questions and human handoff; current focus includes marketing. Verify classic live chat offer. | V1 | gray | 2026-11-04 | W |
-| Chatra | [chatra.com](https://chatra.com/) | Live chat | Unknown | Web chat and email/social messaging. Homepage says it is a Brevo company. | V1 | active | 2026-11-04 | W |
+| Chatra | [chatra.com](https://chatra.com/) | Live chat | Unknown | Web chat and email/social messaging. Homepage says it is a Brevo company. As of 2026-11-09: new features have stopped; the published deletion windows differ (60 days in the GDPR guide and normally up to 90 days in the DPA). | V1 | active | 2026-11-04 | W |
 | JivoChat | [jivochat.com](https://www.jivochat.com/) | Live chat | Unknown | Customer website chat and messaging channels. | V1 | active | 2026-11-04 | W |
 | Smartsupp | [smartsupp.com](https://www.smartsupp.com/) | Live chat and AI | Unknown | Website support chat plus email and social messages. | V1 | active | 2026-11-04 | W |
 | Lime Connect | [connect.lime-technologies.com](https://connect.lime-technologies.com/de/) | Live chat and messaging | Europe; official rebrand notice | Formerly Userlike. Chat, messaging inbox, and AI. Current solo pricing needs checking. | V1; official redirect | gray | 2026-11-04 | W |
 | Chaport | [chaport.com](https://www.chaport.com/) | Live chat | Unknown | Customer web chat, chatbots, and knowledge base. | E | active | 2026-11-04 | W / H |
 | Chatway | [chatway.app](https://chatway.app/) | Live chat | Unknown | Web chat, shared conversations, and human/AI support. | R | active | 2026-11-04 | W |
 | Formilla | [formilla.com](https://www.formilla.com/) | Live chat and AI | Unknown | Chat and bots for customer questions. | V1 | active | 2026-11-04 | W |
-| Pure Chat | [purechat.com/our-pricing](https://purechat.com/our-pricing/) | Live chat | Unknown | Website chat; current official pricing page opened after homepage fetch failed. | V1 | active | 2026-11-04 | W |
-| Chatlio | [chatlio.com](https://chatlio.com/) | Live chat | Unknown | Website chat answered from Slack. | V1 | active | 2026-11-04 | W |
+| Pure Chat | [purechat.com/our-pricing](https://purechat.com/our-pricing/) | Live chat | Unknown | Website chat; current public offer remains, but operation and staffed support are unverified. As of 2026-11-09: no shutdown notice found. | V1 | active | 2026-11-04 | W |
+| Chatlio | [chatlio.com](https://chatlio.com/) | Live chat | Unknown | Website chat answered from Slack, Discord, or Microsoft Teams. | V1 | active | 2026-11-04 | W |
 | LiveHelpNow | [livehelpnow.net](https://livehelpnow.net/) | Live chat and support suite | Unknown | Chat, tickets, and knowledge base in one product. | V1 | active | 2026-11-04 | W / H |
 | Zoho SalesIQ | [zoho.com/salesiq](https://www.zoho.com/salesiq/) | Live chat | Unknown | Visitor chat and customer communication, alongside sales tools. | O | active | 2026-11-04 | W |
 | Freshchat | [freshworks.com/live-chat-software](https://www.freshworks.com/live-chat-software/) | Live chat | Unknown | Freshworks' separate messaging product. Do not merge with Freshdesk. | O | active | 2026-11-04 | W |
@@ -154,7 +154,7 @@ These are proposals, not tested fingerprints. Every app has a route below. `W` m
 | Outline | [getoutline.com](https://www.getoutline.com/) | Wiki; self-host option; source available | Unknown | Team knowledge base with possible public sharing. Check customer-help suitability and licence; do not call it open source by default. | E | gray | 2026-11-04 | S / H |
 | XWiki | [xwiki.org](https://www.xwiki.org/) | Wiki; open source | Unknown | Could publish customer help, but broader platform setup may be excessive. | E | gray | 2026-11-04 | S |
 | BetterDocs | [betterdocs.co](https://betterdocs.co/) | Help center; WordPress | Unknown | Customer knowledge base plugin and AI answers. | E | active | 2026-11-04 | S / W |
-| Heroic KB | [herothemes.com](https://herothemes.com/plugins/heroic-wordpress-knowledge-base/) | Help center; WordPress | Unknown | Customer help content, search, and article feedback inside WordPress. | E | active | 2026-11-04 | S / W |
+| Heroic KB | [herothemes.com](https://herothemes.com/plugins/heroic-wordpress-knowledge-base/) | Help center; WordPress | Unknown | Customer help content, search, and article feedback inside WordPress. As of 2026-11-09: built-in AI assistant and AI Article Writer are being removed; HelpJet replaces the assistant. | E | active | 2026-11-04 | S / W |
 | weDocs | [wedocs.co](https://wedocs.co/) | Help center; WordPress | Unknown | WordPress product documentation and help articles. | E | active | 2026-11-04 | S / W |
 | Echo Knowledge Base | [echoknowledgebase.com](https://www.echoknowledgebase.com/) | Help center; WordPress | Unknown | Customer knowledge base with search and AI options. | E | active | 2026-11-04 | S / W |
 | LibreKB | [librekb.com](https://librekb.com/) | Help center; self-hosted; open source | Unknown | Dedicated public knowledge base using PHP and MySQL. | G | active | 2026-11-04 | S |
@@ -165,7 +165,7 @@ These are proposals, not tested fingerprints. Every app has a route below. `W` m
 | Name | Official URL | Type | Home region or main markets | Why it belongs / limits / overlap | Found | Status | Site confirmed | Detection |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Chatbase | [chatbase.co](https://www.chatbase.co/) | AI support agent | US; [privacy notice](https://www.chatbase.co/legal/privacy) | Answers customer questions across chat and other channels. | B; V3 | active | 2026-11-04 | W |
-| Fin | [fin.ai](https://fin.ai/) | AI support agent | Unknown | Intercom's separately offered customer agent. Record required help desk and minimum spend later. | B; L; V3 | active | 2026-11-04 | W / N |
+| Fin | [fin.ai](https://fin.ai/) | AI support agent | Unknown | Salesforce-owned Fin AI Agent, formerly Intercom; also sold for other help desks. As of 2026-11-09: Salesforce completed the acquisition on 2026-09-10 and the company now uses the Fin name. | B; L; V3 | active | 2026-11-04 | W / N |
 | SiteGPT | [sitegpt.ai](https://sitegpt.ai/) | AI support agent | Unknown | Customer answers trained on website content. | V3 | active | 2026-11-04 | W |
 | DocsBot | [docsbot.ai](https://docsbot.ai/) | AI support agent | Unknown | Customer answers and actions based on supplied knowledge. | V3 | active | 2026-11-04 | W |
 | CustomGPT.ai | [customgpt.ai](https://customgpt.ai/) | AI support agent | Unknown | Customer answers grounded in company content; enterprise positioning makes current solo cost worth checking. | V3 | gray | 2026-11-04 | W |
@@ -177,7 +177,7 @@ These are proposals, not tested fingerprints. Every app has a route below. `W` m
 | Botpress | [botpress.com](https://botpress.com/) | AI support builder | Unknown | Builds customer support agents. Separate current cloud service from old open-source versions. | V3 | gray | 2026-11-04 | W |
 | Voiceflow | [voiceflow.com](https://www.voiceflow.com/) | AI support builder | Unknown | Builds customer conversation agents. Wider builder product; current solo plan needs checking. | V3 | gray | 2026-11-04 | W |
 | Typebot | [typebot.com](https://typebot.com/) | Chatbot builder; self-host option | Unknown | Support flows and website bots. Source is public; current licence needs checking before an open-source label. | E | gray | 2026-11-04 | W / S |
-| ChatBot | [chatbot.com](https://www.chatbot.com/) | AI support agent | Unknown | Text's separate customer support chatbot product. | O; V3 | active | 2026-11-04 | W |
+| ChatBot | [chatbot.com](https://www.chatbot.com/) | AI support agent | Unknown | Legacy ChatBot Visual Builder for customer support; new signup and pricing lead to Text's AI Agent, inbox, and ticketing. As of 2026-11-09: the legacy product remains documented for existing users. | O; V3 | active | 2026-11-04 | W |
 | FastBots | [fastbots.ai](https://fastbots.ai/) | AI support agent | Unknown | Website/customer support bots with messaging connections. | E | active | 2026-11-04 | W |
 | Aidbase | [aidbase.ai](https://www.aidbase.ai/) | AI support agent | Unknown | Support bots, help content, tickets, and email for SaaS startups. | E | active | 2026-11-04 | W |
 | Inkeep | [inkeep.com](https://inkeep.com/) | AI support agent | Unknown | Answers customer questions from product knowledge. Current solo purchase needs checking. | E | gray | 2026-11-04 | W / N |

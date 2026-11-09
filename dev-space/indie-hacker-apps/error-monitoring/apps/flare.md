@@ -130,6 +130,7 @@ Only the six requested states are used. Unknown rates and counts remain unknown.
 | A03 | Browser real-user performance | Page loads, navigations, requests and component timing; TTFB/FCP/LCP/INP/CLS collected with tracing. | measurements | All | SaaS | Hosted | Browser performance | confirmed | https://flareapp.io/docs/javascript; https://flareapp.io/docs/javascript/tracing/web-vitals | 2026-11-04 | not shown | Vitals are for the initial document, not each SPA route. Vitals share trace sampling; unsupported measurements are omitted rather than reported as zero. |
 | A03 | Mobile performance and sessions | React Native and Electron explicitly offer errors only, without tracing/profiling; no session-based RUM rate applies to those clients. | platform boundary | All | SaaS | Hosted | Mobile; desktop performance | not_applicable | https://flareapp.io/docs/react-native; https://flareapp.io/docs/electron | 2026-11-04 | not shown | Keep browser span-priced RUM separate from mobile error support. Native hangs/ANRs/freezes are not established by these JS clients. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | SaaS | Hosted | Product/company | confirmed | https://flareapp.io/blog; https://flareapp.io/blog/why-we-removed-ai-solutions-from-flare; https://flareapp.io/changelog; https://status.flareapp.io/ | 2026-11-09 | 2026-10-20; 2026-08-11 (post); 2026-10-26; Not stated | Checked the official Flare news/blog, changelog, status page and quick news searches. The status page showed no current problem; product updates remain active. 2026-04 (announced 2026-08-11): Flare removed its old one-shot AI fixes and replaced that assist flow with MCP/CLI/agent tools; no source presents it as a major separately paid monitoring feature, so this is not a qualifying retirement. |
 ## Cost examples: our calculation, estimated
 
 These are separate workloads, not a combined usage bill. All $ amounts retain the pricing page's symbol; the ISO currency was not established. Taxes, external Vonage SMS and any separately negotiated terms are excluded. No exchange rate is used. The documented subscription includes the other signals, but each example assumes those signals stay within their own quotas.
@@ -205,21 +206,20 @@ Sources: https://flareapp.io/pricing; https://flareapp.io/docs/laravel/performan
 
 ## Counts
 
-Attempted **37 distinct fields** across **103 fact rows**. A field can have several plan/platform rows; row counts therefore exceed field counts.
+Attempted **37 distinct fields** across **104 fact rows**. A field can have several plan/platform rows; row counts therefore exceed field counts.
 
 | State | Fact rows | Distinct fields, conservative roll-up |
 | --- | ---: | ---: |
-| confirmed | 77 | 19 |
+| confirmed | 78 | 19 |
 | not_published | 13 | 12 |
 | unclear | 8 | 2 |
 | conflicting | 4 | 4 |
 | not_applicable | 1 | 0 |
 | check_failed | 0 | 0 |
-| Total | 103 | 37 |
+| Total | 104 | 37 |
 
 Field roll-up precedence is conflicting, check_failed, unclear, not_published, confirmed, then not_applicable. It avoids calling a field wholly confirmed when one attempted component remains unknown.
 
-**49 unique exact source URLs in the facts table**, counted once each. All 49 were read successfully; the recovered OpenAPI fetch is not an unresolved failure. Repeated links in examples/unknowns do not add to that number. The API-reference shell and DPA-linked general security guidance were also inspected as ancillary pages, bringing the distinct supporting/checked pages named across the research sections to 51. Homepage/repository identity URLs are not extra evidence-source counts.
+**52 unique exact source URLs in the facts table**, counted once each. All 52 were read successfully; the recovered OpenAPI fetch is not an unresolved failure. Repeated links in examples/unknowns do not add to that number. The API-reference shell and DPA-linked general security guidance were also inspected as ancillary pages, bringing the distinct supporting/checked pages named across the research sections to 54. Homepage/repository identity URLs are not extra evidence-source counts.
 
 Only `apps/flare.md` was written for this app.
-

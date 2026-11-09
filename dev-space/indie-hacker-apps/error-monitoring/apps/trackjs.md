@@ -97,6 +97,7 @@ Every row records its own exact source URL, UTC checked date, plan, edition, dep
 | E03 | Automatic release regression | Automatic resolved-issue reopening, deploy/commit ingestion API and release-health regression rules not established | automation unknown | Public feature set | Service | Hosted | Releases; recurrence | not_published | https://docs.trackjs.com/data-management/status/; https://docs.trackjs.com/browser-agent/tips-and-tricks/page-version/; https://docs.trackjs.com/data-api/; https://docs.trackjs.com/notifications/ | 2026-11-04 | Checked status behavior, version filtering, API endpoint list and new/trending notifications. Never-before-seen message alerts are not the same as automatic fixed-issue regression. No absence claim is made beyond these checked sources. |
 | E04 | Timeline and user context | Console, network, navigation and interaction telemetry; custom metadata and user/session/correlation IDs | context types | Relevant agents | Service | Hosted | Reproduction context | confirmed | https://trackjs.com/for/web/; https://docs.trackjs.com/browser-agent/sdk-reference/agent-methods/; https://docs.trackjs.com/browser-agent/sdk-reference/agent-config/; https://docs.trackjs.com/node-agent/sdk-reference/agent-options/ | 2026-11-04 | Context is attached to reported errors; a billing page view and supplied session ID are different concepts. IDs and custom fields may be personal data. Captured context can be truncated to meet report limits, filtered or disabled; no unlimited full-session history is implied. |
 | E04 | Screen/session replay | No session recordings in the advertised TrackJS service; technical event timeline instead | recording support | Public TrackJS offer | Service | Hosted | Replay | confirmed | https://trackjs.com/; https://docs.trackjs.com/data-management/sensitive/ | 2026-11-04 | The current homepage explicitly says no session recordings. This supports a negative for the published TrackJS product, unlike inferring no from silence. Linked RemoteJS is a separate tool. No replay quota or extra replay subscription is added to the cost scenarios. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://trackjs.com/blog/ ; https://trackjs.com/about/ ; https://status.trackjs.com/ ; https://trackjs.com/pricing/ | 2026-11-09 | Source dates: Current blog checked 2026-11-09 ; Current About page checked 2026-11-09 ; Current status page checked 2026-11-09 ; Current pricing checked 2026-11-09. News check 2026-11-09: Checked the official blog, About page, status page and pricing, plus targeted searches. The latest blog update describes continued agent hosting; the current status page reports no incidents on November 9. No qualifying event found. |
 
 ## Cost examples — our calculation, estimated
 
@@ -203,10 +204,10 @@ All sources in these notes were checked on 2026-11-04 UTC. The status page at ht
 ## Counts
 
 - Fields attempted: **31 distinct IDs** (C01–C27 and E01–E04).
-- Evidence rows: **72**.
-- Rows by state: **confirmed 59; not_published 8; unclear 4; conflicting 1; not_applicable 0; check_failed 0**.
+- Evidence rows: **73**.
+- Rows by state: **confirmed 60; not_published 8; unclear 4; conflicting 1; not_applicable 0; check_failed 0**.
 - Distinct field IDs by most cautious state: **confirmed 19; not_published 7; unclear 4; conflicting 1; not_applicable 0; check_failed 0**. Priority: conflicting, check_failed, unclear, not_published, confirmed, not_applicable.
-- Distinct evidence source URLs in the facts tables: **43**.
+- Distinct evidence source URLs in the facts tables: **45**.
 - Distinct linked official URLs in the whole file: **45**, including the failed supplementary signup read and the stale status-page read. Those two do not establish current product facts.
 - No uptime, logs, APM, status-page, scheduled-job or complete self-host field IDs were counted; those products/editions were not established as part of this TrackJS offer.
 

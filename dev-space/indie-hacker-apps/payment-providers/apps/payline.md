@@ -107,6 +107,7 @@ A state applies to the precise scoped value, not every possible Payline agreemen
 | F38 | Support access | Clover Flex page advertises US-based 24/7 support and a Chicago team answering in under a minute. | confirmed | https://paylinedata.com/smart-terminal | 2026-11-05 | Recorded as the vendor's scoped marketing statement, not an independently tested response time or contractual service-level guarantee. General online-program hours, languages and escalation commitments remain unpublished. |
 | F39 | Operating status and recent changes | Active public Payline offer under Under; no official Payline-wide shutdown/sunset notice found in this check. | confirmed | https://paylinedata.com/; https://www.under.io/payline; https://www.under.io/; https://paylinedata.com/terms-of-service; https://paylinedata.com/blog | 2026-11-05 | Current product, contact, developer and legal pages are available. Search results about Stripe shutdown recovery concern merchants leaving another processor, not Payline shutting down; no account or live processing was tested. |
 | F39 | Operating status and recent changes | Current website terms effective September 23, 2026; privacy policy updated October 19, 2026. | confirmed | https://paylinedata.com/terms-of-service; https://paylinedata.com/privacy-policy | 2026-11-05 | These dates identify current web policies, not a merchant-contract change notice or an acquisition completion date. Historical indexed snippets were checked against the live text. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale/merger, rebrand, shutdown/sunset, market exit, major paid-feature retirement, customer-data breach, regulatory action/licence loss or bankruptcy found. | confirmed | https://paylinedata.com/blog; https://www.under.io/blog; https://www.under.io/payline; https://paylinedata.com/terms-of-service; https://status.paylinedata.com/ | 2026-11-09 | Checked Payline’s blog and product/legal pages, Under’s blog and web news-search results since January 2025. The attempted status URL did not return a readable page. Historical changes to the Payline business are not a new 2025–2026 acquisition, rebrand or shutdown.
 | F40 | Closing an account | Voluntary merchant cancellation procedure, processing-contract notice/renewal/exit fees and final-fund release deadlines: not published. | not_published | https://paylinedata.com/credit-card-processing-pricing; https://paylinedata.com/terms-of-service; https://paylinedata.com/blog/merchant-account-termination-recovery; https://paylinedata.com/merchant-account | 2026-11-05 | The terms explicitly leave processing/equipment services to their own agreements. A generic recovery guide and website-access termination clause cannot establish merchant cancellation rights. |
 | F40 | Closing an account | Personal information is retained as reasonably necessary for services, records, disputes and legal/banking/network requirements; deletion may be limited. | confirmed | https://paylinedata.com/privacy-policy | 2026-11-05 | The October 19, 2026 policy gives purpose-based retention rather than a fixed number of years. It does not promise immediate destruction of merchant/transaction records after closure. |
 | F41 | Legal entity, licence and security scope | Current main-site footer states Payline is a registered ISO of Pathward, N.A., Sioux Falls, SD. | confirmed | https://paylinedata.com/; https://paylinedata.com/credit-card-processing-pricing | 2026-11-05 | This is Payline's own registration disclosure, checked in the live footer; no independent bank/regulator register entry was verified. High-risk placements expressly exclude Fiserv sponsorship. |
@@ -165,13 +166,13 @@ No numeric $10 sale, $100 sale or monthly processing example is defensible from 
 ## Counts
 
 - Comparison fields attempted: 50 distinct IDs — 40 required core, five optional and five conditional crypto applicability checks.
-- Fact rows: 101. A field can have several rows with different scoped states.
-- confirmed: 54
+- Fact rows: 102. A field can have several rows with different scoped states.
+- confirmed: 55
 - not_published: 37
 - unclear: 4
 - conflicting: 1
 - not_applicable: 5
 - check_failed: 0
-- Unique exact source URLs in facts: 47.
-- Unique exact source URLs in the whole file: 47. Section fragments count as separate exact links; they do not imply separate documents.
+- Unique exact source URLs in facts: 49.
+- Unique exact source URLs in the whole file: 49. Section fragments count as separate exact links; they do not imply separate documents.
 

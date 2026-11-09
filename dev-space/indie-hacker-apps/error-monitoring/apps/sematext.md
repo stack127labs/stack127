@@ -128,6 +128,7 @@ No account, login, submitted signup/calculator/email form, payment, App, monitor
 | H01 | Complete self-host sizing | Current Enterprise availability unresolved; no current complete-platform CPU/RAM/storage/database requirements found | Unknown requirements | Enterprise reference | Enterprise | Unresolved self-hosted edition | Self-host | unclear | https://sematext.com/docs/ ; https://sematext.com/pricing/ ; https://sematext.com/cloud | 2026-11-05 | Not shown ; Not shown ; Not shown | Read docs' edition claim, pricing's explicit denial and the Enterprise redirect. Docker private probes are not backend sizing evidence. |
 | H02 | Complete self-host cost | Cannot calculate without a confirmed current edition, license price and workload sizing | Unknown cost | Enterprise reference | Enterprise | Unresolved self-hosted edition | Self-host | unclear | https://sematext.com/docs/ ; https://sematext.com/pricing/ ; https://sematext.com/cloud | 2026-11-05 | Not shown ; Not shown ; Not shown | No free-license or zero-hosting assumption made. Customer infrastructure and maintenance would need separate evidence. |
 | H03 | Complete self-host upkeep | No current complete-platform installation, upgrade, backup/restore or supported-release guide established | Unknown upkeep | Enterprise reference | Enterprise | Unresolved self-hosted edition | Self-host | not_published | https://sematext.com/docs/ ; https://sematext.com/cloud ; https://sematext.com/pricing/ ; https://sematext.com/docs/changelog/ | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown | Agent release and private-location instructions concern senders/runners, so they do not answer backend maintenance. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://sematext.com/product-updates/ ; https://sematext.com/blog/ ; https://status.sematext.com/ui/statuspages | 2026-11-09 | 2026-11-03 (latest product updates) ; Current blog index checked 2026-11-09 ; Status endpoint checked 2026-11-09; no readable incident text | News check 2026-11-09: Checked official product updates, blog and status endpoint, plus targeted searches. Product updates continue through 2026-11-03. The status endpoint loaded without readable incident details. No qualifying sale, shutdown, rebrand, breach or regulatory event found. |
 
 ## Cost examples: our calculation, estimated, not quoted
 
@@ -303,9 +304,9 @@ This ledger deduplicates exact final URLs. The alternate /terms/ path redirects 
 ## Counts
 
 - Fields attempted: **48** distinct IDs.
-- Facts table: **97** rows.
-- Rows by state: confirmed **76**; not_published **11**; unclear **6**; conflicting **3**; not_applicable **0**; check_failed **1**.
-- Source links: **54 unique exact URLs**; **48** successfully read and **6** failed candidates.
+- Facts table: **98** rows.
+- Rows by state: confirmed **77**; not_published **11**; unclear **6**; conflicting **3**; not_applicable **0**; check_failed **1**.
+- Source links: **56 unique exact URLs**; **48** successfully read and **6** failed candidates.
 - The six failed URLs share one check_failed row. Repeated citations do not increase source-link count.
 
 

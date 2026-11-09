@@ -142,6 +142,8 @@ Every fact row carries its own exact official source links and checked date. Ups
 | H01 | Operating requirements and feature gaps | Commercial On-Premises requires existing servers/network/storage and operational teams; sizing is defined with the vendor. Cloud Runtime externalizes backups/monitoring/logs/Cellar to Clever Cloud Public; Satellite keeps them on customer servers; Air Gap supports offline updates. | confirmed | [source 1](https://www.clever.cloud/clever-cloud-on-premises-3/); [source 2](https://www.clever.cloud/developers/doc/find-help/faq/) | 2026-11-05 | On-Premises, three packages/technical prerequisites/maintenance. This is an enterprise platform offer, not the public hosted database's free testing plan. |
 | H01 | Operating requirements and feature gaps | Public numerical CPU/RAM/storage minimums, database-by-database On-Premises parity and a reproducible self-install recipe were not established. | not_published | [source 1](https://www.clever.cloud/clever-cloud-on-premises-3/); [source 2](https://www.clever.cloud/developers/doc/find-help/faq/); [source 3](https://www.clever.cloud/developers/doc/deploy/databases/); [source 4](https://www.clever.cloud/general-terms-and-conditions-of-use/); [source 5](https://www.clever.cloud/general-terms-and-conditions-of-use/clever-cloud-data-processing-agreement/); [source 6](https://www.clever.cloud/privacy-policy/) | 2026-11-05 | Checked on-premises prerequisites, family docs and contracts/policies. Project-specific sizing is explicitly deferred to the vendor; no cheapest-server estimate is invented. |
 
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Clever Cloud databases. | confirmed | https://www.clever.cloud/blog/ ; https://www.clever.cloud/developers/changelog/ ; https://status.clever-cloud.com | 2026-11-09 | Checked company Blog, developer changelog, and status page; status access returned HTTP 403. Existing engine-version, free-backup, and database-provider changes are scoped product or plan changes, not a closure of the database family. |
+
 ## Cost examples — our calculation
 
 Checked **2026-11-05**. Region **Paris (`par`)**, currency **EUR**, ordinary public resource prices **excluding tax**. No introductory credit, Premium/HDS subscription, negotiated discount or special support work is applied.
@@ -301,15 +303,15 @@ The public DPA was reviewed, including its September 2026 subprocessor-list revi
 
 Fields attempted: **46** unique field IDs (all 22 core fields, all eight database fields, and the seven file, three vector, five job and one self-host fields assessed for applicability).
 
-Fact rows: **112**. A field can have several plan, engine, edition or evidence-state rows; the state counts below count rows, not unique field IDs.
+Fact rows: **113**. A field can have several plan, engine, edition or evidence-state rows; the state counts below count rows, not unique field IDs.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 77 |
+| confirmed | 78 |
 | not_published | 20 |
 | unclear | 7 |
 | conflicting | 1 |
 | not_applicable | 7 |
 | check_failed | 0 |
 
-Distinct source URLs: **43**. Repeated links are counted once.
+Distinct source URLs: **45**. Repeated links are counted once.

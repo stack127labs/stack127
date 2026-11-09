@@ -19,6 +19,7 @@ Official pricing links were followed into fee, currency, WordPress, refund and p
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Note |
 | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Current name, product, owner and old names | Freemius, operated by Freemius Inc., Wilmington, Delaware, USA. | confirmed | [privacy](https://freemius.com/privacy/) | 2026-11-04 | The current privacy policy identifies the operating company and address. No replacement brand or parent acquisition was established. |
+| F01 | Current name, product, owner and old names | Freemius rebranded its visual identity, website, dashboard, and platform positioning in February 2025, while retaining the Freemius name and continuing to serve WordPress makers. | confirmed | https://freemius.com/blog/freemius-rebrand-website-developer-dashboard/; https://freemius.com/blog/freemius-rebrand-website-developer-dashboard-redesign/ | 2026-11-09 | The official posts describe a full brand and product-positioning refresh as Freemius expanded beyond WordPress to other software makers; they do not describe a company-name change or abandonment of the WordPress product. |
 | F02 | Provider type and legal seller | Merchant of record and reseller of the maker's software licences; Freemius is the buyer-facing legal seller. | confirmed | [tax](https://freemius.com/tax-compliance/); [vendor](https://freemius.com/terms/vendor/) | 2026-11-04 | This is more than a billing wrapper. The maker retains responsibility for its software, support and taxes on its own earnings. |
 | F03 | Seller signup countries | Makers in 190+ countries/territories can sell where at least one supported payout method is available. | confirmed | [countries](https://freemius.com/help/documentation/selling-with-freemius/supported-countries/) | 2026-11-04 | The page explicitly connects residence/business location to payout eligibility. Examples include US, UK, EU states, India, Pakistan, China, Brazil and South Africa; it is not a promise that every payout method works everywhere. |
 | F03 | Seller signup countries | Unsupported makers: Afghanistan, Belarus, Central African Republic, Congo, Cuba, Eritrea, Guinea-Bissau, Haiti, Iran, Iraq, Lebanon, Liberia, Libya, Mali, Mozambique, Myanmar, Nicaragua, North Korea, Russia, Somalia, South Sudan, Sudan, sanctioned Ukrainian regions, Venezuela and Yemen. | confirmed | [countries](https://freemius.com/help/documentation/selling-with-freemius/supported-countries/) | 2026-11-04 | This is Freemius's published restriction list, not an independent interpretation of US sanctions. 'Congo' is not expanded into an inferred ISO country code. |
@@ -136,6 +137,7 @@ Official pricing links were followed into fee, currency, WordPress, refund and p
 | C04 | Crypto payment completion and refunds | Blockchain confirmation, under/overpayment and on-chain refund rules are outside the documented offer. | not_applicable | [checkout](https://freemius.com/help/documentation/checkout/); [sales](https://freemius.com/help/faq/sales/); [aup](https://freemius.com/terms/acceptable-use/) | 2026-11-04 | No crypto payment rail was identified. Conditional approval of blockchain-related software for sale is a different question from accepting cryptocurrency at checkout. |
 | C05 | Hosting and maintenance | No self-hosted crypto payment software or node/hardware requirement applies to this hosted software-selling service. | not_applicable | [checkout](https://freemius.com/help/documentation/checkout/); [sales](https://freemius.com/help/faq/sales/); [aup](https://freemius.com/terms/acceptable-use/) | 2026-11-04 | No crypto payment rail was identified. Conditional approval of blockchain-related software for sale is a different question from accepting cryptocurrency at checkout. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: the 2025 rebrand is confirmed above; no sale, shutdown, major paid-feature retirement, customer-data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://freemius.com/blog/freemius-rebrand-website-developer-dashboard/; https://freemius.com/blog/category/release-notes/; https://status.freemius.com/; https://freemius.com/terms/vendor/ | 2026-11-09 | Checked the official rebrand post, product updates, vendor terms, and status page. The status page showed no updates in the prior seven days but failed to fetch component data, so this is not an uptime claim. |
 ## Cost examples: our calculations
 
 These are our calculations, not Freemius quotes. Gateway figures in Exhibit A are best-effort, changeable negotiated terms. The scenarios explicitly assume those figures or the documented European example; they do not establish the actual price of every account or transaction. Standard platform fees stack with gateways, and WordPress or gateway billing additions stack only in the stated scenario.
@@ -212,15 +214,15 @@ The brand, URL, active status and merchant-of-record classification are supporte
 - Required core fields attempted: 40.
 - Optional fields attempted: 5.
 - Conditional crypto fields assessed: 5, all not_applicable for the documented offer.
-- Fact rows: 117.
-- confirmed: 83.
+- Fact rows: 119.
+- confirmed: 85.
 - not_published: 20.
 - unclear: 2.
 - conflicting: 6.
 - not_applicable: 5.
 - check_failed: 1.
-- Unique official evidence URLs in fact rows: 53.
-- Unique official source URLs in this file: 54 (including the official homepage).
+- Unique official evidence URLs in fact rows: 58.
+- Unique official source URLs in this file: 59 (including the official homepage).
 - Cost examples: 7; excluded from fact-row and state counts.
 
 Counts are by evidence row, not by field. A field can have confirmed facts and a separate unknown or conflict. not_published means the checked public sources did not supply the value; it does not mean a zero charge or absent feature. check_failed describes the unreadable live status data, not a payment outage.

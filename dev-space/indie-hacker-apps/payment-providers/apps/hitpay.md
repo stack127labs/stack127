@@ -141,6 +141,7 @@ Fees are in the source currency, per payment unless stated. **Fees exclude appli
 | C04 | Crypto payment completion and refunds | Not applicable: no blockchain confirmation or on-chain refund policy for this offer. | not_applicable | [restrictions](https://docs.hitpayapp.com/onboarding/business-restrictions); [api](https://docs.hitpayapp.com/apis/overview) | 2026-11-05 | Crypto-only field reviewed for applicability; fiat wallets, tokenised cards and currency conversion are not cryptocurrency custody. |
 | C05 | Hosting and maintenance | Not applicable to crypto hosting. HitPay checkout is hosted; custom applications can use API/plugins. | not_applicable | [restrictions](https://docs.hitpayapp.com/onboarding/business-restrictions); [api](https://docs.hitpayapp.com/apis/overview) | 2026-11-05 | Crypto-only field reviewed for applicability; fiat wallets, tokenised cards and currency conversion are not cryptocurrency custody. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, merger, shutdown, rebrand, major paid-feature retirement, customer-data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://hitpayapp.com/blog/categories/company-news; https://docs.hitpayapp.com/changelog; https://docs.hitpayapp.com/connections/stripe/standard-connect; https://status.hitpayapp.com/; https://hitpayapp.com/license-registrations | 2026-11-09 | Checked the official company-news page, changelog, Stripe connection guide, licence page, and status page; services were online on 8 November. The previously documented Custom-to-Standard Stripe connection migration changes card routing/account setup for affected merchants; the current provider and card offer remain active, so it is not recorded as a market exit. |
 ## Cost examples: our calculation
 
 Checked 2026-11-05. These examples use a direct HitPay Payment Link, with its 0.2% software fee added to the relevant payment fee. Amounts are total checkout amounts, including any seller tax/tips. They exclude tax on processing fees, unknown ordinary payout charges, refunds, disputes and any other plugin/platform fee. They show a processing subtotal, not a guaranteed all-in bank receipt. No currency is converted.
@@ -198,13 +199,13 @@ All pages/attempts below were checked on 2026-11-05. Unknowns describe what was 
 ## Counts
 
 - Fields attempted: 50 of 50. All 40 core and five optional fields attempted; all five crypto fields reviewed for applicability.
-- Fact rows: 120.
-- confirmed: 89 rows.
+- Fact rows: 121.
+- confirmed: 90 rows.
 - not_published: 10 rows.
 - unclear: 7 rows.
 - conflicting: 9 rows.
 - not_applicable: 5 rows.
 - check_failed: 0 rows.
-- Unique source URLs: 57. Repeated links counted once; includes official regulator verification and the publicly linked agreement PDF.
+- Unique source URLs: 62. Repeated links counted once; includes official regulator verification and the publicly linked agreement PDF.
 - Cost examples: 6, labelled as our calculation.
 

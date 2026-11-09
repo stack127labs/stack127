@@ -108,6 +108,7 @@ No account, login, form submission, public site scan, target check, ping, status
 | J02 | Signals / failure behavior | Base or /complete = success; /start records run start; /fail explicit failure; max-duration overrun = hung failure; missing pings = late. Recovery on successful ping. | Signals | All plans | Hosted | Vendor-hosted | Cron / heartbeat | confirmed | https://flarewarden.com/docs/monitors/cron ; https://flarewarden.com/docs/alerts/webhooks | 2026-11-05 | Not shown ; Not shown | Each child uses a shared pool slot under a required parent uptime monitor. Severity controls parent status roll-up; explicit job failure does not rely on external HTTP polling. |
 | J02 | Diagnostic payload / history | Optional message/legacy error_message ≤1,000 chars, exit_code −128 to 255, duration_ms ≤30 days, metadata ≤5 pairs; run history records pings and diagnostics. | Characters / bytes / fields | All plans | Hosted | Vendor-hosted | Cron / heartbeat | confirmed | https://flarewarden.com/docs/monitors/cron ; https://flarewarden.com/privacy ; https://flarewarden.com/dpa | 2026-11-05 | Not shown ; 2026-10-28 ; 2026-10-21 | 10 KB body maximum; unknown JSON fields rejected. This is bounded job output, not complete captured stdout. A distinct plan-specific run-detail retention table is not supplied. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | All plans | Vendor-hosted | Product/company | confirmed | https://flarewarden.com/; https://flarewarden.com/about; https://flarewarden.com/insights; https://flarewarden.com/terms; https://flarewarden.com/sitemap-pages.xml; https://status.flarewarden.com/ | 2026-11-09 | Not stated; Not stated; 2026-10-11; 2026-10-14; Not stated; Not stated | Checked the official site, About, Insights/blog, terms, sitemap and status page, plus quick news searches. The Insights page is active; no dedicated release changelog surfaced. The status page lists no service components, so it does not prove current operational health. The previously recorded Mumbai probe-location closure is not a product shutdown. No qualifying event found. |
 ## Cost examples: our calculation, estimated
 
 All $ amounts preserve the vendor's original display. No exchange conversion was made. Monthly billing is used first; annual options use the explicit annual invoice price, not rounded monthly equivalents. Exclude tax, a domain's acquisition/renewal, internet/hosting for the monitored application, and the builder's implementation work. Free trial days do not reduce ongoing recurring estimates.
@@ -191,19 +192,18 @@ No prices are estimated for error reports, full browser flows, general logs, app
 ## Counts
 
 Distinct fields attempted: **37**.  
-Facts-table rows: **80**.
+Facts-table rows: **81**.
 
 | State | Rows |
 | --- | --- |
-| confirmed | 70 |
+| confirmed | 71 |
 | not_published | 2 |
 | unclear | 5 |
 | conflicting | 2 |
 | not_applicable | 1 |
 | check_failed | 0 |
-| **Total** | **80** |
+| **Total** | **81** |
 
-Distinct successful exact source URLs cited: **45**. This includes the official page sitemap used for the changelog search. Source URLs repeat where they support different fields; repeated links are counted once.
+Distinct successful exact source URLs cited: **46**. This includes the official page sitemap used for the changelog search. Source URLs repeat where they support different fields; repeated links are counted once.
 
 Minutes measure the recorded UTC research interval. Saving and structural review followed. No other app was started.
-

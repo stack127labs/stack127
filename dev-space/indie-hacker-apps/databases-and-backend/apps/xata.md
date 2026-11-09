@@ -103,6 +103,7 @@ Every row has an exact official URL, checked date and source-title/section note.
 | H01 | operating requirements and feature gaps | OSS uses OpenEBS/Mayastor; Cloud/BYOC use Xatastor. Commercial features include multi-region/multi-cell and security for adversarial multi-tenancy; the README advises against using OSS alone for a public customer-facing Postgres-as-a-Service. | confirmed | https://xata.io/pricing.md ; https://raw.githubusercontent.com/xataio/xata/main/README.md ; https://xata.io/open-source/xata-core.md | 2026-11-05 | Pricing Specification plan comparison; README, When NOT to Use; Xata Core comparison. The Apache license permits commercial use, but operational feature parity is not promised. |
 | H01 | operating requirements and feature gaps | The exact open-source access-control boundary is unclear: the README describes granular API-key RBAC, while the Core comparison leaves RBAC/fine-grained access out of OSS. No universal production RAM/CPU minimum was found. | unclear | https://raw.githubusercontent.com/xataio/xata/main/README.md ; https://xata.io/open-source/xata-core.md ; https://xata.io/open-source/quickstart.md ; https://xata.io/terms | 2026-11-05 | Checked repository README, Xata Core comparison, OSS Quickstart and hosted Terms. Basic scoped keys may differ from commercial multi-tenant security; hosted Terms do not resolve that feature boundary. The BYOC three-node minimum is not imposed on local OSS by inference. |
 
+| C04 | lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or customer-data incident affecting Xata found. Xata announced an acquisition of Privacy Dynamics in January 2026; this was an acquisition by Xata, not a sale of Xata. Checked the official blog, changelog and status endpoint (not accessible to this reader), plus a quick web search. | confirmed | https://xata.io/blog ; https://xata.io/docs/changelog.md ; https://status.xata.io/ | 2026-11-09 | Dated sweep check: official product/news sources and status page (where available) checked with a quick web search. This is a bounded news check, not an uptime guarantee. |
 ## Cost examples: our calculation
 
 Checked date for all inputs and calculations: **2026-11-05**. Currency: **USD**, before tax. Region: **AWS us-east-1**, where the HTML page and official Markdown rate card agree on the base storage rate. These are planning calculations, not measured workload benchmarks or vendor quotes. Sources: https://xata.io/pricing ; https://xata.io/pricing.md ; https://xata.io/terms.
@@ -203,13 +204,13 @@ All sources below were checked on **2026-11-05**.
 ## Counts
 
 - Distinct field IDs attempted: **46 of 46**, including applicable secondary sections and explicit not-applicable file fields.
-- Facts-table rows: **76**. Repeated IDs separate actual edition, feature or source differences.
-- Distinct exact source URLs linked: **47**, including the recovered failed access attempt. Repeated links count once.
+- Facts-table rows: 77. Repeated IDs separate actual edition, feature or source differences.
+- Distinct exact source URLs linked: 49, including the recovered failed access attempt. Repeated links count once.
 - Cost-example rows are separate from the fact-row state counts.
 
 | State | Fact rows |
 | --- | --- |
-| confirmed | 51 |
+| confirmed | 52 |
 | not_published | 9 |
 | unclear | 4 |
 | conflicting | 4 |

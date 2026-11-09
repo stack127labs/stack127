@@ -25,6 +25,8 @@
 | C04 | Lifecycle and access stage | AWS raised the maximum SQS message payload from 256 KiB to 1 MiB for Standard and FIFO queues in all commercial and GovCloud Regions on August 4, 2025. | confirmed | https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-sqs-max-payload-size-1mib/ | 2026-11-06 | Newer announcement and API documentation take precedence over the still-stale General Reference quota table. |
 | C04 | Lifecycle and access stage | AWS added Fair Queues for Standard queues on July 21, 2025, and dual-stack IPv4/IPv6 endpoints on April 17, 2025. | confirmed | https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-release-notes.html | 2026-11-06 | Both changes appear in the SQS documentation history. |
 | C04 | Lifecycle and access stage | AWS raised the FIFO in-flight message limit from 20,000 to 120,000 on November 21, 2024. | confirmed | https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-sqs-increases-in-flight-limit-fifo-queues/ | 2026-11-06 | This is a queue limit change, separate from throughput per second. |
+| C04 | Lifecycle and access stage | Note 2026-11-09: SQS processing through Lambda event-source mappings was temporarily impaired during the restored AWS US East outage on 2025-10-19/20; no SQS shutdown or ownership change found. | confirmed | https://aws.amazon.com/message/101925/ ; https://www.aboutamazon.com/news/aws/aws-service-disruptions-outage-update | 2026-11-09 | One-line historical incident note; AWS What's New, SQS release notes, blog/news and AWS Health Dashboard checked. |
+| C04 | Lifecycle and access stage | AWS ended the former 12-month Free Tier for new accounts on 2025-07-15. New customers instead receive up to $200 in credits and a Free account plan lasting up to six months or until credits are used; this account-level change is separate from SQS request pricing and its service-specific allowances. | confirmed | https://aws.amazon.com/about-aws/whats-new/2025/07/aws-free-tier-credits-month-free-plan/ ; https://aws.amazon.com/free/free-tier-faqs/ | 2026-11-09 | AWS Free Tier change announcement and current Free Tier FAQs. The six-month period ends earlier if credits are exhausted. |
 | C05 | Vendor home and main markets | AWS product and legal pages identify AWS as the service provider but do not give an SQS-specific home market; queue region is a separate choice. | not_published | https://aws.amazon.com/about-aws/ ; https://aws.amazon.com/service-terms/ | 2026-11-06 | Optional field; these pages did not define SQS's commercial target markets. |
 | C06 | Signup and use restrictions | An AWS account is required to create and use a queue; AWS offers console and API access without a product waitlist. | confirmed | https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-setting-up.html ; https://aws.amazon.com/sqs/ | 2026-11-06 | Setup guide starts with AWS account sign-up. No account was created. |
 | C06 | Signup and use restrictions | The SQS pricing page says all customers receive the monthly request allowance; it does not describe a separate time-limited SQS trial. | confirmed | https://aws.amazon.com/sqs/pricing/ ; https://aws.amazon.com/sqs/faqs/ | 2026-11-06 | The free allowance is described below. |
@@ -149,8 +151,8 @@ The us-east-1 prices below come from the official AWSQueueService Price List off
 ## Counts
 
 - Fields attempted: 27 (C01–C22 and J01–J05)
-- Fact rows: 110
-- confirmed: 102
+- Fact rows: 112
+- confirmed: 104
 - not_published: 5
 - unclear: 1
 - conflicting: 0

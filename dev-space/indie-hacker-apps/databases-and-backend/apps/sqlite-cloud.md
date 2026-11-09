@@ -101,6 +101,7 @@ The task’s six states override the different names in `fields.md`. `confirmed`
 | J05 | logs and run history | Function-specific invocation-result history size, export price and failed-run replay retention were not established. | not_published | https://docs.sqlitecloud.io/docs/logs ; https://docs.sqlitecloud.io/docs/edge-functions ; https://docs.sqlitecloud.io/docs/webhooks ; https://www.sqlite.ai/pricing ; https://docs.sqlitecloud.io/llms.txt ; https://www.sqlite.ai/terms | 2026-11-05 | Logs/function docs and pricing/legal pages checked. UI time-range choices do not expand the plan’s retention entitlement. |
 | H01 | operating requirements and feature gaps | Cloud database platform remains managed. Local SQLite-Sync uses platform binaries/extension loading; a self-managed PostgreSQL sync backend needs a CloudSync extension and compatible server artifacts, with operator-managed updates/storage/backups. | confirmed | https://docs.sqlitecloud.io/docs/sqlite-sync-installation ; https://docs.sqlitecloud.io/docs/sqlite-sync-postgresql-quick-start ; https://raw.githubusercontent.com/sqliteai/sqlite-sync/main/LICENSE | 2026-11-05 | Installation; Self-Hosted PostgreSQL quick start, deployment/upgrades. That guide still registers the database with hosted CloudSync dashboard: self-hosted database does not establish self-hosted parity for the entire cloud service. No cheapest-server or RAM-minimum claim. |
 
+| C04 | lifecycle and access stage | SQLite Cloud news check 2026-11-09: no sale, shutdown, rebrand, or customer-data incident found. Checked the SQLite AI product/home pages, official blog and changelog; the status endpoint returned HTTP 403 in this check; a quick web search found no product notice. | confirmed | https://www.sqlite.ai/ ; https://www.sqlite.ai/cloud ; https://blog.sqlite.ai/ ; https://www.sqlite.ai/changelog ; https://status.sqlitecloud.io/ | 2026-11-09 | Dated sweep check: official product/news sources and status page (where available) checked with a quick web search. This is a bounded news check, not an uptime guarantee. |
 ## Cost examples — our calculation
 
 Inputs checked on 2026-11-05. These are calculations from public rates, not quotes or benchmarks. Prices retain the published $ symbol; ISO currency is unconfirmed. Applicable taxes are excluded. A current region list and region-specific price adjustments were not established, so these use the standard public plan table without asserting a deployment region. Missing charges remain unknown.
@@ -208,13 +209,13 @@ All pages below were checked on 2026-11-05.
 ## Counts
 
 - Unique fields attempted: 46 (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Facts-table rows: 80.
-- confirmed: 50.
+- Facts-table rows: 81.
+- confirmed: 51.
 - not_published: 28.
 - unclear: 2.
 - conflicting: 0.
 - not_applicable: 0.
 - check_failed: 0.
-- Distinct exact source URLs cited: 44; repeated citations count once.
+- Distinct exact source URLs cited: 46; repeated citations count once.
 - All sources checked: 2026-11-05.
 

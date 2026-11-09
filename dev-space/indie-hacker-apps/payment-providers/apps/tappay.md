@@ -133,6 +133,7 @@ Taiwan quoted prices are in TWD and exclude 5% business tax unless a specific so
 | F38 | Support access | Japan public service contact: Info.jp@cherricorp.com. | confirmed | [Source 1](https://www.tappaysdk.com/japan-ja) | 2026-11-05 | The Japanese site's footer supplies the local email. Taiwan support hours are not silently applied to this Japan mailbox. |
 | F39 | Operating status and recent changes | Active Taiwan/Japan marketed service; current Taiwan terms/privacy dated 30 March 2026. | confirmed | [Source 1](https://www.tappaysdk.com/taiwan-zhtw); [Source 2](https://www.tappaysdk.com/japan-ja); [Source 3](https://www.tappaysdk.com/taiwan-zhtw/terms); [Source 4](https://www.tappaysdk.com/taiwan-zhtw/privacy) | 2026-11-05 | The current offer, registration/contact routes and service docs remain published. No provider-wide shutdown/sunset notice was found in the official pages/searches reviewed. |
 | F39 | Operating status and recent changes | 2022 group acquisition is historical; no confirmed TapPay-wide rebrand or shutdown identified. | confirmed | [Source 1](https://corp.pchome.tw/pchome%E5%AD%90%E5%85%AC%E5%8F%B8%E5%BB%BF%E4%B8%80%E4%B8%96%E7%B4%80%E6%95%B8%E4%BD%8D%E7%A7%91%E6%8A%80%E5%AE%A3%E5%B8%83%E7%AD%96%E7%95%A5%E6%8A%95%E8%B3%87%E5%96%AC%E7%9D%BF%E7%A7%91%E6%8A%80/); [Source 2](https://corp.pchome.tw/wp-content/uploads/2024/06/112PChomeSHAR.pdf); [Source 3](https://www.tappaysdk.com/taiwan-zhtw/about/company); [Source 4](https://www.tappaysdk.com/taiwan-zhtw) | 2026-11-05 | The acquisition announcement explicitly says Cherri continues existing operations. Current company/product pages still use Cherri Tech and TapPay; the historical corporate event is flagged at the top. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale, shutdown, rebrand, market exit, major paid-feature retirement, customer-data breach, licence loss or bankruptcy found. | confirmed | https://www.tappaysdk.com/taiwan-zhtw/about/news; https://www.tappaysdk.com/taiwan-zhtw/about/company; https://www.tappaysdk.com/taiwan-zhtw; https://www.tappaysdk.com/taiwan-en/about/news/290; https://www.tappaysdk.com/taiwan-en/about/news/311 | 2026-11-09 | Checked the official Taiwan news feed, company history, homepage and English news notices; recent notices describe scheduled maintenance, not a product sunset. Targeted official-source searches found no new sale, rebrand, closure, licence loss or data breach; no public standalone status page or separate changelog was located. |
 | F40 | Closing an account | Taiwan member may request written account cancellation at any time, subject to review; prior liability survives. | confirmed | [Source 1](https://www.tappaysdk.com/taiwan-zhtw/terms) | 2026-11-05 | Section 6 says the contract ends when TapPay approves and cancels the account. Gateway prepayments such as build/month/service fees generally need not be returned on early termination, unless otherwise agreed. |
 | F40 | Closing an account | Japan contract runs one year and auto-renews unless either party objects two months before expiry; earlier exit requires the company's procedure/consent. | confirmed | [Source 1](https://www.tappaysdk.com/japan-ja/terms) | 2026-11-05 | Article 39 differs from the Taiwan written-cancellation clause. Article 33 requires merchant sales/fulfillment evidence retention for seven years; this is not a provider-wide personal-data deletion period. |
 | F40 | Closing an account | Remaining-fund release SLA and universal personal-data retention period not specified. | not_published | [Source 1](https://www.tappaysdk.com/taiwan-zhtw/terms); [Source 2](https://www.tappaysdk.com/taiwan-zhtw/privacy); [Source 3](https://www.tappaysdk.com/japan-ja/terms); [Source 4](https://www.tappaysdk.com/documents/TapPay%20Portal%20User%20Manual.pdf); [Source 5](https://www.tappaysdk.com/japan-ja/privacy) | 2026-11-05 | Read closure and hold clauses plus Taiwan privacy policy. Data may be retained for service, purpose and legally required periods; identity-supported access/copy requests may cost TWD 50 each. Closure is not proof of immediate fund release/deletion. Japan's privacy policy also gives purpose/legal handling rather than a single deletion date; disclosure requests cost JPY 1,000 plus actual postage, unlike Taiwan's TWD 50 copy/access charge. |
@@ -205,12 +206,13 @@ All statements in this section were checked on 2026-11-05. Where a factual compo
 ## Counts
 
 - Fields attempted: 50 of 50: 40 core, five optional and five conditional crypto fields reviewed for applicability.
-- Facts-table rows: 120.
-- confirmed: 79
+- Facts-table rows: 121.
+- confirmed: 80
 - not_published: 30
 - unclear: 3
 - conflicting: 3
 - not_applicable: 5
 - check_failed: 0
-- Unique exact source URLs in this record: 30. Repeated links count once.
+- Unique exact source URLs in the facts table: 33.
+- Unique exact source URLs across the whole file: 33. Repeated URLs count once.
 

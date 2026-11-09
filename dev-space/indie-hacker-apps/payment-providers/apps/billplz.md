@@ -117,7 +117,7 @@ Scope: Billplz online collections, Auto-Deduct, automatic Malaysian-bank payouts
 | F38 | Support access | Universal staffed support hours, language coverage and guaranteed response SLA: not published. | not_published | <https://main.billplz.com/pricing>; <https://main.billplz.com/support>; <https://main.billplz.com/terms#member-membership> | 2026-11-05 | Checked pricing, Support and the membership support clause. Typical reply-time marketing does not specify staffed hours or a contractual response commitment; the Enterprise specialist entitlement is recorded separately. |
 | F39 | Operating status and recent changes | Active public Malaysia offer, with signup, pricing, current guide updates and status-page link. | confirmed | <https://main.billplz.com/>; <https://main.billplz.com/about>; <https://status.billplz.com/> | 2026-11-05 | No Billplz-wide shutdown, sunset or acquisition notice was found in the company/pricing/help pages or targeted official searches. Status exists, but the text fetch could not load live service data, so it does not confirm live uptime. |
 | F39 | Operating status and recent changes | Visa/Mastercard migration: direct Billplz processing from 29 August 2026; existing card collections needed Billplz Card enabled. | confirmed | <https://support.billplz.com/guide/visa-and-mastercard-migration> | 2026-11-05 | The notice says migration is complete and can still be enabled instantly if missed. It states free migration with no code/plugin/API changes, unchanged rates/settlement and legacy transactions remaining under their old provider agreements. |
-| F39 | Operating status and recent changes | Wallet migration: switch each active wallet collection to DuitNow QR before 12 November 2026. | confirmed | <https://support.billplz.com/guide/e-wallet-migration> | 2026-11-05 | As checked on 5 November, this deadline is upcoming. Unmigrated wallet collections stop accepting wallet payments until updated; FPX/cards/instalments are unaffected. Old direct-wallet codes stop opening individual wallets and fall back to the bill page. |
+| F39 | Operating status and recent changes | Wallet migration: switch each active wallet collection to DuitNow QR before 12 November 2026. | confirmed | <https://support.billplz.com/guide/e-wallet-migration> | 2026-11-09 | The deadline is three days away. Unmigrated collections cannot accept e-wallets after the cutover until updated; FPX/cards/instalments are unaffected. This is a payment-method migration to DuitNow QR, not a Billplz shutdown. |
 | F40 | Closing an account | Closure by email; provider may close within seven calendar days of its notice; access can end immediately for specified causes. | confirmed | <https://main.billplz.com/terms#member-termination> | 2026-11-05 | The seven-day clause is tied to Billplz's notice and is not a guaranteed seven-day merchant-request processing SLA. Export needed records before closure because terminated/suspended account data becomes inaccessible. |
 | F40 | Closing an account | Remaining Billplz fee credit is non-refundable, including closure; Standard membership purchases cannot be cancelled/refunded mid-term. | confirmed | <https://main.billplz.com/terms#member-termination>; <https://main.billplz.com/terms#member-membership>; <https://main.billplz.com/terms#member-billplz-fee> | 2026-11-05 | Disabling renewal returns Standard to Basic after the paid period. Credit can otherwise be transferred to another active account under the fee rules; it is not a cash withdrawal right. |
 | F40 | Closing an account | Unused paid credit converts to free credit at calendar-year end; credit expires 365 days after last account activity. | confirmed | <https://main.billplz.com/terms#member-billplz-fee> | 2026-11-05 | The agreement specifies forfeiture of paid credit at 31 December 23:59:59 UTC+8 and reissue as free credit on 1 January 00:00. This does not state that the usable balance is necessarily lost immediately at year end; both conversion and expiry rules matter. |
@@ -136,6 +136,7 @@ Scope: Billplz online collections, Auto-Deduct, automatic Malaysian-bank payouts
 | C04 | Crypto payment completion and refunds | Not applicable: researched offer collects and pays fiat MYR; no crypto checkout offer established. | not_applicable | <https://support.billplz.com/api>; <https://main.billplz.com/terms#member-appendix> | 2026-11-05 | The API is MYR-only and the business Appendix prohibits cryptocurrency/NFT businesses. No crypto asset/network, custody, conversion, blockchain-confirmation or self-hosted crypto software rule is assigned to this gateway. |
 | C05 | Hosting and maintenance | Not applicable: researched offer collects and pays fiat MYR; no crypto checkout offer established. | not_applicable | <https://support.billplz.com/api>; <https://main.billplz.com/terms#member-appendix> | 2026-11-05 | The API is MYR-only and the business Appendix prohibits cryptocurrency/NFT businesses. No crypto asset/network, custody, conversion, blockchain-confirmation or self-hosted crypto software rule is assigned to this gateway. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, Billplz shutdown, rebrand, major paid-feature retirement, breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://main.billplz.com/about; https://support.billplz.com/guide/e-wallet-migration; https://status.billplz.com/ | 2026-11-09 | Checked the company page, migration guide and status page. The status page showed no updates in the past seven days but its service-data request failed; the upcoming e-wallet routing migration is noted above. |
 ## Cost examples — our calculations
 
 Checked 2026-11-05. These are MYR calculations for a Malaysian merchant using published Basic/Standard prices and 8% SST on the provider fee. They show known charges, not a promise of an all-in cost: activation, optional add-ons, disputed payments, separately quoted terms and unpublished bank/payout charges are excluded unless named. No currency conversion or silent rounding is used.
@@ -181,11 +182,11 @@ The pricing guide's MYR100-card example subtracts only 1.8%, although the same p
 
 Fields attempted: 50 of 50 (F01–F45 and C01–C05). The five crypto fields were checked for applicability and marked not_applicable. A field can have multiple rows and states; the counts below count evidence rows, not distinct fields.
 
-Total fact rows: 114.
+Total fact rows: 115.
 
 | State | Fact rows |
 | --- | ---: |
-| confirmed | 82 |
+| confirmed | 83 |
 | not_published | 18 |
 | unclear | 4 |
 | conflicting | 4 |
@@ -193,4 +194,3 @@ Total fact rows: 114.
 | check_failed | 0 |
 
 Unique exact source URLs linked: 46 (URLs with different section anchors count separately; repeated links count once). Checked date for factual rows and calculations: 2026-11-05.
-

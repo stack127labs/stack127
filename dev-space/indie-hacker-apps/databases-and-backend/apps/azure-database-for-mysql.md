@@ -122,6 +122,8 @@ Scope: Azure Database for MySQL **Flexible Server**. Separate Burstable, General
 | J05 | Logs and run history | A dedicated retained job-result history, failed-event replay UI/API and scheduler-specific history-retention promise were not established. | not_published | https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-error-logs ; https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-server-parameters ; https://dev.mysql.com/doc/refman/8.4/en/events-overview.html ; https://azure.microsoft.com/en-us/pricing/details/mysql/ ; https://azure.microsoft.com/en-us/support/legal/subscription-agreement/ ; https://www.microsoft.com/licensing/docs/documents/download/MicrosoftProductandServicesDPA%28WW%29%28English%29%28November_2026%29%28CR%29.docx?download=1 ; https://www.microsoft.com/en-us/privacy/privacystatement | 2026-11-05 | Checked error-log retention/export, event_scheduler, event overview, pricing and contract/privacy pages. Applications can record their own results, which consumes ordinary database resources. |
 | H01 | Operating requirements and feature gaps | Not applicable: this record covers Microsoft-operated Flexible Server. Self-running upstream MySQL is a different deployment without Azure managed backups, HA operation or the Azure service agreement. | not_applicable | https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview ; https://azure.microsoft.com/en-us/support/legal/subscription-agreement/ | 2026-11-05 | Overview, managed hardware/OS/engine maintenance; MOSA, online-service use. No self-host hardware-cost estimate is assigned to this offer. |
 
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Flexible Server. | confirmed | https://learn.microsoft.com/en-us/azure/mysql/whats-new/whats-new-2026 ; https://learn.microsoft.com/en-us/azure/mysql/concepts-version-policy ; https://techcommunity.microsoft.com/blog/adformysql/announcing-extended-support-for-azure-database-for-mysql/4442924 ; https://status.azure.com/en-us/status | 2026-11-09 | Checked Azure MySQL What's New and version policy, the official MySQL blog, and Azure Status (no active events at check time). The retired Single Server deployment and MySQL version-support dates do not mean Flexible Server has shut down. |
+
 ## Cost examples — our calculation
 
 These are public retail calculations checked on 2026-11-05, not Microsoft quotes. Region: East US (`eastus`); currency: USD; normal consumption pricing; 730 hours when always on. Use a GA MySQL version still in standard support, no discount commitment, Basic support, no Accelerated Logs, Reader Endpoint or optional private-network resources. No workload was run.
@@ -224,12 +226,12 @@ No `apps.md` row error found. Its active Azure Database for MySQL family listing
 ## Counts
 
 - Fields attempted: **46 of 46** (22 core, 8 database, 7 file, 3 vector, 5 job, 1 self-host).
-- Fact rows: **99**. Rows split only for different editions/tiers, billing conditions or distinct answers within a field.
-- `confirmed`: **72** rows.
+- Fact rows: **100**. Rows split only for different editions/tiers, billing conditions or distinct answers within a field.
+- `confirmed`: **73** rows.
 - `not_published`: **12** rows.
 - `unclear`: **6** rows.
 - `conflicting`: **1** row.
 - `not_applicable`: **8** rows.
 - `check_failed`: **0** rows. Lookup failures/recovered legal-page access are described above; no known answer is replaced by a failed guessed URL.
-- Unique official source links: **41** distinct URLs, excluding the metadata product-home link. **39** distinct exact evidence URLs appear in the facts table; the remaining links are the current DPA/SLA index checks.
+- Unique official source links: **43** distinct URLs, excluding the metadata product-home link. **41** distinct exact evidence URLs appear in the facts table; the remaining links are the current DPA/SLA index checks.
 - Cost scenarios attempted: **6**. All calculations are labelled as ours; incomplete totals are not treated as zero.

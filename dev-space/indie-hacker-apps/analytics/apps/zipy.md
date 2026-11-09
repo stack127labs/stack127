@@ -17,6 +17,7 @@ Minutes taken: 18.48
 
 | Field ID | Field name | Value | State | Applies to | Exact source URL | Checked date | Evidence note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| F01 | News check 2026-11-09 | News check 2026-11-09: no sale, shutdown, rebrand, or incident found | not_published | Hosted Zipy product | https://www.zipy.ai/blog<br>https://www.zipy.ai/<br>https://www.zipy.ai/changelog<br>https://status.zipy.ai/ | 2026-11-09 | Checked the official blog and product page and searched recent news. Guessed changelog and status URLs could not be read and no separate official status page surfaced. Current product and free-trial offer remain public; no qualifying change found. |
 | F01 | Identity | Zipy; https://www.zipy.ai/ | confirmed | Current product | https://www.zipy.ai/ | 2026-11-05 | Current positioning combines session intelligence, analytics, errors and debugging across web/mobile. |
 | F01 | Operator | Zipy Inc.; United States | confirmed | Published service company | https://docs.zipy.ai/legal-and-policy/privacy-policy.md ; https://docs.zipy.ai/legal-and-policy/terms-of-service.md | 2026-11-05 | Privacy names the owner company; terms contact identifies a US corporate location. No private person/address is recorded. |
 | F01 | New customers | Free account, Growth purchase/custom plan and Enterprise sales offers are published | confirmed | Hosted product | https://www.zipy.ai/pricing | 2026-11-05 | Public offers were read; no account, checkout, custom-plan form or live capture test was used. |

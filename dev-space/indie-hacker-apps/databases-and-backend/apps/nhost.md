@@ -19,6 +19,7 @@ Scope: Managed Cloud and applicable community self-host details. Attempted all 2
 | C03 | Hosting and license | Managed Nhost Cloud plus Community self-hosting, support-agreement self-hosting and vendor-managed dedicated cluster options. | confirmed | [1](https://docs.nhost.io/platform/self-hosting); [2](https://docs.nhost.io/platform/self-hosting/community) | 2026-11-04 | Self-Hosting options. Community reference is expressly a demonstration environment; production operation is the customer's responsibility. |
 | C03 | Hosting and license | nhost/nhost repository root license MIT. Other stack components have their own licenses; this does not establish uniform MIT licensing or paid Cloud feature parity. | confirmed | [1](https://raw.githubusercontent.com/nhost/nhost/main/LICENSE); [2](https://raw.githubusercontent.com/nhost/nhost/main/examples/docker-compose/README.md) | 2026-11-04 | LICENSE and Docker Compose README, Self-Hosting Notice. Cloud terms and dependency licenses remain separate. |
 | C04 | Lifecycle and access stage | Active public Starter/Pro/Team/Enterprise offer with signup links; provisioning not tested. Constellation GraphQL engine is alpha and opt-in, alongside Hasura. | confirmed | [1](https://nhost.io/pricing); [2](https://docs.nhost.io/products/graphql/constellation) | 2026-11-04 | Pricing cards; Constellation, Alpha and opt-in. The experimental engine's stage is not the lifecycle status of the whole hosted platform. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Nhost. | not_published | https://nhost.io/blog ; https://github.com/nhost/nhost/blob/main/CHANGELOG.md ; https://github.com/nhost/nhost/releases ; https://status.nhost.io/ | 2026-11-09 | Checked Nhost blog, repository changelog/releases and status. Product updates continue; no qualifying ownership, shutdown or license change found. |
 | C05 | Vendor home and main markets | Nhost AB, private company established in Sweden; Terms give Segeltorp address and Stockholm registration. Team describes itself as remote/global. | confirmed | [1](https://nhost.io/legal/terms-of-service); [2](https://nhost.io/about) | 2026-11-04 | Terms imprint and About. Vendor home is distinct from selectable project regions. |
 | C06 | Signup and use restrictions | Public self-service Starter; homepage says no credit card required for free tier. Privacy says only adults over 18 may contract the service. | confirmed | [1](https://nhost.io/); [2](https://nhost.io/legal/privacy-policy) | 2026-11-04 | Home, final signup section; Privacy, Minors. No signup or login was submitted. |
 | C06 | Signup and use restrictions | Complete country eligibility and explicit Starter commercial-production permission not established. | unclear | [1](https://nhost.io/pricing); [2](https://nhost.io/legal/terms-of-service); [3](https://nhost.io/legal/privacy-policy); [4](https://docs.nhost.io/platform/cloud/billing) | 2026-11-04 | Plan positioning, billing and legal pages searched. Terms' personal/non-commercial download license concerns website materials; it is not treated as a blanket commercial-app ban. |
@@ -198,13 +199,13 @@ Starter is a $0 candidate only if its full database/file limits actually fit; it
 ## Counts
 
 - Distinct fields attempted: **46** (22 core, 8 database, 7 file, 3 vector, 5 job, 1 self-host).
-- Fact rows: **92**. A field can have several rows where edition, plan, component or evidence state differs.
-- confirmed: **62**
-- not_published: **16**
-- unclear: **12**
-- conflicting: **2**
-- not_applicable: **0**
-- check_failed: **0**
+- Fact rows: 93. A field can have several rows where edition, plan, component or evidence state differs.
+- confirmed: 62
+- not_published: 17
+- unclear: 12
+- conflicting: 2
+- not_applicable: 0
+- check_failed: 0
 - Unique exact official source URLs linked in this file: **61** (repeated links counted once).
 - Research start/finish measured with `date -u`; elapsed seconds: **999**, reported minutes: **16.65**.
 

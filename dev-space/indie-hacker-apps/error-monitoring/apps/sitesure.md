@@ -95,6 +95,7 @@ No account, signup, login, contact submission, subscription, billing portal, rea
 | S01 | Page quotas and branding | Page/component counts, own-domain/custom TLS, branding removal and private-page/access features not published | Text | All / unspecified | Sitesure | Hosted | Status pages | not_published | https://sitesure.net/ ; https://sitesure.net/pricing ; https://sitesure.net/docs | 2026-11-05 | Not shown ; Not shown ; Not shown | The rate card does not itemize status pages. All features does not establish custom domains or unlimited pages; the candidate status guide failed. |
 | S02 | Subscriber notifications | Subscriber limits, subscription channels, included notifications, extra delivery prices and regional restrictions not published | Text | All / unspecified | Sitesure | Hosted | Status-page subscribers | not_published | https://sitesure.net/ ; https://sitesure.net/pricing ; https://sitesure.net/docs ; https://sitesure.net/terms-of-service | 2026-11-05 | Not shown ; Not shown ; Not shown ; Effective 2023-07-10 (update not shown) | Operator alert email under C17 does not establish subscriber email updates. No subscriber offer or rate card was found. |
 | S03 | Update source and incident history | Manual versus monitor-driven updates, component mapping, integrations, incident history and planned-maintenance publishing not published | Text | All / unspecified | Sitesure | Hosted | Status pages | not_published | https://sitesure.net/ ; https://sitesure.net/pricing ; https://sitesure.net/docs ; https://sitesure.net/docs/uptime | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown | The marketing section says users can be kept informed, without documenting an incident workflow. Paid monitoring history is not silently treated as status incident retention. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://sitesure.net/ ; https://sitesure.net/articles ; https://sitesure.net/terms-of-service | 2026-11-09 | Current homepage checked 2026-11-09 ; Articles index checked 2026-11-09 ; 2023-07-10 (effective date shown) | News check 2026-11-09: Checked the official homepage, articles index and terms, plus targeted searches. No public product changelog, release history or vendor status page was located, so a last release date is not published. No qualifying sale, shutdown, rebrand, breach or regulatory event found. |
 
 ## Cost examples
 
@@ -161,8 +162,8 @@ The public site includes static reconnect-overlay text in its HTML. It is not us
 ## Counts
 
 - Distinct field IDs attempted: **37**.
-- Facts-table rows: **65**.
-- confirmed: **40**.
+- Facts-table rows: **66**.
+- confirmed: **41**.
 - not_published: **22**.
 - unclear: **1**.
 - conflicting: **0**.

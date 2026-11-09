@@ -108,6 +108,7 @@ Every fact row has exact source URLs, checked date, source date where stated, un
 | J01 | Pause and planned suppression | Old push FAQ says PUSH cannot be paused; current heartbeat create/update schema has paused; newer changelog explicitly supports maintenance windows on push monitors. | API pause; maintenance | Heartbeat | Monitoring heartbeat | Hosted | Suppression | conflicting | https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/; https://developers.statuscake.com/redocusaurus/plugin-redoc-0.yaml; https://changelog.statuscake.com/7102 | 2026-11-05 | Created 2015-10-19; no update stated; Not stated; Relative label: 3 months ago | Prefer current API and changelog for present supported controls. Old blanket no-pause claim is stale, but no account action was performed to verify pause/maintenance behavior. |
 | J02 | Failure/recovery signal | Missing successful push causes Down; successful push when down causes recovery. Optional caller-supplied integer time value in milliseconds, default 0, is shown as performance. | missing ping; recovery; milliseconds | Paid PUSH; Free disputed | Monitoring heartbeat | Hosted | Job signals | confirmed | https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/; https://developers.statuscake.com/redocusaurus/plugin-redoc-0.yaml | 2026-11-05 | Created 2015-10-19; no update stated; Not stated | No dedicated start/end pairing, explicit-fail endpoint, exit-code capture or stdout/stderr collection established in API/guide. A caller-supplied duration is not automatic runtime measurement or detection of failure after a premature start ping. |
 | J02 | Duplicate ping history and Free access | Push guide says both last push stored and first push shown in a period; also says all Free/paid plans include PUSH, while current Free matrix lists only HTTP(S). | history selection; entitlement | Heartbeat; Free disputed | Monitoring heartbeat | Hosted | Run history | conflicting | https://www.statuscake.com/kb/knowledge-base/what-is-push-monitoring/; https://www.statuscake.com/wp-content/uploads/custom-css-js/190514.js?v=1277; https://developers.statuscake.com/api/ | 2026-11-05 | Created 2015-10-19; no update stated; Saved 2026-06-11 13:32:06; no plan-effective date; Not stated | Both FAQ sentences are preserved rather than choosing a first/last rule. Current-plan history length is unresolved under legacy retention labels; no two-signal job model can be guaranteed from this wording. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://changelog.statuscake.com/ ; https://status.statuscake.com/ ; https://www.statuscake.com/about-us/ ; https://www.statuscake.com/terms-and-conditions/ | 2026-11-09 | Current changelog checked 2026-11-09 ; Current status history checked 2026-11-09 ; Current company page checked 2026-11-09 ; 2026-04-01 (terms effective date) | News check 2026-11-09: Checked the official changelog, status history, About page and terms, plus targeted searches. The October 21–22, 2026 precautionary security maintenance was resolved; the vendor reported no evidence of compromise, so it is not a customer-data breach finding. No qualifying acquisition, shutdown, rebrand, licence change or regulatory action found. |
 
 ## Cost examples
 
@@ -203,8 +204,8 @@ No other app was researched or started. No signup/login, form submission, accoun
 ## Counts
 
 - Distinct field IDs attempted: **37**.
-- Fact rows: **82**.
-- confirmed: **62**.
+- Fact rows: **83**.
+- confirmed: **63**.
 - not_published: **8**.
 - unclear: **5**.
 - conflicting: **6**.

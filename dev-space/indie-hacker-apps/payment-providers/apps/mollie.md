@@ -8,6 +8,7 @@
 - Scope: online gateway for registered businesses. Standard price examples use the Netherlands market in EUR. POS, Mollie Business Account, RCUR and Connect are separate products/conditions, not mandatory gateway plans.
 - Row review: no clear error found. “Europe” is a summary; use the exact country list and registered-business requirement for eligibility.
 - Result: all required fields attempted; eligibility, merchant role, active offer and standard pricing verified. Unresolved fields are explicit.
+- Acquisition note (2026-11-09): Mollie completed its acquisition of GoCardless on 2026-09-01, according to the [GoCardless announcement](https://gocardless.com/blog/mollie-and-gocardless-combine). This is an acquisition by Mollie, not a change in Mollie ownership.
 
 ## Facts
 
@@ -81,6 +82,7 @@ Each source date is a check date, not an effective policy date. A confirmed subr
 | C04 | Crypto payment completion and refunds | Not applicable to this researched fiat gateway offer. | not_applicable | https://docs.mollie.com/reference/enable-method | 2026-11-04 | Scope decision: no crypto checkout/settlement offer identified in official method catalogue. Not a claim about every possible future or partner product. |
 | C05 | Hosting and maintenance | Not applicable to this researched fiat gateway offer. | not_applicable | https://docs.mollie.com/reference/enable-method | 2026-11-04 | Scope decision: no crypto checkout/settlement offer identified in official method catalogue. Not a claim about every possible future or partner product. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale or merger of Mollie, shutdown, rebrand, major paid-feature retirement, customer-data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://www.mollie.com/news/mollie-and-gocardless; https://status.mollie.com/; https://www.dnb.nl/openbaar-register/registerdetailpagina?registerCode=WFTEG&relationNumber=F0038; https://www.mollie.com/legal; https://help.mollie.com/hc/en-us/articles/35245827631634-Discontinued-Support-for-Trustly-Payment-Method-Frequently-Asked-Questions | 2026-11-09 | Checked Mollie news, current status and legal details, the DNB register, and the Trustly notice. Mollie completed its acquisition of GoCardless on 1 September 2026; as the buyer, this does not change who owns Mollie. Trustly was one payment-method retirement, not a provider shutdown. |
 ## Cost examples: our calculation
 
 Checked 2026-11-04. Netherlands standard online account, EUR charged and EUR primary balance. Assume no negotiated contract, FX, risk/add-on fees, industry minimum monthly invoice, dispute or refund. Each amount is the total successful payment, including any sales tax already in the merchant’s price. Examples exclude any VAT/government charge on the provider fee; the agreement says listed rates exclude those unless stated otherwise. They do not calculate the merchant’s own sales-tax liability.
@@ -141,12 +143,12 @@ These are processing-only proceeds, not guaranteed per-sale payouts. EUR 5 sale 
 
 | State | Overall fields | Evidence rows |
 | --- | ---: | ---: |
-| confirmed | 17 | 49 |
+| confirmed | 17 | 50 |
 | not_published | 5 | 5 |
 | unclear | 20 | 5 |
 | conflicting | 3 | 1 |
 | not_applicable | 5 | 5 |
 | check_failed | 0 | 0 |
-| Total | 50 | 65 |
+| Total | 50 | 66 |
 
 Overall state mapping: confirmed: F02, F03, F07, F09, F11, F13, F17, F18, F20, F21, F23, F29, F31, F34, F36, F39, F45; not_published: F10, F22, F24, F25, F44; unclear: F01, F04, F05, F06, F08, F12, F14, F15, F16, F19, F26, F27, F30, F35, F37, F38, F40, F41, F42, F43; conflicting: F28, F32, F33; not_applicable: C01, C02, C03, C04, C05; check_failed: none.

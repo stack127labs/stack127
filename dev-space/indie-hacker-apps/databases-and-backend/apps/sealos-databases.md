@@ -35,6 +35,7 @@ Direct requests to sealos.io were rejected with HTTP 403. Public pages were read
 | C03 | hosting and license | Self-hosted core: Sealos Sustainable Use License v1.0 permits internal business or personal non-commercial use, and forbids providing cloud services to third parties, free or paid. | confirmed | https://raw.githubusercontent.com/labring/sealos/main/LICENSE.md; https://raw.githubusercontent.com/labring/sealos/main/README.md | 2026-11-05 | LICENSE.md, Limitations; README, License. The vendor explicitly says this is not a standard open-source license; component licenses remain separate. |
 | C04 | lifecycle and access stage | Public product and pricing pages offer new deployments; the source repository publishes installation/deployment material. No portfolio-wide shutdown, sunset or acquisition notice was found in the lifecycle-first official-site/release search. | confirmed | https://sealos.io/products/databases/; https://sealos.io/pricing/; https://raw.githubusercontent.com/labring/sealos/main/README.md; https://github.com/labring/sealos/releases | 2026-11-05 | Cloud Databases/Pricing and official releases checked. This is a bounded current-operating-status finding, not a promise that every engine version remains supported. |
 | C04 | lifecycle and access stage | Self-host license and activation conditions differ from a simple permissive open-source database download. | confirmed | https://raw.githubusercontent.com/labring/sealos/main/LICENSE.md; https://raw.githubusercontent.com/labring/sealos.io/main/content/docs/self-hosting/install.zh-cn.mdx | 2026-11-05 | Sustainable Use License; Chinese Sealos 集群部署, 激活集群. License purchase/upload activation is documented; this is a material edition condition, not evidence of product shutdown. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Sealos Databases. | not_published | https://sealos.io/blog ; https://docs.sealos.io/ ; https://status.sealos.io/ | 2026-11-09 | Checked Sealos blog, docs and status URL. No qualifying sale, shutdown, rebrand, major paid retirement or breach notice found. |
 | C05 | vendor home and main markets | English Privacy Policy calls Labring Inc. a Delaware corporation headquartered in the United States. | confirmed | https://raw.githubusercontent.com/labring/sealos.io/main/content/docs/msa/privacy-policy.en.mdx | 2026-11-05 | Privacy Policy, Introduction/Data Controller and International Data Transfers (effective May 9, 2026). This identifies the vendor, not the physical location of a selected database. |
 | C05 | vendor home and main markets | Chinese service terms instead name 珠海环界云计算有限公司 and PRC law. The public documents do not map the two legal entities to every cloud region/account. | unclear | https://raw.githubusercontent.com/labring/sealos.io/main/content/docs/msa/terms-of-service.en.mdx; https://raw.githubusercontent.com/labring/sealos.io/main/content/docs/msa/terms-of-service.zh-cn.mdx; https://raw.githubusercontent.com/labring/sealos.io/main/content/docs/msa/privacy-policy.en.mdx; https://raw.githubusercontent.com/labring/sealos.io/main/content/docs/msa/privacy-policy.zh-cn.mdx | 2026-11-05 | Read both language originals, including governing law and transfer sections. Do not treat the entity difference as an acquisition, nor silently apply English contractual promises to every Chinese deployment. |
 | C06 | signup and use restrictions | New-user trial is self-service and requires no credit card; paid checkout accepts major cards through Stripe. Eligibility for promotional pricing is checked in Cost Center. | confirmed | https://sealos.io/pricing/; https://raw.githubusercontent.com/labring/sealos.io/main/app/%5Blang%5D/%28home%29/pricing/config/faqs.ts | 2026-11-05 | Pricing, Free Trial; pricing FAQ source, payment methods and new-user eligibility. No account, payment details or form was submitted. |
@@ -220,11 +221,11 @@ All URLs in this section were checked on 2026-11-05. Official search results and
 
 - Fields attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
 - Facts-table rows: **88**. Counts are rows; material plan/edition differences can add rows to a field.
-- confirmed: **52**.
-- not_published: **27**.
-- unclear: **8**.
-- conflicting: **0**.
-- not_applicable: **0**.
-- check_failed: **1**.
+- confirmed: 52.
+- not_published: 28.
+- unclear: 8.
+- conflicting: 0.
+- not_applicable: 0.
+- check_failed: 1.
 - Distinct source URLs cited: **39**, counting repeated URLs once; includes one failed status-verification URL.
 

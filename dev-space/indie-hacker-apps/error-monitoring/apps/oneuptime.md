@@ -35,6 +35,7 @@ No signup, login, form/support submission, payment, installer, database access, 
 | C02 | Jobs covered | Uptime/synthetic/infrastructure checks, logs, metrics, traces, exception tracking, real-user monitoring/replay, incidents/on-call and status pages. Incoming Request monitors cover missed heartbeats. | — | All / as stated | Cloud | Vendor-hosted | All relevant signals | confirmed | https://oneuptime.com/docs ; https://raw.githubusercontent.com/OneUptime/oneuptime/master/README.md ; https://oneuptime.com/data/pricing.json | 2026-11-05 | Not shown ; Not shown ; Not shown | This is a broad platform; active checks, byte-metered telemetry and customer communication have different prices and retention. |
 | C03 | Availability and lifecycle | Active cloud offer; repository not archived. Latest release API returned 14.0.103, published 2026-11-04T08:19:33Z. No whole-product shutdown, sunset or acquisition notice found in checked official sources. | — | All / as stated | Cloud | Vendor-hosted | All relevant signals | confirmed | https://api.github.com/repos/OneUptime/oneuptime ; https://api.github.com/repos/OneUptime/oneuptime/releases/latest ; https://oneuptime.com/ | 2026-11-05 | 2026-11-05 (repository metadata updated) ; 2026-11-04 (release publication) ; Not shown | Release metadata supports availability, not a tested deployment or ingestion claim. |
 | C03 | Deprecation and previews | Published policy: stable breaking API change 12 months' notice, feature removal 6 months, breaking supported integration 90 days; security exceptions apply. Pricing still labels on-call pay and reports Coming Soon. | — | All / as stated | Cloud | Vendor-hosted | All relevant signals | confirmed | https://oneuptime.com/legal/deprecation-policy ; https://oneuptime.com/data/pricing.json | 2026-11-05 | 2026-05-04 ; Not shown | A general notice policy is not a current product retirement. Current plus two previous self-hosted major versions receive full support, with an additional 12 months of security fixes for older versions. |
+| C03 | News check | News check 2026-11-09: no qualifying news found in the sources checked. | dated lifecycle review | Current | Current product and open-source edition where applicable | Current advertised deployment | Lifecycle / ownership / license | confirmed | https://oneuptime.com/blog ; https://github.com/OneUptime/oneuptime/releases ; https://status.oneuptime.com/ ; https://oneuptime.com/legal/deprecation-policy | 2026-11-09 | latest blog entries 2026-09-29 ; latest release 14.0.105 2026-11-07 ; status page checked 2026-11-09 ; 2026-05-04 | Checked the official blog, GitHub releases, status page and deprecation policy, plus targeted ownership/lifecycle searches. The active release stream reached 14.0.105 on 2026-11-07 and the status page reported all resources operational. No qualifying sale, shutdown, pivot, license change or incident was found. |
 | C04 | Country and eligibility | HackerBay, Inc., Delaware, USA; DPA gives Dover, Delaware address. Hosted account requires age 16+ and contractual capacity; terms permit internal business or personal use subject to acceptable-use rules. | — | All / as stated | Cloud | Vendor-hosted | All relevant signals | confirmed | https://oneuptime.com/legal/terms ; https://oneuptime.com/legal/dpa | 2026-11-05 | 2026-04-14 ; Not shown | Subprocessor affiliates include a UK entity; that does not replace the contracting company's US identity or determine storage location. |
 | C05 | Cloud and self-host | OneUptime Cloud plus full Docker Compose and Kubernetes/Helm deployment. Self-host Community and Enterprise use the same core stack/data, with separately licensed Enterprise modules. | — | All / as stated | Cloud | Vendor-hosted | All relevant signals | confirmed | https://raw.githubusercontent.com/OneUptime/oneuptime/master/README.md ; https://oneuptime.com/docs/as-markdown/en/installation/docker-compose ; https://oneuptime.com/docs/as-markdown/en/self-hosted/enterprise | 2026-11-05 | Not shown ; Not shown ; Not shown | A private/custom probe alone is not the complete self-hosted platform. Cloud plan entitlements differ from self-host edition entitlements. |
 | C06 | Community license | Apache-2.0 applies outside ee/ and third-party components' own licenses; the Community image contains no ee/ code. Free to self-host, including commercial use subject to license terms. | — | Community | Community | Self-hosted | All | confirmed | https://raw.githubusercontent.com/OneUptime/oneuptime/master/LICENSE ; https://raw.githubusercontent.com/OneUptime/oneuptime/master/README.md ; https://oneuptime.com/docs/as-markdown/en/self-hosted/enterprise | 2026-11-05 | Not shown ; Not shown ; Not shown | The root license expressly documents the split; do not describe the entire monorepo as exclusively Apache-licensed. |
@@ -294,17 +295,16 @@ Sources checked 2026-11-05: https://oneuptime.com/data/pricing.json ; https://on
 ## Counts
 
 - Distinct field IDs attempted: **50**.
-- Facts-table rows: **72**.
-- Unique exact source URLs in the facts table: **51**.
+- Facts-table rows: **73**.
+- Unique exact source URLs in the facts table: **54**.
 - State counts are per facts-table row; repeated URLs count once.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 57 |
+| confirmed | 58 |
 | not_published | 5 |
 | unclear | 7 |
 | conflicting | 3 |
 | not_applicable | 0 |
 | check_failed | 0 |
-| **Total** | **72** |
-
+| **Total** | **73** |

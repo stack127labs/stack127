@@ -27,6 +27,7 @@ Only the owner's six states are used. not_published is bounded by the named chec
 | C02 | Cloud Logging dependency | Direct report calls generate Logging entries; related raw logs can be inspected in Logs Explorer. | dependency | Standard service | Google-managed service | Hosted | Errors; raw logs | confirmed | https://docs.cloud.google.com/error-reporting/docs/setup; https://docs.cloud.google.com/error-reporting/docs/viewing-errors | 2026-11-04 | 2026-11-02; 2026-11-02 | Logging is a separate metered service supporting Error Reporting. L01–L03 below describe this dependency, not a second edition of Error Reporting. |
 | C03 | Availability | Current public setup, API, quotas and pricing remain published; Error Reporting is listed as no-charge. | availability | Standard service | Google-managed service | Hosted | Product | confirmed | https://docs.cloud.google.com/error-reporting/docs/; https://cloud.google.com/products/observability/pricing; https://docs.cloud.google.com/error-reporting/quotas | 2026-11-04 | 2026-10-26; Not stated; 2026-11-02 | No signup or actual operation was tested. v1beta1 in the API path and Beta labels on IAM roles are not taken as proof that the entire product is in beta. |
 | C03 | SDK repository change | The linked standalone Node.js SDK repository says its contents/history moved to googleapis/google-cloud-node. | repository move | Standard service | Google-managed service | Hosted | SDK | confirmed | https://docs.cloud.google.com/error-reporting/docs/setup/nodejs; https://raw.githubusercontent.com/googleapis/nodejs-error-reporting/main/README.md | 2026-11-04 | 2026-11-02; Not stated | The notice deprecates that repository location, not the Error Reporting service or package. The announced handwritten destination did not resolve during the bounded source check. |
+| C03 | News check 2026-11-09 | No qualifying ownership, product lifecycle, signup, license, security or regulatory event found; current Error Reporting documentation and quotas remain published. | lifecycle search | Standard service | Google-managed service | Hosted | Service | confirmed | https://docs.cloud.google.com/error-reporting/docs/ ; https://docs.cloud.google.com/error-reporting/quotas ; https://cloud.google.com/legal-change-log ; https://cloud.google.com/blog/products/management-tools ; https://status.cloud.google.com/ | 2026-11-09 | Not shown ; 2026-11-02 ; 2026-01-29 legal update ; Not shown ; 2026-11-09 dashboard update | Checked service docs/quotas, Cloud legal change log, management-tools blog, Service Health dashboard and quick search since 2025-01-01. The Jan 29, 2026 legal-log move of Error Reporting out of the Cloud Logging terms section is a documentation reclassification, not a rename or service retirement. |
 | C04 | Contracting entity | Google LLC for US/otherwise-unlisted billing addresses; Google Cloud EMEA Limited for most EMEA countries; Google Cloud India Private Limited for GCP buyers in India, subject to stated exceptions. | entities; billing regions | Standard service | Google-managed service | Hosted | Vendor; buyers | confirmed | https://cloud.google.com/terms/google-entity | 2026-11-04 | 2026-06-30 | The entity table varies by billing address and covered agreement. These examples do not assert one universal contracting country or data-storage region. |
 | C04 | Buyer restrictions | Terms require compliance with export-control laws and the acceptable-use restrictions; complete supported-buyer/payment-country list not established. | restrictions | Standard service | Google-managed service | Hosted | Buyers | unclear | https://cloud.google.com/terms; https://cloud.google.com/terms/google-entity | 2026-11-04 | 2026-10-12; 2026-06-30 | The contracting-entity table is not a supported-country list. The row's Global service wording describes product scope, not vendor home country. |
 | C05 | Hosted delivery | Google-managed global service accessed through Google Cloud projects, console and APIs. | hosting | Standard service | Google-managed service | Hosted | Delivery | confirmed | https://docs.cloud.google.com/error-reporting/docs/grouping-errors; https://docs.cloud.google.com/error-reporting/docs/setup | 2026-11-04 | 2026-11-02; 2026-11-02 | Local instrumentation and externally hosted apps can send data; they do not turn the complete service into self-hosted software. |
@@ -191,18 +192,18 @@ No unresolved direct source contradiction was established. Several apparent conf
 
 ## Counts
 
-Fields attempted: **34 distinct field IDs**. Fact rows: **83**. Multiple rows preserve different signals, collection paths and evidence states.
+Fields attempted: **34 distinct field IDs**. Fact rows: **84**. Multiple rows preserve different signals, collection paths and evidence states.
 
 | State | Fact rows |
 | --- | --- |
-| confirmed | 75 |
+| confirmed | 76 |
 | not_published | 6 |
 | unclear | 2 |
 | conflicting | 0 |
 | not_applicable | 0 |
 | check_failed | 0 |
 
-Source links: **34 distinct exact URLs in the facts table**. Repeated citations count once. Recovered failed paths and SDK configuration discussed only in notes do not inflate that count.
+Source links: **37 distinct exact URLs in the facts table**. Repeated citations count once. Recovered failed paths and SDK configuration discussed only in notes do not inflate that count.
 
 Research is complete for Google Cloud Error Reporting only.
 

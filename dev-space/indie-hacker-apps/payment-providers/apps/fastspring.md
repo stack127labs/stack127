@@ -147,6 +147,7 @@ A row's state applies to its scoped value. A known feature or default does not e
 | C04 | Crypto payment completion and refunds | Crypto confirmations, invoice expiry, token under/overpayment and on-chain refunds are outside the documented payment-method scope. | not_applicable | https://developer.fastspring.com/docs/payment-methods-accepted-by-fastspring; https://developer.fastspring.com/docs/refund-an-order | 2026-11-04 | Ordinary bank/card completion and refund rules do not establish blockchain behavior. |
 | C05 | Hosting and maintenance | No self-hosted crypto payment software is part of the researched offer; FastSpring's managed checkout integrations are documented in F16/F17. | not_applicable | https://developer.fastspring.com/docs/choose-a-checkout-experience; https://developer.fastspring.com/docs/integrations | 2026-11-04 | Conditional crypto hosting/hardware fields do not apply. The seller still supplies its website/app integration. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, merger, shutdown, rebrand, major paid-feature retirement, customer-data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://fastspring.com/blog/fastspring-announces-strategic-investment-from-llr-partners-to-accelerate-growth/; https://fastspring.com/blog/; https://status.fastspring.com/; https://fastspring.com/terms-use/seller-terms-service/ | 2026-11-09 | Checked the official blog, seller terms, and status history. The 5 May strategic investment by LLR Partners is noted in F01; its notice gives no sale or ownership percentage. Status recorded a QR-method incident on 3–4 November, resolved; not a qualifying finding. |
 ## Cost examples — our calculations
 
 Inputs were checked on 2026-11-04. There is no public numeric processing quote from which to calculate a universal USD 10/USD 100 card-payment fee. The first example therefore retains the unknown quoted inputs rather than assigning a made-up rate. Other examples isolate publicly stated charges; they are conditional examples, not a complete FastSpring quote.
@@ -196,13 +197,13 @@ Row 26's name, official URL, active status, MoR type and software/digital/course
 ## Counts
 
 - Fields covered: 50 unique IDs — all 40 core fields and five optional fields attempted; applicability assessed for all five conditional crypto fields.
-- Fact rows: 126.
-- confirmed: 97 rows.
+- Fact rows: 127.
+- confirmed: 98 rows.
 - not_published: 18 rows.
 - unclear: 1 rows.
 - conflicting: 4 rows.
 - not_applicable: 5 rows.
 - check_failed: 1 rows.
-- Unique official source URLs: 64, counted once even when reused by several facts.
+- Unique official source URLs: 98, counted once even when reused by several facts.
 - Current transaction-currency table: 36 codes.
 

@@ -112,6 +112,7 @@ No account, login, signup, billing portal, status subscription, agent connection
 | H02 | Self-host operating costs | Software fee $0; complete hosting/Postgres/mail/backup/probe bills for the fixed workloads remain unknown. | Unknown running cost | Unmetered | Community | Self-hosted | Self-host | unclear | https://raw.githubusercontent.com/becoolme/openuptime/main/LICENSE ; https://openuptime.app/docs/self-host ; https://openuptime.app/docs/backup ; https://openuptime.app/docs/regions | 2026-11-05 | Not shown ; Not shown ; 2026-10-17 ; 2026-10-12 | No workload-specific storage/CPU/database volume or mail cost baseline supplied. A guessed free host or $5 platform minimum would not be a complete recurring estimate. |
 | H03 | Upgrade / backup / restore | Docker pull/rebuild then restart runs migrations; Workers migrate then deploy API before web. Backup guide uses pg_dump -Fc, off-host copy and tested scratch restore, then pg_restore while app stopped. | Operations | Unmetered | Community | Self-hosted | Self-host | confirmed | https://openuptime.app/docs/self-host ; https://openuptime.app/docs/backup ; https://raw.githubusercontent.com/becoolme/openuptime/main/docker-compose.yml | 2026-11-05 | Not shown ; 2026-10-17 ; Not shown | Preserve auth secret with backup or sessions/API keys fail after restore. Restore loses checks/incidents since dump; provider backups can supplement this. |
 | H03 | Release / security support | Security fixes land on main; policy advises latest release or main. Public changelog active; official GitHub Releases currently empty despite example image tags in docs. | Support state | Unmetered | Community | Self-hosted | Self-host | unclear | https://raw.githubusercontent.com/becoolme/openuptime/main/SECURITY.md ; https://openuptime.app/changelog ; https://github.com/becoolme/openuptime/releases ; https://api.github.com/repos/becoolme/openuptime/releases | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown | No support lifecycle matrix, signed release verification, tested published image availability or rollback guarantee established. Stable version promises remain unverified. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://openuptime.app/ ; https://openuptime.app/changelog ; https://github.com/becoolme/openuptime | 2026-11-09 | Not shown ; 2026-10-16 (latest changelog entry) ; Repository checked 2026-11-09 | News check 2026-11-09: Checked the official homepage and changelog, plus the project repository/releases and targeted searches. Latest displayed changelog entry is 2026-10-16; no vendor status page was located. No qualifying ownership, lifecycle, breach or regulatory event found. |
 
 ## Cost examples: our calculation, estimated
 
@@ -222,19 +223,19 @@ No error-report, general-log, trace/APM or browser-flow price is calculated beca
 ## Counts
 
 Distinct fields attempted: **40**.  
-Facts-table rows: **82**.
+Facts-table rows: **83**.
 
 | State | Rows |
 | --- | --- |
-| confirmed | 73 |
+| confirmed | 74 |
 | not_published | 4 |
 | unclear | 3 |
 | conflicting | 2 |
 | not_applicable | 0 |
 | check_failed | 0 |
-| **Total** | **82** |
+| **Total** | 83 |
 
-Distinct exact source URLs in the facts table: **42**, all retrieved successfully. The repository's top-level link identifies the project and is not counted as an additional researched evidence page. Repeated field citations count once. English re-extractions of the same canonical API URL are not counted as new sources.
+Distinct exact source URLs in the facts table: **43**, all retrieved successfully. The repository's top-level link identifies the project and is not counted as an additional researched evidence page. Repeated field citations count once. English re-extractions of the same canonical API URL are not counted as new sources.
 
 Minutes measure the recorded UTC research interval; saving and structural review followed. No other app was started.
 

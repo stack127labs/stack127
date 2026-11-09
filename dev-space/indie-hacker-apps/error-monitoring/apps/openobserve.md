@@ -31,6 +31,7 @@ Only public official sources were used. No signup, login, form submission, insta
 | C02 | Jobs covered | Unified logs, metrics, distributed traces, RUM, frontend errors and session replay | capabilities | All | OSS core; Cloud; Enterprise | Both | Logs; metrics; traces; browser errors | confirmed | https://github.com/openobserve/openobserve ; https://openobserve.ai/docs/ | 2026-11-05 | not shown ; not shown | Detection and diagnosis platform. Individual Enterprise capabilities are separated below rather than assigned to every installation. |
 | C02 | Additional jobs | Beta synthetic browser/protocol checks; check-driven public status pages | capabilities | Synthetics-enabled | OSS; Enterprise; Cloud | Both | Synthetic checks; status communication | confirmed | https://openobserve.ai/docs/user-guide/data-exploration/synthetics/ ; https://openobserve.ai/docs/user-guide/data-exploration/synthetics/status-pages/ | 2026-11-05 | 2026-11-05 ; 2026-10-28 | These newer documented products make the uptime and status fields applicable; scheduled alert queries alone would not establish a missed-job monitor. |
 | C03 | Availability and changes | Active public offer; latest-release URL resolves to v1.2.0-rc1, published 2026-11-04 | release; date | All | Product | Both | Platform | confirmed | https://openobserve.ai/pricing/ ; https://github.com/openobserve/openobserve/releases/tag/v1.2.0-rc1 ; https://openobserve.ai/docs/releases/ | 2026-11-05 | not shown ; 2026-11-04 (release) ; 2026-11-04 | The tag is a release candidate, not a verified stable production release. No shutdown, sunset or acquisition notice was found in checked official product, release, repository and legal pages; this is a bounded search. |
+| C03 | News check | News check 2026-11-09: no qualifying news found in the sources checked. | dated lifecycle review | Current | Current product and open-source edition where applicable | Current advertised deployment | Lifecycle / ownership / license | confirmed | https://openobserve.ai/blog/ ; https://openobserve.ai/whats-new/ ; https://github.com/openobserve/openobserve/releases ; https://openobserve.ai/docs/releases/ | 2026-11-09 | latest blog entries 2026-11-06 ; latest stable release note 2026-10-14 ; latest release candidate v1.2.0-rc1 2026-11-04 ; 2026-11-04 | Checked the official company blog, product updates, GitHub releases and docs releases, plus targeted sale, shutdown, pivot and license searches. OpenObserve remains active; the company announced a $10M Series A in April 2026, which is financing rather than a sale or merger. No qualifying product or license change was found. No separate official status page surfaced in the checked site links/search. |
 | C04 | Home country and buyers | OpenObserve Inc., a Delaware corporation, United States; Services intended for business/organizational use; account users at least 18 | country; eligibility | All hosted | Cloud | Hosted | Purchasing | confirmed | https://openobserve.ai/legal/terms-of-service/ ; https://openobserve.ai/legal/dpa/ | 2026-11-05 | 2026-11-02 ; 2026-09-05 | Company country is separate from storage regions. A complete permitted-country list was not provided in the checked terms; jurisdictional and lawful-use restrictions remain applicable. |
 | C05 | Open-source deployment | Complete service runs on customer infrastructure as binary, Docker or Kubernetes deployment | deployment | Free OSS | Open Source | Self-hosted | Platform | confirmed | https://github.com/openobserve/openobserve ; https://openobserve.ai/docs/getting-started/ | 2026-11-05 | not shown ; 2026-11-01 | Use the OSS image public.ecr.aws/zinclabs/openobserve. The generic getting-started Docker example currently uses an Enterprise image; those images are not interchangeable license evidence. |
 | C05 | Hosted deployment | Multi-tenant Cloud; custom single-tenant hosted and vendor-managed BYOC | deployment | Professional/PAYG; Enterprise | Cloud; Enterprise | Hosted; BYOC | Platform | confirmed | https://openobserve.ai/pricing/ ; https://openobserve.ai/legal/sla/ | 2026-11-05 | not shown ; 2026-09-05 | BYOC is operated by OpenObserve inside a customer's cloud account. It is distinct from customer-operated self-hosting. |
@@ -269,19 +270,18 @@ All links below were read without accounts or form submission. The release link 
 ## Counts
 
 Distinct field IDs attempted: **48**.
-Fact rows: **96**. A field can have several rows for editions, deployment options or materially different limits.
+Fact rows: **97**. A field can have several rows for editions, deployment options or materially different limits.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 80 |
+| confirmed | 81 |
 | not_published | 12 |
 | unclear | 0 |
 | conflicting | 4 |
 | not_applicable | 0 |
 | check_failed | 0 |
-| **Total** | **96** |
+| **Total** | **97** |
 
-Distinct official source URLs read: **44**. These include the recovered public capacity-sheet fetch. Source links are repeated across facts where needed; repeated links count once.
+Distinct official source URLs read: **47**. These include the recovered public capacity-sheet fetch. Source links are repeated across facts where needed; repeated links count once.
 
 No code tests or build were run for this research-only file. Field coverage, allowed states, row column counts, source/date ordering and displayed arithmetic were checked. No other app was started.
-

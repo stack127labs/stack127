@@ -110,6 +110,7 @@ Original "$", GB/MB and timing units retained. Currency code and tax treatment a
 | H01 | Production self-host scope | Full production runtime license, cloud/local parity, persistence/upgrade/backup runbook and minimum safe CPU/RAM not established. | not_published | https://codehooks.io/docs/local-development-with-docker ; https://codehooks.io/terms ; https://codehooks.io/docs | 2026-11-04 | Checked local guide and proprietary-service terms. Local development is not a published production operations contract. |
 | H01 | Docker configuration check | The guide's downloadable docker-compose.yml could not be opened. | check_failed | https://codehooks.io/docs/local-development-with-docker ; https://codehooks.io/download/docker-compose.yml | 2026-11-04 | Guide body was readable; failed artifact fetch prevents inspecting exact containers/volumes. No Docker/software was installed. |
 | J05 | Retention and historical export | Fixed log/run-history retained days, byte limits and complete historical export/replay coverage not established. | not_published | https://codehooks.io/docs/cli ; https://codehooks.io/docs/workflow-api ; https://codehooks.io/privacy ; https://codehooks.io/terms | 2026-11-04 | Checked log/status output, workflow state storage and retention terms. JSON output is not a fixed archive-retention promise. |
+| C04 | Lifecycle and access | News check 2026-11-09: no sale, shutdown, rebrand, or data-exposure incident found for Codehooks. | confirmed | https://codehooks.io/blog ; https://codehooks.io/about ; https://codehooks.io/terms ; https://status.codehooks.io/ | 2026-11-09 | Checked the company Blog, About and Terms pages, plus the linked status page; the status endpoint could not be read. The blog shows current 2025–2026 product activity; no qualifying notice was found. |
 
 ## Cost examples: our calculation
 
@@ -154,13 +155,13 @@ Rate/allowance sources checked 2026-11-04: [current plan cards and add-ons](http
 
 ## Counts
 
-46 field IDs attempted; 94 evidence rows. Counts are rows.
+46 field IDs attempted; 95 evidence rows. Counts are rows.
 
-- confirmed: 60
+- confirmed: 61
 - not_published: 27
 - unclear: 2
 - conflicting: 1
 - not_applicable: 2
 - check_failed: 2
 
-Unique exact source links in the facts table: 28. Unique source URLs across the whole record: 29; this also includes the failed /pricing route, whose pricing content was found on the homepage. Repeated URLs count once. Failed status/Compose checks are included.
+Unique exact source links in the facts table: 29. Unique source URLs across the whole record: 30; this also includes the failed /pricing route, whose pricing content was found on the homepage. Repeated URLs count once. Failed status/Compose checks are included.

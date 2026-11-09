@@ -2,7 +2,7 @@
 
 Official URL: https://front.com/
 
-apps.md row: Front; Shared inbox; status `active`; proposed detection `W / N`. Current documentation confirms a one-seat minimum on Starter and Professional. Suggested row correction: add `H` for hosted Help Centers on `*.frontkb.com`. Front Chat is now a legacy channel, unavailable to new customers since 2026-10-26; new customers use Resolve. Front itself remains active.
+apps.md row: Front; Shared inbox; status `active`; proposed detection `W / N`. Current documentation confirms a one-seat minimum on Starter and Professional. Suggested row correction: add `H` for hosted Help Centers on `*.frontkb.com`. Front Chat is now a legacy channel, unavailable to new customers since 2026-10-26; Front’s current Help Center says it will no longer be updated and points new customers to Resolve. Front itself remains active.
 
 Research started: 2026-11-04 19:01:45 UTC (`date -u`).
 Research finished: 2026-11-04 19:19:19 UTC (`date -u`).
@@ -14,7 +14,7 @@ Scope: official public pricing, linked product/developer documentation, terms, p
 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Note |
 | --- | --- | --- | --- | --- | --- | --- |
-| F01 | Identity | Front, active customer operations/support platform. Front Chat became legacy on 2026-10-26 and was replaced for new customers by Resolve. | confirmed | https://help.front.com/en/articles/2062 ; https://front.com/whats-new | 2026-11-04 | This is a channel transition within Front, not a shutdown or product-wide rename. Current releases include Autopilot agents and external-agent support. |
+| F01 | Identity and lifecycle | Front remains active; Front Chat became legacy and unavailable for new customers on 2026-10-26, will no longer be updated, and has been replaced for new customers by Resolve. | confirmed | https://help.front.com/en/articles/2062 ; https://help.front.com/en/articles/4836160 ; https://front.com/whats-new | 2026-11-09 | Front’s Help Center article, edited 2026-10-26, explicitly says Front Chat is legacy, not available to new customers, and no longer updated; it identifies Resolve as the replacement. This is a major paid live-chat channel retirement, not a shutdown of Front. |
 | F02 | Type and fit | Our classification: shared inbox and help desk for customer-facing teams, with ticketing, multiple channels, Help Centers and AI automation. | confirmed | https://front.com/pricing ; https://help.front.com/en/articles/2206 | 2026-11-04 | Useful for shared support email and coordination with other teams. Knowledge-base and AI features overlap other directory types; it is not primarily an ideas/voting board. |
 | F03 | Company and markets | FrontApp, Inc., a Delaware corporation, United States. Terms prohibit use in U.S.-embargoed regions or by denied parties. | confirmed | https://front.com/legal/saas-services-agreement | 2026-11-04 | The agreement identifies the supplier and export restrictions. It does not provide a complete current buying-country list; no country list is guessed from its hosting regions. |
 | F04 | Buying access | Public self-service trial at `https://front.com/signup?sref=true`. Starter and Professional each permit one paid seat; Enterprise minimum is sales-led. | confirmed | https://help.front.com/en/articles/2178 ; https://front.com/pricing | 2026-11-04 | Pricing offers trial and demo routes. One-person buying is expressly supported by the billing FAQ; free guests do not substitute for a full agent. No signup was submitted. |

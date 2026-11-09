@@ -103,6 +103,7 @@ No account, signup/login, submitted form, agent installation, SSH command, heart
 | H01 | On-premise platform requirements | No public CPU/RAM/disk, database/runtime, architecture, deployment package or platform installation procedure established | Not specified | Dedicated / on-premise | Dedicated / on-premise offer | On-premise | Monitoring platform | not_published | https://dicloud.net/sweetuptime-server-uptime-monitoring/ ; https://dicloud.net/docs/sweetuptime/ ; https://dicloud.net/doc/server-monitors/ | 2026-11-05 | Not shown ; Not shown ; 2025-10-24 | Product advertises a quoted on-premise instance. The SSH server-agent guide installs a tracker on a monitored host, not the whole platform; no platform requirements inferred from it. |
 | H02 | On-premise running cost | Cannot calculate license/infrastructure/storage/backup total without a vendor quote and platform sizing | Quote / unknown | Dedicated / on-premise | Dedicated / on-premise offer | On-premise | Monitoring platform | not_published | https://dicloud.net/sweetuptime-server-uptime-monitoring/ ; https://dicloud.net/terms/ ; https://dicloud.net/docs/sweetuptime/ | 2026-11-05 | Not shown ; 2023-05-30 ; Not shown | No arbitrary host SKU or labor price introduced. Custom resource allowances and on-premise delivery do not establish a free platform license or zero operating cost. |
 | H03 | On-premise upkeep | No public platform upgrade, backup/restore, supported-release or security-update procedure established | Not specified | Dedicated / on-premise | Dedicated / on-premise offer | On-premise | Monitoring platform | not_published | https://dicloud.net/sweetuptime-server-uptime-monitoring/ ; https://dicloud.net/docs/sweetuptime/ ; https://dicloud.net/doc/server-monitors/ ; https://dicloud.net/terms/ | 2026-11-05 | Not shown ; Not shown ; 2025-10-24 ; 2023-05-30 | Agent interval-change instructions are not platform upgrade guidance. Generic DiCloud managed-server services are not automatically included in a SweetUptime on-premise quote. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://dicloud.net/sweetuptime-server-uptime-monitoring/ ; https://dicloud.net/about/ ; https://dicloud.net/docs/sweetuptime/ | 2026-11-09 | Current product page checked 2026-11-09 ; Current company page checked 2026-11-09 ; Current docs checked 2026-11-09 | News check 2026-11-09: Checked the official SweetUptime product page, Dicloud About page and product documentation, plus targeted searches. No public product changelog/release date or vendor status page was located. No qualifying sale, shutdown, rebrand, breach or regulatory event found. |
 
 ## Cost examples — our calculation, estimated
 
@@ -239,8 +240,8 @@ All checks were made 2026-11-05. Exact field sources and content-update dates ar
 ## Counts
 
 - Distinct field IDs attempted: **40**.
-- Facts-table rows: **73**.
-- confirmed: **51**.
+- Facts-table rows: **74**.
+- confirmed: **52**.
 - not_published: **18**.
 - unclear: **1**.
 - conflicting: **2**.

@@ -143,6 +143,9 @@ States apply only to the scoped statement in each row. Prices are public standar
 | C04 | Crypto payment completion and refunds | Outbound USDC completion: four Ethereum block confirmations, described as minutes; wrong-address/network transfers can be irreversible. | confirmed | [source](https://www.airwallex.com/docs/payouts/payout-network/stablecoin-wallets/usdc); [source](https://www.airwallex.com/docs/payouts/transfers/transfers-via-stablecoin) | 2026-11-05 | This is payout completion, not a shopper crypto invoice. The reviewed route does not publish a checkout under/overpayment, expiry or crypto-refund flow, so ordinary card refund rules were not carried over. |
 | C05 | Hosting and maintenance | Hosted Airwallex API service; the merchant builds/runs the client integration. | confirmed | [source](https://www.airwallex.com/docs/payouts/transfers/transfers-via-stablecoin) | 2026-11-05 | The guide documents authenticated calls to Airwallex rather than a self-hosted payment node. No separate hardware minimum, downloadable-server licence or merchant maintenance-cost estimate was found on this page. |
 
+| F01 | Current name, product, owner and old names | Airwallex acquired South Korean payment company Paynuri on 21 January 2026 and financial automation company Leapfin on 4 June 2026. | confirmed | https://www.airwallex.com/global/newsroom/airwallex-acquires-paynuri-to-unlock-global-opportunities-for-korean; https://www.airwallex.com/global/newsroom/airwallex-acquires-leapfin-expanding-financial-lifecycle-capabilities | 2026-11-09 | These are acquisitions by Airwallex, not a sale of Airwallex or a rename of Airwallex Payments. Paynuri brings Korean payment and foreign-exchange registrations; Leapfin adds revenue-recognition and reconciliation technology. |
+| F39 | Operating status and recent changes | AUSTRAC ordered an external audit of Airwallex’s AML/CTF program on 22 January 2026 after identifying suspected compliance failures. | confirmed | https://www.austrac.gov.au/news-and-media/media-release/austrac-orders-audit-airwallex-suspected-amlctf-compliance-failures | 2026-11-09 | AUSTRAC cited concerns about transaction monitoring, customer due diligence and suspicious-matter reporting. This was an audit order, not a fine or licence cancellation; the notice gave the auditor 180 days to report. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no shutdown, rebrand, major paid-feature retirement, data breach, licence loss, or bankruptcy found. | confirmed | https://www.airwallex.com/global/newsroom; https://www.airwallex.com/docs/payments; https://status.airwallex.com/; https://www.austrac.gov.au/about-us/record-our-actions | 2026-11-09 | Checked the newsroom, docs, status page and AUSTRAC action records. Status also records a short FX-conversion/payout disruption on 27 October, resolved at 08:18 UTC; not treated as a finding. |
 ## Cost examples — our calculations
 
 Checked/calculated on 2026-11-05. These examples use a successful first-attempt Visa/Mastercard payment, charged and settled in the seller's local currency. There is no sales tax, currency conversion, Billing, Tax add-on, dispute, refund, extra gateway attempt, custom URL or outbound bank transfer. EEA domestic means a consumer card; Australia uses the new cohort. Country and card-origin rates replace one another.
@@ -208,17 +211,17 @@ All pages named here were checked on 2026-11-05. A page listed for an unknown re
 
 Fields attempted: 50 distinct field IDs — 40 required core fields, all five optional fields, and all five conditional crypto fields assessed against the documented early-access payout route.
 
-Fact rows: 120. Counts below count table rows, not unique field IDs or statements in the notes.
+Fact rows: 123. Counts below count table rows, not unique field IDs or statements in the notes.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 104 |
+| confirmed | 107 |
 | not_published | 9 |
 | unclear | 3 |
 | conflicting | 2 |
 | not_applicable | 0 |
 | check_failed | 2 |
 
-Unique official source URLs in the facts table: 83. Unique official URLs across this file: 85, including checked pages that failed or did not expose the requested value. Repeated citations count once.
+Unique official source URLs in the facts table: 90. Unique official URLs across this file: 92, including checked pages that failed or did not expose the requested value. Repeated citations count once.
 
 No signup, login, form submission, private quote, account change or payment was performed. Only the requested app research file was written.

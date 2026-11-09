@@ -35,6 +35,7 @@ No signup, login, form entry/submission, account/checkout opening, purchase, ins
 | C02 | Provider incidents | Third-party components display services from Instatus's provider catalog; their incidents do not change the customer's overall status or own uptime. | provider status display | All, scope not separately gated in guide | Current hosted service | Hosted | Dependencies | confirmed | https://instatus.com/help/status-page/third-party-components | 2026-11-05 | Not stated | Do not mistake an AWS/Stripe catalog incident for an independent check of the customer's app or an incident that automatically lowers its measured uptime. |
 | C03 | Shutdown/acquisition check | No actual shutdown, sunset or acquisition notice found in checked official product, changelog and continuity/terms material. Changelog contains October 2026 updates; July 2025 introduced Instatus 2.0 monitoring/incident response. | bounded search; release chronology | All | Current hosted service | Hosted | Availability | confirmed | https://instatus.com/; https://instatus.com/changelog; https://instatus.com/policies/until-the-end-of-the-internet; https://instatus.com/policies/terms | 2026-11-05 | Not stated; October 2026 (latest monthly entry); 2026-10-15; 2026-10-15 | Checked notices first. Hypothetical acquisition language in the continuity pledge/assignment clause is not evidence that a sale occurred; customer-hosted *.instatus.com outages are not vendor shutdown notices. |
 | C03 | Continuity and closure terms | Terms §11.6 promises at least 90 days' notice if the service closes and refunds for prepaid post-shutdown periods; continuity pledge supports legacy products while subscriptions stay active. | notice days; conditions | All | Current hosted service | Hosted | Product lifecycle | confirmed | https://instatus.com/policies/terms; https://instatus.com/policies/until-the-end-of-the-internet | 2026-11-05 | 2026-10-15; 2026-10-15 | This is a conditional contractual commitment and vendor pledge, not a closure announcement or a guarantee that every future feature remains unchanged. |
+| C03 | News check 2026-11-09 | No qualifying sale, rebrand, shutdown/pivot, closed signup, license change, breach or regulatory action found; the changelog has October 2026 updates and the official status page shows all systems operational with no notices in the past 7 days. | lifecycle search; latest update | All | Current hosted service | Hosted | Product | confirmed | https://instatus.com/ ; https://instatus.com/changes ; https://instatus.com/blog ; https://instatus.com/policies/terms ; https://instatus.com/policies/until-the-end-of-the-internet ; https://instat.us/ | 2026-11-09 | Not shown ; October 2026 ; Not shown ; 2026-10-15 ; 2026-10-15 ; current status; no notices past 7 days | Checked product, changelog, blog, terms, continuity pledge, official Instatus Status page and quick web results since 2025-01-01. The pledge and terms describe hypothetical acquisition/closure protections, not an actual sale. |
 | C04 | Home country | Instatus, Inc., a Delaware corporation; legal mailing address in Beaverton, Oregon, USA. | country; corporate role | All | Current hosted service | Hosted | Vendor | confirmed | https://instatus.com/policies/terms; https://instatus.com/policies/privacy | 2026-11-05 | 2026-10-15; 2026-10-29 | Incorporation and mailing address are separate from probe regions and storage. apps.md can enrich Unknown to US without using an app-store address as the current contract address. |
 | C04 | Buyer restrictions | Age 18/age of majority; customers must comply with US export/sanctions restrictions and only monitor authorized systems/message consenting recipients. | eligibility; restrictions | All | Current hosted service | Hosted | Buyers | confirmed | https://instatus.com/policies/terms; https://instatus.com/policies/acceptable-use | 2026-11-05 | 2026-10-15; 2026-10-15 | No exhaustive payment-country list was established. Individual customers are covered by the person-or-organization agreement; there is no published enterprise-only buyer requirement. |
 | C05 | Delivery | Vendor-operated dashboard, checks, APIs and hosted status pages; no complete self-hosted server/deployment entitlement established. | delivery model | All | Current hosted service | Hosted | Server | confirmed | https://instatus.com/policies/terms; https://instatus.com/policies/security; https://instatus.com/help/monitoring | 2026-11-05 | 2026-10-15; 2026-10-15; Not stated | Hosted private pages are audience-restricted pages, not private/self-host deployment. Integrations with self-managed systems do not establish a self-hosted Instatus backend. |
@@ -258,18 +259,18 @@ All sources above were checked 2026-11-05. Recovered page rendering and one opti
 
 ## Counts
 
-Fields attempted: **37 distinct field IDs**. Fact rows: **83**.
+Fields attempted: **37 distinct field IDs**. Fact rows: **84**.
 
 | State | Fact rows |
 | --- | --- |
-| confirmed | 65 |
+| confirmed | 66 |
 | not_published | 10 |
 | unclear | 6 |
 | conflicting | 1 |
 | not_applicable | 1 |
 | check_failed | 0 |
 
-Source links: **46 distinct exact URLs in the facts table**. Repeated citations count once. Discovery-only searches, obsolete policy PDFs and the inaccessible optional Apple listing do not inflate this number.
+Source links: **49 distinct exact URLs in the facts table**. Repeated citations count once. Discovery-only searches, obsolete policy PDFs and the inaccessible optional Apple listing do not inflate this number.
 
 Research is complete for Instatus only.
 

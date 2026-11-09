@@ -16,12 +16,12 @@ The task's state names override the different vocabulary in `fields.md`: `confir
 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Short note, page title and section |
 | --- | --- | --- | --- | --- | --- | --- |
-| C01 | Identity and old names | Neon; legal schedule names Neon, LLC and parent Databricks, Inc. | confirmed | https://neon.com/platform-terms | 2026-11-04 | Product Specific Schedule (Neon), opening; updated October 14, 2026. |
+| C01 | Identity and old names | Neon; joined Databricks on 2025-05-14. Legal schedule names Neon, LLC and parent Databricks, Inc. | confirmed | https://neon.com/platform-terms ; https://neon.com/about-us ; https://neon.com/blog/neon-and-databricks | 2026-11-09 | Product Specific Schedule (Neon), opening; About Us timeline says Databricks acquires Neon May 14, 2025; official acquisition announcement dated May 14, 2025. |
 | C01 | Identity and old names | Lakebase Postgres is its database component. No separate former name established. | confirmed | https://neon.com/docs/postgres/overview | 2026-11-04 | Lakebase Postgres, About. Do not treat component naming as product closure. |
 | C02 | Primary type and other roles | Researcher classification: managed SQL database; backend bundle, auth, files, functions, live queries and vector search as secondary roles. | confirmed | https://neon.com/docs/llms.txt | 2026-11-04 | Neon Postgres documentation index, introduction. |
 | C03 | Hosting and license | Fully managed hosted database. | confirmed | https://neon.com/docs/postgres/overview | 2026-11-04 | Lakebase Postgres, About. |
 | C03 | Hosting and license | `neondatabase/neon` source repository: Apache-2.0. Does not establish license or feature parity for every cloud module. | confirmed | https://github.com/neondatabase/neon/blob/main/LICENSE | 2026-11-04 | LICENSE, Apache License Version 2.0. |
-| C04 | Lifecycle and access stage | Active offer with public signup and plans; part of Databricks. Access not tested. | confirmed | https://neon.com/pricing | 2026-11-04 | Neon pricing, plans/footer. Not a measured uptime finding. |
+| C04 | Lifecycle and access stage | Active offer with public signup and plans; Neon joined Databricks on 2025-05-14. Access not tested. | confirmed | https://neon.com/pricing ; https://neon.com/about-us | 2026-11-09 | Neon pricing, plans/footer; About Us states Neon joined Databricks on May 14, 2025. Not a measured uptime finding. |
 | C04 | Lifecycle and access stage | Realtime beta; Object Storage, Functions and AI Gateway announced beta, but current individual exit-from-beta dates not established. | unclear | https://neon.com/docs/realtime/overview ; https://neon.com/blog/neon-backend-is-beta ; https://neon.com/docs/compute/functions/overview ; https://neon.com/docs/storage/overview | 2026-11-04 | Realtime, Beta; Test out the Neon backend announcement; current overviews. |
 | C05 | Vendor home and main markets | Vendor home country and complete served markets not established. | not_published | https://neon.com/platform-terms ; https://neon.com/docs/introduction/regions | 2026-11-04 | Product schedule and Regions searched. Deployment locations are not vendor home or eligibility. |
 | C06 | Signup and use restrictions | Public self-service links; Free requires no card. Explicit Free commercial-production permission, full country restrictions and individual eligibility not established. | unclear | https://neon.com/pricing ; https://neon.com/platform-terms ; https://neon.com/docs/introduction/plans | 2026-11-04 | Free plan, legal schedule, Who it's for. Linked master agreement not fully reviewed. |
@@ -145,9 +145,9 @@ A field with mixed rows takes the first applicable state in this order for exclu
 
 | State | Unique field IDs | Evidence rows |
 | --- | --- | --- |
-| confirmed | 26 | 57 |
+| confirmed | 57 | 57 |
 | not_published | 3 | 3 |
-| unclear | 16 | 17 |
+| unclear | 17 | 17 |
 | conflicting | 1 | 1 |
 | not_applicable | 0 | 0 |
 | check_failed | 0 | 0 |

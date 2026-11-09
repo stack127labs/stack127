@@ -18,7 +18,7 @@ Scope: standard pay-as-you-go and publicly described Partner/Enterprise pricing,
 | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Current name, product, owner and old names | Creem; hosted Merchant of Record, checkout and billing for software/digital products. | confirmed | [Source](https://www.creem.io/); [Source](https://docs.creem.io/getting-started/introduction) | 2026-11-04 | Current official branding is Creem. This record includes the published bank and USDC payout routes. |
 | F01 | Current name, product, owner and old names | Operator: Armitage Labs OÜ, Estonia; registry code 16977866; Rotermanni 14, Tallinn 10111. | confirmed | [Source](https://www.creem.io/privacy) | 2026-11-04 | Privacy notice V2.0, effective August 5, 2026. |
-| F01 | Current name, product, owner and old names | Headquartered in Tallinn, Estonia; founded by Gabriel Ferraz and Alec Erasmus. | confirmed | [Source](https://www.creem.io/about) | 2026-11-04 | The company page supports the Europe-origin wording in apps.md. |
+| F01 | Current name, product, owner and old names | Headquartered in Tallinn, Estonia; founded by two co-founders. | confirmed | [Source](https://www.creem.io/about) | 2026-11-04 | The company page supports the Europe-origin wording in apps.md. |
 | F01 | Current name, product, owner and old names | Former commercial name, acquisition or separate parent company: not established. | not_published | [Source](https://www.creem.io/about); [Source](https://www.creem.io/terms); [Source](https://www.creem.io/) | 2026-11-04 | Checked company, product and current legal pages. A corporate history was not inferred from the operator's name. |
 | F02 | Provider type and legal seller | Creem is the contractual reseller and legal seller to the buyer; merchant supplies and supports the product. | confirmed | [Source](https://www.creem.io/buyer-terms); [Source](https://docs.creem.io/merchant-of-record/what-is) | 2026-11-04 | The buyer contract and MoR guide distinguish resale/payment handling from product delivery. |
 | F03 | Seller signup countries | Listed seller/payout countries, normalized to ISO codes: AL AD AR AU AT AZ BD BE BA BR BG CA KY CL CN CO CR HR CY CZ DK DO EG EE FI FR GE DE GI GR GT HN HK HU IS IN ID IE IL IT JP KE LV LI LT LU MY MT MX MD MC ME MA NP NL NZ NG MK NO PK PE PH PL PT RO SM RS SG SK SI ZA KR ES LK SE CH TW TZ TH TR UA AE GB US UY VN ZM. | confirmed | [Source](https://docs.creem.io/merchant-of-record/supported-countries) | 2026-11-04 | Listed seller locations, separate from buyer coverage. |
@@ -153,7 +153,7 @@ Scope: standard pay-as-you-go and publicly described Partner/Enterprise pricing,
 | F38 | Support access | Partner plan advertises weekly concierge meetings and personal phone support. | confirmed | [Source](https://www.creem.io/pricing) | 2026-11-04 | Sales-assisted plan benefit; no standard-plan phone entitlement inferred. |
 | F38 | Support access | Exact staffed hours/time zone, support-language list and numeric guaranteed response time: not published. | not_published | [Source](https://www.creem.io/contact); [Source](https://www.creem.io/pricing); [Source](https://www.creem.io/terms) | 2026-11-04 | Checkout's 42 UI languages do not establish multilingual human support. |
 | F38 | Support access | Sellers must answer buyers within three business days and provide direct cancellation. | confirmed | [Source](https://docs.creem.io/merchant-of-record/account-reviews/account-reviews) | 2026-11-04 | Creem may refund unresponsive sellers' buyers. |
-| F39 | Operating status and recent changes | Active offer; official status page reported production site/API and test API online on the checked date. | confirmed | [Source](https://status.creem.io/); [Source](https://www.creem.io/) | 2026-11-04 | Point-in-time check on November 4, 2026; historical incidents are not a guaranteed uptime percentage. |
+| F39 | Operating status and recent changes | Active offer; status page reported services online at its latest update on 8 November 2026. | confirmed | [Source](https://status.creem.io/); [Source](https://www.creem.io/) | 2026-11-09 | The status history records an Apple Pay checkout issue on 13–14 October, restored within about 12 hours; no customer was charged for failed attempts. This short restored outage is not a finding. |
 | F39 | Operating status and recent changes | Moderation billing/required production integration dates from May 1, 2026 for the scoped AI generation flow. | confirmed | [Source](https://docs.creem.io/features/moderation); [Source](https://docs.creem.io/merchant-of-record/account-reviews/ai-wrapper-compliance) | 2026-11-04 | The current pages preserve the experimental-period cutoff. |
 | F39 | Operating status and recent changes | October 30, 2026 official recovery article describes current automatic retries and seller-owned dunning emails. | confirmed | [Source](https://www.creem.io/blog/involuntary-churn) | 2026-11-04 | This supports current operation while documenting integration responsibility. |
 | F40 | Closing an account | Closure permitted after outstanding transactions, checks and payments; final payouts retain holds/deductions. | confirmed | [Source](https://www.creem.io/terms) | 2026-11-04 | Terms §20. |
@@ -187,6 +187,7 @@ Scope: standard pay-as-you-go and publicly described Partner/Enterprise pricing,
 | C05 | Hosting and maintenance | USDC payout is configured in Creem's hosted dashboard. | confirmed | [Source](https://docs.creem.io/merchant-of-record/finance/payout-accounts) | 2026-11-04 | Provide a compatible wallet; no self-hosted gateway in this flow. |
 | C05 | Hosting and maintenance | Wallet custody/hosting choices and infrastructure cost beyond the published payout fee: not specified. | not_published | [Source](https://docs.creem.io/merchant-of-record/finance/payout-accounts); [Source](https://docs.creem.io/merchant-of-record/finance/payouts) | 2026-11-04 | No wallet hardware, server requirement or gas estimate was invented. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, shutdown, rebrand, major paid-feature retirement, data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://www.creem.io/blog; https://creem.featurebase.app/changelog; https://status.creem.io/; https://www.creem.io/terms; https://www.creem.io/privacy | 2026-11-09 | Checked the official blog, changelog, status history and legal pages. The brief Apple Pay issue is recorded in the active-status row above. |
 ## Cost examples: our calculation
 
 Calculated on 2026-11-04. These are illustrative USD scenarios, not account-specific quotes. No EUR fixed fee is inferred from the USD fee. Inputs exclude buyer tax unless explicitly shown, fee taxes, issuer FX, unpriced partner FX and receiving-bank charges.
@@ -289,12 +290,12 @@ Attempted all **50 field IDs**: 40 required core fields, five optional fields, a
 
 | State | Fact rows |
 | --- | ---: |
-| confirmed | 129 |
+| confirmed | 130 |
 | not_published | 33 |
 | unclear | 3 |
 | conflicting | 2 |
 | not_applicable | 1 |
 | check_failed | 2 |
-| Total | 170 |
+| Total | 171 |
 
-Unique source URLs: 61. Counted once per exact URL across facts, cost examples and research notes, including expressly failed source attempts. Repeated links do not increase this count.
+Unique source URLs: 63. Counted once per exact URL across facts, cost examples and research notes, including expressly failed source attempts. Repeated links do not increase this count.

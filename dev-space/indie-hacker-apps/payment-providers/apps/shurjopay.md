@@ -110,6 +110,7 @@ Each state applies to the scoped value in its row. Unknown rows name the officia
 | F38 | Support access | Staffed support languages, guaranteed escalation/reply times and support-tier pricing: not published. | not_published | https://shurjopay.com.bd/frontend-contact-page; https://shurjopay.com.bd/terms-and-conditions; https://admin.shurjopayment.com/merchant-registration; https://shurjopay.com.bd/frontend-developers/faq | 2026-11-05 | Read contact, grievance, merchant and developer help pages. No contractual response targets or language coverage list was found. |
 | F39 | Operating status and recent changes | Active public gateway; status page reports all eight services operational on check date. | confirmed | https://shurjopay.com.bd/systemStatus; https://shurjopay.com.bd/ | 2026-11-05 | This is the provider's published status, not an independent transaction test. |
 | F39 | Operating status and recent changes | 18-Sep-2026 payment delay restored; 4-Sep IPN retry update and 21-Aug reporting restoration recorded. | confirmed | https://shurjopay.com.bd/systemStatus | 2026-11-05 | These are resolved operational notices, not a shutdown; no current sunset/acquisition notice was found in company/news searches. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale, shutdown, rebrand, market exit, major paid-feature retirement, customer-data breach, licence loss or bankruptcy found. | confirmed | https://www.shurjopay.com.bd/; https://www.shurjopay.com.bd/blog-page; https://www.shurjopay.com.bd/systemStatus; https://www.shurjopay.com.bd/certificate-page | 2026-11-09 | Checked the company site, official blog, live status/history and licence page; searched company/regulator sources for sale, shutdown, rebrand and adverse licence news. The September 2026 payment delay and other status entries were restored routine service notices, not a shutdown or security incident. |
 | F40 | Closing an account | Public contract template: initial [3] years, automatic [1]-year renewal and 90 days' written notice. | confirmed | https://admin.shurjopayment.com/merchant-registration | 2026-11-05 | Agreement §12 retains bracketed periods and a staged resolution process. The signed enrollment/agreement must confirm final commercial terms. |
 | F40 | Closing an account | Immediate termination grounds include six months without transactions, insolvency, breach, fraud or unacceptable chargebacks. | confirmed | https://admin.shurjopayment.com/merchant-registration | 2026-11-05 | Agreement §12.3 describes inactivity termination, not a published inactivity fee. |
 | F40 | Closing an account | Pending settlements may be withheld as necessary for refunds/disputes/chargebacks; prior obligations survive termination. | confirmed | https://admin.shurjopayment.com/merchant-registration | 2026-11-05 | Agreement §12.4 supplies no fixed final-release deadline. |
@@ -177,13 +178,13 @@ No apps.md row error was established. Bangladesh gateway scope, merchant activat
 ## Counts
 
 - Distinct field IDs attempted: 50; all 40 required and five optional fields attempted, and five conditional crypto fields assessed.
-- Facts-table rows: 110; cost calculations and discussion bullets excluded.
-- confirmed: 62
+- Facts-table rows: 111.
+- confirmed: 63
 - not_published: 36
 - unclear: 3
 - conflicting: 3
 - not_applicable: 5
 - check_failed: 1
-- Unique exact source URLs in the facts table: 19.
-- Unique official source links in this file: 20; repeated exact URLs counted once. This includes attempted official URLs whose access failed.
+- Unique exact source URLs in the facts table: 23.
+- Unique exact source URLs across the whole file: 24. Repeated URLs count once.
 

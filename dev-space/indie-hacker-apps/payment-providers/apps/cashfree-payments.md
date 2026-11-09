@@ -140,6 +140,7 @@ The domestic offer waives platform fees within a cumulative ₹20 lakh allowance
 | C04 | Crypto payment completion and refunds | Not applicable to the fiat payment aggregation offer researched. | not_applicable | https://www.cashfree.com/docs/payments/overview; https://www.cashfree.com/tnc | 2026-11-05 | This record does not cover a crypto checkout or wallet. No asset/network, crypto custody, conversion, confirmation or self-hosting rule is inferred. |
 | C05 | Hosting and maintenance | Not applicable to the fiat payment aggregation offer researched. | not_applicable | https://www.cashfree.com/docs/payments/overview; https://www.cashfree.com/tnc | 2026-11-05 | This record does not cover a crypto checkout or wallet. No asset/network, crypto custody, conversion, confirmation or self-hosting rule is inferred. |
 
+| F39 | Operating status and recent changes | RBI imposed a ₹3.10 lakh monetary penalty on Cashfree Payments India Private Limited by order dated 9 March 2026, announced 16 March 2026. | confirmed | https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62386 | 2026-11-09 | RBI said an impermissible debit from an escrow account was sustained after its statutory inspection. The order concerns regulatory compliance, not the validity of merchant transactions. |
 ## Cost examples — our calculation
 
 Inputs checked 2026-11-05. Domestic examples use the FAQ's 1.95% tariff and assume 18% GST on the service fee; the offer states 18% or the prevailing rate. They exclude any separately applicable instrument, bank, reserve, dispute or premium-service costs. Product sales taxes and later input-tax credits are not modelled. The public platform/TDR ambiguity remains relevant. Sources: https://www.cashfree.com/docs/help/account/pricing; https://www.cashfree.com/payment-gateway-charges/; https://www.cashfree.com/tnc.
@@ -200,13 +201,12 @@ Additional sources: https://www.cashfree.com/docs/payments/subscription/faq; htt
 
 - Field IDs attempted: 50 (40 core, 5 optional, 5 crypto applicability checks).
 - Non-crypto field IDs covered: 45.
-- Fact rows: 120. State counts below count rows, not distinct field IDs.
-- confirmed: 78
+- Fact rows: 121. State counts below count rows, not distinct field IDs.
+- confirmed: 79
 - not_published: 18
 - unclear: 7
 - conflicting: 11
 - not_applicable: 5
 - check_failed: 1
-- Unique official source URLs linked: 41, counting repeated uses of one exact URL once, including the labelled status check failure.
+- Unique official source URLs linked: 42, counting repeated uses of one exact URL once, including the labelled status check failure.
 - Research duration: 20.88 minutes, from the UTC start/finish, rounded to two decimal places.
-

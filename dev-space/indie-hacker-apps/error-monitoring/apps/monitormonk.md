@@ -5,7 +5,7 @@ Pricing: the homepage's Pricing section. No separate public documentation was lo
 
 **Shutdown, sunset and acquisition check:** No product shutdown, sunset, acquisition, rename or successor notice found in checked official product, terms, privacy, SLA, provider and contact pages or targeted searches. The site advertises an ongoing Free offer and two paid tiers. **Terms caution that paid plans may not always be available**, so displayed rates are advertised offers, not tested purchases. No public changelog or release-history page was located. Sources checked **2026-11-05**: https://monitormonk.com/ ; https://monitormonk.com/policies/terms-of-service ; https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/policies/sla .
 
-**Operator-name mismatch:** Privacy names **Dávid Zoltán EV, Hungary** as responsible entity, while the contact page says **MonitorMonk Ltd.** No registration details or transfer announcement reconciles them. This is an unresolved legal-identity inconsistency, not evidence of an acquisition or shutdown. Sources checked **2026-11-05**: https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/contact .
+**Operator-name mismatch:** Privacy identifies a sole trader in Hungary as the responsible entity, while the contact page says **MonitorMonk Ltd.** No registration details or transfer announcement reconciles them. This is an unresolved legal-identity inconsistency, not evidence of an acquisition or shutdown. Sources checked **2026-11-05**: https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/contact .
 
 **Free-plan survival condition:** Accounts with **no login and no active dashboards for 90 days** may be deleted under the terms; privacy states such accounts are deleted. This does not mean every Free account has a 90-day lifespan. Sources: https://monitormonk.com/policies/terms-of-service ; https://monitormonk.com/policies/privacy-policy .
 
@@ -34,7 +34,8 @@ No account, login, signup/contact form, payment, dashboard, probe, alert, API ca
 | C01 | Product identity | MonitorMonk; official product site https://monitormonk.com/ and hosted app at app.monitormonk.com. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | confirmed | https://monitormonk.com/ ; https://monitormonk.com/policies/terms-of-service | 2026-11-05 | Not shown ; 2025-10-15 | Terms define the Service as uptime monitoring and public dashboards/status pages. No former name or renamed successor was established. |
 | C02 | Jobs covered | HTTP/HTTPS uptime, HTTP status, response times, keyword checks, SSL expiry and shareable public dashboards/status pages. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | confirmed | https://monitormonk.com/ ; https://monitormonk.com/policies/sla ; https://monitormonk.com/policies/terms-of-service | 2026-11-05 | Not shown ; 2025-10-15 ; 2025-10-15 | External detection plus public communication. The vendor's Sentry/Smartlook tools are its own support infrastructure, not customer error-report or replay products. |
 | C03 | Availability / product changes | Free and two paid tiers publicly advertised; no shutdown, sunset, acquisition or successor notice found in checked official pages or targeted searches. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | confirmed | https://monitormonk.com/ ; https://monitormonk.com/policies/terms-of-service ; https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/policies/sla | 2026-11-05 | Not shown ; 2025-10-15 ; 2025-09-24 ; 2025-10-15 | Terms caution paid plans may not always be available. A signup link and displayed price are evidence of an advertised offer, not a tested working purchase. |
-| C03 | Operator identity mismatch | Privacy names Dávid Zoltán EV, Hungary; contact page labels the business MonitorMonk Ltd. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | conflicting | https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/contact | 2026-11-05 | 2025-09-24 ; Not shown | No registration number, company address or transfer announcement was found to reconcile the two names. Do not silently invent an incorporated company or acquisition. |
+| C03 | Operator identity mismatch | Privacy identifies a sole trader in Hungary; contact page labels the business MonitorMonk Ltd. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | conflicting | https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/contact | 2026-11-05 | 2025-09-24 ; Not shown | No registration number, company address or transfer announcement was found to reconcile the two names. Do not silently invent an incorporated company or acquisition. |
+| C03 | News check | News check 2026-11-09: no qualifying news found in the sources checked. | dated lifecycle review | Current | Current product and open-source edition where applicable | Current advertised deployment | Lifecycle / ownership / license | confirmed | https://monitormonk.com/ ; https://monitormonk.com/policies/terms-of-service ; https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/policies/sla | 2026-11-09 | not shown ; 2025-10-15 ; 2025-09-24 ; 2025-10-15 | Checked the live product/pricing page, terms, privacy policy, SLA and targeted sale, shutdown, sunset and rebrand searches. The public offer remains displayed. No dedicated official blog, changelog or status page surfaced. Signup and service operation were not tested; no qualifying lifecycle or ownership event was found. |
 | C04 | Home country | Hungary according to privacy's responsible entity; terms select Hungarian law. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | confirmed | https://monitormonk.com/policies/privacy-policy ; https://monitormonk.com/policies/terms-of-service | 2026-11-05 | 2025-09-24 ; 2025-10-15 | The operator-name inconsistency remains visible separately. Hosting provider geography and invoice currency do not establish a different home country. |
 | C04 | Eligible buyers | Valid, non-disposable email and lawful use required. Complete buyer-country list, age rule and specific commercial Free-plan permission are not published in checked terms/pricing. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | not_published | https://monitormonk.com/policies/terms-of-service ; https://monitormonk.com/ | 2026-11-05 | 2025-10-15 ; Not shown | Marketing addresses agencies and businesses; this is not an explicit free-commercial-use clause or a guarantee every country can subscribe. |
 | C05 | Hosted / self-hosted | Hosted application and monitoring agents run on Linode; static delivery uses Cloudflare. | Text | All advertised plans | Hosted | Vendor-hosted | Website uptime / status | confirmed | https://monitormonk.com/policies/third-party-services ; https://monitormonk.com/ | 2026-11-05 | 2025-09-24 ; Not shown | These are the vendor's infrastructure. No complete self-hosted distribution, deployment guide or customer-operated probe installation is offered in the checked pages. |
@@ -136,7 +137,7 @@ No scheduled-job, error-report, general-log, full-browser, trace or self-host co
 
 ## Conflicts and unknowns
 
-- **Identity:** privacy names Dávid Zoltán EV in Hungary; contact says MonitorMonk Ltd. Terms do not give registration details resolving the mismatch. Both pages were read; no acquisition or operator-transfer notice was found. Keep Hungary as the published country and the legal-name inconsistency visible.
+- **Identity:** privacy identifies a sole trader in Hungary; contact says MonitorMonk Ltd. Terms do not give registration details resolving the mismatch. Both pages were read; no acquisition or operator-transfer notice was found. Keep Hungary as the published country and the legal-name inconsistency visible.
 - **Paid availability and SLA:** homepage advertises Small/Large; terms warn paid plans may not always be available. Small promises an SLA, and the policy says Premium 99.9%, but its credit table is headed **Premium Large**. No Small or Free credit schedule is supplied. The terms give the SLA priority for availability/remedy conflicts. Credits are future-invoice relief, not guaranteed refunds or proof of actual measured uptime. Sources: https://monitormonk.com/ ; https://monitormonk.com/policies/terms-of-service ; https://monitormonk.com/policies/sla .
 - **SLA limitations:** 99% Free/99.9% Premium commitments concern MonitorMonk's monitoring, dashboard and page services, not your target's uptime. Large credits cap at 50%; claims require evidence within 30 days, reviewed within ten business days. Planned work with 24h notice, emergency work, third-party causes and configuration/integration failures are excluded. The page does not provide a detailed uptime-denominator or measurement method despite terms referencing SLA definitions.
 - **Billing/limits:** reviewed homepage pricing, complete terms, SLA and provider list. Annual rates, tax-inclusive amounts, exhausted-cap behavior, auto-upgrades, prorating, extra-site pricing, spending caps and usage warnings are not specified. Website and dashboard maxima are not proof that exceeding them is always technically blocked or never billed.
@@ -160,20 +161,19 @@ No scheduled-job, error-report, general-log, full-browser, trace or self-host co
 ## Counts
 
 Distinct fields attempted: **35**.  
-Facts-table rows: **62**.
+Facts-table rows: **63**.
 
 | State | Rows |
 | --- | --- |
-| confirmed | 36 |
+| confirmed | 37 |
 | not_published | 19 |
 | unclear | 2 |
 | conflicting | 1 |
 | not_applicable | 3 |
 | check_failed | 1 |
-| **Total** | **62** |
+| **Total** | **63** |
 
 Distinct exact source URLs cited in the facts table: **10**:
 **6 substantive product/legal/contact pages**, **2 broken policy aliases returning homepage content**, and **2 app-shell documentation checks**. Repeated URLs are counted once. Guessed marketing docs/help/blog/changelog/pricing/robots/sitemap fallbacks are disclosed above but not counted as additional evidence sources. No extra source links were added to reach another app's count.
 
 Minutes measure the recorded UTC research interval; saving and structural review followed. No other app was started.
-

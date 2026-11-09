@@ -89,6 +89,7 @@ No signup, login, demo login, form/support submission, provider account, install
 | H02 | Operating cost | AGPL license component zero. Exact compute/MongoDB disk/backups/network/domain/TLS/SMTP/geo/provider total unknown without selected services and workload measurements. | — | Self-hosted, no paid tiers | Checkmate v3.13.1 | Self-hosted | Uptime / server health | not_published | https://raw.githubusercontent.com/bluewave-labs/Checkmate/v3.13.1/LICENSE ; https://checkmate.so/docs/getting-started/server-requirements ; https://checkmate.so/docs/getting-started/installation ; https://checkmate.so/docs/notifications/email-notifications ; https://checkmate.so/docs/uptime-monitoring/distributed-monitoring | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown ; Not shown | One-click third-party hosts are leads, not a chosen quote. Labor excluded; optional Capture/workers add operator infrastructure. |
 | H03 | Upgrades/security and backup | Current migration path replaces old images/client variables, keeps existing MongoDB data volume and backs up data directory first. Security reports use private GitHub advisories; releases publish changes. | — | Self-hosted, no paid tiers | Checkmate v3.13.1 | Self-hosted | Uptime / server health | confirmed | https://checkmate.so/docs/getting-started/installation ; https://raw.githubusercontent.com/bluewave-labs/Checkmate/v3.13.1/README.md ; https://raw.githubusercontent.com/bluewave-labs/Checkmate/v3.13.1/SECURITY.md ; https://api.github.com/repos/bluewave-labs/Checkmate/releases/latest ; https://raw.githubusercontent.com/bluewave-labs/Checkmate/v3.13.1/docker/docker-compose.yaml | 2026-11-05 | Not shown ; Not shown ; Not shown ; 2026-10-22 (release publication) ; Not shown | No complete official restore drill, numeric security-patch SLA or supported-release lifetime matrix found. Do not infer current Helm support from a legacy chart link. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | Checkmate v3.13.1 | Self-hosted | Product/project | confirmed | https://checkmate.so/changelog; https://github.com/bluewave-labs/Checkmate/releases; https://github.com/bluewave-labs/Checkmate | 2026-11-09 | 2026-10-22; 2026-10-22; Not stated | Checked official project changelog, GitHub releases/repository and quick news searches. Latest release is v3.13.1, published 2026-10-22. Routine security fixes are not evidence of a customer-data breach. The project is self-hosted, so no vendor-operated service status page applies. No qualifying event found. |
 ## Cost examples
 
 All examples are **our calculation, estimated**, not quotes. A zero software-license component is not a complete recurring bill. Checkmate has no vendor invoice currency, monthly tier or annual discount. No host, backup store, registrar, SMTP sender or other provider was selected, so no supplier currency, exchange conversion or tax rate is invented. Labor is excluded.
@@ -210,17 +211,16 @@ Sources checked 2026-11-05: https://checkmate.so/docs/pagespeed/creating-pagespe
 ## Counts
 
 - Distinct field IDs attempted: **43**.
-- Facts-table rows: **57**.
-- Unique exact source URLs in the facts table: **43**.
+- Facts-table rows: **58**.
+- Unique exact source URLs in the facts table: **46**.
 - State counts are per facts-table row; repeated URLs count once.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 36 |
+| confirmed | 37 |
 | not_published | 10 |
 | unclear | 3 |
 | conflicting | 3 |
 | not_applicable | 5 |
 | check_failed | 0 |
 | **Total** | **57** |
-

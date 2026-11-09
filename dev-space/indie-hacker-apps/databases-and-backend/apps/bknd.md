@@ -16,10 +16,11 @@ Minutes taken: 8.95
 | --- | --- | --- | --- | --- | --- | --- |
 | C01 | Identity and official URL | bknd, published by the bknd-io GitHub organization. bknd.io redirects to the official repository. | confirmed | https://bknd.io/ ; https://github.com/bknd-io/bknd | 2026-11-04 | Repository identity and observed redirect. The product name remains bknd; no former name established. |
 | C02 | Primary type and other roles | Researcher classification: embedded or standalone backend software; SQL data, auth, media, workflows and admin UI. | confirmed | https://docs.bknd.io/start/ | 2026-11-04 | Introduction. Runs inside an SSR app or as a separate service; not a managed database subscription. |
-| C03 | Hosting and software license | Self-hosted/embedded open-source software under Apache-2.0. License names Dennis Senn, copyright 2026. | confirmed | https://raw.githubusercontent.com/bknd-io/bknd/main/LICENSE.md | 2026-11-04 | License header and appendix. The software grant does not supply compute, database or file storage. |
+| C03 | Hosting and software license | Self-hosted/embedded open-source software under Apache-2.0. License names the project maintainer, copyright 2026. | confirmed | https://raw.githubusercontent.com/bknd-io/bknd/main/LICENSE.md | 2026-11-04 | License header and appendix. The software grant does not supply compute, database or file storage. |
 | C03 | Commercial and redistribution scope | No-charge copyright/patent grants; redistribution requires license/notices and marking changed files. No general trademark grant. | confirmed | https://raw.githubusercontent.com/bknd-io/bknd/main/LICENSE.md | 2026-11-04 | Sections 2-6. Commercial use is not excluded; this describes the software license, not legal advice about a deployment. |
 | C04 | Lifecycle and production stage | Beta; documentation explicitly does not recommend production use yet. Backward compatibility not guaranteed before v1.0. | confirmed | https://docs.bknd.io/start/ ; https://github.com/bknd-io/bknd | 2026-11-04 | Introduction / README warning. apps.md active needs this qualification. |
-| C04 | Current maintenance and release | Releases page labels v0.21.0 latest. Its maintenance update says the project is now community-run; dswbx steps back, shishantbiswas and jonaspm take charge. | confirmed | https://github.com/bknd-io/bknd/releases | 2026-11-04 | v0.21.0, Project Maintenance Update. This is a maintenance handover, not a shutdown notice. |
+| C04 | Current maintenance and release | Releases page labels v0.21.0 latest. Its maintenance update says the project is now community-run: the founding maintainer stepped back and community maintainers took over. | confirmed | https://github.com/bknd-io/bknd/releases | 2026-11-09 | v0.21.0, Project Maintenance Update. The founding creator later joined Supabase, but the BKND project remains open source; this is a maintenance handover, not a product sale or shutdown. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for bknd. | confirmed | https://github.com/bknd-io/bknd/releases ; https://docs.bknd.io/start/ ; https://supabase.com/blog/bknd-joins-supabase | 2026-11-09 | Checked releases, current getting-started docs, and Supabase's announcement that the project's founding creator joined its team while bknd remains open source. No separate status page was found. |
 | C05 | Vendor home and markets | Legal operating entity, headquarters, country and supported-market list not established. | not_published | https://github.com/bknd-io/bknd ; https://raw.githubusercontent.com/bknd-io/bknd/main/LICENSE.md ; https://docs.bknd.io/start/ | 2026-11-04 | Checked official identity, copyright and introduction. A maintainer's name is not a company domicile. |
 | C06 | Signup and card requirements | Documented local quickstart runs the CLI and creates a local SQLite file; it contains no bknd registration or payment step. | confirmed | https://docs.bknd.io/start/ ; https://docs.bknd.io/usage/cli/ | 2026-11-04 | Quickstart / Starting an instance. Third-party database, storage, OAuth and deployment accounts are separate. |
 | C06 | Country and account restrictions | No vendor-managed signup eligibility applies to the researched local software edition. License grant is worldwide; host/provider eligibility needs separate checks. | not_applicable | https://raw.githubusercontent.com/bknd-io/bknd/main/LICENSE.md | 2026-11-04 | No region-limited SaaS account is being priced. Do not extend this to unrestricted availability of every deployment provider. |
@@ -136,13 +137,13 @@ Inputs and boundaries: [database adapters](https://docs.bknd.io/usage/database/)
 
 ## Counts
 
-46 field IDs attempted; 80 evidence rows. Counts are rows.
+46 field IDs attempted; 81 evidence rows. Counts are rows.
 
-- confirmed: 42
+- confirmed: 43
 - not_published: 19
 - unclear: 1
 - conflicting: 2
 - not_applicable: 13
 - check_failed: 3
 
-Unique exact source links in the facts table: 32. Repeated URLs count once; attempted pricing/terms/privacy URLs are included. Calculation and unknown-search sections reuse these sources.
+Unique exact source links in the facts table: 33. Repeated URLs count once; attempted pricing/terms/privacy URLs are included. Calculation and unknown-search sections reuse these sources.

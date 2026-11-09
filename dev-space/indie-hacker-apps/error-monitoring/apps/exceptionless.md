@@ -106,6 +106,7 @@ Every row has its own exact source URL(s), checked date and note. Checked dates 
 | H03 | Upgrade guidance | Back up before upgrades; version-specific migrations; old UI image deprecated; Elasticsearch major upgrades require staged compatibility/migration steps | procedure; version | Operator-managed | Open-source server | Self-hosted | Upkeep | confirmed | https://exceptionless.com/docs/self-hosting/upgrading-self-hosted-instance/; https://github.com/exceptionless/Exceptionless/blob/v8.10.0/README.md; https://github.com/exceptionless/Exceptionless/releases/tag/v8.10.0 | 2026-11-04 | For v7.1 to v8, docs describe an Elasticsearch 7 transition image before the Elasticsearch 8 image. Current release notes should be checked for the installed revision. Pulling latest is not a substitute for selecting and reviewing an upgrade path. |
 | H03 | Backup/restore and support boundaries | Simple Docker setup has no backups; source includes retention/soft-delete and snapshot controls; complete current restore-test runbook and supported-security-branch table not established | recovery; support unknown | Operator-managed | Open-source server | Self-hosted | Upkeep | not_published | https://exceptionless.com/docs/self-hosting/docker/; https://exceptionless.com/docs/self-hosting/upgrading-self-hosted-instance/; https://github.com/exceptionless/Exceptionless/blob/main/src/Exceptionless.Core/Jobs/CleanupDataJob.cs; https://github.com/exceptionless/Exceptionless/blob/main/src/Exceptionless.Core/Configuration/ElasticsearchOptions.cs; https://github.com/exceptionless/Exceptionless/blob/v8.10.0/README.md | 2026-11-04 | Upgrade docs explicitly require backups. Current Elasticsearch options condition snapshot jobs on configuration/production state, which is not proof of a configured repository, usable offsite backup or successful restore. No deployed database or backup was accessed. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | Hosted and self-hosted | Hosted; self-hosted | Product/company | confirmed | https://github.com/exceptionless/Exceptionless/releases; https://api.github.com/repos/exceptionless/Exceptionless/releases/latest; https://exceptionless.com/about/; https://exceptionless.com/blog/ | 2026-11-09 | Checked the official About page and GitHub releases/repository, attempted the official blog path (it did not load), and ran quick news searches. Latest self-hosted release is v8.10.0, published 2026-09-29, within 18 months. No public service-status page was located. No qualifying event found. |
 ## Cost examples
 
 All results are **our calculation, estimated**, not vendor quotes. The currency symbol remains **$ as published**. A currency code was not established from pricing, terms, pricing HTML or the reviewed billing source, so these values must not silently be converted or compared as verified USD.
@@ -211,11 +212,11 @@ Evidence, checked 2026-11-04: https://github.com/exceptionless/Exceptionless/blo
 ## Counts
 
 Fields attempted: 37 distinct IDs: C01–C27, E01–E04, L01–L03 and H01–H03.
-Facts-table evidence rows: 81. Cost-example rows are not counted again.
+Facts-table evidence rows: 82. Cost-example rows are not counted again.
 
 | State | Evidence rows | Distinct fields, conservative summary |
 | --- | ---: | ---: |
-| confirmed | 60 | 19 |
+| confirmed | 61 | 19 |
 | not_published | 15 | 14 |
 | unclear | 2 | 1 |
 | conflicting | 4 | 3 |
@@ -224,5 +225,4 @@ Facts-table evidence rows: 81. Cost-example rows are not counted again.
 
 For split fields, the distinct-field summary uses this order: conflicting, check_failed, unclear, not_published, confirmed, not_applicable. Evidence-row counts preserve each confirmed part even if another part of its field remains unresolved.
 
-Unique exact source URLs in facts-table source cells: 58. Repeated URLs count once. All supplied readable official content or source/schema evidence. Every facts row has its own URL(s), checked date and note. Recovered reader/guessed-path failures are not unresolved check_failed fields.
-
+Unique exact source URLs in facts-table source cells: 60. Repeated URLs count once. All supplied readable official content or source/schema evidence. Every facts row has its own URL(s), checked date and note. Recovered reader/guessed-path failures are not unresolved check_failed fields.

@@ -113,6 +113,7 @@ Official public sources checked **2026-11-05**. Prices in USD, before applicable
 | 35 | Software license and commercial terms | Hosted service governed by xhostd terms and Israeli law; no customer server-software licence applies to this managed offer. | not_applicable | [Source](https://docs.xhostd.com/terms); [Source](https://xhostd.com/product) | 2026-11-05 | No open-source licence inferred from use of Docker/Postgres/git or public API docs. Customer content remains theirs under privacy terms. |
 | 36 | Self-host requirements and ongoing work | Self-host installation/hardware/controller maintenance requirements do not apply; provider runs hosting infrastructure. | not_applicable | [Source](https://xhostd.com/product); [Source](https://xhostd.com/pricing) | 2026-11-05 | Builder still owns app dependencies, authorization, migrations and an independent data copy. Docker export supports leaving, not a documented self-host edition of xhostd. |
 | 37 | Evidence and freshness | All facts checked on official public sources 2026-11-05; terms dated 2026-10-28, privacy 2026-10-30; costs explicitly our calculation. | confirmed | [Source](https://xhostd.com/pricing); [Source](https://docs.xhostd.com/terms); [Source](https://docs.xhostd.com/privacy); [Source](https://api.xhostd.com/plans) | 2026-11-05 | Current directly fetched policies preferred to stale search copies. Public /plans is documented unauthenticated, static and database-free; no account data endpoint or signup used. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, shutdown, rebrand, or qualifying security incident found. | confirmed | https://xhostd.com/; https://xhostd.com/blog; https://xhostd.com/faq; https://docs.xhostd.com/ | 2026-11-09 | Checked the live product, blog, FAQ and linked documentation, and searched the official domain. The blog says its first article is forthcoming; no separate newsroom or public status page surfaced. |
 
 ## Cost examples: our calculation
 
@@ -191,11 +192,11 @@ Proposed research freshness limit: **30 days, through 2026-12-05**. Recheck plan
 
 ## Counts
 
-Fields attempted: **37 of 37**. Facts-table rows: **95**. Counts describe rows, because plan differences and scoped unknowns split some fields.
+Fields attempted: **37 of 37**. Facts-table rows: **96**. Counts describe rows, because plan differences and scoped unknowns split some fields.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 72 |
+| confirmed | 73 |
 | not_published | 18 |
 | unclear | 2 |
 | conflicting | 1 |

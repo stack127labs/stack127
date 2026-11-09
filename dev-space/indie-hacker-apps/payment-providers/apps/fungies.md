@@ -136,6 +136,7 @@ Pricing links were followed into help, API and legal pages. Public billing, curr
 | C04 | Crypto payment completion and refunds | Crypto-specific confirmations, expiry, under/overpayment, wrong-network handling and refund-asset/rate/fee rules not published. | not_published | [crypto](https://help.fungies.io/getting-paid/customer-payment-methods/crypto-and-stablecoins.md); [cryptoblog](https://fungies.io/the-best-merchant-of-record-platforms-with-crypto-and-stablecoin-payments-in-2026/); [buyer](https://fungies.io/buyer-terms-of-service/); [refundapi](https://docs.fungies.io/api-reference/orders/refund-order-payment); [webhooks](https://docs.fungies.io/developers/webhooks/overview.md) | 2026-11-04 | General refund rights and a Stripe paid/refund webhook do not specify blockchain finality or a crypto refund procedure. |
 | C05 | Hosting and maintenance | Hosted Fungies checkout with Stripe-integrated crypto acceptance; API/webhooks connect the seller's own app. | confirmed | [payments](https://fungies.io/platform/global-payments/); [crypto](https://help.fungies.io/getting-paid/customer-payment-methods/crypto-and-stablecoins.md); [checkoutdocs](https://docs.fungies.io/developers/checkout-elements/overview.md); [webhooks](https://docs.fungies.io/developers/webhooks/overview.md) | 2026-11-04 | No seller node/hardware deployment guide was identified in the documented offer; the seller is told it need not manage a crypto wallet. No self-hosted licence or hardware cost is invented. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, merger, rebrand, shutdown, major paid-feature retirement, customer-data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://fungies.io/; https://help.fungies.io/other/product-changelog.md; https://fungies.io/terms-conditions/; https://help.fungies.io/legal/seller-terms-of-use; https://status.fungies.io/ | 2026-11-09 | Checked the product site, official changelog and terms, plus an attempted status URL. The current changelog has October 2026 updates; no separate newsroom or readable status page was found in the checked official pages and targeted search. |
 ## Cost examples: our calculations
 
 These are our calculations, not account quotes. The USD examples use the published standard 5% + USD 0.50 illustrated for USD payments. No extra Stripe processing fee is stacked on that advertised inclusive rate. Buyer tax, custom fees, reserves, FX and external payout deductions are excluded unless stated. Successful extra collections remain separate transactions.
@@ -216,15 +217,15 @@ The name, official URL, active status and merchant-of-record classification are 
 - Required core fields attempted: 40.
 - Optional fields attempted: 5.
 - Conditional crypto fields attempted: 5; all apply to the advertised crypto offer.
-- Fact rows: 115.
-- confirmed: 84.
+- Fact rows: 116.
+- confirmed: 85.
 - not_published: 24.
 - unclear: 3.
 - conflicting: 4.
 - not_applicable: 0.
 - check_failed: 0.
-- Unique official evidence URLs in fact rows: 64.
-- Unique official source URLs in this file: 65.
+- Unique official evidence URLs in fact rows: 69.
+- Unique official source URLs in this file: 70.
 - Cost examples: 7; excluded from fact-row and state counts.
 
 Counts are by evidence row, not by field. One field can have confirmed values plus a separate unknown or conflict. not_published records missing detail in the public sources searched, not a zero fee or absence of a capability. Failed initial guessed URLs, an empty Markdown API heading and image-reader failures were followed by working official pages, the canonical API/schema or in-memory image inspection; no field remains check_failed on that basis.

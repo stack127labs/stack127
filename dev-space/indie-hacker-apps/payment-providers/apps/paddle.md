@@ -149,6 +149,8 @@ States apply only to the scoped value in each row. A confirmed feature does not 
 | C03 | Crypto conversion and payout path | Crypto conversion/payout path not applicable. | not_applicable | https://developer.paddle.com/concepts/sell/supported-currencies/; https://www.paddle.com/help/manage/get-paid/can-i-be-paid-in-my-local-currency | 2026-11-04 | Only the fiat balance and payout paths were established; F22/F28 record their costs. |
 | C04 | Crypto payment completion and refunds | Blockchain confirmations and crypto-refund mechanics not applicable. | not_applicable | https://developer.paddle.com/concepts/payment-methods/ | 2026-11-04 | Ordinary payment/refund rules are recorded under F12/F26, without inventing blockchain equivalents. |
 | C05 | Hosting and maintenance | Crypto hosting/maintenance comparison not applicable. | not_applicable | https://developer.paddle.com/ | 2026-11-04 | Paddle Billing is a hosted payment service. No self-hosted crypto processor offer was established. |
+| F39 | Operating status and recent changes | US Federal Trade Commission final order filed 20 June 2025 imposes a USD 5 million monetary judgment and bars Paddle from providing covered services to specified tech-support sellers using outbound telemarketing or device-security/performance pop-ups. | confirmed | https://www.ftc.gov/system/files/ftc_gov/pdf/Paddle-SignedFinalOrder.pdf; https://www.ftc.gov/legal-library/browse/cases-proceedings/paddle | 2026-11-09 | The order is not a ban on Paddle’s whole service or all tech-support merchants. Defendants neither admitted nor denied the complaint allegations. This is a regulatory action with a targeted permanent injunction and monetary judgment.
+| F41 | Legal entity, licence and security scope | FTC final order filed 20 June 2025: USD 5 million monetary judgment and permanent restrictions on serving the order-defined tech-support merchants; no general payments licence revocation. | confirmed | https://www.ftc.gov/system/files/ftc_gov/pdf/Paddle-SignedFinalOrder.pdf; https://www.ftc.gov/legal-library/browse/cases-proceedings/paddle | 2026-11-09 | The order supplies the action and scope. It does not state that Paddle lost a general payment-processing licence; the restrictions are specific to covered tech-support practices.
 
 ## Cost examples — our calculations
 
@@ -206,19 +208,19 @@ No direct row error found. The row's `active` status and merchant-of-record type
 ## Counts
 
 - Distinct field IDs attempted: 50 — 40 required, five optional and five conditional crypto fields assessed.
-- Evidence rows: 131.
-- Unique evidence source URLs: 82, across the facts, calculations and conflict/unknown notes; the official homepage is excluded.
+- Evidence rows: 133.
+- Unique evidence source URLs: 84, across the facts, calculations and conflict/unknown notes; the official homepage is excluded.
 - Each row has its own source URL, checked date and note. Repeated links are not counted as additional unique sources.
 
 | State | Evidence rows |
 | --- | ---: |
-| confirmed | 110 |
+| confirmed | 112 |
 | not_published | 10 |
 | unclear | 1 |
 | conflicting | 4 |
 | not_applicable | 5 |
 | check_failed | 1 |
-| Total | 131 |
+| Total | 133 |
 
 For a single count per field, the following is a conservative coverage flag: conflicting, then check_failed, unclear, not_published, confirmed, not_applicable. This counts a field once when any of its rows has that unresolved state; it does not erase the confirmed components.
 

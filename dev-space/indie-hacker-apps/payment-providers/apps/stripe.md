@@ -269,8 +269,9 @@ States apply to each scoped value, not to all Stripe offers. Unless stated other
 | F37 | Exports and moving providers | After non-breach termination, request payment-method details in writing within 30 days for another PCI-DSS Level 1 processor; transfer is commercially reasonable, subject to security/law/provider restrictions. | confirmed | https://stripe.com/in/legal/ssa-service-terms | 2026-11-04 | Payments Terms 7.2 permit Stripe to delay/refuse unsafe or prohibited transfers. This is a conditional migration route, not unconditional portability after any account closure. |
 | F38 | Support access | Standard support: 24/7 phone, email and chat; public help/docs and developer Discord. Growth, Premium and Enterprise plans add dedicated/priority capabilities. | confirmed | https://stripe.com/gb/support-plans; https://stripe.com/es-us/pricing | 2026-11-04 | The support page explicitly distinguishes standard access from paid specialist support. No standard response-time guarantee is inferred. |
 | F38 | Support access | Exact standard email-support language list and a universal public price for paid support plans were not established. | not_published | https://stripe.com/gb/support-plans; https://stripe.com/es-us/pricing | 2026-11-04 | Checked the support-plan comparison and pricing. Public marketing's language count does not identify every supported language or channel. |
-| F39 | Operating status and recent changes | Active current offer; latest inspected General/Payments/Financial Services Terms modified 28 September 2026; Tax Terms modified 4 November 2026. | confirmed | https://stripe.com/es-us/payments; https://stripe.com/in/legal/ssa; https://stripe.com/in/legal/ssa-service-terms | 2026-11-04 | Current product/pricing/docs and dated terms support active operation. This is not a statement that every country or preview method is generally available. |
+| F39 | Operating status and recent changes | Active current offer; latest inspected General/Payments/Financial Services Terms modified 28 September 2026; Tax Terms modified 4 November 2026. | confirmed | https://stripe.com/es-us/payments; https://stripe.com/in/legal/ssa; https://stripe.com/in/legal/ssa-service-terms | 2026-11-09 | Current product/pricing/docs and dated terms support active operation. This is not a statement that every country or preview method is generally available. |
 | F39 | Operating status and recent changes | Australia rates changed 1 October 2026; international card reduction is announced for 1 April 2027. India remains invite-only; Scale and non-US stablecoin markets have preview limits. | confirmed | https://support.stripe.com/questions/updates-to-card-pricing-in-australia-from-october-2026; https://support.stripe.com/questions/stripe-accounts-are-invite-only-in-india; https://stripe.com/es-us/plans/scale; https://docs.stripe.com/payments/stablecoin-payments | 2026-11-04 | Future Australian pricing is retained as an effective-date note rather than replacing today's rate. |
+| F39 | Operating status and recent changes | FTC regulatory warning dated 2026-03-26: a letter to Stripe, Inc. says inconsistent denial of services based on political or religious views may violate the FTC Act and could lead to investigation/enforcement. | confirmed | https://www.ftc.gov/news-events/news/press-releases/2026/03/ftc-chairman-andrew-n-ferguson-issues-warning-letters-ceos-paypal-stripe-visa-mastercard-about-debanking-american-consumers; https://www.ftc.gov/system/files/ftc_gov/pdf/stripe-debanking-letter.pdf | 2026-11-09 | This was a warning letter, not a penalty or adjudicated finding of violation. It concerns Stripe’s US services and potential debanking conduct; no payment-product shutdown was announced. |
 | F40 | Closing an account | Account owner can close the account in Dashboard after addressing balances. Closure is irreversible; negative balances prevent closure; refund, payout and dispute actions are unavailable after closure. | confirmed | https://support.stripe.com/questions/close-a-stripe-account | 2026-11-04 | Keep the account open until remaining payments/disputes are resolved and export needed data first. Closing one account does not close other Stripe accounts or third-party subscriptions. |
 | F40 | Closing an account | Standard pricing says no account-closing fee; termination does not erase outstanding fees, dispute liabilities or other surviving obligations. | confirmed | https://stripe.com/es-us/pricing; https://stripe.com/in/legal/ssa; https://stripe.com/in/legal/ssa-service-terms | 2026-11-04 | A zero closing fee is different from a waiver of amounts already owed or a refund of optional subscription commitments. |
 | F40 | Closing an account | Personal data can be retained after account closure for legal/regulatory, fraud, accounting/tax and payment-partner obligations; erasure rights have exceptions. | confirmed | https://stripe.com/in/privacy; https://stripe.com/in/legal/ssa | 2026-11-04 | The current privacy policy is dated 28 April 2026; the announced 20 November 2026 update is future. General Terms do not guarantee ongoing data access after termination. |
@@ -352,12 +353,13 @@ The Stripe row is active and describes a gateway with online processing, hosted 
 ## Counts
 
 - Fields attempted: 50 of 50.
-- Fact rows: 276.
-- confirmed: 257.
-- not_published: 13.
-- unclear: 3.
-- conflicting: 2.
-- not_applicable: 0.
-- check_failed: 1.
-- Unique official source URLs in the file: 111 (110 cited in fact rows, plus the official product URL at the top).
+- Fact rows: 277.
+- confirmed: 258
+- not_published: 13
+- unclear: 3
+- conflicting: 2
+- not_applicable: 0
+- check_failed: 1
+- Unique exact source URLs in the facts table: 112.
+- Unique exact source URLs across the whole file: 113. Repeated URLs count once.
 - Source count is distinct URLs, not repeated links or the number of facts supported by a page.

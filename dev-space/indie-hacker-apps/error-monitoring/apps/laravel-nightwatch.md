@@ -30,6 +30,7 @@ Only the six requested states are used. Installation, ingestion, quota enforceme
 | C02 | Jobs covered | Laravel backend exceptions, performance traces, structured logs, queue-job and scheduled-task execution. | capabilities | All | SaaS | Hosted | Errors; logs; performance; tasks | confirmed | https://nightwatch.laravel.com/docs/events.md | 2026-11-04 | not shown | Events link to execution contexts. No external uptime probe, synthetic browser journey or customer status-page product is established. |
 | C02 | Scheduler scope | Observes Laravel scheduler execution, schedule/next-run metadata and timings; missed-run detection is not established. | capability boundary | All | SaaS | Hosted | Scheduled tasks | confirmed | https://nightwatch.laravel.com/docs/scheduled-tasks.md | 2026-11-04 | not shown | Attempt J01/J02 because scheduler monitoring is advertised. Viewing work that ran does not establish an independent heartbeat check for work that never starts. |
 | C03 | Availability | Free, Pro, Team, Business and Enterprise publicly offered; latest displayed docs changelog entry 2026-05-26. | offer; release date | All | SaaS | Hosted | Product | confirmed | https://laravel.com/nightwatch/pricing; https://nightwatch.laravel.com/docs/changelog.md | 2026-11-04 | not shown; 2026-05-26 (latest entry) | Active public offer and maintenance record. Purchase and operation were not tested; a stale FAQ is recorded separately from service availability. |
+| C03 | News check | News check 2026-11-09: no qualifying news found in the sources checked. | dated lifecycle review | Current | Current product and open-source edition where applicable | Current advertised deployment | Lifecycle / ownership / license | confirmed | https://laravel.com/blog ; https://nightwatch.laravel.com/docs/changelog.md ; https://github.com/laravel/nightwatch/releases ; https://status.laravel.com | 2026-11-09 | latest blog listing 2026-11-04 ; latest Nightwatch docs entry 2026-05-26 ; latest agent release v1.30.6 2026-10-27 ; status page checked 2026-11-09 | Checked Laravel blog, Nightwatch docs changelog, agent GitHub releases, Laravel status page and targeted searches for sale, shutdown, rebrand, retirement, breach, regulation or license change. Nightwatch remains listed as a product; the latest agent release is v1.30.6 (2026-10-27). |
 | C04 | Vendor home | Laravel Holdings Inc.; headquartered in United States; contact address 60 Broad Street, 24th Floor #1559, New York, NY 10004. | entity; country | All | SaaS | Hosted | Contract | confirmed | https://laravel.com/legal/nightwatch/terms; https://laravel.com/legal/nightwatch/privacy-policy | 2026-11-04 | 2025-06-16; 2025-02-25 | Privacy policy identifies the US headquarters; terms give the service entity/address. This does not imply every monitored application's data is stored in the US. |
 | C04 | Buyer restrictions | Users must be at least 18 and authorized to bind their organization; users subject to US sanctions or consistent local sanctions cannot use the service. | eligibility | All | SaaS | Hosted | Contract | confirmed | https://laravel.com/legal/nightwatch/terms | 2026-11-04 | 2025-06-16 | Eligibility and export restrictions apply. A complete checkout-country/payment-method matrix is not supplied; do not infer worldwide purchase eligibility. |
 | C05 | Service delivery | Fully managed SaaS only in the published offer; service license explicitly says hosted by Laravel. | deployment | All | SaaS | Hosted | Backend | confirmed | https://laravel.com/nightwatch/pricing; https://laravel.com/legal/nightwatch/terms | 2026-11-04 | not shown; 2025-06-16 | The locally run agent collects/transmits data. Its Docker image is not a complete self-hosted dashboard, database and monitoring service. |
@@ -259,21 +260,20 @@ Sources: https://nightwatch.laravel.com/docs/scheduled-tasks.md; https://nightwa
 
 ## Counts
 
-Attempted **39 distinct fields** across **110 fact rows**. Several fields have plan, platform, control or unresolved-component rows.
+Attempted **39 distinct fields** across **111 fact rows**. Several fields have plan, platform, control or unresolved-component rows.
 
 | State | Fact rows | Distinct fields, conservative roll-up |
 | --- | ---: | ---: |
-| confirmed | 70 | 14 |
+| confirmed | 71 | 14 |
 | not_published | 20 | 16 |
 | unclear | 12 | 2 |
 | conflicting | 6 | 6 |
 | not_applicable | 1 | 0 |
 | check_failed | 1 | 1 |
-| Total | 110 | 39 |
+| Total | 111 | 39 |
 
 Field roll-up precedence: conflicting, check_failed, unclear, not_published, confirmed, not_applicable. A partial unknown/conflict therefore prevents labelling its entire field confirmed.
 
-**48 unique exact source URLs in the facts table**, counted once each: 46 successfully read public pages/files and 2 deployment-guide URLs returning 404. The two failed URLs appear together in one check_failed row. Repeated links in examples/unknowns do not increase this count. The DPA trust item loaded, but its agreement body was not exposed; that access boundary is documented rather than counted as a network failure.
+**51 unique exact source URLs in the facts table**, counted once each: 49 successfully read public pages/files and 2 deployment-guide URLs returning 404. The two failed URLs appear together in one check_failed row. Repeated links in examples/unknowns do not increase this count. The DPA trust item loaded, but its agreement body was not exposed; that access boundary is documented rather than counted as a network failure.
 
 Only `apps/laravel-nightwatch.md` was written for this app.
-

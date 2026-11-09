@@ -147,6 +147,7 @@ The acquiring agreement at the exact **`/business/terms-conditions`** address wa
 | C04 | Crypto payment completion and refunds | Not applicable: no gateway blockchain confirmation, underpayment or on-chain refund rules are documented. | not_applicable | <https://developers.maya.ph/docs/payment-methods>; <https://www.maya.ph/business/terms-conditions> | 2026-11-05 | The conditional field was checked against current merchant payment-method and legal scope. Consumer Maya crypto trading is a different product and is not imported as merchant crypto checkout or settlement. |
 | C05 | Hosting and maintenance | Not applicable to the crypto-only field; this record covers hosted payment services and merchant integrations, not self-hosted crypto software. | not_applicable | <https://developers.maya.ph/docs/payment-methods>; <https://www.maya.ph/business/terms-conditions> | 2026-11-05 | The conditional field was checked against current merchant payment-method and legal scope. Consumer Maya crypto trading is a different product and is not imported as merchant crypto checkout or settlement. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, merger, shutdown of Maya Business payments, new-brand rebrand, market exit, data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://www.maya.ph/business-updates; https://www.maya.ph/business; https://businesssupport.maya.ph/s/article/Can-I-still-sign-up-using-the-old-Maya-Business-app-or-through-the-Maya-Business-Manager-website; https://businesssupport.maya.ph/s/article/What-is-the-new-Maya-Business | 2026-11-09 | Checked official business updates, the current product site and signup FAQs. New signups use the new Maya Business app or site; stopping signup through the old app/manager is a channel migration, not a closure of new merchant signups. The signup FAQ reader returned an error; no separate public service-status page was found. |
 ## Cost examples — our calculations
 
 Inputs checked **2026-11-05**: current public **starting/rack** online prices for Checkout/Digital Invoice/Payment Links, PHP payment amount and merchant absorbs processing cost. The acquiring contract's section 36 says fees are **inclusive of applicable Philippine taxes**; the public pricing table does not instruct adding 12% VAT. These calculations therefore do **not** add an invented VAT surcharge. Account proposals can set the actual rates.
@@ -205,19 +206,19 @@ All pages named in unknown/unclear rows were tried on **2026-11-05** before assi
 
 Fields attempted: **50 of 50** — F01–F45 and C01–C05. The five crypto fields were reviewed and found not applicable to this fiat merchant-acquiring offer.
 
-Facts-table rows: **116**. State counts refer to rows, not distinct fields; one field may have multiple scoped rows/states.
+Facts-table rows: **117**. State counts refer to rows, not distinct fields; one field may have multiple scoped rows/states.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 79 |
+| confirmed | 80 |
 | not_published | 24 |
 | unclear | 4 |
 | conflicting | 3 |
 | not_applicable | 5 |
 | check_failed | 1 |
-| **Total** | **116** |
+| Total | 117 |
 
-Unique exact source/lookup URLs cited: **53**. Repeated links count once. This includes the failed bank-fee article and broken settlement-policy lookup; it does not mean every URL rendered successfully. The recovered bank page and indexed official settlement article are explicitly attributed. All checks are dated **2026-11-05**.
+Unique exact source/lookup URLs cited: **55**. Repeated links count once. This includes the failed bank-fee article and broken settlement-policy lookup; it does not mean every URL rendered successfully. The recovered bank page and indexed official settlement article are explicitly attributed. All checks are dated **2026-11-05**.
 
 No signup, login, form submission, support contact, private quote, real payment or production-data access was used. Only this app research file was written.
 

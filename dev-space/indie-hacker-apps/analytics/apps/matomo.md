@@ -10,6 +10,8 @@ Scope: public official pages, docs, public pricing data, terms, policies and off
 
 The app is available to solo builders. Cloud, On-Premise core, paid self-hosted bundles and Matomo for WordPress have different prices and conditions. The apps.md description and conditional detection class fit the evidence; no row error found.
 
+Lifecycle update: Matomo announced a brand refresh/rebrand on April 30, 2026, with website and interface changes. The analytics product remains Matomo; this is not an ownership change or a product rename.
+
 Cloud pricing below uses **INR**, as returned by the public pricing endpoint during this check. Self-hosted bundle prices use **EUR**. These are original vendor currencies, not conversions or proof of country eligibility. Cloud cost examples exclude tax. Self-hosted figures are published software prices, with infrastructure and operator work separate.
 
 ## Facts
@@ -20,6 +22,7 @@ Cloud pricing below uses **INR**, as returned by the public pricing endpoint dur
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Name, lifecycle and availability | Matomo; active Cloud subscriptions and self-hosted downloads offered | confirmed | Product | https://matomo.org/ ; https://matomo.org/download/ | 2026-11-04 | Current entry routes are public; neither was submitted. |
 | F01 | Operating company | InnoCraft Ltd, New Zealand; registration 6106769 | confirmed | Cloud | https://matomo.org/matomo-cloud-terms-of-service/ | 2026-11-04 | The service agreement identifies the contracting company. |
+| F01 | Lifecycle / rebrand | Matomo announced a brand refresh on April 30, 2026, beginning with updated website and product look and feel; the product name remains Matomo | confirmed | Brand identity | https://matomo.org/blog/2026/04/matomo-rebrand-clearer-intuitive-analytics/ | 2026-11-09 | Rechecked the official rebrand notice, changelog, Cloud status page, active Cloud pricing and downloads. The announcement concerns visual/experience branding, not new ownership or an analytics product rename. |
 | F01 | Former name | Piwik renamed Matomo on 9 January 2018 | confirmed | Product family | https://matomo.org/blog/2018/01/piwik-is-now-matomo/ | 2026-11-04 | Treat the former community-project name as an alias, not another current app. |
 | F02 | Category and overlap | Website analytics; also events, funnels, retention cohorts, web replay/heatmaps, native app analytics and ecommerce attribution | confirmed | Features depend on edition/extensions | https://matomo.org/guides/ ; https://developer.matomo.org/guides/tracking-api-clients | 2026-11-04 | These directory tags are our classification of documented jobs; ecommerce is distinct from subscription accounting. |
 | F03 | Web and CMS support | Browser JavaScript, single-page applications, WordPress and server-side collection | confirmed | Cloud and self-hosted | https://developer.matomo.org/guides/tracking-javascript-guide ; https://matomo.org/guide/installation-maintenance/matomo-for-wordpress/ ; https://developer.matomo.org/api-reference/tracking-api | 2026-11-04 | SPA route changes need pageview calls; a CMS does not remove the need to configure collection. |

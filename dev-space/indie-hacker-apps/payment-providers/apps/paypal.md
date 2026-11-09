@@ -163,6 +163,8 @@ All factual source checks below were made on 2026-11-04. Page-update dates and p
 | C04 | Crypto payment completion and refunds | Crypto refund transfers cannot be reversed/cancelled once authorized/submitted; confirmation can depend on network and wallet requirements. | confirmed | https://www.paypal.com/us/legalhub/paypal/crypto-payment-method?locale.x=en_US | 2026-11-04 | A PayPal-confirmed refund can still await additional wallet confirmations. No fixed completion-time guarantee is published in these terms. |
 | C04 | Crypto payment completion and refunds | No universal live network-confirmation count, expired-payment/underpayment/overpayment handling rule or merchant crypto maximum was established. | not_published | https://developer.paypal.com/platforms/checkout/apm/crypto/; https://developer.paypal.com/platforms/checkout/apm/crypto/orders-api/; https://www.paypal.com/us/legalhub/paypal/crypto-payment-method?locale.x=en_US | 2026-11-04 | Checked the overview, concrete Orders success/failure/refund flow and terms. The USD0.01 minimum and API test examples do not fill these missing values. |
 | C05 | Hosting and maintenance | Hosted PayPal service with provider-managed crypto processing; merchants maintain checkout/API/webhook/fulfillment integration as needed. | confirmed | https://developer.paypal.com/platforms/checkout/apm/crypto/; https://developer.paypal.com/platforms/checkout/apm/crypto/orders-api/; https://developer.paypal.com/studio/checkout/payment-links-and-buttons/payment-links-and-buy-buttons | 2026-11-04 | This is not a downloadable self-hosted crypto gateway. A public universal merchant hardware requirement or application-hosting cost is not supplied. |
+| F39 | Operating status and recent changes | New York Department of Financial Services issued a consent order and USD 2 million civil penalty on 23 January 2025 over cybersecurity-program and control failures; the order relates to a 2022 tax-form data exposure. | confirmed | https://www.dfs.ny.gov/system/files/documents/2025/01/ea20250123-paypal-inc.pdf | 2026-11-09 | The exposure occurred in December 2022 and involved names, dates of birth and full Social Security numbers accessed after credential-stuffing attacks; do not describe the exposure as occurring in 2025. NYDFS also records PayPal’s remedial controls, including mandatory MFA for US customer logins.
+| F41 | Legal entity, licence and security scope | NYDFS consent order dated 23 January 2025 imposed a USD 2 million civil penalty on PayPal, Inc. for cybersecurity-program and control violations following the 2022 1099-K exposure. | confirmed | https://www.dfs.ny.gov/system/files/documents/2025/01/ea20250123-paypal-inc.pdf | 2026-11-09 | Regulator order identifies the company, finding and penalty. This is a regulatory action, not a licence revocation or current service shutdown.
 
 ## Cost examples
 
@@ -229,15 +231,15 @@ The active PayPal row describes a gateway with direct merchant checkout and paym
 
 Fields attempted: 50 distinct field IDs — F01 to F45 and C01 to C05. This includes all 40 core fields, five optional fields and five applicable crypto fields.
 
-Fact rows: 148. Counts below are rows, because country/product splits can give one field more than one state.
+Fact rows: 150. Counts below are rows, because country/product splits can give one field more than one state.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 126 |
+| confirmed | 128 |
 | not_published | 15 |
 | unclear | 3 |
 | conflicting | 3 |
 | not_applicable | 1 |
 | check_failed | 0 |
 
-Distinct exact source URLs: 82. Repeated links in facts, cost examples and notes are counted once.
+Distinct exact source URLs: 83. Repeated links in facts, cost examples and notes are counted once.

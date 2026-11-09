@@ -109,6 +109,7 @@ Each row provides exact official URLs, checked date and source sections. `not_pu
 | J05 | logs and run history | Cloud exact server-log and import/export task-history retention, byte allowance and paid export/replay policy were not found. | not_published | https://raw.githubusercontent.com/FalkorDB/falkordb-cloud-docs/main/operations/monitoring-dashboard.mdx ; https://raw.githubusercontent.com/FalkorDB/falkordb-cloud-docs/main/operations/export-import.mdx ; https://raw.githubusercontent.com/FalkorDB/falkordb-cloud-docs/main/console/billing.mdx ; https://raw.githubusercontent.com/FalkorDB/falkordb-cloud-docs/main/tiers/enterprise.mdx ; https://app.falkordb.cloud/terms-of-use ; https://app.falkordb.cloud/privacy-policy | 2026-11-05 | Checked monitoring/log panels, task history, billing and Enterprise Terms, then attempted Cloud legal policies. Last ten slow queries is a count, not a day-based log retention period. |
 | H01 | operating requirements and feature gaps | Self-hosting requires Redis plus the FalkorDB module or a packaged Docker image, enough RAM for graphs/indexes, persistent disk/volumes when required, credentials, monitoring, backups and upgrades managed by the operator. | confirmed | https://raw.githubusercontent.com/FalkorDB/FalkorDB/v6.0.3/README.md ; https://raw.githubusercontent.com/FalkorDB/docs/main/operations/docker.mdx ; https://raw.githubusercontent.com/FalkorDB/docs/main/operations/durability/persistence.mdx ; https://raw.githubusercontent.com/FalkorDB/docs/main/operations/durability/acl-persistence.mdx | 2026-11-05 | Pinned README and deployment/persistence guides. No universal minimum RAM/CPU footprint was found; workload and indexes determine capacity. Cloud billing console, managed backups and support are not automatically included in a DIY install. |
 | H01 | operating requirements and feature gaps | v6.0 Rust and v4.x C releases have incompatible replication protocols. Upgrade an entire replication group; current latest/6.0 images are Rust, while latest-alpine remains C v4.20.7 and there is no v6.0 Alpine image. | confirmed | https://github.com/FalkorDB/FalkorDB/releases/tag/v6.0.0 ; https://raw.githubusercontent.com/FalkorDB/docs/main/operations/upgrades-downgrades-compatibility.mdx | 2026-11-05 | v6.0 release / Docker tags and replication warning, plus upgrade guide. Pin a tested release/digest; identical-looking image tags do not establish equivalent engine versions. |
+| C04 | lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, customer-data breach, or license change found for FalkorDB. | confirmed | https://www.falkordb.com/Blog/ ; https://api.github.com/repos/FalkorDB/FalkorDB/releases/latest ; https://status.falkordb.cloud/ | 2026-11-09 | Checked the official Blog, latest release metadata and public status page. The blog and latest release show current 2026 activity; the status page showed services online. |
 
 ## Cost examples — our calculation
 
@@ -176,12 +177,12 @@ All pages and failed checks above were checked 2026-11-05.
 ## Counts
 
 - Distinct field IDs attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Fact rows: **88**.
-- `confirmed`: **58**.
+- Fact rows: **89**.
+- `confirmed`: **59**.
 - `not_published`: **14**.
 - `unclear`: **1**.
 - `conflicting`: **4**.
 - `not_applicable`: **10**.
 - `check_failed`: **1**.
-- Distinct source URLs referenced: **56**. This includes failed official legal/docs destinations so the search can be reproduced.
+- Distinct source URLs referenced: **57**. This includes failed official legal/docs destinations so the search can be reproduced.
 

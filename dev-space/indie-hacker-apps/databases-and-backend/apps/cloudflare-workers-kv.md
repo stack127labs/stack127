@@ -104,6 +104,7 @@ The owner's six states override fields.md vocabulary. `confirmed` means publishe
 | J04 | schedules and queue retention | Not applicable to the scoped Workers KV product. | not_applicable | https://developers.cloudflare.com/kv/platform/event-subscriptions/ ; https://developers.cloudflare.com/kv/platform/pricing/ | 2026-11-05 | Key expiration is data deletion, not delayed job execution or a queued-message retention promise. Do not copy Queues/Workflows scheduling limits. |
 | J05 | logs and run history | Not applicable to the scoped Workers KV product. | not_applicable | https://developers.cloudflare.com/kv/platform/event-subscriptions/ ; https://developers.cloudflare.com/kv/platform/pricing/ | 2026-11-05 | KV analytics retention is C20. It is not per-job execution logs, task results, failed-run retention or replay. |
 | H01 | operating requirements and feature gaps | Not applicable to the scoped Workers KV product. | not_applicable | https://developers.cloudflare.com/kv/reference/kv-commands/ ; https://developers.cloudflare.com/kv/ | 2026-11-05 | Cloudflare operates this service. Local Wrangler development does not establish a production self-hosted KV deployment, hardware minimum or cloud feature parity. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or data-exposure incident found for Workers KV. | confirmed | https://blog.cloudflare.com/ ; https://blog.cloudflare.com/rearchitecting-workers-kv-for-redundancy/ ; https://developers.cloudflare.com/changelog/product/kv/ ; https://www.cloudflarestatus.com/ | 2026-11-09 | Checked Cloudflare Blog, KV changelog and system status. Cloudflare's June 12, 2025 outage affected Workers KV and related services; the incident was resolved, and Cloudflare later described infrastructure changes. This availability incident is not a reported customer-data breach. |
 
 ## Cost examples — our calculations
 
@@ -179,12 +180,12 @@ A complete 1,000-MAU backend, 100 GB file-store service, managed vector-search a
 ## Counts
 
 - Distinct field IDs attempted: 46 (22 core; 8 database; 7 file; 3 vector; 5 job; 1 self-host).
-- Fact rows: 83. Rows split plan/edition differences and separate unresolved subparts.
-- confirmed: 53.
+- Fact rows: 84. Rows split plan/edition differences and separate unresolved subparts.
+- confirmed: 54.
 - not_published: 10.
 - unclear: 1.
 - conflicting: 1.
 - not_applicable: 18.
 - check_failed: 0.
-- Distinct exact official source URLs linked: 32. Repeated links count once; unsuccessful guessed paths and search results are not counted as source links.
+- Distinct exact official source URLs linked: 35. Repeated links count once; unsuccessful guessed paths and search results are not counted as source links.
 

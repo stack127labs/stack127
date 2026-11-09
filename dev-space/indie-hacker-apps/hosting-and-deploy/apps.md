@@ -22,9 +22,9 @@ Static hosting serves prebuilt files. Some products here also run app code.
 
 | Name | Official URL | Type | Home region or main markets | Why it belongs | How found | Status | Official-site check |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vercel | https://vercel.com/ | Frontend/static | Not checked | Deploy websites and web apps from code. | V1, S1 | Active | 2026-11-04 |
+| Vercel | https://vercel.com/ | Frontend/static | Not checked | Deploy websites and web apps from code. Note: Vercel reported a 2026-04-19 security incident in which some customer environment variables were compromised; remediation was reported complete and the incident closed 2026-10-16. | V1, S1 | Active | 2026-11-09 |
 | Netlify | https://www.netlify.com/ | Frontend/static | Not checked | Hosted website builds, deployments, and functions. | V1, S1 | Active | 2026-11-04 |
-| Cloudflare Pages | https://www.cloudflare.com/products/pages/ | Frontend/static | Global network advertised | Hosted static and full-stack sites; keep separate from Workers. | A2, S1 | Active | 2026-11-04 |
+| Cloudflare Pages | https://www.cloudflare.com/products/pages/ | Frontend/static | Global network advertised | Hosted static and full-stack sites; Cloudflare recommends Workers for new projects; keep separate from Workers. | A2, S1 | Active | 2026-11-04 |
 | GitHub Pages | https://pages.github.com/ | Frontend/static | Not checked | Publish project websites from Git repositories. | A1, A2 | Active | 2026-11-04 |
 | GitLab Pages | https://docs.gitlab.com/user/project/pages/ | Frontend/static | Not checked | Static websites published through GitLab. | O | Active | 2026-11-04 |
 | Firebase Hosting | https://firebase.google.com/products/hosting | Frontend/static | Global delivery advertised | Static and single-page hosting; also databases/backend and auth. | S1 | Active | 2026-11-04 |
@@ -37,9 +37,9 @@ Static hosting serves prebuilt files. Some products here also run app code.
 | sourcehut pages | https://srht.site/ | Frontend/static | Not checked | Static publishing attached to sourcehut accounts. | O | Active | 2026-11-04 |
 | statichost.eu | https://www.statichost.eu/ | Frontend/static | Europe | European static hosting with a developer workflow. | O | Active | 2026-11-04 |
 | Static.app | https://static.app/ | Frontend/static | Not checked | Upload and host website files. | S1 | Active | 2026-11-04 |
-| Tiiny Host | https://tiiny.host/ ; https://helpdesk.tiiny.host/en/article/pricing-plans-1i3vkky/ | Frontend/static | Not checked | Simple website-file hosting; official help page readable despite an empty main-page extract. | O | Active | 2026-11-04 |
+| Tiiny Host | https://tiiny.host/ ; https://helpdesk.tiiny.host/en/article/pricing-plans-1i3vkky/ | Frontend/static | Not checked | Website/file publishing with paid PHP hosting; October 2026 help also advertises Python/Node apps, but runtime details are incomplete. | O | Active | 2026-11-04 |
 | Appwrite Sites | https://appwrite.io/products/sites | Frontend/static | Not checked | Git-based static and server-rendered app hosting; also databases/backend and auth. | C2 | Active | 2026-11-04 |
-| EdgeOne Makers, formerly EdgeOne Pages | https://pages.edgeone.ai/document/faqs | Frontend/static | Not checked | Tencent's frontend/full-stack deployment product; official FAQ confirms new name. | O; official rename search | Active | 2026-11-04 |
+| EdgeOne Makers, formerly EdgeOne Pages | https://pages.edgeone.ai/document/faqs | Frontend/static | Not checked | Tencent's frontend/full-stack deployment product. Note: renamed from EdgeOne Pages on 2026-06-09; Tencent announced paid-plan rollout and lower Free quotas on 2026-11-09. | O; official rename search | Active | 2026-11-09 |
 | 4EVERLAND DWeb Hosting | https://www.4everland.org/ | Frontend/static | Not checked | Decentralized website hosting; gray because this is a specialist publishing model. | O | Gray | 2026-11-04 |
 | Amazon S3 static website hosting | https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html | Frontend/static | Not checked | Official static website mode; requires extra services for a complete secure delivery setup. | O | Active | 2026-11-04 |
 | Azure Storage static website hosting | https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website | Frontend/static | Not checked | Official website mode for Blob Storage, distinct from Static Web Apps. | O | Active | 2026-11-04 |
@@ -52,26 +52,26 @@ These run an app for you. Some still expose server settings. Catalog-only hosts 
 
 | Name | Official URL | Type | Home region or main markets | Why it belongs | How found | Status | Official-site check |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Railway | https://railway.com/ | Managed app | Not checked | Deploy apps and databases together; also databases/backend. | V1, A1 | Active | 2026-11-04 |
+| Railway | https://railway.com/ | Managed app | Not checked | Deploy apps and databases together; also databases/backend. Note: 2026-10-21 incident exposed encrypted stored customer environment variables and decrypted a subset; recovery incident resolved and signups reopened 2026-11-02, with free-trial deployment still unavailable in that notice. | V1, A1 | Active | 2026-11-09 |
 | Render | https://render.com/ | Managed app | Not checked | Web services, static sites, workers, and databases; also databases/backend. | V1, A1 | Active | 2026-11-04 |
 | Fly.io | https://fly.io/ | Managed app | Global placement advertised | App deployment on small virtual machines; also databases/backend. | V1, A1, C1 | Active | 2026-11-04 |
-| Heroku | https://www.heroku.com/ | Managed app | Not checked | General app platform; owned by Salesforce, not a duplicate of Salesforce Platform. | V1, A1 | Active | 2026-11-04 |
+| Heroku | https://www.heroku.com/ | Managed app | Not checked | General app platform; owned by Salesforce, not a duplicate of Salesforce Platform. Note: shifted to sustaining engineering and closed new Enterprise Account sales on 2026-02-06; credit-card self-service remains. | V1, A1 | Active | 2026-11-09 |
 | DigitalOcean App Platform | https://www.digitalocean.com/products/app-platform | Managed app | Not checked | Managed apps separate from self-managed Droplets. | V1, A1 | Active | 2026-11-04 |
 | Koyeb | https://www.koyeb.com/ ; https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure | Managed app | Not checked | Current hosting offer, but Mistral transition and paid-plan-only new access need review. | A1, R1 | Gray | 2026-11-04 |
-| Northflank | https://northflank.com/ | Managed app | Not checked | Hosted apps and own-cloud deployments; also databases/backend. Site carried a security-incident notice. | C1 | Active | 2026-11-04 |
-| Zeabur | https://zeabur.com/ | Managed app | Chinese and English markets visible | Deploy and operate app infrastructure; AI Hub shutdown notice concerns a separate feature. | A1 | Active | 2026-11-04 |
+| Northflank | https://northflank.com/ | Managed app | Not checked | Hosted apps and own-cloud deployments; also databases/backend. Note: customer-secret incident disclosed 2026-10-30; some supplied AI keys were reportedly used without authorization. As of 2026-11-06, investigation continued and no workload/data access evidence was reported. | C1 | Active | 2026-11-09 |
+| Zeabur | https://zeabur.com/ | Managed app | Chinese and English markets visible | Hosted app platform is winding down: new dedicated-server/domain purchases stopped, and all rented infrastructure ends by 2026-12-31 (notice dated 2026-10-17). Note: security incidents on 2026-08-27 and 2026-10-14 exposed environment variables; the October incident also exposed some customer database data. | A1 | closing | 2026-11-09 |
 | Zerops | https://zerops.io/ ; https://docs.zerops.io/billing/pricing | Managed app | Not checked | App runtimes and databases; official billing docs readable after homepage timeout. | A1 | Active | 2026-11-04 |
 | Sevalla | https://sevalla.com/ | Managed app | Not checked | App, static, and database hosting; keep historical Kinsta app-hosting name as an alias. | A1 | Active | 2026-11-04 |
 | Scalingo | https://scalingo.com/ | Managed app | Europe | App and database hosting; also databases/backend. | A1 | Active | 2026-11-04 |
 | Clever Cloud | https://www.clever.cloud/ | Managed app | Europe | Deploy code to managed application infrastructure; also databases/backend. | A1 | Active | 2026-11-04 |
-| Upsun Cloud, formerly Platform.sh | https://upsun.com/ | Managed app | Not checked | Managed application platform; old and new names count once. | A1, R1 | Active | 2026-11-04 |
+| Upsun Cloud, formerly Platform.sh | https://upsun.com/ | Managed app | Not checked | Managed application platform; old and new names count once. Note: Platform.sh rebranded to Upsun on 2025-09-23. | A1, R1 | Active | 2026-11-09 |
 | PythonAnywhere | https://www.pythonanywhere.com/ | Managed app | Not checked | Managed hosting for Python websites. | O | Active | 2026-11-04 |
-| fortrabbit | https://www.fortrabbit.com/ | Managed app | European market visible | Managed PHP app hosting. | A1 | Active | 2026-11-04 |
+| fortrabbit | https://www.fortrabbit.com/ | Managed app | European market visible | Managed PHP app hosting. Note: New customers use the public-beta platform; the old platform has an approximate 2027 end-of-life target (checked 2026-11-05). | A1 | Active | 2026-11-04 |
 | Back4app | https://www.back4app.com/ | Managed app | Not checked | Backend app hosting; old Containers URL redirects to a backend-focused site. Recheck general container availability; also databases/backend and auth. | A1, R1 | Gray | 2026-11-04 |
 | Replit Publishing | https://replit.com/deployments | Managed app | Not checked | Production publishing attached to a development environment; also databases/backend. | O | Active | 2026-11-04 |
 | Elestio | https://elest.io/ | Managed app | Not checked | Managed app catalog and deployment pipelines; distinguish custom code from catalog installs; also databases/backend. | E1, A1 | Active | 2026-11-04 |
 | PikaPods | https://www.pikapods.com/ | Managed app | EU and US advertised | Managed open-source app catalog; gray because arbitrary app uploads were not confirmed. | A1 | Gray | 2026-11-04 |
-| Laravel Cloud | https://laravel.com/cloud | Managed app | Not checked | Framework-specific managed app hosting. | O | Active | 2026-11-04 |
+| Laravel Cloud | https://laravel.com/cloud | Managed app | Not checked | Laravel Cloud supports PHP, JavaScript, Go, Python, Ruby, and Rust applications, beyond Laravel-specific hosting. | O | Active | 2026-11-04 |
 | Sliplane | https://sliplane.io/ | Managed app | Europe | Hosted app runtime and managed database offer for developers. | A1 | Active | 2026-11-04 |
 | Doprax | https://www.doprax.com/ | Managed app | Not checked | App deployment and server provisioning; clarify the maintenance split in later research. | O | Active | 2026-11-04 |
 | Diploi | https://diploi.com/ | Managed app | Not checked | Development plus production deployment. | A1 | Active | 2026-11-04 |
@@ -156,7 +156,7 @@ You normally maintain the operating system and app here. Managed VPS services ar
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Hetzner Cloud | https://www.hetzner.com/cloud/ | VPS/VM | Europe; US; Singapore | Self-managed servers with a developer cloud interface. | E1, C1 | Active | 2026-11-04 |
 | DigitalOcean Droplets | https://www.digitalocean.com/products/droplets | VPS/VM | Not checked | Self-managed app servers, separate from App Platform. | V1, R1 | Active | 2026-11-04 |
-| Vultr Cloud Compute | https://www.vultr.com/products/cloud-compute/ ; https://docs.vultr.com/product-overviews/cloud-compute | VPS/VM | Not checked | Self-managed cloud servers. Official docs readable despite blocked marketing site. | E1, S1 | Active | 2026-11-04 |
+| Vultr Cloud Compute | https://www.vultr.com/products/cloud-compute/ ; https://docs.vultr.com/product-overviews/cloud-compute | VPS/VM | Not checked | Self-managed cloud servers. Official docs readable despite blocked marketing site. Note: Pricing and legal pages returned 403; rates and terms remain unresolved (checked 2026-11-06). | E1, S1 | Active | 2026-11-04 |
 | Akamai Cloud Compute, formerly Linode | https://www.akamai.com/products/cpu | VPS/VM | Not checked | Linode product URL now redirects here; count once. | A1 | Active | 2026-11-04 |
 | OVHcloud VPS | https://www.ovhcloud.com/en/vps/ | VPS/VM | International site | Fixed-plan virtual servers; public-cloud instances belong to the same provider family. | E1 | Active | 2026-11-04 |
 | Scaleway Instances | https://www.scaleway.com/en/virtual-instances/ | VPS/VM | Europe | Specific cloud server product. | E1 | Active | 2026-11-04 |
@@ -171,22 +171,22 @@ You normally maintain the operating system and app here. Managed VPS services ar
 | Hostinger VPS | https://www.hostinger.com/vps-hosting | VPS/VM | International site | Self-managed KVM app servers. | L1, S1 | Active | 2026-11-04 |
 | HostHatch cloud compute | https://hosthatch.com/products | VPS/VM | Not checked | Developer VM candidate; official page returned no readable body. | E1 | Check again | Attempt only: 2026-11-04 |
 | RamNode Cloud VPS | https://ramnode.com/ | VPS/VM | Not checked | Direct cloud server hosting for apps. | O | Active | 2026-11-04 |
-| BuyVM | https://buyvm.net/ | VPS/VM | Not checked | Small virtual server hosting; stock must be checked later. | O | Active | 2026-11-04 |
+| BuyVM | https://buyvm.net/ | VPS/VM | Not checked | Small virtual server hosting; stock must be checked later. Note: Official ownership descriptions conflict; KVM plans were out of stock and the Announcements page failed (checked 2026-11-06). | O | Active | 2026-11-04 |
 | RackNerd KVM VPS | https://www.racknerd.com/ | VPS/VM | Not checked | Low-cost app server product, not its reseller hosting. | O | Active | 2026-11-04 |
 | InterServer VPS | https://www.interserver.net/vps/ | VPS/VM | Not checked | VPS candidate; official fetch repeatedly returned 403. | O | Check again | Attempt only: 2026-11-04 |
 | Time4VPS | https://www.time4vps.com/ | VPS/VM | Europe | Linux virtual servers and managed variants. | E1 | Active | 2026-11-04 |
 | Cherry Servers virtual servers | https://www.cherryservers.com/ | VPS/VM | Not checked | Virtual app servers alongside bare-metal products. | E1 | Active | 2026-11-04 |
-| VPS.NET | https://www.vps.net/ | VPS/VM | UK and US advertised | Specific VPS service with public plans. | O | Active | 2026-11-04 |
+| VPS.NET | https://www.vps.net/ | VPS/VM | UK and US advertised | Specific VPS service with public plans. Note: Owner and current plan prices remain unresolved; the signup page did not render (checked 2026-11-06). | O | Active | 2026-11-04 |
 | Clouding | https://clouding.io/ | VPS/VM | Spain | Regional cloud VPS for app hosting. | E1 | Active | 2026-11-04 |
 | Utho Cloud Compute | https://utho.com/pricing | VPS/VM | India, per I1 | Indian cloud candidate; official page blocked access. | I1 | Check again | Attempt only: 2026-11-04 |
 | E2E Networks CPU Cloud | https://www.e2enetworks.com/ | VPS/VM | India | Regional cloud candidate; homepage now emphasizes GPUs. Gray until the current CPU server offering is confirmed. | I1, R1 | Gray | 2026-11-04 |
 | AceCloud Compute | https://acecloud.ai/ | VPS/VM | India | Official compute and VPS products visible alongside GPU products. | I1 | Active | 2026-11-04 |
-| Cyfuture Cloud Compute | https://cyfuture.cloud/ | VPS/VM | India | Virtual machines available as a named cloud product. | I1 | Active | 2026-11-04 |
+| Cyfuture Cloud Compute | https://cyfuture.cloud/ | VPS/VM | India | Virtual machines available as a named cloud product. Note: Entry prices and GST treatment conflict; the research record has 77 rows and 17 source links (checked 2026-11-06). | I1 | Active | 2026-11-04 |
 | Leapswitch public cloud | https://www.leapswitch.com/ | VPS/VM | India; US; Europe visible | Regional infrastructure provider; gray until the current small-VM product and self-service path are confirmed. | O | Gray | 2026-11-04 |
 | IDCloudHost Cloud VPS | https://idcloudhost.com/ | VPS/VM | Indonesia; Singapore visible | Regional developer cloud servers. | Regional hosting search | Active | 2026-11-04 |
-| Biznet GIO cloud compute | https://www.biznetgio.com/ | VPS/VM | Indonesia | Regional cloud for personal websites through larger workloads. | O | Active | 2026-11-04 |
+| Biznet GIO cloud compute | https://www.biznetgio.com/ | VPS/VM | Indonesia | Regional cloud for personal websites through larger workloads. Note: NVC cloud compute is scheduled for retirement on 2027-01-31 (notice checked 2026-11-06). | O | closing | 2026-11-04 |
 | CloudKilat VPS | https://www.cloudkilat.com/id/ | VPS/VM | Indonesia | Local website and app servers. | O | Active | 2026-11-04 |
-| VNG Cloud vServer | https://www.vngcloud.vn/ | VPS/VM | Vietnam | Specific regional virtual server product. | O | Active | 2026-11-04 |
+| GreenNode CPU Instances (formerly VNG Cloud vServer) | https://greennode.ai/product/cpu-instances | VPS/VM | Vietnam | The virtual-server product continues under the GreenNode brand; VNG Cloud and GreenNode unified in December 2025. | O | Active | 2026-11-04 |
 | Magalu Cloud Virtual Machines | https://magalu.cloud/ | VPS/VM | Brazil | Regional cloud with named VM offering. | L1 | Active | 2026-11-04 |
 | Locaweb Cloud and VPS | https://www.locaweb.com.br/cloud/ | VPS/VM | Brazil | Direct regional servers. Keep its hourly Cloud and prepaid VPS as subproducts in later research. | L1 | Active | 2026-11-04 |
 | DonWeb Cloud Servers | https://donweb.com/ | VPS/VM | Latin America; international storefront | Regional app server offering with deployment templates. | L1 | Active | 2026-11-04 |
@@ -198,12 +198,12 @@ You normally maintain the operating system and app here. Managed VPS services ar
 | Huawei Cloud ECS | https://www.huaweicloud.com/intl/en-us/product/ecs.html | VPS/VM | Asia; multilingual international site | Specific virtual server product. | O | Active | 2026-11-04 |
 | Infomaniak Public Cloud | https://www.infomaniak.com/en/hosting/public-cloud | VPS/VM | Switzerland; Europe | Specific cloud infrastructure product. | E1 | Active | 2026-11-04 |
 | Amazon Lightsail | https://aws.amazon.com/lightsail/ | VPS/VM | Not checked | Simplified cloud app servers and related products. | S1 | Active | 2026-11-04 |
-| Amazon EC2 | https://aws.amazon.com/ec2/ | VPS/VM | Not checked | General virtual servers a solo builder can configure. | C2 | Active | 2026-11-04 |
+| Amazon EC2 | https://aws.amazon.com/ec2/ | VPS/VM | Not checked | General virtual servers a solo builder can configure. Note: us-east-1 data-transfer overage and EBS rates remain unresolved; recheck with Vultr, Azure, and Tencent COS pricing (checked 2026-11-06). | C2 | Active | 2026-11-04 |
 | Google Compute Engine | https://cloud.google.com/products/compute | VPS/VM | Not checked | Specific self-managed virtual server service. | O | Active | 2026-11-04 |
 | Azure Virtual Machines | https://azure.microsoft.com/en-us/products/virtual-machines | VPS/VM | Not checked | Specific self-managed virtual server service. | O | Active | 2026-11-04 |
 | Oracle Cloud Infrastructure Compute | https://www.oracle.com/cloud/compute/ | VPS/VM | Not checked | Specific virtual server product, not the whole Oracle cloud. | O | Active | 2026-11-04 |
 | TransIP VPS | https://www.transip.eu/vps/ | VPS/VM | Europe | Developer virtual servers with public plans. | E1; VPS comparison search | Active | 2026-11-04 |
-| Hostwinds VPS | https://www.hostwinds.com/vps/linux | VPS/VM | Not checked | Managed and unmanaged app server choices. | VPS comparison search | Active | 2026-11-04 |
+| Hostwinds VPS | https://www.hostwinds.com/vps/linux | VPS/VM | Not checked | Managed and unmanaged app server choices. Note: HostPapa completed its acquisition on 2026-04-29 (checked 2026-11-06). | VPS comparison search | Active | 2026-11-04 |
 | Liquid Web VPS | https://www.liquidweb.com/vps-hosting/ | VPS/VM | Not checked | VPS plans including management choices. | VPS comparison search | Active | 2026-11-04 |
 | RoseHosting managed Linux VPS | https://www.rosehosting.com/ | VPS/VM | Not checked | Managed Linux server option for builders who need help operating a server. | VPS comparison search | Active | 2026-11-04 |
 | ScalaHosting managed cloud | https://www.scalahosting.com/managed-cloud-hosting.html | VPS/VM | Not checked | Managed virtual app servers; do not confuse with its shared hosting. | E1 | Active | 2026-11-04 |
@@ -229,10 +229,10 @@ These are software you run yourself, not rented hosting. A server, backups, and 
 | Easypanel | https://easypanel.io/ | Self-hosted deploy | Runs on your own infrastructure | Self-hosted app and service deployment dashboard. | O | Active | 2026-11-04 |
 | CloudPanel | https://www.cloudpanel.io/ | Self-hosted deploy | Runs on your own infrastructure | Website and app server panel. | O | Active | 2026-11-04 |
 | Hestia Control Panel | https://hestiacp.com/ | Self-hosted deploy | Runs on your own infrastructure | Manage websites and related hosting services yourself. | O | Active | 2026-11-04 |
-| aaPanel | https://www.aapanel.com/ | Self-hosted deploy | Runs on your own infrastructure | Website/server administration with app management. | O | Active | 2026-11-04 |
-| CyberPanel | https://cyberpanel.net/ | Self-hosted deploy | Runs on your own infrastructure | Website and container management on your server. | O | Active | 2026-11-04 |
+| aaPanel | https://www.aapanel.com/ | Self-hosted deploy | Runs on your own infrastructure | Website/server administration with app management. Note: CVE-2026-29859 and 2025–2026 community security reports are recorded; the CVE patch status remains unclear (checked 2026-11-07). | O | Active | 2026-11-04 |
+| CyberPanel | https://cyberpanel.net/ | Self-hosted deploy | Runs on your own infrastructure | Website and container management on your server. Note: A major ransomware incident was disclosed in 2024; the vendor gave a patch timeline but did not publish its impact. Newer 2026 advisories are recorded in the research file (checked 2026-11-07). | O | Active | 2026-11-04 |
 | Virtualmin | https://www.virtualmin.com/ | Self-hosted deploy | Runs on your own infrastructure | Manage websites, app containers, and hosting services. | O | Active | 2026-11-04 |
-| Plesk | https://www.plesk.com/ | Self-hosted deploy | Runs on your own infrastructure | Commercial web/app server panel. | R1 | Active | 2026-11-04 |
+| Plesk | https://www.plesk.com/ | Self-hosted deploy | Runs on your own infrastructure | Commercial web/app server panel. Note: Licence price adjustment is scheduled for 2027-01-01; amounts are not public, so recheck in January 2027 (checked 2026-11-07). | R1 | Active | 2026-11-04 |
 | cPanel | https://www.cpanel.net/ | Self-hosted deploy | Runs on your own infrastructure | Commercial hosting administration panel, usable by a single server owner. | O | Active | 2026-11-04 |
 | Portainer | https://www.portainer.io/ | Self-hosted deploy | Runs on your own infrastructure | Container deployment and management; gray because broader infrastructure work may exceed directory scope. | O | Gray | 2026-11-04 |
 | Cloudron | https://www.cloudron.io/ | Self-hosted deploy | Runs on your own infrastructure | Managed app lifecycle on your server. Gray because packaged apps differ from arbitrary app deploys. | O | Gray | 2026-11-04 |
@@ -243,9 +243,9 @@ These are software you run yourself, not rented hosting. A server, backups, and 
 | OpenFaaS | https://www.openfaas.com/ | Self-hosted deploy | Runs on your own infrastructure | Host app functions on your cluster; gray because setup and license fit need checking. | O | Gray | 2026-11-04 |
 | SST | https://sst.dev/ | Self-hosted deploy | Your cloud account | Deploy full-stack apps into your cloud account. Gray for command-line-tool boundary. | O | Gray | 2026-11-04 |
 | Serverless Framework | https://www.serverless.com/framework | Self-hosted deploy | Your cloud account | Deploy backend functions and related resources. Gray for command-line-tool boundary. | O | Gray | 2026-11-04 |
-| Lunni | https://lunni.dev/ | Self-hosted deploy | Runs on your own infrastructure | Deploy Docker app definitions on your own server; later check release activity. | O | Active | 2026-11-04 |
+| Lunni | https://lunni.dev/ | Self-hosted deploy | Runs on your own infrastructure | Deploy Docker app definitions on your own server; later check release activity. Note: Low recent activity; the GitLab Frontend listing was last updated 2026-02-15 and the latest release could not be verified (checked 2026-11-07). | O | Active | 2026-11-04 |
 | Piku | https://github.com/piku/piku | Self-hosted deploy | Runs on your own infrastructure | Small Git-push server deployment project; gray until current maintenance is checked. | O | Gray | 2026-11-04 |
-| Stormkit | https://www.stormkit.io/ | Self-hosted deploy | Your infrastructure; hosted option visible | Website and app deployment on your infrastructure. | O | Active | 2026-11-04 |
+| Stormkit | https://www.stormkit.io/ | Self-hosted deploy | Your infrastructure; hosted option visible | Website and app deployment with Stormkit Cloud sold alongside a self-hosted edition. | O | Active | 2026-11-04 |
 | Patr | https://patr.cloud/ | Self-hosted deploy | Runs on your own infrastructure | Current site describes a self-hosted platform in closed beta. Code is linked, but public availability needs review. | O | Gray | 2026-11-04 |
 
 ## Hosted deploy and server managers

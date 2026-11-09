@@ -119,6 +119,7 @@ All 40 required fields and five optional fields were attempted. Crypto applicabi
 | F38 | Support access | All Stripe customers receive 24x7 phone, email and chat support plus documentation/developer Discord; paid Growth, Premium and Enterprise support provide additional services. | confirmed | https://stripe.com/support-plans | 2026-11-04 | This is the general seller support offer. Buyer transaction support is through Link, while product support remains with the seller; SMP escalations need an answer within 48 hours. No standard response-time promise is inferred from a paid-tier SLA. |
 | F38 | Support access | A complete SMP-specific support-language list and a guaranteed standard support response time were not found. | not_published | https://stripe.com/support-plans; https://docs.stripe.com/payments/managed-payments/how-it-works.md; https://support.stripe.com/questions/get-started-with-stripe-managed-payments | 2026-11-04 | Reviewed standard/paid support plans, SMP transaction support and activation help. 24x7 availability is not a guarantee that every language and channel operates identically. |
 | F39 | Operating status and recent changes | Active product with public activation/docs. Current SMP terms modified 28 September 2026; invoice-entity change documented for 6 April 2026. | confirmed | https://stripe.com/managed-payments; https://support.stripe.com/questions/get-started-with-stripe-managed-payments; https://stripe.com/gb/legal/ssa-service-terms; https://support.stripe.com/questions/why-is-sold-through-link-llc-the-legal-entity-on-my-invoice-for-stripe-managed-payments-fees; https://status.stripe.com; https://support.stripe.com/questions/stripe-user-terms-update-september-28-2026 | 2026-11-04 | Terms apply immediately to new users from 28 September 2026. Existing-service material changes take effect 6 January 2027; new-service terms apply from 28 September 2026. Stripe status page exposed only its title; no live uptime claim is made. |
+| F39 | Operating status and recent changes | Related Stripe-group regulatory warning: on 2026-03-26 the FTC sent Stripe, Inc. a warning letter about possible debanking-related FTC Act violations; it warns of possible investigation/enforcement and is not an adjudicated violation or penalty. | confirmed | https://www.ftc.gov/news-events/news/press-releases/2026/03/ftc-chairman-andrew-n-ferguson-issues-warning-letters-ceos-paypal-stripe-visa-mastercard-about-debanking-american-consumers; https://www.ftc.gov/system/files/ftc_gov/pdf/stripe-debanking-letter.pdf | 2026-11-09 | The letter addresses Stripe, Inc. and its payment-processing services, not Stripe Managed Payments by name. The SMP changelog and terms were reviewed; the Stripe status page exposed only its title, so no live status claim is made. No SMP-specific sunset or service change was found. |
 | F40 | Closing an account | Owner can close the Stripe account in Dashboard after paying out balances; negative balances prevent closure. Closure cannot be reversed and removes ability to refund, pay or answer disputes. | confirmed | https://support.stripe.com/questions/close-a-stripe-account; https://stripe.com/gb/legal/ssa | 2026-11-04 | Outstanding liabilities survive closure. The help article recommends keeping the account open while refunds/disputes remain possible and exporting data first. Stopping SMP on future sessions is different from closing all Stripe services. |
 | F40 | Closing an account | Stopping SMP subscription management requires the legal right/capability to collect directly and timely customer notice; original SMP payment authorization cannot simply be reused outside SMP. | confirmed | https://stripe.com/gb/legal/ssa-service-terms; https://docs.stripe.com/payments/managed-payments/set-up.md | 2026-11-04 | The service terms permit suspension/termination and product offboarding. Regional Australian/New Zealand termination rules differ from the generic at-any-time wording; this record does not turn that generic clause into a worldwide notice guarantee. |
 | F40 | Closing an account | Data may be retained after closure for legal/regulatory, fraud, tax/accounting and financial-reporting needs; there is no single published universal deletion date. | confirmed | https://stripe.com/gb/privacy; https://stripe.com/gb/legal/ssa | 2026-11-04 | The privacy policy applies retention/limitation requirements under local law. SMP separately honors valid customer deletion requests, which can cancel their subscriptions and delete generated objects; closure is not immediate deletion. |
@@ -205,12 +206,12 @@ The row is active and its merchant-of-record product distinction is supported. T
 ## Counts
 
 - Distinct fields attempted: 50 (40 required, five optional, five crypto-applicability fields).
-- Facts rows: 117. State counts are row counts, not distinct-field counts.
-- confirmed: 97.
-- not_published: 9.
-- unclear: 4.
-- conflicting: 1.
-- not_applicable: 5.
-- check_failed: 1.
-- Unique official source URLs in the facts table: 57.
-- Unique official source URLs across this file: 59 (including the two documented US pricing routes that redirected to India).
+- Facts rows: 118. State counts are row counts, not distinct-field counts.
+- confirmed: 98
+- not_published: 9
+- unclear: 4
+- conflicting: 1
+- not_applicable: 5
+- check_failed: 1
+- Unique exact source URLs in the facts table: 59.
+- Unique exact source URLs across the whole file: 61. Repeated URLs count once.

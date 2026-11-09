@@ -143,6 +143,7 @@ Interchange-plus means the card network/bank's variable cost plus Helcim's margi
 | C04 | Crypto payment completion and refunds | Not applicable to the reviewed card, domestic bank-debit and named-wallet payment offer. | not_applicable | https://devdocs.helcim.com/docs/available-payment-types-and-methods-through-helcimpayjs; https://learn.helcim.com/docs/ach-us-canada-rules; https://legal.helcim.com/us/acceptable-use-policy/; https://legal.helcim.com/ca/acceptable-use-policy/ | 2026-11-04 | No native crypto checkout/settlement offer was established from the method lists. Crypto/NFT business restrictions are not evidence of a supported crypto payment flow. |
 | C05 | Hosting and maintenance | Not applicable to the reviewed card, domestic bank-debit and named-wallet payment offer. | not_applicable | https://devdocs.helcim.com/docs/available-payment-types-and-methods-through-helcimpayjs; https://learn.helcim.com/docs/ach-us-canada-rules; https://legal.helcim.com/us/acceptable-use-policy/; https://legal.helcim.com/ca/acceptable-use-policy/ | 2026-11-04 | No native crypto checkout/settlement offer was established from the method lists. Crypto/NFT business restrictions are not evidence of a supported crypto payment flow. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, merger, shutdown, rebrand, major paid-feature retirement, customer-data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://www.helcim.com/announcements/; https://www.helcim.com/company/helcim-raises-series-c/; https://status.helcim.com/; https://www.helcim.com/about-us/ | 2026-11-09 | Checked company announcements, current status, and company information. Helcim announced a USD 53 million Series C on 21 August 2026; the announcement describes financing, not a sale or merger. A 2025 bug-bounty program suspension is not a notice of a customer-data breach. Status said Operating Normally on 6 November. |
 ## Cost examples: our calculations
 
 Evidence inputs were checked on 2026-11-04. Calculations were checked on 2026-11-05. Each example uses the named original currency, with no sales tax, provider-fee tax, discounts, conversion, paid optimization, disputes, returns, reserve or Fee Saver unless specified. Rates below are not guaranteed quotes for every card. Results are exact to cents for these inputs; effective percentages are rounded to two decimals.
@@ -210,18 +211,18 @@ The row is active and describes a North American gateway for Canada and the US w
 
 - Field IDs attempted/assessed: 50, comprising 40 core, five optional and five crypto applicability checks.
 - Applicable non-crypto fields attempted: 45; no applicable field ID omitted.
-- Fact rows: 120. Calculation rows and retrieval notes are excluded.
+- Fact rows: 121. Calculation rows and retrieval notes are excluded.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 94 |
+| confirmed | 95 |
 | not_published | 16 |
 | unclear | 4 |
 | conflicting | 1 |
 | not_applicable | 5 |
 | check_failed | 0 |
 
-- Unique official evidence source URLs in fact rows: 70; repeated links count once.
+- Unique official evidence source URLs in fact rows: 72; repeated links count once.
 - Total distinct official URLs in this file: 75, including the official homepage and retrieval-only URL checks.
 - Initial direct-fetch failures were recovered through working official pages or the web reader. `check_failed` is zero for scoped fact rows; retrieval limits and the unverified private certificate remain explicit.
 

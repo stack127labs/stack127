@@ -119,6 +119,7 @@ Each state applies to the precise value and product/contract scope in its row. A
 | F38 | Support access | Hours differ: current contact/help-center pages say Monday–Friday 9 AM–6 PM ET; several linked articles still say 9 AM–5:30 PM EST. | conflicting | https://staxpayments.com/contact/; https://support.fattmerchant.com/; https://support.fattmerchant.com/what-are-fattmerchants-fees; https://support.fattmerchant.com/stax-pay-accepting-payments-with-an-international-card | 2026-11-05 | Retained both official statements. No 24/7 or guaranteed response time is assumed; the marketing hold-time figure was not measured. Knowledge-base translations are not proof of live support languages. |
 | F39 | Operating status and recent changes | Active public Stax Pay/Connect offer; public status page reported all systems operational when checked. | confirmed | https://staxpayments.com/; https://status.staxpayments.com/; https://staxpayments.com/blog/stax-payments-announces-leadership-changes-to-align-operations-technology-and-go-to-market-strategy/ | 2026-11-05 | No official broad shutdown or sunset notice was found. The March 17, 2026 company announcement describes continued operations; status is a check-time report, not a future uptime guarantee. |
 | F39 | Operating status and recent changes | APPS acquisition announced in 2023; its platform was to become Stax Processing. | confirmed | https://staxpayments.com/blog/stax-payments-acquires-apps/; https://staxpayments.com/blog/stax-celebrates-10-years/ | 2026-11-05 | This is a historical product/group change, not evidence Stax Pay is retired. Connect, Bill and the newer processor legal entity must still be distinguished. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale, shutdown, rebrand, market exit, major paid-feature retirement, customer-data breach, regulatory action or bankruptcy found. | confirmed | https://staxpayments.com/blog/; https://staxpayments.com/about-stax/; https://status.staxpayments.com/ | 2026-11-09 | Checked the company blog, company history and live status/history. The reviewed history describes Stax operating through 2025; acquisitions listed there predate this news window. Status incidents in late October and November 2026 were marked resolved and involved upstream processing/funding; no customer-data breach was reported. |
 | F40 | Closing an account | Membership cancellation: 30 days' notice via support; no membership penalty advertised, with the current month's processing/subscription charges potentially due. | confirmed | https://support.fattmerchant.com/how-to-cancel-your-stax-membership; https://staxpayments.com/terms-of-use/ | 2026-11-05 | Platform subscriptions are billed monthly in advance until cancelled. Help gives phone/email; general terms also allow the portal cancellation form unless otherwise agreed. |
 | F40 | Closing an account | Newer Stax Processing agreement: month-to-month with 30 days' written nonrenewal notice; transaction-related obligations survive. | confirmed | https://467991.fs1.hubspotusercontent-na1.net/hubfs/467991/Stax%20Merchant%20T%26Cs%20%28Stax%2012.30.25%29.pdf | 2026-11-05 | Section 4 is scoped to this linked agreement. Deconversion assistance may cost $750 plus other fees; loaned/leased equipment must be returned within 30 days or a $499 nonreturn fee can apply. |
 | F40 | Closing an account | Other linked card agreement V4.0822: three-year initial term, one-year renewals and 90-day nonrenewal notice; early-exit damages may apply. | confirmed | https://467991.fs1.hubspotusercontent-na1.net/hubfs/467991/Merchant_Card_Processing_Agreement.pdf | 2026-11-05 | Sections 13–15 differ from the newer contract. Early-exit damages use remaining months times average monthly processing fees over the preceding six months, plus costs/legal fees; an Arkansas cap is stated. This is not assigned to every new Pay account. |
@@ -187,13 +188,13 @@ Annual tier boundaries overlap in the published wording at exactly $150,000 and 
 ## Counts
 
 - Fields attempted: 50 distinct IDs — 40 required core, five optional and five crypto applicability checks.
-- Fact rows: 117. Multiple states can occur within a field when separately scoped values differ.
-- confirmed: 80
+- Fact rows: 118.
+- confirmed: 81
 - not_published: 28
 - unclear: 1
 - conflicting: 3
 - not_applicable: 5
 - check_failed: 0
-- Unique exact source URLs in facts: 63.
-- Unique exact source URLs in the whole file: 63.
+- Unique exact source URLs in the facts table: 65.
+- Unique exact source URLs across the whole file: 65. Repeated URLs count once.
 

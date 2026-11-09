@@ -25,6 +25,7 @@ Scope: Nile's hosted, tenant-aware PostgreSQL database, its included Auth servic
 | C03 | hosting and license | Nile Auth source code is MIT licensed and can be self-hosted; the Nile JavaScript SDK repository also has an MIT license. | confirmed | [Source](https://raw.githubusercontent.com/niledatabase/nile-auth/main/LICENSE.md)<br>[Source 2](https://raw.githubusercontent.com/niledatabase/nile-js/main/LICENSE)<br>[Source 3](https://raw.githubusercontent.com/niledatabase/nile-auth/main/README.md) | 2026-11-05 | Exact Auth LICENSE.md and SDK LICENSE were read. These licenses do not establish the license of every hosted database component. |
 | C04 | lifecycle and access stage | Current product, pricing and public sign-in pages are available. No whole-product shutdown, sunset, acquisition or rename notice was found in the official site, blog, docs or source overview. | confirmed | [Source](https://www.thenile.dev/) | 2026-11-05 | Lifecycle check performed first and then cross-checked against pricing, About, blog/sitemap and official repositories. Public availability was read; no account or database was created. |
 | C04 | lifecycle and access stage | Official platform README says public preview; support docs say technical preview. Production-oriented paid plans are marketed, but no unambiguous general-availability notice was found. | unclear | [Source](https://raw.githubusercontent.com/niledatabase/niledatabase/main/README.md)<br>[Source 2](https://www.thenile.dev/docs/support/support)<br>[Source 3](https://www.thenile.dev/pricing) | 2026-11-05 | README, Documentation / Support page versus paid pricing. Keep preview wording rather than inferring GA from a production SLA label. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Nile. | not_published | https://www.thenile.dev/blog/ ; https://www.thenile.dev/changelog ; https://status.thenile.dev/ | 2026-11-09 | Checked official Nile blog, changelog URL and status URL. No qualifying sale, shutdown, rebrand, major paid retirement or breach notice found. |
 | C05 | vendor home and main markets | Nile Platform, Inc. states it is headquartered in the United States; the Terms give a San Francisco, California mailing address. | confirmed | [Source](https://www.thenile.dev/privacy-policy)<br>[Source 2](https://www.thenile.dev/terms-of-service) | 2026-11-05 | Privacy, International data transfer; Terms, Contact Information. A mailing address is not a database region, and business-user information may be transferred internationally. |
 | C06 | signup and use restrictions | Public console offers Google and GitHub sign-in. The website terms require users to be at least 18 with capacity to accept the terms, and include export-control obligations. | confirmed | [Source](https://console.thenile.dev/)<br>[Source 2](https://www.thenile.dev/terms-of-service) | 2026-11-05 | Public landing page only; Terms introduction and Export section checked. No sign-in or form was submitted. |
 | C06 | signup and use restrictions | An explicit initial-signup card requirement and complete country eligibility list were not established. The pricing article says payment information can be entered to buy overages while staying on Free. | not_published | [Source](https://www.thenile.dev/blog/nile-pricing)<br>[Source 2](https://www.thenile.dev/pricing) | 2026-11-05 | Checked console landing, SQL/Node quickstarts, pricing FAQ, Terms and Privacy. A signup flow without visible card fields is not proof no card is ever required. |
@@ -222,11 +223,11 @@ All sources were checked **2026-11-05**. Official docs were found through the [d
 
 - Distinct field IDs attempted: **46** (22 core, 8 database, 7 file, 3 vector, 5 job, 1 self-host).
 - Facts-table rows: **79**. Split rows are counted individually below.
-- confirmed: **44**
-- not_published: **13**
-- unclear: **5**
-- conflicting: **6**
-- not_applicable: **11**
-- check_failed: **0**
+- confirmed: 44
+- not_published: 14
+- unclear: 5
+- conflicting: 6
+- not_applicable: 11
+- check_failed: 0
 - Distinct source URLs linked: **41**.
 

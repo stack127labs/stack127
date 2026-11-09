@@ -115,6 +115,7 @@ Digital-product approval is unresolved: marketing and developer pages describe S
 | F39 | Operating status and recent changes | Active public offer; no whole-provider shutdown notice found. Proposed BillDesk acquisition was not completed. | confirmed | https://payu.in/pricing/; https://docs.payu.in/docs/register-for-a-merchant-account-on-dashboard; https://www.prosus.com/~/media/Files/P/prosus-corp-v2/results-reports-and-events-archive/latest-results/hy-2023/financial-results-booklet.pdf | 2026-11-05 | Prosus's official HY2023 report says conditions were unmet by 30 September 2022 and the agreement automatically terminated in October 2022. The 2021 announcement is not proof PayU acquired BillDesk. |
 | F39 | Operating status and recent changes | UPI Collect disabled from 28 February 2026 for most manual VPA/UPI-ID/mobile initiation and new mandate registration. | confirmed | https://docs.payu.in/docs/upi-collect-disablement-information | 2026-11-05 | Intent/QR are migration routes. Exceptions include specified investment MCCs, iOS, existing-mandate execution/modification/revocation and PA-CB. Older Collect examples do not override this notice. |
 | F39 | Operating status and recent changes | Dedicated public operational-status page: not found in reviewed product, policy and developer material. | not_published | https://payu.in/pricing/; https://payu.in/company/payu-policies/; https://docs.payu.in/docs/choose-your-payment-gateway | 2026-11-05 | Public product availability does not establish real-time uptime. No unverified status URL is supplied. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale, shutdown, rebrand, market exit, major paid-feature retirement, customer-data breach, adverse regulatory action or bankruptcy found. | confirmed | https://payu.in/newsroom/; https://payu.in/company/corporate-announcements/; https://payu.in/company/; https://payu.in/payu-payments-privacy-statement/; https://docs.payu.in/docs/register-for-a-merchant-account-on-dashboard | 2026-11-09 | Checked PayU Newsroom, Corporate Announcements, company history, merchant-onboarding docs and the current privacy/licence statement; no public product changelog or status page was located. Targeted searches covered PayU India acquisition, shutdown, rebrand and licence-loss news. The final RBI PA authorisation is a current licence grant, not an adverse action. |
 | F40 | Closing an account | Ordinary termination: either party gives 30 days' written notice; certain breaches/risk cases permit immediate termination. | confirmed | https://devguide.payu.in/website-assets/uploads/2026/10/1.-2026-Merchant-Terms-and-Conditions-applicable-for-availing-Online-Payment-Aggregation-Services-on-Service-Fee-Model.pdf | 2026-11-05 | Clauses 25–26 preserve outstanding obligations. |
 | F40 | Closing an account | Closure funds may be held 210 business days; specified breach/fraud cases can exceed that period. | confirmed | https://devguide.payu.in/website-assets/uploads/2026/10/1.-2026-Merchant-Terms-and-Conditions-applicable-for-availing-Online-Payment-Aggregation-Services-on-Service-Fee-Model.pdf | 2026-11-05 | Clause 26 is not an unconditional release deadline. |
 | F40 | Closing an account | Fixed deletion date after closure: not published; privacy retention depends on legal/business purposes. | not_published | https://payu.in/payu-payments-privacy-statement/; https://payu.in/pacb-lrs-tncs/ | 2026-11-05 | The 28 January 2026 privacy statement does not promise immediate deletion. LRS transaction records have a separate ten-year-or-longer requirement, not one universal account-closure period. |
@@ -176,16 +177,17 @@ No UPI, subscription, priority-settlement, foreign-seller or converted-payment a
 ## Counts
 
 Fields attempted: 50 distinct IDs (F01–F45 and applicability checks for C01–C05).
-Fact rows: 113.
+Fact rows: 114.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 70 |
+| confirmed | 71 |
 | not_published | 29 |
 | unclear | 6 |
 | conflicting | 2 |
 | not_applicable | 5 |
 | check_failed | 1 |
 
-Unique official source URLs linked in this file: 52. This includes the product homepage and the two failed support/policy URLs; links repeated in multiple rows count once.
+- Unique exact source URLs in the facts table: 53.
+- Unique exact source URLs across the whole file: 54. Repeated URLs count once.
 

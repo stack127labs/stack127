@@ -120,6 +120,7 @@ States apply to the scoped value, not every possible condition. An unpublished a
 | F39 | Operating status and recent changes | Legacy PAY ID Online Checkout/OAuth API ended on 5 December 2021; PAY.JP itself continues. | confirmed | https://pay.jp/info/2021-10-06-110000; https://pay.jp/ | 2026-11-05 | Notice says the old login/OAuth checkout stopped from 6 December. Existing payment tokens/subscriptions were not all cancelled, and BASE shops' PAY ID offer was outside this retirement. |
 | F39 | Operating status and recent changes | September 2025 resurvey guidance describes stopping accounts whose merchants elected to cease service by 31 December 2025, progressively from January 2026. | confirmed | https://help.pay.jp/ja/articles/12310095 | 2026-11-05 | This is a merchant-exit process, not a PAY.JP-wide shutdown. No provider-wide shutdown or acquisition notice was found in the current company/news/help checks. |
 | F39 | Operating status and recent changes | No dated API v1 sunset deadline found; v2 migration guidance says a complete transition will ultimately be needed. | not_published | https://docs.pay.jp/; https://docs.pay.jp/v2/guide/v2-migration | 2026-11-05 | Checked the current edition selector and migration guide. Neither supplies a shutdown date, and both editions remain selectable for new merchants. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale/merger, rebrand, shutdown/sunset, market exit, major paid-feature retirement, customer-data breach, regulatory action/licence loss or bankruptcy found. | confirmed | https://pay.jp/; https://pay.jp/info; https://status.pay.jp/; https://docs.pay.jp/ | 2026-11-09 | Checked the official product and news pages, public status page and developer docs, plus web news-search results since January 2025. Routine API/authentication notices and the old PAY ID checkout retirement were not provider-wide shutdowns or major current product exits.
 | F40 | Closing an account | Agreement Article 22(3): termination on 30 days' notice; closure help: dashboard deletion ends the account/contract immediately. | conflicting | https://pay.jp/terms/tos.pdf; https://help.pay.jp/ja/articles/3438147 | 2026-11-05 | Both public sources were read, including the contract paragraph on p. 18. Neither explains whether dashboard closure waives the contract notice period; retain the conflict. |
 | F40 | Closing an account | Deletion is irreversible: no further login/recovery; export data and stop active subscriptions first. | confirmed | https://help.pay.jp/ja/articles/3438147 | 2026-11-05 | Refund/dispute operations become unavailable through the deleted account. Deletion does not cancel surviving repayment or other contractual liabilities. |
 | F40 | Closing an account | Final payout follows the merchant's scheduled cycle if balance is at least ¥1,000; smaller balance or failed final bank transfer may be forfeited. | confirmed | https://help.pay.jp/ja/articles/11744960; https://pay.jp/terms/tos.pdf | 2026-11-05 | Normal payout holds/offset rights survive where applicable. Correct bank details before deleting; final release is not guaranteed immediately on closure. |
@@ -185,12 +186,12 @@ Refund rule source: https://help.pay.jp/ja/articles/3438206; https://help.pay.jp
 ## Counts
 
 - Fields attempted: 50 of 50: all 40 core fields, all five optional fields, and applicability of all five crypto fields.
-- Facts-table rows: 120.
-- confirmed: 92.
+- Facts-table rows: 121.
+- confirmed: 93.
 - not_published: 22.
 - unclear: 0.
 - conflicting: 1.
 - not_applicable: 5.
 - check_failed: 0.
-- Distinct exact source URLs in the facts table: 81. Repeat uses count once; public help article IDs are stable official URLs that redirect to their current Japanese titles.
+- Distinct exact source URLs in the facts table: 82. Repeat uses count once; public help article IDs are stable official URLs that redirect to their current Japanese titles.
 

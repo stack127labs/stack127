@@ -123,6 +123,7 @@ States apply to the scoped value in each row. A confirmed price or feature does 
 | F38 | Support access | Support email support@paynow.gg and public Discord; Enterprise adds dedicated support via business@paynow.gg. | confirmed | https://docs.paynow.gg/guides/for-your-players/refunds-and-cancellations.md; https://paynow.gg/about; https://paynow.gg/pricing | 2026-11-04 | Buyer refund support replies on business days. Payout problems can be raised with the store ID; the presence of public Discord does not promise it can resolve private verification issues. |
 | F38 | Support access | General seller-support hours, supported languages and guaranteed response time: not published. | not_published | https://paynow.gg/pricing; https://docs.paynow.gg/guides/for-your-players/refunds-and-cancellations.md; https://docs.paynow.gg/guides/payments-and-payouts/payout-problems.md; https://paynow.gg/about | 2026-11-04 | The refund guide's business-day email guidance and Tipalti escalation delay are scoped statements. Neither establishes universal 24/7 seller support or a response SLA. |
 | F39 | Operating status and recent changes | Active offer with current signup/pricing/docs; Q3 update published 30 September 2026 announces email editing, mobile push notifications, new docs and Dashboard 2.0 open beta. | confirmed | https://paynow.gg/pricing; https://paynow.gg/blog/q3-2026-update; https://docs.paynow.gg/guides/reference/is-it-down.md | 2026-11-04 | The update moved plan billing to PayNow checkout. Its planned end-October dashboard replacement is not proof of completion. The outage guide directs users to Discord announcements; no separate public status-page URL was identified. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale/merger, rebrand, shutdown/sunset, market exit, major paid-feature retirement, customer-data breach, regulatory action/licence loss or bankruptcy found. | confirmed | https://paynow.gg/blog; https://paynow.gg/blog/q3-2026-update; https://docs.paynow.gg/guides/reference/is-it-down.md | 2026-11-09 | Checked the official blog and Q3 update, current docs/outage guidance and web news-search results since January 2025. The outage guide points merchants to Discord rather than a public status endpoint. Dashboard 2.0 and docs changes are routine product updates, not a rebrand or product exit.
 | F40 | Closing an account | Either party may cancel with written notice, subject to unpaid amounts. Access/rights end; fees that would have become due through the agreed term become immediately payable. | confirmed | https://paynow.gg/legal/creator-agreement | 2026-11-04 | Section 13 permits disabling account access and collecting outstanding fees. Sections 8 and 11 survive; no fixed notice period is specified and cancellation does not imply a refund of prepaid plan fees. |
 | F40 | Closing an account | Privacy policy: normally retain user data for 6 years after service use ends; deletion requests start processing after 20 days, subject to legal retention/exemptions. | confirmed | https://paynow.gg/legal/privacy-policy | 2026-11-04 | Policy last modified 13 October 2026. Deleting personal data also deletes the account; statutory retention and claims may prevent immediate complete erasure. |
 | F40 | Closing an account | Final payout deadline after termination, closure-specific balance release and guaranteed exit export window: not published. | not_published | https://paynow.gg/legal/creator-agreement; https://paynow.gg/legal/privacy-policy; https://docs.paynow.gg/guides/payments-and-payouts/payouts.md | 2026-11-04 | The agreement permits setoff and disables access but gives no universal final-funds release date. Contractual record backups remain the creator's responsibility under section 6. |
@@ -209,13 +210,13 @@ The row names the correct provider and its active merchant-of-record offer. No d
 ## Counts
 
 - Distinct fields attempted: 50 of 50 (40 required, five optional, five crypto).
-- Fact-table rows: 125.
-- confirmed: 89.
+- Fact-table rows: 126.
+- confirmed: 90.
 - not_published: 30.
 - unclear: 3.
 - conflicting: 3.
 - not_applicable: 0.
 - check_failed: 0.
-- Distinct exact official source URLs: 51; 50 appear in the fact table.
+- Distinct exact official source URLs: 52; 51 appear in the fact table.
 
 All 40 required fields, all five optional fields and all five crypto fields were attempted. States count fact-table rows, not distinct fields. Source-link count means distinct exact official URLs used as evidence in this file, not the number of repeated link occurrences.

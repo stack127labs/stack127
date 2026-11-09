@@ -14,6 +14,7 @@ All rows checked on 2026-11-04. “Not stated” means no reliable absolute sour
 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Source update/effective date | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| F01 | News check 2026-11-09 | News check 2026-11-09: no sale, shutdown, rebrand, or incident found | not_published | https://sendpulse.com/blog<br>https://status.sendpulse.com/ | 2026-11-09 | Current official pages | Checked the company blog, service status page and targeted news searches. The official status page reports systems operational. No qualifying lifecycle, breach or regulatory notice found. |
 | F01 | Name, official site, status | SendPulse; https://sendpulse.com/; active | confirmed | https://sendpulse.com/ | 2026-11-04 | Not stated | Current service has public pricing and setup docs. The active Marketing; delivery row fits; no row correction proposed. |
 | F02 | Marketing and newsletter jobs | Broadcast newsletters, segmented campaigns and automated subscriber journeys | confirmed | https://sendpulse.com/knowledge-base/email-service/automation360/automation-basics | 2026-11-04 | Not stated | Automation joins email, CRM and other suite tools; this is a hosted marketing product. |
 | F02 | Application email job | Transactional SMTP/API for password resets, confirmations and notifications | confirmed | https://sendpulse.com/knowledge-base/smtp/setup-smtp-server | 2026-11-04 | Not stated | Separate SMTP product and allowance. Marketing contact subscriptions are not its sending quota. |

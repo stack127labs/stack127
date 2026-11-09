@@ -123,7 +123,7 @@ All 40 required and five optional fields were attempted; all five crypto fields 
 | F38 | Support access | Canada closure/support callbacks: Mon–Fri 9 a.m.–6 p.m. Eastern. | confirmed | https://quickbooks.intuit.com/learn-support/en-ca/help-article/merchant-services/close-quickbooks-merchant-services-account/L6MUEM47m_CA_en_CA?msockid=33024a3e553369d208ef5cfd541f687d | 2026-11-05 | This is the published callback window, not the sales hotline’s hours. |
 | F38 | Support access | UK initial Payments support: Intuit, 0808 234 5337. | confirmed | https://www.intuit.com/legal/terms/en-gb/quickbooks/online/ | 2026-11-05 | Adyen complaint procedures may apply. |
 | F39 | Operating status and recent changes | Current product active; official developer status showed Payments API operational. | confirmed | https://quickbooks.intuit.com/payments/; https://quickbooks.intuit.com/ca/payments/; https://quickbooks.intuit.com/uk/payments/; https://status.developer.intuit.com/ | 2026-11-05 | Point-in-time evidence; no whole-product shutdown/acquisition notice found. |
-| F39 | Operating status and recent changes | Desktop POS/connected POS Payments ended 2023-10-03; Desktop 2023 integrated services ended after 2026-05-31. | confirmed | https://quickbooks.intuit.com/learn-support/en-us/help-article/discontinued-offering/quickbooks-desktop-point-sale-discontinuation/L407dYuCG_US_en_US; https://quickbooks.intuit.com/learn-support/en-ca/help-article/feature-preferences/quickbooks-desktop-service-discontinuation-policy/L17cXxlie_CA_en_CA?uid=mfxfnpm5 | 2026-11-05 | These edition sunsets do not retire current Online Payments; outdated Desktop signup text must be read with the sunset notice. |
+| F39 | Operating status and recent changes | QuickBooks Desktop 2023 service and its in-product Payments integration ended after 2026-05-31; processing and eInvoice through that edition stopped, while recurring payments continue and are managed in Merchant Center. | confirmed | https://quickbooks.intuit.com/learn-support/en-us/help-article/feature-preferences/quickbooks-desktop-service-discontinuation-policy/L17cXxlie_US_en_US; https://quickbooks.intuit.com/learn-support/en-ca/help-article/feature-preferences/quickbooks-desktop-service-discontinuation-policy/L17cXxlie_CA_en_CA?uid=mfxfnpm5 | 2026-11-09 | This applies to Desktop 2023 editions, including Pro Plus, Premier Plus, Mac Plus and Enterprise Solutions 23.0. Intuit says scheduled recurring payments continue but are managed through Merchant Center. This edition sunset does not retire current QuickBooks Online Payments. |
 | F40 | Closing an account | US close via Merchant Service Center; confirmation email within one business day; record access up to 12 months after cancellation. | confirmed | https://quickbooks.intuit.com/learn-support/en-us/help-article/cancel-products-services/cancel-quickbooks-payments-subscription/L4wJIZbKy_US_en_US?uid=lku6r5i6 | 2026-11-05 | An admin submits the request; closing Payments is distinct from simply disabling an invoice option. |
 | F40 | Closing an account | Canada closure through Support; UK cancelling QBO also terminates Payments access. | confirmed | https://quickbooks.intuit.com/learn-support/en-ca/help-article/merchant-services/close-quickbooks-merchant-services-account/L6MUEM47m_CA_en_CA?msockid=33024a3e553369d208ef5cfd541f687d; https://www.intuit.com/legal/terms/en-gb/quickbooks/online/ | 2026-11-05 | Outstanding liabilities survive closure; no immediate final-funds release promise established. |
 | F40 | Closing an account | Personal data may remain for compliance, legal claims and fraud prevention; fixed payment-data retention term not published. | not_published | https://www.intuit.com/privacy/statement/ | 2026-11-05 | Privacy policy describes purpose-based retention; 12-month report access is not the full retention period. |
@@ -197,11 +197,12 @@ All URLs in this file were checked on 2026-11-05. Official pages, indexed offici
 
 - Fields attempted: 50 unique IDs: 40 required, five optional and five crypto applicability checks.
 - Facts-table rows: 120.
-- confirmed: 86 rows.
-- not_published: 23 rows.
-- unclear: 3 rows.
-- conflicting: 1 rows.
-- not_applicable: 5 rows.
-- check_failed: 2 rows.
-- Unique exact source URLs: 58, counting repeated citations once.
+- confirmed: 86
+- not_published: 23
+- unclear: 3
+- conflicting: 1
+- not_applicable: 5
+- check_failed: 2
+- Unique exact source URLs in the facts table: 57.
+- Unique exact source URLs across the whole file: 59. Repeated URLs count once.
 

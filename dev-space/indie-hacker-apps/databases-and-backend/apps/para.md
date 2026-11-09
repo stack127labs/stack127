@@ -20,6 +20,7 @@ Scope: Hosted Free/Paid and applicable self-hosted database, file, queue and ope
 | C03 | Hosting and license | Self-hosted executable Java JAR/Docker, embeddable JVM framework and separately managed Para Cloud. Paid Cloud includes managed updates/backups/scaling; self-host operators manage these. | confirmed | [1](https://paraio.org/docs/getting-started/architecture/); [2](https://paraio.org/docs/deployment/standalone/); [3](https://paraio.org/cloud-hosting/) | 2026-11-04 | Architecture embedding; Standalone server; Cloud versus self-host comparison. Cloud operations are not included merely by downloading the library. |
 | C03 | Hosting and license | Core Para source is Apache-2.0; official S3/SQS plugins also identify Apache-2.0. Dependency/provider service terms remain separate. | confirmed | [1](https://raw.githubusercontent.com/Erudika/para/master/LICENSE); [2](https://raw.githubusercontent.com/Erudika/para-storage-s3/master/README.md); [3](https://raw.githubusercontent.com/Erudika/para-queue-sqs/master/README.md) | 2026-11-04 | LICENSE and plugin README License sections. No self-host software subscription fee is imposed by this open-source license; infrastructure remains your cost. |
 | C04 | Lifecycle and access stage | Active public Cloud offer; latest GitHub release API identifies stable 1.57.0, published 2026-10-09. It fixes a critical multitenancy PATCH vulnerability. Cloud runtime version not established. | confirmed | [1](https://paraio.org/cloud-hosting/); [2](https://api.github.com/repos/Erudika/para/releases/latest) | 2026-11-04 | Cloud signup links and latest release metadata/body. Public offers/releases establish current activity; signup/provisioning and deployed patch level were not tested. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Para. | not_published | https://paraio.org/blog/ ; https://github.com/Erudika/para/releases ; https://paraio.com/ | 2026-11-09 | Checked Para project blog, official release feed and hosted product page. No qualifying sale, shutdown, rebrand, major paid retirement or breach notice found. |
 | C05 | Vendor home and main markets | Erudika EOOD, Sofia, Bulgaria; current Terms use Erudika LTD. Impressum gives 4 Lelinska chuka Str., Sofia 1618 and VAT BG-200368755. | confirmed | [1](https://paraio.org/imprint/impressum/); [2](https://paraio.org/legal/terms-of-service/) | 2026-11-04 | Impressum legal entity/address; Terms owner. Entity naming is recorded as published, without assuming an acquisition or different vendor. |
 | C06 | Signup and use restrictions | Cloud Free requires no credit card; public start/sign-in path. Terms restrict customers to age 18 or above; AUP permits legitimate business/organizational use subject to agreements. | confirmed | [1](https://paraio.org/cloud-hosting/); [2](https://paraio.org/legal/terms-of-service/); [3](https://paraio.org/legal/acceptable-use-policy/) | 2026-11-04 | Free card; Terms introduction; AUP Acceptable Use. No signup/login/form submission performed. |
 | C06 | Signup and use restrictions | Complete country eligibility and a separate explicit Free production-use guarantee not established. Free is positioned for prototypes/small apps; Paid is positioned for production. | unclear | [1](https://paraio.org/cloud-hosting/); [2](https://paraio.org/legal/terms-of-service/); [3](https://paraio.org/legal/privacy-policy/); [4](https://paraio.org/legal/gdpr-dpa/); [5](https://paraio.org/legal/acceptable-use-policy/) | 2026-11-04 | Cloud plan positioning and all current legal/policy pages checked. Positioning is not treated as an express ban on legitimate commercial prototypes. |
@@ -171,13 +172,13 @@ Free has no recurring plan charge if eligible, but over 90 inactive days deletes
 ## Counts
 
 - Distinct fields attempted: **46** (22 core, 8 database, 7 file, 3 vector, 5 job, 1 self-host).
-- Fact rows: **79**. Fields repeat only where plan, deployment, component or evidence state differs.
-- confirmed: **39**
-- not_published: **20**
-- unclear: **10**
-- conflicting: **6**
-- not_applicable: **3**
-- check_failed: **1**
+- Fact rows: 80. Fields repeat only where plan, deployment, component or evidence state differs.
+- confirmed: 39
+- not_published: 21
+- unclear: 10
+- conflicting: 6
+- not_applicable: 3
+- check_failed: 1
 - Unique exact official source URLs linked in this file: **50** (repeated links counted once).
 - Research start/finish measured with `date -u`; elapsed seconds: **871**, reported minutes: **14.52**.
 

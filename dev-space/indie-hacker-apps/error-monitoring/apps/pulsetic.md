@@ -125,6 +125,7 @@ All values have their own official URLs, checked UTC date, source date when show
 | J01 | Expected interval and grace | Heartbeat is expected every configured interval plus a separate grace period; missing that deadline sets Offline; can pause. | interval; grace | Shared heartbeat slots | Current hosted service | Hosted | Jobs | confirmed | https://help.pulsetic.com/article/478-how-to-set-up-a-heartbeat-monitor; https://help.pulsetic.com/article/477-heartbeats | 2026-11-05 | 2026-09-18; 2025-12-03 | No cron-expression/calendar timezone/DST schedule, min/max grace or expected-duration window was established. Maintenance timezone is a separate feature. |
 | J02 | Success and missing-ping signals | GET or POST to unique heartbeat URL at successful completion; waiting before first signal; Online when timely, Offline when late/missing; uptime, incident and heartbeat-check-history views. | completion ping; missing signal | Shared heartbeat slots | Current hosted service | Hosted | Jobs | confirmed | https://help.pulsetic.com/article/478-how-to-set-up-a-heartbeat-monitor; https://help.pulsetic.com/article/477-heartbeats; https://help.pulsetic.com/article/479-heartbeat-overview-and-metrics | 2026-11-05 | 2026-09-18; 2025-12-03; 2026-07-25 | Unique ping URL is an ingest capability, not the paid management API. The documented curl retry policy is a recommended client example. |
 | J02 | Start/fail signals and job output | Separate start/end IDs, explicit failure endpoint/status, exit-code/output capture and duration bounds not established. | protocol; run correlation | All heartbeat plans | Current hosted service | Hosted | Jobs | not_published | https://help.pulsetic.com/article/478-how-to-set-up-a-heartbeat-monitor; https://help.pulsetic.com/article/477-heartbeats; https://help.pulsetic.com/article/479-heartbeat-overview-and-metrics; https://api.pulsetic.com/docs/api.yaml | 2026-11-05 | 2026-09-18; 2025-12-03; 2026-07-25; Not stated | Read heartbeat creation/overview/metrics and public API. A completion-only heartbeat cannot be assumed to distinguish a late start from a long execution. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://pulsetic.com/blog/ ; https://pulsetic.com/terms/ ; https://pulsetic.com/pricing/ | 2026-11-09 | Current blog index checked 2026-11-09 ; 2026-09-29 (terms date shown) ; Current pricing checked 2026-11-09 | News check 2026-11-09: Checked the official blog, terms, pricing and homepage, plus targeted searches. The candidate status.pulsetic.com URL was not accessible, so it is not used as evidence; no public vendor status page was located in the official navigation. No qualifying event found. |
 
 ## Cost examples
 
@@ -229,7 +230,7 @@ Our calculation: Solo $90/year ÷ 12 = $7.50/month equivalent; Team $190 ÷ 12 =
 
 - Distinct field IDs attempted: **42**.
 - Fact-table rows: **99**.
-- confirmed: **78**.
+- confirmed: **79**.
 - not_published: **14**.
 - unclear: **4**.
 - conflicting: **2**.

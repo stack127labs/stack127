@@ -17,9 +17,10 @@ Confirmed means documented in a public official source, not independently tested
 | Field ID | Field name | Value | State | Applies to | Exact source URL | Checked date | Evidence note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Current name and URL | GoatCounter; https://www.goatcounter.com/ | confirmed | Product | https://www.goatcounter.com/ | 2026-11-04 | Current official branding; hosted signup and self-hosting are offered. |
-| F01 | Operator | Martin Tournoij, Ireland | confirmed | Hosted service | https://www.goatcounter.com/help/privacy | 2026-11-04 | Named service operator. |
+| F01 | Operator | An individual maintainer in Ireland | confirmed | Hosted service | https://www.goatcounter.com/help/privacy | 2026-11-04 | Named service operator. |
 | F01 | New-customer availability | Public signup is offered | confirmed | Hosted service | https://www.goatcounter.com/signup | 2026-11-04 | Signup page is accessible; no account created. |
 | F01 | Former names and ownership events | No former name, acquisition or closure notice established | not_published | Product | https://github.com/arp242/goatcounter | 2026-11-04 | Home, terms and repository README/release notes checked; no lifecycle event identified. |
+| F01 | News check | News check 2026-11-09: no sale, shutdown, rebrand, or confirmed incident found. | not_published | Current lifecycle and incident sweep | https://www.goatcounter.com/; https://github.com/arp242/goatcounter/blob/main/CHANGELOG.md; https://github.com/arp242/goatcounter/security/advisories; https://www.goatcounter.com/status; https://nvd.nist.gov/vuln/detail/CVE-2026-108740 | 2026-11-09 | Checked the official product page, repository changelog and security advisories, plus its health endpoint; no official blog/newsroom or public status history was found. A search surfaced CVE-2026-108740, a reported privilege-escalation flaw in versions through 2.7.0, but no confirmation of a GoatCounter customer-data breach or first-party incident notice. |
 | F02 | Primary category | Website traffic analytics | confirmed | Hosted and self-hosted | https://www.goatcounter.com/design | 2026-11-04 | Dashboard emphasizes statistics for each page path rather than only site totals. |
 | F02 | Secondary jobs and overlap | Custom click/event counts, public visitor counters, server-log analytics | confirmed | Both editions | https://www.goatcounter.com/help/start | 2026-11-04 | Our directory tags follow the documented capture and reporting methods; these do not establish a full product-analytics or replay suite. |
 | F03 | Website integrations | Browser script; linked WordPress, Gatsby, Publii, SCHLIX and Write.as integrations | confirmed | Websites | https://www.goatcounter.com/help/start | 2026-11-04 | Integrations are linked by the official guide; this is not a guarantee that all packages are maintained by GoatCounter. |
@@ -141,7 +142,7 @@ Self-hosting — our calculation: software royalty = 0 under the [license](https
 
 ## Public detection record
 
-Product ID: `goatcounter`. Current brand: GoatCounter. Hosted operator: Martin Tournoij; no legacy brand established. Rules and source dates are in F32.
+Product ID: `goatcounter`. Current brand: GoatCounter. Hosted operator: an individual maintainer in Ireland; no legacy brand established. Rules and source dates are in F32.
 
 Default browser class **E**: match an actual script using host `gc.zgo.at`, path `/count.js`, with the site's GoatCounter collection endpoint; the official initializer/attribute combination supplies stronger evidence than a filename alone. A real hosted `/count?p=…` pixel is another strong signal. Alternative custom/self-hosted browser setups are **C** and need corroborating GoatCounter-specific code. A public visitor-count display can show statistics collected elsewhere, so a display alone should not prove that the page itself sends analytics.
 

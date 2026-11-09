@@ -16,7 +16,7 @@ All facts and our calculations checked **2026-11-04**. No signup, login, payment
 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Note |
 | --- | --- | --- | --- | --- | --- | --- |
-| 01 | Product identity and ownership | statichost.eu, operated by **Variable Object Assignment**, a Swedish business founded in 2022. Eric Selin is identified as founder. | confirmed | https://www.statichost.eu/about/ ; https://www.statichost.eu/terms/ ; https://www.statichost.eu/ | 2026-11-04 | The company and terms give registration number 860201-7611. No separate parent, acquisition, or earlier product name was established. The provider-owned site domain statichost.page is not another hosting product. |
+| 01 | Product identity and ownership | statichost.eu, operated by **Variable Object Assignment**, a Swedish business founded in 2022. The founder is an individual. | confirmed | https://www.statichost.eu/about/ ; https://www.statichost.eu/terms/ ; https://www.statichost.eu/ | 2026-11-04 | The company and terms give registration number 860201-7611. No separate parent, acquisition, or earlier product name was established. The provider-owned site domain statichost.page is not another hosting product. |
 | 02 | Operating and signup status | Active public signup and paid offers. Linked general terms describe the service as **beta testing**; the JSON management API is also explicitly beta. | confirmed | https://builder.statichost.eu/signup ; https://www.statichost.eu/pricing/ ; https://www.statichost.eu/terms/ ; https://www.statichost.eu/docs/api/ | 2026-11-04 | The terms' last listed change is 2022-09-24. Do not assume that a mature-looking plan page supersedes the linked beta qualification. Actual signup eligibility and feature provisioning were not tested. |
 | 03 | Hosting and management model | Managed static hosting with a native Git/build platform and provider-operated file-serving edge servers. Customer maintains source, build configuration, and generated output. | confirmed | https://www.statichost.eu/docs/ | 2026-11-04 | The docs distinguish the builder dashboard from independent serving nodes. Serving already deployed content does not normally require the builder to be available; certificate management still needs some coordination. |
 | 04 | Suitable app types and overlap | Static sites, documentation, blogs, marketing sites, and browser-side applications. Standard framework guides explicitly exclude server rendering and application API routes. | confirmed | https://www.statichost.eu/docs/ssg-guides/ ; https://www.statichost.eu/blog/build-speedup/ | 2026-11-04 | Editorial fit: Frontend/static and developer deployment workflows. Browser applications may use external services, but those services are not a managed application backend bundled with these static plans. |
@@ -105,6 +105,7 @@ All facts and our calculations checked **2026-11-04**. No signup, login, payment
 | 35 | Software license and service terms | Software-install license not applicable to the selected managed service. Hosted use is governed by the linked terms. Terms' changelog says a former LGPL reference was removed in July 2022. | not_applicable | https://www.statichost.eu/terms/ ; https://www.statichost.eu/docs/ ; https://www.statichost.eu/shcli | 2026-11-04 | The upload script is publicly readable but contains no license declaration in the fetched text. Do not assign LGPL to the current platform/client or treat readable source as a supported self-host edition. |
 | 36 | Self-host requirements and ongoing work | Not applicable to managed Hobby/Starter/Pro hosting. Builder, serving machines, certificates, and infrastructure are operated by statichost.eu. | not_applicable | https://www.statichost.eu/docs/ ; https://www.statichost.eu/docs/domains/ | 2026-11-04 | Customer maintains source, build image/command, DNS, repository access, and exported copies. A customer-supplied Docker build image does not mean installing the hosting control plane or renting a server to run it. |
 | 37 | Evidence and freshness | All row evidence and calculations checked 2026-11-04. Public pages, dated announcements, current status, beta qualifications, and derived amounts are distinguished. | confirmed | https://www.statichost.eu/pricing/ ; https://www.statichost.eu/roadmap/ ; https://www.statichost.eu/terms/ ; https://www.statichost.eu/privacy/ ; https://www.statichost.eu/dpa/ | 2026-11-04 | Read pricing into deployment/API/security docs and full legal pages. Roadmap date is 2026-03-04; terms/privacy last listed changes are 2022-09-24; DPA list changed 2025-06-09. Recheck volatile prices, availability, and unresolved topology within 30 days and before publication. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, shutdown, rebrand, or customer-data breach found. | confirmed | https://www.statichost.eu/; https://www.statichost.eu/blog/; https://www.statichost.eu/terms/; https://status.statichost.eu/ | 2026-11-09 | Checked the product, company/blog, terms and status pages. The blog records a Google Safe Browsing false flag lasting about six hours on 2025-09-25; it was restored and is not evidence of a data breach or qualifying lifecycle event. |
 
 ## Cost examples: our calculations
 
@@ -183,11 +184,11 @@ Formula: `complete cost = external B host + external PostgreSQL + backup storage
 
 ## Counts
 
-Fields attempted: **37 of 37** field groups. Fact rows: **89**. Counts are rows, not distinct fields; repeated cost-input evidence and access-attempt notes are not additional fact rows.
+Fields attempted: **37 of 37** field groups. Fact rows: **90**. Counts are rows, not distinct fields; repeated cost-input evidence and access-attempt notes are not additional fact rows.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 60 |
+| confirmed | 61 |
 | not_published | 18 |
 | unclear | 3 |
 | conflicting | 1 |

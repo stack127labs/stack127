@@ -31,7 +31,7 @@ States describe the scoped value. A published feature or price is not a guarante
 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Note |
 | --- | --- | --- | --- | --- | --- | --- |
-| F01 | Current name, product, owner and old names | GoCardless, a Mollie company; Mollie completed the acquisition on 1 September 2026. | confirmed | [source](https://gocardless.com/blog/mollie-and-gocardless-combine); [source](https://support.gocardless.com/hc/en-gb/articles/24187025310620-Mollie-has-acquired-GoCardless) | 2026-11-05 | The completion announcement supersedes the December 2025 agreement-to-acquire notice. GoCardless retains its brand and operating team; this is an ownership change, not a shutdown. |
+| F01 | Current name, product, owner and old names | GoCardless, a Mollie company; Mollie completed the acquisition on 1 September 2026. | confirmed | [source](https://gocardless.com/blog/mollie-and-gocardless-combine); [source](https://support.gocardless.com/hc/en-gb/articles/24187025310620-Mollie-has-acquired-GoCardless) | 2026-11-09 | The completion announcement supersedes the December 2025 agreement-to-acquire notice. GoCardless retains its brand and operating team; this is an ownership change, not a shutdown. |
 | F01 | Current name, product, owner and old names | Instant Bank Pay is being renamed Pay by Bank; the FAQ says functionality is unchanged. | confirmed | [source](https://gocardless.com/faq/merchants) | 2026-11-05 | Both names remain in the docs and legal terms during the rollout. This is a feature rename, not a second provider or proof that Direct Debit has become instant. |
 | F02 | Provider type and legal seller | Bank-payment processor and collection service; the merchant sells to its own customers. | confirmed | [source](https://gocardless.com/legal/general-terms-self-serve-english-law-uk-and-row); [source](https://gocardless.com/legal/bank-debit-terms); [source](https://gocardless.com/legal/merchants) | 2026-11-05 | GoCardless collects on the merchant's behalf and deducts fees before payout. The legal hub distinguishes merchant, partner and payer contracts; this is not a merchant-of-record resale offer. |
 | F03 | Seller signup countries | Seller jurisdictions: Australia, Canada, Denmark, Eurozone, New Zealand, Sweden, UK and US. | confirmed | [source](https://assets.ctfassets.net/40w0m41bmydz/3PX4jCSLLCArsATSolhcQm/20da06a11eb07061ea16dd857f88f46a/GoCardless_Product_Description_Document_-_January_2026.docx.pdf); [source](https://gocardless.com/legal/general-terms-self-serve-english-law-uk-and-row) | 2026-11-05 | Part 3 of the January 2026 product description lists these jurisdictions. Seller eligibility is separate from the countries where payer bank accounts can be located and remains subject to verification. |
@@ -153,6 +153,7 @@ States describe the scoped value. A published feature or price is not a guarante
 | C04 | Crypto payment completion and refunds | Not applicable to this researched fiat bank-payment offer; no native crypto acceptance product was established. | not_applicable | [source](https://gocardless.com/faq/merchants); [source](https://assets.ctfassets.net/40w0m41bmydz/3PX4jCSLLCArsATSolhcQm/20da06a11eb07061ea16dd857f88f46a/GoCardless_Product_Description_Document_-_January_2026.docx.pdf); [source](https://gocardless.com/legal/restrictions) | 2026-11-05 | GoCardless describes bank debits and open-banking payments, not a crypto asset/network checkout. The restriction list requires prior agreement for crypto-related business activity; that is not evidence that GoCardless receives crypto as payment. |
 | C05 | Hosting and maintenance | Not applicable to this researched fiat bank-payment offer; no native crypto acceptance product was established. | not_applicable | [source](https://gocardless.com/faq/merchants); [source](https://assets.ctfassets.net/40w0m41bmydz/3PX4jCSLLCArsATSolhcQm/20da06a11eb07061ea16dd857f88f46a/GoCardless_Product_Description_Document_-_January_2026.docx.pdf); [source](https://gocardless.com/legal/restrictions) | 2026-11-05 | GoCardless describes bank debits and open-banking payments, not a crypto asset/network checkout. The restriction list requires prior agreement for crypto-related business activity; that is not evidence that GoCardless receives crypto as payment. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: Mollie’s acquisition completed on 1 September 2026, as recorded above; no separate GoCardless shutdown or product sunset found. | confirmed | https://gocardless.com/blog/mollie-and-gocardless-combine; https://support.gocardless.com/hc/en-gb/articles/24187025310620-Mollie-has-acquired-GoCardless; https://status.gocardless.com/; https://gocardless.com/g/regulatory-info | 2026-11-09 | Checked the company announcement, merchant FAQ, status page, and regulatory information. GoCardless continues under its brand; existing pricing and contracts were stated to remain unchanged during phased integration. |
 ## Cost examples
 
 These are **our calculations**, checked on 2026-11-05. Assume an approved ordinary account, a successful domestic payment, the stated plan/currency and the full stated amount as the percentage base. Provider-fee taxes, monthly add-ons, app fees, ancillary events and account-specific pricing are excluded. The standard transaction limit is assumed sufficient. Proceeds are before any hold or separate bank cost.
@@ -206,14 +207,14 @@ No universal chargeback-total example is given because the charging threshold di
 ## Counts
 
 - Fields attempted: **50 of 50** (40 core, five optional, five conditional crypto fields assessed).
-- Fact rows: **121**.
-- confirmed: **101**
+- Fact rows: **122**.
+- confirmed: **102**
 - not_published: **8**
 - unclear: **2**
 - conflicting: **3**
 - not_applicable: **7**
 - check_failed: **0**
-- Unique exact source URLs in the facts table: **62**.
-- Unique exact source URLs across this file: **67**. Repeated links count once.
+- Unique exact source URLs in the facts table: **71**.
+- Unique exact source URLs across this file: **71**. Repeated links count once.
 - No code, database, signup, login, form submission, authenticated API request, payment, commit, push or branch change was made.
 

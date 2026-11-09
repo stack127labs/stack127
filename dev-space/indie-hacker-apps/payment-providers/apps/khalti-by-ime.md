@@ -21,7 +21,7 @@ A state applies to the scoped value in its row. A consumer-wallet number is not 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Note |
 | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Current name, product, owner and old names | Khalti by IME; current brand operated by IME Khalti Limited in Nepal. | confirmed | https://khalti.com/info/terms/; https://khalti.com/info/privacy-policy/; https://khalti.com/about/ | 2026-11-05 | Current wallet terms/privacy name the operator; merchant landing and docs also use the merged branding. |
-| F01 | Current name, product, owner and old names | Khalti and IME Pay merger announced 17-Jul-2025; IME Pay account becomes invalid after migration. | confirmed | https://blog.khalti.com/home/khaltibyime/; https://blog.khalti.com/new-app/migrate-ime-pay-to-khalti/ | 2026-11-05 | Khalti began in 2017. The notice describes wallet consolidation, not discontinuation of the current Khalti gateway. |
+| F01 | Current name, product, owner and old names | Khalti and IME Pay merger announced 17-Jul-2025; IME Pay account becomes invalid after migration. | confirmed | https://blog.khalti.com/home/khaltibyime/; https://blog.khalti.com/new-app/migrate-ime-pay-to-khalti/; https://www.nrb.org.np/contents/uploads/2025/09/2082_04_PS-Updated-Format-1.pdf | 2026-11-09 | Khalti began in 2017. The notice describes wallet consolidation, not discontinuation of the current Khalti gateway. |
 | F01 | Current name, product, owner and old names | Current new-merchant contracting entity/version needs confirmation: public merchant terms still name Khalti Pvt. Ltd. | unclear | https://khalti.com/info/terms/merchant/; https://khalti.com/info/terms/; https://khalti.com/about/; https://docs.khalti.com/getting-started/ | 2026-11-05 | Read the merchant contract, merged-company pages and current docs. No revised gateway agreement or succession explanation for that contract was found. |
 | F02 | Provider type and legal seller | Payment gateway and wallet services; merchant remains seller and bears product, fulfilment and customer-service duties. | confirmed | https://khalti.com/info/terms/merchant/; https://khalti.com/info/terms/ | 2026-11-05 | Merchant terms assign product/service disputes and costs to the merchant; this is not documented merchant-of-record tax handling. |
 | F02 | Provider type and legal seller | KPG API checkout, hosted Bazaar listings, QR and B 2B Services API are distinct offers. | confirmed | https://khalti.com/payment-gateway/; https://khalti.com/sell-on-bazaar/; https://serviceapi.docs.khalti.com/; https://khalti.com/merchant/ | 2026-11-05 | The Billing Services API consumes biller services; its name does not establish SaaS subscription billing. |
@@ -132,6 +132,7 @@ A state applies to the scoped value in its row. A consumer-wallet number is not 
 | C04 | Crypto payment completion and refunds | Not applicable: no blockchain confirmation/crypto refund workflow. | not_applicable | https://khalti.com/info/terms/merchant/; https://docs.khalti.com/khalti-epayment/; https://khalti.com/info/disputepolicy/ | 2026-11-05 | Refund documentation covers Khalti wallet and banking transactions. |
 | C05 | Hosting and maintenance | Not applicable as a crypto hosting field. | not_applicable | https://khalti.com/info/terms/merchant/; https://docs.khalti.com/khalti-epayment/; https://khalti.com/info/disputepolicy/ | 2026-11-05 | Provider-hosted fiat checkout/Bazaar and integration requirements are covered in F 16–F 18. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: the 2025 Khalti–IME Pay merger is confirmed above; no later shutdown of the current Khalti gateway, sale, major paid-feature retirement, data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://blog.khalti.com/home/khaltibyime/; https://blog.khalti.com/new-app/migrate-ime-pay-to-khalti/; https://khalti.com/info/terms/; https://khalti.com/merchant/; https://www.nrb.org.np/contents/uploads/2025/09/2082_04_PS-Updated-Format-1.pdf | 2026-11-09 | Checked the official merger and migration posts, current terms and merchant offer, and Nepal Rastra Bank’s payment-system report. The old IME Pay app/account migration is part of the merger, not closure of the current Khalti merchant gateway. |
 ## Cost examples: our calculation
 
 No complete numerical merchant-processing quote can be calculated from the public sources. Merchant terms specify a one-time API fee and a percentage on successful transactions but publish neither amount. Gateway FAQs say prices are personalized. The annual fee is disputed between the merchant terms and FAQ. Sources: https://khalti.com/info/terms/merchant/; https://khalti.com/payment-gateway/; https://blog.khalti.com/khalti-payment-gateway/ (checked 2026-11-05).
@@ -182,13 +183,13 @@ No apps.md row error was established. Its active Nepal gateway entry and Khalti 
 ## Counts
 
 - Distinct field IDs attempted:50; all 40 required and five optional attempted, with five conditional crypto fields assessed.
-- Facts-table rows:111; calculations and discussion bullets excluded.
-- confirmed: 65
+- Facts-table rows:112; calculations and discussion bullets excluded.
+- confirmed: 66
 - not_published: 33
 - unclear: 4
 - conflicting: 3
 - not_applicable: 5
 - check_failed: 1
-- Unique exact source URLs in facts table:31.
-- Unique official source links in this file: 32; repeated exact URLs counted once, including the merchant-admin access attempt.
+- Unique exact source URLs in facts table:32.
+- Unique official source links in this file: 33; repeated exact URLs counted once, including the merchant-admin access attempt.
 

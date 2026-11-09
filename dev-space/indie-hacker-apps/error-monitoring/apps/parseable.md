@@ -119,6 +119,7 @@ Sources are official public pages, docs, agreements and repository files. Self-h
 | H02 | Self-host running estimate | $0 OSS license; compute/object storage/staging/backup/egress and labor unknown without a selected, validated deployment | cost; unknown | OSS | Open Source | Self-hosted | Operations | not_published | https://raw.githubusercontent.com/parseablehq/parseable/v3.2.6/LICENSE ; https://www.parseable.com/docs/ingestion-reference ; https://www.parseable.com/docs/self-hosted/storage-targets/aws-s3 ; https://www.parseable.com/docs/architecture | 2026-11-05 | not separately shown; v3.2.6 release 2026-10-26 ; not shown ; not shown ; not shown | No third-party host quote or marketing compression ratio was used as proof of an actual monthly operating bill. |
 | H03 | Updates and image integrity | GitHub v3.2.6 latest release; repository documents artifact provenance verification; P_CHECK_UPDATE defaults true; release notes include security hardening | release; upkeep | Self-hosted | OSS; Enterprise as applicable | Self-hosted | Maintenance | confirmed | https://github.com/parseablehq/parseable/releases/tag/v3.2.6 ; https://github.com/parseablehq/parseable ; https://www.parseable.com/docs/self-hosted/configuration ; https://www.parseable.com/docs/release-notes | 2026-11-05 | 2026-10-26 (release) ; not shown ; not shown ; 2026-08-09 (latest documented entry, v3.0) | Operator must manage version/image upgrades and credentials. No automatic patch installation or fixed OSS supported-release window is established by update checking. |
 | H03 | Backup and recovery procedure | Reliable staging, object-store versioning/encryption and retention duties documented; full tested backup/restore runbook and recovery targets not established | procedure; unknown | Self-hosted | OSS; Enterprise as scoped | Self-hosted | Recovery | not_published | https://www.parseable.com/docs/architecture ; https://www.parseable.com/docs/ingestion-reference ; https://www.parseable.com/docs/self-hosted/storage-targets/aws-s3 ; https://www.parseable.com/docs/self-hosted/configuration | 2026-11-05 | not shown ; not shown ; not shown ; not shown | Read deployment, storage, ingestion and config guidance. Copying Parquet without metadata/staged data or relying on automatic deletion is not a verified complete recovery procedure. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://www.parseable.com/blog ; https://www.parseable.com/docs/release-notes ; https://github.com/parseablehq/parseable/releases | 2026-11-09 | Current blog index checked 2026-11-09 ; 2026-08-09 (latest documented release-note entry) ; 2026-10-26 (latest release v3.2.6) | News check 2026-11-09: Checked the official blog, release notes and repository release history, plus targeted searches. Latest GitHub release is v3.2.6 dated 2026-10-26; the official docs release-note page is older. No vendor status page was located. No qualifying event found. |
 
 ## Cost examples — our calculation
 
@@ -262,19 +263,19 @@ Each link below was opened through a public read. **49 URLs were readable; one t
 ## Counts
 
 Distinct field IDs attempted: **40**.
-Fact rows: **92**. A field can have several rows where editions, plans or deployment values differ.
+Fact rows: **93**. A field can have several rows where editions, plans or deployment values differ.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 66 |
+| confirmed | 67 |
 | not_published | 17 |
 | unclear | 6 |
 | conflicting | 2 |
 | not_applicable | 0 |
 | check_failed | 1 |
-| **Total** | **92** |
+| **Total** | 93 |
 
-Distinct official source links: **50** — **49 readable**, **1 check_failed**. Repeated citations count once; the trust center's two failed access methods share one URL.
+Distinct official source links: **52** — **49 readable**, **1 check_failed**. Repeated citations count once; the trust center's two failed access methods share one URL.
 
 All required/applicable field IDs, allowed states, source/date ordering, table columns and displayed arithmetic were checked. No code test or build applies to this research-only file. No other app was started.
 

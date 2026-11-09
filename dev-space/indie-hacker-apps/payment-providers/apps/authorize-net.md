@@ -143,6 +143,7 @@ States describe the scoped value in each row. MSP means merchant service provide
 | C04 | Crypto payment completion and refunds | No crypto-network confirmation or crypto-refund flow applies to this researched offer. | not_applicable | https://www.authorize.net/resources/our-features/payment-methods.html; https://support.authorize.net/knowledgebase/article/000001210/en-us; https://developer.authorize.net/api/reference/features/payment-transactions.html | 2026-11-04 | Reviewed payment-method lists and transaction docs identify cards, eCheck and named wallets. No native crypto offer was established; these states are limited to this product scope. |
 | C05 | Hosting and maintenance | Crypto-only hosting/maintenance comparison does not apply. | not_applicable | https://www.authorize.net/resources/our-features/payment-methods.html; https://support.authorize.net/knowledgebase/article/000001210/en-us; https://developer.authorize.net/api/reference/features/payment-transactions.html | 2026-11-04 | Reviewed payment-method lists and transaction docs identify cards, eCheck and named wallets. No native crypto offer was established; these states are limited to this product scope. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, provider shutdown, rebrand, major feature loss, data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://www.authorize.net/; https://support.authorize.net/knowledgebase/article/KA-07396/; https://support.authorize.net/knowledgebase/article/KA-05319/; https://status.authorize.net/ | 2026-11-09 | Checked the product/support updates and status history. The legacy VPOS reached end of life on 24 February 2026 and was replaced by the Authorize.net 2.0 Windows app; the Nov 7 Chase Paymentech settlement/batching issue was mitigated the same day. Neither is recorded as a provider-level finding. |
 ## Cost examples — our calculations
 
 Checked on 2026-11-04. These illustrate the published US direct-plan components in USD, with successful domestic online charges, a full unprorated month where specified, and no sales tax, provider-fee tax, currency conversion, returns, disputes or paid updates. They are not guaranteed complete merchant-account quotes. Gateway-only acquiring costs remain unknown. Arithmetic is exact to cents for these inputs; displayed effective percentages are rounded to two decimal places.
@@ -204,18 +205,17 @@ The row is active, gateway, North America; US, with an online small-business des
 
 - Field IDs attempted/assessed: 50 — 40 core, five optional and five crypto applicability checks.
 - Applicable non-crypto fields attempted: 45; no applicable field ID omitted.
-- Fact rows: 120. Calculation rows and retrieval notes are excluded.
+- Fact rows: 121. Calculation rows and retrieval notes are excluded.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 87 |
+| confirmed | 88 |
 | not_published | 22 |
 | unclear | 3 |
 | conflicting | 3 |
 | not_applicable | 5 |
 | check_failed | 0 |
 
-- Unique official evidence source URLs: 49, including the official homepage; repeat links count once.
-- Total distinct official URLs written in this file: 55 — 49 evidence sources and six unsuccessful/redirect-only URL checks in retrieval notes.
+- Unique official evidence source URLs: 50, including the official homepage; repeat links count once.
+- Total distinct official URLs written in this file: 56 — 49 evidence sources and six unsuccessful/redirect-only URL checks in retrieval notes.
 - Several initial fetch failures were recovered through a working official page or the web reader. `check_failed` is zero for fact rows because those failures do not erase the recovered scoped evidence; the incomplete policy/country-price coverage remains explicit.
-

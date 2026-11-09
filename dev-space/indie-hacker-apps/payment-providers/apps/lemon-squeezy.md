@@ -79,6 +79,7 @@ Each state confirms only the stated value and scope. Notes identify incomplete c
 | C04 | Crypto payment completion and refunds | Not applicable to this fiat MoR offer. | not_applicable | https://docs.lemonsqueezy.com/help/checkout/payment-methods; https://docs.lemonsqueezy.com/help/getting-started/prohibited-products | 2026-11-04 | No crypto payment offer identified; NFT/crypto product sales explicitly prohibited. This does not turn an absence from the payment-method list into a universal technical claim. |
 | C05 | Hosting and maintenance | Not applicable to this fiat MoR offer. | not_applicable | https://docs.lemonsqueezy.com/help/checkout/payment-methods; https://docs.lemonsqueezy.com/help/getting-started/prohibited-products | 2026-11-04 | No crypto payment offer identified; NFT/crypto product sales explicitly prohibited. This does not turn an absence from the payment-method list into a universal technical claim. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no product shutdown, forced migration, sale since the 2024 Stripe acquisition, rebrand, major paid-feature retirement, data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://www.lemonsqueezy.com/blog/2026-update; https://status.lemonsqueezy.com/; https://www.lemonsqueezy.com/pricing; https://www.lemonsqueezy.com/terms | 2026-11-09 | Checked the official January update, pricing/terms, and status history. The update describes a planned migration path to Stripe Managed Payments but gives no compulsory move or shutdown date. Checkout briefly failed on 6 November and recovered after 20 minutes; not a finding. |
 ## Cost examples: our calculation
 
 All checked 2026-11-04. These examples use the standard USD rate, not a negotiated contract. Assume no affiliate referral, abandoned-cart recovery, refund, dispute or extra tax on provider fees. They calculate proceeds before payout unless stated. Product/sales-tax amounts are stated scenario inputs, not claims about tax law in every jurisdiction.
@@ -130,12 +131,12 @@ The USD 5/20 per-sale proceeds do not meet the USD 50 payout threshold by themse
 
 | State | Overall fields | Evidence rows |
 | --- | ---: | ---: |
-| confirmed | 21 | 50 |
+| confirmed | 21 | 51 |
 | not_published | 2 | 2 |
 | unclear | 18 | 3 |
 | conflicting | 4 | 3 |
 | not_applicable | 5 | 5 |
 | check_failed | 0 | 0 |
-| Total | 50 | 63 |
+| Total | 50 | 64 |
 
 Overall state mapping: confirmed: F01, F02, F07, F08, F09, F10, F11, F13, F16, F17, F18, F21, F22, F24, F25, F28, F31, F34, F39, F42, F43; not_published: F35, F44; unclear: F03, F04, F05, F06, F12, F14, F15, F19, F20, F23, F27, F30, F32, F36, F37, F38, F40, F41; conflicting: F26, F29, F33, F45; not_applicable: C01, C02, C03, C04, C05; check_failed: none.

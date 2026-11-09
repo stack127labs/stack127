@@ -118,6 +118,7 @@ No signup, login, trial, payment portal, contact submission, opt-out form, incid
 | A03 | Starter RUM entitlement | Main pricing/current terms: 25,000 RUM visits/month; RUM and billing guides restrict RUM to Pro/Agency and exclude Starter | Visits / month | Starter | Pingzo Cloud | Hosted | Browser RUM | conflicting | https://www.pingzoapp.com/pricing ; https://www.pingzoapp.com/terms ; https://www.pingzoapp.com/docs/rum ; https://www.pingzoapp.com/docs/billing | 2026-11-05 | Not shown ; 2026-09-28 ; Not shown ; Not shown | The actual browser features are documented, but the plan gate is inconsistent. A Starter 25k-visit estimate must remain conditional. |
 | A03 | RUM allowance and signals | 100,000 visits/month in main pricing; browser LCP, TTFB, CLS, INP, P75 scores and browser/device aggregates | Visits / month | Pro | Pingzo Cloud | Hosted | Browser RUM | confirmed | https://www.pingzoapp.com/pricing ; https://www.pingzoapp.com/docs/rum ; https://www.pingzoapp.com/docs/cloud-sync | 2026-11-05 | Not shown ; Not shown ; Not shown | The docs define script/verification and aggregated export metrics, not mobile native instrumentation, replay, event-to-visit counting, sampling controls or RUM-specific retention. Billing guide's vague Unlimited Vitals is not an exact visit quota. |
 | A03 | RUM allowance and signals | 500,000 visits/month in main pricing; browser LCP, TTFB, CLS, INP, P75 scores and browser/device aggregates | Visits / month | Agency | Pingzo Cloud | Hosted | Browser RUM | confirmed | https://www.pingzoapp.com/pricing ; https://www.pingzoapp.com/docs/rum ; https://www.pingzoapp.com/docs/cloud-sync | 2026-11-05 | Not shown ; Not shown ; Not shown | The docs define script/verification and aggregated export metrics, not mobile native instrumentation, replay, event-to-visit counting, sampling controls or RUM-specific retention. Billing guide's vague Unlimited Vitals is not an exact visit quota. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://www.pingzoapp.com/ ; https://www.pingzoapp.com/changelog ; https://www.pingzoapp.com/terms | 2026-11-09 | Current homepage checked 2026-11-09 ; 2026-09-28 (latest listed release 2.0.0) ; 2026-05-09 (terms last updated) | News check 2026-11-09: Checked the official homepage, complete changelog and terms, plus targeted lifecycle searches. The latest listed product release is 2.0.0 dated 2026-09-28. No official status page was located. No qualifying event found. |
 
 ## Cost examples
 
@@ -215,8 +216,8 @@ The cloud guide says “two” CSV files before enumerating **three** named data
 ## Counts
 
 - Distinct field IDs attempted: **40**.
-- Facts-table rows: **84**.
-- confirmed: **59**.
+- Facts-table rows: **85**.
+- confirmed: **60**.
 - not_published: **7**.
 - unclear: **5**.
 - conflicting: **10**.

@@ -137,6 +137,7 @@ Each state applies to the scoped value in that row. A confirmed capability does 
 | C04 | Crypto payment completion and refunds | Live under/overpayment, expired invoice, wrong-network recovery and refund asset/network/fee rules not established. | not_published | https://docs.dodopayments.com/features/payment-methods/stablecoins; https://docs.dodopayments.com/features/transactions/refunds; https://dodopayments.com/legal/buyer-terms | 2026-11-04 | Read current Stablecoins guide and troubleshooting, Refunds docs and Buyer Terms. Generic original-method refund language does not identify the crypto partner's actual return route or exchange-rate liability. |
 | C05 | Hosting and maintenance | Hosted Dodo checkout/API service; merchant integrates its app/webhooks, with no self-hosted blockchain gateway described. | confirmed | https://docs.dodopayments.com/features/payment-methods/stablecoins; https://docs.dodopayments.com/developer-resources/integration-guide | 2026-11-04 | The buyer supplies the compatible wallet. No seller node/hardware licence is required by this hosted setup; normal Dodo fees and optional application-hosting costs remain separate. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, shutdown, rebrand, major paid-feature retirement, data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://dodopayments.com/blogs/index.html; https://docs.dodopayments.com/changelog; https://dodopayments.com/legal/terms-of-use; https://status.dodopayments.com/ | 2026-11-09 | Checked the official blog, changelog, terms and status URL. The status page returned a JavaScript-only shell, so its current incident history could not be read. |
 ## Cost examples — our calculations
 
 These are illustrations of the **current public Standard pricing**, checked on 2026-11-04. They are not quotes or a resolution of the MSA conflict. All percentage inputs below use the tax-inclusive customer payment; payout fees apply to the net payout separately. Assume approved live payments/payouts, no custom contract, no reserve, no adaptive FX, recovery, moderation or dispute costs, and only the stated sales taxes.
@@ -183,14 +184,13 @@ The row's `active` status and MoR type are supported. “Global; India origin”
 ## Counts
 
 - Fields attempted: 50 unique IDs — 40 core, five optional and five applicable crypto fields.
-- Fact rows: 118.
-- confirmed: 96 rows.
+- Fact rows: 119.
+- confirmed: 97 rows.
 - not_published: 14 rows.
 - unclear: 1 rows.
 - conflicting: 7 rows.
 - not_applicable: 0 rows.
 - check_failed: 0 rows.
-- Unique official source URLs: 54, counted without repeating a URL used by several rows.
+- Unique official source URLs: 56, counted without repeating a URL used by several rows.
 - Country lists checked: 177 new-seller labels, 11 grandfathered labels and 226 buyer ISO codes.
 - Published charge-currency table checked: 82 currency codes.
-

@@ -1,5 +1,7 @@
 # Mixpanel
 
+Lifecycle and trust update: Mixpanel disclosed a security incident on November 27, 2025. A customer’s primary incident notice says an attacker accessed part of Mixpanel’s systems on November 9, 2025 and exported limited customer-identifiable and analytics data. Mixpanel said a limited number of its customers were affected; OpenAI’s disclosure identifies a narrow set of data from its own Mixpanel use. Sources: https://mixpanel.com/blog/sms-security-incident/ ; https://openai.com/index/mixpanel-incident/ (checked 2026-11-09).
+
 - Official URL: https://mixpanel.com/
 - apps.md status: `active`; research marker: `Prompt`; detection: `C`; row checked date: 2026-11-04.
 - Research started: 2026-11-04 13:10:45 UTC (`date -u`).
@@ -14,9 +16,10 @@ Confirmed means vendor-documented, not independently tested. `not_published` mea
 
 | Field ID | Field name | Value | State | Applies to | Exact source URL | Checked date | Evidence note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| F01 | Name and operating entity | Mixpanel; Mixpanel, Inc. | confirmed | Hosted service | https://mixpanel.com/legal/terms-of-use/ | 2026-11-04 | Current terms name contracting company. |
+| F01 | Name and operating entity | Mixpanel; Mixpanel, Inc. | confirmed | Hosted service | https://mixpanel.com/legal/terms-of-use/ | 2026-11-09 | Rechecked current terms; the contracting company remains Mixpanel, Inc. No ownership change was found. |
 | F01 | Availability | Free signup and online Growth purchase offered | confirmed | Current Cloud plans | https://mixpanel.com/pricing/ | 2026-11-04 | Public entry paths, not account-tested. |
-| F01 | Ownership history | Former names, acquisition/closure notices and ultimate parent not established | not_published | Product | https://mixpanel.com/legal/terms-of-use/ | 2026-11-04 | Terms and current product/pricing/docs checked. |
+| F01 | Ownership history | No change to Mixpanel, Inc. ownership or product name established in this sweep | not_published | Product | https://mixpanel.com/legal/terms-of-use/ ; https://mixpanel.com/blog/ | 2026-11-09 | Checked current terms and official company blog/news; Mixpanel acquired another product, DoubleLoop, but that does not change who owns Mixpanel. |
+| F01 | Security incident and customer data | On November 9, 2025, an attacker accessed part of Mixpanel's systems and exported a dataset with limited customer-identifiable and analytics information; Mixpanel said a limited number of customers were impacted | confirmed | Mixpanel service and affected customer accounts | https://mixpanel.com/blog/sms-security-incident/ ; https://openai.com/index/mixpanel-incident/ | 2026-11-09 | Mixpanel's November 27 notice confirms a security incident affecting a limited number of customers. OpenAI's primary notice dates unauthorized access/data export to November 9 and details limited profile information from OpenAI's use; it explicitly says passwords, credentials, API keys, payment details and government IDs were not exposed in that customer dataset. |
 | F02 | Primary category | Product analytics | confirmed | Product | https://docs.mixpanel.com/docs/what-is-mixpanel | 2026-11-04 | Introduction describes event-based product analysis. |
 | F02 | Other jobs | Web/mobile analytics, replay, heatmaps, experiments and feature flags | confirmed | Feature and plan limits apply | https://mixpanel.com/pricing/ | 2026-11-04 | Overlap tags are our classification of listed products. |
 | F03 | Official SDK platforms | JavaScript, Android, Swift, React Native, Flutter, Unity; server libraries include Python, Node.js, Ruby, PHP, Go, Java | confirmed | SDK integrations | https://docs.mixpanel.com/docs/tracking-methods/sdks | 2026-11-04 | Client and server libraries are different capture paths. |

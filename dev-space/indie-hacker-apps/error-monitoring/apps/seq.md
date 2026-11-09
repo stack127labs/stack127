@@ -117,6 +117,7 @@ Only official public sources were used. No login, trial request, purchase, form 
 | H03 | Built-in backups | Daily encrypted metadata/configuration backups, default 7 retained days; do not include telemetry events; secret key required to restore | days; scope | All | Seq | Self-hosted | Recovery | confirmed | https://datalust.co/docs/backup-and-restore ; https://datalust.co/docs/backup-and-restore-docker | 2026-11-05 | not shown ; not shown | The key must be saved separately. Windows full restore requires matching Seq version; restored apps are normally kept inactive to avoid accidental notifications. |
 | H03 | Event protection and restores | Use archive/replication/file apps for redundant event copies; Docker restore distinguishes same-volume rollback from fresh-volume restore | procedures | All applicable | Seq | Self-hosted | Recovery | confirmed | https://datalust.co/docs/backup-and-restore-docker ; https://datalust.co/docs/event-backup-with-json-archive ; https://datalust.co/docs/exporting-log-data | 2026-11-05 | not shown ; not shown ; not shown | JSON Archive is best-effort and not a zero-loss guarantee. Config-only nightly backup is not a complete recoverable copy of event storage. |
 | H03 | Security maintenance | Public vulnerability-disclosure policy v1.2, August 2025; published high/critical patch target 7 days for supported versions | policy; days | Supported versions | Seq | Self-hosted | Security | confirmed | https://datalust.co/disclosure ; https://datalust.co/docs/version-support-policy ; https://datalust.co/docs/security | 2026-11-05 | 2025-08 (policy version 1.2) ; not shown ; not shown | Operator must install fixes and maintain secure configuration. Disclosure/security targets are not the uptime or ordinary ticket-response SLA for a customer-hosted server. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://datalust.co/blog/ ; https://datalust.co/download ; https://datalust.co/docs/version-support-policy | 2026-11-09 | Current blog index checked 2026-11-09 ; 2026-10-29 (listed Seq 2026.1 build) ; Current version-support policy checked 2026-11-09 | News check 2026-11-09: Checked Datalust’s official blog, download/release listing and version-support policy, plus targeted searches. Seq 2026.1 remains the current release, with a listed build dated 2026-10-29. Seq is self-hosted, so no hosted-service status page applies. No qualifying event found. |
 
 ## Cost examples — our calculation
 
@@ -270,19 +271,19 @@ All **45 distinct official URLs** below were readable. The initial /about URL re
 ## Counts
 
 Distinct field IDs attempted: **40**.
-Fact rows: **86**. Multiple rows separate materially different plans, limits or operations.
+Fact rows: **87**. Multiple rows separate materially different plans, limits or operations.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 71 |
+| confirmed | 72 |
 | not_published | 13 |
 | unclear | 0 |
 | conflicting | 1 |
 | not_applicable | 1 |
 | check_failed | 0 |
-| **Total** | **86** |
+| **Total** | 87 |
 
-Distinct official source URLs: **45**, all readable after the recovered PDF-reader fallback. Repeated citations count once.
+Distinct official source URLs: **44**, all readable after the recovered PDF-reader fallback. Repeated citations count once.
 
 Field coverage, allowed states, table columns, source/date ordering and displayed arithmetic were checked. No code tests or build apply to this research-only file. No other app was started.
 

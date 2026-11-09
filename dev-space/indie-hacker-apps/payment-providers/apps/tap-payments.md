@@ -2,7 +2,7 @@
 
 - Official URL: [Tap Payments developer portal](https://developers.tap.company/)
 - apps.md row: active; directory type is gateway; market label is Middle East and North Africa; Kuwait/Gulf.
-- Current operator: Tap Payments. The reviewed official pages do not identify its ultimate parent or shareholders. Ali Abulhasan is identified as co-founder and CEO, not as the owner.
+- Current operator: Tap Payments. The reviewed official pages do not identify its ultimate parent or shareholders. A co-founder is identified as CEO, not as the owner.
 - Shutdown, sunset, acquisition, or rebrand: no notice found in the official company pages, blog archive, or announcements checked. The blog published current company and product updates through 2026-11-04.
 - Research started: 2026-11-06 10:38 UTC
 - Research finished: 2026-11-06 11:10:30 UTC
@@ -15,7 +15,7 @@ Checked date for all rows: 2026-11-06.
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Note |
 |---|---|---|---|---|---|---|
 | F01 | Current name and product | Tap Payments; regional payment acceptance and payouts, including goSell, goCollect, and tapOS. | confirmed | [Official site](https://www.tap.company/en) | 2026-11-06 | The directory row links to the official developer portal. |
-| F01 | Current operator and owner | Tap Payments operates the service. Ultimate parent and current shareholders are not named in the official About, Team, terms, or news pages checked. | not_published | [About Tap](https://www.tap.company/en/company/about) | 2026-11-06 | The team page calls Ali Abulhasan co-founder and CEO; that does not establish ownership. |
+| F01 | Current operator and owner | Tap Payments operates the service. Ultimate parent and current shareholders are not named in the official About, Team, terms, or news pages checked. | not_published | [About Tap](https://www.tap.company/en/company/about) | 2026-11-06 | The team page identifies a co-founder as CEO; this does not establish ownership. |
 | F01 | Product status and recent company news | Active: current company pages advertise the service, and the official blog has updates dated 2026-11-04 and 2026-10-20. | confirmed | [Tap blog archive](https://blog.tap.company/) | 2026-11-06 | The newest visible update concerns Jaywan acceptance in the UAE. The company site, About page, and blog archive checked show no former product name or rebrand notice. |
 | F02 | Provider type | Payment gateway and payment service provider for online acceptance; it also offers billing links, merchant payouts, and marketplace payment tools. | confirmed | [Tap home](https://www.tap.company/en) | 2026-11-06 | Tap is not presented as merchant of record. |
 | F02 | Legal seller and delivery responsibility | The merchant sells its own goods or services and remains responsible for fulfilment, customer terms, and disputes about delivery. | confirmed | [UAE merchant agreement](https://www.tap.company/en-ae/terms-and-conditions) | 2026-11-06 | UAE agreement defines Tap as payment acceptance service and assigns the seller responsibility for goods, services, and delivery. |

@@ -134,6 +134,7 @@ Minutes taken: 15.25
 | H01 | Operating requirements and feature gaps | Self-hosting app workers, Postgres backups, database availability, and updates are the operator’s responsibility; a database outage pauses workflow execution until reconnection. | confirmed | https://docs.dbos.dev/production/checklist ; https://docs.dbos.dev/architecture | 2026-11-06 | Production checklist and architecture. |
 | H01 | Operating requirements and feature gaps | Official production sizing guidance gives a rough rule of about 1,000 workflows or steps per Postgres vCPU per second, and asks operators to load-test their workload. | confirmed | https://docs.dbos.dev/production/checklist | 2026-11-06 | Vendor rule of thumb, not a guaranteed benchmark or server-cost quote. |
 | H01 | Operating requirements and feature gaps | Self-hosted Conductor consists of Conductor, the Console, and a separate Postgres database; its guide uses container images and provides no fixed production CPU/RAM minimum. | confirmed | https://docs.dbos.dev/conductor/self-hosting/hosting-conductor | 2026-11-06 | Guide identifies components, ports, and container deployment; production sizing is not numerically specified. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, customer-data breach, or license change found for DBOS. | confirmed | https://www.dbos.dev/blog ; https://docs.dbos.dev/conductor/self-hosting/release-notes ; https://status.dbos.dev/ ; https://github.com/dbos-inc/ ; https://github.com/dbos-inc/dbos-transact-ts/releases ; https://github.com/dbos-inc/dbos-transact-py/releases ; https://github.com/dbos-inc/dbos-transact-golang/releases ; https://github.com/dbos-inc/dbos-transact-java/releases ; https://www.dbos.dev/changelog | 2026-11-09 | Checked DBOS Blog, Conductor release notes, public status and the four SDK release pages. The direct /changelog page did not load; monthly product updates and release notes were used instead. |
 
 ## Cost examples
 
@@ -158,6 +159,6 @@ Minutes taken: 15.25
 ## Counts
 
 - **Fields attempted:** 28 field IDs (C01–C22, J01–J05, and H01). C22 evidence is recorded on every factual row.
-- **Fact rows:** 117.
-- **Rows by state:** confirmed 91; not_published 19; unclear 2; conflicting 2; not_applicable 2; check_failed 1.
+- **Fact rows:** 118.
+- **Rows by state:** confirmed 92; not_published 19; unclear 2; conflicting 2; not_applicable 2; check_failed 1.
 - **Unique source URLs:** 64.

@@ -95,6 +95,7 @@ Every fact row was checked on **2026-11-05** against exact official URLs. Notes 
 | H01 | operating requirements and feature gaps | Self-hosting Ubicloud means running its Ruby-based control plane and backing PostgreSQL, then leasing/preparing bare-metal data-plane servers. Published demo uses Docker Compose and Hetzner cloudify tooling; README specifies Ubuntu 24.04 for that setup. Operator supplies networking/IPs, durable disks, security, upgrades, backup storage and recovery. | confirmed | https://www.ubicloud.com/docs/quick-start/build-your-own-cloud<br>https://raw.githubusercontent.com/ubicloud/ubicloud/main/README.md<br>https://raw.githubusercontent.com/ubicloud/ubicloud/main/LICENSE | 2026-11-05 | Build Your Own Cloud and repository quickstart. This is a cloud platform to operate, not a free hosted database created by installing a client library. |
 | H01 | operating requirements and feature gaps | Managed HA/PITR capabilities are present in open platform code/docs, but deployment/configuration and operational support are the self-host operator's work. The quickstart's control-plane containers are a demo, not a published cheap production hardware minimum or full availability guarantee. | confirmed | https://www.ubicloud.com/docs/quick-start/build-your-own-cloud<br>https://raw.githubusercontent.com/ubicloud/ubicloud/main/README.md<br>https://www.ubicloud.com/docs/about/support | 2026-11-05 | README service table, self-host quickstart and community/managed support distinction. No unsourced minimum-server cost or parity promise is supplied. |
 
+| C04 | lifecycle and access stage | Ubicloud Postgres news check 2026-11-09: no sale, shutdown, rebrand, or customer-data incident found. Checked the official company blog, PostgreSQL product/docs and status page, plus a quick web search. The status page showed PostgreSQL operational; it listed a same-day partial outage for separate Actions/Webhooks services, with mitigation reported. | confirmed | https://www.ubicloud.com/blog ; https://www.ubicloud.com/use-cases/postgresql ; https://www.ubicloud.com/docs/managed-postgresql/overview ; https://status.ubicloud.com/ | 2026-11-09 | Dated sweep check: official product/news sources and status page (where available) checked with a quick web search. This is a bounded news check, not an uptime guarantee. |
 ## Cost examples — our calculation
 
 All inputs checked **2026-11-05**. Use metal **Germany / eu-central-h1** unless stated otherwise, USD before tax. The provider says it charges customers in USD, calculates provisioned usage per minute and invoices monthly. Its Postgres table gives monthly displays, without an exact minute rate or month-normalization rule. The approved **730 hours = 43,800 minutes** therefore cannot produce an exact invoice from that table alone. Sources: https://www.ubicloud.com/blog/ubicloud-price-adjustment-2026, https://www.ubicloud.com/docs/about/pricing, https://www.ubicloud.com/docs/about/terms-of-service.
@@ -170,12 +171,12 @@ Initial direct HTML and Markdown requests to Ubicloud returned 403. The canonica
 ## Counts
 
 - Fields attempted: **46 of 46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Fact rows: **67**.
-- confirmed: **43**
+- Fact rows: 68.
+- confirmed: **44**
 - not_published: **10**
 - unclear: **4**
 - conflicting: **1**
 - not_applicable: **9**
 - check_failed: **0**
-- Distinct exact source links: **38**, including the documented unavailable Lantern guide; repeated URLs count once.
+- Distinct exact source links: 39, including the documented unavailable Lantern guide; repeated URLs count once.
 - State counts are fact-table rows; a field can have different rows for deployment, plan or unresolved parts.

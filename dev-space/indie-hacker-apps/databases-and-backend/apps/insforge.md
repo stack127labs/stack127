@@ -22,6 +22,7 @@ The task's state names override fields.md: confirmed means supported by official
 | C03 | Hosting and license | Public InsForge repository: Apache-2.0. Hosted service access is governed separately by InsForge's Terms. | confirmed | https://raw.githubusercontent.com/InsForge/InsForge/main/LICENSE ; https://insforge.dev/terms | 2026-11-04 | LICENSE, sections 2–3 and copyright; Terms, access and IP. Hosted use restrictions do not replace the public repository license. |
 | C04 | Lifecycle and access stage | Active public Free/Pro/Enterprise offers; self-service start links. Account provisioning was not tested. | confirmed | https://insforge.dev/pricing | 2026-11-04 | Pricing, plan cards. Active describes the offer, not measured availability. |
 | C04 | Lifecycle and access stage | New Cloud projects from June 18, 2026 use Deno Deploy v2; older projects needed v2.2.2 and a function redeploy before July 20, 2026. | confirmed | https://insforge.dev/blog/edge-functions-deno-deploy-v2 | 2026-11-04 | Migrate Your Edge Functions to Deno Deploy v2, date and migration instructions. Legacy project migration is not evidence the whole product closed. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or customer-data incident found for InsForge. | not_published | https://insforge.dev/blog ; https://github.com/InsForge/InsForge/blob/main/CHANGELOG.md ; https://github.com/InsForge/InsForge/releases ; https://insforge.status.io/ | 2026-11-09 | Checked the official blog, repository changelog and releases. The public status URL was opened, but the page returned no readable status content in this check; no qualifying notice appeared on the other official pages. |
 | C05 | Vendor home and main markets | InsForge, Inc., a Delaware corporation; privacy policy says headquartered in the United States. Complete served-country list not established. | confirmed | https://insforge.dev/terms ; https://insforge.dev/privacy | 2026-11-04 | Terms, opening; Privacy, International Data Transfers. Business location does not establish a project's data location. |
 | C06 | Signup and use restrictions | Public self-service; Free advertised without a credit card. Pro is explicitly aimed at production apps. | confirmed | https://insforge.dev/blog/insforge-pricing-update ; https://insforge.dev/pricing | 2026-11-04 | Pricing Update, Free tier; current Pricing, Pro. The no-card statement is from February 28, 2026; no signup was submitted. |
 | C06 | Signup and use restrictions | Complete account/country eligibility and an explicit Free commercial-production permission remain unresolved. | unclear | https://insforge.dev/pricing ; https://docs.insforge.dev/pricing.md ; https://insforge.dev/terms ; https://insforge.dev/privacy | 2026-11-04 | Pricing/FAQ describe Free for prototypes and side projects; Terms grant authorized service use without a plan-specific commercial rule. Privacy's age notice is not a complete account-eligibility policy. |
@@ -171,13 +172,13 @@ Bounded searches for missing values:
 ## Counts
 
 Unique field IDs attempted: 46.
-Table evidence rows: 95.
-Distinct exact source URLs: 48 (repeated links count once; includes calculation/search links).
+Table evidence rows: 96.
+Distinct exact source URLs: 51 (repeated links count once; includes calculation/search links).
 
 | State | Evidence rows | Fields, exclusive |
 | --- | ---: | ---: |
-| confirmed | 56 | 14 |
-| not_published | 20 | 15 |
+| confirmed | 56 | 13 |
+| not_published | 21 | 16 |
 | unclear | 11 | 9 |
 | conflicting | 8 | 8 |
 | not_applicable | 0 | 0 |

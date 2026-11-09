@@ -162,6 +162,7 @@ Checked date for all official sources and calculations: 2026-11-04. Only public 
 | H01 | Operating requirements and feature gaps | Operator owns OS/container upgrades, secrets, networking/TLS, SMTP, monitoring, database/object backups, recovery and availability. Current default API gateway Envoy; optional log analytics adds services/resources. | confirmed | [https://supabase.com/docs/guides/self-hosting/docker.md](https://supabase.com/docs/guides/self-hosting/docker.md); [https://supabase.com/docs/guides/self-hosting.md](https://supabase.com/docs/guides/self-hosting.md); [https://supabase.com/docs/guides/self-hosting/updating.md](https://supabase.com/docs/guides/self-hosting/updating.md); [https://supabase.com/docs/guides/self-hosting/self-hosted-s3.md](https://supabase.com/docs/guides/self-hosting/self-hosted-s3.md) | 2026-11-04 | Docker / production responsibilities: update.sh merges tracked config and backs up configuration only. Major database upgrades and backup validation remain operator work; never run with example secrets. |
 | H01 | Operating requirements and feature gaps | Self-host Studio manages one project; no hosted branching, managed backups/PITR, advanced platform metrics, analytics/vector buckets, ETL or Management API. | confirmed | [https://supabase.com/docs/guides/self-hosting.md](https://supabase.com/docs/guides/self-hosting.md); [https://supabase.com/docs/guides/self-hosting/docker.md](https://supabase.com/docs/guides/self-hosting/docker.md) | 2026-11-04 | Self-Hosting / platform differences: source-code access does not reproduce the managed control plane. CLI local development is not production hardened; infrastructure and external-provider costs are unknown until deployment is specified. |
 
+| C04 | lifecycle and access stage | Supabase hosted access in India was restricted on 2026-02-24 under a MeitY Section 69A blocking order tied to third-party misuse of one hosted project. Supabase says it disabled that project, the order was rescinded, and access was restored on 2026-03-03; it reported no systemic service vulnerability. The official status incident URL could not be fetched in this check; the company blog gives the dates and explanation. | confirmed | https://supabase.com/blog/navigating-regional-network-blocks ; https://supabase.com/changelog.md ; https://status.supabase.com/incidents/01KJZVWQCF1CT48BHR5KZ0HQ67 | 2026-11-09 | Official notice checked during the news sweep. The reported event date is retained separately from the 2026-11-09 source check date. |
 ## Cost examples — our calculations
 
 All examples checked 2026-11-04. These are our calculations, not vendor quotes or capacity benchmarks. Hosted baseline: one direct-billed Pro organization, one standard heap-based Postgres Micro primary in Frankfurt `eu-central-1`, 730 billed compute hours, no other projects consuming its credit/quotas, default gp3 disk of 8GB, no paid add-ons, and no extra provisioned performance. USD before tax. “Included” assumes eligible allowance is unused elsewhere in the organization. Compute credit cannot pay subscriptions or overages. Sources: [Available regions](https://supabase.com/docs/guides/platform/regions.md), [Pricing](https://supabase.com/pricing), [Manage Compute](https://supabase.com/docs/guides/platform/manage-your-usage/compute.md), [Manage Disk Size](https://supabase.com/docs/guides/platform/manage-your-usage/disk-size.md), [Terms — fees](https://supabase.com/terms).
@@ -257,13 +258,13 @@ Access notes: the documentation-search connector first rejected a missing accoun
 ## Counts
 
 - Distinct field IDs attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Facts-table rows: **147**. A field may have several rows because plans, modes, meters or evidence states differ.
-- `confirmed`: **126** rows.
+- Facts-table rows: 148. A field may have several rows because plans, modes, meters or evidence states differ.
+- `confirmed`: **127** rows.
 - `not_published`: **9** rows.
 - `unclear`: **3** rows.
 - `conflicting`: **4** rows.
 - `not_applicable`: **5** rows.
 - `check_failed`: **0** rows.
-- Unique official source URLs linked in this file: **100**.
+- Unique official source URLs linked in this file: 102.
 - Counts describe facts-table rows only; calculation lines and the conflict/unknown discussion are not counted again.
 

@@ -130,7 +130,7 @@ Marketing pricing, method help, API references, refund/withdrawal guides, curren
 | F38 | Support access | Support form, support@midtrans.com and +62.804.140.1099; weekdays 08:00–21:00 WIB. | confirmed | <https://midtrans.com/contact-us><br><https://midtrans.com/privacy-notice> | 2026-11-05 | Contact page covers technical, registration, payment, withdrawal and account changes. A paid-plan support entitlement or full supported-language list is not published there. |
 | F38 | Support access | Weekend contact blocks differ: call-centre block 09:00–13:00 WIB; reply-hours text 08:00–17:00 WIB including holidays. | unclear | <https://midtrans.com/contact-us> | 2026-11-05 | These may apply to different channels; the page does not fully map the second schedule to each contact method. Confirm the channel before relying on weekend coverage. |
 | F39 | Operating status and recent changes | Active gateway offer; 2026 Payment Link/invoicing updates and dated deployment notices. | confirmed | <https://midtrans.com/pricing><br><https://docs.midtrans.com/docs/payment-link-overview><br><https://docs.midtrans.com/docs/invoicing><br><https://docs.midtrans.com/reference/deployment><br><https://docs.midtrans.com/docs/how-to-download-transaction-reports-from-map> | 2026-11-05 | No provider-wide shutdown/sunset was found in official company, product, docs and notice searches. Legacy transaction page was scheduled to retire at end-2025 in favour of the current page from 2026. |
-| F39 | Operating status and recent changes | Published status-page URL could not be read. | check_failed | <https://midtrans.com/status> | 2026-11-05 | Official footer links this page; repeated web-reader attempts timed out. This failure is not evidence that payment processing is down. |
+| F39 | Operating status and recent changes | The public status page reported all systems operational; its displayed update was 7 November 2026. | confirmed | <https://midtrans.com/status> | 2026-11-09 | The status URL was unreadable during the 5 November research attempt; a direct recheck now exposes the current dashboard. This is a point-in-time status, not an uptime guarantee. |
 | F40 | Closing an account | Request Midtrans account deletion by emailing support@midtrans.com with subject 'Account Deletion'. | confirmed | <https://midtrans.com/privacy-notice> | 2026-11-05 | This differs from GoPay Merchant App deletion, which has its own in-app/privacy-portal route. No request was sent. |
 | F40 | Closing an account | Personal data retained as needed for stated purposes or legal requirements, then deleted/anonymised; third-party retention can differ. | confirmed | <https://midtrans.com/privacy-notice> | 2026-11-05 | The notice provides a purpose/legal retention rule, not a universal number of days after closure. |
 | F40 | Closing an account | Contract termination notice, exit charges and final-fund release deadline not publicly verified. | check_failed | <https://midtrans.com/passport><br><https://midtrans.com/terms-and-conditions><br><https://midtrans.com/privacy-notice><br><https://dashboard.midtrans.com/register> | 2026-11-05 | Passport says agreed terms are emailed and downloadable after 24 hours. The attempted public terms URL failed, public registration had no readable content, and docs/privacy do not state these financial exit terms. |
@@ -148,6 +148,7 @@ Marketing pricing, method help, API references, refund/withdrawal guides, curren
 | C04 | Crypto payment completion and refunds | Blockchain confirmation/crypto refund rules not applicable. | not_applicable | <https://docs.midtrans.com/docs/what-payment-method-that-have-refund-feature><br><https://docs.midtrans.com/docs/can-i-receive-payments-using-other-currency-than-idr> | 2026-11-05 | The recorded refunds are card/wallet/QR/bank-payment rules, not blockchain reversals. |
 | C05 | Hosting and maintenance | Hosted gateway/API service; crypto self-hosting comparison not applicable. | not_applicable | <https://docs.midtrans.com/docs/snap><br><https://docs.midtrans.com/docs/payment-link-overview> | 2026-11-05 | Merchants maintain their own website/integration if used. Open-source SDKs/plugins do not make the gateway a self-hosted payment server. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, merger, shutdown, rebrand, major paid-feature retirement, customer-data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://midtrans.com/blog; https://midtrans.com/about-us; https://midtrans.com/status; https://docs.midtrans.com/changelog; https://midtrans.com/terms-and-conditions | 2026-11-09 | Checked the official blog, About page, changelog, terms, and status dashboard. The status page reported all systems operational when checked and said it was updated two days earlier; this is a point-in-time status, not an uptime guarantee. |
 ## Cost examples — our calculation
 
 Checked 2026-11-05. Inputs are the [published standard acceptance rates](https://midtrans.com/pricing) and the [fee FAQ's published 11% VAT calculation](https://docs.midtrans.com/docs/how-much-does-midtrans-charge-for-its-payment-service). These examples use one successful IDR 100,000 payment, no promotion, no optional add-on, no FX and no negotiated rate. The remainder is after stated collection fees, not a guarantee of immediate withdrawable money.
@@ -203,17 +204,17 @@ Direct HTTP/Markdown documentation fetches also returned 403, but public HTML ve
 ## Counts
 
 - Distinct field IDs attempted: **50/50** (40 core, five optional, five conditional crypto applicability checks).
-- Fact rows: **120**.
+- Fact rows: **121**.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 83 |
+| confirmed | 85 |
 | not_published | 19 |
 | unclear | 7 |
 | conflicting | 4 |
 | not_applicable | 5 |
-| check_failed | 2 |
-| **Total** | **120** |
+| check_failed | 1 |
+| Total | 121 |
 
 - Unique source links: **57**.
 

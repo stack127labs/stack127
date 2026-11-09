@@ -122,6 +122,7 @@ No signup, login, form submission, installation, live check run, account API req
 | J02 | Job signals / history | HTTP GET/POST on success; missed/late ping triggers failure; ping timeline, source headers and alert history; no start/fail/duration/output API documented | signal / history | Heartbeat | Hosted current offer | Vendor hosted | Scheduled jobs | confirmed | https://www.checklyhq.com/docs/detect/uptime-monitoring/heartbeat-monitors/overview.md ; https://www.checklyhq.com/docs/detect/uptime-monitoring/heartbeat-monitors/configuration.md | 2026-11-05 | Not shown ; Not shown | Start+success pairs would both reset one timer, not form one measured run. Retention follows result plans where applicable, but dedicated heartbeat-history duration isn't separately specified. |
 | U02 | API failure threshold | API construct default maxResponseTime 20,000ms; configurable failed/degraded thresholds | milliseconds | API checks | Hosted current offer | Vendor hosted | API synthetic | confirmed | https://www.checklyhq.com/docs/constructs/api-check.md | 2026-11-05 | Not shown | This is the documented failure threshold, not a claim of a universal maximum execution timeout. URL limits and browser/suite execution limits differ. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | Hosted current offer | Vendor hosted | Platform | confirmed | https://www.checklyhq.com/changelog/; https://www.checklyhq.com/about/; https://www.checklyhq.com/pricing/; https://www.checklyhq.com/docs/communicate/status-pages/v2-deprecated.md; https://status.checklyhq.com/ | 2026-11-09 | September 2026 entry; Not stated; Not stated; Not stated; 2026-11-09 | Checked the official changelog, About and pricing pages, status-page deprecation docs, live service status and quick news searches. Status pages v2 are deprecated, but existing pages continue to work and no shutdown deadline is published. No qualifying lifecycle or trust event found. |
 ## Cost examples — our calculation, estimated
 
 All calculations use **USD, monthly billing, a full 30-day month**, current new-account public prices, one builder and no promotional/charity/startup discount. Tax, paid AI/Resolve, external service fees, telephone alerts, private-agent infrastructure and negotiated Enterprise fees are excluded unless stated. These are modeled estimates, not checkout quotes or a cheapest-vendor ranking. No annual subscription is silently used to reduce a monthly price.
@@ -238,11 +239,11 @@ No corresponding independent error-report or generic log-ingestion product was e
 ## Counts
 
 Distinct field IDs attempted: **40**.
-Facts-table rows: **93**.
+Facts-table rows: **94**.
 
 | State | Rows |
 | --- | --- |
-| confirmed | 74 |
+| confirmed | 75 |
 | not_published | 13 |
 | unclear | 3 |
 | conflicting | 2 |
@@ -250,4 +251,3 @@ Facts-table rows: **93**.
 | check_failed | 0 |
 
 Distinct exact source URLs in the facts table: **48**. Multiple URLs in a row are counted individually and deduplicated across rows; prose-only repetitions add no new fact-table source count. All checked **2026-11-05**.
-

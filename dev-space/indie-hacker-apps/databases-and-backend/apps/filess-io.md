@@ -97,6 +97,7 @@ All rows checked 2026-11-05. “Confirmed” means directly stated by the scoped
 | J04 | Schedules and queue retention | Homepage advertises cron hosting; exact schedule/time-zone/delay, queue retention and payload limits not located. | not_published | [Source](https://filess.io/); [Source](https://docs.filess.io/blog/docker-compose-on-kubernetes-filess-hosting/); [Source](https://docs.filess.io/docs/features/api-cli/); [Source](https://filess.io/terms-of-service/); [Source](https://filess.io/privacy-policy/) | 2026-11-05 | Full-Stack Hosting plus detailed hosting/API/policies checked. A cron mention does not establish a managed durable queue. |
 | J05 | Logs and run history | Build/runtime logs available in dashboard/API; fixed retention, billable storage, execution results and failed-job replay history not established. | not_published | [Source](https://docs.filess.io/blog/docker-compose-on-kubernetes-filess-hosting/); [Source](https://docs.filess.io/blog/database-monitoring-prometheus-pmm-alerts/); [Source](https://filess.io/terms-of-service/); [Source](https://filess.io/privacy-policy/) | 2026-11-05 | Hosting Build Logs/Runtime Logs and monitoring event history, plus policies. Database alert history differs from app-job results. |
 | H01 | Operating requirements and feature gaps | Not applicable: vendor-managed service, including Dedicated root access. No self-host distribution of the platform established. | not_applicable | [Source](https://docs.filess.io/docs/architecture/shared-vs-dedicated/); [Source](https://docs.filess.io/) | 2026-11-05 | Hosting model. Root access is not a free self-hosted edition or transfer of the provider's control plane. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, customer-data breach, or license change found for filess.io. | confirmed | https://docs.filess.io/blog/ ; https://filess.io/terms-of-service/ ; https://status.filess.io/ ; https://filess.io/ | 2026-11-09 | Checked the official documentation blog, Terms, company site and linked status endpoint. The status endpoint could not be opened; current 2026 blog activity was visible. No qualifying notice was found in the readable official pages. |
 
 ## Cost examples — our calculations
 
@@ -183,8 +184,8 @@ Search date: **2026-11-05**. These are research gaps, not claims that undocument
 ## Counts
 
 - Fields attempted: **46 distinct field IDs**.
-- Fact rows: **75**.
-- confirmed: **38**.
+- Fact rows: **76**.
+- confirmed: **39**.
 - not_published: **21**.
 - unclear: **7**.
 - conflicting: **6**.

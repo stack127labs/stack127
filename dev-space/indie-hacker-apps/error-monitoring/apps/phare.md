@@ -105,6 +105,7 @@ No signup, login, API key, private account, form, payment, alert, target probe, 
 | S02 | Customer email updates | Use an external feed-to-email service; no native subscriber-email delivery, external plan rate or email list management established. | EUR / delivery | Hobby / Scale | Hosted | Vendor-hosted | Status subscriber email | not_published | https://docs.phare.io/uptime/status-pages ; https://docs.phare.io/integrations/email ; https://phare.io/pricing | 2026-11-05 | 2026-10-25 ; 2026-10-11 ; Not shown | The docs explicitly suggest services converting feeds to email. Team email alerts accept registered organization members, not the directory's customer subscriber workload. |
 | S03 | Status update sources | Monitor-driven incidents/recovery plus manual incidents, published incident updates and maintenance notices; API can create manual incident data. | Text | Hobby / Scale | Hosted | Vendor-hosted | Status communication | confirmed | https://docs.phare.io/uptime/incidents ; https://docs.phare.io/uptime/maintenance-windows ; https://docs.phare.io/api-reference/uptime/incidents/create-an-incident ; https://docs.phare.io/uptime/status-pages | 2026-11-05 | 2026-10-25 ; 2026-10-25 ; 2026-02-08 ; 2026-10-25 | Private comments stay internal; published updates appear on linked pages. Manual incidents need manual resolution, unlike programmatic recovery. |
 | S03 | History and freshness | Daily availability bars use 30/60/90-day display periods, with previous-period navigation; page timezone default UTC, configurable. | Days | Hobby / Scale | Hosted | Vendor-hosted | Status history | confirmed | https://docs.phare.io/uptime/status-pages ; https://docs.phare.io/api-reference/uptime/status-pages/create-a-status-page ; https://docs.phare.io/changelog ; https://phare.io/legal/terms-of-service | 2026-11-05 | 2026-10-25 ; 2026-02-08 ; 2026-11-01 ; 2026-05-28 | The 2026-10-10 change made date handling consistent in feeds/pages. Display window is distinct from 1-year monitoring retention and account-lifetime incident data. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://phare.io/blog/ ; https://docs.phare.io/changelog ; https://status.phare.io/ ; https://phare.io/legal/terms-of-service | 2026-11-09 | Current blog index checked 2026-11-09 ; 2026-11-01 (latest displayed changelog entry) ; Current status history checked 2026-11-09 ; 2026-05-28 (terms date shown) | News check 2026-11-09: Checked the official blog, changelog, status history and terms, plus targeted searches. The Bunny.net Hopstart post describes a startup-support program, not an ownership transfer. No qualifying sale, shutdown, rebrand, breach or regulatory event found. |
 
 ## Cost examples — our calculation, estimated
 
@@ -194,12 +195,12 @@ Phare's native subscriber channels are RSS, Atom and Slack-compatible RSS. Its d
 ## Counts
 
 - Distinct field IDs attempted: **35**.
-- Fact rows: **78**.
-- confirmed: **61**.
+- Fact rows: **79**.
+- confirmed: **62**.
 - not_published: **10**.
 - unclear: **3**.
 - conflicting: **1**.
 - not_applicable: **3**.
 - check_failed: **0**.
-- Distinct exact source URLs in the facts table: **51**. Repeated URLs count once; Markdown/canonical duplicates used during discovery, search snippets and unused pages are not added to this count.
+- Distinct exact source URLs in the facts table: **53**. Repeated URLs count once; Markdown/canonical duplicates used during discovery, search snippets and unused pages are not added to this count.
 

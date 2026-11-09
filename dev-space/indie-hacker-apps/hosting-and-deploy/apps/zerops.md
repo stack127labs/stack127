@@ -134,6 +134,7 @@ Checked date for all rows: 2026-11-05. Source publication dates and check date a
 | 36 | Self-host installation requirement | No customer control-plane installation is required for the managed Platform mode. Provider manages infrastructure; users manage code, data/configuration and application dependencies. | not_applicable | https://docs.google.com/document/d/e/2PACX-1vShf30OdwdQDQgasDJIx39jpcC9KJ5bMQVM2POUrGN0CIN0X60TTpeDv6XqoW9w64JcmKhjJ5A_Q7--/pub; https://docs.zerops.io/features/infrastructure; https://docs.zerops.io/guides/choose-runtime-base | 2026-11-05 | Linux containers, root access and remote development are not proof of a supported independent self-hosted Zerops distribution. Client zCLI installation requirements are separate from app runtime hardware. |
 | 36 | Control-plane outage behavior | March release note says project L3/L7/network infrastructure is independent of Zerops' control plane and keeps working when parts of that plane fail. | confirmed | https://zerops.io/articles/might-as-well-call-it-zerops-3-0-huge-updates-and-what-s-next | 2026-11-05 | This is a scoped architecture statement, not a promise all management, build, billing, data and regional failures leave apps untouched. No outage test was performed. |
 | 37 | Evidence and freshness | Official notices/history, active pricing/billing, full terms/privacy, docs, security advisory and status were checked November 5, 2026; calculations and assumptions are labelled separately. | confirmed | https://zerops.io/; https://docs.zerops.io/billing/pricing; https://docs.google.com/document/d/e/2PACX-1vShf30OdwdQDQgasDJIx39jpcC9KJ5bMQVM2POUrGN0CIN0X60TTpeDv6XqoW9w64JcmKhjJ5A_Q7--/pub; https://docs.google.com/document/d/e/2PACX-1vRMc_5Skp-Zy8RFzmL0ho1vLnZ-jB9pEYcE6mHB4AbISLgosLcMxGYAfHqNGha68aVmaeAMjRHuZs6v/pub; https://status.zerops.io/ | 2026-11-05 | Proposed ordinary revisit is 30 days, our editorial rule. Recheck lifecycle/acquisition notices and access/pricing before publication; source dates and our check date are distinct. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no new sale, full-platform shutdown, rebrand, or qualifying security incident found during this sweep. | confirmed | https://zerops.io/articles; https://docs.zerops.io/company/about; https://docs.zerops.io/billing/pricing; https://status.zerops.io/ | 2026-11-09 | Checked the official updates/articles page, About, pricing and status. The original project closure/IP acquisition predates this sweep; Zerops remains active. Shared Storage deprecation and the patched Copy Fail advisory are already described in this file. |
 
 ## Cost examples — our calculation
 
@@ -257,8 +258,8 @@ All facts are official-source statements unless explicitly called our calculatio
 ## Counts
 
 - Field groups attempted: 37 of 37; conditional managed/self-host fields were evaluated for their relevant mode.
-- Fact rows: 111. The state totals below count rows, not field groups.
-- confirmed: 93
+- Fact rows: 112. The state totals below count rows, not field groups.
+- confirmed: 94
 - not_published: 10
 - unclear: 1
 - conflicting: 5

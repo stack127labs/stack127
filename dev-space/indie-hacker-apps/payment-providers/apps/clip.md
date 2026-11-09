@@ -4,7 +4,7 @@
 - `apps.md` status: active
 - Scope: Mexico-based Clip card-not-present payments, payment links, Link de Negocio, ecommerce Checkout and recurring payments. Card-reader hardware prices are outside the online-payment costs below and are not mixed into the examples.
 - Operator/contracting entities: the terms for Pagos a Distancia name Payclip, S. de R.L. de C.V.; the general service terms also name PayClip Servicios de Adquirencia, S.A. de C.V.
-- Current owner: ultimate ownership/control is not identified in the public company pages reviewed. Clip names Adolfo Babatz as founder, chairman and CEO, and names institutional investors, but those facts do not establish who owns or controls Clip.
+- Current owner: ultimate ownership/control is not identified in the public company pages reviewed. Clip identifies its founder as chairman and CEO and names institutional investors, but those facts do not establish who owns or controls Clip.
 - Shutdown, sunset, acquisition and rebrand check: Clip’s official newsroom and company history were checked. Clip’s 28 October 2026 announcement says Clip acquired Pulpos, a Mexican cloud business-management software company; Clip itself remains active. Clip’s official history also records its 2020 acquisition of Swap. No Clip shutdown, sunset, or acquisition of Clip was found in the pages reviewed.
 - Research start: 2026-11-06 13:20:29 UTC
 - Research finish: 2026-11-06 13:36:29 UTC

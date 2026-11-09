@@ -115,6 +115,7 @@ A row's state applies to its scoped value. A documented feature does not establi
 | F38 | Support access | Buyer assistance is described as 24/7 in 28+ languages, with a dedicated account manager and assisted integration for sellers. | confirmed | https://payproglobal.com/about/; https://payproglobal.com/pricing/ | 2026-11-04 | The complete language-by-channel/staffing matrix and a contractual response-time guarantee are not published on these pages. |
 | F39 | Operating status and recent changes | Active: public pricing/quote route, vendor support and current hosted-checkout/API documentation are available. | confirmed | https://payproglobal.com/pricing/; https://payproglobal.com/vendor-support/; https://developers.payproglobal.com/docs/integrate-with-paypro-global/go-live-checklist/ | 2026-11-04 | No shutdown or rebrand was identified in the checked official company/legal sources. This confirms operation, not live transaction uptime. |
 | F39 | Operating status and recent changes | Dated changelog for material provider changes and a public operational-status endpoint not established. | not_published | https://payproglobal.com/about/; https://payproglobal.com/legal/; https://developers.payproglobal.com/docs/integrate-with-paypro-global/go-live-checklist/ | 2026-11-04 | Current pages are mostly undated. Search results for dated educational articles were not treated as notices that a provider feature launched on that date. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale/merger, rebrand, shutdown/sunset, market exit, major paid-feature retirement, customer-data breach, regulatory action/licence loss or bankruptcy found. | confirmed | https://payproglobal.com/about/; https://payproglobal.com/legal/; https://payproglobal.com/vendor-support/; https://payproglobal.com/blog/; https://status.payproglobal.com/ | 2026-11-09 | Checked company, legal and vendor-support pages and attempted the official blog and a status-page URL; both attempts returned errors/no readable page. Current public merchant/support pages remain available. No qualifying change was identified in the official pages or web news search since January 2025.
 | F40 | Closing an account | Reseller contract: 12-month term, automatic 12-month renewals, either party may terminate on 30 days' written notice; FAQ says no cancellation fee. | confirmed | https://docs.payproglobal.com/documents/legal/PayProGlobalResellerAgreement.pdf; https://payproglobal.com/faq/ | 2026-11-04 | Agreement §8 also permits termination after an uncured material breach with a 14-day cure period. Account-manager notification is the public practical route. |
 | F40 | Closing an account | After closure, remaining Net Proceeds are paid in one payment after the standard six-month hold, subject to an agreed history-based variation. | confirmed | https://docs.payproglobal.com/documents/legal/PayProGlobalResellerAgreement.pdf | 2026-11-04 | Agreement §4.9 concerns money release. Subscription/customer access and export are separate from this payout obligation. |
 | F40 | Closing an account | Fixed seller-data retention/deletion period and guaranteed post-closure export-access window not published. | not_published | https://docs.payproglobal.com/documents/legal/privacyPolicy.pdf; https://docs.payproglobal.com/documents/legal/DataProcessingProvisionsGdpr.pdf; https://payproglobal.com/users-data-protection/; https://docs.payproglobal.com/documents/legal/PayProGlobalResellerAgreement.pdf | 2026-11-04 | The DPA can make PayPro controller and the supplier its processor for disclosed buyer data. Supplier deletion duties are not PayPro's promise to erase all seller records. |
@@ -184,11 +185,11 @@ Row 27's brand, official URL, active status, MoR type, Canadian origin and softw
 ## Counts
 
 - Fields covered: 50 unique IDs. All 40 core fields and five optional fields were attempted; applicability was assessed for all five conditional crypto fields.
-- Fact rows: 114.
-- confirmed: 75 rows.
+- Fact rows: 115.
+- confirmed: 76 rows.
 - not_published: 30 rows.
 - unclear: 4 rows.
 - conflicting: 0 rows.
 - not_applicable: 5 rows.
 - check_failed: 0 rows.
-- Unique official source URLs: 49, counted once across the file even when reused.
+- Unique official source URLs: 51, counted once across the file even when reused.

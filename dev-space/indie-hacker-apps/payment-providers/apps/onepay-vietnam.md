@@ -114,6 +114,7 @@ All 50 fields were attempted: 40 core, five optional and five crypto checks.
 | F38 | Support access | Checkout display locales English and Vietnamese are documented; both language support pages are public. | confirmed | <https://mtf.onepay.vn/client/merchant_client_demo/>; <https://mtf.onepay.vn/client/qt/>; <https://www.onepay.vn/lien-he/ho-tro-khach-hang/>; <https://www.onepay.vn/en/for-service-support/> | 2026-11-05 | This is interface/documentation language evidence. A complete human-support language guarantee is not stated. |
 | F38 | Support access | Guaranteed response SLA, premium support fees and general merchant staffed-hour/holiday schedule not published. | not_published | <https://www.onepay.vn/lien-he/ho-tro-khach-hang/>; <https://www.onepay.vn/lien-he/lien-he-hop-tac/>; <https://mtf.onepay.vn/tragop/en-us/> | 2026-11-05 | “Whenever you need” marketing is not a timed response guarantee. Installment hotline hours do not establish all support-team schedules. |
 | F39 | Operating status and recent changes | Active product, support and sales pages; no official provider-wide shutdown/sunset/acquisition notice found in reviewed sources. | confirmed | <https://www.onepay.vn/>; <https://www.onepay.vn/gioi-thieu/>; <https://www.onepay.vn/lien-he/lien-he-hop-tac/>; <https://www.onepay.vn/chung-chi-giay-phep/> | 2026-11-05 | Status wording is limited to this public review. No account onboarding or live transaction was performed to prove operational uptime. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale/merger, rebrand, shutdown/sunset, market exit, major paid-feature retirement, customer-data breach, regulatory action/licence loss or bankruptcy found. | confirmed | https://www.onepay.vn/; https://www.onepay.vn/gioi-thieu/; https://www.onepay.vn/chung-chi-giay-phep/; https://www.onepay.vn/tin-tuc/ | 2026-11-09 | Checked OnePay Vietnam’s homepage, company/about and licence pages, attempted its news page and reviewed web news-search results since January 2025. The news route was not readable during the check and no standalone public status page was identified. This is the Vietnamese OnePay at onepay.vn.
 | F40 | Closing an account | Privacy retention: as long as needed for processing purposes, longer where law requires or permits. | confirmed | <https://www.onepay.vn/chinh-sach-bao-ve-du-lieu-ca-nhan/> | 2026-11-05 | §6 does not give a fixed numeric merchant/payment-record deletion period. Ending a service is not immediate erasure. |
 | F40 | Closing an account | Withdrawing data-processing consent or requesting deletion can lead to service restriction, suspension or cancellation. | confirmed | <https://www.onepay.vn/chinh-sach-bao-ve-du-lieu-ca-nhan/> | 2026-11-05 | §§7.2/8.1 reserve continuing lawful processing. This is data-consent/service treatment, not a complete commercial account-termination clause. |
 | F40 | Closing an account | Merchant cancellation notice/fee and final-fund release after closure not found in public sources. | not_published | <https://www.onepay.vn/chinh-sach-bao-ve-du-lieu-ca-nhan/>; <https://www.onepay.vn/lien-he/ho-tro-khach-hang/>; <https://www.onepay.vn/lien-he/lien-he-hop-tac/>; <https://www.onepay.vn/terms-and-conditions> | 2026-11-05 | Read published legal/privacy terms and commercial help. No 180-day hold or seven-day cancellation rule from a different Vietnamese provider was carried over. |
@@ -188,11 +189,11 @@ Additional access notes: <https://onepay.vn/documents/> returned HTTP 403; <http
 
 Fields attempted: **50/50** — 40 core, five optional and five conditional crypto checks.
 
-Facts-table rows: **106**. States count scoped rows, not unique field IDs.
+Facts-table rows: **107**. States count scoped rows, not unique field IDs.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 57 |
+| confirmed | 58 |
 | not_published | 39 |
 | unclear | 1 |
 | conflicting | 1 |

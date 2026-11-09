@@ -1,6 +1,7 @@
 # Vercel
 
 Official URL: https://vercel.com/
+Lifecycle note: Vercel disclosed unauthorized access affecting customer environment variables in April 2026; its bulletin says remediation was completed and the incident closed on 2026-10-16. See the confirmed facts row below.
 apps.md status: Active. Status is correct; Backend/app hosting overlap also applies beyond the row's Frontend/static label.
 Research start: 2026-11-04 17:31:11 UTC
 Research finish: 2026-11-04 17:44:52 UTC
@@ -15,6 +16,7 @@ Scope: current hosted Hobby, paid Pro and Enterprise plans, with Fluid compute. 
 | 01 | Product identity and ownership | Vercel; service agreement names Vercel Inc. | confirmed | https://vercel.com/legal/terms | 2026-11-04 | Current agreement updated October 19, 2026. Ownership beyond contracting company not asserted. |
 | 02 | Operating and signup status | Hobby and Pro have public self-service entry; Enterprise requires sales discussion. | confirmed | https://vercel.com/pricing | 2026-11-04 | Public availability verified; successful account creation not tested. |
 | 02 | Operating and signup status | Container Runtime is beta on all plans; Daemons public beta on all plans. | confirmed | https://vercel.com/docs/functions/runtimes/container ; https://vercel.com/docs/daemons | 2026-11-04 | Beta availability is not a general availability or contractual reliability promise. |
+| 02 | Customer-data security incident | Vercel disclosed unauthorized access to internal systems on 2026-04-19. It confirmed that non-sensitive environment variables stored on Vercel were compromised for an initially limited subset of customers, then notified a small number of additional affected accounts; the bulletin says all remediation was complete and the incident closed on 2026-10-16. | confirmed | https://vercel.com/kb/bulletin/vercel-april-2026-security-incident | 2026-11-09 | Vercel recommends rotating potentially exposed API keys, tokens, database credentials and signing keys. The bulletin separately says it found no compromised Vercel-published npm packages. |
 | 03 | Hosting and management model | Managed static CDN, builds/deployments and autoscaling functions; provider manages underlying infrastructure. | confirmed | https://vercel.com/docs/functions/runtimes ; https://vercel.com/docs/builds/managing-builds | 2026-11-04 | Customer maintains application dependencies, configuration and external services. No VM administration included as customer task. |
 | 03 | Hosting and management model | Container Runtime runs HTTP applications as Functions; Daemons keep configured worker instances running. | confirmed | https://vercel.com/docs/functions/runtimes/container ; https://vercel.com/docs/daemons | 2026-11-04 | Container packaging does not turn an HTTP Function into a permanently running server. |
 | 04 | Suitable app types and directory overlap | Static/hybrid sites, APIs, ecommerce and marketing sites; continuous queue consumers available through Daemons. | confirmed | https://vercel.com/docs/limits/fair-use-guidelines ; https://vercel.com/docs/background-workers | 2026-11-04 | Hosting, backend, storage and workflow groups overlap; AI products are optional separate services. |
@@ -179,11 +181,11 @@ apps.md Active status is correct. Its primary Frontend/static category understat
 
 ## Counts
 
-Fields attempted: 37 of 37 approved field groups. Fact rows: 93. States below count rows, including separately scoped values within a field.
+Fields attempted: 37 of 37 approved field groups. Fact rows: 94. States below count rows, including separately scoped values within a field.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 81 |
+| confirmed | 82 |
 | not_published | 0 |
 | unclear | 9 |
 | conflicting | 1 |

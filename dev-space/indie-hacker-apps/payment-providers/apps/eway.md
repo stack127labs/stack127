@@ -3,7 +3,7 @@
 ## Shutdown, sunset and acquisition notices
 
 - Active Eway offer; no whole-service shutdown or sunset notice found in official product, legal, parent-company and status searches. Global Payments acquired eWay Limited in April 2016. Checked 2026-11-05: https://www.eway.com.au/; https://investors.globalpayments.com/financial-information/all-sec-filings/content/0001123360-17-000013/gpn20161231-10kt.htm.
-- Current service restrictions: the status page reports a **major MyEway Sandbox Portal outage**, incident dated 5 November 2026, and a **partial PhonePay outage**, incident opened 2 November with an update on 4 November. Live gateway, Rapid API and settlement are listed operational. This is a research-time snapshot, not a permanent service judgement. Checked 2026-11-05: https://status.eway.com.au/.
+- Current service note, checked 2026-11-09: the MyEway Sandbox portal interruption was resolved on 6 November. PhonePay remains in partial outage: 1800 021 548 is unavailable, while 1300 267 074 and (02) 9099 4320 work. The gateway, Rapid API and settlement remain operational. This narrow IVR issue is not a provider shutdown or reportable finding. Source: https://status.eway.com.au/.
 - Eway's AU merchant notice, updated 17 September 2026, says Visa/Mastercard/eftpos/Amex surcharges end from 1 October 2026, including recurring cards. Processing fees continue; most affected merchants have fees deducted before settlement. Older surcharge settings in integration instructions should be read with this notice. Checked 2026-11-05: https://www.eway.com.au/rba-reform-response/merchant/.
 
 ## Research details
@@ -127,7 +127,7 @@ States describe each scoped value. Unknown fees are not zero. A supported integr
 | F38 | Support access | AU support page: weekdays 7am–5pm AEST; FAQ: weekdays 8am–6pm AEST. | conflicting | https://www.eway.com.au/support/; https://www.eway.com.au/faqs/ | 2026-11-05 | Both official pages checked; no reconciliation or response-time promise found. |
 | F38 | Support access | Phone support: AU 1800 10 6565; NZ 0800 392 947; support@eway.com.au. | confirmed | https://www.eway.com.au/rba-reform-response/merchant/ | 2026-11-05 | Email appears in the current merchant notice; phone channels also listed on support/FAQ. |
 | F38 | Support access | Emergency technical support available 24 hours; ordinary support is not thereby 24/7. | confirmed | https://www.eway.com.au/integrations/ | 2026-11-05 | No complete supported-language list or plan-based response SLA found. |
-| F39 | Operating status and recent changes | Active live gateway, Rapid API and settlement; sandbox portal major outage and PhonePay partial outage at check. | confirmed | https://status.eway.com.au/ | 2026-11-05 | Snapshot on 5 November 2026; incident status can change after this research. |
+| F39 | Operating status and recent changes | Active live gateway, Rapid API and settlement; MyEway Sandbox interruption resolved 6 November; PhonePay IVR remains partially unavailable. | confirmed | https://status.eway.com.au/ | 2026-11-09 | PhonePay’s 1800 021 548 number remains unavailable, with two alternate numbers working. This narrow service issue is a dated note, not a reportable finding. |
 | F39 | Operating status and recent changes | AU surcharge change notice updated 17 September 2026; changes effective 1 October 2026. | confirmed | https://www.eway.com.au/rba-reform-response/merchant/ | 2026-11-05 | Provider says no Visa/Mastercard/eftpos/Amex surcharge, including recurring cards; processing fees continue. |
 | F40 | Closing an account | AU gateway: at least 30 days written termination notice; annual contracts also have 12-month minimum/renewal terms. | confirmed | https://www.eway.com.au/docs/eWAY-Terms-and-Conditions-AU.pdf; https://www.eway.com.au/payment-gateway-solutions/ | 2026-11-05 | Sections 6 and 16; paid fees retained, outstanding fees payable. Pricing's no-lock-in claim needs contractual confirmation. |
 | F40 | Closing an account | NZ gateway: annual minimum 12 months, annual renewal unless notice at least 30 days before term end; monthly one month's notice. | confirmed | https://eway.io/docs/eWAY-Terms-and-Conditions-NZ.pdf; https://eway.io/nz/gateway-services/ | 2026-11-05 | Section 6; no-lock-in pricing language does not erase this published contract. |
@@ -150,6 +150,7 @@ States describe each scoped value. Unknown fees are not zero. A supported integr
 | C04 | Crypto payment completion and refunds | Crypto confirmations/underpayments/refunds not applicable to the fiat-card gateway offer researched. | not_applicable | https://www.eway.com.au/taking-payments/ | 2026-11-05 | No separate Eway crypto checkout offer established in its method overview or Rapid reference. |
 | C05 | Hosting and maintenance | Crypto software hosting/maintenance not applicable to the fiat-card gateway offer researched. | not_applicable | https://www.eway.com.au/taking-payments/ | 2026-11-05 | No separate Eway crypto checkout offer established in its method overview or Rapid reference. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, company shutdown, rebrand, major paid-feature retirement, data breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://www.eway.com.au/blog/; https://www.eway.com.au/legal/; https://status.eway.com.au/; https://investors.globalpayments.com/ | 2026-11-09 | Checked the official blog, legal pages, status page and Global Payments investor news. The narrow PhonePay IVR outage is noted above; no provider-level lifecycle change was found. |
 ## Cost examples — our calculations
 
 These are our calculations from public tariff inputs, checked 2026-11-05. They are illustrations, not a merchant quote. Charge amounts are the submitted gross payment amount. No currency conversion is performed. Unpublished refund, dispute, payout, bank, integration and account-specific charges are excluded rather than assigned zero.
@@ -190,14 +191,13 @@ Annual gateway plan base commitments, calculated as monthly quoted equivalent ×
 ## Counts
 
 - Fields attempted: **50** (40 core, five optional, five crypto applicability checks).
-- Facts-table rows: **120**.
-- `confirmed`: **90** rows.
+- Facts-table rows: **121**.
+- `confirmed`: **91** rows.
 - `not_published`: **20** rows.
 - `unclear`: **1** rows.
 - `conflicting`: **3** rows.
 - `not_applicable`: **5** rows.
 - `check_failed`: **1** rows.
-- Unique exact source URLs in this file: **41**, including explicitly labelled failed help-page attempts. Repeated links are counted once.
+- Unique exact source URLs in this file: **44**, including explicitly labelled failed help-page attempts. Repeated links are counted once.
 - Counts above describe table rows; a field can have several rows with different scopes/states.
-
 

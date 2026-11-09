@@ -10,7 +10,7 @@ Scope: official website, download/about/screenshots/demo pages, documentation wi
 
 Open Web Analytics remains available as free self-hosted software. The freshest official release metadata checked identifies **1.14.6, published 2026-11-01**. The cached release index showed 1.14.2; it was not used as the latest version. OWA 2.0 documentation explicitly describes an unreleased version and is not treated as released capability.
 
-Row assessment: the web/open-source/self-hosted description and C detection class fit. The project identifies Peter Adams as creator/copyright holder, but no incorporated software-vendor entity or jurisdiction was established. No closure, acquisition or rebrand notice found in the pages checked. No clear apps.md row error found.
+Row assessment: the web/open-source/self-hosted description and C detection class fit. The project identifies an individual as creator and copyright holder, but no incorporated software-vendor entity or jurisdiction was established. No closure, acquisition or rebrand notice found in the pages checked. No clear apps.md row error found.
 
 ## Facts
 
@@ -19,8 +19,9 @@ Confirmed means documented or visible in official public source, not independent
 | Field ID | Field name | Value | State | Applies to | Exact source URL | Checked date | Evidence note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | F01 | Name and URL | Open Web Analytics (OWA); https://www.openwebanalytics.com/ | confirmed | Product | https://www.openwebanalytics.com/ | 2026-11-04 | Official branding; not Open WebUI or another similarly named analytics product. |
-| F01 | Creator and copyright holder | Peter Adams; Open Web Analytics project | confirmed | Software | https://raw.githubusercontent.com/Open-Web-Analytics/Open-Web-Analytics/1.14.6/README.md | 2026-11-04 | Versioned release README names Peter Adams. No incorporated operating-company identity or company jurisdiction established. |
-| F01 | Availability and current release | Self-host download offered; latest release 1.14.6 published 2026-11-01 | confirmed | Released server | https://api.github.com/repos/Open-Web-Analytics/Open-Web-Analytics/releases/latest | 2026-11-04 | Direct public metadata resolved the cached release index's older 1.14.2 result. No shutdown/rebrand/acquisition notice found in pages checked. |
+| F01 | Creator and copyright holder | Individual project creator and copyright holder; Open Web Analytics project | confirmed | Software | https://raw.githubusercontent.com/Open-Web-Analytics/Open-Web-Analytics/1.14.6/README.md | 2026-11-04 | The versioned release README identifies the project creator. No incorporated operating-company identity or company jurisdiction established. |
+| F01 | Availability and current release | Self-host download offered; latest release 1.14.6 published 2026-11-01 | confirmed | Released server | https://api.github.com/repos/Open-Web-Analytics/Open-Web-Analytics/releases/latest | 2026-11-09 | Rechecked the official release API; current release is 1.14.6. Product remains available as self-hosted software. |
+| F01 | News check 2026-11-09 | No sale, shutdown, rebrand, or incident found | not_published | Product lifecycle | https://www.openwebanalytics.com/about/ ; https://www.openwebanalytics.com/download/ ; https://github.com/Open-Web-Analytics/Open-Web-Analytics/releases ; https://github.com/Open-Web-Analytics/Open-Web-Analytics/issues | 2026-11-09 | Checked official about/download pages, release history, repository issues and current public project activity; no official company blog or status page was found. Results about OpenWeb (publisher engagement company) are unrelated. |
 | F02 | Primary category | Self-hosted website/application web analytics framework | confirmed | Product | https://www.openwebanalytics.com/about/ | 2026-11-04 | JavaScript and PHP integration; application wording does not establish native mobile SDKs. |
 | F02 | Secondary jobs and overlap | Custom actions, ecommerce/conversions, heatmaps and DOM interaction recordings | confirmed | Released 1.14.6 | https://raw.githubusercontent.com/Open-Web-Analytics/Open-Web-Analytics/1.14.6/README.md | 2026-11-04 | Our directory overlap tags follow explicit released features. |
 | F03 | Browser support and web apps | Modern browsers including Safari, Firefox and Chrome; JavaScript integration for non-PHP sites | confirmed | Web collection | https://github.com/Open-Web-Analytics/Open-Web-Analytics/wiki/Technical-Requirements | 2026-11-04 | No exact browser-version matrix stated; SPA routing automation in v2 docs is not assumed released. |
@@ -143,7 +144,7 @@ No native-mobile, MRR-based or complete recording-cost total is calculated. Nati
 
 ## Public detection record
 
-Stable product ID: `open-web-analytics`; current name: Open Web Analytics; acronym: OWA. Project identifies Peter Adams as creator/copyright holder. Overall class **C**, matching apps.md.
+Stable product ID: `open-web-analytics`; current name: Open Web Analytics; acronym: OWA. Project identifies an individual as creator and copyright holder. Overall class **C**, matching apps.md.
 
 The current 1.x official embed combines `owa_cmds`, a real `setSiteId`, `owa_baseUrl` and loading `public/base/dist/owa.tracker.js` from an operator-controlled server. This is strong product-specific code evidence when it is an installed configuration. Hostnames cannot be enumerated centrally because the software is self-hosted.
 

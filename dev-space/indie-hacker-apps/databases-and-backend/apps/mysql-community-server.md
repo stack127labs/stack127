@@ -25,6 +25,7 @@ Scope: downloadable GPL Community Server. Most operational evidence is pinned to
 | C04 | Lifecycle and access stage | Operating and publicly downloadable. The current Community download page presents MySQL Community Server 26.10.0 as a generally available release. | confirmed | [Source](https://dev.mysql.com/downloads/mysql/) | 2026-11-05 | MySQL Community Server download selector. The page also offers older release lines; an archived download alone does not establish ongoing maintenance. |
 | C04 | Lifecycle and access stage | MySQL 8.0 reached end of life in April 2026 and entered Sustaining Support on April 21, 2026. Oracle recommends 8.4 LTS or 9.7 LTS. Oracle stopped all MySQL Solaris builds and fixes on September 29, 2026, and all builds for RHEL 7, Oracle Linux 7 and CentOS 7 on August 4, 2026. | confirmed | [Source](https://www.mysql.com/support/eol-notice.html) | 2026-11-05 | April 21, 2026 notice. This is a version retirement, not retirement of the whole Community Server product. September 29 and August 4 notices. The latter explicitly supersedes the earlier January notice; generic historical platform lists must not override these dated notices. |
 | C04 | Lifecycle and access stage | Two release tracks: LTS keeps a stable feature set; Innovation permits behavior changes and is supported until the next Innovation release. | confirmed | [Source](https://dev.mysql.com/doc/refman/8.4/en/mysql-releases.html) | 2026-11-05 | MySQL Releases: Innovation and LTS, release behavior/support. The published 5-year Premier plus 3-year Extended policy is not free Community incident support. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Mysql Community Server. | not_published | https://blogs.oracle.com/mysql/ ; https://dev.mysql.com/doc/relnotes/mysql/ ; https://www.mysql.com/support/eol-notice.html | 2026-11-09 | Checked Oracle MySQL blog, Community Server release notes and product support notices. MySQL 8.0 and platform support end dates are version/platform lifecycle changes, not closure of Community Server. |
 | C05 | Vendor home and main markets | Oracle Corporation and its affiliates operate globally; the privacy policy says operations in more than 80 countries. This is vendor context, not a MySQL hosting-region list. | confirmed | [Source](https://www.oracle.com/legal/privacy/privacy-policy/) | 2026-11-05 | General Privacy Policy, introduction and section 9. No headquarters location is inferred from a privacy contact address. |
 | C06 | Signup and use restrictions | A public download path offers “No thanks, just start my download.” Oracle account creation is optional on that path; no paid subscription or card is required to obtain the Community download. | confirmed | [Source](https://dev.mysql.com/downloads/file/?id=559372) | 2026-11-05 | Download landing page, below optional Oracle login/register choices. Read only; no account or binary download was created. |
 | C06 | Signup and use restrictions | The GPL permits running the program without a production-only or noncommercial-only restriction. Redistribution and modification have their own license conditions. | confirmed | [Source](https://raw.githubusercontent.com/mysql/mysql-server/8.4/LICENSE) | 2026-11-05 | GPLv2 sections 0–3 and Community license election. This records software rights, not permission to ignore applicable export or other laws. |
@@ -190,11 +191,11 @@ Formula: **Community license = USD 0**. Total = retained host/storage/backups an
 
 - Distinct field IDs attempted: **46** (22 core, 8 database, 7 file, 3 vector, 5 job, 1 self-host).
 - Facts-table rows: **90**. Split rows count separately below.
-- confirmed: **72**
-- not_published: **3**
-- unclear: **1**
-- conflicting: **1**
-- not_applicable: **13**
-- check_failed: **0**
+- confirmed: 72
+- not_published: 4
+- unclear: 1
+- conflicting: 1
+- not_applicable: 13
+- check_failed: 0
 - Distinct external source URLs: **44** (including version/section anchors as distinct URLs).
 

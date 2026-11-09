@@ -133,6 +133,8 @@ Minutes taken: 15.32
 | J05 | Logs and run history | Execution details can be exported as JSON, and eligible failed Standard executions can be redriven within the 14-day window. | confirmed | https://docs.aws.amazon.com/step-functions/latest/dg/concepts-view-execution-details.html ; https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html | 2026-11-06 | Express executions do not support redrive. |
 | J05 | Logs and run history | The pages checked do not publish a Step Functions-specific run-log storage allowance; Express history retention depends on the separate CloudWatch Logs retention setting. | not_published | https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html ; https://aws.amazon.com/step-functions/pricing/ | 2026-11-06 | CloudWatch log retention and charges are configured separately. |
 
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for AWS Step Functions. | confirmed | https://aws.amazon.com/about-aws/whats-new/ ; https://docs.aws.amazon.com/step-functions/latest/dg/recent-launches.html ; https://aws.amazon.com/blogs/compute/category/application-services/aws-step-functions/ ; https://aws.amazon.com/blogs/aws/category/application-services/aws-step-functions/ ; https://health.aws.amazon.com/health/status | 2026-11-09 | Checked AWS What's New, Step Functions Recent Feature Launches, AWS Compute Blog, AWS News Blog, and AWS Health. The Infrastructure Composer retirement is a separate integration and does not retire Step Functions. |
+
 ## Cost examples
 
 Prices below are for US East (N. Virginia), us-east-1, in USD. The AWS Price List API offer file did not open in this environment, so I used the AWS Step Functions pricing page's published us-east-1 examples and rates.
@@ -159,8 +161,8 @@ Prices below are for US East (N. Virginia), us-east-1, in USD. The AWS Price Lis
 ## Counts
 
 - Fields attempted: 27 (C01–C22 and J01–J05)
-- Fact rows: 120
-- confirmed: 109
+- Fact rows: 121
+- confirmed: 110
 - not_published: 8
 - unclear: 1
 - conflicting: 0

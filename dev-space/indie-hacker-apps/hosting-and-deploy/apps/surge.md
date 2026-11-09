@@ -92,6 +92,7 @@ All checks and our calculations: **2026-11-04**. Published dollar signs are reta
 | 35 | Client software license | Official README and package manifest identify **ISC** for the surge CLI. Hosted platform access remains subject to Surge's terms. | confirmed | https://api.github.com/repos/sintaxi/surge/contents/README.md ; https://api.github.com/repos/sintaxi/surge/contents/package.json ; https://surge.sh/terms | 2026-11-04 | A permissively licensed client is not a grant to self-host the proprietary CDN or automatic permission to resell the hosted service. No standalone LICENSE file was needed to establish the project's published license declaration. |
 | 36 | Self-host requirements and upkeep | Not applicable to the managed hosting platform. The local client requires a Node/npm environment and network credentials; customer maintains their own build/client dependencies. | not_applicable | https://surge.sh/docs/getting-started ; https://surge.sh/docs/platform/ | 2026-11-04 | Installing the CLI does not install a deploy controller or CDN server. There is no customer-owned control-plane VM to size or patch for the listed Free/Pro offering. |
 | 37 | Evidence and freshness | All fact rows checked 2026-11-04. Current public docs, dated legal policies, and official CLI manifests are distinguished from calculations, unresolved wording, and failed fetches. | confirmed | https://surge.sh/terms ; https://surge.sh/privacy ; https://surge.sh/docs/ ; https://surge.sh/llms-full.txt | 2026-11-04 | Terms updated 2026-10-30, privacy 2026-10-31. Many docs have no publication date. Pro price/entitlements, org caps, and legal ambiguities should be rechecked within 30 days and before publication. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, shutdown, rebrand, or qualifying security incident found. | confirmed | https://surge.sh/; https://surge.sh/docs/; https://surge.sh/network; https://surge.sh/terms | 2026-11-09 | Checked the product, docs, network and terms pages and searched the official domain. No separate blog/newsroom or incident-history page surfaced; the live network page shows the service as active. |
 
 ## Cost examples: our calculations
 
@@ -168,11 +169,11 @@ Other source access notes, checked **2026-11-04**:
 
 ## Counts
 
-Fields attempted: **37 of 37** field groups. Fact rows: **76**. Counts are rows, not unique fields; plans, confirmed limits, missing policy details, and genuine source conflicts can give a field several rows.
+Fields attempted: **37 of 37** field groups. Fact rows: **77**. Counts are rows, not unique fields; plans, confirmed limits, missing policy details, and genuine source conflicts can give a field several rows.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 52 |
+| confirmed | 53 |
 | not_published | 9 |
 | unclear | 2 |
 | conflicting | 3 |

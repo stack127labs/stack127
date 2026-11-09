@@ -121,6 +121,7 @@ Legal document bodies are embedded in frames. Public HTML retrieval recovered th
 | J05 | Dashboard log retention | An exact built-in dashboard log retention duration or storage quota was not found. | not_published | https://docs.convex.dev/dashboard/deployments/logs.md ; https://docs.convex.dev/production/integrations/log-streams.md ; https://docs.convex.dev/production/state/limits.md ; https://www.convex.dev/legal/tos ; https://www.convex.dev/legal/privacy | 2026-11-04 | Searched Logs history description, streaming, log limits, terms and privacy retention. Per-function line caps and 7-day scheduled results are not dashboard retention. |
 | H01 | Self-host operations and gaps | Run backend, dashboard and frontend; Docker setup defaults to persistent SQLite/local storage. Optional Postgres/MySQL persistence and S3 backend storage are documented. Operator owns routing, persistence, backups and upgrades. | confirmed | https://raw.githubusercontent.com/convex/convex-backend/main/self-hosted/README.md ; https://raw.githubusercontent.com/convex/convex-backend/main/self-hosted/advanced/upgrading.md | 2026-11-04 | README, Docker/Advanced/Limitations; Upgrading, both paths. Export before upgrade; import-based migration needs traffic stopped and code/environment handled separately. |
 | H01 | Production hardware minimum | A general production CPU/RAM minimum was not found in the self-host and own-infrastructure guides. No hosting-cost floor is estimated. | not_published | https://raw.githubusercontent.com/convex/convex-backend/main/self-hosted/README.md ; https://raw.githubusercontent.com/convex/convex-backend/main/self-hosted/advanced/hosting_on_own_infra.md ; https://docs.convex.dev/self-hosting.md ; https://www.convex.dev/legal/tos ; https://www.convex.dev/legal/privacy | 2026-11-04 | Searched dependencies, own-server deployment, Self Hosting and legal/policy pages. This optional field should not be filled using an unsourced cheapest VPS. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or customer-data breach found for Convex. | confirmed | https://news.convex.dev/ ; https://status.convex.dev/ ; https://news.convex.dev/how-convex-took-down-t3-chat-june-1-2025-postmortem/ | 2026-11-09 | Checked Convex News, public status page and postmortem. The June 1, 2025 T3 Chat availability incident was documented by Convex and restored; it is not a reported customer-data breach. |
 
 ## Cost examples — our calculation
 
@@ -227,8 +228,8 @@ Backup variant: logical archives consume file/backup capacity and transfer; gene
 ## Counts
 
 - Fields attempted: 46 distinct field IDs.
-- Facts-table evidence rows: 98.
-- Rows by state: confirmed 73; not_published 14; unclear 7; conflicting 4; not_applicable 0; check_failed 0.
-- Distinct exact official source URLs: 53, counted across the facts table; repeated citations count once.
+- Facts-table evidence rows: 99.
+- Rows by state: confirmed 74; not_published 14; unclear 7; conflicting 4; not_applicable 0; check_failed 0.
+- Distinct exact official source URLs: 57, counted across the facts table; repeated citations count once.
 - Start/finish elapsed time: 1,039 seconds; 17.32 minutes, rounded to two decimals.
 

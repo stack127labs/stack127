@@ -115,6 +115,7 @@ Every fact below was checked on **2026-11-06**. Prices keep their displayed curr
 | 36 | Self-host requirements and ongoing work | Not applicable as a customer-hosted UpCloud control plane: UpCloud manages the infrastructure service. Inside the VM, the customer operates the OS, software, firewall rules, updates, app monitoring, and backups. | not_applicable | [Cloud Server FAQ](https://upcloud.com/docs/products/cloud-servers/faq/); [Support documentation](https://upcloud.com/docs/getting-started/support/); [Terms of Service](https://upcloud.com/terms-of-service/) | 2026-11-06 | Support does not administer customer software. |
 | 36 | Self-host requirements and ongoing work | No separate customer control-plane machine or minimum local hardware requirement is needed to use the hosted service; API, CLI, and Terraform/Pulumi tools run in the customer’s environment. | not_applicable | [UpCloud API](https://upcloud.com/docs/tooling/api/); [UpCloud CLI](https://upcloud.com/docs/guides/upcloud-command-line-interface/); [API tokens](https://upcloud.com/docs/guides/managing-api-tokens/) | 2026-11-06 | Tools are optional; a customer can use the browser control panel instead. |
 | 37 | Evidence and freshness | All 37 fields were attempted. Each fact row carries its official source URL and checked date; calculations are labeled as our calculations, and unresolved billing, CPU allocation, residency, support, and portability questions are identified below. | confirmed | [Cloud Servers](https://upcloud.com/products/cloud-servers/); [Cloud Server pricing](https://upcloud.com/pricing/); [Terms of Service](https://upcloud.com/terms-of-service/); [Cloud Servers documentation](https://upcloud.com/docs/products/cloud-servers/) | 2026-11-06 | Recheck current prices and trial/signup restrictions before publication, especially after the November 16, 2026 pricing change. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, Cloud Servers shutdown, rebrand, or qualifying security incident found. | confirmed | https://upcloud.com/blog/category/announcements/; https://upcloud.com/media-center/; https://upcloud.com/docs/changelog/; https://status.upcloud.com/ | 2026-11-09 | Checked the announcements blog, Media Center, changelog and Cloud Server status components. Status reports operational service. Published plan retirements and the Linux-kernel patch are recorded separately; neither is a Cloud Servers shutdown or customer-data breach. |
 
 ## Cost examples: our calculations
 
@@ -170,11 +171,11 @@ Inputs: Scenario B plus PostgreSQL with at least 1 GiB memory and 10 GB database
 
 ## Counts
 
-37 fields attempted; 101 fact rows total.
+37 fields attempted; 102 fact rows total.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 82 |
+| confirmed | 83 |
 | not_published | 5 |
 | unclear | 6 |
 | conflicting | 1 |

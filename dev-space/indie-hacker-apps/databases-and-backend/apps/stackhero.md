@@ -120,6 +120,7 @@ US-locale prices explicitly select US Dollar, so rates below are USD. They exclu
 | J05 | logs and run history | RabbitMQ plans allocate combined storage for persistent messages/logs; management UI, RabbitMQ dashboards and Prometheus metrics available. Exact log-retention days and failed-job execution history/replay are not stated. | not_published | https://www.stackhero.io/en-US/services/RabbitMQ/pricing ; https://www.stackhero.io/en-US/services/RabbitMQ/faq ; https://www.stackhero.io/en-US/services/RabbitMQ/documentations ; https://www.stackhero.io/en-US/services/RabbitMQ/documentations/Getting-started ; https://www.stackhero.io/en-US/stackhero/terms | 2026-11-05 | Price storage column, monitoring/API features and docs checked. Queue messages, broker logs and externally executed job results are different records. |
 | H01 | operating requirements and feature gaps | Not applicable to the managed Stackhero platform: vendor operates host OS, patches, backups and networking, with no SSH. Separate upstream software self-host requirements are outside this hosted-service record. | not_applicable | https://www.stackhero.io/en-US/services/PostgreSQL/faq ; https://www.stackhero.io/en-US/services/MinIO/faq ; https://www.stackhero.io/en-US/services/RabbitMQ/faq ; https://www.stackhero.io/en-US/stackhero/support | 2026-11-05 | Service FAQs, SSH/infrastructure; Support, No server to administer. Installing Stackhero’s CLI manages the cloud, not a self-host platform edition. |
 
+| C04 | lifecycle and access stage | Stackhero news check 2026-11-09: no sale, shutdown, rebrand, or customer-data incident found. Checked the official company/about page, service catalog, pricing and terms, and ran a quick news search; no public changelog or status page was located, and status.stackhero.io was not accessible. | confirmed | https://www.stackhero.io/en-US ; https://www.stackhero.io/en-US/stackhero/about ; https://www.stackhero.io/en-US/services/PostgreSQL/pricing ; https://www.stackhero.io/en-US/stackhero/terms ; https://status.stackhero.io/ | 2026-11-09 | Dated sweep check: official product/news sources and status page (where available) checked with a quick web search. This is a bounded news check, not an uptime guarantee. |
 ## Cost examples — our calculation
 
 Rates checked on 2026-11-05. These are estimates from public price inputs, not invoice quotes or performance benchmarks. Use one service placed in the documented European region; exact current city/region code was not established. The same public pages offer USA placement without a separate visible regional price table. VAT is excluded. No lasting free allowance or quantified trial credit can be applied because the advertised free-start offer does not publish those details in the inspected pages.
@@ -243,13 +244,13 @@ All pages named below were checked on 2026-11-05.
 ## Counts
 
 - Unique fields attempted: 46 (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Facts-table rows: 98.
-- confirmed: 72.
+- Facts-table rows: 99.
+- confirmed: 73.
 - not_published: 24.
 - unclear: 1.
 - conflicting: 0.
 - not_applicable: 1.
 - check_failed: 0.
-- Distinct source/official destination URLs cited: 41; repeats count once. This includes the site-linked status destination, whose live incident content was not verified.
+- Distinct source/official destination URLs cited: 42; repeats count once. This includes the site-linked status destination, whose live incident content was not verified.
 - All evidence checked: 2026-11-05.
 

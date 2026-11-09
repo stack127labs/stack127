@@ -136,6 +136,8 @@ Evidence notes: the pricing page exposes annual prices in fetched HTML. Its comb
 | H01 | Managed feature gaps | Back4app dashboard, automated operations, collaboration tooling and commercial support are managed additions, not a promise in the upstream license. | confirmed | https://www.back4app.com/back4app-vs-parse-server ; https://github.com/parse-community/parse-server/blob/alpha/LICENSE | 2026-11-04 | Dashboard & Operations comparison and license. Equivalent tools can be assembled separately; there is no claim that upstream cannot be extended. |
 | H01 | Production minimum and Enterprise bill | No release-specific minimum safe production CPU/RAM or public Enterprise own-infrastructure price established. | not_published | https://docs.parseplatform.org/parse-server/guide/ ; https://www.back4app.com/back4app-vs-parse-server ; https://www.back4app.com/pricing/backend-as-a-service | 2026-11-04 | Deployment guide and Enterprise offer checked. Vendor illustrative self-host server estimates are not used as a guaranteed minimum or a comparable service quote. |
 
+| C04 | Lifecycle and access | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Back4App. | confirmed | https://www.back4app.com/blog/index.html ; https://www.back4app.com/docs/release-notes ; https://status.back4app.com/ | 2026-11-09 | Checked Back4App Blog and release notes; the status URL did not load in the research tool, so it was not treated as evidence. Recent official blog and release notes remain active. |
+
 ## Cost examples — our calculation
 
 Checked date: 2026-11-04. All dollar figures retain the pricing page's $ notation. These are our calculations, not vendor quotes. Region: USA, using the standard managed MongoDB backend; no Enterprise, PostgreSQL, own-bucket or separate Container/Agent subscription. Annual commitment is explicit. Taxes, external email/SMS/model services and any custom work are excluded. No workload was run.
@@ -181,18 +183,18 @@ Inputs shared by the examples: [annual plans, allowances and overages](https://w
 
 Fields attempted: 46 unique field IDs (22 core, 8 database, 7 file, 3 vector, 5 job and 1 self-host).
 
-Facts-table rows: 117. Counts are rows, so plan splits count separately.
+Facts-table rows: 118. Counts are rows, so plan splits count separately.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 79 |
+| confirmed | 80 |
 | not_published | 22 |
 | unclear | 13 |
 | conflicting | 2 |
 | not_applicable | 0 |
 | check_failed | 1 |
 
-Unique exact source URLs in the facts table: 51. This includes URLs recording unsuccessful checks; repeated references count once. Additional attempted-path links in the research notes are not counted as additional fact sources.
+Unique exact source URLs in the facts table: 54. This includes URLs recording unsuccessful checks; repeated references count once. Additional attempted-path links in the research notes are not counted as additional fact sources.
 
 apps.md row errors: none found.
 

@@ -30,6 +30,7 @@ No account, login, form submission, installation, API call with customer credent
 | C02 | Infrastructure metrics | CPU, memory, disk metrics through CLI agent | capability | Insights allowance | Insights | Hosted plus local agent | Server health | confirmed | https://docs.honeybadger.io/guides/insights/integrations/host-metrics/ | 2026-11-04 | Agent defaults to collection every 60 seconds; interval and host tags are configurable. This is a collection agent, not a self-hosted analytics backend. |
 | C03 | Availability | Active offer; current changelog includes October 2026 changes | availability | All | Platform | Hosted | Product | confirmed | https://www.honeybadger.io/changelog/ | 2026-11-04 | A live plan offer and recent release entries support active status. This does not establish a contractual support lifetime. |
 | C03 | Current integration change | Next.js package v6 adds Turbopack support; breaking change | release | Supported subscriptions | Next.js SDK | Instrumented apps | Errors | confirmed | https://www.honeybadger.io/changelog/honeybadger-for-nextjs-now-supports-turbopack/ | 2026-11-04 | Source release month: October 2026. Requires Next.js 15.4+, Node.js 20.9+, and Node runtime; do not apply generic browser compatibility to this package. |
+| C03 | News check 2026-11-09 | No qualifying ownership, product shutdown/pivot, rebrand, closed signup, license change, customer-data breach or regulatory action found; changelog and company updates remain active through 2026. | lifecycle search | All | Hosted service | Hosted | Product | confirmed | https://www.honeybadger.io/changelog/ ; https://www.honeybadger.io/blog/company/ ; https://status.honeybadger.io/ ; https://www.honeybadger.io/terms/ | 2026-11-09 | Checked changelog, company update page, terms and official status history plus quick web results since 2025-01-01. Status page reports a resolved 7-minute US error-processing delay on 2026-11-07; no error data was lost, but some alerts/duplicate counts were affected for about 1,900 reports. This short restored service issue is not a qualifying security incident. |
 | C04 | Vendor home | United States; contact address in Kirkland, Washington | country; address | All | Honeybadger Industries LLC | Vendor | Vendor location | confirmed | https://www.honeybadger.io/contact/ | 2026-11-04 | Published address is 11410 NE 124th Street #246, Kirkland, WA 98034. This is the contact location, not a storage-region statement. |
 | C04 | Buyer/use restrictions | Under-18 users need guardian permission; stated restrictions cover securities transactions, medical diagnosis, manufacturing, and process control software | conditions | All | Service | Hosted | Eligibility | confirmed | https://www.honeybadger.io/terms/ | 2026-11-04 | Terms last modified 2023-03-01. These are specific use restrictions; the page does not supply a complete supported-buyer country list. |
 | C04 | Supported buyer countries | Complete list not found | country list | All | Service | Hosted | Eligibility | not_published | https://www.honeybadger.io/terms/ | 2026-11-04 | Also checked the privacy statement, contact page, and plans FAQ. US/EU hosting and a US contact address do not establish where subscriptions may be bought. |
@@ -360,11 +361,11 @@ Result: no estimate. Full backend sizing, commercial license price, storage/back
 ## Counts
 
 - Distinct field IDs attempted: 50 of 50.
-- Evidence rows: 180. Split plan/edition values and separate unknown subparts count as separate rows.
+- Evidence rows: 181. Split plan/edition values and separate unknown subparts count as separate rows.
 
 | State | Evidence rows | Distinct fields, conservative summary |
 | --- | --- | --- |
-| confirmed | 137 | 20 |
+| confirmed | 138 | 20 |
 | not_published | 24 | 20 |
 | unclear | 11 | 4 |
 | conflicting | 4 | 4 |
@@ -373,8 +374,8 @@ Result: no estimate. Full backend sizing, commercial license price, storage/back
 
 Distinct-field summary uses the first matching state in this order: conflicting, check_failed, unclear, not_published, confirmed, not_applicable. A field can contain confirmed facts and unresolved subparts; this summary preserves the unresolved part.
 
-- Unique exact source URLs in the facts-table source column: 68.
-- Unique source URLs across the whole file, including linked conflict counterparts and searched pages: 70. Repeated links count once.
+- Unique exact source URLs in the facts-table source column: 7068
+- Unique source URLs across the whole file, including linked conflict counterparts and searched pages: 72. Repeated links count once.
 - Failed targets remain in the source count and are marked check_failed; they are not proof for product facts.
 - No field is marked not_applicable: even the custom self-host edition was attempted because the vendor advertises it.
 - apps.md: no wrong status or identity found. Custom private deployment is an additional edition; the contact page resolves the row’s previously unknown vendor location to the United States.

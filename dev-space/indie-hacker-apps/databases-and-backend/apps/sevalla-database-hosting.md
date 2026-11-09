@@ -36,6 +36,7 @@ Prices are **USD before tax**. Monthly estimates mean **730 hours**, with runtim
 | C04 | lifecycle and access stage | Google Cloud-to-OCI migration: new companies start on OCI; database/disk/TCP-proxy companies are scheduled in Wave 2 throughout November 2026, with planned downtime. | confirmed | https://docs.sevalla.com/platform/oci-migration.md | 2026-11-05 | Migration to OCI, status and databases/disks. This is current migration work on the check date; company-specific timing is in the dashboard/email, not a universal completed-migration claim. |
 | C04 | lifecycle and access stage | Legacy external database hostnames <cluster>.proxy.sevalla.app and ports 30000–30999 were disabled October 15, 2026. Use current dashboard hostname/port. | confirmed | https://docs.sevalla.com/databases/connect.md; https://docs.sevalla.com/platform/oci-migration.md | 2026-11-05 | Connect, legacy endpoint notice; OCI migration. Old client URLs can now fail even though the database remains active. |
 | C04 | lifecycle and access stage | Migrated databases keep their legacy engine/version and copied backup listings on OCI; they are not the same database type as newly created OCI databases. | confirmed | https://docs.sevalla.com/platform/oci-migration.md | 2026-11-05 | Migration, What moves / Databases on OCI. Do not assign every new OCI database feature or backup policy to a migrated legacy server without checking its type. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Sevalla Database Hosting. | not_published | https://sevalla.com/blog/ ; https://docs.sevalla.com/ ; https://status.sevalla.com/ | 2026-11-09 | Checked Sevalla blog, documentation and status URL. The Kinsta platform transition and OCI migration are already documented; neither is a database product shutdown. No new qualifying event found. |
 | C05 | vendor home and main markets | Kinsta Inc. is the named company; its legal contact is in West Hollywood, California, USA. Database locations span several continents. | confirmed | https://kinsta.com/legal/privacy-policy/; https://docs.sevalla.com/platform/locations.md | 2026-11-05 | Privacy Policy, Contact Us; Locations. A company address is not a data-residency guarantee. No private operator or maintainer name is recorded. |
 | C06 | signup and use restrictions | A company requires billing details and a valid credit/debit card before creating or resizing a database, even when using free credit. | confirmed | https://docs.sevalla.com/databases/create.md; https://docs.sevalla.com/billing/overview.md | 2026-11-05 | Create, prerequisites; How Billing Works, Free Credit. The card is verified rather than charged just for adding it; subsequent usage can be charged. |
 | C06 | signup and use restrictions | Terms require age 13 or a higher local minimum; minors need a parent/guardian bound by the terms. Trade-sanction restrictions include Russia, Iran, Syria, Cuba, North Korea and named Ukrainian regions. | confirmed | https://kinsta.com/legal/terms-service/; https://docs.sevalla.com/security/acceptable-use.md | 2026-11-05 | Terms Section 2; Acceptable Use, sanctions. This is the vendor's eligibility wording, not an independent statement of current sanctions law; the list is non-exhaustive. |
@@ -209,11 +210,11 @@ All source URLs in this section were checked on 2026-11-05. Third-party pages pr
 
 - Fields attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
 - Facts-table rows: **89**; repeated rows split material values/scopes.
-- confirmed: **60**.
-- not_published: **10**.
-- unclear: **2**.
-- conflicting: **4**.
-- not_applicable: **13**.
-- check_failed: **0**.
+- confirmed: 60.
+- not_published: 11.
+- unclear: 2.
+- conflicting: 4.
+- not_applicable: 13.
+- check_failed: 0.
 - Distinct exact source URLs cited: **38** (repeated links count once).
 

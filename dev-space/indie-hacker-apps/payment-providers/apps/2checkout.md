@@ -144,6 +144,7 @@ The old Verifone documentation links now redirect to the new official 2Checkout 
 | C04 | Crypto payment completion and refunds | Crypto confirmations, under/overpayment and blockchain refunds are outside the documented method scope. | not_applicable | [methods](https://docs.2checkout.com/payments/payments/payment-methods.md); [currency](https://docs.2checkout.com/payments/payments/billing-currencies.md); [aup](https://www.2checkout.com/legal/acceptance/) | 2026-11-04 | Card/direct-debit disputes and fiat refund processing do not establish blockchain behavior. |
 | C05 | Hosting and maintenance | No self-hosted crypto payment software is part of the researched offer. | not_applicable | [methods](https://docs.2checkout.com/payments/payments/payment-methods.md); [currency](https://docs.2checkout.com/payments/payments/billing-currencies.md); [aup](https://www.2checkout.com/legal/acceptance/) | 2026-11-04 | The researched service uses provider-hosted checkout, APIs and seller integrations. No node/hardware cost is applicable. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, shutdown, rebrand, or reportable incident found. | confirmed | https://www.2checkout.com/press/; https://blog.2checkout.com/; https://www.2checkout.com/latest-products-releases/; https://www.2checkout.com/about/; https://www.dnb.nl/openbaar-register/registerdetailpagina/?registerCode=WFTBI&relationNumber=R135035; https://status.2checkout.com/ | 2026-11-09 | Checked the official press room, blog, release page, About page and DNB register. The attempted status URL did not expose readable status data; no official incident notice was found. The Verifone acquisition remains dated August 2020 in the existing row. |
 ## Cost examples: our calculations
 
 These are our calculations, not provider quotes. Each scenario uses only the specified fee inputs and assumptions. Results exclude reserves, payout deductions and other components unless included explicitly. The source's dollar notation is retained for the headline processing examples. No currency conversion is performed. A no-tax example avoids assuming an unpublished before/after-tax percentage base.
@@ -216,15 +217,15 @@ The current brand, official URL and active status are supported. The row already
 - Core fields attempted: 40.
 - Optional fields attempted: 5.
 - Conditional crypto fields assessed: 5, all not_applicable for the documented offer.
-- Fact rows: 125.
-- confirmed: 88.
+- Fact rows: 126.
+- confirmed: 89.
 - not_published: 19.
 - unclear: 5.
 - conflicting: 6.
 - not_applicable: 5.
 - check_failed: 2.
-- Unique official evidence URLs in fact rows: 78.
-- Unique official source URLs in this file: 80 (including the official homepage).
+- Unique official evidence URLs in fact rows: 84.
+- Unique official source URLs in this file: 86 (including the official homepage).
 - Cost examples: 7; excluded from fact-row and state counts.
 
 Counts are by evidence row, not by field. A field can have confirmed values and a separate explicit unknown or conflict. not_published records the public pages searched; it does not mean zero cost or no capability. check_failed records the unrecovered official general-country page, not a confirmed country ban.

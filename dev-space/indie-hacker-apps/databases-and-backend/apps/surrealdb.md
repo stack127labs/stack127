@@ -114,6 +114,7 @@ Task states override the vocabulary in `fields.md`. `confirmed` means the cited 
 | H01 | operating requirements and feature gaps | Self-hosted: install the executable or Docker image, retain a SurrealKV directory/volume, configure credentials/TLS/capabilities, supervise the process, patch releases and operate backups/monitoring. Embedded Rust/browser options have platform-specific storage support. | confirmed | https://surrealdb.com/docs/manage/self-hosted ; https://surrealdb.com/docs/manage/self-hosted/configuration ; https://surrealdb.com/docs/manage/self-hosted/deployment-models ; https://surrealdb.com/docs/manage/self-hosted/backups-and-recovery | 2026-11-05 | Self-hosted/Configuration/Deployment models/Backups. No minimum production RAM/CPU budget is inferred from a development example. |
 | H01 | operating requirements and feature gaps | Enterprise self-hosted adds SurrealDS multi-node storage, distributed live queries and enterprise controls, requiring an issued commercial key and a separate license for each cluster. Managed Cloud handles infrastructure; Community operators do that work themselves. | confirmed | https://surrealdb.com/docs/manage/self-hosted ; https://surrealdb.com/docs/manage/enterprise/product/licensing ; https://surrealdb.com/docs/manage/self-hosted/deployment-models | 2026-11-05 | Self-hosted, Enterprise; Licensing, Get a licence; Deployment models. Do not promise hosted feature parity from source availability. |
 
+| C04 | lifecycle and access stage | SurrealDB news check 2026-11-09: no sale, shutdown, rebrand, customer-data incident, or license change found. Checked the official blog, release notes, current license and status page; the status page showed all listed services online. The RocksDB removal in SurrealDB 4 is already documented and is an engine migration, not a paid hosted-feature retirement. | confirmed | https://surrealdb.com/blog ; https://surrealdb.com/releases ; https://surrealdb.com/license ; https://status.surrealdb.com/ | 2026-11-09 | Dated sweep check: official product/news sources and status page (where available) checked with a quick web search. This is a bounded news check, not an uptime guarantee. |
 ## Cost examples — our calculations
 
 Checked 2026-11-05. These are arithmetic examples, not vendor quotes or measured capacity tests. Prices keep the source's `$` symbol; the ISO dollar currency is unresolved. Tax is additional. Cloud examples choose **AWS Europe (Ireland)**, which the create guide lists; the pricing table publishes no region-specific variation. Earth examples use **EU residency / Western Europe preferred location**; this is a preference within the selected residency, not an Ireland node. Eligibility and current beta terms still apply.
@@ -161,12 +162,12 @@ Checked 2026-11-05. These are arithmetic examples, not vendor quotes or measured
 ## Counts
 
 - Distinct field IDs attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Fact rows: **93**.
-- confirmed: **72**.
+- Fact rows: 94.
+- confirmed: **73**.
 - not_published: **12**.
 - unclear: **5**.
 - conflicting: **4**.
 - not_applicable: **0**.
 - check_failed: **0**.
-- Distinct exact source URLs linked: **47**. This counts URLs, not clicks; pricing query variants and release-specific files remain distinct.
+- Distinct exact source URLs linked: 49. This counts URLs, not clicks; pricing query variants and release-specific files remain distinct.
 

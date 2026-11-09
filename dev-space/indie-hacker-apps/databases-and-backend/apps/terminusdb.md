@@ -1,6 +1,6 @@
 # TerminusDB
 
-**Maintainer and lifecycle notices:** TerminusDB is currently maintained by **Gettier, operated by DFRNT AB in Sweden**, with community contributors. The official project says Gettier assumed stewardship in **2025**. No whole-database shutdown or acquisition transaction notice was found in the official product, repository, hosting and legal pages searched. The repository is not archived and reports activity on 2026-11-04. Sources checked 2026-11-05: [project](https://terminusdb.com/), [product explanation](https://terminusdb.com/docs/terminusdb-explanation/), [Gettier operator](https://gettier.ai/imprint), [repository metadata](https://api.github.com/repos/terminusdb/terminusdb).
+**Maintainer and lifecycle notices:** TerminusDB is maintained by Gettier, the trading name adopted by DFRNT AB on 2026-09-22; the legal entity and ownership did not change. Gettier assumed project stewardship in 2025. No whole-database shutdown or acquisition transaction notice was found in the official product, repository, hosting and legal pages searched. The repository is not archived and reports activity on 2026-11-04. Sources rechecked for news on 2026-11-09; the official status endpoint was not accessible in this check. Sources: [project](https://terminusdb.com/), [product explanation](https://terminusdb.com/docs/terminusdb-explanation/), [Gettier operator](https://gettier.ai/imprint), [repository metadata](https://api.github.com/repos/terminusdb/terminusdb).
 
 **Recent releases:** **v12.0.9 was published 2026-10-28**, eight calendar days before checking, and is a security release recommending an update. **v12.1.0-rc2 was published 2026-11-03**, two calendar days before checking. Its title/notes call it a release candidate even though GitHub marks `prerelease=false` and returns it as latest. Keep the RC label; do not equate it with a final 12.1 release. [12.0.9](https://github.com/terminusdb/terminusdb/releases/tag/v12.0.9), [12.1 RC2](https://github.com/terminusdb/terminusdb/releases/tag/v12.1.0-rc2), [latest-release metadata](https://api.github.com/repos/terminusdb/terminusdb/releases/latest).
 
@@ -24,7 +24,7 @@ Task states override the vocabulary in `fields.md`. `confirmed` means the cited 
 
 | Field ID | Field name | Value | State | Exact source URL | Checked date | Short note, page title and section |
 | --- | --- | --- | --- | --- | --- | --- |
-| C01 | identity and old names | TerminusDB; maintained and offered by Gettier since 2025, in collaboration with the open-source community. Gettier is operated by DFRNT AB. | confirmed | https://terminusdb.com/ ; https://terminusdb.com/docs/ ; https://gettier.ai/imprint | 2026-11-05 | Homepage, Community; Documentation, introduction; Gettier Imprint. Name the current project/company, not an individual maintainer. |
+| C01 | identity and old names | TerminusDB; maintained and offered by Gettier since 2025, in collaboration with the open-source community. Gettier is the trading name adopted by DFRNT AB on 2026-09-22; DFRNT AB remains the legal entity. | confirmed | https://terminusdb.com/ ; https://terminusdb.com/docs/ ; https://gettier.ai/imprint ; https://gettier.ai/news/dfrnt-is-now-gettier | 2026-11-09 | Homepage, Community; Documentation, introduction; Gettier Imprint and 2026-09-22 company-name announcement. The announcement says this was not an acquisition and ownership/management/contracts did not change. |
 | C01 | identity and old names | TerminusDB Cloud is the current hosting name; official Cloud page describes DFRNT Hub and TerminusCMS as earlier names in the same service lineage. | confirmed | https://terminusdb.com/docs/cloud/ | 2026-11-05 | TerminusDB Cloud, introduction. These hosted names are not separate self-hosted database engines. |
 | C02 | primary type and other roles | Researcher classification: versioned document/knowledge-graph database, with schema-checked JSON/JSON-LD data, RDF storage, graph querying and Git-style data history. Search is an additional version-dependent role. | confirmed | https://terminusdb.com/docs/terminusdb-explanation/ ; https://terminusdb.com/llms.txt | 2026-11-05 | What is TerminusDB?, How it works; llms.txt, overview/search. This is not classified as general object storage or a standalone job runner. |
 | C03 | hosting and license | Self-hosted Community core, including release v12.0.9: Apache License 2.0 (Apache-2.0). Source, modification and distribution rights are subject to that license's notices and conditions. | confirmed | https://raw.githubusercontent.com/terminusdb/terminusdb/v12.0.9/LICENSE | 2026-11-05 | Release-tagged LICENSE, Apache License Version 2.0. This is the engine's actual license file, not a cloud plan's marketing label. |
@@ -103,6 +103,7 @@ Task states override the vocabulary in `fields.md`. `confirmed` means the cited 
 | H01 | operating requirements and feature gaps | Operate persistent local storage, process/container restarts, TLS reverse proxy, strong credentials, health checks, backups and upgrades. Linux/macOS x86_64/arm64 are documented; Windows uses WSL2/Docker. No universal minimum production CPU/RAM budget is stated. | confirmed | https://terminusdb.com/docs/self-hosted-installation/ ; https://terminusdb.com/docs/run-terminusdb-in-production/ ; https://terminusdb.com/docs/install-terminusdb-as-a-docker-container/ | 2026-11-05 | Self-hosted, Supported platforms/Backups; Run in Production, checklist; Docker install. Dataset, retained history and query work govern sizing. |
 | H01 | operating requirements and feature gaps | Enterprise adds HTTP binary backup, multi-format RDF/JSON-LD exchange, high-resolution history and Prometheus observability. RC 12.1 vector deployment also needs search-store persistence plus an embedding runtime/provider. | confirmed | https://terminusdb.com/docs/enterprise/ ; https://terminusdb.com/docs/enterprise-backup-restore/ ; https://terminusdb.com/docs/versioned-search-embedded/ ; https://terminusdb.com/docs/versioned-search-quickstart/ | 2026-11-05 | Enterprise, What it adds; Backup & Restore; Embedded Search/Quickstart. Community self-hosting does not include a managed infrastructure or support promise. |
 
+| C04 | lifecycle and access stage | Gettier is the new trading name for DFRNT AB from 2026-09-22; the company announcement says the legal entity, ownership, management and customer agreements are unchanged. TerminusDB remains the same project and Gettier remains its maintainer/provider. | confirmed | https://gettier.ai/news/dfrnt-is-now-gettier ; https://terminusdb.com/docs/ ; https://terminusdb.com/docs/releases/12-0-changelog/ ; https://gettier.ai/imprint ; https://status.terminusdb.com/ | 2026-11-09 | Official notice, current project docs and company imprint checked; the attempted official status endpoint was not accessible to this reader. The reported event date is retained separately from the 2026-11-09 source check date. |
 ## Cost examples — our calculations
 
 Checked 2026-11-05. These are cost structures and arithmetic, **not vendor quotes or tested capacity**. Community software is explicitly free; no current managed price table was found. [TerminusDB's pricing route](https://terminusdb.com/pricing/) redirects to [Cloud hosting options](https://terminusdb.com/docs/cloud/), which directs readers to Gettier. [Gettier's pricing page](https://gettier.ai/pricing) describes its finance-platform beta, not a priced TerminusDB instance.
@@ -143,12 +144,12 @@ Checked 2026-11-05. These are cost structures and arithmetic, **not vendor quote
 ## Counts
 
 - Distinct field IDs attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Fact rows: **78**.
-- confirmed: **39**.
+- Fact rows: 79.
+- confirmed: **40**.
 - not_published: **14**.
 - unclear: **8**.
 - conflicting: **2**.
 - not_applicable: **14**.
 - check_failed: **1**.
-- Distinct exact source URLs linked: **48**. Redirect aliases, release-specific URLs and failed official DPA paths remain separate URLs.
+- Distinct exact source URLs linked: 51. Redirect aliases, release-specific URLs and failed official DPA paths remain separate URLs.
 

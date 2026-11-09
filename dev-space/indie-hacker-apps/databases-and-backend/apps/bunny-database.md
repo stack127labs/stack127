@@ -107,6 +107,8 @@ Every row was checked on **2026-11-05**. Source notes identify page titles/secti
 | J05 | Logs and run history | Not applicable: native general-job run history/replay is outside Database. Database query/usage metrics are available; they are not worker logs. | not_applicable | [Source 1](https://bunny.net/docs/database); [Source 2](https://bunny.net/docs/database/migrations.md); [Source 3](https://bunny.net/database/) | 2026-11-05 | Database overview and integrations; migration scope; product pricing. No separate worker provider is silently priced at zero. |
 | H01 | Operating requirements and feature gaps | Not applicable: this is a Bunny-operated hosted database. No self-hosted Bunny Database service deployment recipe or operating-resource minimum is assigned. | not_applicable | [Source 1](https://bunny.net/docs/database); [Source 2](https://bunny.net/blog/meet-bunny-database-the-sql-service-that-just-works/); [Source 3](https://bunny.net/tos/) | 2026-11-05 | Managed service overview; own libSQL fork explanation; hosted terms. Upstream libSQL source does not reproduce Bunny's hosted regional/control-plane service. |
 
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or confirmed customer-data breach found for Bunny Database. | confirmed | https://bunny.net/blog/ ; https://bunny.net/docs/changelog ; https://bunny.net/docs/database ; https://status.bunny.net/ | 2026-11-09 | Checked bunny.net Blog, Database docs, changelog, and status. The status page reports a third-party infrastructure incident affecting a Bunny CDN node; Bunny reported no evidence of data access but could not rule it out. The affected server did not host Bunny account data or internal systems, and Database remained operational. |
+
 ## Cost examples — our calculation
 
 Checked **2026-11-05**. All amounts preserve the vendor's displayed **$** currency symbol; an explicit Database ISO currency code was not established. No conversion is made. [Taxation](https://bunny.net/docs/billing/taxation.md) says prices exclude tax.
@@ -252,15 +254,15 @@ All sources in this section were checked on **2026-11-05**. A `not_published` re
 ## Counts
 
 - Fields attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Fact rows: **85**. Separate offer, scope or evidence-state rows count individually.
+- Fact rows: **86**. Separate offer, scope or evidence-state rows count individually.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 50 |
+| confirmed | 51 |
 | not_published | 15 |
 | unclear | 5 |
 | conflicting | 1 |
 | not_applicable | 13 |
 | check_failed | 1 |
 
-Distinct official source URLs linked: **44**. Repeated URLs count once. Public Markdown documentation URLs are kept where those were the pages read.
+Distinct official source URLs linked: **46**. Repeated URLs count once. Public Markdown documentation URLs are kept where those were the pages read.

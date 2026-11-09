@@ -2,6 +2,8 @@
 
 Official URL: https://everframe.dev/
 
+**Rebrand (2026-09-25):** TraceItX was renamed Everframe across the hosted service, dashboard and SDK package names. The vendor says existing projects, reports and settings carried over.
+
 Status in apps.md: active, checked 2026-11-04. Hosted error/crash monitoring and in-app user reporting remain publicly offered, with an ongoing Free plan and public Starter/Pro prices. Important conditions: pricing is by monthly active installs, artifact detail and metadata have different retention, and several platform/replay/performance descriptions disagree across official sources.
 
 Research started: 2026-11-04 22:52:48 UTC
@@ -22,7 +24,7 @@ No signup, login, form submission, support contact, installation, ingest, webhoo
 
 | ID | Field | Value | Unit | Plan | Edition | Deployment | Applies to | State | Exact source URL | Checked date | Source updated date, in URL order | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| C01 | Product identity | Everframe; official URL https://everframe.dev/. | name; URL | All | Hosted service | Hosted | Identity | confirmed | https://everframe.dev/; https://everframe.dev/about/ | 2026-11-04 | Not stated; Not stated | Company and public offer use the same name. No former brand was established; legacy identifiers in examples are not treated as separate products. |
+| C01 | Product identity | Everframe, formerly TraceItX; official URL https://everframe.dev/. | name; URL | All | Hosted service | Hosted | Identity | confirmed | https://everframe.dev/; https://everframe.dev/about/; https://everframe.dev/changelog/ | 2026-11-09 | Not stated; Not stated; 2026-09-25 | Official release 0.9.0 states that TraceItX was renamed Everframe across the hosted service and dashboard, with new SDK package coordinates; existing projects, reports and settings were retained, with no customer action required. |
 | C02 | Primary jobs | Automatic errors/crashes, tester quick captures and user-filed in-app bug reports. | capabilities | All | Hosted service | Hosted | Errors; crash reports; QA | confirmed | https://everframe.dev/docs/; https://everframe.dev/product/ | 2026-11-04 | 2026-10-27; Not stated | Detection and user reporting share an envelope, but capture completeness differs by platform and trigger. |
 | C02 | Additional capabilities | Replay/context, issue board/triage, release health, signed webhook delivery and session/playback monitoring. | capabilities | Plan and platform dependent | Hosted service | Hosted | Context; workflow; performance | confirmed | https://everframe.dev/product/; https://everframe.dev/docs/ | 2026-11-04 | Not stated; 2026-10-27 | Session Vitals has conflicting beta/shipped descriptions recorded separately. Attached console/network buffers do not establish a standalone log-management product. |
 | C03 | Current availability and releases | Free, Starter, Pro and Enterprise remain offered. Changelog latest entry is 1.7.0, 4 November 2026, covering CLI/ticket API; SDKs unchanged in that release. | offer; release date | All | Hosted service | Hosted | Availability | confirmed | https://everframe.dev/pricing/; https://everframe.dev/changelog/ | 2026-11-04 | Not stated; Latest entry 2026-11-04 | A dated release record supports current activity. No purchase, ingestion or installed SDK was tested. |
@@ -127,6 +129,7 @@ No signup, login, form submission, support contact, installation, ingest, webhoo
 | A03 | Native availability and CPU stream uncertainty | iOS guide describes running native Sessions CPU/memory/playback tracking; product says native planned and Sessions view not shipped; changelog describes later separation of resource windows from playback sessions. | availability; metrics | Session Vitals | Hosted service | Hosted | Native RUM | conflicting | https://everframe.dev/docs/ios/session-vitals/; https://everframe.dev/product/; https://everframe.dev/changelog/ | 2026-11-04 | 2026-10-13; Not stated; Latest entry 2026-11-04 | Changelog 0.8.2 (2026-09-21) says periodic CPU/memory samples are no longer retained in playback sessions, contradicting the 2026-10-13 iOS guide. Current exact metric set and availability remain unresolved. |
 | A03 | Performance retention and price | Changelog documents project-configurable Vitals retention 1–365 days, default 30, and sampling presets; pricing has no separate numeric Vitals/session or tracing rate. | days; sampling; price | Session Vitals | Hosted service | Hosted | Performance | unclear | https://everframe.dev/changelog/; https://everframe.dev/pricing/; https://everframe.dev/product/ | 2026-11-04 | Latest entry 2026-11-04; Not stated; Not stated | Retention/presets are in changelog 0.8.0 (2026-09-07). Product still says beta; artifact retention is not automatically Vitals retention. No guaranteed beta entitlement or separate rate is inferred. |
 
+| C03 | Product rebrand | TraceItX was renamed Everframe on 2026-09-25 across the hosted service and dashboard; existing data and settings carried over. | name change; date | All | Hosted service | Hosted | Product identity / lifecycle | confirmed | https://everframe.dev/changelog/ | 2026-11-09 | 2026-09-25 | Release 0.9.0 directly announces the rename and says no customer migration action is required. Quick news search found no additional qualifying event. |
 ## Cost examples — our calculation, estimated
 
 These are public-rate estimates, not quotes or tested bills. Prices retain the site's original **$** symbol because no explicit ISO currency code was found in the checked pricing page, its markup or terms. No conversion is made. Prices exclude taxes. Calculations assume monthly billing, one builder, three apps, no paid replay or AI extras, and no separately purchased integration/storage service. Included replay/AI allowances do not mean optional extra-credit purchases are free.
@@ -209,8 +212,7 @@ Attached console/network records are error-report context, not an established in
 ## Counts
 
 - Distinct fields attempted: 34.
-- Fact rows: 104.
-- Rows by state: confirmed: 79; not_published: 7; unclear: 7; conflicting: 8; not_applicable: 2; check_failed: 1.
+- Fact rows: 105.
+- Rows by state: confirmed: 80; not_published: 7; unclear: 7; conflicting: 8; not_applicable: 2; check_failed: 1.
 - Unique exact source URLs in fact rows: 44, comprising 43 successful source pages/files and one unsuccessful documentation route. Duplicate citations count once.
 - Conservative field-level roll-up: confirmed: 17; not_published: 7; unclear: 4; conflicting: 5; not_applicable: 0; check_failed: 1. Mixed rows roll up in priority order conflicting, check_failed, unclear, not_published, confirmed, not_applicable; this counts completeness, not product quality.
-

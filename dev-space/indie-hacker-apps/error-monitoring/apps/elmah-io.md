@@ -113,6 +113,7 @@ Dates below are UTC. A source's modification date is included in its note when s
 | J02 | Job result signals | Healthy, Unhealthy and Degraded results; missing-heartbeat errors; optional reason, duration, application/version and nested checks | signals; milliseconds | Business+; Enterprise | Service | Hosted | Jobs | confirmed | https://docs.elmah.io/setup-heartbeats/; https://docs.elmah.io/logging-heartbeats-from-curl/; https://api.elmah.io/swagger/docs/v3 | 2026-11-04 | Only status changes generate stored log messages: unhealthy creates an error, recovery an information message and degraded a warning. Repeated unhealthy calls do not each create another error. Nested checks require supported client versions; the schema permits reason text up to 8,192 characters. |
 | J02 | Start signals and run history | Dedicated start/end run protocol, job-output capture beyond reason/check data and numeric heartbeat-history retention not established | signals; history unknown | Heartbeat monitoring | Service | Hosted | Jobs | not_published | https://docs.elmah.io/setup-heartbeats/; https://docs.elmah.io/logging-heartbeats-from-curl/; https://api.elmah.io/swagger/docs/v3; https://elmah.io/pricing/ | 2026-11-04 | Healthy is a result, not documented as start-of-run. The UI History view exists, but no fixed count/day limit was stated. Plan log retention applies to generated messages; it is not proof of a retained record for every successful ping. This prevents an exact start-plus-success workload quote. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | Service | Hosted | Product/company | confirmed | https://elmah.io/about/; https://blog.elmah.io/; https://changelog.elmah.io/; https://status.elmah.io/ | 2026-11-09 | Checked the official About page, active blog, changelog, status report and quick news searches. The blog is current through 2026-11-03 and the changelog through 2026-10-28; no qualifying sale, sunset, rebrand, pivot, feature retirement, breach, regulatory or license notice surfaced. |
 ## Cost examples
 
 All amounts below are **our calculation, estimated**, in USD, using published monthly billing unless explicitly labelled annual. They are not invoices or vendor quotes. Assume one builder, three applications, no replay, no optional AI use, no SMS and no unrelated log traffic. Tax is excluded; the billing guide specifies 25% VAT for buyers in Denmark. Other buyers' tax depends on their circumstances.
@@ -225,11 +226,11 @@ Evidence, checked 2026-11-04: https://elmah.io/pricing/; https://docs.elmah.io/s
 ## Counts
 
 Fields attempted: 41 distinct IDs (C01–C27, E01–E04, U01–U05, L01–L03, J01–J02).
-Facts-table evidence rows: 91. Cost-example rows are not added again to these counts.
+Facts-table evidence rows: 92. Cost-example rows are not added again to these counts.
 
 | State | Evidence rows | Distinct fields, conservative summary |
 | --- | ---: | ---: |
-| confirmed | 71 | 24 |
+| confirmed | 72 | 24 |
 | not_published | 13 | 12 |
 | unclear | 5 | 4 |
 | conflicting | 2 | 1 |
@@ -238,5 +239,4 @@ Facts-table evidence rows: 91. Cost-example rows are not added again to these co
 
 For the distinct-field summary, a split field uses this order: conflicting, check_failed, unclear, not_published, confirmed, not_applicable. Row counts preserve all confirmed components even where another component remains unknown.
 
-Unique exact source URLs in the facts-table source column: 51. Repeated citations count once. Every facts row has a source URL and checked date. A page read only to discover a working link is not counted as proof of another field.
-
+Unique exact source URLs in the facts-table source column: 54. Repeated citations count once. Every facts row has a source URL and checked date. A page read only to discover a working link is not counted as proof of another field.

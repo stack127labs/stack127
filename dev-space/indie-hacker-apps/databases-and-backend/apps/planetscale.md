@@ -26,6 +26,7 @@ The task's six state names override the older names in `fields.md`. Confirmed me
 | C04 | lifecycle and access stage | Hobby/Developer free plan retired on 8 April 2024. Current docs explicitly say there is no free plan. No whole-product shutdown or acquisition notice was found in the official notices, product and legal pages searched. | confirmed | [PlanetScale forever](https://planetscale.com/blog/planetscale-forever)<br>[PlanetScale plans](https://planetscale.com/docs/planetscale-plans) | 2026-11-05 | PlanetScale forever, 6 March 2024; PlanetScale plans, Free plan. Search result is bounded; current paid access is publicly advertised, not tested by signup. |
 | C04 | lifecycle and access stage | PlanetScale Postgres became generally available on 22 September 2025; single-node Postgres became generally available on 14 November 2025. | confirmed | [PlanetScale for Postgres is now Generally Available](https://planetscale.com/changelog/postgres-ga)<br>[Single-node databases are now generally available](https://planetscale.com/changelog/single-node) | 2026-11-05 | Official GA notices. The earlier private-preview Postgres announcement is not its current access stage. |
 | C04 | lifecycle and access stage | Neki is Platform Preview/Beta, requires an organization administrator to accept preview terms, and is excluded from the SLA. The launch notice says not to run production workloads during preview. | confirmed | [Neki](https://planetscale.com/docs/neki)<br>[Introducing Neki](https://planetscale.com/blog/introducing-neki)<br>[PlanetScale Service Level Agreement](https://planetscale.com/legal/planetscale-service-level-agreement) | 2026-11-05 | Neki, Availability and access; Introducing Neki, What is a platform preview? Published rates and a production-shaped topology do not make preview production use recommended. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Planetscale. | not_published | https://planetscale.com/blog ; https://planetscale.com/changelog ; https://status.planetscale.com/ | 2026-11-09 | Checked PlanetScale blog, changelog and status. The older Hobby/Developer free plan ended in 2024, outside this sweep window; no qualifying new change found since January 2025. |
 | C05 | vendor home and main markets | PlanetScale, Inc. is the contracting entity; its published AUP contact address is San Francisco, California, United States. This is vendor context, not a database-region guarantee. | confirmed | [Terms of Service](https://planetscale.com/legal/agreement)<br>[Acceptable Use Policy](https://planetscale.com/legal/aup) | 2026-11-05 | Terms of Service opening; Acceptable Use Policy, Contact. The privacy page prints a different postal-code form; no inferred corporate domicile beyond the stated entity/location. |
 | C06 | signup and use restrictions | Base is self-service. Direct organizations require a valid debit/credit card; prepaid cards are not accepted. Terms also allow ACH unless otherwise agreed. A card preauthorization may be temporary. | confirmed | [PlanetScale plans](https://planetscale.com/docs/planetscale-plans)<br>[Billing](https://planetscale.com/docs/billing)<br>[Terms of Service](https://planetscale.com/legal/agreement) | 2026-11-05 | Plans, Base; Billing, Payment methods and Preauthorization; Terms §4. This records direct PlanetScale billing, not eligibility through a separate reseller integration. |
 | C06 | signup and use restrictions | New accounts have large-size restrictions until an invoice of at least $100 has been successfully paid: general plans page caps choices at PS-160/M-320; larger sizes can be unlocked through support. | confirmed | [PlanetScale plans](https://planetscale.com/docs/planetscale-plans) | 2026-11-05 | Base plan, cluster-size gate. This does not create a $100 minimum payment for a $5 small database. |
@@ -199,16 +200,16 @@ Deleting the resource ends its charge but is not a free archive or a guaranteed 
 ## Counts
 
 - Distinct fields attempted: **46** — C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01.
-- Facts table rows: **100**. Engine/plan conditions, unresolved parts and source conflicts cause row splits; cost examples are not counted again.
+- Facts table rows: 101. Engine/plan conditions, unresolved parts and source conflicts cause row splits; cost examples are not counted again.
 
 | State | Rows |
 | --- | ---: |
 | confirmed | 77 |
-| not_published | 11 |
+| not_published | 12 |
 | unclear | 0 |
 | conflicting | 3 |
 | not_applicable | 9 |
 | check_failed | 0 |
 | **Total** | **100** |
 
-Distinct official source URLs: **52**. Repeated links count once. Failed discovery paths are not supporting sources and are not included in that total.
+Distinct official source URLs: 55. Repeated links count once. Failed discovery paths are not supporting sources and are not included in that total.

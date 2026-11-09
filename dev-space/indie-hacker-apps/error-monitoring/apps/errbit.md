@@ -91,6 +91,7 @@ Only public read-only research was done. No account, form, installation, bootstr
 | H03 | Upgrade and security upkeep | Upgrade source/dependencies, migrate, remove/create Mongoid indexes and precompile assets; maintain supported branch; security-report process published | procedure; support branch | No paid plan; operator-managed | Open-source v0.11.6 | Self-hosted | Errors | confirmed | https://github.com/errbit/errbit/blob/v0.11.6/README.md; https://github.com/errbit/errbit/blob/v0.11.6/SECURITY.md; https://github.com/errbit/errbit/releases/tag/v0.11.6; https://github.com/errbit/errbit/blob/v0.11.6/docs/quickstart.md | 2026-11-04 | README's upgrade command follows main; its moving target differs from staying on a selected release. Container quickstart describes replacing the image. Release notes include security fixes. None of these substitutes for reviewing changes or proving a restore path before upgrading. |
 | H03 | Backup/restore and background operations | Cleanup/refingerprinting tasks documented; deletion jobs use Active Job async adapter; full Errbit backup/restore runbook and restore-test procedure not established | operations; recovery unknown | No paid plan; operator-managed | Open-source v0.11.6 | Self-hosted | Errors | not_published | https://github.com/errbit/errbit/blob/v0.11.6/lib/tasks/errbit/database.rake; https://github.com/errbit/errbit/blob/v0.11.6/app/interactors/problem_destroy.rb; https://github.com/errbit/errbit/blob/v0.11.6/config/application.rb; https://github.com/errbit/errbit/blob/v0.11.6/app/jobs/destroy_problems_by_id_job.rb; https://github.com/errbit/errbit/blob/v0.11.6/docs/deployment.md; https://github.com/errbit/errbit/blob/v0.11.6/docs/deployment/docker.md; https://github.com/errbit/errbit/blob/v0.11.6/docs/deployment/heroku.md | 2026-11-04 | Read deployment, Docker/Heroku operations and maintenance tasks. Persistent MongoDB data and in-process background jobs are not a durable offsite backup or guaranteed completion after a crash. Operators must manage database backups, certificates/configuration and external integration secrets themselves. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | Open-source v0.11.6 | Self-hosted | Project | confirmed | https://github.com/errbit/errbit/releases; https://github.com/errbit/errbit/blob/v0.11.6/SECURITY.md; https://errbit.com/blog/blog/about/ | 2026-11-09 | Checked the official GitHub release list and security policy, attempted the official blog path (it did not load), and ran quick news searches. Latest release is v0.11.6, published 2026-10-20. The release includes routine XSS/dependency vulnerability fixes; no customer-data exposure was reported, so this is not a breach finding. Errbit is self-hosted and has no vendor-operated service status page. |
 ## Cost examples
 
 These are **our calculation, estimated**, not an Errbit quote or a measured host requirement. The comparable error workloads are 5,000 / 50,000 / 500,000 notices per month, with one builder, three applications and at least 30 days of error detail. Replay and optional AI are excluded. No currency conversion is used.
@@ -147,11 +148,11 @@ Rate/capacity and retention evidence, checked 2026-11-04: https://github.com/err
 ## Counts
 
 Fields attempted: 34 distinct IDs: C01–C27, E01–E04 and H01–H03.
-Facts-table evidence rows: 64. Cost-example rows are not counted again.
+Facts-table evidence rows: 65. Cost-example rows are not counted again.
 
 | State | Evidence rows | Distinct fields, conservative summary |
 | --- | ---: | ---: |
-| confirmed | 43 | 15 |
+| confirmed | 44 | 15 |
 | not_published | 14 | 14 |
 | unclear | 1 | 1 |
 | conflicting | 2 | 2 |
@@ -161,4 +162,3 @@ Facts-table evidence rows: 64. Cost-example rows are not counted again.
 For the distinct-field summary, a split field uses this order: conflicting, check_failed, unclear, not_published, confirmed, not_applicable. Row counts preserve each confirmed component even if another part of that field remains unknown.
 
 Unique exact URLs in facts-table source cells: 59. Of these, 56 supplied readable official content and 3 were explicit HTTP 404 checks of pricing/terms/privacy paths. Repeated URLs count once. Every evidence row has its own URL(s), checked date and note. Recovered reader/guessed-file failures do not count as unresolved check_failed fields.
-

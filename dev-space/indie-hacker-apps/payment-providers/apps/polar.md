@@ -143,6 +143,7 @@ Scope: the public hosted Polar service, current Starter/Pro/Growth/Scale plans, 
 | F39 | Operating status and recent changes | Active hosted product; official status page reported production and sandbox operational on the checked date. | confirmed | [Source](https://status.polar.sh/) | 2026-11-04 | This is a point-in-time status check, not a promised uptime percentage. |
 | F39 | Operating status and recent changes | October 21, 2026 release notes: manual dashboard credits, separate usage cycles, graduated/volume meters and unit pricing availability. | confirmed | [Source](https://polar.sh/docs/changelog/recent) | 2026-11-04 | These current releases are separated from the site's future engine announcement. |
 | F39 | Operating status and recent changes | New Usage Billing Engine and bring-your-own-processor messaging are early-access/coming-soon material. | confirmed | [Source](https://polar.sh/field-guide); [Source](https://polar.sh/) | 2026-11-04 | Do not substitute that roadmap for the current hosted Merchant of Record requirements. |
+| F39 | Operating status and recent changes | News check 2026-11-09: no qualifying sale, shutdown, rebrand, or customer-data breach found. | confirmed | https://polar.sh/blog; https://polar.sh/docs/changelog/recent; https://status.polar.sh/ | 2026-11-09 | Checked the official blog, changelog and status history. Status records a resolved database outage on 2026-06-12 and API outage on 2026-06-24; Polar reported no data loss in the database incident. These restored outages are not a qualifying finding. Targeted searches found no qualifying sale, shutdown, rebrand or enforcement action. |
 | F40 | Closing an account | Termination: 30 days' notice; API disabled. Polar returns/deletes supplied materials within 30 days of written request, with exceptions. | confirmed | [Source](https://polar.sh/legal/master-services-terms) | 2026-11-04 | Terms §§17–18. |
 | F40 | Closing an account | Final funds: latest of nine months after termination, known refund/dispute resolution, or longest existing subscription expiry; deductions apply. | confirmed | [Source](https://polar.sh/legal/master-services-terms) | 2026-11-04 | Terms §18.4. |
 | F40 | Closing an account | Migration-away workflow pauses payouts for 120 days after the FINAL Polar transaction, then permits eligible remaining withdrawal. | confirmed | [Source](https://polar.sh/docs/migrate-away) | 2026-11-04 | Existing renewals can keep extending that clock. Below-threshold balances require support. |
@@ -258,12 +259,13 @@ Attempted all **50 field IDs**: 40 required core fields, five optional fields, a
 
 | State | Fact rows |
 | --- | ---: |
-| confirmed | 117 |
+| confirmed | 118 |
 | not_published | 18 |
 | unclear | 2 |
 | conflicting | 3 |
 | not_applicable | 5 |
 | check_failed | 1 |
-| Total | 146 |
+| Total | 147 |
 
-Unique source URLs: 59. Counted once per exact URL across the facts, examples and research notes, including explicitly failed documentation links. Repeated links do not increase this count.
+- Unique exact source URLs in the facts table: 59.
+- Unique exact source URLs across the whole file: 60. Repeated URLs count once.

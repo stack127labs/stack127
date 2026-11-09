@@ -32,6 +32,7 @@ Keep original **EUR, GB/TB and VAT exclusions**. Hourly rates, monthly commitmen
 | C02 | primary type and other roles | Researcher classification: hosted managed PostgreSQL database; secondary roles include optional vector/geospatial search. App Runtime and Object Storage are separate products. | confirmed | https://docs.sliplane.io/databases/overview/; https://docs.sliplane.io/databases/extensions/; https://docs.sliplane.io/introduction/concepts/; https://docs.sliplane.io/teams/billing/ | 2026-11-05 | Database Overview/Extensions; How Sliplane Works/Billing. A PostgreSQL Docker preset on an app server is a different operating model from this managed database. |
 | C03 | hosting and license | Provider-operated managed database infrastructure with limited administration; no root/full underlying server access. Sliplane cannot be installed on a customer's own server. | confirmed | https://sliplane.io/terms; https://docs.sliplane.io/introduction/concepts/ | 2026-11-05 | Terms Section 5.1; Concepts, bring your own server FAQ. Upstream PostgreSQL's open-source license does not make Sliplane's hosted management service a self-host edition. |
 | C04 | lifecycle and access stage | Managed PostgreSQL launched in June 2026 and is publicly offered. No official product-wide shutdown, sunset or acquisition notice was identified in the lifecycle-first search. | confirmed | https://sliplane.io/blog/jun-15-2026-changelog; https://sliplane.io/managed-postgres; https://docs.sliplane.io/databases/overview/ | 2026-11-05 | June 2026 launch notice and current product/docs checked. This is a bounded status finding, not a guarantee of future product or version support. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Sliplane Managed Postgres. | not_published | https://sliplane.io/blog ; https://docs.sliplane.io/databases/overview/ ; https://status.sliplane.io/ | 2026-11-09 | Checked Sliplane blog, managed database docs and status URL. Product remains publicly offered; no qualifying sale, shutdown, rebrand, major paid retirement or breach notice found. |
 | C05 | vendor home and main markets | Sliplane GmbH, Berlin, Germany; legal register HRB 290880 B. Database regions are offered in Europe, the United States and Singapore. | confirmed | https://sliplane.io/legal; https://sliplane.io/terms; https://sliplane.io/managed-postgres | 2026-11-05 | Legal Disclosure, company/register; Terms opening; Managed Postgres regions. Corporate home is distinct from the customer's selected data location. |
 | C06 | signup and use restrictions | Account creation uses GitHub sign-in; teams own resources and billing. Paid database creation is separate from an app-server demo. | confirmed | https://docs.sliplane.io/introduction/getting-started/; https://docs.sliplane.io/introduction/concepts/; https://sliplane.io/terms; https://sliplane.io/managed-postgres | 2026-11-05 | Deploy your first application, account creation; Concepts, Teams; Terms ordering; Managed Postgres free-tier FAQ. No sign-in or form submission was performed. |
 | C06 | signup and use restrictions | A universal managed-database card requirement and complete supported-country/minimum-age matrix were not established. | not_published | https://docs.sliplane.io/introduction/getting-started/; https://docs.sliplane.io/teams/billing/; https://sliplane.io/terms; https://www.iubenda.com/privacy-policy/57501407; https://sliplane.io/legal/dpa | 2026-11-05 | Read onboarding, Billing payment methods, Terms (including U.S.-specific Section 16), privacy and DPA. U.S. age wording is recorded separately; it is not silently applied worldwide. |
@@ -221,11 +222,11 @@ All URLs in this section were checked on 2026-11-05. Unknowns describe the named
 
 - Fields attempted: **46** (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
 - Facts-table rows: **86**; plan/region/commitment splits count as separate rows.
-- confirmed: **54**.
-- not_published: **16**.
-- unclear: **1**.
-- conflicting: **1**.
-- not_applicable: **14**.
-- check_failed: **0**.
+- confirmed: 54.
+- not_published: 17.
+- unclear: 1.
+- conflicting: 1.
+- not_applicable: 14.
+- check_failed: 0.
 - Distinct exact source URLs cited: **32** (repeated links count once).
 

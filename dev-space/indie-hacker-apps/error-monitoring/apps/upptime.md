@@ -27,7 +27,7 @@ No signup, login, installation, workflow dispatch, monitor request, alert test, 
 
 | ID | Field | Value | Unit | Plan | Edition | Deployment | Applies to | State | Exact source URL | Checked date | Source updated date, in URL order | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| C01 | Product identity | Upptime; official site upptime.js.org and template repository github.com/upptime/upptime. Created by Anand Chowdhary. No former product name identified. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | confirmed | https://upptime.js.org/ ; https://raw.githubusercontent.com/upptime/upptime/master/README.md | 2026-11-05 | Not shown ; Not shown | The GitHub organization and components belong to this product. Archived user copies found in searches are not upstream retirement. |
+| C01 | Product identity | Upptime; official site upptime.js.org and template repository github.com/upptime/upptime. Created by an individual maintainer. No former product name identified. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | confirmed | https://upptime.js.org/ ; https://raw.githubusercontent.com/upptime/upptime/master/README.md | 2026-11-05 | Not shown ; Not shown | The GitHub organization and components belong to this product. Archived user copies found in searches are not upstream retirement. |
 | C02 | Jobs it covers | External uptime/response-time checks, monitor-driven status pages, GitHub issue incidents and operator notifications. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | confirmed | https://upptime.js.org/docs/ ; https://upptime.js.org/docs/packages/ | 2026-11-05 | Not shown ; Not shown | Detection runs in workflows; the generated page communicates results. No application exception, log-search or distributed-trace product is established. |
 | C03 | Availability and changes | Upstream template is not archived or disabled. Latest monitor release returned is v1.46.5, published 2026-10-25; it includes a nodemailer security dependency update. No whole-product shutdown, sunset or acquisition notice found. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | confirmed | https://api.github.com/repos/upptime/upptime ; https://api.github.com/repos/upptime/uptime-monitor/releases/latest | 2026-11-05 | 2026-11-05 (repository metadata updated) ; 2026-10-25 (release publication) | Release state and repository flags support availability; they are not proof that a new installation or alert delivery has been tested. |
 | C04 | Home region | Maintainer/project home country and a vendor legal address are not published in the checked Upptime product, repository, FAQ and security pages. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | not_published | https://upptime.js.org/ ; https://api.github.com/repos/upptime/upptime ; https://upptime.js.org/docs/faq/ ; https://github.com/upptime/upptime/security/policy | 2026-11-05 | Not shown ; 2026-11-05 (repository metadata updated) ; Not shown ; Not shown | Do not substitute GitHub's US identity or a runner location for the maintainer's country. |
@@ -89,6 +89,7 @@ No signup, login, installation, workflow dispatch, monitor request, alert test, 
 | H02 | Operating cost | Software license component is zero; exact owned-runner compute/storage/backup/network/domain/alert cost is unknown without workload sizing and chosen suppliers. Private Actions spend also depends on measured job duration and shared account usage. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | not_published | https://raw.githubusercontent.com/upptime/upptime/master/LICENSE ; https://upptime.js.org/docs/get-started/ ; https://docs.github.com/en/billing/concepts/product-billing/github-actions ; https://upptime.js.org/docs/notifications/ | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown | The setup guide's approximately 3,000 monthly build minutes is a general default estimate, not a measured rate for each endpoint workload. Labor is excluded from cost examples. |
 | H03 | Updates and security | Current template-update schedule is daily and calls the updater from master; docs say not to hand-edit generated workflows. Security policy asks users to monitor releases and patch, with private disclosure via security contact. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | confirmed | https://raw.githubusercontent.com/upptime/upptime/master/.github/workflows/update-template.yml ; https://raw.githubusercontent.com/upptime/uptime-monitor/v1.46.5/src/helpers/constants.ts ; https://github.com/upptime/upptime/security/policy ; https://api.github.com/repos/upptime/uptime-monitor/releases/latest | 2026-11-05 | Not shown ; Not shown ; Not shown ; 2026-10-25 (release publication) | Tagged monitor release includes dependency security fixes. No public numeric patch-time guarantee or supported-version lifetime matrix was found. |
 | H03 | Backup and restore | Back up config and committed history with git, and account separately for GitHub issues/comments, repository settings, secrets and other platform data. GitHub's backup guide provides mirror-repository restore guidance but warns metadata archives have different limits. | — | No Upptime paid tiers | GitHub-powered Upptime | Self-managed on GitHub | Uptime / status | confirmed | https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository ; https://upptime.js.org/docs/get-started/ ; https://upptime.js.org/docs/ | 2026-11-05 | Not shown ; Not shown ; Not shown | No complete Upptime disaster-recovery runbook or tested recovery guarantee found. GitHub platform backup instructions do not constitute a verified restore of this full monitor. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://github.com/upptime/upptime/releases ; https://github.com/upptime/uptime-monitor/releases ; https://github.com/upptime/upptime ; https://upptime.js.org/docs/ | 2026-11-09 | Repository release history checked 2026-11-09 ; 2026-09-07 (latest monitor release v1.44.0) ; Repository checked 2026-11-09 ; Current docs checked 2026-11-09 | News check 2026-11-09: Checked the official GitHub organization, source repository, monitor release history and docs, plus targeted searches. Latest monitor release is v1.44.0 dated 2026-09-07; the template is MIT-licensed and active. No separate vendor status page applies to this self-managed project. No qualifying event found. |
 
 ## Cost examples
 
@@ -203,17 +204,17 @@ Browser, crash-report, log-GB, backend-trace and hourly start/success heartbeat 
 ## Counts
 
 - Distinct field IDs attempted: **38**.
-- Facts-table rows: **62**.
-- Unique exact source URLs in the facts table: **33**.
+- Facts-table rows: **63**.
+- Unique exact source URLs in the facts table: **36**.
 - State counts are per facts-table row. Additional discovery/failed guessed paths are not counted as successful sources.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 44 |
+| confirmed | 45 |
 | not_published | 10 |
 | unclear | 1 |
-| conflicting | 2 |
+| conflicting | 1 |
 | not_applicable | 5 |
 | check_failed | 0 |
-| **Total** | **62** |
+| **Total** | 63 |
 

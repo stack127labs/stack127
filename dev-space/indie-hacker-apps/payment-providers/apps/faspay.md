@@ -140,6 +140,7 @@ MDR is the payment processing percentage charged by an acquirer/provider. VA mea
 | C04 | Crypto payment completion and refunds | Not applicable: no crypto confirmation, expired-chain-payment or on-chain refund rules established. | not_applicable | [refund](https://docs.faspay.co.id/merchant-integration/api-reference-1/credit-card-transaction/additional-api-integration/refund-transaction.md); [ops](https://faspay.co.id/en/ftnc-ops-business-billing/) | 2026-11-05 | Card and local-payment refund/dispute procedures should not be copied into crypto fields. |
 | C05 | Hosting and maintenance | Not applicable as a crypto hosting field. Faspay-hosted checkout or merchant API or plugin integration is documented. | not_applicable | [xpress](https://docs.faspay.co.id/merchant-integration/api-reference-1/xpress/xpress-version-4.md); [woo](https://docs.faspay.co.id/merchant-integration/e-commerce-plugin/woocommerce.md) | 2026-11-05 | No self-hosted crypto deployment was identified; the seller still hosts their own application/store when integrating. |
 
+| F39 | Operating status and recent changes | News check 2026-11-09: no sale, merger, rebrand, shutdown, product sunset, signups closed, market exit, major paid feature retirement, breach, regulatory action, licence loss, or bankruptcy found. | confirmed | https://faspay.co.id/en/; https://faspay.co.id/en/company/about-us/; https://faspay.co.id/en/pricing/; https://faspay.co.id/en/regist/; https://faspay.co.id/en/term-conditions-business/; https://faspay.co.id/en/news/; https://www.bi.go.id/en/layanan/informasi-perizinan/sistem-pembayaran/default.aspx | 2026-11-09 | Checked the official product, About, pricing, registration, terms, attempted News URL, and Bank Indonesia payment-system register. The News URL could not be read here and no public status page was found. FasaPay (fasapay.com) search results belong to a different service and operator, so they were excluded. |
 ## Cost examples — our calculation
 
 Inputs are illustrative, checked on 2026-11-05. All amounts stay in IDR. These are processing/platform subtotals before VAT, unknown settlement/FX charges, refunds or disputes. No negotiated discount is assumed.
@@ -189,13 +190,13 @@ All sources and failed attempts above were checked on **2026-11-05**.
 ## Counts
 
 - Field IDs attempted: **50/50**: 40 required core, five optional and five conditional crypto applicability checks.
-- Facts-table rows: **117**, including product, method, bank and processing-arrangement splits.
-- confirmed: **80** rows.
+- Facts-table rows: **118**, including product, method, bank and processing-arrangement splits.
+- confirmed: **81** rows.
 - not_published: **22** rows.
 - unclear: **5** rows.
 - conflicting: **5** rows.
 - not_applicable: **5** rows.
 - check_failed: **0** rows.
-- Unique source/attempt URLs: **49**. Repeated links count once; official homepage metadata excluded. Includes one failed registration attachment attempt, described in the unknowns; confirmed registration facts have other readable sources.
+- Unique source/attempt URLs: **58**. Repeated links count once; official homepage metadata excluded. Includes one failed registration attachment attempt, described in the unknowns; confirmed registration facts have other readable sources.
 - Cost examples: **6**, all our calculations and explicitly incomplete where tax/settlement charges are unknown.
 

@@ -33,6 +33,7 @@ No signup, login, payment/checkout, support submission, install, database access
 | C02 | Jobs it covers | Multi-region synthetic uptime and response-time monitoring, status pages, subscriber communications and incident response. Heartbeat/cron monitoring is in gradual rollout. | — | All / as stated | Hosted | Vendor-hosted | Uptime / status | confirmed | https://www.openstatus.dev/docs/reference/overview ; https://www.openstatus.dev/docs/reference/heartbeat-monitor ; https://raw.githubusercontent.com/openstatusHQ/openstatus/main/README.md | 2026-11-05 | 2026-10-28 ; 2026-11-04 ; Not shown | Synthetic HTTP/protocol checks detect failures; customer reports communicate them. Monitor results are not generic crash/log ingestion or backend APM traces. |
 | C03 | Availability and changes | Active hosted pricing and non-archived upstream repository; official changelog lists incident management on 2026-10-15. No whole-product sunset, shutdown or acquisition notice found in checked official sources. | — | All / as stated | Hosted | Vendor-hosted | Uptime / status | confirmed | https://api.github.com/repos/openstatusHQ/openstatus ; https://www.openstatus.dev/changelog ; https://www.openstatus.dev/about | 2026-11-05 | 2026-11-05 (repository metadata updated) ; Not shown ; Not shown | A public template/source repository and product offer were checked; installation, live ingestion and alert delivery were not tested. |
 | C03 | Rollout and deprecations | Heartbeat creation is being enabled gradually by workspace. Legacy v1 API is deprecated; status-page monitor/monitorIds feed fields are deprecated in favor of pageComponents, with no removal date stated. | — | All / as stated | Hosted | Vendor-hosted | Uptime / status | confirmed | https://www.openstatus.dev/docs/reference/heartbeat-monitor ; https://www.openstatus.dev/docs/reference/overview ; https://www.openstatus.dev/docs/reference/status-page | 2026-11-05 | 2026-11-04 ; 2026-10-28 ; 2026-10-28 | These are feature availability and API migration notices, not whole-product shutdown. Do not promise heartbeat creation to every new account. |
+| C03 | News check | News check 2026-11-09: no qualifying news found in the sources checked. | dated lifecycle review | Current | Current product and open-source edition where applicable | Current advertised deployment | Lifecycle / ownership / license | confirmed | https://www.openstatus.dev/blog/2026-roadmap ; https://www.openstatus.dev/changelog ; https://github.com/openstatusHQ/openstatus/releases ; https://github.com/openstatusHQ/openstatus ; https://status.openstatus.dev/ | 2026-11-09 | 2025-12-01 ; latest changelog entry 2026-11-07 ; no GitHub releases listed ; repository updated 2026-11-05 ; status page checked 2026-11-09 | Checked official blog, changelog, GitHub releases/repository, status page and targeted ownership searches. The blog says an acquisition offer was declined during due diligence and the company chose to stay independent; this was not a sale or merger. Status-page focus is a strategic emphasis, not a pivot away from the product. The repository has no formal releases listed and was updated 2026-11-05. |
 | C04 | Home region and eligibility | OpenStatus SAS, 122 Rue Amelot, 75011 Paris, France. Terms apply French law and prohibit illegal, phishing, spam or infringing use. | — | All / as stated | Hosted | Vendor-hosted | Uptime / status | confirmed | https://www.openstatus.dev/contact ; https://www.openstatus.dev/terms | 2026-11-05 | Not shown ; Not shown | Company country is separate from global probe regions and mixed EU/global storage. No comprehensive buyer-country eligibility list found. |
 | C05 | Hosted and complete self-host | Managed SaaS plus full Docker Compose/Helm stack. Full self-hosting requires operator-deployed private probes; a probe connected to hosted SaaS is not the entire self-hosted product. | — | All / as stated | Hosted | Vendor-hosted | Uptime / status | confirmed | https://www.openstatus.dev/docs/guides/self-hosting-openstatus ; https://www.openstatus.dev/docs/reference/private-location ; https://raw.githubusercontent.com/openstatusHQ/openstatus/main/README.md | 2026-11-05 | 2026-10-28 ; 2026-10-28 ; Not shown | The full stack has database, analytics, dashboard, API, workflows and ingest services. Hosted private probes require Pro/Scale. |
 | C05 | Status-page-only deployment | Lightweight self-host setup runs database, migration job, dashboard and status-page app; it omits automated monitoring, analytics, API server and probes. | — | Self-hosted | Lightweight status page | Self-hosted | Status | confirmed | https://www.openstatus.dev/docs/guides/self-host-status-page-only | 2026-11-05 | 2026-10-28 | Keep this separate from full-stack monitoring when comparing requirements and operating cost. |
@@ -241,17 +242,16 @@ Sources checked 2026-11-05: https://www.openstatus.dev/docs/guides/self-hosting-
 ## Counts
 
 - Distinct field IDs attempted: **40**.
-- Facts-table rows: **73**.
-- Unique exact source URLs in the facts table: **44**.
+- Facts-table rows: **74**.
+- Unique exact source URLs in the facts table: **48**.
 - Counts are per facts-table row; repeated URLs count once.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 62 |
+| confirmed | 63 |
 | not_published | 6 |
 | unclear | 3 |
 | conflicting | 2 |
 | not_applicable | 0 |
 | check_failed | 0 |
-| **Total** | **73** |
-
+| **Total** | **74** |

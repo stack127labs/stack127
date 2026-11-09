@@ -93,6 +93,7 @@ No signup, login, form submission, payment, support message, target check or ale
 | U04 | Maintenance and recovery | Per-monitor alert switches and recovery messages documented; no customer maintenance-window schedule or pause-that-excludes-stats policy found. | Text | Free / Pro | Hosted | Vendor-hosted | Website uptime / response time | not_published | https://downtimemonkey.com/blog/how-to-monitor-website.php ; https://downtimemonkey.com/blog/pro-free-website-monitoring-features-compared.php ; https://downtimemonkey.com/downtime-alert-notifications-slack.php ; https://downtimemonkey.com/blog/network-maintenance-main-server-2021.php | 2026-11-05 | 2017-11-20 (published) ; 2019-10-02 (published) ; Not shown ; 2021-06-17 | The provider's own network-maintenance announcement is not a customer maintenance feature. Delayed alerts still record downtime in stats. |
 | U05 | Expiry monitoring | No explicit certificate-expiry, domain-expiry, DNS-expiry or advance-notice window found in checked feature, plan, setup and monitor-comparison pages. | Text | Free / Pro | Hosted | Vendor-hosted | Website uptime / response time | not_published | https://downtimemonkey.com/downtime-monkey-features.php ; https://downtimemonkey.com/en-us/website-monitoring-plans.php ; https://downtimemonkey.com/blog/how-to-monitor-website.php ; https://downtimemonkey.com/blog/pro-free-website-monitoring-features-compared.php | 2026-11-05 | Not shown ; Not shown ; 2017-11-20 (published) ; 2019-10-02 (published) | HTTPS URL support alone does not prove expiry warnings or a standalone certificate check. |
 
+| C03 | News check | News check 2026-11-09: no qualifying lifecycle or trust event found. | lifecycle scan | All | Free / Pro | Vendor-hosted | Product/company | confirmed | https://downtimemonkey.com/; https://downtimemonkey.com/blog/index.php; https://downtimemonkey.com/blog/server-upgrade-2025.php; https://downtimemonkey.com/en-us/website-monitoring-plans.php; https://downtimemonkey.com/terms.php; https://downtimemonkey.com/privacy-policy.php | 2026-11-09 | Not stated; 2025-09-02; 2025-09-02; Not stated; 2017-06-02; Not stated | Read the official site, blog/update, plans, terms and privacy page and ran quick news searches. The latest notable operational update says the September 2025 server migration completed. No public service-status page was located. The dissolved historical company and unresolved current operator remain as previously recorded; there is no sale, successor or product-shutdown announcement. |
 ## Cost examples — our calculation, estimated
 
 The fixed uptime workload is **one builder, 5 / 25 / 100 endpoints, HTTP checks every 60 seconds, one location, a 30-day month, email alerts and one own-domain status page**. These estimates price the documented **monitoring portion only**. They are not complete comparable totals because a customer-facing own-domain status page was not established.
@@ -137,19 +138,18 @@ No error-report, general-log, replay, APM, browser-run or self-host infrastructu
 ## Counts
 
 Distinct fields attempted: **32**.  
-Facts-table rows: **65**.
+Facts-table rows: **66**.
 
 | State | Rows |
 | --- | --- |
-| confirmed | 45 |
+| confirmed | 46 |
 | not_published | 11 |
 | unclear | 4 |
 | conflicting | 2 |
 | not_applicable | 3 |
 | check_failed | 0 |
-| **Total** | **65** |
+| **Total** | **66** |
 
 Distinct successful exact source URLs cited: **37**, excluding the documentation index links used only for navigation and the single failed guessed India pricing path. All factual table sources were retrieved successfully. The failed discovery URL is disclosed separately and does not create a check_failed field when the applicable sources were successfully researched.
 
 Minutes measure the recorded UTC research interval; saving and structural review followed. No other app was started.
-

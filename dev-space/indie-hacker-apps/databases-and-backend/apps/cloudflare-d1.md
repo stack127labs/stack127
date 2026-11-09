@@ -112,6 +112,8 @@ Each fact row contains the exact official URL, ISO checked date and source-secti
 | J05 | Logs and run history | Not applicable: D1 is not a managed job/queue execution service. | not_applicable | [source 1](https://developers.cloudflare.com/workers/platform/storage-options/); [source 2](https://developers.cloudflare.com/d1/best-practices/query-d1/) | 2026-11-05 | D1 billing analytics are not job run history or a failed-job replay system. |
 | H01 | Operating requirements and feature gaps | Managed production D1 self-host resource sizing is not applicable. Local simulation uses Node.js/Wrangler or Miniflare and local persisted state; production Time Travel/global service operations are managed separately. | not_applicable | [source 1](https://developers.cloudflare.com/d1/best-practices/local-development/); [source 2](https://developers.cloudflare.com/d1/get-started/); [source 3](https://developers.cloudflare.com/d1/) | 2026-11-05 | Local-only testing scope. No official turnkey self-hosted production D1 edition, hardware minimum or cloud-equivalence promise was established. |
 
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for current Cloudflare D1. | confirmed | https://blog.cloudflare.com/ ; https://developers.cloudflare.com/changelog/product/d1/ ; https://www.cloudflarestatus.com/ ; https://developers.cloudflare.com/d1/platform/release-notes/ | 2026-11-09 | Checked Cloudflare Blog, D1 changelog, status page, and D1 release notes. Legacy alpha database retirement and free-tier quota/limit changes are not current-product shutdowns or major paid-feature retirements. |
+
 ## Cost examples — our calculation
 
 Checked **2026-11-05**. Currency **USD**, excluding tax. Location assumption: a newly created primary with **`us` jurisdiction**; the public tariffs do not list a regional surcharge. This is a pricing assumption, not an account deployment. Sources: [location](https://developers.cloudflare.com/d1/configuration/data-location/), [D1 tariff](https://developers.cloudflare.com/d1/platform/pricing/), [Workers tariff](https://developers.cloudflare.com/workers/platform/pricing/), [tax clause §4.4](https://www.cloudflare.com/terms/).
@@ -253,15 +255,15 @@ No signup/login/forms, private API calls or actual database queries were used. N
 
 Fields attempted: **46** unique field IDs: all 22 core fields and all eight database fields, plus applicability checks for seven file, three vector, five job and one self-host field.
 
-Fact rows: **82**. Split rows distinguish plans, deployment modes, independent limits and evidence states; the counts below count rows, not unique fields.
+Fact rows: **83**. Split rows distinguish plans, deployment modes, independent limits and evidence states; the counts below count rows, not unique fields.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 51 |
+| confirmed | 52 |
 | not_published | 11 |
 | unclear | 2 |
 | conflicting | 2 |
 | not_applicable | 16 |
 | check_failed | 0 |
 
-Distinct source URLs: **44** (repeated links counted once).
+Distinct source URLs: **45** (repeated links counted once).

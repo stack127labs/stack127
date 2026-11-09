@@ -18,6 +18,7 @@ Scope: hosted restdb.io Development, Standard and Premium plans, including nativ
 | C02 | Primary type and other roles | Backend platform (our classification): hosted NoSQL document database with generated REST/JavaScript APIs, data manager, media archive, realtime, codehooks/jobs and hosted Pages. | confirmed | [Source](https://restdb.io/features/); [Source](https://restdb.io/docs/) | 2026-11-04 | Features / Documentation overview: includes application-building functions beyond a database. This classification does not imply native SQL, a dedicated object store or durable workflow engine. |
 | C03 | Hosting and license | Hosted RESTDB AS service under its Terms of Service. Paid plans can connect an external MongoDB instance, including one operated by the customer. | confirmed | [Source](https://restdb.io/terms/); [Source](https://restdb.io/pricing/); [Source](https://restdb.io/docs/external-mongodb) | 2026-11-04 | Terms Intellectual Property / Pricing / External MongoDB: the service features remain RESTDB AS property. Bringing a MongoDB connection is not a self-hosted restdb.io server edition or an open source license. |
 | C04 | Lifecycle and access stage | Current public website, pricing and signup page are available; no retirement or closed-signup notice found in inspected pages. | confirmed | [Source](https://restdb.io/); [Source](https://restdb.io/pricing/); [Source](https://restdb.io/signup/); [Source](https://restdb.io/docs/codehooks); [Source](https://restdb.io/docs/rest-api) | 2026-11-04 | Public offer checked without creating an account or testing a live database. Docs advertise Codehooks.io as a separate new backend; that alone is not a restdb.io migration or shutdown notice. No service software version/release policy established. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Restdb Io. | not_published | https://restdb.io/blog/ ; https://restdb.io/docs/ ; https://status.restdb.io/ | 2026-11-09 | Checked restdb.io blog, docs and status URL. No qualifying sale, shutdown, rebrand, major paid retirement or breach notice found. |
 | C05 | Vendor home and main markets | RESTDB AS; Bergen, Norway. About page describes serving coders worldwide. | confirmed | [Source](https://restdb.io/about/); [Source](https://restdb.io/contact/); [Source](https://restdb.io/terms/) | 2026-11-04 | About / Contact / Terms: this establishes provider context. It is not a database region list, country-eligibility guarantee or legal-compliance conclusion. |
 | C06 | Signup and use restrictions | Public free-account signup offers Google and Facebook sign-in. Free Development plan requires no credit card. | confirmed | [Source](https://restdb.io/signup/); [Source](https://restdb.io/pricing/); [Source](https://restdb.io/docs/quick-start) | 2026-11-04 | Signup / Pricing / Quick start: pages were read only, with no signup or form submission. A card requirement for a paid upgrade is not specified by these pages. |
 | C06 | Signup and use restrictions | Users under 16 require parental consent by email. Accurate account information and lawful content required. Complete country restrictions and explicit free-plan commercial-production permission not established. | unclear | [Source](https://restdb.io/privacy/); [Source](https://restdb.io/terms/); [Source](https://restdb.io/pricing/); [Source](https://restdb.io/signup/) | 2026-11-04 | Privacy Children's Privacy / Terms Accounts and Content / Pricing: free plan is named Development. No explicit production ban or commercial authorization found in these pages or the Quick start, so neither is invented. |
@@ -146,14 +147,14 @@ Daily averages above do not establish peak performance or daily quota compliance
 ## Counts
 
 - Distinct fields attempted: 46 (22 core, 8 database, 7 file, 3 vector, 5 job, 1 self-host).
-- Facts table rows: 84.
+- Facts table rows: 85.
 - confirmed: 51 rows.
-- not_published: 27 rows.
+- not_published: 28 rows.
 - unclear: 4 rows.
 - conflicting: 1 rows.
 - not_applicable: 1 rows.
 - check_failed: 0 rows.
-- Unique exact source URLs in the whole file: 37, including the unsuccessful status path documented above.
+- Unique exact source URLs in the whole file: 39, including the unsuccessful status path documented above.
 - Elapsed time: 412 seconds; 6.87 minutes rounded to two decimal places.
 
 

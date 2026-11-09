@@ -79,6 +79,7 @@ Prices retain the vendor's `$`, MB and GB units without conversion. Explicit ISO
 | V02 | Filters and mixed search | VECTOR.* approximate nearest neighbors; Redis Search HYBRID fields combine text/semantic search with filters, $ann and $rrf merging. These are distinct query paths. | confirmed | https://upstash.com/docs/redis/commands/vector/vector-query ; https://upstash.com/docs/redis/search/hybrid-search | 2026-11-04 | VECTOR.QUERY; Hybrid Search. Do not infer standalone Vector API compatibility. |
 | V03 | Embedding and reranking extras | HYBRID Search automatically creates document embeddings; raw VECTOR.ADD accepts precomputed vectors. Model/provider/data path and separate embedding/reranking charges not established in inspected sources. | unclear | https://upstash.com/docs/redis/search/hybrid-search ; https://upstash.com/docs/redis/commands/vector/overview ; https://upstash.com/pricing/redis | 2026-11-04 | Hybrid Search, Add documents; vector overview; pricing. Missing rate is not free inference. |
 
+| C04 | lifecycle and access stage | Upstash Redis news check 2026-11-09: no sale, shutdown, rebrand, or customer-data incident found. Checked the official blog, Redis changelog and status page, plus a quick web search. The status page showed Redis regions operational; legacy Pro plan deprecations already recorded in this file are not a new product shutdown. | confirmed | https://upstash.com/blog ; https://upstash.com/docs/redis/overall/changelog ; https://status.upstash.com/ | 2026-11-09 | Dated sweep check: official product/news sources and status page (where available) checked with a quick web search. This is a bounded news check, not an uptime guarantee. |
 ## Cost examples: our calculations
 
 These adapt the approved small SQL/document workload into a key-value workload. They do not imply SQL queries or transactions can be moved unchanged. Region: AWS `us-east-1`, one database, no optional read regions, no Prod Pack, backups, search, vectors or paid support. Use 1 GB average logical data for a full month, 100,000 single GET commands and 20,000 single SET commands, 10 peak TCP connections and 5 GB external transfer. Assume each operation fits request/record limits; connection-cap fit remains unverified. No additional maintenance, SDK retry, transaction or TTL commands assumed. Rates/allowances: [Redis Pricing](https://upstash.com/pricing/redis), PAYG details, storage, bandwidth, database-count and Fixed tables; checked 2026-11-04. Replication scope: [Replication](https://upstash.com/docs/redis/features/replication), checked 2026-11-04.
@@ -124,13 +125,13 @@ No free allowance for commands carries into paid plans. The free storage/bandwid
 
 ## Counts
 
-Unique applicable field IDs attempted: 33 (C01 to C22, D01 to D08, V01 to V03). Evidence rows: 60. The 13 out-of-scope IDs listed above are excluded.
+Unique applicable field IDs attempted: 33 (C01 to C22, D01 to D08, V01 to V03). Evidence rows: 61. The 13 out-of-scope IDs listed above are excluded.
 
 For exclusive field counts, mixed fields take the first applicable state in this order: conflicting, check_failed, unclear, not_published, confirmed, not_applicable. This keeps unresolved subparts visible.
 
 | State | Unique field IDs | Evidence rows |
 | --- | --- | --- |
-| confirmed | 13 | 37 |
+| confirmed | 13 | 38 |
 | not_published | 5 | 5 |
 | unclear | 10 | 13 |
 | conflicting | 5 | 5 |

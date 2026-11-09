@@ -93,6 +93,7 @@ All facts and our calculations checked **2026-11-04**. No signup, login, payment
 | 35 | Hosted terms and platform license | Hosted use is governed by SourceHut terms. Published pages.sr.ht LICENSE contains **GNU Affero General Public License version 3**. | confirmed | https://man.sr.ht/terms.md ; https://git.sr.ht/~sircmpwn/pages.sr.ht/tree/master/item/LICENSE | 2026-11-04 | The platform license is separate from the user's website content and hosted account policy. No -only versus -or-later project designation, client license, or identical licensing for every SourceHut component is inferred from this one file. |
 | 36 | Self-host requirements and ongoing work | Not applicable to the selected managed Pages offer. SourceHut separately publishes installation instructions for self-hosting, including a Pages service installation page. | not_applicable | https://man.sr.ht/installation.md ; https://man.sr.ht/pages.sr.ht/installation.md ; https://sourcehut.org/pricing/ | 2026-11-04 | Running that separate mode would make infrastructure, updates, secrets, and backups the operator's responsibility. Its work-in-progress docs are not a turnkey hosted plan; no self-host hardware or infrastructure price is guessed or included in the managed examples. |
 | 37 | Evidence and freshness | Every factual row and calculation is checked 2026-11-04. Current direct reads, cached-page differences, software declarations, and derived estimates are distinguished. | confirmed | https://sourcehut.org/pricing/ ; https://man.sr.ht/billing-faq.md ; https://man.sr.ht/terms.md ; https://sourcehut.org/blog/2026-08-27-tos-changes-and-llms/ | 2026-11-04 | The policy announcement's publication/effective dates are recorded separately from the check date. A wiki footer's repository commit is not treated as each page's update date. Recheck prices, alpha access, and policy restrictions within 30 days and immediately before publication. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, shutdown, rebrand, or customer-data breach found. | confirmed | https://srht.site/; https://sourcehut.org/blog/; https://status.sr.ht/ | 2026-11-09 | Checked Pages product/quickstart, SourceHut blog and public status page. Status lists current high load on git.sr.ht while Pages is operational; listed DDoS/crawler events concern availability, not reported data exposure. |
 
 ## Cost examples: our calculations
 
@@ -169,11 +170,11 @@ Formula: `complete cost = external B host + external PostgreSQL + backup storage
 
 ## Counts
 
-Fields attempted: **37 of 37** field groups. Fact rows: **75**. Counts refer to facts-table rows; repeated cost-input evidence and access-attempt notes are not additional fact rows.
+Fields attempted: **37 of 37** field groups. Fact rows: **76**. Counts refer to facts-table rows; repeated cost-input evidence and access-attempt notes are not additional fact rows.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 51 |
+| confirmed | 52 |
 | not_published | 14 |
 | unclear | 2 |
 | conflicting | 0 |

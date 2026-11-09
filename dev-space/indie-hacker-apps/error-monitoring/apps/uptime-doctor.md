@@ -97,6 +97,7 @@ No signup, login, form submission, credit purchase, active target check, SMS/ema
 | S01 | Reseller domain scope | Reseller website uses own domain/subdomain and private label; default reseller site HTTP-only, separate FAQ describes Cloudflare-mediated HTTPS | Text | Reseller | Reseller channel | Hosted | Website branding | confirmed | https://www.uptimedoctor.com/en/reseller.php ; https://www.uptimedoctor.com/en/faq.php?action=showanswer&faqid=40 ; https://www.uptimedoctor.com/en/faq.php?action=showanswer&faqid=42 ; https://www.uptimedoctor.com/en/faq.php?action=showanswer&faqid=47 | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown | This concerns a complete reseller site, not an ordinary public status page. Old DNS/TLS setup instructions were read for scope only; no domain change or security configuration was performed. |
 | S02 | Subscriber notifications | No self-service public subscription, subscriber quota or customer incident-update delivery tariff established | Text | All / unspecified | Direct hosted service | Hosted | Service | not_published | https://www.uptimedoctor.com/en/howitworks.php ; https://www.uptimedoctor.com/en/faq.php?action=showanswer&faqid=26 ; https://www.uptimedoctor.com/publicreport/30035/3502 ; https://www.uptimedoctor.com/en/pricing.php ; https://www.uptimedoctor.com/en/faq.php | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown ; Not shown | Unlimited notification contacts are operator-configured outage recipients; no evidence turns them into public subscribers. Required 100/1,000/10,000-subscriber estimates remain unknown. |
 | S03 | Status update source | Automated test-result public report, including status/uptime/performance; sample legend includes up/down/unknown/maintenance | Text | All / unspecified | Direct hosted service | Hosted | Service | confirmed | https://www.uptimedoctor.com/en/howitworks.php ; https://www.uptimedoctor.com/publicreport/30035/3502 ; https://www.uptimedoctor.com/en/faq.php?action=showanswer&faqid=26 | 2026-11-05 | Not shown ; Not shown ; Not shown | No manual incident publishing workflow, subscriber incident updates or guaranteed public incident-history duration documented. General report retention is separately recorded under C14. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://www.uptimedoctor.com/en/ ; https://www.uptimedoctor.com/en/aboutus.php ; https://www.uptimedoctor.com/en/faq.php ; https://www.uptimedoctor.com/en/pricing.php | 2026-11-09 | Current homepage checked 2026-11-09 ; Current About page checked 2026-11-09 ; Current FAQ checked 2026-11-09 ; Current pricing checked 2026-11-09 | News check 2026-11-09: Checked the official homepage, About page, FAQ and pricing, plus targeted searches. The service still advertises free and paid plans. No public product changelog, release date or vendor status page was located. No qualifying event found. |
 
 ## Cost examples — our calculation, estimated
 
@@ -215,8 +216,8 @@ All sources above were checked 2026-11-05. No reliable content-update dates were
 ## Counts
 
 - Distinct field IDs attempted: **35**.
-- Facts-table rows: **70**.
-- confirmed: **50**.
+- Facts-table rows: **71**.
+- confirmed: **51**.
 - not_published: **15**.
 - unclear: **2**.
 - conflicting: **0**.

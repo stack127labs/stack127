@@ -111,7 +111,7 @@ KYB means a provider’s review of a business and its owners. The status applies
 | F38 | Support access | Public help center and email support are listed; verified business users can submit a ticket from the dashboard or a specific order/refund. | confirmed | https://support.coingate.com/hc/en-us/articles/22985950105628-How-do-I-contact-CoinGate-about-a-customer-s-payment; https://coingate.com/policy/general-terms-and-conditions | 2026-11-07 | Ticketing from a transaction links the request to that order. |
 | F38 | Support access | Transaction-linked tickets are prioritized and usually answered within up to 2 business hours, according to the help page. | confirmed | https://support.coingate.com/hc/en-us/articles/22985950105628-How-do-I-contact-CoinGate-about-a-customer-s-payment | 2026-11-07 | This is support guidance, not a contractual response guarantee. |
 | F38 | Support access | Standard plan lists standard email support; Enterprise lists dedicated technical support, direct developer access, and a dedicated account manager. | confirmed | https://coingate.com/pricing | 2026-11-07 | Plan-level support difference shown on current pricing page. |
-| F39 | Operating status and recent changes | Active: current pricing, merchant checkout, support, and developer documentation are available; the current status page was live and the company published product updates in 2026. | confirmed | https://coingate.com/pricing; https://status.coingate.com/; https://coingate.com/blog/company-updates | 2026-11-07 | Status page last update was November 6, 2026. |
+| F39 | Operating status and recent changes | Active: current pricing, merchant checkout, support, and developer documentation are available; status page currently reports services online. | confirmed | https://coingate.com/pricing; https://status.coingate.com/; https://coingate.com/blog/company-updates | 2026-11-09 | The status page records a short API outage on 6 November, resolved at 16:41 UTC. This is a dated service note, not a qualifying finding. |
 | F39 | Operating status and recent changes | MiCA-related change: CoinGate stopped DAI and phased out USDT for merchant payments/settlement during 2025; current merchant stablecoin is USDC. | confirmed | https://coingate.com/blog/post/usdt-dai-discontinued; https://coingate.com/supported-currencies | 2026-11-07 | The change was regulatory, not an overall product shutdown. |
 | F39 | Operating status and recent changes | BCH payments, settlement, and payouts were re-enabled on October 12, 2026 after being disabled from July 1, 2026. | confirmed | https://coingate.com/blog/post/bitcoin-cash-back-coingate; https://coingate.com/supported-currencies | 2026-11-07 | The new blog notice and current currency table agree. |
 | F40 | Closing and fund release | Merchant may close an account with at least 30 calendar days’ written notice. CoinGate may also close without cause with 30 days’ notice, or suspend/terminate immediately for specified legal, compliance, insolvency, or breach events. | confirmed | https://coingate.com/policy/general-terms-and-conditions | 2026-11-07 | Some legal or sanctions cases may be suspended without notice. |
@@ -146,6 +146,7 @@ KYB means a provider’s review of a business and its owners. The status applies
 | C04 | Crypto payment completion and refunds | Refunds are new crypto transfers, may use a different supported currency/network than the original, and can differ in value because of exchange rates. | confirmed | https://support.coingate.com/hc/en-us/articles/4948950501788-How-to-Issue-a-Refund-for-a-Paid-and-Confirmed-Order; https://coingate.com/policy/special-terms-and-conditions-for-crypto-assets-payment-processing | 2026-11-07 | CoinGate may charge issuance, conversion, or other refund costs; refund is not a blockchain reversal. |
 | C05 | Hosting and maintenance | Hosted service: CoinGate hosts payment pages and handles order monitoring, confirmation, account reporting, and settlement. Merchant needs no self-hosted payment server, but API users maintain their own store and callback endpoint. | confirmed | https://coingate.com/accept; https://developer.coingate.com/reference/api-overview; https://support.coingate.com/hc/en-us/articles/4402499265042-How-do-I-start-accepting-crypto-on-my-website | 2026-11-07 | No self-hosted CoinGate edition is listed on the product or developer pages checked. |
 
+| F39 | Operating status and recent changes | Court affirmed a EUR 16,530 AML/CTF fine against CoinGate operator UAB Decentralized on 19 November 2025. | confirmed | https://www.lvat.lt/en/sacl-the-financial-crime-investigation-service-lawfully-imposed-a-fine-on-uab-decentralized-for-breaches-of-anti-money-laundering-requirements/1606 | 2026-11-09 | The Supreme Administrative Court upheld the regulator’s penalty relating to cryptocurrency-paid gift cards and delayed notification of the designated AML employee. The company’s appeal was dismissed. |
 ## Cost examples — our calculations
 
 For one €100.00 Standard-plan merchant payment, the published 1% merchant fee is €100.00 × 1% = €1.00. The €99.00 remainder is before the additional risk margin included in CoinGate’s payment quote, any refund, or later withdrawal charge, so it is not a complete net estimate. If withdrawn in EUR by Standard SEPA, CoinGate lists that withdrawal as free; external bank costs are not included. This assumes the payment is fully credited, no custom rate applies, and the 1% fee base is €100.00.
@@ -176,15 +177,15 @@ Sources for the first calculation: https://coingate.com/pricing; https://coingat
 
 Fields attempted: 50 (45 core and five crypto-specific fields).
 
-Fact rows: 123.
+Fact rows: 124.
 
 | State | Count |
 | --- | ---: |
-| confirmed | 105 |
+| confirmed | 106 |
 | not_published | 13 |
 | unclear | 0 |
 | conflicting | 2 |
 | not_applicable | 3 |
 | check_failed | 0 |
 
-Unique official source URLs: 60.
+Unique official source URLs: 61.

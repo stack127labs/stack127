@@ -108,6 +108,7 @@ All facts and our calculations checked **2026-11-04**. No signup, login, payment
 | 35 | Software license and hosted terms | An installable platform license is not applicable to this managed service. Terms identify provider software/content as proprietary and govern hosted use. | not_applicable | https://static.app/terms | 2026-11-04 | No self-hosted edition or right to run the control plane is inferred from the API/desktop app. Customer contribution ownership is retained, but terms also contain a broad contribution license that must remain distinct from portability of files. |
 | 36 | Self-host requirements and ongoing work | Not applicable: Static.app operates the hosting platform. Customer supplies source/build environment, credentials, DNS, and chosen independent exports. | not_applicable | https://static.app/nodejs-hosting ; https://static.app/free-website-hosting | 2026-11-04 | No server OS, hardware minimum, root access, or software-maintenance price is invented for this hosted offer. Installing the optional Mac sync client does not amount to operating the hosting infrastructure. |
 | 37 | Evidence and freshness | All rows/calculations checked 2026-11-04; terms/privacy updated **2026-10-14**. Older KB dates, indexed page differences, access failures, and calculations are identified. | confirmed | https://static.app/terms ; https://static.app/privacy ; https://static.app/pricing ; https://static.app/help | 2026-11-04 | Use explicit current trial/monthly statements over an older free-plan label or an annual-equivalent price. Recheck price toggles, refund/commercial wording, registration availability, and backup entitlements within 30 days and before publication. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, shutdown, rebrand, or qualifying security incident found. | confirmed | https://static.app/; https://static.app/help; https://static.app/terms; https://status.static.app/ | 2026-11-09 | Checked the product, help, terms and status pages and searched the official domain. The status page returned no readable incident history; the live product and help pages remain available. |
 
 ## Cost examples: our calculations
 
@@ -189,11 +190,11 @@ Formula: `complete cost = external B host + external PostgreSQL + database backu
 
 ## Counts
 
-Fields attempted: **37 of 37** field groups. Fact rows: **92**. Counts are facts-table rows; repeated cost inputs and access-attempt notes are not extra fact rows.
+Fields attempted: **37 of 37** field groups. Fact rows: **93**. Counts are facts-table rows; repeated cost inputs and access-attempt notes are not extra fact rows.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 65 |
+| confirmed | 66 |
 | not_published | 13 |
 | unclear | 2 |
 | conflicting | 3 |

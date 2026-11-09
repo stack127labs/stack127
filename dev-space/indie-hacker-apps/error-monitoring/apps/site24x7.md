@@ -129,6 +129,7 @@ USD is the selected pricing currency throughout the calculations. Units and plan
 | J01 | Schedules | Five-field cron expression, selected timezone and grace period; duration/threshold profiles; heartbeat time-since-last-ping rules | As stated | Cron/heartbeat | Site24x7 cloud / named module | Vendor-hosted; local collection where stated | Jobs | confirmed | https://www.site24x7.com/help/cron/index.html ; https://www.site24x7.com/help/heartbeat/ | 2026-11-05 | Not shown ; Not shown | Public docs do not precisely define DST skipped/repeated-hour behavior or universal min/max grace limits. |
 | J02 | Signals | /start before job, /end after completion; explicit /event failure status and message; heartbeat missing/too-frequent pings | As stated | Cron/heartbeat | Site24x7 cloud / named module | Vendor-hosted; local collection where stated | Jobs | confirmed | https://www.site24x7.com/help/cron/index.html ; https://www.site24x7.com/help/heartbeat/ ; https://support.site24x7.com/portal/en/kb/articles/can-be-notified-on-cron-script-failures | 2026-11-05 | Not shown ; Not shown ; Not shown | Failure status codes 0 Down, 2 Trouble, 3 Critical. A short message is not proof of stdout/stderr attachment. |
 | J02 | Job history/output | Availability and trend reports; detailed run-history count and captured-output byte allowance not found | As stated | Cron/heartbeat | Site24x7 cloud / named module | Vendor-hosted; local collection where stated | Job detail | not_published | https://www.site24x7.com/help/cron/index.html ; https://www.site24x7.com/help/heartbeat/ ; https://support.site24x7.com/portal/en/kb/articles/can-be-notified-on-cron-script-failures | 2026-11-05 | Not shown ; Not shown ; Not shown | Generic outage history does not establish a per-execution history window or full output storage. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://www.site24x7.com/product-announcement.html ; https://www.site24x7.com/blogs/ ; https://www.zoho.com/blog/ | 2026-11-09 | Current announcement checked 2026-11-09 ; Current company blog checked 2026-11-09 ; Current Zoho blog/news index checked 2026-11-09 | News check 2026-11-09: Checked the official Site24x7 announcement and company blog, Zoho’s blog/news index, plus targeted searches. The observability announcement expressly says there is no merger, acquisition or ownership change. The separate weak-TLS retirement notice is a routine security change, not a qualifying lifecycle event. No public Site24x7 status page was accessible in this check. |
 
 ## Cost examples — our calculation, estimated
 
@@ -224,16 +225,16 @@ Sources: https://www.site24x7.com/statusiq/pricing.html ; https://www.site24x7.c
 
 ## Counts
 
-Distinct fields attempted: **47**. Facts-table rows: **103**.
+Distinct fields attempted: **47**. Facts-table rows: **104**.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 80 |
+| confirmed | 81 |
 | not_published | 10 |
 | unclear | 6 |
 | conflicting | 6 |
 | not_applicable | 1 |
 | check_failed | 0 |
 
-Distinct exact source URLs in the facts table: **46**. Repeated URLs count once; source appearances and research searches are not counted as distinct links.
+Distinct exact source URLs in the facts table: **48**. Repeated URLs count once; source appearances and research searches are not counted as distinct links.
 

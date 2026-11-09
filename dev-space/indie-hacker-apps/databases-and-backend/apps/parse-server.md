@@ -20,6 +20,7 @@ Scope: Core, database, files, Cloud Code/jobs, realtime/offline behavior and sel
 | C03 | Hosting and license | Self-hosted Node.js/Express server, standalone/Docker or mounted in an Express application. Third-party Parse hosting exists separately. | confirmed | [1](https://raw.githubusercontent.com/parse-community/parse-server/release/README.md); [2](https://github.com/parse-community/parse-server/wiki); [3](https://raw.githubusercontent.com/parse-community/docs/gh-pages/_includes/parse-server/usage.md) | 2026-11-04 | Running Parse Server and Wiki host list. Operator selects and pays for infrastructure; no Parse Community managed runtime is included. |
 | C03 | Hosting and license | Parse Server license Apache-2.0. No-charge copyright/patent grants allow use, modification and distribution subject to license conditions; dependencies/adapters have their own license files. | confirmed | [1](https://raw.githubusercontent.com/parse-community/parse-server/release/LICENSE); [2](https://raw.githubusercontent.com/parse-community/parse-server/9.11.0/package.json) | 2026-11-04 | LICENSE §§2 to 4 and 9.11.0 package license. This is not a paid closed-source edition or a hardware/hosting allowance. |
 | C04 | Lifecycle and access stage | Active; latest stable release 9.11.0 published 2026-11-03. Main branches release/alpha; previous major receives LTS attention, with limited maintenance/security commitments described in README. | confirmed | [1](https://api.github.com/repos/parse-community/parse-server/releases/latest); [2](https://raw.githubusercontent.com/parse-community/parse-server/release/README.md) | 2026-11-04 | Official release API and Flavors/Long Term Support. Software release status is distinct from any hosted deployment's health or patch level. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Parse Server. | not_published | https://parseplatform.org/blog/ ; https://github.com/parse-community/parse-server/releases ; https://github.com/parse-community/parse-server | 2026-11-09 | Checked Parse Community blog, Parse Server releases and repository. The retired Parse hosted service is historical; the self-hosted Parse Server remains actively released. |
 | C05 | Vendor home and main markets | No single hosting vendor home/market applies to this community software record; a business domicile for the project itself was not established. | not_applicable | [1](https://raw.githubusercontent.com/parse-community/parse-server/release/README.md); [2](https://raw.githubusercontent.com/parse-community/parse-server/release/LICENSE); [3](https://community.parseplatform.org/tos); [4](https://community.parseplatform.org/privacy) | 2026-11-04 | Community project/maintainer and license scope checked. Forum policy wording is not used as a hosting-company address or a data-residency claim. |
 | C06 | Signup and use restrictions | No Parse-hosting signup, payment card or trial required to download/run the software. Apache-2.0 permits commercial use subject to its conditions. Hosting/database/email/push-provider accounts, if chosen, have separate rules. | confirmed | [1](https://raw.githubusercontent.com/parse-community/parse-server/release/LICENSE); [2](https://raw.githubusercontent.com/parse-community/parse-server/release/README.md); [3](https://raw.githubusercontent.com/parse-community/docs/gh-pages/_includes/parse-server/usage.md) | 2026-11-04 | License grant and local deployment. No account was created and no forms were submitted. |
 | C06 | Signup and use restrictions | Community Terms/Privacy govern the forum, not apps deployed with Parse Server. Forum minimum age and retention language are not copied into backend customer eligibility. | confirmed | [1](https://community.parseplatform.org/tos); [2](https://community.parseplatform.org/privacy) | 2026-11-04 | Terms opening explicitly limits scope to forum; Privacy describes forum information. No central app-hosting DPA or country-eligibility contract is represented. |
@@ -179,13 +180,13 @@ Formula: 0 license + remaining allocated compute + retained data/index/file/back
 ## Counts
 
 - Distinct fields attempted: **46** (22 core, 8 database, 7 file, 3 vector, 5 job, 1 self-host).
-- Fact rows: **80**. A field repeats only where deployment, engine, component, version or evidence state differs.
-- confirmed: **45**
-- not_published: **6**
-- unclear: **5**
-- conflicting: **5**
-- not_applicable: **19**
-- check_failed: **0**
+- Fact rows: 81. A field repeats only where deployment, engine, component, version or evidence state differs.
+- confirmed: 45
+- not_published: 7
+- unclear: 5
+- conflicting: 5
+- not_applicable: 19
+- check_failed: 0
 - Unique exact official source URLs linked in this file: **48** (repeated links counted once).
 - Research start/finish measured with `date -u`; elapsed seconds: **972**, reported minutes: **16.20**.
 

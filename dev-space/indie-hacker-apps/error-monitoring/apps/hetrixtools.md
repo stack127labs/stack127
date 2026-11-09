@@ -33,6 +33,7 @@ All facts have exact source links and the UTC checked date. Undated sources stay
 | C03 | Lifecycle | Active plans and product development; no service-wide closure/acquisition notice found in checked sources | As stated | All | Hosted HetrixTools / named module | Vendor cloud; optional local agent | Product | confirmed | https://hetrixtools.com/ ; https://hetrixtools.com/changelog/ ; https://hetrixtools.com/about-us/ | 2026-11-05 | Not shown ; 2026-09-28 (latest visible entry; not page-wide update) ; Not shown | Latest visible changelog entry is MCP on 2026-09-28; ordinary ownership-transfer clauses are not acquisition announcements. |
 | C03 | Retired package | Basic package discontinued 2020-06-19; then-current subscriptions could remain and renew for now | As stated | Legacy Basic | Hosted HetrixTools / named module | Vendor cloud; optional local agent | Subscription | confirmed | https://docs.hetrixtools.com/required-activity-increased-from-30-days-to-90-days-basic-package-discontinued/ | 2026-11-05 | 2020-06-19 (announcement) | Notice also changed free activity requirement from 30 to 90 days. No present-day Basic renewal guarantee inferred. |
 | C03 | Legacy API | v1 Server Stats explicitly deprecated; points to v3 Server Agent Metrics | As stated | v1/v3 | Hosted HetrixTools / named module | Vendor cloud; optional local agent | API | confirmed | https://docs.hetrixtools.com/api-server-stats/ | 2026-11-05 | Not shown | Deprecation of this endpoint does not prove the whole v1/v2 API has stopped. |
+| C03 | News check 2026-11-09 | No qualifying sale, rebrand, service shutdown/pivot, closed signup, license change, breach or regulatory action found. Hosted product and agent releases remain active; latest changelog entry located is 2026-09-28. | lifecycle search; latest update | All | Hosted HetrixTools / named modules | Vendor cloud; optional local agent | Product | confirmed | https://hetrixtools.com/ ; https://hetrixtools.com/changelog/ ; https://hetrixtools.com/about-us/ ; https://hetrixtools.com/terms-of-service/ ; https://status.hetrixtools.com/ | 2026-11-09 | Not shown ; 2026-09-28 latest visible entry ; Not shown ; Not shown ; current dashboard; last incident dates shown there | Checked the product, changelog, company, terms, official status page and quick web results since 2025-01-01. The discontinued Basic package is from 2020 and does not indicate a current product closure. |
 | C04 | Vendor country | HetrixTools, Inc.; published address Beaverton, Oregon, United States | As stated | All | Hosted HetrixTools / named module | Vendor cloud; optional local agent | Vendor | confirmed | https://hetrixtools.com/about-us/ | 2026-11-05 | Not shown | Company/contact address, not a statement that all collected data is stored in Oregon. |
 | C04 | Buyer eligibility | Terms cover persons or organizations; one account/person or organization without written permission; country exclusions not found | As stated | All | Hosted HetrixTools / named module | Vendor cloud; optional local agent | Eligibility | not_published | https://hetrixtools.com/terms-of-service/ ; https://hetrixtools.com/about-us/ | 2026-11-05 | Not shown ; Not shown | Read acceptable-use/account limits and company page. No complete supported-country list or unrestricted worldwide-sale promise found. |
 | C05 | Delivery | Vendor-hosted service; optional customer-installed agents report to platform | As stated | All | Hosted HetrixTools / named module | Vendor cloud; optional local agent | Deployment | confirmed | https://docs.hetrixtools.com/what-is-server-monitoring/ ; https://docs.hetrixtools.com/install-the-hetrixtools-server-monitor-agent/ | 2026-11-05 | Not shown ; Not shown | Public agent source does not host the central platform or provide an independent self-hosted HetrixTools service. |
@@ -196,16 +197,16 @@ Sources: https://hetrixtools.com/pricing/uptime-monitor/ ; https://docs.hetrixto
 
 ## Counts
 
-Distinct fields attempted: **37**. Facts-table rows: **79**.
+Distinct fields attempted: **37**. Facts-table rows: **80**.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 57 |
+| confirmed | 58 |
 | not_published | 13 |
 | unclear | 8 |
 | conflicting | 1 |
 | not_applicable | 0 |
 | check_failed | 0 |
 
-Distinct exact source URLs in the facts table: **57**. Each repeated URL counts once. Research searches and source appearances are not separate links.
+Distinct exact source URLs in the facts table: **58**. Each repeated URL counts once. Research searches and source appearances are not separate links.
 

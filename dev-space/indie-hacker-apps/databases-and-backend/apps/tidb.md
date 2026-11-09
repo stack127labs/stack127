@@ -10,7 +10,10 @@ Minutes taken: 20.72
 
 ## Operating status and notices
 
-Checked 2026-11-05. No overall TiDB shutdown, sunset or acquisition notice was found in the official product, 2026 Cloud release notes or support policy checked. TiDB remains offered as self-hosted software and TiDB Cloud. Several newer Cloud products are previews, including PostgreSQL-compatible Starter, Essential, Premium, BYOC, Filesystem and Lake. Sources: https://www.pingcap.com/tidb/cloud/, https://www.pingcap.com/pricing/, https://docs.pingcap.com/tidbcloud/tidb-cloud-release-notes/, https://www.pingcap.com/tidb-release-support-policy/.
+**Security incident (2026-09-09 to 2026-10-07; disclosed 2026-10-19):** PingCAP reported unauthorized access to internal systems and copying of customer-related account, query-history and business/billing records. It reported no evidence that customer TiDB database contents were accessed or that the reviewed production systems were used. Customer-specific impact review was still underway; PingCAP recommended rotating management API keys and secrets shared in support. [Incident report](https://www.pingcap.com/trust-hub/security/security-update-october-2026/) · [Customer actions](https://www.pingcap.com/trust-hub/security/customer-actions-october-2026/).
+
+
+The product/release/support-policy review was originally checked 2026-11-05 and the lifecycle/security notice sweep was rechecked 2026-11-09; the attempted status.pingcap.com endpoint was not accessible. No overall TiDB shutdown, sunset or acquisition notice was found in the official product, release notes or support policy checked. TiDB remains offered as self-hosted software and TiDB Cloud. Several newer Cloud products are previews, including PostgreSQL-compatible Starter, Essential, Premium, BYOC, Filesystem and Lake. Sources: https://www.pingcap.com/tidb/cloud/, https://www.pingcap.com/pricing/, https://docs.pingcap.com/tidbcloud/tidb-cloud-release-notes/, https://www.pingcap.com/tidb-release-support-policy/.
 
 - **2026-10-20:** Chat2Query and its API stopped being supported in Starter SQL Editor and Data Service. Other SQL Editor/Data Service features remain. Source: https://docs.pingcap.com/tidbcloud/tidb-cloud-release-notes/, October 20 section.
 - **2026-10-27:** Essential Regional High Availability entered public preview in AWS Tokyo; other regions are rolling out. Regional price changes apply immediately to instances created on/after October 26, and in January 2027 to earlier Regional instances. Source: https://docs.pingcap.com/tidbcloud/tidb-cloud-release-notes/, October 27 section.
@@ -124,6 +127,7 @@ All sources are official PingCAP/TiDB or official project repositories. Every ro
 | H01 | operating requirements and feature gaps | Self-hosted production components: TiDB, PD and TiKV; TiFlash optional for columnar/ANN workloads. TiUP deployment on supported Linux/CPU combinations, or an operator-managed Kubernetes deployment; user handles infrastructure, upgrades, networks/TLS, credentials, monitoring and backup/recovery. | confirmed | https://docs.pingcap.com/tidb/stable/production-deployment-using-tiup/<br>https://docs.pingcap.com/tidb/stable/overview/<br>https://docs.pingcap.com/tidb/stable/backup-and-restore-overview/ | 2026-11-05 | Production Deployment Using TiUP and architecture/backup docs. Hosted automatic billing/backup consoles, cloud branches and hosted Auto Embedding are not automatically reproduced by installing Community. |
 | H01 | operating requirements and feature gaps | Published production table recommends TiDB 16 cores/48 GB RAM, at least 2 instances; PD 8 cores/16 GB, at least 3; TiKV 16 cores/64 GB, at least 3, with SSDs. Optional TiFlash: 48 cores/128 GB, at least 2. These are production guidance, not a minimum laptop/dev footprint or a hosting quote. | confirmed | https://docs.pingcap.com/tidb/stable/hardware-and-software-requirements/ | 2026-11-05 | Hardware and Software Requirements, production table. A single-machine demo does not give a highly available production cost; no cheap-VM estimate is invented. |
 
+| C04 | lifecycle and access stage | PingCAP disclosed unauthorized access to internal systems from 2026-09-09 through 2026-10-07. The attacker copied customer-related records, including TiDB Cloud account/query-history information and business/billing data; encrypted API-key values were among exported records. PingCAP reports no evidence that customer database contents were accessed or that the reviewed production systems were used, and customer-specific impact review was continuing. It advised customers to rotate management keys and secrets shared with support. | confirmed | https://www.pingcap.com/trust-hub/security/security-update-october-2026/ ; https://www.pingcap.com/trust-hub/security/customer-actions-october-2026/ ; https://www.pingcap.com/trust-hub/ ; https://www.pingcap.com/blog/ ; https://docs.pingcap.com/tidbcloud/tidb-cloud-release-notes/ ; https://status.pingcap.com/ | 2026-11-09 | Official incident report/customer actions and trust hub checked; the attempted official status endpoint was not accessible to this reader. The reported event date is retained separately from the 2026-11-09 source check date. |
 ## Cost examples — our calculation
 
 These are calculations from checked public rates, not vendor quotes or benchmarks. Decimal **GB = 1,000,000,000 bytes**, **GiB = 1,073,741,824 bytes**, **KiB = 1,024 bytes**. Calculations below retain extra decimal places to expose the conversion; displayed subtotals rounded to cents are explicitly labelled. Actual monthly invoice precision can differ. Source for TiDB storage/RU units: https://www.pingcap.com/tidb-cloud-starter-pricing-details/; taxes/contract fees: https://www.pingcap.com/legal/tidb-cloud-services-agreement/, §4.
@@ -213,12 +217,12 @@ Some old or guessed documentation paths failed. They were replaced with the work
 ## Counts
 
 - Fields attempted: **46** of 46 (C01–C22, D01–D08, F01–F07, V01–V03, J01–J05, H01).
-- Fact rows: **97**. Rows split only for meaningful plan, protocol, mode or evidence differences.
-- confirmed: **73**
+- Fact rows: 98. Rows split only for meaningful plan, protocol, mode or evidence differences.
+- confirmed: **74**
 - not_published: **10**
 - unclear: **4**
 - conflicting: **3**
 - not_applicable: **7**
 - check_failed: **0**
-- Distinct exact source links: **69**, including documented unsuccessful paths. Repeated citations count once.
+- Distinct exact source links: 74, including documented unsuccessful paths. Repeated citations count once.
 - Counts by state count fact-table rows; each row has one state. Field IDs can have rows in multiple states.

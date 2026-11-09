@@ -24,6 +24,7 @@ The published legal pages were updated 2026-10-20: new accounts accept them on s
 | C02 | Jobs covered | Error tracking, application performance, logs, HTTP uptime and incoming heartbeats | capabilities | Feature-dependent | Platform | Hosted/self-hosted | Detection | confirmed | https://glitchtip.com/documentation/; https://glitchtip.com/documentation/uptime-monitoring/ | 2026-11-04 | Structured logs are a current documented family. Heartbeats detect a missing report from a process; they are not a complete paired job-run protocol. |
 | C02 | Status communication | Pages group monitors and can be public or organization-private | capability | Operator-managed | v6.2.6 | Self-hosted | Status | confirmed | https://gitlab.com/glitchtip/glitchtip-backend/-/raw/v6.2.6/apps/uptime/models.py; https://gitlab.com/glitchtip/glitchtip-backend/-/raw/v6.2.6/apps/uptime/views.py | 2026-11-04 | Released source establishes the feature. Hosted page entitlements and subscriber services are not established by the pricing table. |
 | C03 | Availability and changes | Active hosted offer; released backend tags include v6.2.6 dated 2026-08-07 | availability; version | All | SaaS/OSS | Both | Product | confirmed | https://glitchtip.com/pricing/; https://gitlab.com/glitchtip/glitchtip-backend/-/tags | 2026-11-04 | Version 7 is described as upcoming without a date in the October update. Do not treat a development branch or current website as proof of the version running in cloud. |
+| C03 | News check 2026-11-09 | No qualifying ownership, product lifecycle, license, security or regulatory event found. Latest released backend tag located is v6.2.6, dated 2026-08-07. | lifecycle search; release/date | Current | Hosted + self-hosted | Hosted / self-hosted | Product | confirmed | https://glitchtip.com/ ; https://glitchtip.com/changelog/ ; https://glitchtip.com/blog/2026-10-21-marketing-site-tos/ ; https://glitchtip.com/legal/tos/ ; https://gitlab.com/glitchtip/glitchtip-backend/-/tags | 2026-11-09 | Checked product, changelog, company post, terms, release tags and quick web results since 2025-01-01. New terms dated 2026-10-20 take effect for existing accounts on 2026-11-21; no product sale, rename or software-license change was announced. No official vendor status page link found; status.glitchtip.com did not resolve. |
 | C04 | Vendor country | United States; Burke Software and Consulting LLC, New York LLC | legal domicile | Hosted | SaaS | Hosted | Vendor | confirmed | https://glitchtip.com/legal/privacy/ | 2026-11-04 | Policy updated 2026-10-20. Vendor domicile is separate from the US/EU storage choices. |
 | C04 | Buyer restrictions | No hosted services for residents of Russia; US sanctions restrictions apply | eligibility | Hosted | SaaS | Hosted | Buyers | confirmed | https://glitchtip.com/documentation/frequently-asked-questions/; https://glitchtip.com/legal/tos/ | 2026-11-04 | No complete supported-country list was found. These hosted restrictions must not be substituted for the separately granted MIT software rights. |
 | C05 | Delivery options | Vendor-hosted US/EU service or complete customer-operated deployment; managed third-party options linked | deployment | SaaS/OSS | Platform | Both | Backend | confirmed | https://glitchtip.com/documentation/install/; https://glitchtip.com/documentation/hosted-architecture/ | 2026-11-04 | Docker Compose and Helm are documented. PikaPods, Elestio, Nodion, Railway and RepoCloud are separate operators with their own costs and terms. |
@@ -199,11 +200,11 @@ All sources in this section were checked 2026-11-04.
 ## Counts
 
 - Field IDs attempted: 50 of 50.
-- Evidence rows: 79.
+- Evidence rows: 80.
 
 | State | Evidence rows | Distinct fields, conservative summary |
 | --- | --- | --- |
-| confirmed | 61 | 35 |
+| confirmed | 62 | 35 |
 | not_published | 6 | 5 |
 | unclear | 9 | 7 |
 | conflicting | 2 | 2 |
@@ -212,5 +213,5 @@ All sources in this section were checked 2026-11-04.
 
 Distinct-field summary prioritizes conflicting, then check_failed, unclear, not_published, confirmed, and not_applicable when a field has several rows. A confirmed value does not fill unknown subparts mentioned in its note.
 
-- Unique source links across the file: 51; 48 are in facts-table source cells. Repeated links count once; failed targets are included and labelled.
+- Unique source links across the file: 52; 49 are in facts-table source cells. Repeated links count once; failed targets are included and labelled.
 - No wrong apps.md identity or active status found. Its type list omits logs, heartbeats and the source-backed self-hosted status-page capability.

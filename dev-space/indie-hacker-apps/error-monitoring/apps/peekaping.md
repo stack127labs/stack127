@@ -97,6 +97,7 @@ Only public pages/source were read. No account, signup, login, form, demo creden
 | H02 | Self-host running cost | Software license fee 0; exact server + storage + backups + domain/TLS operations + notification-provider total remains unknown. | Monthly operating total | Free software | Community 0.1.0 | Self-hosted | Self-host | unclear | https://raw.githubusercontent.com/0xfurai/peekaping/0.1.0/LICENSE ; https://docs.peekaping.com/self-hosting/deployment-modes ; https://raw.githubusercontent.com/0xfurai/peekaping/0.1.0/apps/docs/docs/self-hosting/upgrading-stats.md | 2026-11-05 | Not shown ; Not shown ; Not shown | Without published workload sizing and a selected host, a named cheap server would not establish a supported total. No external hosting price or provider free allowance was invented. |
 | H03 | Upgrade, backup and restore | Official upgrade guides cover image rename, PostgreSQL-bundle dump/restore and rollback; stats guide shows SQLite .backup with integrity_check; corruption guide covers tested-backup restore and salvage. | Text | Free software | Community 0.1.0 | Self-hosted | Self-host operations | confirmed | https://docs.peekaping.com/self-hosting/upgrading-to-single-mode ; https://docs.peekaping.com/self-hosting/upgrading-stats ; https://docs.peekaping.com/self-hosting/sqlite-recovery | 2026-11-05 | Not shown ; Not shown ; Not shown | Stop all database writers where instructed. Copying a live SQLite .db alone can miss committed WAL data; restoring an old backup loses later changes. Removed legacy images are not a supported update path. |
 | H03 | Security and release support | Non-root deployment, 2FA, brute-force protection, trusted reverse-proxy configuration and probe-token rotation documented; beta software, with no published LTS/support window established. | Text | Free software | Community 0.1.0 | Self-hosted | Self-host operations | confirmed | https://docs.peekaping.com/self-hosting/single-user ; https://docs.peekaping.com/self-hosting/docker-with-sqlite ; https://docs.peekaping.com/self-hosting/remote-probes ; https://docs.peekaping.com/ ; https://api.github.com/repos/0xfurai/peekaping/releases/latest ; https://raw.githubusercontent.com/0xfurai/peekaping/0.1.0/apps/docs/docs/architecture/api-server.md | 2026-11-05 | Not shown ; Not shown ; Not shown ; Not shown ; 2026-10-28 ; Not shown | Protect database/backups and trusted probe hosts. In the released API, /metrics is unauthenticated when enabled and exposes monitor names: keep it private or off. Current docs describe additional controls, so check the installed version. |
+| C03 | News check | News check 2026-11-09: no qualifying event found in the official sources checked. | dated check | All | Current product | Hosted / self-hosted as applicable | Ownership / lifecycle | confirmed | https://github.com/0xfurai/peekaping ; https://github.com/0xfurai/peekaping/releases ; https://docs.peekaping.com/ | 2026-11-09 | Repository checked 2026-11-09 ; 2026-10-28 (latest release 0.1.0) ; Current docs checked 2026-11-09 | News check 2026-11-09: Checked the official repository, release history and documentation, plus targeted searches. Latest release is 0.1.0 dated 2026-10-28; the repository remains active. No official status page was located. No qualifying event found. |
 
 ## Cost examples — our calculation, estimated
 
@@ -164,13 +165,13 @@ Official inputs: https://raw.githubusercontent.com/0xfurai/peekaping/0.1.0/LICEN
 ## Counts
 
 - Distinct field IDs attempted: **40**.
-- Facts-table rows: **64**. Several fields split by signal, version or deployment.
-- confirmed: **42**.
+- Facts-table rows: **65**. Several fields split by signal, version or deployment.
+- confirmed: **43**.
 - not_published: **11**.
 - unclear: **4**.
 - conflicting: **4**.
 - not_applicable: **3**.
 - check_failed: **0**.
-- Distinct exact source URLs in the facts table: **38**. Repeated URLs count once; failed discovery URLs are described above but do not establish facts.
+- Distinct exact source URLs in the facts table: **40**. Repeated URLs count once; failed discovery URLs are described above but do not establish facts.
 
 

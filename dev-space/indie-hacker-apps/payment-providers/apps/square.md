@@ -118,6 +118,7 @@ States apply to the scoped value in each row. A supported technical feature does
 | F38 | Support access | US Premium includes 24/7 priority phone support; this is not a Free-plan human-support promise. | confirmed | https://squareup.com/us/en/pricing; https://squareup.com/help/us/en/article/4993-contact-square-support | 2026-11-04 | The plan comparison names the benefit. Local support availability differs; the UK onboarding guide gives weekday 9am to 5pm customer-success access. |
 | F39 | Operating status and recent changes | Active online-payment offer. US current Free/Plus/Premium bundles coexist with legacy subscriptions; switching into a new plan cannot be reversed back to the old subscriptions. | confirmed | https://squareup.com/us/en/payments/online-payments; https://squareup.com/us/en/pricing; https://squareup.com/help/us/en/article/8569-switch-to-the-new-square-subscription-plans | 2026-11-04 | Current US general terms apply immediately to signups from 27 October 2026 and to all sellers from 12 November 2026; payment terms apply to all sellers from 30 July 2026. The future all-seller effective date is not treated as already passed. |
 | F39 | Operating status and recent changes | Official Square Status page located, but current incident/availability state could not be read from its text response. | check_failed | https://www.issquareup.com | 2026-11-04 | The public response contained Square Status branding, regional links and provider footer only, with no readable component/incident data. Active product/pricing availability is confirmed separately; this is not a claim that Square is down. |
+| F39 | Operating status and recent changes | Related-parent regulatory action: on 2025-01-16 the CFPB issued a consent order against Block, Inc. concerning Cash App consumer-service, fraud and dispute practices; the order required up to USD 120 million in consumer redress and a USD 55 million civil penalty. | confirmed | https://www.consumerfinance.gov/enforcement/actions/block-inc/; https://files.consumerfinance.gov/f/documents/cfpb_block-inc-consent-order_2025-01.pdf | 2026-11-09 | The order addresses Cash App consumer financial activities, not Square seller payment processing. Block is Square’s parent; no Square seller-payments shutdown or specific impact is stated in this order. |
 | F40 | Closing an account | Account owner can deactivate; cannot reactivate that same account afterward. Export history first and separately cancel active paid subscriptions. | confirmed | https://squareup.com/help/us/en/article/3819-deactivate-your-account; https://squareup.com/us/en/legal/general/ua; https://squareup.com/help/us/en/article/5068-what-are-square-s-fees | 2026-11-04 | No early-termination fee for the ordinary US offer. Paid-plan cancellation and business deactivation are different actions; outstanding fees and payment obligations survive. |
 | F40 | Closing an account | US closure pays remaining funds on the normal schedule less fees, subject to investigations/holds. Privacy retention is purpose/legal-duty based, not a fixed deletion deadline. | confirmed | https://squareup.com/us/en/legal/general/payment; https://squareup.com/us/en/legal/general/privacy | 2026-11-04 | Payment terms section 38 preserves investigation holds. Privacy notice updated 15 September 2026 permits retention after deactivation for legal, dispute and fraud reasons. |
 | F41 | Legal entity, licence and security scope | Entities: US Block, Inc./relevant affiliates; Canada Square Canada, Inc.; Australia Square AU Pty Ltd; UK Squareup Europe Ltd; Ireland Squareup International Ltd; Japan Square, K.K. | confirmed | https://squareup.com/us/en/legal/general/ua; https://squareup.com/ca/en/legal/general/payment; https://squareup.com/au/en/legal/general/payment; https://squareup.com/gb/en/legal/general/payment; https://squareup.com/ie/en/legal/general/payment; https://squareup.com/us/en/legal/general/privacy; https://squareup.com/au/en/payments/our-fees | 2026-11-04 | UK agreement states FCA e-money reference 900846; Ireland states Central Bank of Ireland EMI reference C184117. These are provider contract statements, not independently verified current regulator-register findings; ordinary Square balances are not all bank deposits. Australia quotes AFSL 513929, expressly limited to some products/services. |
@@ -231,15 +232,16 @@ The active status and gateway/online-payments description are supported. The geo
 ## Counts
 
 Fields attempted: 50 distinct field IDs, F01 to F45 and C01 to C05.
-Fact rows: 118. State counts are rows because one field can have country/product splits and more than one evidence state.
+Fact rows: 119.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 102 |
+| confirmed | 103 |
 | not_published | 9 |
 | unclear | 4 |
 | conflicting | 2 |
 | not_applicable | 0 |
 | check_failed | 1 |
 
-Distinct exact source links cited: 76. Repeated URLs in facts, calculations and unknowns are counted once. This includes the official status URL whose live incident state could not be read.
+- Unique exact source URLs in the facts table: 78.
+- Unique exact source URLs across the whole file: 78. Repeated URLs count once.

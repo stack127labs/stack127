@@ -25,6 +25,7 @@ The task's six state names override those in `fields.md`. Confirmed means offici
 | C04 | lifecycle and access stage | Active community project. Version policy currently lists 18.6 as the current PostgreSQL 18 patch; supported stable major versions are 14–18. The project supports each major for five years. | confirmed | [Versioning Policy](https://www.postgresql.org/support/versioning/) | 2026-11-05 | Versioning Policy, Releases and support policy. This is the checked public version table, not an installed-server test. |
 | C04 | lifecycle and access stage | PostgreSQL 14 reaches end of support on 12 November 2026; PostgreSQL 13 already reached EOL on 13 November 2025. These are major-version retirements, not a shutdown of PostgreSQL. | confirmed | [Versioning Policy](https://www.postgresql.org/support/versioning/) | 2026-11-05 | Versioning Policy, Releases table. Version 14 remains supported on this check date, 5 November 2026. |
 | C04 | lifecycle and access stage | PostgreSQL 19 RC1 was announced on 15 October 2026; RC2 is planned for 12 November and GA for 19 November 2026, subject to release-blocking issues. RC builds are for testing, not production. | confirmed | [PostgreSQL 19 RC 1 Released!](https://www.postgresql.org/about/news/postgresql-19-rc-1-released-3409/)<br>[Downloads](https://www.postgresql.org/download/) | 2026-11-05 | PostgreSQL 19 RC1 Released!, Release Schedule; Downloads, Beta/RC. No whole-project shutdown or acquisition notice was found in the official lifecycle/governance pages checked. |
+| C04 | Lifecycle and access stage | News check 2026-11-09: no sale, shutdown, rebrand, or incident found for Postgresql. | not_published | https://www.postgresql.org/about/news/ ; https://www.postgresql.org/docs/release/ ; https://www.postgresql.org/support/versioning/ | 2026-11-09 | Checked PostgreSQL project news, release notes and versioning/support policy. Routine major-version EOL dates are not a product shutdown; no qualifying sale, rebrand or license change found. |
 | C05 | vendor home and main markets | A single commercial vendor headquarters/market assignment is not applicable: this record concerns the PostgreSQL Global Development Group community project, with governance by its Core Team and other committees. | not_applicable | [Governance](https://www.postgresql.org/about/governance/)<br>[Roadmap](https://www.postgresql.org/developer/roadmap/) | 2026-11-05 | Project Governance Directory; Roadmap, noncommercial volunteer-project description. Berkeley is a historical origin, not evidence of a present vendor headquarters or hosting country. |
 | C06 | signup and use restrictions | Hosted signup, card, trial, account/country eligibility and paid-seat conditions do not apply to this software distribution. | not_applicable | [Downloads](https://www.postgresql.org/download/)<br>[License](https://www.postgresql.org/about/licence/) | 2026-11-05 | Downloads offers packages/installers and source; License permits use without a fee or written agreement. A third-party installer vendor or host can impose its own terms; none are imported here. |
 | C07 | included backend services | Core provides SQL databases, functions/procedures/triggers, database roles, notifications and backup/replication tools. Application-user login, object delivery and general app-worker hosting are separate application responsibilities. | confirmed | [About](https://www.postgresql.org/about/)<br>[1.2. Architectural Fundamentals](https://www.postgresql.org/docs/18/tutorial-arch.html) | 2026-11-05 | About, feature list; Architectural Fundamentals, client/server model. Database role authentication is not a packaged end-user account/MAU service. |
@@ -160,12 +161,12 @@ Inputs: **same 1 GB logical data**, zero queries/jobs, retained for **730 hours*
 ## Counts
 
 - Distinct fields attempted: **46** — C01–C22, D01–D08, F01–F07, V01–V03, J01–J05 and H01.
-- Facts table rows: **67**. Splits distinguish core/optional-extension behavior, separate conditions and unresolved subfields; cost examples are not counted twice.
+- Facts table rows: 68. Splits distinguish core/optional-extension behavior, separate conditions and unresolved subfields; cost examples are not counted twice.
 
 | State | Rows |
 | --- | ---: |
 | confirmed | 43 |
-| not_published | 3 |
+| not_published | 4 |
 | unclear | 0 |
 | conflicting | 0 |
 | not_applicable | 21 |

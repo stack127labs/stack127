@@ -116,6 +116,7 @@ All sources below are official public pages checked **2026-11-05**. “Not publi
 | 35 | Software license and commercial terms | Hosted service use governed by Indian-law terms and AUP; no customer self-host software licence needed for the managed offer. | not_applicable | [Source](https://snapdeploy.dev/terms); [Source](https://snapdeploy.dev/docker-hosting) | 2026-11-05 | Do not label the platform open source merely because Docker and an MCP client are used. This row concerns server software licensing; hosted terms remain applicable. |
 | 36 | Self-host requirements and ongoing work | Managed hosting: customer server OS/root, controller hardware and installation/upgrade requirements not applicable. | not_applicable | [Source](https://snapdeploy.dev/docker-hosting); [Source](https://snapdeploy.dev/docs/deployment) | 2026-11-05 | Provider runs the hosting stack. Builder still updates app dependencies, protects secrets, chooses backups/export procedures and handles application failures. |
 | 37 | Evidence and freshness | Official pricing, documentation, legal policies, roadmap and status checked 2026-11-05; costs are our calculations, not vendor quotes for the fixed workloads. | confirmed | [Source](https://snapdeploy.dev/pricing); [Source](https://snapdeploy.dev/terms); [Source](https://snapdeploy.dev/privacy); [Source](https://snapdeploy.dev/roadmap); [Source](https://snapdeploy.dev/docs/free-tier) | 2026-11-05 | Free-tier page says verified 2026-09-28, Docker guide 2026-10-10; terms label 2026-05-07, privacy/refund 2026-09-18. Source dates are separate from today's check. |
+| 37 | Evidence and lifecycle news check | News check 2026-11-09: no sale, shutdown, rebrand, or qualifying security incident found. | confirmed | https://snapdeploy.dev/; https://snapdeploy.dev/about; https://snapdeploy.dev/blog; https://snapdeploy.dev/terms; https://snapdeploy.dev/status | 2026-11-09 | Checked SnapDeploy product/about, blog, terms and status pages, plus official-domain news searches. The live status page reports operational services. |
 
 ## Cost examples — our calculation
 
@@ -182,11 +183,11 @@ Proposed freshness limit: **30 days, through 2026-12-05**. Recheck pricing, free
 
 ## Counts
 
-Fields attempted: **37 of 37**. Facts-table rows: **98**. Counts describe rows because genuine plan/mode differences and scoped unknowns split some fields.
+Fields attempted: **37 of 37**. Facts-table rows: **99**. Counts describe rows because genuine plan/mode differences and scoped unknowns split some fields.
 
 | State | Rows |
 | --- | ---: |
-| confirmed | 69 |
+| confirmed | 70 |
 | not_published | 16 |
 | unclear | 4 |
 | conflicting | 7 |
