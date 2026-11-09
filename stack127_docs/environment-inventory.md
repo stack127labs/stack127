@@ -8,11 +8,12 @@ Last reconciled: 28 September 2026.
 
 ## Rules
 
-- Real local env files are ignored by Git. Homelab files use mode `0600`; Mac mirrors use mode `0400` and must never be edited or recreated locally.
+- Infisical Cloud, project `stack127`, environment `prod`, is the one source for every value: the homelab `.env.*` files, the OVH env files, the Dokploy app env and GitHub secrets and variables. Change a value with `printf %s "$VALUE" | ssh homelab '~/.local/bin/infisical-env set stack127 FOLDER KEY'`, never by editing a file, Dokploy or GitHub by hand. `ssh homelab '~/.local/bin/infisical-env list stack127 --keys'` shows each folder and its place. A homelab sync writes each change within five minutes, or at once after `set`. See Cockpit `workflow/infisical.md`.
+- Real local env files are ignored by Git. Homelab files use mode `0600` and are written by the Infisical sync; Mac mirrors use mode `0400` and must never be edited or recreated locally.
 - The homelab main checkout `/srv/data/projects/stack127` holds the real private `.env.*` files at mode `0600`. Worktrees link directly to those files. Git ignores both the files and links. Worktree setup and the homelab timer discover new names automatically.
 - Each real file has a tracked, secret-free `*.example` schema.
 - Development and production use separate managed Supabase projects. stack127 doesn't start or depend on a local Docker Supabase stack.
-- GitHub Actions secrets can be scoped to the repository or to the protected `production` environment. Check both scopes when rotating.
+- GitHub Actions secrets can be scoped to the repository or to the protected `production` environment. Infisical holds them in `/github/secrets` and `/github/production/secrets`. Check both when rotating, and every other folder that holds the same value.
 - Dokploy runtime variables belong to the app that uses them. Don't copy BaseBuddy values into the stack127 app, or the other way round.
 - Don't rotate working credentials just because a name or domain changes. Rotate only for expiry, a scope fix, a compromise, or an explicit policy.
 - Keep recovery credentials in the password manager. Local ignored files are a working copy, not the only recovery copy.

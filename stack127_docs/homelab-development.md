@@ -11,7 +11,7 @@ The main stack127 workspace is `/srv/data/projects/stack127` on `teja-homelab`. 
 - `.env.homelab`: homelab administration
 - `.env.repos`: repository automation
 
-Do not start a local Supabase Docker stack. Do not print or commit secrets. Store real private `.env.*` files in the main checkout `/srv/data/projects/stack127`. Worktrees link directly to those files; the files stay at mode `0600` and ignored by Git.
+Do not start a local Supabase Docker stack. Do not print or commit secrets. Real private `.env.*` files live in the main checkout `/srv/data/projects/stack127`, written from Infisical; change values there, as `stack127_docs/environment-inventory.md` describes. Worktrees link directly to those files; the files stay at mode `0600` and ignored by Git.
 
 For a replacement development project, follow [development database recovery](development-database.md).
 Production supplies the published website records. Both databases hold private drafts for platform fees, launch directories, and ad networks. These drafts stay unpublished in production. Keep development previews when refreshing records.
