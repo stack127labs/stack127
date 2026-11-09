@@ -1,0 +1,193 @@
+# Analytics apps: discovery list
+
+Checked on **2026-11-04**. This is step 1: names and proposed research, not completed app reviews. Each official page below was opened. A product page, documentation, plugin listing, or downloadable official project is evidence of an available offering; no account or working data collection was tested. An accessible marketing page alone cannot prove service health.
+
+One row means one product. Cloud and self-hosted editions share a row. Google Analytics for Firebase shares the Google Analytics row. Hotjar is recorded under Contentsquare. Old names and failed checks are in [excluded.md](excluded.md).
+
+**Status:** active = official material presents a current offering; gray = it exists, but cost, setup, maintenance, or audience fit needs the owner's decision; check again = official evidence does not establish current availability. Gray entries count as candidates, not recommendations. No unconfirmed-site candidates are on this main list.
+
+**Region:** `Unknown` means not collected in this discovery pass. EU or country notes below describe the specific vendor claim, not verified legal eligibility or a complete list of markets. Do not infer headquarters from a domain.
+
+**Found:** Prompt = named in the brief; Seed = recalled candidate followed by an official-site check; G1/G2 = public software lists; W1 = web comparison; R1 = review site; V1/V3 = vendor comparison; V2 = replay comparison sources; C1/C2/C3 = community discussion. Exact URLs and search dates are in [notes.md](notes.md). Those sources discover names; the official URL supplies the inclusion evidence.
+
+**Detection proposal:** E = usually easy when a standard hosted script is visible in page code; C = conditional, such as bundled code, first-party scripts, or self-hosting; N = normally invisible in a public homepage. These are research priorities, not tested detection rules. Every E can become invisible after consent gating, proxying, bundling, or server-only collection. Details and draft patterns are in [fields.md](fields.md).
+
+## Web analytics
+
+| Name | Official URL opened | Type and deployment notes | Region or market note | Why it belongs; other directory overlap | Found | Status | Site checked | Detection |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Google Analytics 4, including Google Analytics for Firebase | https://marketingplatform.google.com/about/analytics/ | Web; product; native mobile through Firebase | Unknown | Measures visits and app actions. Firebase product page also checked; backend overlap. | Prompt | active | 2026-11-04 | E |
+| Plausible | https://plausible.io/ | Web; open-source self-hosted Community Edition and hosted service | Built and hosted in EU, vendor claim | Simple site traffic and conversion reports. | Prompt | active | 2026-11-04 | E |
+| Fathom Analytics | https://usefathom.com/ | Web; hosted | Unknown | Site traffic and conversions. Gauges customers moved here. | Prompt | active | 2026-11-04 | E |
+| Umami | https://umami.is/ | Web; product; open source; self-hosted and cloud | Unknown | Traffic and behavior reports in one product. | Prompt | active | 2026-11-04 | C |
+| Simple Analytics | https://www.simpleanalytics.com/ | Web; hosted | Amsterdam; EU-hosted claim | Counts website traffic without persistent visitor profiles. | Prompt | active | 2026-11-04 | E |
+| Cloudflare Web Analytics | https://www.cloudflare.com/web-analytics/ | Web; hosted | Unknown | Traffic reports; hosting and deploy overlap. | Prompt | active | 2026-11-04 | E |
+| Matomo | https://matomo.org/ | Web; open-source self-hosting and cloud; paid extensions differ | Unknown | Traffic, events, and optional behavior features. | G1/G2 | active | 2026-11-04 | C |
+| Piwik PRO | https://piwik.pro/ | Web; hosted; distinct from Matomo | Business plan lists Sweden hosting | Current Business pricing offers a trial and published entry price. Do not copy old Core-free-plan claims. | G1/W1 | active | 2026-11-04 | C |
+| Pirsch | https://pirsch.io/ | Web; hosted; check engine license separately | Made and hosted in Germany, vendor claim | Traffic and campaign reporting. | W1 | active | 2026-11-04 | E |
+| GoatCounter | https://www.goatcounter.com/ | Web; open source; hosted and self-hosted | Unknown | Small-site analytics, including pixel and log-import options. | G1 | active | 2026-11-04 | E |
+| Ackee | https://ackee.electerious.com/ | Web; open source; self-hosted | Unknown | Privacy-focused traffic reports on the builder's server. | G1 | active | 2026-11-04 | C |
+| Offen Fair Web Analytics | https://www.offen.dev/ | Web; open source; self-hosted | Unknown | Visitor analytics with visitors able to inspect their data. | G1/G2 | active | 2026-11-04 | C |
+| Shynet | https://github.com/milesmcc/shynet | Web; open source; self-hosted | Unknown | Website traffic reporting without mandatory JavaScript. Check maintenance before recommending. | G1 | gray | 2026-11-04 | C |
+| Open Web Analytics | https://www.openwebanalytics.com/ | Web; open source; self-hosted | Unknown | Website and application analytics framework. | Seed | active | 2026-11-04 | C |
+| GoAccess | https://goaccess.io/ | Web; open source; server-log analysis | Unknown | Reads server request logs rather than requiring a browser tracker. | G2 | active | 2026-11-04 | N |
+| AWStats | https://www.awstats.org/ | Web; open source; server-log analysis | Unknown | Traffic reports from logs; separate human traffic from bots later. | G2 | active | 2026-11-04 | N |
+| Counter.dev | https://counter.dev/ | Web; open source; hosted | Unknown | Small-site visitor and referral reports. | W1 | active | 2026-11-04 | E |
+| Cabin | https://withcabin.com/ | Web; hosted | Unknown | Website traffic reports with a small-site focus. | W1 | active | 2026-11-04 | E |
+| Swetrix | https://swetrix.com/ | Web; product; open source; self-host edition to compare | Unknown | Traffic, events, and performance reports; error monitoring overlap. | G1/C1 | active | 2026-11-04 | C |
+| Rybbit | https://rybbit.com/ | Web; product; replay; open source; self-host option | Unknown | Traffic, conversion, and behavior reports. Old rybbit.io redirects here. | G1/C1 | active | 2026-11-04 | C |
+| OpenPanel | https://openpanel.dev/ | Web; product; open source; self-hosted and cloud | EU cloud, vendor claim | Website and in-app behavior reports. | G1/V1 | active | 2026-11-04 | C |
+| Litlyx | https://litlyx.com/ | Web; self-host edition listed in G2, verify current edition terms later | Made and hosted in EU, vendor claim | Website events and traffic. | G2/W1 | active | 2026-11-04 | E |
+| Tianji | https://tianji.dev/ | Web; self-host project; other monitoring features | Unknown | Website analytics alongside uptime and server monitoring. Old msgbyte URL redirects here. | Seed | active | 2026-11-04 | C |
+| Vemetric | https://vemetric.com/ | Web; product; open source; homepage says self-host edition is not ready | EU-based and EU-server claim | Traffic, user journeys, and funnels. Do not equate open code with available self-hosting. | C1 | active | 2026-11-04 | E |
+| Databuddy | https://www.databuddy.cc/ | Web; product | Unknown | Traffic, funnels, revenue, and errors; error monitoring overlap. | W1 | active | 2026-11-04 | C |
+| Seline | https://seline.com/ | Web; product | Unknown | Traffic, visitor journeys, and funnels. | W1 | active | 2026-11-04 | E |
+| DataFast | https://datafa.st/ | Web; revenue attribution | Unknown | Links traffic sources to payments; payment providers overlap. | W1 | active | 2026-11-04 | E |
+| Visitors | https://visitors.now/ | Web; revenue attribution | Unknown | Website behavior and revenue by source. | W1 | active | 2026-11-04 | E |
+| Statcounter | https://statcounter.com/ | Web; replay | Unknown | Website traffic and individual visit review. | Seed | active | 2026-11-04 | E |
+| Clicky | https://clicky.com/ | Web; hosted | Unknown | Real-time visits, events, and conversions. | Seed | active | 2026-11-04 | E |
+| Statify | https://wordpress.org/plugins/statify/ | Web; WordPress; self-hosted plugin | Unknown | Traffic reports inside WordPress. | Seed | active | 2026-11-04 | C |
+| Koko Analytics | https://www.kokoanalytics.com/ | Web; WordPress; open-source self-hosted plugin | Unknown | Local traffic reports for WordPress sites. | G1 | active | 2026-11-04 | C |
+| Independent Analytics | https://independentwp.com/ | Web; WordPress; plugin | Unknown | WordPress traffic, referral, and optional sales reports. | Seed | active | 2026-11-04 | C |
+| WP Statistics | https://wp-statistics.com/ | Web; WordPress; plugin | Unknown | Website audience and content reports. | Seed | active | 2026-11-04 | C |
+| Burst Statistics | https://burst-statistics.com/ | Web; WordPress; plugin | Unknown | Traffic and conversion reporting with free and paid editions. | Seed | active | 2026-11-04 | C |
+| Jetpack Stats | https://jetpack.com/stats/ | Web; WordPress; hosted reporting | Unknown | Traffic reports for WordPress publishers. | Seed | active | 2026-11-04 | E |
+| Vercel Web Analytics | https://vercel.com/docs/analytics | Web; hosting add-on | Unknown | Website audience reports; hosting and deploy overlap. Old /analytics marketing URL redirects to Observability. | Seed | active | 2026-11-04 | C |
+| Netlify Web Analytics | https://docs.netlify.com/manage/monitoring/web-analytics/overview/ | Web; hosting-side analytics | Unknown | Traffic reports from the hosting layer; hosting and deploy overlap. | Seed | active | 2026-11-04 | N |
+| Tinylytics | https://tinylytics.app/ | Web; hosted | Unknown | Traffic, events, and content reports for small sites. | Seed | active | 2026-11-04 | E |
+| Microanalytics | https://microanalytics.io/ | Web; hosted | Unknown | Traffic sources, goals, and conversions. | Seed | active | 2026-11-04 | E |
+| Prisme Analytics | https://www.prismeanalytics.com/ | Web; self-host option listed in G2, verify edition terms | Unknown | Website traffic and configurable reports. | G2 | active | 2026-11-04 | C |
+| PoeticMetric | https://poeticmetric.com/ | Web; open source | Unknown | Website analytics; verify hosted signup and maintained self-host edition before recommending. | Seed | gray | 2026-11-04 | C |
+| Nocodelytics | https://www.nocodelytics.com/ | Web; Webflow-specific | Unknown | Tracks site actions for Webflow builders. | Seed | active | 2026-11-04 | E |
+| Publytics | https://publytics.net/ | Web; publisher-focused | Unknown | Audience and content traffic for publishers. | Seed | active | 2026-11-04 | E |
+| Cronitor RUM, formerly Panelbear | https://cronitor.io/real-user-monitoring | Web; performance monitoring | Unknown | Website audience and performance reports; error monitoring overlap. | Seed | active | 2026-11-04 | E |
+| etracker | https://www.etracker.com/en/ | Web; hosted | Germany-focused positioning | Website audience, campaigns, and conversions. | Seed | active | 2026-11-04 | E |
+| Yandex Metrica | https://metrica.yandex.com/ | Web; replay; hosted | Russian-language landing page; check country access later | Traffic, campaigns, and behavior; current URL redirects to Yandex business site. | Seed | active | 2026-11-04 | E |
+| Baidu Tongji | https://tongji.baidu.com/ | Web; hosted | China; Chinese-language product page | Important regional web-analytics option. Check account eligibility and language limits. | Seed | gray | 2026-11-04 | E |
+| Histats | https://www.histats.com/ | Web; hosted counter | Unknown | Small-site traffic and visitor statistics. | Seed | active | 2026-11-04 | E |
+| whos.amung.us | https://whos.amung.us/ | Web; hosted counter | Unknown | Live website audience counts and maps. | Seed | active | 2026-11-04 | E |
+| Hitsteps | https://www.hitsteps.com/ | Web; heatmaps | Unknown | Traffic, visitor journeys, and funnels; customer support overlap where chat is offered. | Seed | active | 2026-11-04 | E |
+| SlimStat Analytics | https://wp-slimstat.com/ | Web; WordPress; plugin | Unknown | WordPress audience and store reports. | Seed | active | 2026-11-04 | C |
+| Logly | https://logly.uk/ | Web; hosted | Unknown | Counts website visits and separates bot traffic. | G1 | active | 2026-11-04 | E |
+| piratepx | https://www.piratepx.com/ | Web; open-source counter pixel | Unknown | Minimal counts for indie projects; no unique-user or session reporting. Public site is old; check service maintenance. | G1 | gray | 2026-11-04 | E |
+| Clickport | https://clickport.io/ | Web; hosted | German-hosting claim | Traffic, goals, and campaign reporting. | G1 | active | 2026-11-04 | E |
+| PageLens | https://pagelens.io/ | Web; revenue attribution | Unknown | Traffic and source-linked revenue; includes AI-referral views. | G1 | active | 2026-11-04 | E |
+| measuremy.site | https://measuremy.site/ | Web; hosted; self-host version linked from G1, verify later | Unknown | Website audience and signup drop-off reports. | G1 | active | 2026-11-04 | E |
+| DevDome Analytics | https://devdome.com/ | Web; WordPress focus | Unknown | Separates website visitors and bots. | G1 | active | 2026-11-04 | C |
+| Statable | https://statable.com/ | Web; hosted | Unknown | Website traffic and historical GA import. | G1/W1 | active | 2026-11-04 | E |
+| Ucoder Insight | https://insights.ucoder.in/ | Web; SDK, a code library added to a site | Unknown | Website actions, sessions, and errors; error monitoring overlap. | G1 | active | 2026-11-04 | C |
+| Beam at beam-privacy.com | https://beam-privacy.com/ | Web; hosted | Unknown | Website traffic and events. Separate from the closed Beam Analytics at beamanalytics.io. | G1 | active | 2026-11-04 | E |
+| Measure.events | https://measure.events/ | Web; hosted | Unknown | Website traffic split between humans, agents, and bots. | G1 | active | 2026-11-04 | E |
+| d8a.tech | https://d8a.tech/ | Web; open-source/self-host option; stores data in a data warehouse | EU-cloud option; verify exact locations | Analytics with customer-controlled storage; databases and backend overlap. More setup than a simple counter. | G1/G2 | gray | 2026-11-04 | C |
+| HitKeep | https://hitkeep.com/ | Web; open-source core; cloud and self-host | Cloud offers EU or US, vendor claim | Traffic, goals, and conversions. | G2 | active | 2026-11-04 | C |
+| liwan | https://liwan.dev/ | Web; open source; self-hosted | Unknown | Website traffic in a single server program. | G2 | active | 2026-11-04 | C |
+| Fathom Lite | https://github.com/usefathom/fathom | Web; open source; self-hosted legacy edition | Unknown | Available code, distinct from paid Fathom. Maintenance and upgrade path need review. | G1 | gray | 2026-11-04 | C |
+| Freshlytics | https://github.com/sheshbabu/freshlytics | Web; open source; self-hosted | Unknown | Public traffic-analytics project; release activity and installation need review. | G1 | gray | 2026-11-04 | C |
+| Facet | https://github.com/writerslogic/facet | Web; open source; self-hosted on Cloudflare | Unknown | Traffic, funnels, and experiments on Workers and D1; hosting and backend overlap. Young project; review setup. | G1 | gray | 2026-11-04 | C |
+| Shopify Analytics | https://www.shopify.com/analytics | Web; store and sales reporting; built into Shopify | Shopify stores | Visitor and purchase reports for creators selling products; hosting and payment providers overlap. | V2/Seed | active | 2026-11-04 | C |
+| Wix Analytics | https://www.wix.com/manage/analytics | Web; built into Wix | Wix sites | Audience, behavior, and sales reports; hosting and deploy overlap. | Seed | active | 2026-11-04 | C |
+| Framer Analytics | https://www.framer.com/analytics | Web; built into Framer | Framer sites | Native visitor reporting; hosting and deploy overlap. | Seed | active | 2026-11-04 | C |
+| Webflow Analytics / Analyze | https://webflow.com/feature/analyze | Web; Webflow add-on | Webflow sites | Visitor behavior and conversion reports; hosting and deploy overlap. | Seed | active | 2026-11-04 | C |
+| Ghost native analytics | https://ghost.org/help/native-analytics/ | Web; publication and subscription reporting | Ghost publications | Audience and member revenue reports; email/newsletters and hosting overlap. Verify hosted/self-hosted analytics differences later. | Seed | active | 2026-11-04 | C |
+| Counterscale | https://counterscale.dev/ | Web; open source; self-hosted on Cloudflare | Unknown | Website traffic reports; hosting and deploy overlap. | Seed | active | 2026-11-04 | C |
+| vince | https://www.vinceanalytics.com/ | Web; self-hosted | Unknown | Own-server website traffic reporting. Current release/maintenance needs a check. | Seed | gray | 2026-11-04 | C |
+| Betterlytics | https://betterlytics.io/ | Web; replay; performance; source repository linked | Unknown | Website traffic, visitor behavior, errors, and uptime; error monitoring overlap. Verify repository license and hosted/self-hosted differences later. | Seed | active | 2026-11-04 | C |
+| Humblytics | https://humblytics.com/ | Web; attribution; experiments | Unknown | Website actions, funnels, and revenue by acquisition channel. | W1 | active | 2026-11-04 | E |
+
+## Product analytics
+
+| Name | Official URL opened | Type and deployment notes | Region or market note | Why it belongs; other directory overlap | Found | Status | Site checked | Detection |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| PostHog | https://posthog.com/ | Product; web; mobile; replay; open-source self-host option, officially unsupported | US/EU cloud options in docs | Events, funnels, retention, and replays; error monitoring and backend overlap. | Prompt | active | 2026-11-04 | C |
+| Mixpanel | https://mixpanel.com/ | Product; mobile; replay | Unknown | App actions, conversion paths, and returning users. | Prompt | active | 2026-11-04 | C |
+| Amplitude | https://amplitude.com/ | Product; mobile; replay | Unknown | App behavior and retention. June's team moved here. | Prompt | active | 2026-11-04 | C |
+| Heap by Contentsquare | https://www.heap.io/ | Product; automatic event capture | Unknown | Separate product offering still advertised, with a trial. Owner is Contentsquare; avoid parent-company double counts. | R1 | active | 2026-11-04 | E |
+| Pendo | https://www.pendo.io/ | Product; onboarding guides | Unknown | Product usage reporting. Check current free-plan limits and paid minimums. | R1 | gray | 2026-11-04 | C |
+| Userpilot | https://userpilot.com/ | Product; replay; onboarding | Unknown | In-app behavior and conversion reporting. Paid entry may be too costly for a solo builder. | R1 | gray | 2026-11-04 | C |
+| Kissmetrics | https://kissmetrics.io/ | Product; web; revenue attribution | Unknown | Tracks actions and paying-customer journeys. Current homepage advertises a free plan. | Seed | active | 2026-11-04 | E |
+| Woopra | https://www.woopra.com/ | Product; customer journeys | Unknown | Usage and retention reports. Current site advertises a trial; paid minimum needs review. | Seed | gray | 2026-11-04 | E |
+| Usermaven | https://usermaven.com/ | Product; web; attribution | Unknown | Product actions and acquisition journeys. | C2 | active | 2026-11-04 | E |
+| Statsig | https://www.statsig.com/ | Product; web; replay; experiments | Unknown | Usage reporting alongside experiments. Amplitude's May 2026 announcement says it took on the brand and customers and will maintain the platform; see notes. | R1 | active | 2026-11-04 | C |
+| Mitzu | https://mitzu.io/ | Product; queries an existing data warehouse | Unknown | Product behavior without moving stored events. Gray because builders need their own event data and storage first. | Seed | gray | 2026-11-04 | N |
+| Azure Application Insights usage analysis | https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage | Product; app-usage reports inside monitoring service | Azure account/region requirements | Events and user behavior with a self-serve cloud account. Gray: technical setup and metered data costs; backend and error monitoring overlap. | Seed | gray | 2026-11-04 | C |
+
+## Session replay and heatmaps
+
+A session replay reconstructs someone's visit. A heatmap groups clicks or scrolling on a page. Analytics suites above can also offer these features; they are not counted twice.
+
+| Name | Official URL opened | Type and deployment notes | Region or market note | Why it belongs; other directory overlap | Found | Status | Site checked | Detection |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Microsoft Clarity | https://clarity.microsoft.com/ | Replay; heatmaps; web and app | Unknown | Free visitor-behavior review. | Prompt | active | 2026-11-04 | E |
+| Contentsquare, including former Hotjar offering | https://contentsquare.com/hotjar/ | Replay; heatmaps; product | Unknown | Current free entry exists. Hotjar is an old product name here, not a second app. | Prompt/R1 | active | 2026-11-04 | E |
+| Mouseflow | https://mouseflow.com/ | Replay; heatmaps; forms | Unknown | Reviews visits and conversion problems. | V2 | active | 2026-11-04 | E |
+| Lucky Orange | https://www.luckyorange.com/ | Replay; heatmaps; funnels | Unknown | Visitor behavior and conversion review; customer support overlap for chat. | V2 | active | 2026-11-04 | E |
+| Crazy Egg | https://www.crazyegg.com/ | Heatmaps; replay; web | Unknown | Click and scroll maps, visits, and experiments. | V2 | active | 2026-11-04 | E |
+| Fullstory | https://www.fullstory.com/ | Replay; web; mobile; product | Unknown | Current official free plan explicitly serves individuals and small teams. | R1 | active | 2026-11-04 | E |
+| LogRocket | https://logrocket.com/ | Replay; product; error monitoring | Unknown | Links user behavior to app problems; error monitoring overlap. | R1 | active | 2026-11-04 | C |
+| OpenReplay | https://openreplay.com/ | Replay; product; self-hosted and cloud; source license needs edition check | Unknown | Own-server replay option and user journeys; customer support and error monitoring overlap. | V1 | active | 2026-11-04 | C |
+| Inspectlet | https://www.inspectlet.com/ | Replay; heatmaps; forms | Unknown | Visitor recordings, forms, and conversion review. | Seed | active | 2026-11-04 | E |
+| LiveSession | https://livesession.io/ | Replay; product; debugging | Unknown | User behavior and app problems; error monitoring overlap. | Seed | active | 2026-11-04 | E |
+| Plerdy | https://www.plerdy.com/ | Heatmaps; replay; funnels | Unknown | Website conversion and visitor behavior. | V2 | active | 2026-11-04 | E |
+| UXWizz | https://www.uxwizz.com/ | Web; replay; heatmaps; paid self-hosted software | Unknown | One-server traffic and replay reports. Self-hosted does not mean open source. | Seed | active | 2026-11-04 | C |
+| Reactflow | https://reactflow.com/ | Replay; heatmaps; debugging | Unknown | Visitor actions and conversion problems. This is not the React Flow diagramming library at reactflow.dev. | Seed | active | 2026-11-04 | E |
+| Browsee | https://browsee.io/ | Replay; heatmaps; funnels | Unknown | Behavior review with an advertised free entry. | Seed | active | 2026-11-04 | E |
+| Zipy | https://www.zipy.ai/ | Replay; product; debugging | Unknown | User behavior tied to failures; error monitoring overlap. | Seed | active | 2026-11-04 | C |
+| UXsniff | https://uxsniff.com/ | Replay; heatmaps | Unknown | Website behavior and conversion friction. | Seed | active | 2026-11-04 | E |
+| TruConversion | https://www.truconversion.com/ | Replay; heatmaps; forms | Unknown | Funnel, form, and visitor reports. | Seed | active | 2026-11-04 | E |
+| heatmap.com | https://heatmap.com/ | Heatmaps; revenue attribution | Ecommerce-focused | Page behavior connected to sales. Gray because store-first positioning may be narrow for this directory. | Seed | gray | 2026-11-04 | E |
+| CUX | https://cux.io/ | Behavior analytics; web and mobile | Unknown | Current site combines software with analyst services. Check whether there is a practical solo-builder plan. | Seed | gray | 2026-11-04 | E |
+| Zoho PageSense | https://www.zoho.com/pagesense/ | Replay; heatmaps; web; experiments | Unknown | Website behavior, forms, and funnels; check which Zoho bundle includes each feature. | Seed | active | 2026-11-04 | E |
+| Sentry Session Replay | https://blog.sentry.io/getting-started-with-session-replay/ | Replay; web and mobile editions; error monitoring | Unknown | Replay is an analytics use alongside debugging. Gray: product/docs fetches returned unsupported Markdown content type; official replay article opened. Verify current quotas and edition differences. | Seed | gray | 2026-11-04 | C |
+| Datadog RUM and Session Replay | https://www.datadoghq.com/products/digital-experience/real-user-monitoring/ | Replay; product; web/mobile monitoring | Unknown | User journeys and replay inside a monitoring suite. Gray: check solo entry, minimum billing, and SDK feature gates. Error monitoring overlap. | Seed | gray | 2026-11-04 | C |
+| New Relic Browser | https://newrelic.com/platform/browser-monitoring | Web; usage and performance monitoring | Unknown | Real-user patterns and journeys. Gray: analytics and replay entitlements, data cost, and seats need checking; error monitoring overlap. | Seed | gray | 2026-11-04 | C |
+
+## Mobile app analytics
+
+Web/product suites with mobile support stay in their primary section. Store dashboards and game tools are included because solo app builders can use them. Paid-ad measurement tools get a specific label; they answer acquisition questions, not every product-usage question.
+
+| Name | Official URL opened | Type and deployment notes | Region or market note | Why it belongs; other directory overlap | Found | Status | Site checked | Detection |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TelemetryDeck | https://telemetrydeck.com/ | Mobile; desktop; web | Unknown | App-usage reporting aimed partly at indie developers. | C3 | active | 2026-11-04 | N |
+| Aptabase | https://aptabase.com/ | Mobile; desktop; web; open source; self-host option | Unknown | App events with a privacy-focused setup. | C3/G2 | active | 2026-11-04 | N |
+| Countly | https://countly.com/ | Mobile; web; desktop; server code public; paid cloud and on-premise editions | Region choice advertised | App usage and engagement. Gray: current cloud minimum and Community Edition maintenance need review. | G2 | gray | 2026-11-04 | N |
+| UXCam | https://uxcam.com/ | Mobile; web; replay; heatmaps | Unknown | In-app behavior and retention alongside replays. | C3 | active | 2026-11-04 | N |
+| AppMetrica | https://appmetrica.yandex.com/about | Mobile; attribution; hosted | Yandex product; check country access | App behavior, retention, and acquisition. Public about page works; root redirects to login, which was not used. | Seed | active | 2026-11-04 | N |
+| App Store Connect App Analytics | https://developer.apple.com/app-store-connect/analytics/ | Mobile; store-provided reports | Apple's app ecosystem | Downloads, usage, and acquisition for the builder's own apps. Not a competitor-app intelligence service. | C3 | active | 2026-11-04 | N |
+| Google Play Console Statistics | https://google.play/business/ | Mobile; store-provided reports | Google Play ecosystem | Own-app reporting. Root marketing site works; verify current Statistics help page before full research. | Seed | gray | 2026-11-04 | N |
+| GameAnalytics | https://www.gameanalytics.com/ | Mobile; games; other game platforms | Unknown | Player behavior and monetization reports. | Seed | active | 2026-11-04 | N |
+| Unity Analytics | https://docs.unity.com/en-us/analytics | Mobile; games; platform analytics | Unity ecosystem | Player events, engagement, and game performance. Current official docs work. | Seed | active | 2026-11-04 | N |
+| devtodev | https://www.devtodev.com/ | Mobile; games; product analytics | Unknown | Retention, player journeys, and revenue. | Seed | active | 2026-11-04 | N |
+| AppsFlyer | https://www.appsflyer.com/ | Mobile; acquisition and attribution | Unknown | Identifies acquisition sources and post-install outcomes; official Zero entry checked. | G1 | active | 2026-11-04 | N |
+| Adjust | https://www.adjust.com/ | Mobile; acquisition and attribution | Unknown | Acquisition and post-install reporting. Gray: current Base free access is time-limited. | Seed | gray | 2026-11-04 | N |
+| Singular | https://www.singular.net/ | Mobile; acquisition and attribution | Unknown | Campaign cost and app outcomes; official Free offering checked. | Seed | active | 2026-11-04 | N |
+| Branch | https://www.branch.io/ | Mobile; attribution; deep links | Unknown | App acquisition and cross-device journeys. Gray: distinguish paid analytics from basic deep-link features. | Seed | gray | 2026-11-04 | N |
+| Kochava Free App Analytics | https://www.kochava.com/ | Mobile; acquisition and attribution | Unknown | Explicit free app-analytics offering, separate from enterprise services. | Seed | active | 2026-11-04 | N |
+| Tenjin | https://tenjin.com/ | Mobile; games; attribution | Unknown | App acquisition and monetization reports. Gray: current advertised paid minimum may exceed a small project's budget. | Seed | gray | 2026-11-04 | N |
+| Tapstream | https://tapstream.com/ | Mobile; attribution | Unknown | Web-to-app acquisition and app events. Check current entry pricing and maintenance. | G1 | gray | 2026-11-04 | N |
+| Respectlytics | https://respectlytics.com/ | Mobile; open source; self-host option | Unknown | Session-based app usage, conversions, and funnels. | G1 | active | 2026-11-04 | N |
+
+## SaaS and app revenue analytics
+
+| Name | Official URL opened | Type and deployment notes | Region or market note | Why it belongs; other directory overlap | Found | Status | Site checked | Detection |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ChartMogul | https://chartmogul.com/ | Revenue; subscription reporting | Unknown | Recurring revenue, churn, and customer cohorts. | Prompt | active | 2026-11-04 | N |
+| Baremetrics | https://baremetrics.com/ | Revenue; subscription reporting | Unknown | Subscription revenue, churn, and forecasts. | Prompt | active | 2026-11-04 | N |
+| ProfitWell Metrics by Paddle | https://www.paddle.com/profitwell-metrics | Revenue; subscription reporting | Unknown | Current free metrics product; do not treat the Paddle acquisition as a shutdown. Payment providers overlap. | Prompt | active | 2026-11-04 | N |
+| RevenueCat | https://www.revenuecat.com/ | Revenue; app subscriptions | Unknown | App purchase and subscription analytics; payment providers and backend overlap. | V3 | active | 2026-11-04 | N |
+| Adapty | https://adapty.io/ | Revenue; mobile subscriptions | Unknown | Subscription and lifetime-value reports; payment providers overlap. | Seed | active | 2026-11-04 | N |
+| Qonversion | https://qonversion.io/ | Revenue; mobile subscriptions | Unknown | Subscription behavior and revenue; payment providers and backend overlap. | Seed | active | 2026-11-04 | N |
+| Apphud | https://apphud.com/ | Revenue; mobile subscriptions | Unknown | Subscription, customer, and app revenue reports; payment providers overlap. | Seed | active | 2026-11-04 | N |
+| Superwall | https://superwall.com/ | Revenue; subscriptions; paywall experiments | Unknown | Subscription revenue and conversion analytics; payment providers and backend overlap. | Seed | active | 2026-11-04 | N |
+| Putler | https://www.putler.com/ | Revenue; subscriptions; ecommerce | Unknown | Combines customer and sales data across payment sources; payment providers overlap. | Seed | active | 2026-11-04 | N |
+| Stripe Billing analytics | https://stripe.com/billing | Revenue; built into billing provider | Stripe availability needs country check | Useful built-in baseline before buying another metrics product; payment providers overlap. Confirm reporting entitlements later. | Seed | active | 2026-11-04 | N |
+| MRR.io | https://mrr.io/ | Revenue; subscription reporting | Unknown | Recurring revenue and churn from integrations, manual entry, or API. | Seed | active | 2026-11-04 | N |
+| Purchasely | https://www.purchasely.com/ | Revenue; mobile subscriptions; paywall analytics | Unknown | Subscription lifecycle and paywall-action reports; official analytics docs checked. Payment providers and backend overlap. | Seed | active | 2026-11-04 | N |
+| Polar Analytics | https://polar.sh/docs/features/analytics | Revenue; built into billing provider | Polar merchant availability needs checking | Subscription, customer, and revenue metrics; payment providers and backend overlap. | Seed | active | 2026-11-04 | N |
+| Lemon Squeezy analytics | https://www.lemonsqueezy.com/ | Revenue; built into selling platform | Seller-country availability needs checking | Customer revenue and MRR fields documented in official API; verify full dashboard depth later. Payment providers overlap. | Seed | active | 2026-11-04 | N |
+| Paddle Billing reporting | https://www.paddle.com/billing/reporting | Revenue; built into billing provider | Paddle merchant availability needs checking | Payment and customer reports, distinct from standalone ProfitWell Metrics; payment providers overlap. | Seed | active | 2026-11-04 | N |
+
+## Limits of this inventory
+
+This is a broad discovery pass, not proof that every analytics product worldwide has been found. It includes smaller projects and regional products that many English comparison lists miss. `gray` entries need a keep/remove decision. Failed official checks are visible in the excluded list rather than presented as active products.
+
+Main-site availability was checked, not signup eligibility, installation, billing, contractual terms, or actual accuracy. Self-hosted maintenance, precise licenses, acquisitions that leave a product operating, and current features must be checked per edition during the next research step.
