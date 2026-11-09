@@ -2,7 +2,7 @@
 
 Checked on 2026-11-04. This is discovery for later research, not a finished comparison or a recommendation.
 
-240 candidates: 177 active, 43 gray, 20 check again. “Active” means an official product page or official documentation was readable and offered the service. It does not mean we signed up, tested a payment, or proved approval for every seller.
+238 candidates: 173 active, 43 gray, 20 check again, 1 closing, 1 risk. Cryptomus and Heleket were removed on 2026-11-09 because their operator is under UK sanctions. “Active” means an official product page or official documentation was readable and offered the service. It does not mean we signed up, tested a payment, or proved approval for every seller.
 
 “Gray” means the site is operating but the product boundary, current contract, or practical fit for one seller needs a decision. “Check again” means the official check was blocked, empty, or raised an unresolved service question. These rows are leads, not verified operating choices. A dated attempt is not a confirmation. KOMOJU has a confirmed readable site, but its recent incident notice still needs a service-status recheck.
 
@@ -227,7 +227,6 @@ Discovery labels link to the search and source log in [notes.md](notes.md). “K
 | BTCPay Server | [Official site](https://btcpayserver.org/) | crypto | Global; self-hosted software | Run your own Bitcoin checkout; hosting and maintenance remain yours. | Crypto comparison | active | 2026-11-04 |
 | OpenNode | [Official site](https://opennode.com/) | crypto | Global; US origin | Bitcoin online checkout and settlement tools. | Crypto comparison | active | 2026-11-04 |
 | Triple-A | [Official site](https://www.triple-a.io/) | crypto | Global; Singapore origin | Merchant crypto acceptance; current enterprise focus makes solo fit unclear. | Crypto comparison, Wix | gray | 2026-11-04 |
-| Cryptomus | [Official site](https://cryptomus.com/) | crypto | Global | Merchant crypto gateway; later research must check legal entity and restrictions. Note: FINTRAC’s CAD 176,960,190 penalty against Xeltox Enterprises Ltd. is under appeal; the UK designation took effect 2026-10-08 (checked 2026-11-07). | Crypto comparison | risk | 2026-11-04 |
 | Plisio | [Official site](https://plisio.net/) | crypto | Global | Crypto gateway with invoices and website integrations. Note: The legal operator, custody and KYC claims remain unresolved; the linked UK PLISIO Ltd. was dissolved on 2021-06-29 (checked 2026-11-07). | Crypto comparison | active | 2026-11-04 |
 | Confirmo | [Official site](https://confirmo.com/) | crypto | Global; Europe origin | Crypto checkout and recurring stablecoin offer; solo access needs checking. | PP, crypto comparison | gray | 2026-11-04 |
 | DePay | [Official site](https://www.depay.com/) | crypto | Global; Europe origin | Wallet-based online crypto payment integration. | PP | active | 2026-11-04 |
@@ -235,7 +234,6 @@ Discovery labels link to the search and source log in [notes.md](notes.md). “K
 | Crypto.com Pay | [Official site](https://crypto.com/pay-merchant) | crypto | Global | Dedicated crypto merchant checkout signup. | Known-name lead | active | 2026-11-04 |
 | Coinremitter | [Official site](https://coinremitter.com/) | crypto | Global | Crypto merchant invoices, payment pages and plugins. | Crypto comparison | active | 2026-11-04 |
 | CryptAPI | [Official site](https://cryptapi.io/) | crypto | Global | Crypto acceptance forwarded to seller wallets. | Crypto comparison | active | 2026-11-04 |
-| Heleket | [Official site](https://heleket.com/) | crypto | Global | Website and bot crypto payment collection. Note: The UK designated Xeltox Enterprises Ltd. on 2026-10-08 and lists Heleket as a name variation; UK payment processing restrictions apply (checked 2026-11-07). | Crypto comparison | risk | 2026-11-04 |
 | Lago | [Official site](https://getlago.com/) | billing | Global; Europe origin | Billing with connected collections; self-hosted option may suit technical solo founders. | Known-name lead | gray | 2026-11-04 |
 | Autumn | [Official site](https://useautumn.com/) | billing | Global | Usage billing for startups; confirm connected payment providers in later research. | Known-name lead | gray | 2026-11-04 |
 | Rebilly | [Official site](https://www.rebilly.com/) | billing | Global | Subscription billing and payment routing; confirm minimum costs. | Known-name lead | gray | 2026-11-04 |
@@ -270,7 +268,7 @@ These include gray and check-again leads. They are not a count of launch-ready l
 | payment link | 8 |
 | other | 8 |
 | billing | 14 |
-| crypto | 16 |
+| crypto | 14 |
 
 | Market grouping | Candidates |
 | --- | ---: |

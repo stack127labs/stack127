@@ -23,11 +23,9 @@ Rows marked `risk` (sanctions, regulator action, or trust problems):
 
 | App | List | Why |
 | --- | --- | --- |
-| Cryptomus | payment-providers | UK sanctions on operator Xeltox Enterprises Ltd (2026-10-08); Canada FINTRAC penalty CAD 176,960,190 (under appeal) |
-| Heleket | payment-providers | Named on the UK sanctions entry for the same operator as Cryptomus |
 | Paymee | payment-providers | 2024 official statement on paralyzed operations and frozen funds; no resumption notice |
 
-Recommendation: remove Cryptomus and Heleket from public pages.
+Removed on 2026-11-09 (owner decision): Cryptomus and Heleket. Their operator, Xeltox Enterprises Ltd, is on the UK sanctions list (designated 2026-10-08; Heleket and Cryptomus are listed name variations) and was given a CAD 176,960,190 FINTRAC penalty (under appeal). Their research files were deleted; they remain in git history.
 
 ## Owner changes
 
@@ -88,7 +86,7 @@ Recommendation: remove Cryptomus and Heleket from public pages.
 
 | App | List | Action |
 | --- | --- | --- |
-| Cryptomus, Heleket | payment-providers | UK sanctions; FINTRAC penalty (see above) |
+| Cryptomus, Heleket (removed) | payment-providers | UK sanctions; FINTRAC penalty (see above) |
 | Paddle | payment-providers | FTC order, USD 5 million judgment (2025-06-20) |
 | PayPal | payment-providers | NYDFS USD 2 million penalty (2025-01-23) |
 | Paytm Payment Gateway | payment-providers | RBI cancelled Paytm Payments Bank's licence (2026-04-24) |
@@ -149,8 +147,8 @@ Consider a "low activity" label or dropping: Lunni, Zeplo, UptimeToolbox, Cachet
 - Plesk 2027 prices (announced, amounts not public yet).
 - Drip acquisition post (blocked by a bot check for the coordinator; the agent read it).
 
-## Possible new apps
+## New apps added on 2026-11-09 (owner decision)
 
-- Text (by the LiveChat company): customer support.
-- CampaignLark (by Maileroo): email and newsletters.
-- Polar Analytics (ecommerce): analytics; file already saved as `analytics/apps/polar-analytics-ecommerce.md`.
+- Text (Text S.A., the LiveChat company): customer-support; `customer-support/apps/text.md`. New LiveChat, HelpDesk, and ChatBot signups now go to Text.
+- CampaignLark (Maileroo Group Pty Ltd): email-and-newsletters; `email-and-newsletters/apps/campaignlark.md`. Maileroo's newsletter product, billed separately.
+- Polar Analytics (ecommerce): analytics; `analytics/apps/polar-analytics-ecommerce.md`. The older row for Polar.sh's built-in analytics is now named "Polar.sh analytics".

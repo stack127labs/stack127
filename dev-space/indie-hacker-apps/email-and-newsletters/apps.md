@@ -138,6 +138,7 @@ Region describes an obvious market or language focus on the opened site, not a v
 | SendPost | https://www.sendx.io/sendpost | Delivery | Not established | Email API and SMTP offered separately from SendX; current page also targets larger senders. | Sweep | gray | 2026-11-04 |
 | AhaSend | https://ahasend.com/ | Delivery; campaigns | Europe hosting claim | API and SMTP service with public entry plan. | Sweep | active | 2026-11-04 |
 | Maileroo | https://maileroo.com/ | Delivery; transactional only | Not established | SMTP and Email API for transactional delivery. Its email-marketing tools moved to CampaignLark, which may merit a separate app entry. | Sweep | active | 2026-11-04 |
+| CampaignLark | https://campaignlark.com/ | Newsletter; marketing | Not established | Maileroo Group Pty Ltd's newsletter product, spun out from its former email-marketing tools as a separately billed product; Maileroo remains focused on SMTP and Email API. | Seed | active | 2026-11-09 |
 | Emailit | https://emailit.com/ | Delivery; marketing | EU-hosting offer | Email API, SMTP, broadcasts, and subscriber lists. | Sweep | active | 2026-11-04 |
 | UniOne | https://unione.io/ | Delivery; marketing | Not established | Email API and SMTP with startup and SaaS use cases. | Sweep | active | 2026-11-04 |
 | Netcore Email API | https://netcore.ai/email/email-api/ | Delivery | Not established | Current destination of Pepipost; confirm small-sender terms before recommending. | D5; alias follow-up | gray | 2026-11-04 |
