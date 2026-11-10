@@ -69,7 +69,7 @@ test("long TTL mode gives content, RSC, directories, and filters seven days with
     assert.ok(rule.expression.includes("http.response.code eq 200"), name);
   }
   const json = writes.find(({ definition }) => definition.description.startsWith("Public detail APIs")).definition;
-  for (const route of ["/api/self-host-apps/", "/api/cli-apps/index", "/api/hardware-directory/", "/api/resource-planner-index"]) {
+  for (const route of ["/api/self-host-apps/", "/api/cli-apps/index", "/api/resource-planner-index"]) {
     assert.ok(json.expression.includes(route), route);
   }
   assert.equal(json.action_parameters.edge_ttl.mode, "bypass_by_default");

@@ -168,11 +168,6 @@ test("origin verification checks search against the source and rejects a stale r
     "@/lib/cache-auth": { cacheAuthorized: async () => true },
     "@/lib/apps": { loadDirectoryAppsBySlugs: async () => { throw new Error("Search cannot be treated as an app slug"); } },
     "@/lib/terminal-apps": {},
-    "@/lib/hardware-directories": {},
-    "@/lib/hardware-directories/search-index": {},
-    "@/lib/zigbee-devices": {},
-    "@/lib/zigbee-devices/search-index": {},
-    "@/lib/amazon-affiliate/server": {},
     "@/lib/self-host-apps-search-data": { loadSelfHostAppsSearch: async () => expected },
     "@/lib/self-host-apps-search": searchModule,
     "@/lib/self-hosted-app-resource-planner/data": {},
@@ -196,11 +191,9 @@ test("origin verification checks search against the source and rejects a stale r
   assert.equal((await removed.json()).verified[0].status, 404);
 });
 
-test("origin verification rejects stale CLI and hardware indexes and verifies unpublished 404s", async () => {
+test("origin verification rejects stale CLI indexes and verifies unpublished 404s", async () => {
   for (const [path, parent] of [
     ["/api/cli-apps/index", "cli-apps"],
-    ["/api/hardware-directory/matter-devices", "matter-devices"],
-    ["/api/hardware-directory/zigbee-devices", "zigbee-devices"],
   ]) {
     const expected = [{ slug: "fresh" }];
     let served = expected;
@@ -213,14 +206,6 @@ test("origin verification rejects stale CLI and hardware indexes and verifies un
       "@/lib/cache-auth": { cacheAuthorized: async () => true },
       "@/lib/apps": {},
       "@/lib/terminal-apps": { loadTerminalApps: async () => expected },
-      "@/lib/hardware-directories": {
-        isHardwareDirectorySlug: slug => slug === "matter-devices",
-        getHardwareDirectorySnapshot: async () => ({ records: expected }),
-      },
-      "@/lib/hardware-directories/search-index": { hardwareIndexRecord: record => record },
-      "@/lib/zigbee-devices": { getZigbeeDevices: () => expected, zigbeeCategoryLabels: new Map() },
-      "@/lib/zigbee-devices/search-index": { zigbeeIndexRecord: record => record },
-      "@/lib/amazon-affiliate/server": { addAmazonMatches: async (_directory, records) => records },
       "@/lib/self-host-apps-search-data": {},
       "@/lib/self-host-apps-search": {},
       "@/lib/self-hosted-app-resource-planner/data": {},
@@ -262,9 +247,7 @@ test("deleted directory detail sources accept only 404s even when their registry
       "@/scripts/stack127/cache/verify-origin-indexing.mjs": {inspectOriginIndexing:()=>{}},
       "@/scripts/stack127/cache/refresh.mjs": {},
       "@/lib/cache-auth": { cacheAuthorized: async () => true },
-      "@/lib/apps": {}, "@/lib/terminal-apps": {}, "@/lib/hardware-directories": {},
-      "@/lib/hardware-directories/search-index": {}, "@/lib/zigbee-devices": {},
-      "@/lib/zigbee-devices/search-index": {}, "@/lib/amazon-affiliate/server": {},
+      "@/lib/apps": {}, "@/lib/terminal-apps": {},
       "@/lib/self-host-apps-search-data": {}, "@/lib/self-host-apps-search": {},
       "@/lib/self-hosted-app-resource-planner/data": {},
       "@/lib/page-source": { sitePageAvailable: () => true },

@@ -40,8 +40,7 @@ function sourceProbe({published=true}={}) {
   return {...api,calls};
 }
 function refreshRoute({probe,fetch,query=async()=>({rows:[]})}) {
-  const ignored=['apps','terminal-apps','hardware-directories','hardware-directories/search-index','zigbee-devices',
-    'zigbee-devices/search-index','amazon-affiliate/server','self-host-apps-search-data','self-host-apps-search',
+  const ignored=['apps','terminal-apps','self-host-apps-search-data','self-host-apps-search',
     'self-hosted-app-resource-planner/data','platform-fees/groups','launch-directories-data'];
   return load('../../../app/api/cache/refresh/route.ts',{
     ...Object.fromEntries(ignored.map(name=>[`@/lib/${name}`,{}])),

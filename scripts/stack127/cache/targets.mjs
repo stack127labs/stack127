@@ -56,9 +56,6 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
         addPage("/api/cli-apps/index", false);
         edgeTags.add("cli-apps-catalog");
       }
-      if (["nut-compatible-ups", "local-security-cameras", "matter-devices", "z-wave-devices", "zigbee-devices"].includes(slug)) {
-        addPage(`/api/hardware-directory/${slug}`, false);
-      }
       addPage("/");
       paths.add("/sitemap.xml");
       warmPaths.add("/sitemap.xml");
@@ -145,6 +142,6 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
   }
   const verifiedApis = [...paths].filter(path => path.startsWith("/api/self-host-apps/") ||
     path.startsWith("/api/resource-planner-app/") || path === "/api/cli-apps/index" ||
-    path.startsWith("/api/hardware-directory/") || path === "/api/ad-networks/sites" || path === "/api/ad-networks/site");
+    path === "/api/ad-networks/sites" || path === "/api/ad-networks/site");
   return { verifyPaths: [...new Set([...warmPaths, ...verifiedApis])], paths: [...paths], nextTags: [...nextTags], edgeTags: [...edgeTags], warmPaths: [...warmPaths] };
 }

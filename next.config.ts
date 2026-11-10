@@ -27,14 +27,6 @@ const nextConfig: NextConfig = {
   },
   output: process.env.STACK127_BUILD_TARGET === "frontend" ? "export" : "standalone",
   experimental: { staleTimes: { dynamic: 0, static: process.env.STACK127_BUILD_TARGET === "frontend" ? 300 : 30 } },
-  outputFileTracingIncludes: {
-    "/api/hardware-directory/[directory]/[record]": ["./lib/hardware-directories/data/*.json"],
-    "/local-security-cameras": ["./lib/hardware-directories/data/local-security-cameras.json"],
-    "/matter-devices": ["./lib/hardware-directories/data/matter-devices.json"],
-    "/nut-compatible-ups": ["./lib/hardware-directories/data/nut-compatible-ups.json"],
-    "/z-wave-devices": ["./lib/hardware-directories/data/z-wave-devices.json"],
-    "/zigbee-coordinators": ["./lib/hardware-directories/data/zigbee-coordinators.json"],
-  },
   async headers() {
     if (process.env.STACK127_BUILD_TARGET === "frontend") return [];
     const assets = ["/app-icons/:path*", "/logos/:path*", "/favicon.ico", "/favicon-:size.png", "/apple-touch-icon.png", "/android-chrome-:size.png"];

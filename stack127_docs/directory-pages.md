@@ -24,6 +24,8 @@ A published directory page with no row returns 404. The directory publisher crea
 
 ## Child pages
 
+Keyboard shortcut app pages (`keyboard-shortcuts/<app>`) stay published and linked with `is_indexable = false`. The `/keyboard-shortcuts` hub and `/shortcuts-cheatsheet-generator` tool remain indexable.
+
 Every published child page gets its own row, for example `/ad-networks/<slug>` or `/keyboard-shortcuts/<app>`. The row holds its title, search metadata, and dates, the same as a top-level directory.
 
 Every child page also gets its own words, written for that page: an intro at least, and sections when the page needs them. They live in MDX, as [page-content.md](page-content.md) describes. A child page with its own route folder, such as `/keyboard-shortcuts/figma`, keeps them in `content/` beside its `page.tsx`. Platform fee categories share `platform-fees/[section]/`, so each category has a folder under that route's `content/`, named for its slug.
@@ -32,10 +34,9 @@ Record sync scripts own the records and the generated route files. They leave ex
 
 | Directory | Record script | Page fields |
 | --- | --- | --- |
-| Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` | `--apply` inserts missing child rows, then syncs app records and the hub snapshot. Existing page fields stay as written. |
+| Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` | `--apply` inserts missing child rows, then syncs app records and the hub snapshot. Existing copy stays as written; app indexing stays off. |
 | Platform fees | `scripts/platform-fees/sync-development.mjs`, `sync-records.mjs`, then `prepare-category-manifest.mjs` | Syncs records and inserts missing page rows. The manifest takes reviewed page fields from development. For records only, use [`sync-dataset.mjs`](../scripts/platform-fees/README.md): preview first, then apply with production confirmation; deletions need `--allow-delete`. |
 
-The managed-development hardware preview scripts, `scripts/stack127/preview-hardware-directories.mjs` and `scripts/zigbee-devices/preview-local-page.mjs`, insert starting rows only when missing. Existing titles, cards, and search fields stay as written. MDX owns the page words. Normal runs publish drafts; published pages stay unchanged. `--remove` unpublishes without deleting rows. Zigbee removal still requires the original preview metadata. Add `--dry-run` to preview either operation and roll back. The old hardware `--refresh` flag overwrote search fields; both scripts now reject it. Use the single-page editor below for reviewed changes.
 
 ## Public dates
 
@@ -57,7 +58,7 @@ An MDX content change doesn't move the date by itself. When it matters to reader
 
 No-op updates and identical imports leave public dates alone. A real source check that changes a displayed verification date is visible content too.
 
-TLDs, EPP codes, software licenses, hardware records, and other code directories need an explicit touch after meaningful fact or entry changes, the same as a content change. Skip it for code typo fixes or formatting. The same applies to a directory without record sync coverage.
+TLDs, EPP codes, software licenses, and other code directories need an explicit touch after meaningful fact or entry changes, the same as a content change. Skip it for code typo fixes or formatting. The same applies to a directory without record sync coverage.
 
 ```bash
 node scripts/stack127/pages/touch.mjs --environment development \

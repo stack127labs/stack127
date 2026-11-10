@@ -19,7 +19,7 @@ Page source is grouped by job. The groups don't change URLs.
 ```text
 app/(site)/(catalogs)/    # collections of stack127-owned tool pages
 app/(site)/(courses)/     # ordered teaching paths
-app/(site)/(directories)/ # software, hardware, platforms, and stable facts
+app/(site)/(directories)/ # software, platforms, and stable facts
 app/(site)/(site-pages)/  # home, about, privacy, terms, and labs
 app/(site)/(tools)/       # calculators, lookups, and generators
 ```

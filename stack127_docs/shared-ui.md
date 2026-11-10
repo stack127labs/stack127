@@ -31,7 +31,7 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | Page content blocks in MDX | `mdx-components.tsx`, built on `app/ui/content-elements.tsx`. See [page-content.md](page-content.md). |
 | Page shell, headings, prose, media, code, and navigation | `app/ui/site/` |
 | Linked page cards for tools, catalogs, directories, the course, and Labs | `PageCard`, `ToolCard`, `CatalogCard`, `DirectoryCard` in `app/ui/cards/` |
-| Software and hardware record cards, and directory filters | `app/ui/directories/` |
+| Software record cards, and directory filters | `app/ui/directories/` |
 | Tool catalog grid and navigation | `app/ui/catalogs/` |
 | Course and directory layouts | `app/ui/courses/` and `app/ui/directories/` |
 | Shared tool layouts and styles | `app/ui/tools/` |
