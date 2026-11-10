@@ -1,3 +1,6 @@
+import { AppCategoryLinks } from "@/app/ui/directories/app-category-links";
+import { getAppCategoryLinks } from "@/lib/app-categories";
+import { RegistryStructuredData } from "@/lib/registry-layout";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
@@ -56,6 +59,8 @@ export default async function SelfHostAppsPage() {
     </div>
   );
 
+  const categoryLinks = await getAppCategoryLinks("self-host-apps");
+
   return (
     <DirectoryQueryProvider route={route}>
       <SelfHostAppsSearchProvider initial={initial}>
@@ -65,6 +70,7 @@ export default async function SelfHostAppsPage() {
           sidebar={<SelfHostAppFilters heading={heading} />}
           sidebarLabel="Self-hosted app filters"
         >
+          <RegistryStructuredData path="/self-host-apps" />
           <EntryHero art={siteSpotSelfHostAppsArt}>
             <PageHeader breadcrumbs={await getBreadcrumbs("self-host-apps")}>
               <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
@@ -75,6 +81,7 @@ export default async function SelfHostAppsPage() {
           <PageCanvas as="div" flow className="directory-results">
             <SelfHostAppResults emptyVisual={<Doodle svg={siteDoodleSparkArt} />} />
             <HiddenDetails prefix="self-host-app" items={detailApps.map((app) => ({ slug: app.slug, name: app.name, body: <AppDetailsBody app={app} /> }))} />
+            <AppCategoryLinks categories={categoryLinks} />
             <article className={`${proseClassName} ${proseSectionFlowClassName}`}>
               <section>
                 <Resources />

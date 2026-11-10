@@ -113,6 +113,8 @@ function batchEntries(entries, restore) {
 }
 
 function parentSlug(slug) {
+  // categories is a path segment, not a separately published landing page.
+  if (/^(self-host-apps|cli-apps)\/categories\/[^/]+$/.test(slug)) return slug.split("/")[0];
   return slug.includes("/") ? slug.slice(0, slug.lastIndexOf("/")) : null;
 }
 

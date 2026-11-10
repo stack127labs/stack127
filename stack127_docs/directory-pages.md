@@ -26,13 +26,14 @@ A published directory page with no row returns 404. The directory publisher crea
 
 Every published child page gets its own row, for example `/ad-networks/<slug>` or `/keyboard-shortcuts/<app>`. The row holds its title, search metadata, and dates, the same as a top-level directory.
 
-Every child page also gets its own words, written for that page: an intro at least, and sections when the page needs them. They live in MDX, as [page-content.md](page-content.md) describes. A child page with its own route folder, such as `/keyboard-shortcuts/figma`, keeps them in `content/` beside its `page.tsx`. Platform fee categories share `platform-fees/[section]/`, so each category has a folder under that route's `content/`, named for its slug.
+Every child page also gets its own words, written for that page: an intro at least, and sections when the page needs them. They live in MDX, as [page-content.md](page-content.md) describes. A child page with its own route folder, such as `/keyboard-shortcuts/figma`, keeps them in `content/` beside its `page.tsx`. Platform fee categories share `platform-fees/[section]/`. Self-host and CLI categories share `<directory>/categories/[category]/`. Each has a folder under that route's `content/`, named for its category slug, and an entry in `content/index.ts`.
 
 Record sync scripts own the records and the generated route files. They leave existing page words, titles, search metadata, and cards alone. They may insert a starting database row when one is missing. The keyboard shortcuts sync requires every app's `content/intro.mdx` before writing any files, including in `--check` mode. It passes that intro to the template; the template renders the print link. Write the title and search metadata with the directory writing skill, then publish them with `"source": "development"` in the manifest. See [page-publishing.md](page-publishing.md).
 
 | Directory | Record script | Page fields |
 | --- | --- | --- |
 | Keyboard shortcuts | `scripts/keyboard-shortcuts/sync-pages.mjs` | `--apply` inserts missing child rows, then syncs app records and the hub snapshot. Existing page fields stay as written. |
+| App categories | `node --experimental-strip-types scripts/stack127/app-categories/sync-pages.mjs --directory self-host-apps` (or `cli-apps`) | `--environment development --apply` inserts missing unpublished, noindex rows only for categories with at least 15 apps. Existing page fields stay unchanged. Reports all category counts and missing intros. |
 | Platform fees | `scripts/platform-fees/sync-development.mjs`, `sync-records.mjs`, then `prepare-category-manifest.mjs` | Syncs records and inserts missing page rows. The manifest takes reviewed page fields from development. For records only, use [`sync-dataset.mjs`](../scripts/platform-fees/README.md): preview first, then apply with production confirmation; deletions need `--allow-delete`. |
 
 The managed-development hardware preview scripts, `scripts/stack127/preview-hardware-directories.mjs` and `scripts/zigbee-devices/preview-local-page.mjs`, insert starting rows only when missing. Existing titles, cards, and search fields stay as written. MDX owns the page words. Normal runs publish drafts; published pages stay unchanged. `--remove` unpublishes without deleting rows. Zigbee removal still requires the original preview metadata. Add `--dry-run` to preview either operation and roll back. The old hardware `--refresh` flag overwrote search fields; both scripts now reject it. Use the single-page editor below for reviewed changes.
@@ -50,8 +51,8 @@ An MDX content change doesn't move the date by itself. When it matters to reader
 | Platform fees | Changed sections or entries touch the affected category and `/platform-fees`. Moving a section or entry touches both categories. |
 | Launch directories | Changed published listings touch `/launch-directories`. |
 | Ad networks | Changed network facts or confirmed publishers touch the network child and `/ad-networks`. Crawler leases and other bookkeeping do not. |
-| Self-host apps | Changed published apps, category links, resource estimates, install options, or linked GitHub facts touch `/self-host-apps`. Registered app children also get touched. |
-| CLI apps | Changed published terminal apps or their linked GitHub facts touch `/cli-apps`. Candidate discovery and provenance do not. |
+| Self-host apps | Changed published apps, category links, resource estimates, install options, or linked GitHub facts touch `/self-host-apps`. Registered app children and affected category children also get touched. Category membership removals and app deletions refresh the former categories too. |
+| CLI apps | Changed published terminal apps or their linked GitHub facts touch `/cli-apps`. Affected category children also get touched, including old and new memberships. Candidate discovery and provenance do not. |
 | Software licenses | Changes to published app license counts move the date. License facts in code need an explicit touch. |
 | Keyboard shortcuts | Copy syncs touch changed children and the hub. Full app records catch shortcut edits with the same count. A separate hub snapshot catches removed apps and changed catalog counts. The first run establishes a baseline. |
 
@@ -121,3 +122,9 @@ node scripts/stack127/directory-pages/update-fields.mjs \
 Its flags are `--title`, `--meta-title`, `--meta-description`, `--card-name`, `--card-description`, `--card-icon-key`, and `--card-art-key`. It rejects keys that aren't in the registries. A saved edit queues revalidation for that page's `stack127-directory-page:<slug>` tag and its path.
 
 For launch directories, `evidence.public_submission` holds checked free-plan requirements, backlink status, approval time, launch queue text, and dated observations. The server projects only validated public fields from that object. Signed-in and email observations describe our submission attempt, and stay separate from public rules. The free-without-required-backlink filter accepts a free record only when its backlink check says optional or not required. A record with no check, or a check that says required or unknown, stays out. Existing research notes remain private. Update these records through `scripts/stack127/database/update-launch-directories.mjs`, which checks the reviewed row version.
+
+## Self-host and CLI category pages
+
+The public paths are `/self-host-apps/categories/<category>` and `/cli-apps/categories/<category>`. Each child uses its own registry and directory row. The publisher treats the hub as its parent; `categories` is only a path segment. Only categories with at least 15 published apps can publish. If a published category drops below that number, the record trigger unpublishes it. A later increase does not publish it again.
+
+Starting intros live at `app/(site)/(directories)/<directory>/categories/[category]/content/<category>/intro.mdx`. Replace them with reviewed copy. Every intro is imported by that route's `content/index.ts`; add an import there when adding a new category. Use the fields editor above for the reviewed title, search title, description, and card fields. The draft sync never changes those fields or publishes a row. See [page-publishing.md](page-publishing.md#app-category-publication) for preview and release commands.

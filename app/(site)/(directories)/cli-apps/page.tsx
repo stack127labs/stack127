@@ -1,3 +1,6 @@
+import { AppCategoryLinks } from "@/app/ui/directories/app-category-links";
+import { getAppCategoryLinks } from "@/lib/app-categories";
+import { RegistryStructuredData } from "@/lib/registry-layout";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
@@ -131,6 +134,8 @@ export default async function CliAppsPage() {
     />
   );
 
+  const categoryLinks = await getAppCategoryLinks("cli-apps");
+
   return (
     <DirectoryQueryProvider route="/cli-apps">
       <AppShell
@@ -139,6 +144,7 @@ export default async function CliAppsPage() {
         sidebar={sidebar}
         sidebarLabel="Terminal app filters"
       >
+        <RegistryStructuredData path="/cli-apps" />
         <EntryHero art={siteSpotCliAppsArt}>
           <PageHeader breadcrumbs={await getBreadcrumbs("cli-apps")}>
             <h1><DirectoryTitleIcon iconKey={directoryPage.card_icon_key} />{" "}<DirectoryPageTitle title={directoryPage.title} /></h1>
@@ -149,6 +155,7 @@ export default async function CliAppsPage() {
         <PageCanvas as="div" flow className="directory-results">
           <CliAppResults firstPage={defaultApps} total={apps.length} categoryLabels={categoryLabels} emptyVisual={<Doodle svg={siteDoodleStarArt} />} />
           <HiddenDetails prefix="cli-app" items={defaultApps.map((app) => ({ slug: app.slug, name: app.name, body: <CliAppDetailsBody app={app} /> }))} />
+          <AppCategoryLinks categories={categoryLinks} />
           <article className={`${proseClassName} ${proseSectionFlowClassName}`}>
             <section>
               <Types />
