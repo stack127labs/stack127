@@ -64,11 +64,12 @@ function HomeFeatureCard({ page, counts }: { page: HomePageCardRecord; counts: P
 }
 
 const startHereLinks = [
+  { slug: "platform-fees", question: "Choosing where to sell?", action: "Compare platform fees" },
+  { slug: "ad-networks", question: "Putting ads on your site?", action: "Compare ad networks" },
+  { slug: "launch-directories", question: "Launching a product?", action: "Find places to list it" },
   { slug: "kdp-tools", question: "Publishing on Amazon KDP?", action: "Work out your royalties" },
   { slug: "saas-tools", question: "Running a SaaS?", action: "Check your MRR and churn" },
-  { slug: "platform-fees", question: "Choosing where to sell?", action: "Compare platform fees" },
   { slug: "domain-tools", question: "Working on a website?", action: "Check its domain" },
-  { slug: "cli-apps", question: "Looking for a terminal app?", action: "Browse CLI apps" },
 ];
 
 function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNode }[] {
@@ -110,22 +111,22 @@ export default async function Home() {
       </EntryHero>
       {launchSnapshot ? <span data-launch-directories-revision={launchSnapshot.revision} hidden /> : null}
       <PageCanvas as="section" flow className="home-main" aria-labelledby="home-title">
+        {featurePages.length > 0 ? (
+          <section className="home-resources" aria-labelledby="home-resources-title">
+            <h2 id="home-resources-title">Directories and references</h2>
+            <div className="home-page-grid">
+              {featurePages.map((page, index) => (
+                <HomeFeatureCard counts={featureCounts[index]} key={page.slug} page={page} />
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {toolCatalogs.length > 0 ? (
           <section className="home-catalogs" aria-labelledby="home-catalogs-title">
             <h2 id="home-catalogs-title">Tool catalogs</h2>
             <div className="home-page-grid">
               {toolCatalogs.map((catalog) => <CatalogCard key={catalog.page.slug} catalog={catalog} />)}
-            </div>
-          </section>
-        ) : null}
-
-        {featurePages.length > 0 ? (
-          <section className="home-resources" aria-labelledby="home-resources-title">
-            <h2 id="home-resources-title">More to explore</h2>
-            <div className="home-page-grid">
-              {featurePages.map((page, index) => (
-                <HomeFeatureCard counts={featureCounts[index]} key={page.slug} page={page} />
-              ))}
             </div>
           </section>
         ) : null}

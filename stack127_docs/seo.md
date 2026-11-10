@@ -42,6 +42,8 @@ The first tool-page rollout keeps the old `created_at` column so the previous ap
 
 ## Indexing
 
+Keyboard shortcut app pages (`keyboard-shortcuts/<app>`) use `is_indexable = false`: they stay published with `noindex, follow`, no JSON-LD, and no sitemap entry. Keep `/keyboard-shortcuts` and `/shortcuts-cheatsheet-generator` indexable.
+
 Follow these route rules:
 
 | request | behavior |

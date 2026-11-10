@@ -63,13 +63,6 @@ test("CLI app pages and their index share the Cloudflare catalog purge tag", asy
   }
 });
 
-test("hardware indexes and details share their directory's publication purge tag", async () => {
-  const { proxy } = publicationProxy({ published: true });
-  for (const pathname of ["/api/hardware-directory/zigbee-devices", "/api/hardware-directory/zigbee-devices/sensor"]) {
-    const response = await proxy(request(pathname));
-    assert.ok(response.headers.get("Cache-Tag").split(",").includes("page:zigbee-devices"));
-  }
-});
 
 test("the analytics exception leaves unpublished pages and other vitals paths blocked", async () => {
   const { proxy, lookups } = publicationProxy();

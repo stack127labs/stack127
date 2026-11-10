@@ -49,7 +49,10 @@ function SiteFooter() {
           <Link {...intentPrefetch} href="/about">about</Link>
           <Link {...intentPrefetch} href="/labs">labs</Link>
         </nav>
-        <p>2026 stack127. all rights reserved.</p>
+        <p>
+          2026 stack127. made by{" "}
+          <Link {...intentPrefetch} className={styles.footerName} href="/about">Ravi Teja KNTS</Link>. all rights reserved.
+        </p>
       </div>
     </footer>
   );

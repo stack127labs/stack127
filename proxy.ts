@@ -64,14 +64,10 @@ export async function proxy(request: NextRequest) {
   if (pathname === "/platform-fees" || pathname.startsWith("/platform-fees/")) tags.push("platform-fees-catalog");
   if (pathname === "/ad-networks" || pathname.startsWith("/ad-networks/") || pathname.startsWith("/api/ad-networks/") || pathname === "/ad-network-checker") tags.push("ad-networks-catalog");
   if (pathname === "/keyboard-shortcuts" || pathname.startsWith("/keyboard-shortcuts/")) tags.push("keyboard-shortcuts-catalog");
-  if (pathname.startsWith("/api/hardware-directory/")) {
-    const directorySlug = pathname.split("/")[3];
-    tags.push(`page:${directorySlug}`);
-  }
   response.headers.set("Cache-Tag", tags.join(","));
   const filterQuery = new URLSearchParams(userQuery);
   filterQuery.delete("page");
-  const directory = new Set(["self-host-apps", "cli-apps", "launch-directories", "zigbee-devices", "zigbee-coordinators", "matter-devices", "z-wave-devices", "nut-compatible-ups", "local-security-cameras"]);
+  const directory = new Set(["self-host-apps", "cli-apps", "launch-directories"]);
   response.headers.set("X-Stack127-Cache-Class", pathname === "/sitemap.xml" ? "sitemap" : filterQuery.size ? "filters" : pathname === "/" || directory.has(pathname.slice(1)) ? "directory" : "content");
   return withQueryIndexing(response);
 }

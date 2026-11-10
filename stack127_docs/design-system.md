@@ -179,15 +179,6 @@ App directory cards use the approved Fact rows variant in `app-fact-card.tsx`:
 - The whole card opens the existing app details drawer.
 - The desktop grid has three columns. It drops to two, then one, as the main column narrows.
 
-Hardware directories use `hardware-fact-card.tsx`:
-
-- A 200px-tall contained product image.
-- One vendor and model heading. Use the product name when a grouped record has no real model identifier.
-- The same `AppCardFacts` rows.
-- No subtitles, summary paragraphs, repeated identity lines, or separate compatibility box. Compatibility stays a fact row next to the practical fields.
-- Keep full values and the existing detail drawer.
-- A missing or failed product image shows a clear placeholder, not a generated illustration.
-
 ### Tool workbench
 
 Each tool uses one full-width workbench band.
@@ -251,7 +242,7 @@ Development previews: `/components-ui/section-bar/left/checker`, `/components-ui
 
 ### Homepage
 
-The homepage lists published tool catalogs, selected directories, the self-hosting course, and Labs. Hardware directories stay published but are off the homepage cards. The homepage uses `none` and doesn't list individual tools or directory child pages. Card names and descriptions come from each family's page table.
+The homepage lists published tool catalogs, selected directories, the self-hosting course, and Labs. The homepage uses `none` and doesn't list individual tools or directory child pages. Card names and descriptions come from each family's page table.
 
 Each card shows a meaningful count from its destination's data. A new homepage collection needs an identity icon, a metric, and a marker spot.
 

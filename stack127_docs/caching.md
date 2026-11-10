@@ -65,7 +65,7 @@ Category data uses the existing self-host and CLI source tags. The directory rec
 1. A source-table trigger calls `stack127_touch_page(slug, reason)` for a meaningful public change, then queues its dataset event with `stack127_enqueue_revalidation(entity_type, slug, source)`. This adds a row to `public.stack127_revalidation_events`.
 2. The Supabase `cache-worker` function claims events. It uses `scripts/stack127/cache/targets.mjs` to map them to Next.js tags, paths, Cloudflare tags, and pages to warm.
 3. It calls `POST /api/cache/revalidate`, which runs `revalidateTag` and `revalidatePath`.
-4. It verifies origin pages and the self-host search, CLI index, and hardware index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
+4. It verifies origin pages and the self-host search and CLI index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
 
 A release purges `stack127-public` and `stack127-assets`, then warms the main pages.
 
@@ -92,11 +92,10 @@ The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs
 
 Keyboard-shortcut and ad-network child headings can inherit their parent directory icon. A parent `page` event also purges `keyboard-shortcuts-catalog` or `ad-networks-catalog`, shared by the parent and child responses. A child-only edit keeps its page-specific purge.
 
-Hardware data ships from repository files. Releases refresh it. Each hardware JSON response also carries `page:<directory>` so publication changes purge its index and details.
 
 ## Cloudflare cache times
 
-`configure-cloudflare.mjs --long-ttl` sets seven-day edge TTLs for successful HTML and RSC, including directory and query views. Browsers still revalidate each time. JSON routes use their origin TTLs. The rule covers self-host search, the CLI index, and hardware indexes and details. Errors keep `no-store`.
+`configure-cloudflare.mjs --long-ttl` sets seven-day edge TTLs for successful HTML and RSC, including directory and query views. Browsers still revalidate each time. JSON routes use their origin TTLs. The rule covers self-host search and the CLI index. Errors keep `no-store`.
 
 The existing seven-day worker health gate still applies. Apply this only after the migration, app, and cache worker are live:
 

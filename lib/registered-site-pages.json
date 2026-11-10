@@ -286,10 +286,8 @@
   "/launch-directories",
   "/launch-directories/[slug]",
   "/launch-directories/compare",
-  "/local-security-cameras",
   "/ltv-cac-calculator",
   "/lxc-idmap-checker",
-  "/matter-devices",
   "/mrr-calculator",
   "/mrr-goal-calculator",
   "/mrr-waterfall-calculator",
@@ -298,7 +296,6 @@
   "/net-revenue-retention-calculator",
   "/nfs-firewall-rules",
   "/nginx-proxy-pass-calculator",
-  "/nut-compatible-ups",
   "/pixels-to-print-size-calculator",
   "/platform-fees",
   "/platform-fees/[section]",
@@ -344,9 +341,6 @@
   "/tld-directory",
   "/transfer-readiness",
   "/unraid-calculator",
-  "/z-wave-devices",
   "/zfs-capacity-calculator",
-  "/zfs-padding-calculator",
-  "/zigbee-coordinators",
-  "/zigbee-devices"
+  "/zfs-padding-calculator"
 ]

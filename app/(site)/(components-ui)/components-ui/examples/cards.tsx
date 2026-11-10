@@ -6,7 +6,6 @@ import { DirectoryCard } from "@/app/ui/cards/directory-card";
 import { PageCard, PageCardCounts } from "@/app/ui/cards/page-card";
 import { ToolCard } from "@/app/ui/cards/tool-card";
 import { DirectoryAppCard } from "@/app/ui/directories/directory-app-card";
-import { HardwareFactCardContent, hardwareFactCardClassName } from "@/app/ui/directories/hardware-fact-card";
 import type { DirectoryAppCardData } from "@/lib/apps-card";
 import { NetworkCard, NetworkGrid, SortNote } from "@/app/ui/ad-networks/network-card";
 import { NetworkLogo } from "@/app/ui/ad-networks/network-logo";
@@ -73,13 +72,6 @@ export function CardsExamples() {
         </div>
       </Example>
 
-      <Example components={["HardwareFactCardContent"]} note="A product card with a photo and short facts. A missing photo shows a placeholder." source="app/ui/directories/hardware-fact-card.tsx" title="Product card">
-        <div className={styles.cardGrid}>
-          <Link className={hardwareFactCardClassName} href="/zigbee-devices">
-            <HardwareFactCardContent facts={[{ label: "Connection", value: "Zigbee" }, { label: "Power", value: "battery" }]} image={null} name="Example Zigbee sensor" />
-          </Link>
-        </div>
-      </Example>
       <Example
         components={["NetworkLogo", "networkLogo"]}
         note="An ad network's square icon on a white tile, so any icon reads in both themes. card is the 32px tile for cards and table rows; title sits in an h1 in place of the title icon. Without a logo file the tile shows the name's first letter. networkLogo(slug) finds public/ad-networks/logos/<slug>.png on the server."
