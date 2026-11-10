@@ -27,12 +27,27 @@ SELECT current_user,
   public.stack127_app_category_count('self-host-apps/categories/ai-ml') AS self_host_apps;
 
 -- Exercise actual sync-trigger paths with a real visible change, not a no-op.
-UPDATE public.self_host_apps SET summary=summary || ' [role verification]'
-WHERE id=(SELECT id FROM public.self_host_apps WHERE published AND self_hosting_status='self_hostable' LIMIT 1);
-UPDATE public.terminal_apps SET summary=summary || ' [role verification]'
-WHERE slug=(SELECT slug FROM public.terminal_apps WHERE published LIMIT 1);
--- Fires the publication guard and its count call when the CLI category is public.
-UPDATE public.stack127_pages SET is_published=is_published
-WHERE slug='cli-apps/categories/development';
+-- A check that touched no row proves nothing, so the app updates must each hit one.
+DO $$
+DECLARE touched integer;
+BEGIN
+  UPDATE public.self_host_apps SET summary=summary || ' [role verification]'
+  WHERE id=(SELECT id FROM public.self_host_apps WHERE published AND self_hosting_status='self_hostable' LIMIT 1);
+  GET DIAGNOSTICS touched = ROW_COUNT;
+  IF touched <> 1 THEN RAISE EXCEPTION 'Self-host sync trigger was not exercised: % rows',touched; END IF;
+
+  UPDATE public.terminal_apps SET summary=summary || ' [role verification]'
+  WHERE slug=(SELECT slug FROM public.terminal_apps WHERE published LIMIT 1);
+  GET DIAGNOSTICS touched = ROW_COUNT;
+  IF touched <> 1 THEN RAISE EXCEPTION 'CLI sync trigger was not exercised: % rows',touched; END IF;
+
+  -- Fires the publication guard and its count call. Before the CLI categories
+  -- are published this row does not exist, so report the count instead of failing.
+  UPDATE public.stack127_pages SET is_published=is_published
+  WHERE slug='cli-apps/categories/development';
+  GET DIAGNOSTICS touched = ROW_COUNT;
+  RAISE NOTICE 'Publication guard rows exercised: %',touched;
+END;
+$$;
 
 ROLLBACK;
