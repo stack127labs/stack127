@@ -154,6 +154,10 @@ begin
   end loop;
   for owner_slug in select distinct unnest(slugs) order by 1 loop
     if owner_slug like 'self-host-apps/categories/%' or owner_slug like 'cli-apps/categories/%' then
+      -- Drafts and absent rows need neither retirement counts nor page touches.
+      if not exists(select 1 from public.stack127_pages where slug=owner_slug and is_published) then
+        continue;
+      end if;
       if public.stack127_app_category_count(owner_slug) < 15 then
         -- Falling below the threshold retires a page; growth never auto-publishes it.
         update public.stack127_pages set is_published=false,published_at=null,updated_at=null where slug=owner_slug and is_published;
@@ -182,4 +186,19 @@ $$;
 revoke all on function public.stack127_remove_published_app_category_links() from public,anon,authenticated;
 create trigger stack127_remove_published_app_category_links before delete on public.self_host_apps
 for each row execute function public.stack127_remove_published_app_category_links();
+-- app-role.sql grants existing functions during self-host bootstrap, not future ones.
+-- Trigger execution itself does not check EXECUTE, but grant all new functions
+-- explicitly so both application roles also have the same callable surface.
+grant execute on function public.stack127_check_app_category_publication(),
+  public.stack127_remove_published_app_category_links() to service_role;
+do $$
+begin
+  if exists(select 1 from pg_catalog.pg_roles where rolname='stack127_app') then
+    grant execute on function public.stack127_app_category_count(text),
+      public.stack127_check_app_category_publication(),
+      public.stack127_remove_published_app_category_links(),
+      public.stack127_touch_directory_records() to stack127_app;
+  end if;
+end;
+$$;
 commit;

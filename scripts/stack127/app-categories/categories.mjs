@@ -1,3 +1,4 @@
+import { directoryTitleParts } from "../../../lib/directory-page-content.ts";
 import { terminalAppCategories } from '../../../lib/terminal-app-taxonomy.ts';
 export async function readCategories(client, directory) {
   if (!['self-host-apps', 'cli-apps'].includes(directory)) throw new Error('Use --directory self-host-apps|cli-apps');
@@ -8,4 +9,12 @@ export async function readCategories(client, directory) {
   const counts = new Map((await client.query(`select category,count(*)::int as count from public.terminal_apps app
     cross join lateral unnest(app.categories) category where app.published group by category`)).rows.map(row => [row.category, row.count]));
   return terminalAppCategories.map(category => ({ slug: category.slug, name: category.name, count: counts.get(category.slug) ?? 0 }));
+}
+
+/** The H1 exists even when there are no published siblings to navigate to. */
+export function categorySmokeCheck(directory, category, title) {
+  // The publisher's HTML text reader inserts spaces at element boundaries.
+  const text = directoryTitleParts(title).map(part => part.text).join(' ').replace(/\s+/g, ' ').trim();
+  if (!text.trim()) throw new Error(`Missing category heading: ${directory}/categories/${category}`);
+  return { path: `/${directory}/categories/${category}`, text };
 }

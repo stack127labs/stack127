@@ -3,7 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import pg from 'pg';
 import { parseArgs, requireArg, resolveDatabaseUrl } from '../tool-pages/lib.mjs';
-import { readCategories } from './categories.mjs';
+import { readCategories, categorySmokeCheck } from './categories.mjs';
 import { MIN_CATEGORY_APPS } from '../../../lib/app-category-model.ts';
 const args = parseArgs();
 for (const key of Object.keys(args)) if (!['directory','out','indexable','category'].includes(key)) throw new Error(`Unsupported --${key}`);
@@ -18,12 +18,16 @@ try {
     const route = `app/(site)/(directories)/${directory}/categories/[category]`;
     const intro = `${route}/content/${category.slug}/intro.mdx`;
     if (!existsSync(intro)) throw new Error(`Missing intro: ${intro}`);
+    const slug = `${directory}/categories/${category.slug}`;
+    const page = (await client.query(`select content.title from public.stack127_directory_pages content
+      join public.stack127_pages page on page.id=content.page_id where page.slug=$1 and page.page_family='directory'`, [slug])).rows[0];
+    if (!page) throw new Error(`Missing development category page: ${slug}`);
     pages.push({ slug: `${directory}/categories/${category.slug}`, family: 'directory', source: 'development',
       registry: { is_published: true, is_indexable: args.indexable === 'true' },
       touch_reason: 'Category introduction and complete app list',
       requirements: { route: `${route}/page.tsx`, assets: [intro], records: { kind: 'database', checks: [{
         name: 'Category has at least 15 published apps', sql_file: 'scripts/stack127/app-categories/records-ready.sql', params: [directory, category.slug],
-      }] }, smoke: [{ path: `/${directory}/categories/${category.slug}`, text: 'Browse by category' }] },
+      }] }, smoke: [categorySmokeCheck(directory, category.slug, page.title)] },
     });
   }
   if (!pages.length) throw new Error('No eligible categories selected');

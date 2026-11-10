@@ -24,8 +24,10 @@ export async function AppCategoryPage({ directory, category, directoryPage, intr
       </PageHeader>
       <section aria-label="Apps" className={styles.listing}>
         <p className={styles.count}>{apps.length.toLocaleString("en-US")} apps</p>
-        {/* One server-owned HTML block avoids a React element payload for every row.
-            The serializer escapes every dataset value and validates outbound protocols. */}
+        {/* Compact HTML avoids a separate React element tree for every row. React
+            still includes this HTML string in its navigation payload, so the list
+            travels twice in the initial document. The serializer escapes dataset
+            text and validates outbound protocols. */}
         <ul dangerouslySetInnerHTML={{ __html: categoryListHtml(apps) }} />
       </section>
       <AppCategoryLinks categories={categories} current={category} />

@@ -51,3 +51,14 @@ test('compact server rows escape dataset text and reject executable outbound URL
   assert.equal((html.match(/<a /g) ?? []).length, 1);
   assert.ok(html.includes('rel=noreferrer target=_blank'));
 });
+
+test('single-category publication smoke uses the rendered heading without title markup or sibling navigation', async () => {
+  const { categorySmokeCheck } = await import('../../scripts/stack127/app-categories/categories.mjs');
+  const check = categorySmokeCheck('cli-apps', 'development', 'Tools for <mark>development</mark>');
+  assert.equal(check.path, '/cli-apps/categories/development');
+  assert.equal(check.text, 'Tools for development');
+  const { htmlText } = await import('../../scripts/stack127/publishing/verify.mjs');
+  const punctuated = '100+ <mark>Tools</mark>: runtimes and editors';
+  assert.equal(categorySmokeCheck('cli-apps', 'development', punctuated).text, htmlText(`<h1>${punctuated}</h1>`));
+  assert.throws(() => categorySmokeCheck('cli-apps', 'development', '<mark></mark>'), /Missing category heading/);
+});

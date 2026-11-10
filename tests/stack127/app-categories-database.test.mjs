@@ -61,3 +61,31 @@ test('self-host link moves, RAM facts, and linked GitHub facts use the existing 
   await db.query('delete from public.self_host_app_category_links where app_id=$1 and category_id=$2', [app.id,app.category_id]);
   assert.notEqual((await readPage(db, slug)).updated_at, before.updated_at);
 }));
+
+for (const state of ['absent', 'unpublished']) {
+  test(`self-host sync skips retirement counts with ${state} category rows`, { skip: !enabled }, async () => transaction(async db => {
+    if (state === 'absent') {
+      await db.query("delete from public.stack127_pages where slug like 'self-host-apps/categories/%'");
+    } else {
+      await db.query("update public.stack127_pages set is_published=false,published_at=null,updated_at=null where slug like 'self-host-apps/categories/%'");
+    }
+    // Fail if any retirement count runs. Everything, including this replacement,
+    // rolls back; this models production with no published self-host categories.
+    await db.query(`create or replace function public.stack127_app_category_count(p_slug text)
+      returns bigint language plpgsql stable security invoker set search_path=pg_catalog as $$
+      begin raise exception 'Unexpected category count: %',p_slug; end; $$`);
+    await db.query(`update public.self_host_apps set summary=summary || ' Test.' where id=(
+      select id from public.self_host_apps where published and self_hosting_status='self_hostable' limit 1)`);
+  }));
+}
+
+test('application function grants include all newly created category functions', { skip: !enabled }, async () => transaction(async db => {
+  const functions = ['stack127_app_category_count(text)', 'stack127_check_app_category_publication()',
+    'stack127_remove_published_app_category_links()', 'stack127_touch_directory_records()'];
+  const roles = ['service_role'];
+  if ((await db.query("select 1 from pg_catalog.pg_roles where rolname='stack127_app'")).rowCount) roles.push('stack127_app');
+  for (const role of roles) for (const fn of functions) {
+    const result = await db.query('select has_function_privilege($1,$2,\'EXECUTE\') as allowed', [role, `public.${fn}`]);
+    assert.equal(result.rows[0].allowed, true, `${role}: ${fn}`);
+  }
+}));
