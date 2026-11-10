@@ -20,7 +20,7 @@ Shared links prefetch a page only when a reader shows intent, such as hovering o
 ## Indexing
 
 - A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, tool state, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL. On the static frontend, a Cloudflare response header rule sends the same header. The one exception is a query made only of tracking parameters, such as `utm_*`, `gclid`, or `ref`. It gets no noindex and relies on the canonical. `lib/seo/query-indexing.mjs` holds the list.
-- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. Its registry row must have both `is_published` and `is_indexable` set to `true`.
+- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities`, `/self-host-apps/categories/<name>`, or `/cli-apps/categories/<name>`. Its registry row must have both `is_published` and `is_indexable` set to `true`.
 - A published row with `is_indexable = false` stays public, sends noindex metadata, omits JSON-LD, and stays out of the sitemap. Use this for thin child pages and pages still being improved.
 - See [seo.md](seo.md) for the registry and sitemap rules.
 
@@ -48,6 +48,11 @@ Filters, search, sort, and pagination are a client component:
 - The URL keeps filter state such as `?category=…&page=2` so links can be shared. These URLs stay `noindex`.
 
 Without JavaScript, visitors and crawlers see the default static page.
+
+Self-host and CLI category pages have their own exact registry paths at `/self-host-apps/categories/<category>` and `/cli-apps/categories/<category>`. They list every category app in the server HTML, in the hub's default popularity order. They have no query-dependent server view or pagination. Only categories with at least 15 published apps can publish. `generateStaticParams` uses exact published registry children and current counts, including public noindex previews, so the static export contains the same pages as hub links.
+
+Category data uses the existing self-host and CLI source tags. The directory record trigger touches affected category children, including old memberships, and their hub. A category that drops below 15 apps is unpublished; growth does not republish it. Parent and child responses share `self-host-catalog` or `cli-apps-catalog` edge tags. A category page event also refreshes its hub links and purges the family, because sibling links show counts and publication. MDX intros ship with the release.
+
 
 ## Cache layers
 

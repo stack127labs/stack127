@@ -57,7 +57,9 @@ Follow these route rules:
 | Exact published child slug in `stack127_pages` | Render; its `is_indexable` value controls indexing and sitemap inclusion |
 | Route outside a published root, for example `/random-test-page` | `404`, even if code exists |
 
-Tracking-only URLs rely on their clean canonical, following [Google’s duplicate URL guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls). They get no query-based `noindex` header. Search, filters, sort, pagination, tool state, unknown parameters, and any mix of those with tracking still get `noindex, follow`. Only clean published URLs enter the sitemap. To index a category or other view, give it its own path, such as `/self-host-apps/categories/<name>`. Publish that exact slug. See [caching.md](caching.md) for why pages never read the query on the server.
+Tracking-only URLs rely on their clean canonical, following [Google’s duplicate URL guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls). They get no query-based `noindex` header. Search, filters, sort, pagination, tool state, unknown parameters, and any mix of those with tracking still get `noindex, follow`. Only clean published URLs enter the sitemap. To index a category or other view, give it its own path, such as `/self-host-apps/categories/<name>` or `/cli-apps/categories/<name>`. Publish that exact slug. See [caching.md](caching.md) for why pages never read the query on the server.
+
+Self-host and CLI category pages require at least 15 published apps. Each eligible child has its own directory row, reviewed search fields, and MDX intro. The hub and sibling links include only exact published categories. The `categories` segment has no landing page or registry row: breadcrumbs skip it and show home, the directory, and the category. Draft copy previews stay `is_indexable = false`; reviewed pages can become indexable through the directory publisher. Their canonical, sitemap entry, and breadcrumb JSON-LD all come from the shared registry helpers.
 
 ### Query parameter policy
 

@@ -52,6 +52,14 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
         addPage("/api/ad-networks/sites", false);
         addPage("/api/ad-networks/site", false);
       }
+      if (slug.startsWith("self-host-apps/categories/")) {
+        addPage("/self-host-apps");
+        edgeTags.add("self-host-catalog");
+      }
+      if (slug.startsWith("cli-apps/categories/")) {
+        addPage("/cli-apps");
+        edgeTags.add("cli-apps-catalog");
+      }
       if (slug === "cli-apps") {
         addPage("/api/cli-apps/index", false);
         edgeTags.add("cli-apps-catalog");

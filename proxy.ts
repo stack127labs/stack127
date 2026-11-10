@@ -58,9 +58,9 @@ export async function proxy(request: NextRequest) {
   const tags = ["stack127-public", `page:${slug}`];
   if (pathname === "/") tags.push("home");
   if (pathname === "/sitemap.xml") tags.push("sitemap");
-  if (pathname === "/self-host-apps" || pathname === "/self-hosted-app-resource-planner" || pathname === "/api/resource-planner-index" || pathname === "/api/self-host-apps/search") tags.push("self-host-catalog");
+  if (pathname.startsWith("/self-host-apps/categories/") || pathname === "/self-host-apps" || pathname === "/self-hosted-app-resource-planner" || pathname === "/api/resource-planner-index" || pathname === "/api/self-host-apps/search") tags.push("self-host-catalog");
   if ((pathname.startsWith("/api/self-host-apps/") && pathname !== "/api/self-host-apps/search") || pathname.startsWith("/api/resource-planner-app/")) tags.push("self-host-detail");
-  if (pathname === "/cli-apps" || pathname === "/api/cli-apps/index") tags.push("cli-apps-catalog");
+  if (pathname.startsWith("/cli-apps/categories/") || pathname === "/cli-apps" || pathname === "/api/cli-apps/index") tags.push("cli-apps-catalog");
   if (pathname === "/platform-fees" || pathname.startsWith("/platform-fees/")) tags.push("platform-fees-catalog");
   if (pathname === "/ad-networks" || pathname.startsWith("/ad-networks/") || pathname.startsWith("/api/ad-networks/") || pathname === "/ad-network-checker") tags.push("ad-networks-catalog");
   if (pathname === "/keyboard-shortcuts" || pathname.startsWith("/keyboard-shortcuts/")) tags.push("keyboard-shortcuts-catalog");
