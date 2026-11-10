@@ -19,7 +19,7 @@ async function configure(args, ready = true) {
   };
   const rules = {
     request: [{ id: "detail", description: "Public detail APIs: existing", action: "set_cache_settings",
-      expression: '(http.host eq "stack127.com" and http.request.method eq "GET" and http.cookie eq "" and (starts_with(http.request.uri.path, "/api/self-host-apps/") or starts_with(http.request.uri.path, "/api/resource-planner-app/")))',
+      expression: '(http.host eq "stack127.com" and http.request.method eq "GET" and http.cookie eq "" and ((starts_with(http.request.uri.path, "/api/self-host-apps/") or starts_with(http.request.uri.path, "/api/hardware-directory/")) or starts_with(http.request.uri.path, "/api/resource-planner-app/")))',
       action_parameters: { cache: true, edge_ttl: { mode: "bypass_by_default" }, browser_ttl: { mode: "respect_origin" } },
     }],
     response: [{ id: "html", description: "Public successful document HTML: existing", action: "set_cache_control",
@@ -72,6 +72,7 @@ test("long TTL mode gives content, RSC, directories, and filters seven days with
   for (const route of ["/api/self-host-apps/", "/api/cli-apps/index", "/api/resource-planner-index"]) {
     assert.ok(json.expression.includes(route), route);
   }
+  assert.ok(!json.expression.includes("/api/hardware-directory/"), "retired route clause is removed");
   assert.equal(json.action_parameters.edge_ttl.mode, "bypass_by_default");
   assert.equal(json.action_parameters.browser_ttl.mode, "respect_origin");
   const errors = writes.find(({ definition }) => definition.description === "Public errors: no store").definition;

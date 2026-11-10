@@ -335,6 +335,8 @@ Don't commit token values or print them in logs.
 
 ## Amazon Associates
 
+No code uses these values since the hardware directories and the Amazon affiliate module were removed on 10 November 2026. The file and its Infisical values stay until the owner retires them in Infisical; don't delete a mirrored copy by hand.
+
 `.env.affiliate` stores the Amazon Associates config for stack127. Git ignores it, and it must stay at mode `0600`. The tracked example lists the same keys without values.
 
 | Key | Secret? | Use |
@@ -352,7 +354,7 @@ Don't commit token values or print them in logs.
 | `AMAZON_CREATORS_API_REGION` | No | Optional credential region record. |
 | `AMAZON_CREATORS_API_MARKETPLACE` | No | Optional marketplace override. |
 
-Affiliate scripts must load `.env.affiliate` explicitly. Next.js doesn't load this split file on its own. Never expose the Creators API secret to client code or print the real file.
+Next.js doesn't load this split file on its own. Never expose the Creators API secret to client code or print the real file.
 
 ## Rotation checklist
 

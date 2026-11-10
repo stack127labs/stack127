@@ -14,16 +14,7 @@ delete from public.stack127_pages where slug in (
   'zigbee-devices', 'zigbee-coordinators', 'z-wave-devices',
   'matter-devices', 'nut-compatible-ups', 'local-security-cameras'
 );
--- Registry deletion triggers can enqueue a final event. Releases replace the
--- routes and sitemap; discard obsolete per-page queue and fingerprint entries.
-delete from public.stack127_revalidation_events where entity_type='page' and slug in (
-  'zigbee-devices', 'zigbee-coordinators', 'z-wave-devices',
-  'matter-devices', 'nut-compatible-ups', 'local-security-cameras'
-);
-delete from public.stack127_cache_processed where entity_type='page' and slug in (
-  'zigbee-devices', 'zigbee-coordinators', 'z-wave-devices',
-  'matter-devices', 'nut-compatible-ups', 'local-security-cameras'
-);
+-- The deletion events stay queued so the cache worker confirms each URL is gone.
 -- Keep app references usable, but reserve search visibility for the hub and
 -- generator. Draft children also inherit this policy when later published.
 update public.stack127_pages set is_indexable=false

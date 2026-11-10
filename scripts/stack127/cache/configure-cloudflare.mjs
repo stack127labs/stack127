@@ -66,7 +66,9 @@ responseRules = await save(responseSet.id, responseRules, {
   action_parameters: htmlParameters,
 }, "Public successful document HTML") ?? responseRules;
 
-let detailExpression = detailRequest.expression;
+// Clauses for retired API routes stay in the installed rule unless removed here.
+const retiredJsonClauses = [' or starts_with(http.request.uri.path, "/api/hardware-directory/")'];
+let detailExpression = retiredJsonClauses.reduce((expression, clause) => expression.replaceAll(clause, ""), detailRequest.expression);
 const detailAnchor = 'starts_with(http.request.uri.path, "/api/self-host-apps/")';
 const jsonRoutes = [
   ['"/api/resource-planner-index"', 'http.request.uri.path eq "/api/resource-planner-index"'],
