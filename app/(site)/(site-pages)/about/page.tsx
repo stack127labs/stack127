@@ -90,15 +90,14 @@ export default function AboutPage() {
         <section id="how-we-earn-money" style={{ scrollMarginTop: "calc(var(--top-bar-height) + var(--space-6))" }}>
           <h2>How we earn money</h2>
           <p>
-            Some links on stack127 are affiliate links. If you buy through one, we earn a
-            commission at no extra cost to you. Commissions never change our rankings or
-            placement. Directory pages with affiliate links include a disclosure.
+            Everything on stack127 is free to use. Today the site has no ads and no
+            affiliate links, so it earns nothing yet.
           </p>
-          <p>As an Amazon Associate I earn from qualifying purchases.</p>
           <p>
-            Later, we plan to add paid tools and products next to the free ones. Ads and
-            sponsors may also help pay for the work. Today, affiliate links are our only
-            income.
+            Later, we plan to add paid tools and products next to the free ones. Ads,
+            sponsors, and affiliate links may also help pay for the work. A page with
+            affiliate links will say so, and commissions will never change our rankings
+            or placement.
           </p>
         </section>
 
