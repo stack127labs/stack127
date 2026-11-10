@@ -1,0 +1,10 @@
+.categories h2 { margin-bottom: var(--space-4); }
+.categories ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--space-3) var(--space-6); padding: 0; list-style: none; }
+.categories span, .count { font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-text-muted); }
+.listing { max-width: 1000px; }
+.listing ul { padding: 0; list-style: none; }
+.listing li { padding-block: var(--space-4); border-bottom: 1px solid var(--color-border); overflow-wrap: anywhere; }
+.listing li:first-child { border-top: 1px solid var(--color-border); }
+.listing li > a, .listing li > strong { font-family: var(--font-display); font-weight: var(--weight-bold); }
+.listing p { margin-block: var(--space-2); }
+.listing small { display: block; font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-text-muted); }
