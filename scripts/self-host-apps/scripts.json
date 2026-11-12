@@ -4,6 +4,10 @@
     "purpose": "Remove only identified deployment-shape-v1 estimates after exact snapshot checks. Defaults to rollback and requires a recoverable before-value backup before commit."
   },
   {
+    "file": "apply-category-review.mjs",
+    "purpose": "Replaces only category links from a reviewed category file. Each app must still have the categories the reviewer saw. Rolls back unless --apply; production needs --confirm stack127-production."
+  },
+  {
     "file": "backfill-open-source-pricing.mjs",
     "purpose": "Sets free-to-self-host pricing only for published apps with an already reviewed open-source model and license, and records the source URL on the app row."
   },
