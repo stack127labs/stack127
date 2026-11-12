@@ -41,14 +41,14 @@ Before a review commits, claiming the same IDs again is safe. Release an abandon
 
 The legacy `self-host-apps:reset-categories` command is retired and exits without database access. It previously replaced all category links using imported labels and keyword matches. Existing categories need source review too. Correct them per app with `apply-qa-overrides.mjs`, `review_scope: "partial"`, expected categories, and official evidence URLs. Do not infer purpose from incidental words such as image, model, or server.
 
-On 2026-11-12 every published app was reclassified by reading its name, summary, and topics. The result is `scripts/self-host-apps/batches/2026-11-12-category-review.json`, applied with `apply-category-review.mjs`. That script changes only category links, skips nothing silently, and refuses an app whose categories differ from the reviewed `expected.categories`. It rolls back unless `--apply` is given:
+On 2026-11-12 every published app was reclassified by reading its name, summary, and topics. The result is `scripts/self-host-apps/batches/2026-11-12-category-review.json`, applied with `apply-category-review.mjs`. That script changes only category links, in batches of 100 apps. Each batch locks the link table, rechecks its apps, and rolls back unless `--apply` is given. Apps that already match the review are skipped, so a rerun after a stop is safe. An app whose categories differ from both the review and `expected.categories` stops the run before any write:
 
 ```bash
 node scripts/self-host-apps/apply-category-review.mjs --environment development --file scripts/self-host-apps/batches/2026-11-12-category-review.json
 node scripts/self-host-apps/apply-category-review.mjs --environment development --file scripts/self-host-apps/batches/2026-11-12-category-review.json --apply
 ```
 
-For production, add `--confirm stack127-production`. If production categories drifted from development, the preview lists the changed apps; review them, or pass `--skip-changed` to leave them as they are.
+For production, replace `--environment development` with `--environment production` and add `--confirm stack127-production`, first without `--apply` to preview. If production categories drifted from development, the preview lists the changed apps; review them, or pass `--skip-changed` to leave them as they are. Category link changes move public page dates and queue cache refreshes through the directory triggers. After a production run, recount categories before publishing their pages.
 
 The review applier validates and moves data. Publication requires an official identity, a managed icon in `stack127-media`, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
 
