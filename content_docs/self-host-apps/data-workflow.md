@@ -41,6 +41,15 @@ Before a review commits, claiming the same IDs again is safe. Release an abandon
 
 The legacy `self-host-apps:reset-categories` command is retired and exits without database access. It previously replaced all category links using imported labels and keyword matches. Existing categories need source review too. Correct them per app with `apply-qa-overrides.mjs`, `review_scope: "partial"`, expected categories, and official evidence URLs. Do not infer purpose from incidental words such as image, model, or server.
 
+On 2026-11-12 every published app was reclassified by reading its name, summary, and topics. The result is `scripts/self-host-apps/batches/2026-11-12-category-review.json`, applied with `apply-category-review.mjs`. That script changes only category links, skips nothing silently, and refuses an app whose categories differ from the reviewed `expected.categories`. It rolls back unless `--apply` is given:
+
+```bash
+node scripts/self-host-apps/apply-category-review.mjs --environment development --file scripts/self-host-apps/batches/2026-11-12-category-review.json
+node scripts/self-host-apps/apply-category-review.mjs --environment development --file scripts/self-host-apps/batches/2026-11-12-category-review.json --apply
+```
+
+For production, add `--confirm stack127-production`. If production categories drifted from development, the preview lists the changed apps; review them, or pass `--skip-changed` to leave them as they are.
+
 The review applier validates and moves data. Publication requires an official identity, a managed icon in `stack127-media`, one to three controlled categories, a verified self-hosting classification, install documentation, and at least one source URL. Open and source-available apps need a verified repository and license. Closed-source apps need an official website and publisher identity, but no repository.
 
 `self-host-apps:cache-icons` fetches, normalizes, and uploads icon batches with eight workers by default. `self-host-apps:icon-integrity` checks published URLs with 24 workers by default. Both accept an explicit worker count when a source needs a lower request rate.
