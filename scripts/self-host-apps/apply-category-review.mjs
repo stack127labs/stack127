@@ -93,18 +93,23 @@ async function main() {
 
     for (let start = 0; start < pending.length; start += batchSize) {
       const batch = pending.slice(start, start + batchSize);
+      const counts = { updated: 0, alreadyDone: 0, linksRemoved: 0, linksAdded: 0, changed: [] };
       await client.query("begin");
       try {
         await client.query("set local lock_timeout = '5s'");
         await client.query("set local statement_timeout = '120s'");
-        await client.query("lock table public.self_host_app_category_links in share row exclusive mode");
+        // Same order as apply-qa-overrides.mjs: app rows first, then links.
+        // A deadlock or lock timeout rolls back only this batch; rerun to continue.
         const now = await currentCategories(client, batch.map((record) => record.slug), true);
+        await client.query("lock table public.self_host_app_category_links in share row exclusive mode");
+        const relocked = await currentCategories(client, batch.map((record) => record.slug));
+        for (const [slug, categories] of relocked) now.set(slug, categories);
         for (const record of batch) {
           const state = classify(record, now.get(record.slug));
-          if (state === "done") { summary.alreadyDone += 1; continue; }
+          if (state === "done") { counts.alreadyDone += 1; continue; }
           if (state !== "apply") {
             if (!args["skip-changed"] || state === "missing") throw new Error(`${record.slug}: ${state} during the run; nothing in this batch was written`);
-            summary.changedSinceReview.push(record.slug);
+            counts.changed.push(record.slug);
             continue;
           }
           const removed = await client.query(
@@ -122,11 +127,17 @@ async function main() {
              on conflict (app_id, category_id) do nothing`,
             [record.slug, record.categories],
           );
-          summary.linksRemoved += removed.rowCount;
-          summary.linksAdded += added.rowCount;
-          summary.updated += 1;
+          counts.linksRemoved += removed.rowCount;
+          counts.linksAdded += added.rowCount;
+          counts.updated += 1;
         }
         await client.query(args.apply ? "commit" : "rollback");
+        // Count a batch only once it has committed (or, in a preview, finished).
+        summary.updated += counts.updated;
+        summary.alreadyDone += counts.alreadyDone;
+        summary.linksRemoved += counts.linksRemoved;
+        summary.linksAdded += counts.linksAdded;
+        summary.changedSinceReview.push(...counts.changed);
       } catch (error) {
         await client.query("rollback").catch(() => {});
         throw Object.assign(error, { summary });
@@ -141,7 +152,7 @@ async function main() {
 main().catch((error) => {
   if (error.summary) {
     const { summary } = error;
-    console.error(JSON.stringify({ updatedBeforeStop: summary.applied ? summary.updated : 0, missing: summary.missing.slice(0, 50), changedSinceReview: summary.changedSinceReview.length, changedSlugs: summary.changedSinceReview.slice(0, 50) }, null, 1));
+    console.error(JSON.stringify({ committedBeforeStop: summary.applied ? summary.updated : 0, missing: summary.missing.slice(0, 50), changedSinceReview: summary.changedSinceReview.length, changedSlugs: summary.changedSinceReview.slice(0, 50) }, null, 1));
   }
   console.error(error.message);
   process.exit(1);
