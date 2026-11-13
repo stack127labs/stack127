@@ -29,7 +29,7 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 - 2026-11-13: 98 duplicate directory entries retired in production (4,913 to 4,815 published self-hostable apps). The decisions are in `scripts/self-host-apps/batches/2026-11-13-published-duplicates-reviewed.json`. The public list was refreshed by hand: 4,803 apps in 42 categories.
 - 2026-11-13: owner did the "Request indexing" clicks for the 10 hub URLs.
 - 2026-11-13: retiring the 98 apps broke live search for about 20 minutes: `/api/self-host-apps/search` returned 503 for any result that included a retired app, until the frontend refresh run finished. Fixed the same day: the API now leaves out an app whose details are gone and does not cache that response. The public list now shows every published app, not one per repository.
-- 2026-11-13: weekly list refresh installed on OVH (`self-host-awesome-list`, Monday 14:02 UTC). First run passed as a no-op: 4,815 apps, 42 categories. The first real push has not happened yet. `PUBLIC_REPOS_GITHUB_TOKEN` is in Infisical; the token the owner created can also push to the main repository, which the runner guide advises against.
+- 2026-11-13: weekly list refresh installed on OVH (`self-host-awesome-list`, Monday 14:02 UTC). First run passed as a no-op: 4,815 apps, 42 categories. The first real push has not happened yet. `PUBLIC_REPOS_GITHUB_TOKEN` is in Infisical `stack127 /vps/self-host-apps`; the owner limited the token to `awesome-self-hosted-apps`. Add each new public list repository to that same token on GitHub.
 
 ## Next
 
