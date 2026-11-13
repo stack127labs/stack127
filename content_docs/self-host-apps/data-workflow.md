@@ -83,7 +83,7 @@ npm run self-host-apps:refresh-install-options -- --limit 5000 --apply
 
 Docker links point to a registry or install page. Dockerfiles, Compose files, repositories, and READMEs are not Docker install buttons. Appliance links are emitted only when a reviewed catalog or package source supplies them.
 
-GitHub Actions collects primary-source evidence and inspects install destinations weekly without applying changes. The catalogue discovery job also runs weekly. Reports remain review inputs. Apply corrections only after reading the cited sources, using the guarded field-correction workflow documented in `scripts/stack127/directory-quality/README.md`. A failed source or unreadable app stays pending; it must not become a negative factual claim or receive a new verification date.
+The OVH cron runner collects primary-source evidence and inspects install destinations weekly without applying changes. The catalogue discovery job also runs weekly. Reports remain review inputs. Apply corrections only after reading the cited sources, using the guarded field-correction workflow documented in `scripts/stack127/directory-quality/README.md`. A failed source or unreadable app stays pending; it must not become a negative factual claim or receive a new verification date.
 
 ## QA
 
@@ -115,4 +115,6 @@ The local-to-production mirror is exceptional and guarded:
 npm run self-host-apps:sync-local-to-prod -- --confirm-reviewed-push --dry-run
 ```
 
-Pass `--draft-missing` only when the reviewed local mirror is intentionally authoritative for publication. Without that flag, the script never drafts production rows. Normal enrichment writes directly to the selected database. GitHub Actions and VPS logs are the run history. No import-run table is needed.
+Pass `--draft-missing` only when the reviewed local mirror is intentionally authoritative for publication. Without that flag, the script never drafts production rows. Normal enrichment writes directly to the selected database. OVH job logs are the run history. No import-run table is needed.
+
+Scheduled discovery and refresh run on OVH. See [the cron runner guide](../../scripts/self-host-apps/ovh/README.md) for schedules, catch-up, credentials, logs, reports, and installation.

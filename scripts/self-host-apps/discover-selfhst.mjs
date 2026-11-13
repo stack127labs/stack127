@@ -6,15 +6,13 @@ import { parseArgs, numberArg } from "./lib/args.mjs";
 import { normalizeCandidate, storeCandidates } from "./lib/candidates.mjs";
 import { withClient } from "./lib/db.mjs";
 
+import { request } from "./lib/request.mjs";
+
 const softwareUrl = "https://selfhst.github.io/cdn/directory/software.json";
 const tagsUrl = "https://selfhst.github.io/cdn/directory/tags.json";
 
 async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: { "User-Agent": "stack127-self-host-apps-discovery/1.0" },
-  });
-  if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.status}`);
-  return response.json();
+  return request(url, { headers: { "User-Agent": "stack127-self-host-apps-discovery/1.0" } }, response => response.json());
 }
 
 function sourceRow(row, tagNames) {

@@ -229,7 +229,7 @@ DATABASE_POOLER_URL
 DATABASE_URL
 ```
 
-The release and scheduled discovery workflows also recognize these optional repository secrets:
+The release workflow recognizes the relevant optional repository secrets below. Self-host discovery and refresh now use Infisical `stack127 /vps/self-host-apps` on OVH; see [the cron runner guide](../scripts/self-host-apps/ovh/README.md). Their GitHub workflow secrets are no longer used for scheduling:
 
 ```text
 STACK127_GITHUB_TOKEN

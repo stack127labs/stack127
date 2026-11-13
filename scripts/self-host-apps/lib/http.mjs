@@ -1,16 +1,10 @@
+import { request } from "./request.mjs";
+
 export async function fetchText(url, { accept = "text/html,application/xhtml+xml" } = {}) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: accept,
-      "User-Agent": "stack127-self-host-app-discovery/1.0",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Source fetch failed ${response.status}: ${url}`);
-  }
-
-  return response.text();
+  return request(url, { headers: {
+    Accept: accept,
+    "User-Agent": "stack127-self-host-app-discovery/1.0",
+  } });
 }
 
 export async function mapConcurrent(values, concurrency, callback) {

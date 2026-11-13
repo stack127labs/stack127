@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-import { writeFileSync, mkdirSync } from "node:fs";
-import { dirname } from "node:path";
+import { reportOutput } from "./lib/report-output.mjs";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { validateSummary } from "./lib/summary-rules.mjs";
@@ -166,12 +165,12 @@ async function main() {
     })),
   };
 
-  if (args.out) {
-    mkdirSync(dirname(args.out), { recursive: true });
-    writeFileSync(args.out, `${JSON.stringify(report, null, 2)}\n`);
-  }
-
-  console.log(JSON.stringify(report, null, 2));
+  reportOutput(report, args.out, {
+    published: report.published, blocked_count: report.blocked_count,
+    excluded_published_count: report.excluded_published_count,
+    blocker_counts: report.blocker_counts,
+    failures: report.blocked_rows.map(({ slug, blockers }) => ({ slug, blockers })),
+  });
   jobSummary("Publication QA", { Published: report.published, Blocked: report.blocked_count, "Excluded published": report.excluded_published_count });
 }
 

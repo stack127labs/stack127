@@ -244,17 +244,14 @@ export async function upsertCandidate(client, candidate) {
 export async function storeCandidates(client, candidates, { source, sourceUrl, notes } = {}) {
   let inserted = 0;
   let updated = 0;
-  let errors = 0;
-
   for (const candidate of candidates) {
     try {
       if (await upsertCandidate(client, candidate)) inserted += 1;
       else updated += 1;
     } catch (error) {
-      errors += 1;
-      console.warn(`warning ${candidate.slug}: ${error.message}`);
+      throw new Error(`Candidate write failed (${source}/${candidate.source_key}): ${error.message}`, { cause: error });
     }
   }
 
-  return { source, source_url: sourceUrl ?? null, notes: notes ?? null, discovered: candidates.length, inserted, updated, errors };
+  return { source, source_url: sourceUrl ?? null, notes: notes ?? null, discovered: candidates.length, inserted, updated, errors: 0 };
 }

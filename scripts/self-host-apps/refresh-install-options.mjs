@@ -5,6 +5,7 @@ import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
 import { buildInstallOptions } from "./lib/install-options.mjs";
 import { installMethods, installOptionsToRow } from "./lib/streamlined-storage.mjs";
+import { reportOutput } from "./lib/report-output.mjs";
 import { jobSummary } from "./lib/job-summary.mjs";
 
 function rowValues(row, options, checkedAt) {
@@ -113,7 +114,8 @@ async function main() {
     };
   }, args.environment ? databaseOptions(args) : args["database-url"]);
 
-  console.log(JSON.stringify(report, null, 2));
+  const { sample: _sample, ...counts } = report;
+  reportOutput(report, args.out, counts);
   jobSummary("Install destinations", { Mode: report.mode, Apps: report.apps, "Apps with options": report.apps_with_options, Options: report.options });
 }
 
