@@ -72,6 +72,8 @@ steps() {
     self-host-refresh-source-hosts)
       npm run self-host-apps:refresh-gitlab -- --published-only --limit 500 --max-age-hours 24 || rc=$?
       npm run self-host-apps:refresh-codeberg -- --published-only --limit 500 --max-age-hours 24 || rc=$? ;;
+    self-host-awesome-list)
+      npm run stack127:repo:awesome-list:sync ;;
     self-host-refresh-technical)
       npm run self-host-apps:refresh-primary-technical-facts -- --refresh-all --concurrency 16 --max-failure-percent 5 --out "$report_dir/$run_id-technical-refresh.json" || rc=$?
       # Deliberately dry-run (default); never add --apply here.
@@ -199,7 +201,7 @@ catch_up() {
   # Child wrappers take their own shared lock. Do not inherit ours and deadlock.
   exec 8>&-
   local next next_rc rc=0
-  for next in self-host-discovery-github self-host-refresh-github self-host-discovery-lists self-host-discovery-catalogs self-host-discovery-directories self-host-refresh-source-hosts self-host-refresh-technical; do
+  for next in self-host-discovery-github self-host-refresh-github self-host-discovery-lists self-host-discovery-catalogs self-host-discovery-directories self-host-refresh-source-hosts self-host-refresh-technical self-host-awesome-list; do
     local args=("$next" --due --catch-up)
     [[ "$validation" = 0 ]] || args+=(--validation "$checkout")
     next_rc=0
@@ -262,7 +264,7 @@ execute() {
   }
   # Use Node's dotenv parser; never evaluate secret values as shell code.
   export GITHUB_STEP_SUMMARY="$report_dir/$run_id-summary.md"
-  unset DATABASE_URL GITHUB_TOKEN GITLAB_TOKEN CODEBERG_TOKEN
+  unset DATABASE_URL GITHUB_TOKEN GITLAB_TOKEN CODEBERG_TOKEN AWESOME_LIST_GITHUB_TOKEN
   local started
   started=$(date +%s%3N)
   # Run the updated step definitions. Syntax/launcher failures reach the stable
@@ -282,9 +284,10 @@ main() {
     self-host-discovery-catalogs) minutes=45 ;;
     self-host-discovery-directories|self-host-refresh-source-hosts) minutes=30 ;;
     self-host-refresh-technical) minutes=60 ;;
-    # Sum of the seven data-job limits is 225 minutes, plus bounded lock waits.
-    self-host-catch-up) minutes=240 ;;
-    *) echo 'Usage: run-job.sh self-host-{discovery-{github,lists,catalogs,directories},refresh-{github,source-hosts,technical},catch-up} [--due | --validation CHECKOUT]' >&2; exit 2 ;;
+    self-host-awesome-list) minutes=20 ;;
+    # Eight job limits total 245 minutes, plus bounded lock waits.
+    self-host-catch-up) minutes=260 ;;
+    *) echo 'Usage: run-job.sh self-host-{discovery-{github,lists,catalogs,directories},refresh-{github,source-hosts,technical},awesome-list,catch-up} [--due | --validation CHECKOUT]' >&2; exit 2 ;;
   esac
   log_file="$logs/$job.log"
   if [[ "$phase" = outer ]]; then

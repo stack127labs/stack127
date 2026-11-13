@@ -33,7 +33,7 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 | Submit the remaining 148 sitemap URLs to Bing, 100 a day | Agent | Open |
 | Make `stack127labs/awesome-self-hosted-apps` public | Owner approves, agent flips | The repository is private with the first export: 4,814 apps in 42 categories |
 | Merge the export script, pull request #120 | Agent, after the owner's go | Reviewed twice; waiting on the owner |
-| Refresh the list on a schedule | Agent | Not set up. Read Cockpit `workflow/runners.md` first |
+| Refresh the list on a schedule | Agent | built, waiting for install |
 | Pull the numbers and write the first data story | Agent | After the list is public |
 | Post the story on r/selfhosted | Owner | After review |
 | Measure referring domains as a baseline | Agent | Open |

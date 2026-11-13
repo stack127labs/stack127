@@ -10,5 +10,6 @@
 18 10 1 * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-discovery-directories --due >> /srv/stack127-data/logs/self-host-discovery-directories.log 2>&1
 22 11 * * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-refresh-source-hosts --due >> /srv/stack127-data/logs/self-host-refresh-source-hosts.log 2>&1
 26 12 * * 1 /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-refresh-technical --due >> /srv/stack127-data/logs/self-host-refresh-technical.log 2>&1
+2 14 * * 1 /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-awesome-list --due >> /srv/stack127-data/logs/self-host-awesome-list.log 2>&1
 30 0-4,7-23 * * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-catch-up >> /srv/stack127-data/logs/self-host-catch-up.log 2>&1
 # END stack127 self-host apps

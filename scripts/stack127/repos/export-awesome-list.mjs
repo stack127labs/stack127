@@ -225,8 +225,8 @@ export function prepareOutDir(outDir) {
 async function main() {
   const args = parseArgs();
   const outDir = path.resolve(String(requireArg(args, "out")));
-  const databaseUrl = readEnvValues(".env.database").DATABASE_URL;
-  if (!databaseUrl) throw new Error("Production DATABASE_URL is required in .env.database. Local .env.local is intentionally not used.");
+  const databaseUrl = args["database-env"] ? process.env.DATABASE_URL : readEnvValues(".env.database").DATABASE_URL;
+  if (!databaseUrl) throw new Error("Production DATABASE_URL is required in .env.database (or the environment with --database-env). Local .env.local is intentionally not used.");
 
   const { apps, categoryRows } = await withClient(async (client) => {
     await client.query("begin transaction read only");
