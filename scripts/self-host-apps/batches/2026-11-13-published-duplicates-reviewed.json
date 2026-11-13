@@ -489,8 +489,10 @@
     {
       "slug": "triliumnext-notes",
       "expected_names": [
-        "TriliumNext Notes"
+        "TriliumNext Notes",
+        "Trilium Notes"
       ],
+      "clean_name": "Trilium Notes",
       "source_code_url": "https://github.com/TriliumNext/Trilium"
     },
     {

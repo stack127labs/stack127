@@ -133,15 +133,27 @@ async function applyCleanup(client, manifest, targetRows, canonicalRows) {
   );
 }
 
+/** Fails before any database work when the file contradicts itself. */
+export function validateManifest(manifest) {
+  const targets = new Set(manifest.records.map((row) => row.slug));
+  if (targets.size !== manifest.records.length || manifest.canonical_apps.some((row) => targets.has(row.slug))) {
+    throw new Error("Cleanup stopped: repeated target or canonical app is also a retirement target.");
+  }
+  const canonicals = manifest.canonical_apps.map((row) => row.slug);
+  if (new Set(canonicals).size !== canonicals.length) throw new Error("Cleanup stopped: a canonical app is listed twice.");
+  for (const record of manifest.records) {
+    if (record.canonical_slug && !canonicals.includes(record.canonical_slug)) {
+      throw new Error(`Cleanup stopped: ${record.slug} points to unknown canonical app ${record.canonical_slug}.`);
+    }
+  }
+}
+
 async function main() {
   const args = parseArgs();
   const { environment, apply, databaseUrl } = cleanupOptions(args);
 
   const manifest = JSON.parse(await readFile(args.file ?? manifestPath, "utf8"));
-  const targets = new Set(manifest.records.map((row) => row.slug));
-  if (targets.size !== manifest.records.length || manifest.canonical_apps.some((row) => targets.has(row.slug))) {
-    throw new Error("Cleanup stopped: repeated target or canonical app is also a retirement target.");
-  }
+  validateManifest(manifest);
   await withClient(async (client) => {
     await client.query(apply ? "begin isolation level serializable" : "begin read only");
     try {
