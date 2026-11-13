@@ -11,50 +11,24 @@ stack127 publishes tools, directories, references, courses, and useful content f
 
 ## Agent roles
 
-Work is split into three lanes. They are guidance for who usually does what, not hard limits. Follow them unless the user says otherwise.
+Follow the agent system in your global instructions (the "Agent system" section, managed in the Cockpit repo). It says which model each role is and how work is handed over, checked and reported. This guide only says which role does which work here. If that section is missing, for example in GitHub Actions, do the work yourself and say so.
 
-| Lane | Model | Effort | Work |
-| --- | --- | --- | --- |
-| Opus | Newest Claude Opus | `medium`, `high` for frontend builds | Writing, design, components, frontend, site content, SEO planning, and planning how to do the work |
-| Sol | Newest GPT Sol | `high`, `xhigh` for hard or risky work | Code review, backend changes, and infra planning |
-| Luna | Newest GPT Luna | `xhigh`, `max` for deep research | Research, mass data gathering, and data work |
+| Work | Role | Effort |
+| --- | --- | --- |
+| Pages, components, styles, card art, design, site copy, SEO planning | `designer` | The higher level for frontend builds |
+| `lib/`, API routes, scripts, migrations, tests, backend changes, infra planning | `coder` | The higher level for hard or risky work |
+| Code review before a push | `reviewer` | The higher level for hard or risky work |
+| Research, mass data gathering, data work | `researcher` | The higher level for deep research |
 
-Claude Code sessions are the Opus lane. Codex sessions are Sol by default and Luna when started for research or data. Opus usually owns pages, components, styles, card art, and copy. Sol and Luna usually own `lib/`, API routes, scripts, migrations, tests, data, and infra. These lanes guide task assignment and review. They do not restrict which files an agent may edit when the task requires a cross-lane change.
+The agent the user talks to is the `lead`.
 
-The agent the user talks to is the coordinator:
-
-1. Do the work in your own lane. Small edits in another lane's files are fine when they're part of your task.
-2. Send larger work in another lane to a worker with T3's `delegate_task`, so the user can see the worker's conversation. Pick the provider and model from `orchestrator_capabilities`: the newest Claude Opus on `claudeAgent` for Opus, or the newest GPT Sol or Luna on `codex` for Sol and Luna, at the lane's effort. Give the worker the goal, relevant files, constraints, and what to return. Use `mode: "async"` and keep working, because the result comes back on its own.
-3. Send follow-ups to the same worker with `t3_thread_send` to its `childThreadId`. Name the worker's task title in your message, because T3 shows the follow-up without a link. Follow-ups don't send a completion notice, so wait with `t3_thread_wait`. Waiting uses no tokens. The wait returns only a status, so read the reply with `task_status` (its `latestTerminalSummary`) or `t3_thread_read`. If a user message or other work interrupts the wait, handle it, check `task_status`, and start the wait again until the worker replies.
-4. Review what comes back and check the diff. Send gaps back to the same worker.
-5. Report to the user what each lane did.
-
-Outside T3, in a plain Claude Code or Codex CLI session, there is no delegation tool. Do the work yourself, or tell the user which part another lane should do.
-
-Rules:
-
-- Workers don't delegate again. If a task needs another lane, the worker does its part and lists the rest under "Needs other lanes".
-- Any lane may read files, run checks, and look things up.
-- If the user says "do not delegate" or "use this model for that", do exactly that for the task. Don't ask again.
-- A "shared" file, such as a skill or a general doc, doesn't decide the lane. The task does: SEO planning and copy go to Opus, SEO runtime code goes to Sol, and research deliverables go to Luna.
-- Give one agent one set of files at a time, so two agents never edit the same file.
-- Every code change gets a Sol review before it is pushed, unless the user says otherwise.
-- Only the coordinator pushes, deploys, or writes production data, after the user authorizes it and the review passes. A worker may do it only when the coordinator's task says so explicitly and names the reviewed commit or the exact data changes.
-- Use the workspace T3 assigned. Do not create local branches or switch branches for a task. An agent already in a worktree does its work there, without adding another branch. The coordinator releases reviewed code through a pull request merged into `main`. Docs-only changes may go straight to `main`. T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
+- A "shared" file, such as a skill or a general doc, doesn't decide the role. The task does: SEO planning and copy go to the `designer`, SEO runtime code goes to the `coder`, and research deliverables go to the `researcher`.
+- The roles guide who does the work and who reviews it. They do not restrict which files an agent may edit when the task needs a cross-role change.
+- A worker whose task needs another role does its part and lists the rest under "Needs other roles".
+- Only the `lead` pushes, deploys, or writes production data, after the user authorizes it and the review passes. A worker may do it only when the `lead`'s task says so explicitly and names the reviewed commit or the exact data changes.
+- Use the workspace T3 assigned. Do not create local branches or switch branches for a task. An agent already in a worktree does its work there, without adding another branch. The `lead` releases reviewed code through a pull request merged into `main`. Docs-only changes may go straight to `main`. T3 auto-pull updates the main checkout when enabled. Preserve branches attached to other agents' active worktrees.
 - Workers may dry-run and apply development tool-page updates through the catalog, version, and repository-sync commands, or stage and verify selected tool and directory batches through the publishing commands. Use `--environment development` and verify the result.
-- Never pin a default model version in docs or skills.
-
-Fallback when a tool is out of limits:
-
-- Claude and Codex do the work by default. Use Grok or Gemini only when the normal tool is out of usage or rate limits, or when the user picks them. A normal failure is not a reason to fall back.
-- Fall back in this order: the normal tool (Claude for Opus work, Codex for Sol and Luna work), then the `grok` provider (newest main Grok model), then `antigravity` (newest Gemini Flash High). Send the same task with `delegate_task`.
-- Fallback workers follow the same lanes, skills, and rules. Check their diff, and get a Sol review before anything is pushed, when Codex is available.
-- If every tool is out of limits, stop and tell the user which tools were tried.
-
-Reporting:
-
-- If a fallback was used, say so in your final message, for example: "Fallback used: Codex hit its usage limit, so Grok (grok-4.7) did the backend change."
-- If delegated work is still running when you reply, end the message with "Task is not done yet." and name each tool and task, for example: "Task is not done yet. Codex is working on the KDP royalty backend."
+- Never name a model in docs or skills. Name the role.
 
 ## Work clearly
 
