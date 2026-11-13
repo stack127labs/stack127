@@ -76,6 +76,7 @@
     "stack127:media:migrate-directory-icons": "node scripts/stack127/media/migrate-directory-icons.mjs",
     "stack127:media:migrate-json-images": "node scripts/stack127/media/migrate-json-images.mjs",
     "stack127:repo:dataset:export": "node scripts/stack127/repos/export-dataset.mjs",
+    "stack127:repo:awesome-list:export": "node scripts/stack127/repos/export-awesome-list.mjs",
     "stack127:repo:dataset:sync": "node scripts/stack127/repos/sync-dataset-repo.mjs",
     "stack127:repo:tool:new": "node scripts/stack127/repos/create-tool-repo.mjs",
     "stack127:tools:publish": "node scripts/stack127/tool-pages/publish.mjs",

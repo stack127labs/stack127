@@ -81,6 +81,7 @@ stack127 repo automation lives here:
 ```text
 scripts/stack127/repos/
   create-tool-repo.mjs
+  export-awesome-list.mjs
   export-dataset.mjs
   render-readme.mjs
   sync-dataset-repo.mjs
@@ -93,10 +94,13 @@ Durable commands:
 ```bash
 npm run stack127:repo:dataset:export -- --surface self-host-apps --out /tmp/stack127-datasets
 npm run stack127:repo:dataset:sync -- --surface self-host-apps --repo stack127-datasets --dry-run
+npm run stack127:repo:awesome-list:export -- --out /tmp/awesome-self-hosted-apps
 npm run stack127:repo:tool:new -- --slug port-checker --name "Port Checker" --dry-run
 ```
 
 Dataset exports read verified production data, pick public columns, and sort rows the same way every time. They show a dry-run diff before any reviewed write or push.
+
+The awesome-list export builds the files of `stack127labs/awesome-self-hosted-apps`: a README with a category index, one Markdown table per published category page, and `data/apps.csv` and `data/apps.json`. It lists each source repository once, so its app count is lower than the directory's. Copy its output into a separate checkout of that repository, read the diff, and push only after the owner approves.
 
 Exports must use `.env.database` or an explicit production `--database-url`. They never fall back to `.env.local`.
 
