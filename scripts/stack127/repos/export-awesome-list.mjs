@@ -5,7 +5,8 @@
 // category, and the same rows as CSV and JSON. Read-only; writes only --out.
 
 import path from "node:path";
-import { rmSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, realpathSync, rmSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 import { withClient } from "../../self-host-apps/lib/db.mjs";
 import { parseArgs, readEnvValues, requireArg, toCsv, writeText } from "./lib.mjs";
 import { renderDatasetLicense } from "./render-readme.mjs";
@@ -25,7 +26,7 @@ const appsSql = `
     app.maintenance_status, app.docker_support, project.stars,
     coalesce(project.last_commit_at, app.source_last_commit_at, app.github_last_commit_at) as last_commit_at,
     estimate.ram_estimate_min_mb, estimate.ram_estimate_max_mb,
-    coalesce(array_agg(category.slug order by category.sort_order) filter (where category.slug is not null), '{}') as categories
+    coalesce(array_agg(category.slug order by category.sort_order, category.slug) filter (where category.slug is not null), '{}') as categories
   from public.self_host_apps app
   left join public.github_projects project on project.id = app.github_project_id
   left join public.self_host_app_resource_estimates estimate on estimate.app_id = app.id
@@ -45,7 +46,21 @@ const categoriesSql = `
 
 export const cell = (value) => String(value ?? "").replace(/\s+/g, " ").replace(/\\/g, "\\\\").replace(/\|/g, "\\|").replace(/([<>[\]`*_])/g, "\\$1").trim();
 const count = (value) => Number(value).toLocaleString("en-US");
-const httpUrl = (value) => (/^https?:\/\/[^\s()<>]+$/.test(value ?? "") ? value : "");
+const title = "# Awesome self-hosted apps";
+
+// A public link only: http or https, no credentials, no private or local host.
+const privateHost = /^(localhost|.*\.(local|internal|lan|home|ts\.net)|127\..*|10\..*|192\.168\..*|169\.254\..*|172\.(1[6-9]|2\d|3[01])\..*|100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\..*|\[.*\])$/;
+export function httpUrl(value) {
+  if (typeof value !== "string" || /[\s\\]/.test(value.trim())) return "";
+  let url;
+  try { url = new URL(value.trim()); } catch { return ""; }
+  if (!["http:", "https:"].includes(url.protocol) || url.username || url.password) return "";
+  if (!url.hostname.includes(".") || privateHost.test(url.hostname)) return "";
+  return url.href;
+}
+
+// Percent-encode the characters that could end a Markdown link or a table cell.
+const linkTarget = (url) => url.replace(/[|()<>[\]`]/g, (char) => `%${char.charCodeAt(0).toString(16).toUpperCase().padStart(2, "0")}`);
 
 // Long names for the same license, as they appear in reviewed records.
 const licenseIds = new Map([
@@ -74,15 +89,17 @@ export function licenseText(value) {
 const short = (value, max) => (value.length > max ? `${value.slice(0, max - 1).trimEnd()}…` : value);
 
 export function normalizeApp(row) {
+  const website = httpUrl(row.website_url);
+  const source = httpUrl(row.source_code_url);
   return {
     slug: row.slug,
     name: row.name,
     summary: row.summary ?? "",
     categories: row.categories,
-    website_url: httpUrl(row.website_url),
-    source_code_url: httpUrl(row.source_code_url),
+    website_url: website,
+    source_code_url: source,
     // Some appliance plugins have neither; their docs or publisher page is the only public link.
-    other_url: httpUrl(row.docs_url) || httpUrl(row.publisher_url),
+    other_url: website || source ? "" : httpUrl(row.docs_url) || httpUrl(row.publisher_url),
     license: licenseText(row.license),
     source_model: row.source_model === "unknown" ? "" : row.source_model ?? "",
     maintenance_status: row.maintenance_status === "unknown" ? "" : row.maintenance_status ?? "",
@@ -97,7 +114,15 @@ export function normalizeApp(row) {
 // The directory can hold one project twice, for example an appliance repackage
 // such as "binhex-jellyfin" beside "Jellyfin". The list shows each source
 // repository once and keeps the plainest entry.
-const repositoryKey = (url) => url.toLowerCase().replace(/\.git$/, "").replace(/\/+$/, "");
+// Host and path identify a repository; scheme, query, fragment, a trailing
+// slash, and ".git" do not. Paths are case-insensitive only on these hosts.
+const caseInsensitiveHosts = new Set(["github.com", "gitlab.com", "codeberg.org"]);
+export function repositoryKey(value) {
+  const url = new URL(value);
+  const host = url.hostname.replace(/^www\./, "");
+  const repoPath = url.pathname.replace(/\/+$/, "").replace(/\.git$/, "");
+  return `${host}${caseInsensitiveHosts.has(host) ? repoPath.toLowerCase() : repoPath}`;
+}
 const repackaged = (name) => /^binhex-|-for-/i.test(name);
 
 export function onePerRepository(apps) {
@@ -116,14 +141,14 @@ export function onePerRepository(apps) {
 
 function appRow(app) {
   const home = app.website_url || app.source_code_url || app.other_url;
-  const name = home ? `[${cell(app.name)}](${home})` : cell(app.name);
-  const source = app.source_code_url && app.source_code_url !== home ? ` ([source](${app.source_code_url}))` : "";
+  const name = home ? `[${cell(app.name)}](${linkTarget(home)})` : cell(app.name);
+  const source = app.source_code_url && app.source_code_url !== home ? ` ([source](${linkTarget(app.source_code_url)}))` : "";
   return `| ${name}${source} | ${cell(app.summary)} | ${cell(short(app.license, 40))} | ${statusText[app.maintenance_status] ?? ""} | ${dockerText[app.docker_support] ?? ""} | ${app.stars === null ? "" : count(app.stars)} |`;
 }
 
 export function renderCategory(category, apps, date) {
   const sorted = [...apps].sort((a, b) => (b.stars ?? -1) - (a.stars ?? -1) || a.name.localeCompare(b.name));
-  return `# ${category.name} self-hosted apps
+  return `# ${cell(category.name)} self-hosted apps
 
 ${count(apps.length)} apps you can run on your own server, sorted by GitHub stars. Search and filter them on [stack127](${site}/self-host-apps/categories/${category.slug}).
 
@@ -136,8 +161,8 @@ ${sorted.map(appRow).join("\n")}
 }
 
 export function renderReadme(categories, appsByCategory, total, date) {
-  const rows = categories.map((category) => `| [${category.name}](categories/${category.slug}.md) | ${count(appsByCategory.get(category.slug).length)} | [stack127.com](${site}/self-host-apps/categories/${category.slug}) |`);
-  return `# Awesome self-hosted apps
+  const rows = categories.map((category) => `| [${cell(category.name)}](categories/${category.slug}.md) | ${count(appsByCategory.get(category.slug).length)} | [stack127.com](${site}/self-host-apps/categories/${category.slug}) |`);
+  return `${title}
 
 A list of ${count(total)} apps you can run on your own server, in ${categories.length} categories. Each app shows its license, whether it is still maintained, Docker support, and GitHub stars.
 
@@ -174,6 +199,21 @@ The list and data are available under [CC BY 4.0](LICENSE). Credit stack127 with
 `;
 }
 
+// Refuse a folder that is not an earlier export, then remove only old category
+// tables so a retired category leaves no stale file.
+export function prepareOutDir(outDir) {
+  if (!existsSync(outDir) || readdirSync(outDir).length === 0) return;
+  const readme = path.join(outDir, "README.md");
+  if (!existsSync(readme) || !readFileSync(readme, "utf8").startsWith(title)) {
+    throw new Error(`${outDir} is not empty and is not an earlier export of this list`);
+  }
+  const categoriesDir = path.join(outDir, "categories");
+  if (!existsSync(categoriesDir)) return;
+  for (const entry of readdirSync(categoriesDir, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.endsWith(".md")) rmSync(path.join(categoriesDir, entry.name));
+  }
+}
+
 async function main() {
   const args = parseArgs();
   const outDir = path.resolve(String(requireArg(args, "out")));
@@ -181,29 +221,33 @@ async function main() {
   if (!databaseUrl) throw new Error("Production DATABASE_URL is required in .env.database. Local .env.local is intentionally not used.");
 
   const { apps, categoryRows } = await withClient(async (client) => {
-    await client.query("set default_transaction_read_only = on");
-    return {
-      apps: onePerRepository((await client.query(appsSql)).rows.map(normalizeApp)),
-      categoryRows: (await client.query(categoriesSql)).rows,
-    };
+    await client.query("begin transaction read only");
+    try {
+      return {
+        apps: (await client.query(appsSql)).rows.map(normalizeApp),
+        categoryRows: (await client.query(categoriesSql)).rows,
+      };
+    } finally {
+      await client.query("rollback");
+    }
   }, databaseUrl);
 
   const categories = categoryRows.map((row) => {
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(row.slug)) throw new Error(`Unexpected category slug: ${row.slug}`);
     if (!row.label?.endsWith(labelSuffix)) throw new Error(`Unexpected page label for ${row.slug}: ${row.label}`);
     return { slug: row.slug, name: row.label.slice(0, -labelSuffix.length) };
   });
   if (!categories.length || !apps.length) throw new Error("No published categories or apps to export");
 
+  // Drop unpublished categories first, so the entry kept for a repository is one that can be listed.
   const appsByCategory = new Map(categories.map((category) => [category.slug, []]));
-  for (const app of apps) {
-    app.categories = app.categories.filter((slug) => appsByCategory.has(slug));
-    for (const slug of app.categories) appsByCategory.get(slug).push(app);
-  }
-  const listed = apps.filter((app) => app.categories.length);
+  for (const app of apps) app.categories = app.categories.filter((slug) => appsByCategory.has(slug));
+  const categorized = apps.filter((app) => app.categories.length);
+  const listed = onePerRepository(categorized);
+  for (const app of listed) for (const slug of app.categories) appsByCategory.get(slug).push(app);
   const date = new Date().toISOString().slice(0, 10);
 
-  // Start from an empty categories folder so a retired category leaves no stale file.
-  rmSync(path.join(outDir, "categories"), { recursive: true, force: true });
+  prepareOutDir(outDir);
   writeText(path.join(outDir, "README.md"), renderReadme(categories, appsByCategory, listed.length, date));
   writeText(path.join(outDir, "LICENSE"), renderDatasetLicense());
   for (const category of categories) {
@@ -212,10 +256,10 @@ async function main() {
   writeText(path.join(outDir, "data", "apps.csv"), toCsv(listed.map((app) => ({ ...app, categories: app.categories.join("|") })), csvColumns));
   writeText(path.join(outDir, "data", "apps.json"), JSON.stringify({ generated: date, source: `${site}/self-host-apps`, apps: listed }, null, 1));
 
-  console.log(JSON.stringify({ out: outDir, apps: listed.length, withoutCategory: apps.length - listed.length, categories: categories.length }));
+  console.log(JSON.stringify({ out: outDir, apps: listed.length, repeatedRepositoryEntries: categorized.length - listed.length, withoutCategory: apps.length - categorized.length, categories: categories.length }));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) {
   main().catch((error) => {
     console.error(error.stack ?? error.message);
     process.exit(1);
