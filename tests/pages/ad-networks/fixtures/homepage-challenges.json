@@ -1,0 +1,87 @@
+[
+  {
+    "name": "CAPTCHA human title",
+    "challenge": true,
+    "html": "<title>Please verify you are a human</title><form action='/captcha'><div class='g-recaptcha' data-sitekey='key'></div></form>"
+  },
+  {
+    "name": "human heading",
+    "challenge": true,
+    "html": "<title>Security</title><h1>Verify you are human</h1><form><div class='h-captcha'></div></form>"
+  },
+  {
+    "name": "Cloudflare",
+    "challenge": true,
+    "html": "<title>Just a moment...</title><form id='challenge-form'></form><script>window._cf_chl_opt = {};</script>"
+  },
+  {
+    "name": "Sucuri",
+    "challenge": true,
+    "html": "<title>You are being redirected...</title><h1>Checking your browser</h1><script src='https://cdn.sucuri.net/sucuri_cloudproxy.js'></script>"
+  },
+  {
+    "name": "Imperva Incapsula",
+    "challenge": true,
+    "html": "<title>Request unsuccessful</title><iframe src='/_Incapsula_Resource?incident_id=123'></iframe>"
+  },
+  {
+    "name": "Akamai",
+    "challenge": true,
+    "html": "<title>Security verification</title><script src='/akam/13/challenge.js'></script>"
+  },
+  {
+    "name": "DataDome",
+    "challenge": true,
+    "html": "<title>Publisher</title><iframe src='https://geo.captcha-delivery.com/captcha/?initialCid=123'></iframe>"
+  },
+  {
+    "name": "PerimeterX",
+    "challenge": true,
+    "html": "<title>Access to this page has been denied</title><h1>Please verify you are a human</h1><div id='px-captcha'></div><script>window._pxAppId='PX123';</script>"
+  },
+  {
+    "name": "hCaptcha interstitial",
+    "challenge": true,
+    "html": "<title>Check</title><h1>Please complete the CAPTCHA</h1><form action='/verify'><div class='h-captcha'></div></form>"
+  },
+  {
+    "name": "reCAPTCHA interstitial",
+    "challenge": true,
+    "html": "<title>Please verify that you're a human</title><form><script src='https://www.google.com/recaptcha/api.js'></script></form>"
+  },
+  {
+    "name": "wsidchk quoted example",
+    "challenge": false,
+    "html": "<title>JavaScript tutorial</title><pre>const name = 'wsidchk';</pre>"
+  },
+  {
+    "name": "comments and inert markup",
+    "challenge": false,
+    "html": "<title>Home</title><!-- <form id='challenge-form'> --><template><title>Just a moment</title><iframe src='/_Incapsula_Resource'></iframe></template><textarea><h1>Verify you are human</h1><form></form></textarea><script type='application/json'>{\"wsidchk\":true}</script>"
+  },
+  {
+    "name": "article quoting a CAPTCHA",
+    "challenge": false,
+    "html": "<title>How CAPTCHA works</title><p>Verify you are human is a common message.</p><pre><form id='challenge-form'><div class='g-recaptcha'></div></form></pre>"
+  },
+  {
+    "name": "ordinary contact form",
+    "challenge": false,
+    "html": "<title>Contact us</title><form action='/contact'><div class='g-recaptcha'></div></form><script src='https://www.google.com/recaptcha/api.js'></script>"
+  },
+  {
+    "name": "Cloudflare passive JS detection",
+    "challenge": false,
+    "html": "<title>Home</title><script src='/cdn-cgi/challenge-platform/scripts/jsd/main.js'></script>"
+  },
+  {
+    "name": "human heading without server-rendered CAPTCHA",
+    "challenge": true,
+    "html": "<title>Security</title><h1>Verify you are human</h1>"
+  },
+  {
+    "name": "hidden and quoted examples",
+    "challenge": false,
+    "html": "<title>Guide</title><blockquote><h1>Verify you are human</h1><form></form></blockquote><section hidden><h1>Verify you are human</h1><iframe src='/_Incapsula_Resource'></iframe></section>"
+  }
+]

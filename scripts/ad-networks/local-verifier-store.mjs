@@ -1,4 +1,4 @@
-import { nextCheckAt, relationshipAfterMiss } from "./verifier-store.mjs";
+import { nextCheckAt, relationshipAfterMiss, homepageConfirmationExpired } from "./verifier-store.mjs";
 
 const SUCCESSFUL_OUTCOMES = new Set(["matched", "no_match", "no_ads_txt", "not_modified"]);
 
@@ -91,7 +91,9 @@ function upsertMatches(database, publisherId, matches, checkedAt) {
         when excluded.status = 'needs_review' and relationships.status <> 'needs_review' then relationships.evidence
         when excluded.status = 'needs_review' and relationships.verification_method = 'discovery_hint_and_ads_txt_system'
           then json_set(excluded.evidence, '$.matched_signal', json_extract(relationships.evidence, '$.matched_signal'))
-        else excluded.evidence
+        else case when json_type(relationships.evidence,'$.homepage_miss_correction')='object'
+          then json_set(excluded.evidence,'$.homepage_miss_correction',json_extract(relationships.evidence,'$.homepage_miss_correction'))
+          else excluded.evidence end
       end,
       first_confirmed_at = case
         when excluded.status = 'confirmed' then coalesce(relationships.first_confirmed_at, excluded.first_confirmed_at)
@@ -124,10 +126,11 @@ function upsertMatches(database, publisherId, matches, checkedAt) {
   }
 }
 
-function ageMissingRelationships(database, existing, positiveIds, checkedAt) {
+function ageMissingRelationships(database, existing, positiveIds, checkedAt, evidence) {
   const statement = database.prepare(`
     update relationships set status = ?, ended_at = ?, consecutive_misses = ?,
-      first_missed_at = coalesce(first_missed_at, ?), last_missed_at = ?, updated_at = ?
+      first_missed_at = coalesce(first_missed_at, ?), last_missed_at = ?, updated_at = ?,
+      evidence = json_set(evidence, '$.last_absence', json(?))
     where ad_network_id = ? and publisher_id = ?
   `);
   for (const relationship of existing) {
@@ -140,6 +143,7 @@ function ageMissingRelationships(database, existing, positiveIds, checkedAt) {
       checkedAt,
       checkedAt,
       checkedAt,
+      JSON.stringify({ checked_at: checkedAt, homepage: evidence?.homepage ?? null, ads_txt_sha256: evidence?.ads_txt_sha256 ?? null }),
       relationship.ad_network_id,
       relationship.publisher_id,
     );
@@ -150,16 +154,19 @@ export function saveLocalVerification(database, publisher, result) {
   database.exec("begin immediate");
   try {
     const existing = database.prepare("select * from relationships where publisher_id = ?").all(publisher.id);
-    const failures = SUCCESSFUL_OUTCOMES.has(result.outcome) ? 0 : publisher.consecutive_failures + 1;
+    const conclusive = SUCCESSFUL_OUTCOMES.has(result.outcome) && !result.inconclusiveNetworkIds?.length;
+    const failures = conclusive ? 0 : (publisher.consecutive_failures ?? 0) + 1;
     const positive = result.matches?.confirmed ?? [];
     const review = result.matches?.review ?? [];
     const positiveIds = new Set([
       ...positive.map((match) => String(match.networkId)),
       ...(result.unchangedNetworkIds ?? []).map(String),
     ]);
+    // Unknown evidence never adds misses; old confirmation expires below.
+    const protectedIds = new Set([...positiveIds, ...(result.inconclusiveNetworkIds ?? []).map(String)]);
     const missingActive = existing.filter((relationship) =>
       new Set(["confirmed", "stale"]).has(relationship.status)
-      && !positiveIds.has(String(relationship.ad_network_id))
+      && !protectedIds.has(String(relationship.ad_network_id))
     );
 
     if (result.outcome === "not_modified") {
@@ -172,16 +179,26 @@ export function saveLocalVerification(database, publisher, result) {
             and ad_network_id in (${placeholders(result.unchangedNetworkIds.length)})
         `).run(result.checkedAt, result.checkedAt, publisher.id, ...result.unchangedNetworkIds);
       }
-      ageMissingRelationships(database, existing, positiveIds, result.checkedAt);
+      ageMissingRelationships(database, existing, protectedIds, result.checkedAt, result.evidence);
     } else {
       upsertMatches(database, publisher.id, [...positive, ...review], result.checkedAt);
       if (SUCCESSFUL_OUTCOMES.has(result.outcome)) {
-        ageMissingRelationships(database, existing, positiveIds, result.checkedAt);
+        ageMissingRelationships(database, existing, protectedIds, result.checkedAt, result.evidence);
       }
     }
 
-    const defaultNext = nextCheckAt(result.outcome, failures, new Date(result.checkedAt));
-    const relationshipNext = missingActive.length && SUCCESSFUL_OUTCOMES.has(result.outcome)
+    for (const relationship of existing) {
+      // Every check without fresh page evidence can expire an old confirmation,
+      // including a valid absence. The status guard keeps an ended relationship ended.
+      if (!positiveIds.has(String(relationship.ad_network_id))
+        && homepageConfirmationExpired(relationship, result.checkedAt)) {
+        database.prepare("update relationships set status='stale',updated_at=? where ad_network_id=? and publisher_id=? and status='confirmed'")
+          .run(result.checkedAt, relationship.ad_network_id, relationship.publisher_id);
+      }
+    }
+
+    const defaultNext = nextCheckAt(result.inconclusiveNetworkIds?.length ? "temporary_error" : result.outcome, Math.max(0, failures - 1), new Date(result.checkedAt));
+    const relationshipNext = missingActive.length && conclusive
       ? new Date(new Date(result.checkedAt).getTime() + (missingActive.some((item) => item.consecutive_misses >= 1) ? 24 : 48) * 3_600_000)
       : null;
     database.prepare(`
@@ -196,11 +213,11 @@ export function saveLocalVerification(database, publisher, result) {
       where id = ?
     `).run(
       result.checkedAt,
-      publisherStatus(result.outcome),
+      publisherStatus(result.inconclusiveNetworkIds?.length ? "temporary_error" : result.outcome),
       failures,
       result.outcome,
       JSON.stringify(result.evidence),
-      SUCCESSFUL_OUTCOMES.has(result.outcome) ? 1 : 0,
+      conclusive ? 1 : 0,
       result.checkedAt,
       result.sha256 ?? null,
       result.etag ?? null,

@@ -32,7 +32,7 @@ function evidenceForManager(variable, fetchEvidence, parserVersion) {
   };
 }
 
-export const MATCHER_VERSION = "ad-network-1.4.0";
+export const MATCHER_VERSION = "ad-network-1.4.1";
 
 const javascriptTypes = new Set(['text/javascript', 'application/javascript',
   'text/ecmascript', 'application/ecmascript', 'application/x-javascript',
@@ -108,6 +108,11 @@ function signatureRequirementsMatch(signature, network, { managers, directSystem
   if (!signature.allow_without_ads_txt && !requiredManagers.length && !requiredDirectSystems.length
     && (network.ad_system_domains??[]).length && !(network.ad_system_domains??[]).some(domain=>sellerSystems.has(domain))) return false;
   return true;
+}
+
+export function hasHomepageSignature(network) {
+  return (network.program_signatures ?? []).some(({ kind }) =>
+    kind === "adsense_account_match" || kind === "html_substring");
 }
 
 export function needsHomepage(parsed, networks, discoverySources = []) {

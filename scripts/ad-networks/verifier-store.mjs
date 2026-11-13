@@ -1,5 +1,28 @@
 const SUCCESSFUL_OUTCOMES = new Set(["matched", "no_match", "no_ads_txt", "not_modified"]);
 
+// Weekly positive checks plus 6/24/72/168-hour retries get several chances.
+// Thirty days without successful page confirmation is unknown, never a departure.
+export const HOMEPAGE_CONFIRMATION_MAX_AGE_MS = 30 * 86_400_000;
+// The time of the last positive page evidence. Older not-modified checks could
+// move last_confirmed_at without fetching the page, so the saved evidence time
+// wins when it is earlier. Without either, the confirmation counts as expired.
+export function homepageEvidenceTime(relationship) {
+  let evidence = relationship.evidence;
+  if (typeof evidence === "string") {
+    try { evidence = JSON.parse(evidence); } catch { evidence = null; }
+  }
+  const times = [Date.parse(evidence?.checked_at ?? ""), relationship.last_confirmed_at ? new Date(relationship.last_confirmed_at).getTime() : NaN]
+    .filter(Number.isFinite);
+  return times.length ? Math.min(...times) : null;
+}
+
+export function homepageConfirmationExpired(relationship, checkedAt) {
+  if (relationship.status !== "confirmed"
+    || !["ads_txt_and_adsense_account", "ads_txt_and_page_signature", "page_signature"].includes(relationship.verification_method)) return false;
+  const evidenceTime = homepageEvidenceTime(relationship);
+  return evidenceTime === null || Date.parse(checkedAt) - evidenceTime >= HOMEPAGE_CONFIRMATION_MAX_AGE_MS;
+}
+
 export function nextCheckAt(outcome, failures = 0, now = new Date()) {
   const milliseconds = {
     matched: 7 * 86_400_000,
@@ -117,7 +140,9 @@ async function upsertMatches(client, publisherId, matches, checkedAt) {
         status = excluded.status,
         relationship_type = excluded.relationship_type,
         verification_method = excluded.verification_method,
-        evidence = excluded.evidence,
+        evidence = excluded.evidence || case when ad_network_publisher_relationships.evidence ? 'homepage_miss_correction'
+          then jsonb_build_object('homepage_miss_correction',ad_network_publisher_relationships.evidence->'homepage_miss_correction')
+          else '{}'::jsonb end,
         first_confirmed_at = case
           when excluded.status = 'confirmed' then coalesce(ad_network_publisher_relationships.first_confirmed_at, excluded.first_confirmed_at)
           else ad_network_publisher_relationships.first_confirmed_at
@@ -135,16 +160,17 @@ async function upsertMatches(client, publisherId, matches, checkedAt) {
   }
 }
 
-async function ageMissingRelationships(client, existing, positiveIds, checkedAt) {
+async function ageMissingRelationships(client, existing, positiveIds, checkedAt, evidence) {
   for (const relationship of existing) {
     if (!new Set(["confirmed", "stale"]).has(relationship.status) || positiveIds.has(String(relationship.ad_network_id))) continue;
     const { misses, status, endedAt } = relationshipAfterMiss(relationship, checkedAt);
     await client.query(`
       update public.ad_network_publisher_relationships
       set status = $3, ended_at = $4, consecutive_misses = $5,
-        first_missed_at = coalesce(first_missed_at, $2), last_missed_at = $2
+        first_missed_at = coalesce(first_missed_at, $2), last_missed_at = $2,
+        evidence = evidence || jsonb_build_object('last_absence', $7::jsonb)
       where ad_network_id = $1 and publisher_id = $6
-    `, [relationship.ad_network_id, checkedAt, status, endedAt, misses, relationship.publisher_id]);
+    `, [relationship.ad_network_id, checkedAt, status, endedAt, misses, relationship.publisher_id, JSON.stringify({ checked_at: checkedAt, homepage: evidence?.homepage ?? null, ads_txt_sha256: evidence?.ads_txt_sha256 ?? null })]);
   }
 }
 
@@ -153,16 +179,19 @@ export async function saveVerification(pool, publisher, result) {
   try {
     await client.query("begin");
     const existing = await relationshipRows(client, publisher.id);
-    const failures = SUCCESSFUL_OUTCOMES.has(result.outcome) ? 0 : publisher.consecutive_failures + 1;
+    const conclusive = SUCCESSFUL_OUTCOMES.has(result.outcome) && !result.inconclusiveNetworkIds?.length;
+    const failures = conclusive ? 0 : (publisher.consecutive_failures ?? 0) + 1;
     const positive = result.matches?.confirmed ?? [];
     const review = result.matches?.review ?? [];
     const positiveIds = new Set([
       ...positive.map((match) => String(match.networkId)),
       ...(result.unchangedNetworkIds ?? []).map(String),
     ]);
+    // Unknown evidence never adds misses; old confirmation expires below.
+    const protectedIds = new Set([...positiveIds, ...(result.inconclusiveNetworkIds ?? []).map(String)]);
     const missingActive = existing.filter((relationship) =>
       new Set(["confirmed", "stale"]).has(relationship.status)
-      && !positiveIds.has(String(relationship.ad_network_id))
+      && !protectedIds.has(String(relationship.ad_network_id))
     );
 
     if (result.outcome === "not_modified") {
@@ -173,16 +202,27 @@ export async function saveVerification(pool, publisher, result) {
         where publisher_id = $1 and status in ('confirmed', 'stale')
           and ad_network_id = any($3::bigint[])
       `, [publisher.id, result.checkedAt, result.unchangedNetworkIds ?? []]);
-      await ageMissingRelationships(client, existing, positiveIds, result.checkedAt);
+      await ageMissingRelationships(client, existing, protectedIds, result.checkedAt, result.evidence);
     } else {
       await upsertMatches(client, publisher.id, [...positive, ...review], result.checkedAt);
       if (SUCCESSFUL_OUTCOMES.has(result.outcome)) {
-        await ageMissingRelationships(client, existing, positiveIds, result.checkedAt);
+        await ageMissingRelationships(client, existing, protectedIds, result.checkedAt, result.evidence);
       }
     }
 
-    const defaultNextCheck = nextCheckAt(result.outcome, failures, new Date(result.checkedAt));
-    const relationshipNextCheck = missingActive.length && SUCCESSFUL_OUTCOMES.has(result.outcome)
+    for (const relationship of existing) {
+      // Every check without fresh page evidence can expire an old confirmation,
+      // including a valid absence. The status guard keeps an ended relationship ended.
+      if (!positiveIds.has(String(relationship.ad_network_id))
+        && homepageConfirmationExpired(relationship, result.checkedAt)) {
+        await client.query(`update public.ad_network_publisher_relationships set status='stale'
+          where ad_network_id=$1 and publisher_id=$2 and status='confirmed'`,
+        [relationship.ad_network_id, relationship.publisher_id]);
+      }
+    }
+
+    const defaultNextCheck = nextCheckAt(result.inconclusiveNetworkIds?.length ? "temporary_error" : result.outcome, Math.max(0, failures - 1), new Date(result.checkedAt));
+    const relationshipNextCheck = missingActive.length && conclusive
       ? new Date(new Date(result.checkedAt).getTime() + (missingActive.some((relationship) => relationship.consecutive_misses >= 1) ? 24 : 48) * 3_600_000)
       : null;
 
@@ -201,8 +241,8 @@ export async function saveVerification(pool, publisher, result) {
         next_check_at = $11,
         lease_until = null
       where id = $1
-    `, [publisher.id, result.checkedAt, publisherStatus(result.outcome), failures,
-      result.outcome, JSON.stringify(result.evidence), SUCCESSFUL_OUTCOMES.has(result.outcome),
+    `, [publisher.id, result.checkedAt, publisherStatus(result.inconclusiveNetworkIds?.length ? "temporary_error" : result.outcome), failures,
+      result.outcome, JSON.stringify(result.evidence), conclusive,
       result.sha256 ?? null, result.etag ?? null, result.lastModified ?? null,
       relationshipNextCheck ?? defaultNextCheck]);
     await client.query("commit");

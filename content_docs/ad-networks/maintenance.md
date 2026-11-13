@@ -187,7 +187,7 @@ Every confirmed relationship stores the checked URL, time, matched signal, ads.t
 
 The fetcher uses the Public Suffix List through `tldts`, resolves every request and redirect target, rejects local and reserved addresses, permits only HTTP and HTTPS on their normal ports, and caps redirects and response size. Publisher verification reads the public `/ads.txt` file and, only when a network rule needs it, the public homepage without consulting `robots.txt`. It sends the stack127 crawler identity, prefers HTTPS, and uses a limited HTTP fallback only when HTTPS cannot be reached. A second redirect outside the publisher's registrable domain is rejected. Discovery source collectors keep their separate robots policy.
 
-A positive parse requires a successful `text/plain` response. HTML, oversized bodies, unsupported content types, unsafe targets, and redirect violations cannot create a relationship. ETag, Last-Modified, and SHA-256 values allow unchanged files to be checked without reparsing them.
+A positive parse requires a successful `text/plain` response. HTML, oversized bodies, unsupported content types, unsafe targets, and redirect violations cannot create a relationship. ETag, Last-Modified, and SHA-256 values identify unchanged ads.txt files. They do not say whether a homepage changed.
 
 ### Check and relationship states
 
@@ -196,13 +196,19 @@ A positive parse requires a successful `text/plain` response. HTML, oversized bo
 | Confirmed match | `checked` | 7 days |
 | Valid file with no match | `checked` | 90 days, unless an existing relationship needs a follow-up |
 | Hard missing file | `checked` | 30 days, unless an existing relationship needs a follow-up |
-| Unchanged file | `checked` | Uses the prior positive or negative evidence |
+| Unchanged file | `checked` | Reuses ads.txt-only evidence; homepage-dependent networks need a fresh homepage |
 | Timeout, DNS failure, `429`, or `5xx` | `unreachable` | 6 hours, 24 hours, 3 days, then 7 days |
 | Invalid domain or ads.txt response | `invalid` | 14 days for the response, 365 days for the domain |
 
 Domains previously stored with `robots_blocked` were requeued when this policy changed on 2026-09-26. New verification runs do not emit that outcome.
 
-One valid absence records a miss and keeps a confirmed relationship. A second valid absence at least 48 hours later marks it `stale`. A third valid absence spanning at least seven days marks it `ended`. Fetch failures never increase the miss counter. Positive evidence restores a stale relationship and clears its misses. A newly confirmed network is added without immediately ending another network because a site can use more than one program during a transition or by country.
+One valid absence records a miss and keeps a confirmed relationship. A second valid absence at least 48 hours later marks it `stale`. A third valid absence spanning at least seven days marks it `ended`. Fetch failures never increase the miss counter. This includes homepage failures, HTTP blocks, timeouts, empty pages, oversized pages, and bot challenges returned with HTTP 200. An inconclusive homepage never adds an absence. At a check 30 days after its last successful homepage confirmation, a still-confirmed relationship becomes `stale`. It keeps its confirmation date, misses and end date. Weekly checks and the 6/24/72/168-hour retries allow several attempts within those 30 days. Only fresh positive evidence confirms it again. Independent manager evidence can still confirm a different network. Missing ads.txt authorization remains a valid absence even when a homepage cannot load.
+
+The verifier records the homepage outcome, status, URL, reason, and affected networks. Inconclusive checks retry after 6 hours, 24 hours, 3 days, then 7 days. They do not advance the last successful check or the arrival observation. Public checked dates use `last_successful_check_at`; the internal `last_checked_at` remains the attempt time. Public checker relationships show `stale` with the last successful `last_confirmed_at`. Job summaries include `inconclusiveChecks` and `homepageFailures` by reason.
+
+The verifier saves the complete parsed ads.txt, its URL, hash and validators in SQLite check evidence. It never reconstructs a file from the truncated public preview. A conditional 304 reuses that parse and fetches a fresh homepage only when the parsed authorization needs one. A missing or incompatible cache gets one unconditional retry. A second 304 stays unknown for homepage-dependent networks. Compact sync excludes the parse cache. Each domain must start before the run deadline; admitted requests finish within their existing request timeouts, then unused leases are released. The crawler identity, 15-second request timeout, three bounded transport attempts, four workers, and host throttle stay unchanged. There are no proxies or challenge bypasses.
+
+Valid misses now keep a bounded `last_absence` record beside the original confirmation evidence. The compact PostgreSQL sync retains this record, the homepage outcome, and correction metadata. The platform job also leaves challenge pages unavailable. Positive evidence restores a stale relationship and clears its misses. A newly confirmed network is added without immediately ending another network because a site can use more than one program during a transition or by country.
 
 ### Network identity maintenance
 

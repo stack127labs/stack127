@@ -91,6 +91,7 @@ export function evidenceOf(relationship: AdNetworkSiteRelationship): Evidence {
 /** What the site's ads.txt says about one network (mockup column), worded to match the evidence. */
 export function saysLabel(view: AdNetworkCheckerSiteView, relationship: AdNetworkSiteRelationship) {
   const evidence = evidenceOf(relationship);
+  if (evidence === "page" && relationship.status === "stale") return "Not listed. We last found it in page ad code";
   if (evidence === "page" && relationship.status !== "ended") return "Not listed. Its page ad code shows it";
   if (evidence === "page" || evidence === "unknown") return NOT_LISTED;
   if (relationship.status === "ended") return "No longer lists it";
@@ -100,7 +101,8 @@ export function saysLabel(view: AdNetworkCheckerSiteView, relationship: AdNetwor
 
 export function statusLabel(relationship: AdNetworkSiteRelationship) {
   if (relationship.status === "confirmed") return "Confirmed live";
-  if (relationship.status === "stale") return "Not seen lately";
+  if (relationship.status === "stale") return relationship.last_confirmed_at
+    ? `Verification stale; last confirmed ${formatDay(relationship.last_confirmed_at)}` : "Verification stale";
   return relationship.ended_at ? `Ended ${formatMonth(relationship.ended_at)}` : "Ended";
 }
 
@@ -143,7 +145,7 @@ export function leadFor(view: AdNetworkCheckerSiteView) {
     const who = countWord(current.length);
     parts.push({ text: first === last ? ` We confirmed ${who} live on ${last}.` : ` We last confirmed ${who} live between ${first} and ${last}.` });
   }
-  if (stale.length) parts.push({ text: ` ${names(stale)} ${stale.length === 1 ? "hasn't" : "haven't"} shown up in our latest checks.` });
+  if (stale.length) parts.push({ text: ` We couldn't confirm ${names(stale)} in our latest checks.` });
   return parts;
 }
 
