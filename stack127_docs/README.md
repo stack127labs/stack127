@@ -17,6 +17,7 @@ Keep each current decision in the operating doc it belongs to. Page-specific pla
 | `stack127-repos.md` | Boundaries, inventory, automation, and revision tracking for repositories stack127 owns. |
 | [automation-monitor.md](automation-monitor.md) | The monitoring dashboard, and how to keep [monitoring.json](monitoring.json) current when jobs change. |
 | `brand-assets.md` | Logo originals, production variants, favicon choice, and how to regenerate them. |
+| [brand-growth/AGENTS.md](brand-growth/AGENTS.md) | Growth measures, decisions, parked work, and the current status of indexing, links, off-site posts, and social accounts. |
 | [listed-on.md](listed-on.md) | Concise list of stack127 submissions, launch dates, links, and future actions. |
 | [directory-submission-status.md](directory-submission-status.md) | stack127's directory submissions, listing links, launch dates, and remaining requirements. |
 | [directory-submission-badges.md](directory-submission-badges.md) | Badge snippets collected while submitting stack127 to directories. |
