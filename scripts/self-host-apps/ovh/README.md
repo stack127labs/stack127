@@ -61,10 +61,14 @@ Node, never evaluated as shell code. Credentials:
   `sslmode=disable`; use the same connection as launch-directory metrics.
 - `GITHUB_TOKEN`: GitHub discovery, catalogs, facts and technical jobs. Copy an
   existing authorised Infisical credential; no interactive `gh` login is needed.
-- `AWESOME_LIST_GITHUB_TOKEN`: required only for `self-host-awesome-list`. Add it
-  to Infisical `stack127 /vps/self-host-apps`. Use a fine-grained token with
-  resource owner `stack127labs`, repository access only to
-  `awesome-self-hosted-apps`, and Contents read/write (Metadata read is automatic).
+- `PUBLIC_REPOS_GITHUB_TOKEN`: required only for `self-host-awesome-list`. Add it
+  to Infisical `stack127 /vps/self-host-apps`. It is one shared token for every
+  public output repository that a server job pushes to. Use a fine-grained token
+  with resource owner `stack127labs`, "Only select repositories", and Contents
+  read/write (Metadata read is automatic). Select `awesome-self-hosted-apps`
+  now; when a new list or dataset repository gets a job, add that repository to
+  the same token on GitHub, with no new key. Never select the main `stack127`
+  repository: a push there deploys to production.
   The existing `GITHUB_TOKEN` is for discovery/API reads; its write access is not
   assumed. Git uses a temporary askpass script that reads the token from the
   environment; no token is stored in a remote URL or Git configuration.
@@ -132,7 +136,7 @@ never writes inferred editorial technical facts.
 ## Install after merge
 
 The lead installs cron only after the reviewed code reaches main. First ensure
-`DATABASE_URL`, `GITHUB_TOKEN`, and `AWESOME_LIST_GITHUB_TOKEN` exist and the Infisical sync succeeds.
+`DATABASE_URL`, `GITHUB_TOKEN`, and `PUBLIC_REPOS_GITHUB_TOKEN` exist and the Infisical sync succeeds.
 `GITLAB_TOKEN` and `CODEBERG_TOKEN` are optional. If the clone does not
 exist, create it as ubuntu (sudo may be needed just for the directory):
 
@@ -234,7 +238,7 @@ file belongs inside either checkout.
 ## Weekly public list: install and operate
 
 Built, waiting for install. After the reviewed merge, the lead adds
-`AWESOME_LIST_GITHUB_TOKEN` to Infisical as described above and waits for the
+`PUBLIC_REPOS_GITHUB_TOKEN` to Infisical as described above and waits for the
 sync to deliver the mode-600 env file. Do not edit that file on OVH. The existing
 dataset sync uses `gh` with `GH_TOKEN`/`GITHUB_TOKEN`; this job uses Git HTTPS
 with its own token and does not need an interactive login or `gh`.

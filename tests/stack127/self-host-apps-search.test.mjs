@@ -117,12 +117,13 @@ test("the search API caches successful results and never caches bad input, unpub
   let published = true;
   let fail = false;
   let calls = 0;
+  let complete = true;
   const body = { ...select([app("one")], params("")), detailApps: [app("one")], facets: selfHostAppsFacets([app("one")]) };
   const { GET } = await loadWithImports("../../app/api/self-host-apps/search/route.ts", {
     "next/server": nextServer,
     "@/lib/self-host-apps-search": searchModule,
     "@/lib/page-registry": { getPublishedPage: async () => published ? {} : null },
-    "@/lib/self-host-apps-search-data": { getSelfHostAppsSearch: async () => { calls++; if (fail) throw new Error("database unavailable"); return body; } },
+    "@/lib/self-host-apps-search-data": { getSelfHostAppsSearchForApi: async () => { calls++; if (fail) throw new Error("database unavailable"); return { response: body, complete }; } },
   });
   const request = query => new Request(`https://stack127.com/api/self-host-apps/search${query}`);
   const ok = await GET(request("?sort=name"));
@@ -131,22 +132,28 @@ test("the search API caches successful results and never caches bad input, unpub
   assert.ok(ok.headers.get("Cache-Tag").includes("page:api:self-host-apps:search"));
   assert.ok(ok.headers.get("Cache-Tag").includes("self-host-catalog"));
   assert.deepEqual(await ok.json(), body);
+  complete = false;
+  const partial = await GET(request("?sort=name"));
+  assert.equal(partial.status, 200);
+  assert.equal(partial.headers.get("Cache-Control"), "no-store");
+  assert.equal(partial.headers.get("Cache-Tag"), null);
+  complete = true;
   const invalid = await GET(request("?page=-1"));
   assert.equal(invalid.status, 400);
   assert.equal(invalid.headers.get("Cache-Control"), "no-store");
-  assert.equal(calls, 1);
+  assert.equal(calls, 2);
   published = false;
   const hidden = await GET(request(""));
   assert.equal(hidden.status, 404);
   assert.equal(hidden.headers.get("Cache-Control"), "no-store");
-  assert.equal(calls, 1);
+  assert.equal(calls, 2);
   published = true; fail = true;
   const unavailable = await GET(request(""));
   assert.equal(unavailable.status, 503);
   assert.equal(unavailable.headers.get("Cache-Control"), "no-store");
 });
 
-test("search cards and details stay in the same order, and missing details fail instead of returning an incomplete result", async () => {
+test("search cards and details stay in the same order; a missing detail fails for pages and is left out for the API", async () => {
   const searchModule = await import("../../lib/self-host-apps-search.ts");
   let details = [app("z"), app("a")];
   const loaders = {
@@ -164,6 +171,14 @@ test("search cards and details stay in the same order, and missing details fail 
   assert.equal((await data.loadSelfHostAppsSearch(params(""))).apps[0].slug, "fresh");
   details = [app("a")];
   await assert.rejects(data.getSelfHostAppsSearch(params("")), /Missing search detail/);
+  const partial = await data.getSelfHostAppsSearchForApi(params("sort=name"));
+  assert.equal(partial.complete, false);
+  assert.deepEqual(partial.response.apps.map(app => app.slug), ["a"]);
+  assert.deepEqual(Array.from(partial.response.detailApps, app => app.slug), ["a"]);
+  details = [];
+  await assert.rejects(data.getSelfHostAppsSearchForApi(params("")), /Missing search details for every app/);
+  details = [app("z"), app("a")];
+  assert.equal((await data.getSelfHostAppsSearchForApi(params(""))).complete, true);
 });
 
 test("origin verification checks search against the source and rejects a stale response before the edge purge", async () => {

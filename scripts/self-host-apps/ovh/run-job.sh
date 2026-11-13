@@ -264,7 +264,7 @@ execute() {
   }
   # Use Node's dotenv parser; never evaluate secret values as shell code.
   export GITHUB_STEP_SUMMARY="$report_dir/$run_id-summary.md"
-  unset DATABASE_URL GITHUB_TOKEN GITLAB_TOKEN CODEBERG_TOKEN AWESOME_LIST_GITHUB_TOKEN
+  unset DATABASE_URL GITHUB_TOKEN GITLAB_TOKEN CODEBERG_TOKEN PUBLIC_REPOS_GITHUB_TOKEN
   local started
   started=$(date +%s%3N)
   # Run the updated step definitions. Syntax/launcher failures reach the stable

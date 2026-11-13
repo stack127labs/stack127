@@ -3,18 +3,16 @@ import test from "node:test";
 import { mkdirSync, mkdtempSync, symlinkSync, writeFileSync, existsSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { cell, httpUrl, licenseText, normalizeApp, onePerRepository, prepareOutDir, renderCategory, repositoryKey } from "../../scripts/stack127/repos/export-awesome-list.mjs";
+import { cell, httpUrl, licenseText, normalizeApp, prepareOutDir, renderCategory, repeatedRepositoryEntries, repositoryKey } from "../../scripts/stack127/repos/export-awesome-list.mjs";
 
 const app = (overrides) => normalizeApp({ slug: "a", name: "A", summary: "S", categories: ["wikis"], website_url: null, source_code_url: null, docs_url: null, publisher_url: null, license: null, source_model: "open_source", maintenance_status: "active", docker_support: "official", stars: null, last_commit_at: null, ram_estimate_min_mb: null, ram_estimate_max_mb: null, ...overrides });
 
-test("a repository appears once and the repackaged entry is dropped", () => {
-  const kept = onePerRepository([
-    app({ slug: "binhex-jellyfin", name: "binhex-jellyfin", source_code_url: "https://github.com/jellyfin/jellyfin/" }),
-    app({ slug: "jellyfin", name: "Jellyfin", source_code_url: "https://github.com/Jellyfin/jellyfin" }),
-    app({ slug: "closed", name: "Closed", website_url: "https://closed.example" }),
-    app({ slug: "closed-2", name: "Closed 2", website_url: "https://closed.example" }),
-  ]);
-  assert.deepEqual(kept.map((item) => item.slug), ["jellyfin", "closed", "closed-2"]);
+test("apps that share a repository are counted, not dropped", () => {
+  assert.equal(repeatedRepositoryEntries([
+    app({ slug: "joplin-server", source_code_url: "https://github.com/laurent22/joplin/" }),
+    app({ slug: "joplin", source_code_url: "https://github.com/Laurent22/joplin" }),
+    app({ slug: "closed", website_url: "https://closed.example" }),
+  ]), 1);
 });
 
 test("table cells cannot break the Markdown table or inject markup", () => {

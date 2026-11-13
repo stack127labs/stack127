@@ -110,10 +110,10 @@ test('env preflight requires the dedicated token only for the list job', t => {
   writeFileSync(wrapper, '#!/bin/bash\nexit 0\n');
   const validator = new URL('../../scripts/self-host-apps/ovh/validate-env.mjs', import.meta.url);
   const env = { ...process.env, DATABASE_URL: 'postgresql://stack127_app@127.0.0.1:5432/postgres?sslmode=disable' };
-  delete env.AWESOME_LIST_GITHUB_TOKEN;
+  delete env.PUBLIC_REPOS_GITHUB_TOKEN;
   const options = { env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe', 'ignore', 'ignore', 'ignore', 'ignore', 'ignore', 'ignore'] };
-  assert.throws(() => execFileSync(process.execPath, [validator.pathname, 'self-host-awesome-list', wrapper, root, 'test'], options), error => /AWESOME_LIST_GITHUB_TOKEN is missing/.test(error.stderr));
+  assert.throws(() => execFileSync(process.execPath, [validator.pathname, 'self-host-awesome-list', wrapper, root, 'test'], options), error => /PUBLIC_REPOS_GITHUB_TOKEN is missing/.test(error.stderr));
   assert.doesNotThrow(() => execFileSync(process.execPath, [validator.pathname, 'self-host-discovery-lists', wrapper, root, 'test'], options));
-  env.AWESOME_LIST_GITHUB_TOKEN = 'fixture-only';
+  env.PUBLIC_REPOS_GITHUB_TOKEN = 'fixture-only';
   assert.doesNotThrow(() => execFileSync(process.execPath, [validator.pathname, 'self-host-awesome-list', wrapper, root, 'test'], options));
 });

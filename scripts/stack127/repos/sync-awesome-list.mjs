@@ -69,7 +69,7 @@ export function syncGenerated(source, destination, next = inspectExport(source))
   for (const name of old) if (!next.files.includes(`categories/${name}`)) rmSync(path.join(destination, 'categories', name));
 }
 function redact(text) {
-  for (const value of [process.env.AWESOME_LIST_GITHUB_TOKEN, process.env.DATABASE_URL]) if (value) text = text.replaceAll(value, '[redacted]');
+  for (const value of [process.env.PUBLIC_REPOS_GITHUB_TOKEN, process.env.DATABASE_URL]) if (value) text = text.replaceAll(value, '[redacted]');
   return text;
 }
 export function publishExport(source, destination, { git, allowCountDrop = false } = {}) {
@@ -88,7 +88,7 @@ export function publishExport(source, destination, { git, allowCountDrop = false
   return true;
 }
 export function runWeekly({ workRoot = '/srv/stack127-data/self-host-apps', allowCountDrop = process.env.AWESOME_LIST_ALLOW_COUNT_DROP === '1' } = {}) {
-  if (!process.env.AWESOME_LIST_GITHUB_TOKEN?.trim()) throw new Error('AWESOME_LIST_GITHUB_TOKEN is missing');
+  if (!process.env.PUBLIC_REPOS_GITHUB_TOKEN?.trim()) throw new Error('PUBLIC_REPOS_GITHUB_TOKEN is missing');
   safePath(workRoot);
   mkdirSync(workRoot, { recursive: true });
   const work = mkdtempSync(path.join(workRoot, 'awesome-list-'));
@@ -96,7 +96,7 @@ export function runWeekly({ workRoot = '/srv/stack127-data/self-host-apps', allo
   const destination = path.join(work, 'repo');
   const askpass = path.join(work, 'askpass.sh');
   // Only the variable name goes on disk. The token is never in args/config/remote.
-  writeFileSync(askpass, '#!/bin/sh\ncase "$1" in *Username*) printf "%s\\n" x-access-token ;; *) printf "%s\\n" "$AWESOME_LIST_GITHUB_TOKEN" ;; esac\n', { mode: 0o700 });
+  writeFileSync(askpass, '#!/bin/sh\ncase "$1" in *Username*) printf "%s\\n" x-access-token ;; *) printf "%s\\n" "$PUBLIC_REPOS_GITHUB_TOKEN" ;; esac\n', { mode: 0o700 });
   const env = { ...process.env, GIT_AUTHOR_NAME: 'stack127 list bot', GIT_AUTHOR_EMAIL: 'awesome-list-bot@users.noreply.github.com', GIT_COMMITTER_NAME: 'stack127 list bot', GIT_COMMITTER_EMAIL: 'awesome-list-bot@users.noreply.github.com', GIT_TERMINAL_PROMPT: '0', GIT_ASKPASS: askpass, GIT_CONFIG_NOSYSTEM: '1', GIT_CONFIG_GLOBAL: '/dev/null' };
   const run = (command, args, cwd) => {
     const result = spawnSync(command, args, { cwd, env, encoding: 'utf8', timeout: 300000, maxBuffer: 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
