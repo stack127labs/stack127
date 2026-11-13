@@ -11,21 +11,35 @@ async function search(
   params: SelfHostAppsSearchParams,
   loadIndex: typeof getDirectoryAppIndex,
   loadDetails: typeof getDirectoryAppsBySlugs,
-): Promise<SelfHostAppsSearchResponse> {
+  missing: "fail" | "drop" = "fail",
+): Promise<{ response: SelfHostAppsSearchResponse; complete: boolean }> {
   const index = await loadIndex();
   const results = selectSelfHostApps(index, params);
   const details = await loadDetails(results.apps.map(app => app.slug));
   const bySlug = new Map(details.map(app => [app.slug, app]));
-  const detailApps = results.apps.map(app => {
-    const detail = bySlug.get(app.slug);
-    if (!detail) throw new Error(`Missing search detail: ${app.slug}`);
-    return detail;
+  const apps = results.apps.filter(app => {
+    if (bySlug.has(app.slug)) return true;
+    if (missing === "fail") throw new Error(`Missing search detail: ${app.slug}`);
+    return false;
   });
-  return { ...results, detailApps, facets: selfHostAppsFacets(index, params.category) };
+  const detailApps = apps.map(app => bySlug.get(app.slug)!);
+  return {
+    response: { ...results, apps, detailApps, facets: selfHostAppsFacets(index, params.category) },
+    complete: apps.length === results.apps.length,
+  };
 }
 
 export const getSelfHostAppsSearch = (params: SelfHostAppsSearchParams) =>
-  search(params, getDirectoryAppIndex, getDirectoryAppsBySlugs);
+  search(params, getDirectoryAppIndex, getDirectoryAppsBySlugs).then(result => result.response);
+
+/**
+ * For the public API. An app retired moments ago can still be in the cached
+ * index while its details are gone. The API leaves that app out and reports
+ * the result as incomplete, so one retired app does not fail every search
+ * that would have shown it. Pages and cache verification still fail loudly.
+ */
+export const getSelfHostAppsSearchForApi = (params: SelfHostAppsSearchParams) =>
+  search(params, getDirectoryAppIndex, getDirectoryAppsBySlugs, "drop");
 
 export const loadSelfHostAppsSearch = (params: SelfHostAppsSearchParams) =>
-  search(params, loadDirectoryAppIndex, loadDirectoryAppsBySlugs);
+  search(params, loadDirectoryAppIndex, loadDirectoryAppsBySlugs).then(result => result.response);

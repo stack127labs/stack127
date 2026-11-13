@@ -115,9 +115,7 @@ export function normalizeApp(row) {
   };
 }
 
-// The directory can hold one project twice, for example an appliance repackage
-// such as "binhex-jellyfin" beside "Jellyfin". The list shows each source
-// repository once and keeps the plainest entry.
+// Used to report entries that share a source repository; the list keeps all of them.
 // Host and path identify a repository; scheme, query, fragment, a trailing
 // slash, and ".git" do not. Paths are case-insensitive only on these hosts.
 const caseInsensitiveHosts = new Set(["github.com", "gitlab.com", "codeberg.org"]);
@@ -127,20 +125,9 @@ export function repositoryKey(value) {
   const repoPath = url.pathname.replace(/\/+$/, "").replace(/\.git$/, "");
   return `${host}${caseInsensitiveHosts.has(url.hostname.replace(/^www\./, "")) ? repoPath.toLowerCase() : repoPath}`;
 }
-const repackaged = (name) => /^binhex-|-for-/i.test(name);
-
-export function onePerRepository(apps) {
-  const best = new Map();
-  const better = (a, b) => Number(repackaged(a.name)) - Number(repackaged(b.name))
-    || Number(!a.website_url) - Number(!b.website_url)
-    || a.name.length - b.name.length
-    || a.slug.localeCompare(b.slug);
-  for (const app of apps) {
-    if (!app.source_code_url) continue;
-    const key = repositoryKey(app.source_code_url);
-    if (!best.has(key) || better(app, best.get(key)) < 0) best.set(key, app);
-  }
-  return apps.filter((app) => !app.source_code_url || best.get(repositoryKey(app.source_code_url)) === app);
+export function repeatedRepositoryEntries(apps) {
+  const keys = apps.filter((app) => app.source_code_url).map((app) => repositoryKey(app.source_code_url));
+  return keys.length - new Set(keys).size;
 }
 
 function appRow(app) {
@@ -247,11 +234,11 @@ async function main() {
   });
   if (!categories.length || !apps.length) throw new Error("No published categories or apps to export");
 
-  // Drop unpublished categories first, so the entry kept for a repository is one that can be listed.
   const appsByCategory = new Map(categories.map((category) => [category.slug, []]));
   for (const app of apps) app.categories = app.categories.filter((slug) => appsByCategory.has(slug));
   const categorized = apps.filter((app) => app.categories.length);
-  const listed = onePerRepository(categorized);
+  // Every published app is listed. The directory retires duplicates; apps that share a repository here are separate apps.
+  const listed = categorized;
   for (const app of listed) for (const slug of app.categories) appsByCategory.get(slug).push(app);
   const date = new Date().toISOString().slice(0, 10);
 
@@ -264,7 +251,7 @@ async function main() {
   writeText(path.join(outDir, "data", "apps.csv"), toCsv(listed.map((app) => ({ ...app, categories: app.categories.join("|") })), csvColumns));
   writeText(path.join(outDir, "data", "apps.json"), JSON.stringify({ generated: date, source: `${site}/self-host-apps`, apps: listed }, null, 1));
 
-  console.log(JSON.stringify({ out: outDir, apps: listed.length, repeatedRepositoryEntries: categorized.length - listed.length, withoutCategory: apps.length - categorized.length, categories: categories.length }));
+  console.log(JSON.stringify({ out: outDir, apps: listed.length, repeatedRepositoryEntries: repeatedRepositoryEntries(listed), withoutCategory: apps.length - categorized.length, categories: categories.length }));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) {
