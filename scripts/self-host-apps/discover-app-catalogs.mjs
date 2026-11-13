@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { canonicalSourceCodeUrl, normalizeCandidate, storeCandidates } from "./lib/candidates.mjs";
@@ -12,6 +12,7 @@ import {
   parseYunoHostAppsToml,
 } from "./lib/catalog-adapters.mjs";
 import { withClient } from "./lib/db.mjs";
+import { request } from "./lib/request.mjs";
 import { pathToFileURL } from "node:url";
 
 const catalogs = {
@@ -56,48 +57,23 @@ const catalogs = {
   },
 };
 
-async function wait(ms) {
-  await new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-async function fetchResponse(url, options = {}) {
-  let lastError;
-  for (let attempt = 0; attempt < 3; attempt += 1) {
-    let response;
-    try {
-      response = await fetch(url, { ...options, signal: AbortSignal.timeout(60_000) });
-    } catch (error) {
-      lastError = error;
-      if (attempt === 2) throw error;
-      await wait(500 * (2 ** attempt));
-      continue;
-    }
-    if (response.ok) return response;
-    const retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
-    lastError = new Error(`Failed to fetch ${url}: ${response.status}`);
-    if (!retryable || attempt === 2) throw lastError;
-    await wait(500 * (2 ** attempt));
-  }
-  throw lastError ?? new Error(`Failed to fetch ${url}`);
-}
-
 export async function fetchJson(url) {
   const isGithubApi = new URL(url).origin === "https://api.github.com";
-  const response = await fetchResponse(url, {
+  // Never send GitHub bearer credentials to Docker Hub (it rejects them with 401).
+  return request(url, {
+    ...(isGithubApi ? { redirectOrigin: "https://api.github.com" } : { redirect: "follow" }),
     headers: {
       Accept: "application/vnd.github+json, application/json",
       "User-Agent": "stack127-self-host-app-catalog-discovery/1.0",
       ...(isGithubApi && process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
     },
-  });
-  return response.json();
+  }, response => response.json());
 }
 
 async function fetchText(url) {
-  const response = await fetchResponse(url, {
+  return request(url, {
     headers: { "User-Agent": "stack127-self-host-app-catalog-discovery/1.0" },
   });
-  return response.text();
 }
 
 function firstUrl(values, predicate) {
@@ -342,7 +318,8 @@ async function main() {
 
   if (args.out) {
     await mkdir(path.dirname(args.out), { recursive: true });
-    await writeFile(args.out, `${JSON.stringify(report, null, 2)}\n`);
+    await writeFile(`${args.out}.tmp`, `${JSON.stringify(report, null, 2)}\n`);
+    await rename(`${args.out}.tmp`, args.out);
   }
   console.log(JSON.stringify(report, null, 2));
   if (Object.keys(report.errors).length > 0) process.exitCode = 1;

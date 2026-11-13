@@ -1,0 +1,14 @@
+# BEGIN stack127 self-host apps (append to ubuntu's crontab; keep every existing line).
+# Install the reviewed supervisor outside the Git checkout first; see README.md.
+# Server clock: UTC. Nominal schedules stay visible to the dashboard.
+# --due makes both nominal and catch-up runs skip completed periods silently.
+# No starts at :35-:50 or during the 05:35-06:45 static release window.
+2 7 * * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-discovery-github --due >> /srv/stack127-data/logs/self-host-discovery-github.log 2>&1
+6 7,19 * * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-refresh-github --due >> /srv/stack127-data/logs/self-host-refresh-github.log 2>&1
+10 8 * * 0 /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-discovery-lists --due >> /srv/stack127-data/logs/self-host-discovery-lists.log 2>&1
+14 9 * * 0 /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-discovery-catalogs --due >> /srv/stack127-data/logs/self-host-discovery-catalogs.log 2>&1
+18 10 1 * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-discovery-directories --due >> /srv/stack127-data/logs/self-host-discovery-directories.log 2>&1
+22 11 * * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-refresh-source-hosts --due >> /srv/stack127-data/logs/self-host-refresh-source-hosts.log 2>&1
+26 12 * * 1 /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-refresh-technical --due >> /srv/stack127-data/logs/self-host-refresh-technical.log 2>&1
+30 0-4,7-23 * * * /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-catch-up >> /srv/stack127-data/logs/self-host-catch-up.log 2>&1
+# END stack127 self-host apps

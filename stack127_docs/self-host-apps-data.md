@@ -14,7 +14,7 @@
 | `github_projects` | Shared GitHub repository facts used by self-host apps, terminal apps, and future directories. |
 | `self_host_app_candidates` | The only lasting discovery and review queue. Candidate rows are never public. |
 
-The streamline migration removed `self_host_app_import_runs`, `self_host_app_sources`, `self_host_app_field_sources`, and `self_host_app_curated_overrides`. Job logs and artifacts are now the run history. The old `open_project_*` compatibility views are gone too.
+The streamline migration removed `self_host_app_import_runs`, `self_host_app_sources`, `self_host_app_field_sources`, and `self_host_app_curated_overrides`. OVH job logs and dated reports are now the run history. The old `open_project_*` compatibility views are gone too.
 
 Every page-owned table keeps RLS on and isn't exposed to `anon` or `authenticated`. The page reads published records on the server.
 
@@ -170,7 +170,7 @@ before adding `--apply`.
 They still let QA tell unchecked data apart from an official source that published no value.
 
 The Monday technical refresh collects evidence only. It lists all unreadable
-sources in the artifact and job summary, tolerates up to 5% unreadable rows,
+sources in dated OVH reports and the job summary, tolerates up to 5% unreadable rows,
 and fails if that limit is exceeded or every selected source is unreadable.
 Install destinations stay in dry-run mode: the builder infers registry links
 and support levels, and applying replaces existing options. Review the proposed
@@ -250,3 +250,5 @@ If there is no candidate, use the existing single-record path: put the same comp
 Do not use `sync-local-to-prod` for this. It mirrors whole tables and would send about 5,000 unrelated development differences along with the requested apps.
 
 Caller check: the repo has npm wrappers in `package.json` and command examples in `scripts/self-host-apps/scripts.json`, `skills/self-host-apps/enrichment/SKILL.md`, this document and `content_docs/self-host-apps/data-workflow.md`. Examples now name development explicitly. No workflow, monitoring entry, checked-in OVH job or homelab job calls the gated editorial commands or supplies `NODE_ENV=production` / `--database-url` to them. Installed timers and scripts outside this repo were not checked. `upsert-batch` is a separate legacy command; its environment behavior was not changed by this work.
+
+Scheduled discovery and refresh run on OVH. See [the cron runner guide](../scripts/self-host-apps/ovh/README.md) for schedules, catch-up, credentials, logs, reports, and installation.
