@@ -181,7 +181,7 @@ test('installed supervisor logs checkout wrapper syntax failures, then fetches a
     .replaceAll('/srv/stack127-self-host', f.checkout)
     .replaceAll('/srv/stack127-data/logs', logs));
   // Public dummy connection syntax passes preflight; no process connects to it.
-  writeFileSync(envFile, 'DATABASE_URL=postgresql://stack127_app@127.0.0.1:5432/postgres?sslmode=disable\nGITHUB_TOKEN=fixture-only\n', { mode: 0o600 });
+  writeFileSync(envFile, 'DATABASE_URL=postgresql://stack127_app@127.0.0.1:5432/postgres?sslmode=disable\nGITHUB_TOKEN=fixture-only\nAWESOME_LIST_GITHUB_TOKEN=fixture-only\n', { mode: 0o600 });
   mkdirSync(path.join(f.checkout, 'node_modules'));
   writeFileSync(path.join(f.root, 'dependencies.sha256'), `${createHash('sha256').update(lockfile).digest('hex')}\n`);
   const run = () => execFileSync('/bin/bash', [installed, job, '--due'], { encoding: 'utf8', timeout: 30_000, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -219,7 +219,7 @@ test('installed supervisor logs checkout wrapper syntax failures, then fetches a
 const scopeOptions = {
   skip: process.platform !== 'linux' || !process.env.SELFHOST_TEST_SCOPE ? 'requires opt-in Linux systemd user scope' : false,
 };
-const jobs = ['discovery-github', 'refresh-github', 'discovery-lists', 'discovery-catalogs', 'discovery-directories', 'refresh-source-hosts', 'refresh-technical'].map(suffix => `self-host-${suffix}`);
+const jobs = ['discovery-github', 'refresh-github', 'discovery-lists', 'discovery-catalogs', 'discovery-directories', 'refresh-source-hosts', 'refresh-technical', 'awesome-list'].map(suffix => `self-host-${suffix}`);
 
 function supervisorFixture(t, steps = 'echo "fixture-only-job $job"') {
   const f = fixture(t);
@@ -240,7 +240,7 @@ function supervisorFixture(t, steps = 'echo "fixture-only-job $job"') {
   writeFileSync(path.join(f.origin, 'package-lock.json'), lockfile);
   git(f.origin, 'add', '.');
   git(f.origin, 'commit', '-m', 'safe supervisor fixture');
-  writeFileSync(`${f.root}.env`, 'DATABASE_URL=postgresql://stack127_app@127.0.0.1:5432/postgres?sslmode=disable\nGITHUB_TOKEN=fixture-only\n', { mode: 0o600 });
+  writeFileSync(`${f.root}.env`, 'DATABASE_URL=postgresql://stack127_app@127.0.0.1:5432/postgres?sslmode=disable\nGITHUB_TOKEN=fixture-only\nAWESOME_LIST_GITHUB_TOKEN=fixture-only\n', { mode: 0o600 });
   mkdirSync(path.join(f.checkout, 'node_modules'));
   writeFileSync(path.join(f.root, 'dependencies.sha256'), `${createHash('sha256').update(lockfile).digest('hex')}\n`);
   const run = (job = 'self-host-catch-up', args = []) => execFileSync('/bin/bash', [installed, job, ...args], {

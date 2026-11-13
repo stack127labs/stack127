@@ -1,0 +1,14 @@
+## How do you choose a mail server or newsletter app?
+
+A mail server is one of the hardest things to self-host. Mail from home connections and new IP addresses often lands in spam or gets rejected, so check your network before you pick an app.
+
+- **Your host.** Many home internet providers and some VPS hosts block port 25, which mail servers need. Ask yours first.
+- **All-in-one or parts.** Some bundles include sending, mailboxes, spam filtering, and webmail. Putting parts together gives more control but more work.
+- **Newsletters.** A newsletter app usually sends through an outside sending service. Check which ones it supports.
+- **RAM.** Spam and virus filters use real memory. Treat the RAM estimate as a minimum.
+
+Test inboxes are a separate kind of tool. They catch mail from your apps during development and never deliver it.
+
+## What do you need to set up?
+
+You'll need SPF, DKIM, and DMARC records on your domain, plus a reverse DNS name for your server's IP. Back up mailboxes and settings, and watch your sending reputation.

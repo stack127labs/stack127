@@ -3,10 +3,17 @@ import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
-import { cleanupOptions } from "../../scripts/self-host-apps/apply-artifact-cleanup.mjs";
+import { cleanupOptions, targetSources, validateManifest } from "../../scripts/self-host-apps/apply-artifact-cleanup.mjs";
 
 const developmentUrl = "postgresql://postgres.devref:secret@aws-0-eu.pooler.supabase.com:6543/postgres";
 const productionUrl = "postgresql://stack127:secret@database.stack127.com:5432/stack127";
+
+test("retirement preserves reviewed evidence and Compose destinations alongside direct links", () => {
+  assert.deepEqual(targetSources({ source_code_url: "https://github.com/example/app", compose_url: "https://example.com/compose.yml", data_source_urls: ["https://example.com/install"], website_url: null }), [
+    "https://github.com/example/app", "https://example.com/compose.yml", "https://example.com/install",
+  ]);
+  assert.deepEqual(targetSources({}), []);
+});
 
 function withEnvFiles(callback) {
   const previous = process.cwd();
@@ -41,4 +48,12 @@ test("production cleanup needs the shared confirm value, even for a preview", ()
     assert.throws(() => cleanupOptions({ environment: "production" }), /stack127-production/);
     assert.throws(() => cleanupOptions({ environment: "production", apply: true, confirm: "yes" }), /stack127-production/);
   });
+});
+
+test("a manifest with a misspelled or repeated app reference fails before any database work", () => {
+  const canonical_apps = [{ slug: "jellyfin", expected_names: ["Jellyfin"], source_code_url: "https://github.com/jellyfin/jellyfin" }];
+  assert.doesNotThrow(() => validateManifest({ canonical_apps, records: [{ slug: "binhex-jellyfin", canonical_slug: "jellyfin" }, { slug: "artifact" }] }));
+  assert.throws(() => validateManifest({ canonical_apps, records: [{ slug: "binhex-jellyfin", canonical_slug: "jelyfin" }] }), /unknown canonical app jelyfin/);
+  assert.throws(() => validateManifest({ canonical_apps, records: [{ slug: "jellyfin", canonical_slug: "jellyfin" }] }), /also a retirement target/);
+  assert.throws(() => validateManifest({ canonical_apps: [...canonical_apps, ...canonical_apps], records: [] }), /listed twice/);
 });

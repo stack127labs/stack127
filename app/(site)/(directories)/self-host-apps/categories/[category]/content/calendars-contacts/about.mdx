@@ -1,0 +1,12 @@
+## How do you choose a calendar or contacts server?
+
+For most people, the deciding question is whether the phone and desktop apps you already use can connect to it.
+
+- **CalDAV and CardDAV.** These open standards sync calendars and contacts. iPhone, macOS, and Thunderbird support them directly. Android usually needs an extra sync app. If you want both calendars and contacts, check the server supports both.
+- **Size.** A simple sync server needs very little. Use the RAM filter to find light options for a Raspberry Pi or a NAS.
+- **Sharing.** If a family or team shares calendars, check how shared calendars and permissions work.
+- **Booking pages and polls** are separate tools. They usually connect to your calendar rather than replace it.
+
+## What should you back up?
+
+Your calendars and address book live in a database or in plain files on the server. Back them up, and export everything once before you switch servers. To sync while you're away from home, you'll need HTTPS and a way in, such as a VPN or a reverse proxy.

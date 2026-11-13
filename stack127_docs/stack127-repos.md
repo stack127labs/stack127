@@ -14,6 +14,7 @@ Apps, tools, and datasets that stack127 owns are independent stack127 repos. Eac
 | BaseBuddy app | Public | `stack127labs/basebuddy` | `main` | Public repository | Standalone open source app; no private runtime or build dependency | Active; `main` at `2ff50ab454805e498756d1013a1dc2af22acb7fd`; latest tag `v0.2.0` at `dd16eb96e4dac59b194f41e3e2d01472084d9172` checked 2026-08-19 |
 | DNS Tools | Public | `stack127labs/dns-tools` | `main` | Public repository | Standalone open source DNS tools; hosted stack127 pages get deliberate manual ports only | Active; `main` at `f437732151b4f35888c3b0e758dff79e90b99a24` checked 2026-08-19 |
 | Stack127 datasets | Public | `stack127labs/stack127-datasets` | `main` | Public repository | Generated public datasets; the source data stays in the private database and export workflow | Active; `main` at `807f61d709da84b14572214f9d214c392315b1f1` checked 2026-09-01 |
+| Awesome self-hosted apps | Public | `stack127labs/awesome-self-hosted-apps` | `main` | Generated repository | Output of `export-awesome-list.mjs`; the source data stays in the private database | Created 2026-11-13; `main` at `7d70dc7` |
 
 The registry records how stack127 repos relate without copying their source trees here. Tool page runtime links and sync state also live in the `stack127_repo_*` columns on `public.stack127_tool_pages`.
 
@@ -81,8 +82,10 @@ stack127 repo automation lives here:
 ```text
 scripts/stack127/repos/
   create-tool-repo.mjs
+  export-awesome-list.mjs
   export-dataset.mjs
   render-readme.mjs
+  sync-awesome-list.mjs
   sync-dataset-repo.mjs
 
 templates/stack127-tool-repo/
@@ -93,12 +96,15 @@ Durable commands:
 ```bash
 npm run stack127:repo:dataset:export -- --surface self-host-apps --out /tmp/stack127-datasets
 npm run stack127:repo:dataset:sync -- --surface self-host-apps --repo stack127-datasets --dry-run
+npm run stack127:repo:awesome-list:export -- --out /tmp/awesome-self-hosted-apps
 npm run stack127:repo:tool:new -- --slug port-checker --name "Port Checker" --dry-run
 ```
 
 Dataset exports read verified production data, pick public columns, and sort rows the same way every time. They show a dry-run diff before any reviewed write or push.
 
-Exports must use `.env.database` or an explicit production `--database-url`. They never fall back to `.env.local`.
+The awesome-list export builds the files of `stack127labs/awesome-self-hosted-apps`: a README with a category index, one Markdown table per published category page, and `data/apps.csv` and `data/apps.json`. It lists each source repository once, so its app count is lower than the directory's. The OVH `self-host-awesome-list` job refreshes the public repository on Mondays at 14:02 UTC, with hourly catch-up. It exports into a fresh directory outside the code checkout, validates the files, refuses app-count drops over 10% and any category-count drop, then commits only changed generated files and pushes to `main`. Each run uses a fresh clone outside the code checkout, so interrupted commits and failed pushes cannot leave pending local history for the next run. Unrelated repository files stay intact. Setup, the repository-only token, and the manual count override are documented in [the OVH runner guide](../scripts/self-host-apps/ovh/README.md). Built, waiting for install.
+
+Exports must use `.env.database`, an explicit production `--database-url` where supported, or the awesome-list export’s `--database-env` option with the OVH runner’s validated production `DATABASE_URL`. They never fall back to `.env.local`.
 
 The tool scaffold is only a starting point. Once created, the new stack127 repo is its own source of truth and uses a separate checkout.
 

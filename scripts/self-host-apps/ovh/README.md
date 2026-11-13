@@ -1,6 +1,6 @@
 # Self-host app cron jobs on OVH
 
-These seven data jobs and one catch-up job run as `ubuntu` on OVH. GitHub no
+These eight data jobs and one catch-up job run as `ubuntu` on OVH. GitHub no
 longer schedules them. Cron is already enabled on the server. No new daemon or timer is required. The wrapper
 uses a transient systemd resource scope through ubuntu's enabled user manager
 (`loginctl enable-linger ubuntu`) to cap the complete process tree at 2 GB RAM,
@@ -61,6 +61,13 @@ Node, never evaluated as shell code. Credentials:
   `sslmode=disable`; use the same connection as launch-directory metrics.
 - `GITHUB_TOKEN`: GitHub discovery, catalogs, facts and technical jobs. Copy an
   existing authorised Infisical credential; no interactive `gh` login is needed.
+- `AWESOME_LIST_GITHUB_TOKEN`: required only for `self-host-awesome-list`. Add it
+  to Infisical `stack127 /vps/self-host-apps`. Use a fine-grained token with
+  resource owner `stack127labs`, repository access only to
+  `awesome-self-hosted-apps`, and Contents read/write (Metadata read is automatic).
+  The existing `GITHUB_TOKEN` is for discovery/API reads; its write access is not
+  assumed. Git uses a temporary askpass script that reads the token from the
+  environment; no token is stored in a remote URL or Git configuration.
 - `GITLAB_TOKEN`, `CODEBERG_TOKEN`: optional, for source-host refresh. Without them
   the job reads the public APIs anonymously, as it always did on GitHub Actions.
   Add them only if rate limits start to fail runs. Never fill them with placeholders.
@@ -86,12 +93,13 @@ by dedupe even on failure. No failed catalog is silently treated as success.
 | refresh-github | Daily 05:30, 17:30 | Daily 07:06, 19:06 | 20 min |
 | refresh-source-hosts | Daily 11:06 | Daily 11:22 | 30 min |
 | refresh-technical | Monday 10:53 | Monday 12:26 | 60 min |
+| awesome-list | New job | Monday 14:02 | 20 min |
 
 Each data job has its own cron line at the nominal times above, with `--due`.
 The dashboard therefore sees the real schedule and can flag overdue work.
 `self-host-catch-up` has its own line and log at minute 30 each hour, excluding
 hours 05 and 06. It updates the checkout, checks supervisor drift, releases the
-checkout lock, then calls the seven installed job wrappers in order with `--due`.
+checkout lock, then calls the eight installed job wrappers in order with `--due`.
 Each wrapper updates and rechecks due status under the shared lock, so a nominal
 run racing catch-up cannot repeat a completed period. It compares the latest
 nominal occurrence against the last successful start time. First install is due
@@ -111,8 +119,8 @@ a busy lock exits 76 for retry next hour. A per-job overlap is also exit 76 and
 does not add a data-job run. Nominal jobs wait until ten seconds before their whole-run deadline. If they
 never acquire the checkout lock, they log a skipped run (76), not a failure.
 A timeout after acquiring the lock remains a failure.
-Catch-up runs due jobs sequentially; its whole-run limit is 240 minutes, covering
-the seven job limits (225 minutes total) and bounded lock waits. Its own per-job
+Catch-up runs due jobs sequentially; its whole-run limit is 260 minutes, covering
+the eight job limits (245 minutes total) and bounded lock waits. Its own per-job
 lock prevents overlapping catch-up sweeps. All cron starts avoid :35 to :50 and
 the 05:35 to 06:45 release window.
 
@@ -124,7 +132,7 @@ never writes inferred editorial technical facts.
 ## Install after merge
 
 The lead installs cron only after the reviewed code reaches main. First ensure
-`DATABASE_URL` and `GITHUB_TOKEN` exist and the Infisical sync succeeds.
+`DATABASE_URL`, `GITHUB_TOKEN`, and `AWESOME_LIST_GITHUB_TOKEN` exist and the Infisical sync succeeds.
 `GITLAB_TOKEN` and `CODEBERG_TOKEN` are optional. If the clone does not
 exist, create it as ubuntu (sudo may be needed just for the directory):
 
@@ -221,3 +229,74 @@ For pre-merge validation only, a manual `--validation /absolute/checkout` uses a
 working-tree copy, skips its Git update, and clearly labels the log. Cron never
 uses this flag. Delete that temporary validation checkout after testing. No env
 file belongs inside either checkout.
+
+
+## Weekly public list: install and operate
+
+Built, waiting for install. After the reviewed merge, the lead adds
+`AWESOME_LIST_GITHUB_TOKEN` to Infisical as described above and waits for the
+sync to deliver the mode-600 env file. Do not edit that file on OVH. The existing
+dataset sync uses `gh` with `GH_TOKEN`/`GITHUB_TOKEN`; this job uses Git HTTPS
+with its own token and does not need an interactive login or `gh`.
+
+As ubuntu, update `/srv/stack127-self-host` with the fetch and fast-forward
+commands above. **Reinstall the supervisor using the syntax-check and atomic
+rename above**: this change modifies `run-job.sh`, including the job list and
+catch-up time limit. The next run installs dependencies if needed. No separate
+clone setup is needed.
+
+If the cron block is already installed, the append-once command above will do
+nothing. Replace only the managed block, preserving all other entries:
+
+```sh
+crontab -l > /srv/stack127-data/self-host-apps/crontab.before
+sed '/^# BEGIN stack127 self-host apps/,/^# END stack127 self-host apps/d' /srv/stack127-data/self-host-apps/crontab.before > /srv/stack127-data/self-host-apps/crontab.new
+cat /srv/stack127-self-host/scripts/self-host-apps/ovh/crontab.txt >> /srv/stack127-data/self-host-apps/crontab.new
+cat /srv/stack127-data/self-host-apps/crontab.new
+```
+
+Review that file, then install and run the job (this publishes changed files):
+
+```sh
+crontab /srv/stack127-data/self-host-apps/crontab.new
+/bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-awesome-list --due
+tail -n 40 /srv/stack127-data/logs/self-host-awesome-list.log
+crontab -l
+```
+
+Check the dashboard entry and the public repository commit. The job runs Monday
+14:02 UTC (19:32 IST), after Monday's 12:26 technical refresh and its 60-minute
+limit. It uses the existing per-job and checkout locks, output caps, scope and
+success markers. Catch-up includes it last. A successful unchanged export is a
+no-op; failed export, validation, commit or push leaves no success marker.
+
+The export explicitly uses `--database-env` with the validated production
+connection, never `.env.local`. Each run creates `awesome-list-*` under
+`/srv/stack127-data/self-host-apps/`, containing a fresh export and a fresh clone
+of the public repository. It validates nonempty README, LICENSE, CSV, JSON,
+README category links and matching category files, plus unique app slugs and
+valid category memberships. Compared with the clone's current main, app count
+may fall at most 10%; category count may not fall. Refusal prints the old/new
+counts and fails before changing the clone. Only README, LICENSE, both data
+files and category Markdown files are replaced/staged. No symlink is followed.
+A bot commit includes both counts. Git calls time out after five minutes and
+never force-push. A remote edit racing the push fails with Git's rejection;
+the next run clones the new main and tries again. Git errors include the reason
+with credentials redacted.
+
+Temporary work is removed on ordinary success/failure. A SIGKILL can leave a
+scratch directory; it is never reused. After checking no list job is active,
+the lead may remove only abandoned `awesome-list-*` scratch directories under
+that exact state directory. They contain public exports/clones and an askpass
+script with no token value. Do not remove state, reports, logs or lock files.
+
+For an intended large drop, review the source change and counts first, then use
+this one-run override as ubuntu (it still checks all files and symlinks):
+
+```sh
+AWESOME_LIST_ALLOW_COUNT_DROP=1 /bin/bash /srv/stack127-data/self-host-apps/run-job.sh self-host-awesome-list
+```
+
+Do not save the override in Infisical or cron. Its use logs a warning with the
+old/new counts. Without `--due`, a manual run executes even if this week already
+succeeded. The normal hourly retry keeps the count guard enabled.

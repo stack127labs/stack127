@@ -1,0 +1,12 @@
+## How do you pick a self-hosted AI app?
+
+Start with your hardware. Most model runners lean on a GPU, and a large model needs far more memory than the app itself. The RAM on each card is for the app, not the model you load, so check the model's size too.
+
+- **Runner or front end.** A chat front end needs a model runner or an API key behind it. Pick the runner first, then a front end that talks to it.
+- **License.** Some AI apps are source available or limit commercial use. Use the Source model filter, and check each model's license on its own, since whoever trained it sets that.
+- **Health.** AI projects move fast and stall fast. The Health filter shows which still get commits.
+- **Docker.** Using a GPU inside Docker takes extra setup, such as the NVIDIA Container Toolkit on Linux. Read the install docs before you choose Docker.
+
+## What should you plan for when you run one?
+
+Models are big files, often several gigabytes each, so plan disk space for them. Before you open the app to the internet, check that it has its own login. If it doesn't, put one in front of it.

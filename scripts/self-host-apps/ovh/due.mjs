@@ -10,6 +10,7 @@ export function scheduledAt(job, now = new Date()) {
     'self-host-discovery-directories': [10, 18, 'month'],
     'self-host-refresh-source-hosts': [11, 22],
     'self-host-refresh-technical': [12, 26, 1],
+    'self-host-awesome-list': [14, 2, 1],
   };
   const schedule = schedules[job];
   if (!schedule) throw new Error(`Unknown job: ${job}`);

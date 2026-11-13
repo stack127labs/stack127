@@ -1,0 +1,12 @@
+## How do you choose a self-hosted developer tool?
+
+This category is broad, so search for the job first. Then check:
+
+- **Who uses it.** A tool for a team needs accounts, single sign-on, and access controls. A tool only you use can skip them.
+- **Resources.** CI runners, browser IDEs, and load testers can use a lot of CPU and RAM when they're busy. Treat the RAM estimate as a minimum.
+- **License.** Some developer platforms keep features in a paid edition or use a source-available license. Check the Source model filter before you build on one.
+- **Install method.** Some tools are made for Kubernetes or Helm. Use the Install method filter to match your setup.
+
+## What should you plan for when you run one?
+
+These tools often hold source code, secrets, and deploy keys. Keep them behind a login, update them quickly, and back up their data, such as repositories, registries, and databases. Coding agents can run commands, so give them a sandbox and only the access they need.

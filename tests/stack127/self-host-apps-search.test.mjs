@@ -82,6 +82,16 @@ test("sidebar counts use the complete index and preserve the existing option sha
   ]);
 });
 
+test("a category scope limits sidebar options to that category's apps", () => {
+  const backup = [{ slug: "backup", name: "Backups", icon_key: null }];
+  const apps = [app("one"), app("two", { categories: backup, license: "GPL-3.0", license_spdx_id: "GPL-3.0", install_methods: ["native"] })];
+  const scoped = selfHostAppsFacets(apps, ["backup"]);
+  assert.deepEqual(scoped.licenses.map(option => [option.value, option.count]), [["gpl-3-0", 1]]);
+  assert.deepEqual(scoped.installMethods.map(option => option.value), ["native"]);
+  assert.deepEqual(selfHostAppsFacets(apps, []), selfHostAppsFacets(apps));
+  assert.deepEqual(slugs(select(apps, params("category=backup&q=photo"))), ["two"]);
+});
+
 async function loadWithImports(path, imports, globals = {}) {
   const { readFileSync } = await import("node:fs");
   const { default: ts } = await import("typescript");

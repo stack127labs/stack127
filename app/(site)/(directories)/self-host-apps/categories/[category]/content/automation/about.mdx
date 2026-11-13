@@ -1,0 +1,12 @@
+## How do you choose an automation app?
+
+Start with what kicks off your work and which services it needs to reach.
+
+- **Integrations.** A workflow builder is only as useful as the services it connects to. Check its integration list for the apps you use before you install.
+- **License.** Some popular workflow tools are source available, which can limit running them for clients. Use the Source model filter, and read [software licenses for self-hosting](/software-licenses-for-self-hosting) if you plan to sell a service built on one.
+- **Workers and database.** Bigger builders run background workers, a queue, and a database. The Needs database signal shows the ones we've confirmed need one.
+- **Health.** Scrapers and browser bots break when websites change. Prefer ones the Health filter marks Active.
+
+## What should you expect when it runs?
+
+Automation runs all day, so it needs a server that stays on. It also stores logins and API keys for every service it touches. Back it up, and keep it off the open internet unless incoming webhooks need a public address.

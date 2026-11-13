@@ -1,0 +1,12 @@
+## How do you choose networking and DNS tools?
+
+Name the job first: block ads, route traffic to your apps, reach home from outside, or test your network.
+
+- **DNS blockers** sit in the path of every lookup in your home. If everyone relies on it, run a second one so the internet doesn't stop when one goes down.
+- **Reverse proxies** put your apps behind one address with HTTPS. Check for automatic certificates and a way of setting routes that suits you, such as a config file, Docker labels, or a web UI.
+- **Tunnels** reach your apps without opening ports. Check whether traffic passes through a server you run or through a company's.
+- **Install method.** Some of these tools are a single binary. Check the Install method filter for Native and Binary.
+
+## What should you plan for when you run one?
+
+A broken DNS server or proxy takes everything behind it down, so keep a fallback and back up the config. Anything you expose to the internet needs updates and strong logins.

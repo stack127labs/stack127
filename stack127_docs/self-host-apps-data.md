@@ -217,6 +217,14 @@ npm run self-host-apps:apply-artifact-cleanup -- --environment production --conf
 
 Review the production preview before running the apply command.
 
+For a separately reviewed batch, pass `--file scripts/self-host-apps/batches/<reviewed.json>` on both commands. The file uses the same `canonical_apps` and `records` format as the default manifest. Extra `decisions` describe duplicate, distinct and uncertain groups; only `records` are retired. A canonical app must remain published and self-hostable. A repeated target, or a canonical app that is also a target, stops the batch.
+
+Retirement keeps the app row, its category links, installation destinations and estimates, but sets `published=false`. Public directory, category, search and dataset queries exclude that row. Discovery dedupe deliberately indexes **all** app rows, including unpublished ones, so the retained source/homepage identities continue to block rediscovery. Existing published candidates also keep their completed state when discovery updates their evidence. Do not delete retired rows or globally draft other apps.
+
+Cleanup merges direct source, website, docs, install, Docker and Compose URLs, plus existing `data_source_urls`, into the kept app's evidence links. It does not copy structured facts across deployment variants. The November 2026 reviewed batch lists missing structured facts and resource estimates under `decisions[].facts_to_preserve`; review them before a separate fact correction. Package RAM caps, community image names and alternate category assignments must not silently replace upstream facts.
+
+Database triggers queue the directory and affected category refreshes, including the old category membership. A published category falling below `MIN_CATEGORY_APPS` (15) is unpublished by the trigger. In Cloudflare hosting mode the cache worker dispatches `stack127-frontend-refresh.yml`; that workflow rebuilds static pages and refreshes the OVH APIs. The database apply alone does not prove the public change is live. In legacy mode the worker invalidates and refreshes paths and query caches. See [Cloudflare database edits](cloudflare.md#database-edits-in-cloudflare-mode). Dataset files in the external awesome-list repository change only on its next exporter/sync run; the exporter filters unpublished apps.
+
 The migration `20260901060529_streamline_self_host_apps_data_model.sql` folds the old rows into these tables. It removes pipeline-only tables and compatibility views and keeps the candidate review queue.
 
 ## Add one app on request

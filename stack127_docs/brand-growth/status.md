@@ -31,12 +31,21 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 | --- | --- | --- |
 | Request indexing for the 10 hub URLs, then the 10 largest self-host category pages the day after | Owner | Open |
 | Submit the remaining 148 sitemap URLs to Bing, 100 a day | Agent | Open |
-| Build `stack127labs/awesome-self-hosted-apps` | Agent | In progress |
+| Make `stack127labs/awesome-self-hosted-apps` public | Owner approves, agent flips | The repository is private with the first export: 4,814 apps in 42 categories |
+| Merge the export script, pull request #120 | Agent, after the owner's go | Reviewed twice; waiting on the owner |
+| Refresh the list on a schedule | Agent | built, waiting for install |
 | Pull the numbers and write the first data story | Agent | After the list is public |
 | Post the story on r/selfhosted | Owner | After review |
 | Measure referring domains as a baseline | Agent | Open |
 | CLI apps list, then ad networks list | Agent | After the first list |
 
+## Known data gaps
+
+- 95 source repositories are listed twice or more in the directory, 194 entries in all, for example "Jellyfin" and "binhex-jellyfin". The public list shows each repository once. The directory still shows all of them, so its count is 4,913 and the list's is 4,814. Cleaning the directory changes category counts and needs its own data task.
+- The directory has 4,913 published self-hostable apps. The category review covered 4,978 published apps, which includes entries that are not self-hostable. Use 4,913 or the list's 4,814 in the story, not 4,978.
+
 ## Waiting on the owner
 
 - The "Request indexing" clicks in Search Console.
+- A look at the private list repository, then a yes to make it public.
+- A yes to merge pull request #120.

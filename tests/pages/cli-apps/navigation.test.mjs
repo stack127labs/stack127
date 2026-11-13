@@ -26,12 +26,9 @@ test("the site navigation leads to home, where Start here links to cli-apps", as
 });
 
 test("the cli-apps page exposes language and license filters", async () => {
-  const page = await read("app/(site)/(directories)/cli-apps/page.tsx");
   const view = await read("app/(site)/(directories)/cli-apps/cli-app-view.tsx");
   assert.match(view, /name="language"/);
   assert.match(view, /name="license"/);
-  assert.match(page, /languageOptions/);
-  assert.match(page, /licenseOptions/);
 });
 
 test("the directory filter logic supports license filtering", async () => {

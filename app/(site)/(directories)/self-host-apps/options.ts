@@ -2,6 +2,7 @@ import type { DirectoryFilterOption as FilterOption } from "@/app/ui/directories
 import type { DirectoryParams } from "@/app/ui/directories/directory-params";
 import type { SelfHostAppsSearchFacets } from "@/lib/self-host-apps-search";
 
+/** The hub's path. A category page passes its own path through the search provider. */
 export const route = "/self-host-apps";
 
 export const dockerOptions: FilterOption[] = [
@@ -56,10 +57,10 @@ export const defaultSort = "popular";
 const values = (options: FilterOption[]) => options.map((option) => option.value);
 
 // The keys the search API accepts, in a fixed order so equal views share one cached response.
-function allowedValues(facets: SelfHostAppsSearchFacets): Array<[key: string, allowed: string[], multiple: boolean]> {
+function allowedValues(facets: SelfHostAppsSearchFacets, lockedCategory: boolean): Array<[key: string, allowed: string[], multiple: boolean]> {
   return [
     ["sort", values(sortOptions), false],
-    ["category", values(facets.categories), true],
+    ...(lockedCategory ? [] : [["category", values(facets.categories), true] as [string, string[], boolean]]),
     ["license", values(facets.licenses), true],
     ["source", values(sourceOptions), true],
     ["docker", values(dockerOptions), true],
@@ -80,13 +81,14 @@ function list(params: DirectoryParams, key: string) {
  * The URL view as a clean set of parameters. Unknown keys, tracking tags, and
  * values that are no longer offered are dropped, as the server page used to do,
  * so old shared links still open. Empty when the URL shows the default view.
+ * A category page locks its category, so a `category` key in its URL is dropped.
  */
-export function cleanParams(params: DirectoryParams, facets: SelfHostAppsSearchFacets): DirectoryParams {
+export function cleanParams(params: DirectoryParams, facets: SelfHostAppsSearchFacets, lockedCategory?: string): DirectoryParams {
   const clean: DirectoryParams = {};
   const q = list(params, "q")[0]?.replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, 200);
   if (q) clean.q = q;
 
-  for (const [key, allowed, multiple] of allowedValues(facets)) {
+  for (const [key, allowed, multiple] of allowedValues(facets, Boolean(lockedCategory))) {
     const picked = [...new Set(list(params, key).filter((value) => allowed.includes(value)))].sort();
     if (key === "sort" && picked[0] === defaultSort) continue;
     if (picked.length === 0) continue;

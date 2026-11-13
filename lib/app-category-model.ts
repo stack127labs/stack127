@@ -1,4 +1,4 @@
-/** Category pages list the complete default view; query filters stay on the hubs. */
+/** A category page needs at least this many published apps. */
 export const MIN_CATEGORY_APPS = 15;
 export type AppDirectory = "self-host-apps" | "cli-apps";
 export type AppCategoryCount = { slug: string; name: string; count: number };
@@ -19,8 +19,4 @@ export function publishedAppCategories(directory: AppDirectory, categories: read
 
 export function appCategoryStaticParams(categories: readonly AppCategoryLink[]) {
   return categories.map(category => ({ category: category.slug }));
-}
-
-export function selectCategoryApps<T extends { name: string }>(apps: readonly T[], category: string, slugs: (app: T) => readonly string[], score: (app: T) => number): T[] {
-  return apps.filter(app => slugs(app).includes(category)).sort((a, b) => score(b) - score(a) || a.name.localeCompare(b.name));
 }
