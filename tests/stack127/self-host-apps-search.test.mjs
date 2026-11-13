@@ -175,6 +175,8 @@ test("search cards and details stay in the same order; a missing detail fails fo
   assert.equal(partial.complete, false);
   assert.deepEqual(partial.response.apps.map(app => app.slug), ["a"]);
   assert.deepEqual(Array.from(partial.response.detailApps, app => app.slug), ["a"]);
+  details = [];
+  await assert.rejects(data.getSelfHostAppsSearchForApi(params("")), /Missing search details for every app/);
   details = [app("z"), app("a")];
   assert.equal((await data.getSelfHostAppsSearchForApi(params(""))).complete, true);
 });

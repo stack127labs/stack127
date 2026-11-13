@@ -22,6 +22,8 @@ async function search(
     if (missing === "fail") throw new Error(`Missing search detail: ${app.slug}`);
     return false;
   });
+  // A page with nothing left would look like "no matches" and hide the other pages, so fail and let the reader retry.
+  if (results.apps.length > 0 && apps.length === 0) throw new Error("Missing search details for every app on the page.");
   const detailApps = apps.map(app => bySlug.get(app.slug)!);
   return {
     response: { ...results, apps, detailApps, facets: selfHostAppsFacets(index, params.category) },
