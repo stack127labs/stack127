@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { mkdirSync, mkdtempSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, mkdtempSync, symlinkSync, writeFileSync, existsSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { cell, httpUrl, licenseText, normalizeApp, onePerRepository, prepareOutDir, renderCategory, repositoryKey } from "../../scripts/stack127/repos/export-awesome-list.mjs";
@@ -31,10 +31,13 @@ test("license names are normalized", () => {
 });
 
 test("links are public http URLs that cannot end a cell or a link", () => {
-  for (const bad of ["javascript:alert(1)", "https://good.example\\@evil.example", "https://user:pass@example.com", "http://localhost:3000", "http://192.168.1.4/app", "https://nas.local/x", "ftp://example.com"]) {
+  for (const bad of ["javascript:alert(1)", "https://good.example\\@evil.example", "https://user:pass@example.com", "http://localhost:3000", "http://192.168.1.4/app", "https://nas.local/x", "http://localhost./", "http://nas.local./", "http://0.0.0.0/", "http://[::1]/", "https://nas.home/", "ftp://example.com"]) {
     assert.equal(httpUrl(bad), "", bad);
   }
   assert.equal(httpUrl("https://example.com/a_b"), "https://example.com/a_b");
+  for (const good of ["https://10.example.com/", "https://100.64.example.com/", "https://home.example.com/"]) assert.equal(httpUrl(good), good);
+  const entity = renderCategory({ slug: "wikis", name: "Wikis" }, [app({ website_url: "https://good.example&commat;evil.example/?a=1&copy=2" })], "2026-11-13");
+  assert.ok(entity.includes("(https://good.example&amp;commat;evil.example/?a=1&amp;copy=2)"));
   const page = renderCategory({ slug: "wikis", name: "Wi|kis" }, [app({ website_url: "https://example.com/a|b(c)" })], "2026-11-13");
   assert.ok(page.includes("(https://example.com/a%7Cb%28c%29)"));
   const row = page.split("\n").find((line) => line.startsWith("| [A]"));
@@ -46,6 +49,7 @@ test("repository URLs that differ only in form are the same repository", () => {
   const key = repositoryKey("https://github.com/Owner/Repo");
   for (const same of ["http://github.com/owner/repo.git/", "https://www.github.com/owner/repo/#readme", "https://github.com/owner/repo.git"]) assert.equal(repositoryKey(same), key);
   assert.notEqual(repositoryKey("https://git.example.org/Team/App"), repositoryKey("https://git.example.org/team/app"));
+  assert.notEqual(repositoryKey("https://git.example.org/team/app"), repositoryKey("https://git.example.org:8443/team/app"));
 });
 
 test("only an earlier export is cleaned", () => {
@@ -60,4 +64,11 @@ test("only an earlier export is cleaned", () => {
   prepareOutDir(foreign);
   assert.ok(!existsSync(path.join(foreign, "categories", "keep.md")));
   assert.ok(existsSync(path.join(foreign, "categories", "notes.txt")));
+
+  const linked = mkdtempSync(path.join(os.tmpdir(), "awesome-list-"));
+  writeFileSync(path.join(linked, "README.md"), "# Awesome self-hosted apps\n");
+  symlinkSync(path.join(foreign, "categories"), path.join(linked, "categories"));
+  writeFileSync(path.join(foreign, "categories", "other.md"), "not ours");
+  assert.throws(() => prepareOutDir(linked), /symbolic link/);
+  assert.ok(existsSync(path.join(foreign, "categories", "other.md")));
 });

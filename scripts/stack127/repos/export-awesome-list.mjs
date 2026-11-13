@@ -5,7 +5,8 @@
 // category, and the same rows as CSV and JSON. Read-only; writes only --out.
 
 import path from "node:path";
-import { existsSync, readFileSync, readdirSync, realpathSync, rmSync } from "node:fs";
+import { existsSync, lstatSync, readFileSync, readdirSync, realpathSync, rmSync } from "node:fs";
+import { isIP } from "node:net";
 import { pathToFileURL } from "node:url";
 import { withClient } from "../../self-host-apps/lib/db.mjs";
 import { parseArgs, readEnvValues, requireArg, toCsv, writeText } from "./lib.mjs";
@@ -49,18 +50,21 @@ const count = (value) => Number(value).toLocaleString("en-US");
 const title = "# Awesome self-hosted apps";
 
 // A public link only: http or https, no credentials, no private or local host.
-const privateHost = /^(localhost|.*\.(local|internal|lan|home|ts\.net)|127\..*|10\..*|192\.168\..*|169\.254\..*|172\.(1[6-9]|2\d|3[01])\..*|100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\..*|\[.*\])$/;
+const localSuffix = /(^|\.)(localhost|local|internal|lan|home|ts\.net)$/;
 export function httpUrl(value) {
   if (typeof value !== "string" || /[\s\\]/.test(value.trim())) return "";
   let url;
   try { url = new URL(value.trim()); } catch { return ""; }
   if (!["http:", "https:"].includes(url.protocol) || url.username || url.password) return "";
-  if (!url.hostname.includes(".") || privateHost.test(url.hostname)) return "";
+  // Bare IP addresses are never a project's public home, so all of them are refused.
+  const host = url.hostname.replace(/\.$/, "");
+  if (!host.includes(".") || isIP(host.replace(/^\[|\]$/g, "")) || localSuffix.test(host)) return "";
   return url.href;
 }
 
-// Percent-encode the characters that could end a Markdown link or a table cell.
-const linkTarget = (url) => url.replace(/[|()<>[\]`]/g, (char) => `%${char.charCodeAt(0).toString(16).toUpperCase().padStart(2, "0")}`);
+// Percent-encode the characters that could end a Markdown link or a table cell,
+// and escape "&" so Markdown cannot read an entity such as "&commat;" in the URL.
+const linkTarget = (url) => url.replace(/&/g, "&amp;").replace(/[|()<>[\]`]/g, (char) => `%${char.charCodeAt(0).toString(16).toUpperCase().padStart(2, "0")}`);
 
 // Long names for the same license, as they appear in reviewed records.
 const licenseIds = new Map([
@@ -119,9 +123,9 @@ export function normalizeApp(row) {
 const caseInsensitiveHosts = new Set(["github.com", "gitlab.com", "codeberg.org"]);
 export function repositoryKey(value) {
   const url = new URL(value);
-  const host = url.hostname.replace(/^www\./, "");
+  const host = url.host.replace(/^www\./, "");
   const repoPath = url.pathname.replace(/\/+$/, "").replace(/\.git$/, "");
-  return `${host}${caseInsensitiveHosts.has(host) ? repoPath.toLowerCase() : repoPath}`;
+  return `${host}${caseInsensitiveHosts.has(url.hostname.replace(/^www\./, "")) ? repoPath.toLowerCase() : repoPath}`;
 }
 const repackaged = (name) => /^binhex-|-for-/i.test(name);
 
@@ -202,6 +206,10 @@ The list and data are available under [CC BY 4.0](LICENSE). Credit stack127 with
 // Refuse a folder that is not an earlier export, then remove only old category
 // tables so a retired category leaves no stale file.
 export function prepareOutDir(outDir) {
+  // A symlink here would send deletes and writes into some other folder.
+  for (const target of [outDir, path.join(outDir, "categories"), path.join(outDir, "data")]) {
+    if (lstatSync(target, { throwIfNoEntry: false })?.isSymbolicLink()) throw new Error(`${target} is a symbolic link`);
+  }
   if (!existsSync(outDir) || readdirSync(outDir).length === 0) return;
   const readme = path.join(outDir, "README.md");
   if (!existsSync(readme) || !readFileSync(readme, "utf8").startsWith(title)) {
