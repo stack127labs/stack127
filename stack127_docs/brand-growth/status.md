@@ -44,6 +44,7 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 
 ## Known data gaps
 
+- **The hourly ad network verification job on OVH is paused** (since 2026-11-13, line commented `# paused-until-matcher-fix` in ubuntu's crontab; original saved at `/srv/stack127-data/state/crontab-before-homepage-20261113T133014Z.txt`). Reason: the AdSense matcher ignores scripts rewritten by speed and consent plugins (for example `type="litespeed/javascript"`), so it ends live AdSense relationships. Re-enable it after that fix is released, then continue the homepage-miss correction from `content_docs/ad-networks/production-runbook.md` (first 25-domain batch done: 1 restored). Backups from that window: `/srv/stack127-data/state/homepage-backup-20261113T133043Z` and `/srv/stack127-db/backups/stack127-20261113T133102934154088Z.dump`.
 - 11 possible duplicate groups were left untouched as unsure, for example "Borg" and "borgserver", and "ONLYOFFICE" and "ONLYOFFICE Docs". They are marked `unsure` in the batch file.
 - The "Has mobile app" filter matches 0 to 4 apps per category in development, and "Needs database" is empty for most apps. Both need data work.
 - Two CLI categories, `communication` and `games-fun`, are below 15 apps and unpublished. Their intros are placeholder text.
