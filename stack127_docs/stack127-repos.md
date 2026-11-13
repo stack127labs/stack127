@@ -14,6 +14,7 @@ Apps, tools, and datasets that stack127 owns are independent stack127 repos. Eac
 | BaseBuddy app | Public | `stack127labs/basebuddy` | `main` | Public repository | Standalone open source app; no private runtime or build dependency | Active; `main` at `2ff50ab454805e498756d1013a1dc2af22acb7fd`; latest tag `v0.2.0` at `dd16eb96e4dac59b194f41e3e2d01472084d9172` checked 2026-08-19 |
 | DNS Tools | Public | `stack127labs/dns-tools` | `main` | Public repository | Standalone open source DNS tools; hosted stack127 pages get deliberate manual ports only | Active; `main` at `f437732151b4f35888c3b0e758dff79e90b99a24` checked 2026-08-19 |
 | Stack127 datasets | Public | `stack127labs/stack127-datasets` | `main` | Public repository | Generated public datasets; the source data stays in the private database and export workflow | Active; `main` at `807f61d709da84b14572214f9d214c392315b1f1` checked 2026-09-01 |
+| Awesome self-hosted apps | Private until the owner approves making it public | `stack127labs/awesome-self-hosted-apps` | `main` | Generated repository | Output of `export-awesome-list.mjs`; the source data stays in the private database | Created 2026-11-13; `main` at `7d70dc7` |
 
 The registry records how stack127 repos relate without copying their source trees here. Tool page runtime links and sync state also live in the `stack127_repo_*` columns on `public.stack127_tool_pages`.
 
