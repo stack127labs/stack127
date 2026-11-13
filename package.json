@@ -112,6 +112,7 @@
     "@namefi/dnssec-audit": "^2.1.1",
     "@next/mdx": "16.2.9",
     "@types/pg": "^8.20.0",
+    "acorn": "^8.19.0",
     "dns-packet": "^5.6.1",
     "echarts": "^6.1.0",
     "lucide-react": "^1.18.0",
