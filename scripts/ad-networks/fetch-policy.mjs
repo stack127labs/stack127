@@ -1,3 +1,4 @@
+import { parse } from "parse5";
 import { createHash } from "node:crypto";
 import dns from "node:dns/promises";
 import { isIP } from "node:net";
@@ -276,14 +277,66 @@ export async function fetchAdsTxt(domain, conditional = {}, dependencies = {}) {
   return { ...httpsResult, candidateHostname: hostname, registrableDomain: root };
 }
 
+// Inspect active markup, never quoted examples, comments or inert HTML.
+export function homepageChallenge(html) {
+  const pending = [parse(html)], titles = [], headings = [], scripts = [], frames = [], forms = [], elements = [];
+  const inert = new Set(['pre','code','blockquote','template','textarea','style','xmp','noscript','noembed','noframes']);
+  const text = node => (node.childNodes ?? []).map(child => child.nodeName === '#text' ? child.value : text(child)).join(' ');
+  while (pending.length) {
+    const node = pending.pop();
+    if (inert.has(node.tagName) || node.nodeName === '#comment') continue;
+    const attrs = Object.fromEntries((node.attrs ?? []).map(({name,value}) => [name,value]));
+    if (Object.hasOwn(attrs,'hidden') || attrs['aria-hidden'] === 'true' || /display\s*:\s*none/i.test(attrs.style ?? '')) continue;
+    if (node.tagName === 'title') titles.push(text(node));
+    if (/^h[1-3]$/.test(node.tagName)) headings.push(text(node));
+    if (node.tagName === 'script') {
+      if (!attrs.type || /^(?:module|(?:text|application)\/(?:java|ecma)script)$/i.test(attrs.type)) scripts.push((attrs.src ?? '')+' '+text(node));
+      continue;
+    }
+    if (node.tagName === 'iframe') { frames.push(attrs.src ?? ''); continue; }
+    if (node.tagName === 'form') forms.push([attrs.id,attrs.action,attrs.class].join(' '));
+    if (node.tagName) elements.push([attrs.id,attrs.class,attrs['data-sitekey']].filter(Boolean).join(' '));
+    pending.push(...(node.childNodes ?? []));
+  }
+  const title = titles.join(' ').toLowerCase(), heading = headings.join(' ').toLowerCase();
+  const wording = /(?:verif(?:y|ying|ication)(?:\s+that)?\s+(?:you(?:\s+are|'re)?|your|if you are)(?:\s+a)?\s+(?:human|browser)|(?:human|security|robot)\s+(?:check|verification)|checking (?:your )?browser|please (?:complete|solve).*(?:captcha|challenge))/i;
+  const waiting = /just a moment|one moment,? please|attention required|access denied|pardon our interruption|request (?:unsuccessful|rejected)|bot detection|enable javascript and cookies/i;
+  const active = scripts.join(' ').toLowerCase(), frame = frames.join(' ').toLowerCase();
+  const form = forms.join(' ').toLowerCase(), markup = elements.join(' ').toLowerCase();
+  const challengeWords = wording.test(title+' '+heading) || waiting.test(title);
+  const captcha = /(?:h-captcha|g-recaptcha|cf-turnstile)/.test(markup)
+    || /(?:hcaptcha\.com|recaptcha(?:\/|\.net)|google\.com\/recaptcha)/.test(active+' '+frame);
+  const humanHeading = headings.some(value => /^\s*(?:please\s+)?verify (?:that )?you(?: are|'re)? (?:a )?human[.!?\s]*$/i.test(value));
+  if (wording.test(title) || humanHeading || (wording.test(heading) && (forms.length || captcha))) return true;
+  if (/challenge-form/.test(form) && (challengeWords || /(?:_cf_chl_opt|challenge-platform)/.test(active))) return true;
+  // Incapsula/DataDome/PerimeterX challenge frames are interstitial resources.
+  if (/(?:_incapsula_resource|captcha-delivery\.com|(?:^|[./])geo\.captcha-delivery\.com|px-captcha)/.test(frame)) return true;
+  if (challengeWords && (captcha || /(?:wsidchk|sucuri_cloudproxy|sucuri\.net|_incapsula_resource|incapsula|imperva|datadome|perimeterx|_pxappid|px-captcha|akamai|\/akam\/|\/sec-cpt\/|_cf_chl_opt|challenge-platform)/.test(active+' '+frame+' '+markup))) return true;
+  if (/sucuri_cloudproxy/.test(active) && /document\.cookie/.test(active) && /location/.test(active)) return true;
+  if (/px-captcha/.test(markup) && /(?:_pxappid|perimeterx)/.test(active)) return true;
+  if (/sec-cpt/.test(markup) && /(?:akamai|\/sec-cpt\/)/.test(active)) return true;
+  return titles.some(value => /^\s*(?:just a moment|one moment,? please|attention required|access denied)[.!…\s]*(?:\|\s*(?:cloudflare|sucuri))?\s*$/i.test(value));
+}
+
 export async function fetchHomepage(domain, dependencies = {}) {
-  const root = getDomain(domain, { allowPrivateDomains: true });
-  if (!root) return null;
-  const target = new URL(`https://${domain}/`);
-  const { response, finalUrl } = await safeFetch(target, {
-    headers: { Accept: "text/html,application/xhtml+xml" },
-    timeoutMs: 15_000,
-  }, dependencies);
-  if (!response.ok || !/^text\/html(?:\s*;|$)/i.test(response.headers.get("content-type") ?? "")) { await response.body?.cancel(); return null; }
-  return { html: await readLimitedText(response, 2 * 1024 * 1024), finalUrl };
+  const target = `https://${domain}/`;
+  let base = { checkedUrl: target, outcome: "inconclusive" };
+  try {
+    if (!getDomain(domain, { allowPrivateDomains: true })) return { ...base, reason: "invalid_domain" };
+    const { response, finalUrl } = await safeFetch(target, {
+      headers: { Accept: "text/html,application/xhtml+xml" },
+      timeoutMs: 15_000,
+    }, dependencies);
+    base = { ...base, finalUrl, httpStatus: response.status, contentType: response.headers.get("content-type") };
+    if (!response.ok || !/^text\/html(?:\s*;|$)|^application\/xhtml\+xml(?:\s*;|$)/i.test(base.contentType ?? "")) {
+      await response.body?.cancel();
+      return { ...base, reason: !response.ok ? "http_status" : "content_type" };
+    }
+    const html = await readLimitedText(response, 2 * 1024 * 1024);
+    if (!html.trim()) return { ...base, reason: "empty_body" };
+    if (homepageChallenge(html)) return { ...base, reason: "challenge_page" };
+    return { ...base, outcome: "fetched", html };
+  } catch (error) {
+    return { ...base, reason: error.cause?.code ?? error.message };
+  }
 }

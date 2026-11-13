@@ -36,12 +36,12 @@ export function compactPublisherEvidence(value, homepage = null) {
   const evidence = object(value ?? {}, 'last_check_evidence');
   const facts = homepage ?? evidence.enrichment?.homepage;
   return {
-    ...Object.fromEntries(['manager_domains', 'confirmed_networks'].filter(key => Object.hasOwn(evidence, key)).map(key => [key, evidence[key]])),
+    ...Object.fromEntries(['manager_domains', 'confirmed_networks', 'homepage', 'inconclusive_networks'].filter(key => Object.hasOwn(evidence, key)).map(key => [key, evidence[key]])),
     ...(facts && typeof facts === 'object' ? { enrichment: { homepage: Object.fromEntries(
       ['title', 'description', 'h1', 'language'].filter(key => Object.hasOwn(facts, key)).map(key => [key, facts[key]])) } } : {}),
   };
 }
-const relationshipEvidenceFields = ['manager_domain','matched_signal','checked_url','checked_at','parser_version'];
+const relationshipEvidenceFields = ['manager_domain','matched_signal','checked_url','checked_at','parser_version','last_absence','homepage_miss_correction'];
 export function compactRelationshipEvidence(value) {
   const evidence = object(value ?? {}, 'evidence');
   return Object.fromEntries(relationshipEvidenceFields.filter(key => Object.hasOwn(evidence, key)).map(key => [key, evidence[key]]));
@@ -184,6 +184,8 @@ export async function syncReviewedData(options, dependencies = {}) {
         const publisherSelect=fields.map(field=>field==='last_check_evidence'
           ? `json_object('manager_domains',json_extract(p.last_check_evidence,'$.manager_domains'),
               'confirmed_networks',json_extract(p.last_check_evidence,'$.confirmed_networks'),
+              'homepage',json_extract(p.last_check_evidence,'$.homepage'),
+              'inconclusive_networks',json_extract(p.last_check_evidence,'$.inconclusive_networks'),
               'enrichment',json_object('homepage',case when json_type(p.last_check_evidence,'$.enrichment.homepage')='object' then
                 json_object('title',json_extract(p.last_check_evidence,'$.enrichment.homepage.title'),
                   'description',json_extract(p.last_check_evidence,'$.enrichment.homepage.description'),

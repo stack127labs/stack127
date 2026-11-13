@@ -50,7 +50,7 @@ Verification runs at minute 40 each hour, with four workers, a 1,000-site limit,
 
 ## What stays in production
 
-Publisher evidence keeps `manager_domains` and `confirmed_networks`, plus four homepage fields used by niche sorting: `title`, `description`, `h1`, and `language`. Relationship evidence keeps `manager_domain`, `matched_signal`, `checked_url`, `checked_at`, and `parser_version`. The last three are required confirmation metadata. These preserve existing manager resolution, observations, and database constraints.
+Publisher evidence keeps `manager_domains`, `confirmed_networks`, the bounded `homepage` check outcome and `inconclusive_networks`, plus four homepage fields used by niche sorting: `title`, `description`, `h1`, and `language`. Relationship evidence keeps `manager_domain`, `matched_signal`, `checked_url`, `checked_at`, `parser_version`, `last_absence`, and `homepage_miss_correction`. `checked_url`, `checked_at`, and `parser_version` are required confirmation metadata. These preserve existing manager resolution, observations, and database constraints.
 
 Full fetch diagnostics, redirects, seller records, parser errors, and traffic evidence stay in SQLite. `discovery_sources` keeps compact `source_key` attribution, which preserves the discovered/checker weekly chart. Source URLs, domain spellings, licenses, and collection dates stay local. Page facts, complete seller-domain summaries, bounded ads.txt previews, names, platforms, dates, traffic groups, and favicons keep their existing behavior. Existing target niches are never replaced by a collector sync.
 
@@ -140,3 +140,228 @@ ssh ovh '/srv/stack127/scripts/ad-networks/ovh/run-job.sh rdap-import --source-s
 ```
 
 The importer copies only newer RDAP checkpoints and dates, then syncs and refreshes. After its successful backup, disable homelab's old `stack127-ad-network-backup.timer`. This does not affect the niche timer or change which pages are published.
+
+## Correct inconclusive homepage misses (November 2026)
+
+A failed homepage must never count as an absent network. HTTP 200 can also be a bot challenge. The verifier now records that result as inconclusive for each network that needs the page. It preserves confirmation dates and misses. After 30 days without successful page evidence, a confirmed relationship becomes stale at its next check; failed requests never end it. Public checked dates use the last successful check, not the attempt time. It retries with backoff. A normal page without the network, or ads.txt without the required authorization, still counts as an absence.
+
+The fault existed before OVH. Commit `c488b9cc` (October 1) already swallowed homepage failures in `verify.mjs`. Commit `763d5a33` (October 16) extracted the same behavior into `verify-publisher.mjs`. The retained homepage-method misses start on September 28. The correction therefore defaults to `--since 2026-09-28T00:00:00.000Z`. This is a conservative search boundary, not a claim that every miss since then was wrong. OVH cron began October 19; the large November 13 loss is a later symptom.
+
+Read-only probes on November 13 used the same crawler identity and 15-second timeout on OVH and the Mac. Of 12 ended sites, all 12 returned normal HTTP 200 pages on the Mac. OVH returned nine normal pages, two HTTP 200 browser challenges (`tawcan.com`, `nomadicmatt.com`), and one HTTP 403 challenge (`iwandered.net`). A later four-site curl check still challenged the first two but loaded `iwandered.net` normally. Blocks vary by request. These probes establish a real failure mode; they do not establish the cause of every historical miss. The old logs and compact evidence did not retain homepage outcomes.
+
+### Selection and limits
+
+`scripts/ad-networks/correct-homepage-misses.mjs` defaults to a dry run. It repairs only a previously confirmed homepage-method relationship with misses inside the fault window. The latest check must be the miss itself, and either a 304 or a recorded inconclusive homepage must prove that check did not obtain absence evidence. A recorded valid `last_absence` excludes the row.
+
+A fresh full check must confirm the exact original signal. For a review-promoted seller relationship, both the exact ads.txt seller line and the saved `page_signature` must match current evidence. If the stored original ads.txt hash exists, the current hash must match too. Changed signals, changed files, blocked checks, actual absences, incomplete evidence, and old full-fetch misses without homepage diagnostics remain untouched. Counts report each reason. This intentionally leaves unresolved damage for later evidence-based review.
+
+The script preserves both original confirmation dates. It clears misses and the end date, restores `confirmed`, and queues priority 100 re-verification. It stores the original miss window and end date under `homepage_miss_correction`. Verification and compact sync preserve that marker.
+
+`--limit` bounds distinct domains checked, default 100. `nextAfterDomain` supplies the next batch's `--after-domain` value. Use the same cursor for a preview and its apply. Advance only after that batch has applied. Failed or excluded rows remain unchanged; start again without a cursor to retry them later. History work has its own `--history-limit` domain bound (defaults to `--limit`). Both restoration and history selection honor `--after-domain`. Stats-only output uses `nextAfterDomain` for history progress. PostgreSQL records completed `(network, publisher, correction time, version)` repairs in `ad_network_homepage_miss_repairs`, in the same transaction as the history changes. This target-side checkpoint survives a later source sync. Interrupted source repair, sync and history stages can each be repeated without advancing their cursors. Completed history is skipped even when starting again without a cursor. Each store applies its batch in one write transaction. Network fetches happen before that transaction. Changed rows abort and roll back the batch.
+
+### Release and apply order
+
+The lead runs this only after review and release authorization. No production step below was run during implementation. Start with **25 domains**, verify the public result, then use **100-domain** batches. A dry run fetches fresh evidence; apply fetches again and may restore fewer rows if a page changes or challenges it.
+
+#### 1. Open a maintenance window
+
+Pausing collectors alone is insufficient. OVH's `stack127-cache-worker.timer` is enabled and dispatches `.github/workflows/stack127-frontend-refresh.yml` from queue changes. A sync commit can otherwise start a build before history repair finishes. The static builder correctly rejects a changing source revision. Leave database triggers enabled and keep their queue entries.
+
+From the operator's local checkout, pause frontend dispatch and save the existing OVH crontab. These commands preserve unrelated cron entries. Use the same saved filename when resuming.
+
+```bash
+# Local shell. The implementation agent must not run these production mutations.
+export ADN_WINDOW=$(date -u +%Y%m%dT%H%M%SZ)
+ssh ovh "crontab -l > /srv/stack127-data/state/crontab-before-homepage-$ADN_WINDOW.txt"
+ssh ovh "sed '/^[^#].*scripts\/ad-networks\/ovh\/run-job.sh/s/^/# homepage-maintenance /' /srv/stack127-data/state/crontab-before-homepage-$ADN_WINDOW.txt | crontab -"
+ssh ovh 'sudo -n systemctl stop stack127-cache-worker.timer'
+# Let a currently executing worker finish; do not kill it mid-dispatch.
+ssh ovh 'while systemctl is-active --quiet stack127-cache-worker.service; do sleep 2; done'
+```
+
+Coordinate other writers and releases for the same window. The authorized operator pauses homelab niche imports with `ssh homelab 'systemctl --user stop stack127-ad-network-niche.timer'` and waits until `ssh homelab 'systemctl --user is-active stack127-ad-network-niche.service'` reports inactive. Do not kill an active importer. These are release instructions, not permission for the implementation agent to operate on homelab. Wait for existing OVH collectors, syncs and retry wrappers to finish; inspect with:
+
+```bash
+ssh ovh 'ps -eo pid,etime,args | grep -E "[s]cripts/ad-networks/(ovh/run-job.sh|refresh.mjs|verify.mjs|sync.mjs|niche-import.mjs)"'
+gh run list --repo stack127labs/stack127 --status in_progress
+gh run list --repo stack127labs/stack127 --status queued
+```
+
+Wait for all frontend refresh and production release runs (including waiting/pending runs in Actions) before changing data. For each active run, use `gh run view RUN_ID --repo stack127labs/stack127` and wait for `completed`. Do not cancel a build during its deployment step. Do not dispatch another release during this window. Stopping the timer cannot prevent a person or a separate release workflow from starting a build. If other writers cannot pause, postpone the correction. There is no global pause flag for manual or release dispatches. This is a coordinated manual window. A restart can reactivate the enabled timer, so recheck these conditions after any restart.
+
+#### 2. Take and verify both backups
+
+The nightly ad-network `backup` job at 05:00 UTC calls `backup-local.mjs`, uses SQLite's online backup API, checks `pragma integrity_check`, and retains seven daily copies under `$AD_NETWORKS_STATE_DIRECTORY/backups`. It is **not a PostgreSQL backup**. Keep a separate timestamped maintenance SQLite copy so a later nightly backup cannot replace it.
+
+PostgreSQL has the separate enabled `stack127-db-backup.timer`. Its on-demand service calls `/srv/stack127-db/backup.sh`. The script requires `BACKUPS_ENABLED`, writes a custom dump plus the Vault root key and password-free roles, checks the archive contents and key size, then publishes the complete bundle. An exit 0 with a missing marker is only a skip, not a usable backup.
+
+On OVH, in `/srv/stack127`, run:
+
+```bash
+set -euo pipefail
+umask 077
+set -a; . /srv/stack127-data/ad-networks.env; set +a
+window=$(date -u +%Y%m%dT%H%M%SZ)
+backup_dir=/srv/stack127-data/state/homepage-backup-$window
+mkdir -m 700 "$backup_dir"
+node scripts/ad-networks/backup-local.mjs --local-database "$AD_NETWORK_DB_PATH" --backup-directory "$backup_dir" --keep 7
+node --input-type=module - "$backup_dir" <<'JS'
+import {DatabaseSync} from 'node:sqlite';
+import {readdirSync} from 'node:fs';
+const folder=process.argv[2], files=readdirSync(folder).filter(f=>f.endsWith('.sqlite'));
+if(files.length!==1)throw Error('Expected one maintenance backup');
+const db=new DatabaseSync(folder+'/'+files[0],{readOnly:true});
+if(db.prepare('pragma integrity_check').get().integrity_check!=='ok')throw Error('Bad SQLite backup');
+console.log(db.prepare('select count(*) relationships from relationships').get());db.close();
+JS
+sudo -n test -f /srv/stack127-db/BACKUPS_ENABLED
+sudo -n systemctl start stack127-db-backup.service
+sudo -n systemctl show stack127-db-backup.service -p Result -p ExecMainStatus
+sudo -n journalctl -u stack127-db-backup.service -n 15 --no-pager
+# Require a NEW 'Backup complete' line from this invocation and Result=success.
+pg_backup=$(ls -t /srv/stack127-db/backups/stack127-*.dump | head -1)
+test -s "$pg_backup"
+test -s "$pg_backup.roles.sql"
+test "$(wc -c < "$pg_backup.vault-key")" -eq 64
+sudo -n docker exec -i --user postgres stack127-db pg_restore --list < "$pg_backup" > "$backup_dir/postgres.toc"
+# Decompress every affected table's archived rows, without executing them.
+sudo -n docker exec -i --user postgres stack127-db pg_restore --data-only --schema=public \
+  --table=ad_network_publishers --table=ad_network_publisher_relationships \
+  --table=ad_network_relationship_events --table=ad_network_check_observations \
+  --table=ad_network_daily_counts --file=- < "$pg_backup" > "$backup_dir/affected-tables.sql"
+test -s "$backup_dir/affected-tables.sql"
+chmod 600 "$backup_dir/postgres.toc" "$backup_dir/affected-tables.sql"
+printf 'Keep SQLite folder %s and complete PostgreSQL bundle %s until acceptance.\n' "$backup_dir" "$pg_backup"
+```
+
+Verify the table list and archived rows are populated. This checks archive readability, not a fresh full restore. A full restore was tested by the existing backup workflow; if the archive check fails or its recovery evidence is no longer trusted, stop and validate a restore in an isolated database first. Never test restore into production. Keep the dump, key and roles together, with mode 600. Historical snapshot deletion is irreversible without these backups. Do not proceed with a skipped, old, empty or unreadable backup.
+
+#### 3. Install reviewed code and the checkpoint schema
+
+Install the reviewed release on OVH using the normal release procedure. Check its SHA. Apply migration `20261113120000_ad_network_homepage_miss_repairs.sql` through the normal release migration step only. Do not apply it by hand: a direct `psql` run creates the table without recording the migration, and a later migration push then fails because the table exists. If the release did not apply it, stop and fix the release.
+
+Confirm the table exists first with `to_regclass('public.ad_network_homepage_miss_repairs')`. The table grants only backend access. SQLite write checks require the loaded `AD_NETWORKS_RUNTIME_ENVIRONMENT=production` and the canonical `AD_NETWORK_DB_PATH` to match `--sqlite`; production also requires the confirmation flag.
+
+#### 4. Repair 25 domains, sync, then repair history
+
+Still on OVH in `/srv/stack127`, with the env loaded and the maintenance window active:
+
+```bash
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --store sqlite --sqlite "$AD_NETWORK_DB_PATH" --limit 25
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --store sqlite --sqlite "$AD_NETWORK_DB_PATH" --limit 25 --apply --confirm stack127-production
+node scripts/ad-networks/sync.mjs --environment production --confirm stack127-production --sqlite "$AD_NETWORK_DB_PATH" --state-file "$AD_NETWORKS_STATE_DIRECTORY/sync-state.sqlite" --apply
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --stats-only --limit 25 --history-limit 25
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --stats-only --limit 25 --history-limit 25 --apply --confirm stack127-production
+```
+
+Review each preview. If history reports `history_limit`, repeat history with its `nextAfterDomain` as `--after-domain DOMAIN` until all pending corrections are repaired. Completed rows are checkpointed, so a restart without a cursor is also safe. Keep the **source apply's** `nextAfterDomain` for the next source batch; source and history cursors are separate. Never repair PostgreSQL alone: SQLite owns verification and would overwrite it. Production PostgreSQL apply therefore requires `--stats-only`.
+
+If interrupted: repeat source selection without advancing its cursor, sync with the same state file, then rerun stats-only. Each write stage commits atomically; the PostgreSQL repair checkpoint commits with events and snapshots. A crash before commit rolls all of that stage back. A crash after commit leaves a checkpoint that the next run skips.
+
+#### 5. Refresh and verify the first public result
+
+Run the read-only verification SQL below. Require no remaining invalid departures for repaired markers, zero broken restorations immediately after source repair, and a checkpoint for every synced correction marker. Rebuild heading counts and origin data only after history is complete:
+
+```bash
+node scripts/ad-networks/revalidate.mjs --environment production --confirm stack127-production --apply
+```
+
+Keep the worker paused and collectors/imports stopped. From the local operator shell, dispatch **one** frontend refresh, then inspect its Actions run until it completes successfully:
+
+```bash
+gh workflow run stack127-frontend-refresh.yml --repo stack127labs/stack127 --ref main -f force=true
+gh run list --repo stack127labs/stack127 --workflow stack127-frontend-refresh.yml --limit 3
+gh run view RUN_ID --repo stack127labs/stack127
+curl --fail --silent --show-error https://stack127.com/frontend-release.json
+```
+
+Verify the completed refresh SHA matches released `main`, open `/ad-network-checker` for restored sample domains, the affected network pages, and `/ad-networks/stats`. Check restored relationships and original first-confirmed dates, last successful checked dates, movement counts and missing historical days. Check a blocked sample stays unresolved; a dry run is not a restoration. Require the workflow's public verification/acknowledgement step to succeed. Do not start the next data batch until this refresh has completed.
+
+#### 6. Continue in 100-domain batches, then resume
+
+Use `--limit 100` for source preview/apply with the prior source apply's `--after-domain DOMAIN`. Use `--history-limit 100 --limit 100` for history preview/apply. For the next batch, set `source_cursor` to the source apply's actual `nextAfterDomain` (not the history cursor), then run:
+
+```bash
+source_cursor='DOMAIN_FROM_SOURCE_APPLY'
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --store sqlite --sqlite "$AD_NETWORK_DB_PATH" --limit 100 --after-domain "$source_cursor"
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --store sqlite --sqlite "$AD_NETWORK_DB_PATH" --limit 100 --after-domain "$source_cursor" --apply --confirm stack127-production
+node scripts/ad-networks/sync.mjs --environment production --confirm stack127-production --sqlite "$AD_NETWORK_DB_PATH" --state-file "$AD_NETWORKS_STATE_DIRECTORY/sync-state.sqlite" --apply
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --stats-only --limit 100 --history-limit 100
+node scripts/ad-networks/correct-homepage-misses.mjs --environment production --stats-only --limit 100 --history-limit 100 --apply --confirm stack127-production
+```
+
+Repeat sync and history repair after each source batch. Keep dispatch paused during mutations. Repeat step 5 once all repairs are finished and wait for that refresh before resuming writers. To inspect any intermediate 100-domain batch publicly, finish its entire sync/history sequence, perform one refresh, and wait for completion before the next mutation.
+
+Once public acceptance passes, restore the saved crontab from the local operator shell. If the niche timer was active before this window, the operator resumes it with `ssh homelab 'systemctl --user start stack127-ad-network-niche.timer'`. Preserve any unrelated cron edits made during the window; compare the saved and current crontabs before restoring.
+
+```bash
+ssh ovh "crontab /srv/stack127-data/state/crontab-before-homepage-$ADN_WINDOW.txt"
+ssh ovh 'sudo -n systemctl start stack127-cache-worker.timer'
+ssh ovh 'systemctl is-active stack127-cache-worker.timer'
+```
+
+Check the durable `ad_networks/all` queue event drains after a successful refresh and the next hourly verification exits successfully. Do not remove the backups until acceptance. The whole false-loss spike **will not disappear**: blocked checks, changed signals and historical misses without proof remain unresolved. Missing old snapshots mean unknown history, not zero losses.
+
+For each restored relationship, history repair deletes only its exact invalid `left` event. An apparent return within that correction window becomes `baseline`. It adds the restored network to the existing observation so the next check cannot manufacture a join.
+
+Old per-network daily snapshots inside the affected miss window are removed. Individual stale-transition times were never stored, so their confirmed/stale split cannot be reconstructed honestly. Today's counts are rebuilt from corrected relationships. Missing old days remain unknown. The stats page reads net change and switches from events, and history/coverage from daily counts. This correction changes both sources consistently, without invented history.
+
+The existing relationship, event, and daily-count triggers update the source revision, touch published ad-network pages, and queue the `ad_networks/all` cache refresh. Keep those triggers enabled. No new job or cron schedule is needed. The monitoring descriptions mention the new inconclusive rule.
+
+### Implementation measurements and limits
+
+Read-only OVH fetches on November 13 reproduced HTTP 200 challenges from `tawcan.com` (338 ms) and `nomadicmatt.com` (181 ms), and an HTTP 403 challenge from `iwandered.net` (105 ms). The updated detector classifies all three as challenges. Separate paired ads.txt requests took 1,309 ms, 2,349 ms and 5,275 ms respectively. Tawcan's ads.txt was invalid; the other two returned parsed 6,808- and 6,806-character files. None supplied ETag or Last-Modified, so that sample could not demonstrate a 304 bandwidth reduction. Full production batch throughput, expiry counts and correction totals under the new code remain unmeasured. The ten-minute admission limit permits already-started requests to finish; it is not an immediate request cancellation deadline.
+
+### Read-only verification
+
+Run in a read-only transaction on the selected target:
+
+```sql
+begin read only;
+
+select n.slug, r.status, count(*)
+from public.ad_network_publisher_relationships r
+join public.ad_networks n on n.id=r.ad_network_id
+where r.evidence->'homepage_miss_correction'->>'version'='homepage-misses-v1'
+group by n.slug,r.status order by n.slug,r.status;
+
+-- Must be zero: exact invalid departures still affecting movements.
+select count(*) as remaining_invalid_departures
+from public.ad_network_publisher_relationships r
+join public.ad_network_relationship_events e using(ad_network_id,publisher_id)
+where r.evidence->'homepage_miss_correction'->>'version'='homepage-misses-v1'
+and e.event='left'
+and e.observed_at=(r.evidence->'homepage_miss_correction'->>'prior_ended_at')::timestamptz;
+
+-- Must be zero immediately after correction; later real checks can change it.
+select count(*) as broken_restorations
+from public.ad_network_publisher_relationships r
+where r.evidence->'homepage_miss_correction'->>'version'='homepage-misses-v1'
+and (r.status<>'confirmed' or r.consecutive_misses<>0 or r.ended_at is not null
+ or r.first_confirmed_at is distinct from
+   (r.evidence->'homepage_miss_correction'->>'original_first_confirmed_at')::timestamptz);
+
+select n.slug,d.snapshot_on,d.listed_count,d.confirmed_count,d.stale_count
+from public.ad_network_daily_counts d join public.ad_networks n on n.id=d.ad_network_id
+where d.snapshot_on=(now() at time zone 'UTC')::date
+and exists(select 1 from public.ad_network_publisher_relationships r
+ where r.ad_network_id=n.id and r.evidence ? 'homepage_miss_correction')
+order by n.slug;
+
+-- Must be zero before refresh/resume: uncheckpointed synced corrections.
+select count(*) as pending_history_repairs
+from public.ad_network_publisher_relationships r
+where r.evidence->'homepage_miss_correction'->>'version'='homepage-misses-v1'
+and not exists(select 1 from public.ad_network_homepage_miss_repairs h
+  where h.ad_network_id=r.ad_network_id and h.publisher_id=r.publisher_id
+  and h.version='homepage-misses-v1'
+  and h.corrected_at=(r.evidence->'homepage_miss_correction'->>'corrected_at')::timestamptz);
+
+select revision from public.stack127_ad_network_source_revision;
+select entity_type,slug,attempts,last_error
+from public.stack127_revalidation_events
+where entity_type='ad_networks'
+order by slug;
+
+rollback;
+```

@@ -324,7 +324,7 @@ function HistorySection({ view }: { view: AdNetworkCheckerSiteView }) {
     .map((row) => ({
       from: monthKey(row.first_confirmed_at!),
       label: row.name,
-      note: row.status === "stale" ? "not seen lately" : undefined,
+      note: row.status === "stale" ? "verification stale" : undefined,
       to: row.status === "ended" ? monthKey(row.last_confirmed_at ?? row.ended_at ?? row.first_confirmed_at!) : null,
       tone: ganttTone(view, row),
     }));

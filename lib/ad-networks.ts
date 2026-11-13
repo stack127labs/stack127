@@ -203,7 +203,7 @@ const managerEvidenceProjection = `jsonb_build_object('manager_domains',p.last_c
     where r.publisher_id=p.id and r.status='confirmed' and r.relationship_type='primary_or_exclusive_manager'),
     '[]'::jsonb) as manager_relationships`;
 const siteProjection = `p.normalized_domain as domain, p.publisher_name, p.niche, p.traffic_group,
-  p.domain_created_on::text, p.platform, p.last_checked_at, p.favicon,${managerEvidenceProjection},
+  p.domain_created_on::text, p.platform, p.last_successful_check_at as last_checked_at, p.favicon,${managerEvidenceProjection},
   coalesce((select jsonb_agg(jsonb_build_object('slug',n.slug,'name',n.name) order by n.name)
     from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
     where r.publisher_id=p.id and r.status in ('confirmed','stale')),'[]'::jsonb) as networks`;
@@ -275,7 +275,7 @@ export async function loadAdNetworkSitesAvailability(network: string | null, nic
 const coverageWhere = `exists(select 1 from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
     where r.publisher_id=p.id and r.status in ('confirmed','stale') and ($1::text is null or n.slug=$1))
     and ($2::text is null or p.niche=$2)`;
-const scopedCoverageSites = `with sites as materialized (select p.id,p.niche,p.traffic_group,p.domain_created_on,p.platform,p.publisher_name,p.last_checked_at
+const scopedCoverageSites = `with sites as materialized (select p.id,p.niche,p.traffic_group,p.domain_created_on,p.platform,p.publisher_name,p.last_successful_check_at as last_checked_at
   from public.ad_network_publishers p where ${coverageWhere})`;
 const scopedManagerSites = `with sites as materialized (select p.id,
   jsonb_build_object('manager_domains',p.report_manager_domains) as last_check_evidence
@@ -288,7 +288,7 @@ const siteSort: Record<AdNetworkSitesQuery["sort"], string> = {
   domain: "p.normalized_domain", traffic: "case p.traffic_group when 'top-1k' then 0 when 'top-10k' then 1 when 'top-100k' then 2 when 'top-1m' then 3 when 'not-ranked' then 4 else 5 end,p.domain_created_on asc nulls last,p.normalized_domain,p.id",
   oldest: "p.domain_created_on asc nulls last,p.normalized_domain",
   newest: "p.domain_created_on desc nulls last,p.normalized_domain",
-  checked: "p.last_checked_at desc nulls last,p.normalized_domain",
+  checked: "p.last_successful_check_at desc nulls last,p.normalized_domain",
 };
 /** Uncached source loader for signed origin verification. */
 export async function loadAdNetworkSites(query: AdNetworkSitesQuery): Promise<AdNetworkSitesResponse> {
@@ -307,7 +307,7 @@ export async function loadAdNetworkSites(query: AdNetworkSitesQuery): Promise<Ad
     // Filter and page using the small indexed facts before reading full evidence.
     // Sparse searches must not walk every evidence-heavy heap row in domain order.
     queryAdNetworkReport<SiteRecord>(`with matches as materialized (
-      select p.id,p.normalized_domain,p.traffic_group,p.domain_created_on,p.last_checked_at
+      select p.id,p.normalized_domain,p.traffic_group,p.domain_created_on,p.last_successful_check_at
       from public.ad_network_publishers p where ${siteWhere}
     ), selected as materialized (
       select p.id from matches p order by ${siteSort[effectiveSort]} limit $4 offset $5
@@ -680,7 +680,7 @@ export const getAdNetworkStatsPageData = cached("ad-network-market-report", asyn
   const pool={query:queryAdNetworkReport};
   const observedDay=new Date();
   const asOf=observedDay.toISOString().slice(0,10);
-  const active=`with active as materialized (select p.last_checked_at from public.ad_network_publishers p where exists(
+  const active=`with active as materialized (select p.last_successful_check_at as last_checked_at from public.ad_network_publishers p where exists(
     select 1 from public.ad_network_publisher_relationships r where r.publisher_id=p.id and r.status in ('confirmed','stale')))`;
   const activeAds=`with active as materialized (select p.report_ads_txt_lines as lines,
     p.report_ads_txt_invalid as invalid from public.ad_network_publishers p
@@ -772,7 +772,7 @@ function joiningRules(networks: AdNetworkRef[]): AdNetworkJoiningRule[] {
 
 const loadReportMetadata=cached("ad-network-report-metadata",async (network: string | null) => {
   const [updated,methods]=await Promise.all([
-    queryAdNetworkReport<{updated_at:Date|null}>(`select max(p.last_checked_at) as updated_at from public.ad_network_publishers p
+    queryAdNetworkReport<{updated_at:Date|null}>(`select max(p.last_successful_check_at) as updated_at from public.ad_network_publishers p
       where exists(select 1 from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
         where r.publisher_id=p.id and r.status in ('confirmed','stale') and ($1::text is null or n.slug=$1))`,[network]),
     queryAdNetworkReport<AdNetworkCount>(`select r.verification_method as key,r.verification_method as label,count(*)::int as count

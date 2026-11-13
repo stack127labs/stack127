@@ -59,7 +59,7 @@ The `Checked` date under the site name is our latest read of its ads.txt. We rec
 
 The `Since` month is when we first confirmed a network. If that was our first check of the site, the network may have been there for years before. The changes section says when our checks of the site started.
 
-One missed check never removes a network. A timeout or a blocked request counts as unknown. A network moves to `Not seen lately`, then `Ended`, only after repeated checks find it missing.
+One missed check never removes a network. A timeout, blocked request, or bot challenge counts as unknown. After 30 days without fresh page confirmation, verification becomes stale and keeps its last confirmation date. Only repeated checks with evidence that the network is missing can mark it `Ended`.
 
 ## What does the traffic group mean?
 
