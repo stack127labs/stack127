@@ -3,10 +3,17 @@ import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
-import { cleanupOptions } from "../../scripts/self-host-apps/apply-artifact-cleanup.mjs";
+import { cleanupOptions, targetSources } from "../../scripts/self-host-apps/apply-artifact-cleanup.mjs";
 
 const developmentUrl = "postgresql://postgres.devref:secret@aws-0-eu.pooler.supabase.com:6543/postgres";
 const productionUrl = "postgresql://stack127:secret@database.stack127.com:5432/stack127";
+
+test("retirement preserves reviewed evidence and Compose destinations alongside direct links", () => {
+  assert.deepEqual(targetSources({ source_code_url: "https://github.com/example/app", compose_url: "https://example.com/compose.yml", data_source_urls: ["https://example.com/install"], website_url: null }), [
+    "https://github.com/example/app", "https://example.com/compose.yml", "https://example.com/install",
+  ]);
+  assert.deepEqual(targetSources({}), []);
+});
 
 function withEnvFiles(callback) {
   const previous = process.cwd();

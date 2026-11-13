@@ -31,8 +31,8 @@ function identityMatches(row, expected) {
   return row.slug === expected.slug && row.name === expected.name && row.source_code_url === expected.source_code_url;
 }
 
-function targetSources(row) {
-  return [row.source_code_url, row.website_url, row.docs_url, row.install_docs_url, row.docker_url]
+export function targetSources(row) {
+  return [row.source_code_url, row.website_url, row.docs_url, row.install_docs_url, row.docker_url, row.compose_url, ...(row.data_source_urls ?? [])]
     .filter((value) => typeof value === "string");
 }
 
@@ -97,6 +97,9 @@ function validateIdentities(manifest, targetRows, canonicalRows) {
     if (!row || row.slug !== spec.slug || !spec.expected_names.includes(row.name) || row.source_code_url !== spec.source_code_url) {
       throw new Error(`Cleanup stopped: canonical identity mismatch for ${spec.slug}.`);
     }
+    if (!row.published || row.self_hosting_status !== "self_hostable") {
+      throw new Error(`Cleanup stopped: canonical app ${spec.slug} is not published and self-hostable.`);
+    }
   }
   return states;
 }
@@ -134,7 +137,11 @@ async function main() {
   const args = parseArgs();
   const { environment, apply, databaseUrl } = cleanupOptions(args);
 
-  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  const manifest = JSON.parse(await readFile(args.file ?? manifestPath, "utf8"));
+  const targets = new Set(manifest.records.map((row) => row.slug));
+  if (targets.size !== manifest.records.length || manifest.canonical_apps.some((row) => targets.has(row.slug))) {
+    throw new Error("Cleanup stopped: repeated target or canonical app is also a retirement target.");
+  }
   await withClient(async (client) => {
     await client.query(apply ? "begin isolation level serializable" : "begin read only");
     try {
