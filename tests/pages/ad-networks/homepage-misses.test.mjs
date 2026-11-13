@@ -9,6 +9,7 @@ import { openLocalDatabase } from '../../../scripts/ad-networks/local-db.mjs';
 import { saveLocalVerification } from '../../../scripts/ad-networks/local-verifier-store.mjs';
 import { saveVerification,homepageConfirmationExpired } from '../../../scripts/ad-networks/verifier-store.mjs';
 import { correctionEligibility,correctionConfirmation,planCorrections,restoration,applySqliteCorrection } from '../../../scripts/ad-networks/correct-homepage-misses.mjs';
+import { MATCHER_VERSION } from '../../../scripts/ad-networks/matcher.mjs';
 
 const network={id:32,slug:'google-adsense',manager_domains:[],ad_system_domains:['google.com'],program_signatures:[{kind:'adsense_account_match'}]};
 const manager={id:1,slug:'manager',manager_domains:['manager.com'],ad_system_domains:[],program_signatures:[]};
@@ -67,6 +68,7 @@ for(const [name,home,body] of [['fetched homepage without tag',{html:'<html><bod
     const row=db.prepare('select * from relationships').get();
     assert.equal(row.status,'ended');assert.equal(row.consecutive_misses,3);
     assert.equal(JSON.parse(row.evidence).last_absence.checked_at,result.checkedAt);
+    assert.equal(JSON.parse(row.evidence).last_absence.matcher_version,MATCHER_VERSION);
   });
 }
 test('independent manager evidence still confirms during a homepage failure',async()=>{
@@ -96,18 +98,60 @@ const damaged={ad_network_id:32,publisher_id:1,normalized_domain:'publisher.exam
   last_checked_at:'2026-11-13T00:00:00Z',last_check_outcome:'not_modified',
   last_confirmed_at:'2026-09-26T00:00:00Z',relationship_type:'active_network_use',
   evidence:{matched_signal:signal,ads_txt_sha256:'hash',checked_url:'https://publisher.example/ads.txt',checked_at:'2026-09-26',parser_version:'ads-txt-1.1.0'},last_check_evidence:{}};
-test('correction excludes real absences, unknown full fetches, old misses, changed signals and hashes',async()=>{
+test('correction includes full-fetch misses but still excludes old misses, changed signals and hashes',async()=>{
   assert.equal(correctionEligibility(damaged),'needs_live_confirmation');
   assert.equal(correctionEligibility({...damaged,verification_method:'ads_txt_managerdomain'}),'not_homepage_dependent');
-  assert.equal(correctionEligibility({...damaged,last_check_outcome:'no_match'}),'no_proof_of_inconclusive_miss');
-  assert.equal(correctionEligibility({...damaged,evidence:{...damaged.evidence,last_absence:{}}}),'recorded_absence');
+  assert.equal(correctionEligibility({...damaged,last_check_outcome:'no_match'}),'needs_live_confirmation');
+  assert.equal(correctionEligibility({...damaged,last_check_outcome:'no_match',last_check_evidence:{homepage:{outcome:'fetched'}}}),'needs_live_confirmation');
+  assert.equal(correctionEligibility({...damaged,evidence:{...damaged.evidence,last_absence:{}}}),'needs_live_confirmation');
   assert.equal(correctionEligibility({...damaged,first_missed_at:'2026-09-27'}),'before_fault_window');
   const positive=await verify(page);
   assert.equal(correctionConfirmation(damaged,positive),'restore');
   assert.equal(correctionConfirmation(damaged,{...positive,sha256:'different'}),'ads_txt_changed_since_confirmation');
   assert.equal(correctionConfirmation({...damaged,evidence:{matched_signal:'other'}},positive),'live_signal_changed');
   const plan=await planCorrections([damaged,{...damaged,last_check_outcome:'no_match'}],[network],{verify:async()=>positive});
-  assert.equal(plan.restores.length,1);assert.equal(plan.counts.no_proof_of_inconclusive_miss,1);
+  assert.equal(plan.restores.length,2);assert.equal(plan.checked,1);
+});
+
+test('absence versions do not prove a historical error or prevent current reconfirmation',async()=>{
+  const row=(absence,check={})=>({...damaged,evidence:{...damaged.evidence,last_absence:absence},last_check_evidence:check});
+  for(const version of ['ad-network-1.4.1','ad-network-1.4.0','ad-network-1.2.1']){
+    assert.equal(correctionEligibility(row({checked_at:damaged.last_missed_at,matcher_version:version})),'needs_live_confirmation');
+    assert.equal(correctionEligibility(row({checked_at:damaged.last_missed_at},{matcher_version:version})),'needs_live_confirmation');
+  }
+  for(const version of [MATCHER_VERSION,'ad-network-1.4.2','ad-network-2.0.0','unknown',null]){
+    assert.equal(correctionEligibility(row({checked_at:damaged.last_missed_at,matcher_version:version})),'needs_live_confirmation');
+  }
+  assert.equal(correctionEligibility(row({checked_at:'2026-09-27',matcher_version:'ad-network-1.4.1'})),'needs_live_confirmation');
+  assert.equal(correctionEligibility(row({matcher_version:'ad-network-1.4.1'})),'needs_live_confirmation');
+  assert.equal(correctionEligibility(row({checked_at:'2026-11-12'},{matcher_version:'ad-network-1.4.1'})),'needs_live_confirmation');
+  assert.equal(correctionEligibility(row({checked_at:damaged.last_missed_at})), 'needs_live_confirmation');
+  const positive=await verify(page);
+  assert.equal(correctionConfirmation(damaged,{...positive,evidence:{...positive.evidence,matcher_version:'ad-network-1.4.1'}}),'live_matcher_not_current');
+  const absent=await verify({html:'<h1>Normal homepage without the ad</h1>'});
+  const plan=await planCorrections([row({checked_at:damaged.last_missed_at,matcher_version:'ad-network-1.4.1'})],[network],{verify:async()=>absent});
+  assert.equal(plan.restores.length,0);assert.equal(plan.counts.live_network_absent,1);
+});
+
+test('widened full-fetch corrections require fresh exact evidence, including delayed code',async()=>{
+  const positive=await verify({html:page.html.replace('<script src=', '<script type="litespeed/javascript" data-src=')});
+  const fullFetch={...damaged,last_check_outcome:'no_match',last_check_evidence:{homepage:{outcome:'fetched'}}};
+  for(const [result,reason] of [[positive,'restore'],[await verify(null),'live_check_inconclusive'],
+    [await verify({html:'<h1>Normal page</h1>'}),'live_network_absent'],
+    [await verify(page,async()=>({...ads,text:'google.com,pub-9999999999999999,DIRECT'})),'live_network_absent'],
+    [{...positive,sha256:'changed'},'ads_txt_changed_since_confirmation']]){
+    const plan=await planCorrections([fullFetch],[network],{verify:async()=>result});
+    assert.equal(plan.counts[reason],1);assert.equal(plan.restores.length,reason==='restore'?1:0);
+  }
+});
+
+test('PostgreSQL absence evidence saves the matcher version for future correction exclusions',async()=>{
+  const queries=[],relationship={ad_network_id:'32',publisher_id:'1',status:'confirmed',consecutive_misses:0};
+  const client={query:async(sql,args)=>{queries.push({sql,args});return{rows:sql.includes('for update')?[relationship]:[]};},release(){}};
+  const result=await verify({html:'<h1>Normal home, no account</h1>'});
+  await saveVerification({connect:async()=>client},{id:1,consecutive_failures:0},result);
+  const write=queries.find(({sql})=>sql.includes("jsonb_build_object('last_absence'"));
+  assert.equal(JSON.parse(write.args[6]).matcher_version,MATCHER_VERSION);
 });
 test('SQLite correction preserves dates, queues priority checks, and is repeatable',async t=>{
   const db=fixture(t),row={...db.prepare('select * from relationships').get(),normalized_domain:'publisher.example',
@@ -176,6 +220,26 @@ test('development PostgreSQL repair removes only the invalid departure, replaces
     assert.equal(publicSite.relationships[0].last_confirmed_at,new Date(row.last_confirmed_at).toISOString());
     const listing=await lib.loadAdNetworkSites({...lib.defaultAdNetworkSitesQuery(),q:domain,sort:'checked'});
     assert.equal(listing.rows[0].last_checked_at,'2026-10-01T00:00:00.000Z');
+
+    // The same real database must preserve a genuine departure on reinstall.
+    const returnedPub=(await client.query("insert into public.ad_network_publishers(normalized_domain,display_domain) values($1,$1) returning id",[domain+'-return'])).rows[0].id;
+    const genuine={...row,publisher_id:returnedPub,last_check_outcome:'no_match',last_check_evidence:{homepage:{outcome:'fetched'}}};
+    await client.query("insert into public.ad_network_publisher_relationships(ad_network_id,publisher_id,status,relationship_type,verification_method,evidence,first_confirmed_at,last_confirmed_at,consecutive_misses,first_missed_at,last_missed_at,ended_at) values($1,$2,'ended','active_network_use',$3,$4,$5,$5,3,$6,$7,$7)",
+      [networkId,returnedPub,genuine.verification_method,JSON.stringify(genuine.evidence),genuine.first_confirmed_at,genuine.first_missed_at,genuine.last_missed_at]);
+    await client.query("insert into public.ad_network_daily_counts(ad_network_id,snapshot_on,listed_count,confirmed_count,stale_count,captured_at) values($1,'2026-11-12',1,0,1,'2026-11-12') on conflict(ad_network_id,snapshot_on) do update set captured_at=excluded.captured_at",[networkId]);
+    const returnAt='2026-11-13T03:00:00Z';
+    const returnPlan={restores:[{...genuine,correction_evidence:restoration(genuine,returnAt,{matched_signal:signal,page_url:page.finalUrl})}],repaired:[]};
+    assert.deepEqual(await previewPostgresCorrection(client,returnPlan),{wouldRemoveEvents:0,wouldNeutralizeArrivals:0,wouldInvalidateSnapshots:0});
+    const current=await applyPostgresCorrection(client,returnPlan);
+    assert.equal(current.currentReconfirmed,1);assert.equal(current.returnsRecorded,1);assert.equal(current.historyRepaired,0);
+    assert.equal(current.removedEvents,0);assert.equal(current.invalidatedSnapshots,0);
+    const events=(await client.query("select event from public.ad_network_relationship_events where publisher_id=$1 order by observed_at",[returnedPub])).rows.map(r=>r.event);
+    assert.deepEqual(events,['left','joined']);
+    const returned=(await client.query('select * from public.ad_network_publisher_relationships where publisher_id=$1',[returnedPub])).rows[0];
+    assert.equal(returned.status,'confirmed');assert.equal(returned.last_confirmed_at.toISOString(),new Date(returnAt).toISOString());
+    assert.equal((await client.query("select count(*)::int n from public.ad_network_daily_counts where ad_network_id=$1 and snapshot_on='2026-11-12'",[networkId])).rows[0].n,1);
+    const repeated=await applyPostgresCorrection(client,{restores:[],repaired:[returned]});
+    assert.equal(repeated.returnsRecorded,0);assert.equal(repeated.currentReconfirmed,0);
   } finally {await client.query('rollback');client.release();await pool.end();}
 });
 test('a blocked homepage protects AdSense and corroborated tag networks together',async()=>{
@@ -396,4 +460,118 @@ test('a declared subdomain cache never supplies validators for the root ads.txt 
     fetchDeclaredSubdomainAdsTxt:async()=>({...ads,checkedUrl:'https://blog.publisher.example/ads.txt'}),fetchHomepage:async()=>page,
   });
   assert.equal(result.matches.confirmed[0].networkId,32);assert.ok(result.adsTxtSummary);
+});
+
+for (const proven of [false,true]) test(`${proven?'proven false miss':'genuine removal then reinstall'}: current use recovers and history follows saved proof`,async t=>{
+  const {applyPostgresCorrection,previewPostgresCorrection}=await import('../../../scripts/ad-networks/correct-homepage-misses.mjs');
+  const db=fixture(t);
+  db.prepare("update relationships set status='ended',ended_at=last_missed_at").run();
+  const source=db.prepare('select * from relationships').get();
+  const row={...source,normalized_domain:'publisher.example',last_checked_at:source.last_missed_at,
+    last_check_outcome:proven?'not_modified':'no_match',last_check_evidence:{homepage:proven?{outcome:'inconclusive'}:{outcome:'fetched'}}};
+  const positive=await verify(page);
+  const plan=await planCorrections([row],[network],{verify:async()=>positive});
+  assert.equal(plan.restores.length,1);
+  assert.equal(plan.restores[0].correction_evidence.homepage_miss_correction.history_action,proven?'repair':'preserve');
+  assert.equal(plan.counts[proven?'history_correction':'current_reconfirmation'],1);
+  applySqliteCorrection(db,plan);
+  const after=db.prepare('select * from relationships').get();
+  assert.equal(after.status,'confirmed');assert.equal(after.ended_at,null);assert.equal(after.consecutive_misses,0);
+  assert.equal(after.first_confirmed_at,source.first_confirmed_at);
+  assert.equal(after.last_confirmed_at,proven?source.last_confirmed_at:positive.checkedAt);
+  if(!proven)assert.equal(homepageConfirmationExpired(after,positive.checkedAt),false);
+  const queries=[],departures=[{event:'left',observed_at:source.last_missed_at}],returns=[],checkpoints=new Set();
+  const client={query:async(sql,args)=>{
+    queries.push({sql,args});
+    if(sql.includes('select 1 from public.ad_network_homepage_miss_repairs'))return {rowCount:checkpoints.size,rows:[]};
+    if(sql.includes('insert into public.ad_network_homepage_miss_repairs'))checkpoints.add(args[2]);
+    if(sql.includes('delete from public.ad_network_relationship_events')&&sql.includes("event='left'"))departures.length=0;
+    if(sql.includes('insert into public.ad_network_relationship_events'))returns.push({event:'joined',observed_at:args[2]});
+    return {rowCount:1,rows:[]};
+  }};
+  // Mirror the real release: repair the source, sync it, then finalize on PG.
+  const synced={...after,normalized_domain:row.normalized_domain};
+  const finish={restores:[],repaired:[synced]};
+  if(!proven)assert.deepEqual(await previewPostgresCorrection(client,finish),{
+    wouldRemoveEvents:0,wouldNeutralizeArrivals:0,wouldInvalidateSnapshots:0});
+  const applied=await applyPostgresCorrection(client,finish);
+  assert.equal(departures.length,proven?0:1);
+  assert.deepEqual(returns,proven?[]:[{event:'joined',observed_at:positive.checkedAt}]);
+  assert.equal(applied.historyRepaired,proven?1:0);assert.equal(applied.currentReconfirmed,proven?0:1);
+  assert.equal(queries.some(q=>q.sql.includes('delete from public.ad_network_daily_counts')),proven);
+  assert.equal(queries.some(q=>q.sql.includes('update public.ad_network_check_observations')),proven);
+  const again=await applyPostgresCorrection(client,finish);
+  assert.equal(again.returnsRecorded,0);assert.equal(again.historyRepaired,0);assert.equal(returns.length,proven?0:1);
+});
+
+test('stored versions and fresh delayed markup never prove a full-fetch miss was false',async()=>{
+  const {historyCorrectionProof}=await import('../../../scripts/ad-networks/correct-homepage-misses.mjs');
+  for(const version of ['ad-network-1.3.0','ad-network-1.4.1',MATCHER_VERSION,null]){
+    const row={...damaged,last_check_outcome:'no_match',last_check_evidence:{matcher_version:version,homepage:{outcome:'fetched'}},
+      evidence:{...damaged.evidence,last_absence:{checked_at:damaged.last_missed_at,matcher_version:version}}};
+    assert.equal(historyCorrectionProof(row),null);
+    const plan=await planCorrections([row],[network],{verify:async()=>verify({html:page.html.replace('src=', 'type="litespeed/javascript" data-src=')})});
+    assert.equal(plan.counts.current_reconfirmation,1);assert.equal(plan.counts.history_correction,undefined);
+  }
+  assert.equal(historyCorrectionProof({...damaged,last_checked_at:'2026-11-14'}),null);
+  assert.equal(historyCorrectionProof({...damaged,last_check_outcome:'no_match',last_check_evidence:{homepage:{outcome:'inconclusive'}}}),'homepage_inconclusive');
+});
+
+test('all fresh Taboola signatures and AdSense accounts can reconfirm the exact original',async()=>{
+  const taboola={id:33,slug:'taboola',ad_system_domains:['taboola.com'],program_signatures:[
+    {kind:'html_substring',value:'cdn.taboola.com/libtrc/'},{kind:'html_substring',value:'static.tblcontent.com/libtrc/'}]};
+  const fresh=await verifyPublisher(publisher,[taboola],{
+    fetchAdsTxt:async()=>({...ads,text:'taboola.com,123,DIRECT'}),
+    fetchHomepage:async()=>({html:'<script src="https://cdn.taboola.com/libtrc/original/loader.js"></script><script type="litespeed/javascript" data-src="https://static.tblcontent.com/libtrc/other/loader.js"></script>'}),
+  });
+  assert.equal(fresh.matches.confirmed[0].evidence.matched_signal,'page:static.tblcontent.com/libtrc/');
+  assert.equal(fresh.matches.confirmed[0].signals.length,2);
+  const row={...damaged,ad_network_id:33,verification_method:'ads_txt_and_page_signature',
+    evidence:{...damaged.evidence,matched_signal:'page:cdn.taboola.com/libtrc/'}};
+  assert.equal(correctionConfirmation(row,fresh),'restore');
+  assert.equal(correctionConfirmation({...row,evidence:{...row.evidence,matched_signal:'taboola.com,123,DIRECT',page_signature:'page:cdn.taboola.com/libtrc/'}},fresh),'restore');
+  assert.equal(correctionConfirmation({...row,evidence:{...row.evidence,matched_signal:'taboola.com,456,DIRECT',page_signature:'page:cdn.taboola.com/libtrc/'}},fresh),'live_signal_changed');
+  assert.equal(correctionConfirmation(row,{...fresh,sha256:'changed'}),'ads_txt_changed_since_confirmation');
+  const multi=await verify({html:page.html+page.html.replaceAll('1234567890123456','1234567890123457')},async()=>({...ads,text:ads.text+'google.com,pub-1234567890123457,DIRECT'}));
+  assert.equal(multi.matches.confirmed[0].signals.length,2);
+  assert.equal(correctionConfirmation(damaged,multi),'restore');
+});
+
+test('legacy restored full-fetch markers cannot authorize history deletion',async()=>{
+  const {previewPostgresCorrection}=await import('../../../scripts/ad-networks/correct-homepage-misses.mjs');
+  const row={...damaged,status:'confirmed',last_check_outcome:'no_match',consecutive_misses:0};
+  row.evidence=restoration(row,'2026-11-13T01:00:00Z');
+  delete row.evidence.homepage_miss_correction.history_action;
+  delete row.evidence.homepage_miss_correction.history_proof;
+  const plan=await planCorrections([row],[],{statsOnly:true});
+  assert.equal(plan.counts.current_reconfirmation,1);
+  assert.deepEqual(await previewPostgresCorrection({query:async()=>assert.fail('must not select destructive repairs')},plan),{
+    wouldRemoveEvents:0,wouldNeutralizeArrivals:0,wouldInvalidateSnapshots:0});
+});
+
+
+for (const [name,html] of [
+  ['held inline', '<script type="text/plain" data-category="marketing">const unused = "ca-pub-1234567890123456";</script>'],
+  ['parse failure', '<script>adsbygoogle.push({client: "ca-pub-1234567890123456"}; broken syntax</script>'],
+]) test(`${name} retries without a miss and expires only to stale after 30 days`, async t => {
+  const db=fixture(t);
+  db.prepare("update relationships set status='confirmed',consecutive_misses=0,first_missed_at=null,last_missed_at=null").run();
+  const before=db.prepare('select * from relationships').get();
+  const result=await verify({html});
+  result.checkedAt='2026-10-20T00:00:00.000Z';
+  saveLocalVerification(db,{id:1,consecutive_failures:0},result);
+  assert.deepEqual(db.prepare('select * from relationships').get(),before);
+  const stored=db.prepare('select * from publishers').get();
+  assert.equal(stored.consecutive_failures,1);
+  assert.equal(Date.parse(stored.next_check_at)-Date.parse(result.checkedAt),6*3600000);
+  result.checkedAt='2026-11-01T00:00:00.000Z';
+  saveLocalVerification(db,{id:1,consecutive_failures:1},result);
+  const expired=db.prepare('select * from relationships').get();
+  assert.equal(expired.status,'stale');assert.equal(expired.consecutive_misses,0);
+  assert.equal(expired.ended_at,null);assert.equal(expired.last_confirmed_at,before.last_confirmed_at);
+  assert.equal(JSON.parse(expired.evidence).last_absence,undefined);
+  const queries=[],client={query:async(sql,args)=>{queries.push({sql,args});return {rows:sql.includes('for update')?[before]:[]};},release(){}};
+  await saveVerification({connect:async()=>client},{id:1,consecutive_failures:0},result);
+  assert.equal(queries.some(q=>q.sql.includes("jsonb_build_object('last_absence'")),false);
+  assert.ok(queries.some(q=>q.sql.includes("set status='stale'")));
 });

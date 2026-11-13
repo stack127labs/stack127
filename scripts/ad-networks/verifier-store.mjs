@@ -170,7 +170,8 @@ async function ageMissingRelationships(client, existing, positiveIds, checkedAt,
         first_missed_at = coalesce(first_missed_at, $2), last_missed_at = $2,
         evidence = evidence || jsonb_build_object('last_absence', $7::jsonb)
       where ad_network_id = $1 and publisher_id = $6
-    `, [relationship.ad_network_id, checkedAt, status, endedAt, misses, relationship.publisher_id, JSON.stringify({ checked_at: checkedAt, homepage: evidence?.homepage ?? null, ads_txt_sha256: evidence?.ads_txt_sha256 ?? null })]);
+    `, [relationship.ad_network_id, checkedAt, status, endedAt, misses, relationship.publisher_id, JSON.stringify({ checked_at: checkedAt, homepage: evidence?.homepage ?? null, ads_txt_sha256: evidence?.ads_txt_sha256 ?? null,
+      matcher_version: evidence?.matcher_version ?? null })]);
   }
 }
 

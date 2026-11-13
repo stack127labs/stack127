@@ -41,9 +41,10 @@ async function checkHomepage(domain, fetchPage) {
 
 function homepageResult(homepage, parsed, networks, publisher, matches, forceUnknown = false) {
   const positive = new Set(matches?.confirmed.map(match => String(match.networkId)) ?? []);
+  const uncertain = new Set((matches?.inconclusiveNetworkIds ?? []).map(String));
   const unknown = networks.filter(network => !positive.has(String(network.id))
-    && (forceUnknown ? hasHomepageSignature(network)
-      : parsed && homepage?.outcome !== "fetched" && needsHomepage(parsed, [network], publisher.discovery_sources)));
+    && (uncertain.has(String(network.id)) || (forceUnknown ? hasHomepageSignature(network)
+      : parsed && homepage?.outcome !== "fetched" && needsHomepage(parsed, [network], publisher.discovery_sources))));
   return {
     inconclusiveNetworkIds: unknown.map(network => network.id),
     homepageEvidence: {
@@ -100,7 +101,7 @@ export async function verifyPublisher(publisher, networks, {
         const home = homepageResult(homepage, emptyParsed, networks, publisher, matches);
         return {
           inconclusiveNetworkIds: home.inconclusiveNetworkIds,
-          outcome: matches.confirmed.length ? "matched" : "no_ads_txt",
+          outcome: matches.confirmed.length ? "matched" : matches.inconclusiveNetworkIds?.length ? "temporary_error" : "no_ads_txt",
           checkedAt,
           matches,
           homepageFacts: homepage?.outcome === "fetched" ? homepageFacts(homepage.html, homepage.finalUrl) : null,
@@ -189,7 +190,7 @@ export async function verifyPublisher(publisher, networks, {
   }),relationships:publisher.review_relationships,networks,parsed,fetchResult,homepage,checkedAt,
     discoverySources:publisher.discovery_sources});
   const home = homepageResult(homepage, parsed, networks, publisher, matches);
-  const outcome = matches.confirmed.length ? "matched" : "no_match";
+  const outcome = matches.confirmed.length ? "matched" : matches.inconclusiveNetworkIds?.length ? "temporary_error" : "no_match";
   return {
     outcome,
     checkedAt,

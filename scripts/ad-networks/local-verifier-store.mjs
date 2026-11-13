@@ -143,7 +143,8 @@ function ageMissingRelationships(database, existing, positiveIds, checkedAt, evi
       checkedAt,
       checkedAt,
       checkedAt,
-      JSON.stringify({ checked_at: checkedAt, homepage: evidence?.homepage ?? null, ads_txt_sha256: evidence?.ads_txt_sha256 ?? null }),
+      JSON.stringify({ checked_at: checkedAt, homepage: evidence?.homepage ?? null, ads_txt_sha256: evidence?.ads_txt_sha256 ?? null,
+        matcher_version: evidence?.matcher_version ?? null }),
       relationship.ad_network_id,
       relationship.publisher_id,
     );

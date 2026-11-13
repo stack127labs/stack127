@@ -1,0 +1,204 @@
+[
+  {
+    "name": "LiteSpeed",
+    "type": "litespeed/javascript",
+    "source": "data-src",
+    "plainSrc": true
+  },
+  {
+    "name": "WP Rocket",
+    "type": "rocketlazyloadscript",
+    "source": "data-rocket-src",
+    "plainSrc": true,
+    "savedType": "data-rocket-type"
+  },
+  {
+    "name": "WP Rocket MIME variant",
+    "type": "text/rocketlazyloadscript",
+    "source": "data-rocket-src",
+    "plainSrc": true,
+    "savedType": "data-rocket-type"
+  },
+  {
+    "name": "Perfmatters with LiteSpeed",
+    "type": "pmdelayedscript",
+    "source": "data-src",
+    "attrs": {
+      "data-perfmatters-type": "litespeed/javascript"
+    },
+    "plainSrc": true,
+    "savedType": "data-perfmatters-type"
+  },
+  {
+    "name": "Penci",
+    "type": "PenciLazyScript",
+    "source": "src",
+    "plainSrc": true,
+    "savedType": "data-pencilazy-type"
+  },
+  {
+    "name": "Cloudflare Rocket Loader",
+    "type": "38dea565cbb8e5075013007e-text/javascript",
+    "source": "src",
+    "plainSrc": true
+  },
+  {
+    "name": "Rocket Loader application MIME",
+    "type": "38dea565cbb8e5075013007e-application/javascript",
+    "source": "src",
+    "plainSrc": true
+  },
+  {
+    "name": "Rocket Loader module",
+    "type": "38dea565cbb8e5075013007e-module",
+    "source": "src",
+    "plainSrc": true
+  },
+  {
+    "name": "WP Meteor",
+    "type": "javascript/blocked",
+    "source": "data-wpmeteor-src",
+    "attrs": {
+      "data-wpmeteor-type": "text/javascript"
+    },
+    "plainSrc": false
+  },
+  {
+    "name": "Real Cookie Banner",
+    "type": "application/consent",
+    "source": "consent-original-src-_",
+    "attrs": {
+      "consent-required": "755,p1",
+      "consent-original-type-_": "application/javascript"
+    },
+    "plainSrc": true
+  },
+  {
+    "name": "Starcache",
+    "type": "starcache/delay",
+    "source": "data-starcache-src",
+    "plainSrc": true,
+    "savedType": "data-starcache-type"
+  },
+  {
+    "name": "Borlabs",
+    "type": "text/template",
+    "source": "data-borlabs-script-blocker-src",
+    "attrs": {
+      "data-borlabs-script-blocker-id": "ad-sense-blocker"
+    },
+    "plainSrc": true
+  },
+  {
+    "name": "Didomi",
+    "type": "didomi/javascript",
+    "source": "src",
+    "attrs": {
+      "data-vendor": "iab:42"
+    },
+    "plainSrc": true
+  },
+  {
+    "name": "OneTrust",
+    "type": "text/plain",
+    "source": "src",
+    "attrs": {
+      "class": "optanon-category-C0002-C0004"
+    },
+    "plainSrc": true
+  },
+  {
+    "name": "Measured MD delayed loader",
+    "type": "text/plain",
+    "source": "data-md-delayed-src",
+    "plainSrc": false
+  },
+  {
+    "name": "Flying Scripts",
+    "source": "data-src",
+    "attrs": {
+      "data-type": "lazy"
+    },
+    "plainSrc": false
+  },
+  {
+    "name": "Seraphinite Accelerator",
+    "type": "o/js-lzl",
+    "source": "src",
+    "plainSrc": true,
+    "savedType": "data-type"
+  },
+  {
+    "name": "Autoptimize defer",
+    "type": "text/javascript",
+    "source": "src",
+    "attrs": {
+      "defer": ""
+    },
+    "plainSrc": true
+  },
+  {
+    "name": "Cookiebot",
+    "type": "text/plain",
+    "source": "src",
+    "attrs": {
+      "data-cookieconsent": "marketing"
+    },
+    "plainSrc": true
+  },
+  {
+    "name": "Complianz category",
+    "type": "text/plain",
+    "source": "data-cmplz-src",
+    "attrs": {
+      "data-category": "marketing"
+    },
+    "plainSrc": false
+  },
+  {
+    "name": "Complianz service",
+    "type": "text/plain",
+    "source": "data-cmplz-src",
+    "attrs": {
+      "data-service": "adsense",
+      "data-category": "marketing"
+    },
+    "plainSrc": false
+  },
+  {
+    "name": "CookieScript",
+    "type": "text/plain",
+    "source": "src",
+    "attrs": {
+      "data-cookiescript": "accepted"
+    },
+    "plainSrc": true
+  },
+  {
+    "name": "Cookie category",
+    "type": "text/plain",
+    "source": "data-src",
+    "attrs": {
+      "data-cookiecategory": "advertising"
+    },
+    "plainSrc": true,
+    "savedType": "data-type"
+  },
+  {
+    "name": "FAZ consent",
+    "type": "text/plain",
+    "source": "src",
+    "attrs": {
+      "data-faz-category": "marketing"
+    },
+    "plainSrc": true,
+    "savedType": "data-faz-original-type"
+  },
+  {
+    "name": "Perfmatters plain source",
+    "type": "pmdelayedscript",
+    "source": "src",
+    "plainSrc": true,
+    "savedType": "data-perfmatters-type"
+  }
+]

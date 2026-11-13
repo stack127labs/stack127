@@ -1,4 +1,4 @@
-import { matchNetworks,scriptMarkup } from './matcher.mjs';
+import { matchNetworks } from './matcher.mjs';
 
 export const REVIEW_METHOD='discovery_hint_and_ads_txt_system';
 export function reviewLinks(db,id) {
@@ -22,7 +22,7 @@ export function gateReviewMatches({matches,relationships=[],networks,parsed,fetc
     else if(!review.some(row=>row.networkId===match.networkId))review.push({...match,status:'needs_review',relationshipType:'unknown',
       verificationMethod:REVIEW_METHOD,evidence:{...relationship.evidence,last_review:{checked_at:checkedAt,reason:result.reason}}});
   }
-  return {confirmed,review};
+  return {...matches,confirmed,review};
 }
 export function reviewDecision({relationship,network,parsed,fetchResult,homepage,checkedAt,discoverySources=[]}) {
   const keep=reason=>({decision:'kept',reason});
@@ -43,16 +43,15 @@ export function reviewDecision({relationship,network,parsed,fetchResult,homepage
   }
   if(managers.length)return {...keep('different_manager'),present:true};
   if(!homepage?.html)return {...keep('homepage_unavailable'),present:true};
-  // Only configured, network-specific tags/configuration in executable script markup qualify.
+  // Only configured tags/configuration in JavaScript or recognized loader scripts qualify.
   // Plain article text, commented-out tags, seller rows and shared wrappers cannot match.
-  const scripts=scriptMarkup(homepage.html);
   const signatures=(network.program_signatures??[]).filter(signature=>signature.kind==='html_substring'
     &&typeof signature.value==='string'&&signature.value.trim().length>=8
     &&signature.distinctive!==false&&signature.shared_wrapper!==true
     &&!/(?:googletagmanager\.com|googlesyndication\.com|doubleclick\.net|prebid\.js|gpt\.js)/i.test(signature.value));
   if(!signatures.length)return {...keep('no_distinctive_configured_signature'),present:true};
   const matches=matchNetworks({parsed,networks:[{...network,program_signatures:signatures}],
-    fetchEvidence:{...fetchResult,checkedAt},homepage:{...homepage,html:scripts},discoverySources});
+    fetchEvidence:{...fetchResult,checkedAt},homepage,discoverySources});
   const match=matches.confirmed.find(row=>row.networkId===network.id&&row.verificationMethod!=='ads_txt_managerdomain');
   if(!match)return {...keep('no_current_distinctive_tag'),present:true};
   return {decision:'confirmed',reason:'exact_line_and_current_distinctive_tag',present:true,evidence:{...match.evidence,
