@@ -66,7 +66,9 @@ export function SelfHostAppsSearchProvider({ category, children, initial, route 
   const facets = useMemo(() => mergeFacets(initial.facets, lastResults.facets), [initial.facets, lastResults.facets]);
   const params = useMemo(() => cleanParams(urlParams, facets, category), [urlParams, facets, category]);
   const query = searchQuery(params);
-  const requestQuery = category && query ? searchQuery({ category, ...params }) : query;
+  // Same key order as the main page sends (q, sort, category, then the rest), so equal views share one cached response.
+  const { q, sort, ...rest } = params;
+  const requestQuery = category && query ? searchQuery({ ...(q ? { q } : {}), ...(sort ? { sort } : {}), category: [category], ...rest }) : query;
 
   useEffect(() => {
     if (!query) return;
