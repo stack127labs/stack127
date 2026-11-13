@@ -84,6 +84,12 @@ test('fetcher records HTTP and challenge outcomes; normal Cloudflare analytics r
   }
   assert.equal(homepageChallenge('<title>How Cloudflare works</title><p>Access denied errors</p>'),false);
 });
+test('homepage requests send a standard browser Accept header',async()=>{
+  const deps={lookup:async()=>[{address:'93.184.216.34',family:4}],sharedHostSlot:async()=>()=>{}};
+  let accept;
+  await fetchHomepage('example.com',{...deps,fetch:async(_url,init)=>{accept=new Headers(init.headers).get('accept');return new Response('<title>Home</title>',{status:200,headers:{'content-type':'text/html'}});}});
+  assert.equal(accept,'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8');
+});
 test('PostgreSQL writer does not update an inconclusive relationship',async()=>{
   const queries=[],relationship={ad_network_id:'32',publisher_id:'1',status:'stale',consecutive_misses:2};
   const client={query:async(sql,args)=>{queries.push({sql,args});return{rows:sql.includes('for update')?[relationship]:[]};},release(){}};

@@ -318,13 +318,17 @@ export function homepageChallenge(html) {
   return titles.some(value => /^\s*(?:just a moment|one moment,? please|attention required|access denied)[.!…\s]*(?:\|\s*(?:cloudflare|sucuri))?\s*$/i.test(value));
 }
 
+export const HOMEPAGE_ACCEPT = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+
 export async function fetchHomepage(domain, dependencies = {}) {
   const target = `https://${domain}/`;
   let base = { checkedUrl: target, outcome: "inconclusive" };
   try {
     if (!getDomain(domain, { allowPrivateDomains: true })) return { ...base, reason: "invalid_domain" };
     const { response, finalUrl } = await safeFetch(target, {
-      headers: { Accept: "text/html,application/xhtml+xml" },
+      // A standard browser Accept header. Some site firewalls answer 403 to the
+      // bare "text/html,application/xhtml+xml" list that browsers never send.
+      headers: { Accept: HOMEPAGE_ACCEPT },
       timeoutMs: 15_000,
     }, dependencies);
     base = { ...base, finalUrl, httpStatus: response.status, contentType: response.headers.get("content-type") };
