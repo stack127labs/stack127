@@ -21,7 +21,7 @@ async function search(
     if (!detail) throw new Error(`Missing search detail: ${app.slug}`);
     return detail;
   });
-  return { ...results, detailApps, facets: selfHostAppsFacets(index) };
+  return { ...results, detailApps, facets: selfHostAppsFacets(index, params.category) };
 }
 
 export const getSelfHostAppsSearch = (params: SelfHostAppsSearchParams) =>

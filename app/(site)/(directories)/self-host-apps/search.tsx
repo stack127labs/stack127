@@ -11,7 +11,13 @@ import { cleanParams, searchQuery } from "./options";
 export type SelfHostAppsResults = Omit<SelfHostAppsSearchResponse, "detailApps"> & { detailApps?: DirectoryApp[] };
 
 type SearchState = {
+  /** The page path: the hub, or a category page. Links and the form stay on it. */
+  route: string;
+  /** The locked category on a category page. Every request sends it. */
+  category?: string;
   params: DirectoryParams;
+  /** Sidebar options: the static page's options plus any new ones from loaded results. */
+  facets: Facets;
   results: SelfHostAppsResults;
   status: "ready" | "loading" | "error" | "invalid";
   retry: () => void;
@@ -44,15 +50,23 @@ function mergeFacets(base: Facets, latest: Facets): Facets {
 // The static page shows the default view. Any filter, search, sort, or page in
 // the URL loads matching apps from the cached search API. Older results stay
 // visible while the next ones load, and a newer request cancels an older one.
-export function SelfHostAppsSearchProvider({ children, initial }: { children: ReactNode; initial: SelfHostAppsResults }) {
+// A category page passes its path and category: its static page is that
+// category's default view, and every request asks only for that category.
+export function SelfHostAppsSearchProvider({ category, children, initial, route }: {
+  category?: string;
+  children: ReactNode;
+  initial: SelfHostAppsResults;
+  route: string;
+}) {
   const { params: urlParams } = useDirectoryQuery();
   const [attempt, setAttempt] = useState(0);
   const [outcome, setOutcome] = useState<Outcome | null>(null);
   const [lastResults, setLastResults] = useState<SelfHostAppsResults>(initial);
   // Filtered results can offer values the default view does not, so accept both.
   const facets = useMemo(() => mergeFacets(initial.facets, lastResults.facets), [initial.facets, lastResults.facets]);
-  const params = useMemo(() => cleanParams(urlParams, facets), [urlParams, facets]);
+  const params = useMemo(() => cleanParams(urlParams, facets, category), [urlParams, facets, category]);
   const query = searchQuery(params);
+  const requestQuery = category && query ? searchQuery({ category, ...params }) : query;
 
   useEffect(() => {
     if (!query) return;
@@ -63,7 +77,7 @@ export function SelfHostAppsSearchProvider({ children, initial }: { children: Re
       if ("results" in next) setLastResults(next.results);
     };
 
-    fetch(`/api/self-host-apps/search?${query}`, { signal: controller.signal })
+    fetch(`/api/self-host-apps/search?${requestQuery}`, { signal: controller.signal })
       .then(async (response) => {
         if (response.status === 400) return finish({ attempt, failure: "invalid", query });
         if (!response.ok) throw new Error(`Search failed with ${response.status}.`);
@@ -72,16 +86,17 @@ export function SelfHostAppsSearchProvider({ children, initial }: { children: Re
       .catch(() => finish({ attempt, failure: "error", query }));
 
     return () => controller.abort();
-  }, [attempt, query]);
+  }, [attempt, query, requestQuery]);
 
   const value = useMemo<SearchState>(() => {
     const retry = () => setAttempt((current) => current + 1);
-    if (!query) return { params, results: initial, retry, status: "ready" };
+    const base = { category, facets, params, retry, route };
+    if (!query) return { ...base, results: initial, status: "ready" };
     const current = outcome?.query === query && outcome.attempt === attempt ? outcome : null;
-    if (!current) return { params, results: lastResults, retry, status: "loading" };
-    if ("failure" in current) return { params, results: lastResults, retry, status: current.failure };
-    return { params, results: current.results, retry, status: "ready" };
-  }, [attempt, initial, lastResults, outcome, params, query]);
+    if (!current) return { ...base, results: lastResults, status: "loading" };
+    if ("failure" in current) return { ...base, results: lastResults, status: current.failure };
+    return { ...base, results: current.results, status: "ready" };
+  }, [attempt, category, facets, initial, lastResults, outcome, params, query, route]);
 
   return <SearchContext.Provider value={value}>{children}</SearchContext.Provider>;
 }

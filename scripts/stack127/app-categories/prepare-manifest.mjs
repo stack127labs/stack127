@@ -17,7 +17,8 @@ try {
     if (category.count < MIN_CATEGORY_APPS || (args.category && category.slug !== args.category)) continue;
     const route = `app/(site)/(directories)/${directory}/categories/[category]`;
     const intro = `${route}/content/${category.slug}/intro.mdx`;
-    if (!existsSync(intro)) throw new Error(`Missing intro: ${intro}`);
+    const about = `${route}/content/${category.slug}/about.mdx`;
+    for (const [name, file] of [["intro", intro], ["about", about]]) if (!existsSync(file)) throw new Error(`Missing ${name}: ${file}`);
     const slug = `${directory}/categories/${category.slug}`;
     const page = (await client.query(`select content.title from public.stack127_directory_pages content
       join public.stack127_pages page on page.id=content.page_id where page.slug=$1 and page.page_family='directory'`, [slug])).rows[0];
@@ -25,7 +26,7 @@ try {
     pages.push({ slug: `${directory}/categories/${category.slug}`, family: 'directory', source: 'development',
       registry: { is_published: true, is_indexable: args.indexable === 'true' },
       touch_reason: 'Category introduction and complete app list',
-      requirements: { route: `${route}/page.tsx`, assets: [intro], records: { kind: 'database', checks: [{
+      requirements: { route: `${route}/page.tsx`, assets: [intro, about], records: { kind: 'database', checks: [{
         name: 'Category has at least 15 published apps', sql_file: 'scripts/stack127/app-categories/records-ready.sql', params: [directory, category.slug],
       }] }, smoke: [categorySmokeCheck(directory, category.slug, page.title)] },
     });

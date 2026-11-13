@@ -1,0 +1,12 @@
+## How do you choose a database CLI?
+
+Start with the database you use. Most clients only speak one, such as Postgres, MySQL, or SQLite.
+
+- **Client or engine.** Some tools connect to a database server. Others are the database itself, running on local files.
+- **Migrations.** Check whether a migration tool uses plain SQL files or its own format, and whether it supports your database.
+- **Language.** Python tools usually install with pip, while Go and Rust tools often ship as a single binary. The Language filter helps if you'd rather not install a runtime.
+- **Platform.** Check the Platform filter for your system.
+
+## What should you keep in mind?
+
+Connection strings often include passwords. Keep them in a password file or an environment variable, not in your shell history. Run new migrations against a copy of the database before you run them on the real one.

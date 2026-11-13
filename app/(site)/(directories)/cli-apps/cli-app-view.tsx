@@ -31,7 +31,6 @@ import {
 } from "./cli-app-options";
 import { filterApps, getKnownValue, getPage, getString, getValues, sortApps, sortOptions, sortValues } from "./filters";
 
-const route = "/cli-apps";
 const paramKeys = ["q", "sort", "page", "category", "type", "platform", "install", "language", "license", "pricing", "source", "maintenance"] as const;
 
 export type CliAppFilterOptions = {
@@ -43,8 +42,22 @@ export type CliAppFilterOptions = {
   type: FilterOption[];
 };
 
-export function CliAppFilters({ heading, options }: { heading: ReactNode; options: CliAppFilterOptions }) {
-  const { formKey, params } = useDirectoryQuery();
+/** A category page drops any `category` in its URL: its category is fixed. */
+function viewParams(params: DirectoryParams, category: string | undefined) {
+  if (!category || !("category" in params)) return params;
+  return Object.fromEntries(Object.entries(params).filter(([key]) => key !== "category"));
+}
+
+// `route` is the page path: the hub, or a category page. A category page passes
+// its `category`, hides the Category group, and keeps every link on its own path.
+export function CliAppFilters({ category, heading, options, route }: {
+  category?: string;
+  heading: ReactNode;
+  options: CliAppFilterOptions;
+  route: string;
+}) {
+  const { formKey, params: urlParams } = useDirectoryQuery();
+  const params = viewParams(urlParams, category);
   return (
     <form action={route} className={sidebarPanelClassName} data-default-sort="popular" data-live-filter-form key={formKey}>
       <div className={sidebarPanelHeadingClassName}>{heading}</div>
@@ -58,7 +71,7 @@ export function CliAppFilters({ heading, options }: { heading: ReactNode; option
       </label>
 
       <SortDropdown name="sort" options={sortOptions} value={getKnownValue(params, "sort", sortValues) || "popular"} />
-      <TagSelectGroup name="category" options={options.category} selected={getValues(params, "category")} title="Category" />
+      {category ? null : <TagSelectGroup name="category" options={options.category} selected={getValues(params, "category")} title="Category" />}
       <TagSelectGroup name="type" options={options.type} selected={getValues(params, "type")} title="App type" />
       <CheckboxGroup name="platform" options={options.platform} selected={getValues(params, "platform")} title="Platform" />
       <TagSelectGroup name="install" options={options.install} selected={getValues(params, "install")} title="Install" />
@@ -88,7 +101,7 @@ const groupNames = new Map([
   ["license", "License"],
 ]);
 
-function ActiveFilters({ categoryLabels, params }: { categoryLabels: Record<string, string>; params: DirectoryParams }) {
+function ActiveFilters({ categoryLabels, params, route }: { categoryLabels: Record<string, string>; params: DirectoryParams; route: string }) {
   const groupLabels = new Map<string, Map<string, string>>([
     ["type", new Map(terminalAppTypeLabels)],
     ["category", new Map(Object.entries(categoryLabels))],
@@ -132,20 +145,24 @@ function ActiveFilters({ categoryLabels, params }: { categoryLabels: Record<stri
 }
 
 // The static HTML shows the default view. Filters, sort, and ?page= from the URL load
-// the full list from a cached JSON route and apply in the browser.
-export function CliAppResults({ firstPage, total, categoryLabels, emptyVisual }: {
+// the full list from a cached JSON route and apply in the browser. On a category
+// page, every filtered view keeps only that category's apps.
+export function CliAppResults({ category, firstPage, total, categoryLabels, emptyVisual, route }: {
+  category?: string;
   firstPage: TerminalApp[];
   total: number;
   categoryLabels: Record<string, string>;
   emptyVisual: ReactNode;
+  route: string;
 }) {
-  const { params } = useDirectoryQuery();
+  const { params: urlParams } = useDirectoryQuery();
+  const params = viewParams(urlParams, category);
   const filtering = hasDirectoryParams(params, paramKeys);
   const { failed, records } = useDirectoryIndex<TerminalApp>({ url: "/api/cli-apps/index" }, filtering);
 
   if (filtering && !records) {
     return <>
-      <ActiveFilters categoryLabels={categoryLabels} params={params} />
+      <ActiveFilters categoryLabels={categoryLabels} params={params} route={route} />
       {failed
         ? <StatePanel action={<Link href={route}>show all apps</Link>} state="error" title="Filters could not be loaded"><p>Reload the page to try again.</p></StatePanel>
         : <StatePanel state="loading" title="Loading apps" />}
@@ -153,7 +170,9 @@ export function CliAppResults({ firstPage, total, categoryLabels, emptyVisual }:
   }
 
   const sort = getKnownValue(params, "sort", sortValues) || "popular";
-  const filteredApps = filtering && records ? sortApps(filterApps(records, params), sort) : null;
+  const filteredApps = filtering && records
+    ? sortApps(filterApps(records, category ? { ...params, category } : params), sort)
+    : null;
   const count = filteredApps ? filteredApps.length : total;
   const totalPages = Math.max(1, Math.ceil(count / cliAppPageSize));
   const currentPage = Math.min(getPage(params), totalPages);
@@ -162,7 +181,7 @@ export function CliAppResults({ firstPage, total, categoryLabels, emptyVisual }:
 
   return (
     <>
-      <ActiveFilters categoryLabels={categoryLabels} params={params} />
+      <ActiveFilters categoryLabels={categoryLabels} params={params} route={route} />
       {paginatedApps.length > 0 ? (
         <>
           <CliAppBrowser apps={paginatedApps} />

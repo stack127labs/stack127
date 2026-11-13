@@ -7,12 +7,11 @@ import { StatePanel } from "@/app/ui/state-panel";
 import { pageParamHref } from "@/app/ui/directories/directory-params";
 import { DirectoryAppBrowser } from "./directory-app-browser";
 import { ActiveFilters } from "./filters";
-import { route } from "./options";
 import { useSelfHostAppsSearch } from "./search";
 import styles from "./results.module.css";
 
 export function SelfHostAppResults({ emptyVisual }: { emptyVisual: ReactNode }) {
-  const { params, results, retry, status } = useSelfHostAppsSearch();
+  const { params, results, retry, route, status } = useSelfHostAppsSearch();
   const showAll = <Link href={route}>show all apps</Link>;
 
   let content;

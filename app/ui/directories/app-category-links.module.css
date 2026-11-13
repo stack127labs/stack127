@@ -1,0 +1,4 @@
+.categories h2 { margin-bottom: var(--space-4); }
+.categories ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--space-3) var(--space-6); padding: 0; list-style: none; }
+.categories span { font-family: var(--font-mono); font-size: var(--text-small); color: var(--color-text-muted); }
+.categories strong { font-weight: var(--weight-bold); }

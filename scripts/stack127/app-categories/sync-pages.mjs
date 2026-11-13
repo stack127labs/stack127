@@ -23,5 +23,5 @@ printResult(await runMutation(args, async client => {
       values($1,$2,$3,$4) on conflict(page_id) do nothing`, [page.id, `<mark>${category.name}</mark> ${directory === 'cli-apps' ? 'CLI apps' : 'self-host apps'}`, category.name, `Apps in the ${category.name} category.`]);
     rows.push({ slug, published: page.is_published, indexable: page.is_indexable, count: category.count });
   }
-  return { directory, categories, rows, missing_intros: categories.filter(category => !existsSync(`app/(site)/(directories)/${directory}/categories/[category]/content/${category.slug}/intro.mdx`)).map(category => category.slug) };
+  return { directory, categories, rows, missing_intros: categories.filter(category => ["intro", "about"].some(name => !existsSync(`app/(site)/(directories)/${directory}/categories/[category]/content/${category.slug}/${name}.mdx`))).map(category => category.slug) };
 }));

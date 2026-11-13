@@ -63,7 +63,7 @@ export default async function SelfHostAppsPage() {
 
   return (
     <DirectoryQueryProvider route={route}>
-      <SelfHostAppsSearchProvider initial={initial}>
+      <SelfHostAppsSearchProvider initial={initial} route={route}>
         <AppShell
           mainLabel="Self-hosted app results"
           menuLabel="Filters"

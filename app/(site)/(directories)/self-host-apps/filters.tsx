@@ -19,7 +19,6 @@ import {
   dockerOptions,
   maintenanceOptions,
   ramOptions,
-  route,
   signalOptions,
   sortOptions,
   sourceOptions,
@@ -108,8 +107,7 @@ function StorageSlider({
 // and the search provider loads the matching apps.
 export function SelfHostAppFilters({ heading }: { heading: ReactNode }) {
   const { formKey } = useDirectoryQuery();
-  const { params, results } = useSelfHostAppsSearch();
-  const { facets } = results;
+  const { category, facets, params, route } = useSelfHostAppsSearch();
 
   return (
     <form
@@ -136,12 +134,14 @@ export function SelfHostAppFilters({ heading }: { heading: ReactNode }) {
 
       <SortDropdown name="sort" options={sortOptions} value={paramString(params, "sort") || defaultSort} />
 
-      <TagSelectGroup
-        name="category"
-        options={facets.categories}
-        selected={paramValues(params, "category")}
-        title="Category"
-      />
+      {category ? null : (
+        <TagSelectGroup
+          name="category"
+          options={facets.categories}
+          selected={paramValues(params, "category")}
+          title="Category"
+        />
+      )}
       <TagSelectGroup
         name="license"
         options={facets.licenses}
@@ -213,7 +213,7 @@ const filterLabels: Array<[key: string, label: string]> = [
 ];
 
 export function ActiveFilters() {
-  const { params, results: { facets } } = useSelfHostAppsSearch();
+  const { facets, params, route } = useSelfHostAppsSearch();
   const optionLabels = (options: FilterOption[]) => new Map(options.map((option) => [option.value, option.label]));
   const valueLabels = new Map([
     ["category", optionLabels(facets.categories)],
