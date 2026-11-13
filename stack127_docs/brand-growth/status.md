@@ -29,6 +29,7 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 - 2026-11-13: 98 duplicate directory entries retired in production (4,913 to 4,815 published self-hostable apps). The decisions are in `scripts/self-host-apps/batches/2026-11-13-published-duplicates-reviewed.json`. The public list was refreshed by hand: 4,803 apps in 42 categories.
 - 2026-11-13: owner did the "Request indexing" clicks for the 10 hub URLs.
 - 2026-11-13: retiring the 98 apps broke live search for about 20 minutes: `/api/self-host-apps/search` returned 503 for any result that included a retired app, until the frontend refresh run finished. Fixed the same day: the API now leaves out an app whose details are gone and does not cache that response. The public list now shows every published app, not one per repository.
+- 2026-11-13: weekly list refresh installed on OVH (`self-host-awesome-list`, Monday 14:02 UTC). First run passed as a no-op: 4,815 apps, 42 categories. The first real push has not happened yet. `PUBLIC_REPOS_GITHUB_TOKEN` is in Infisical; the token the owner created can also push to the main repository, which the runner guide advises against.
 
 ## Next
 
@@ -36,7 +37,6 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 | --- | --- | --- |
 | Request indexing for the 10 largest self-host category pages | Owner | Open |
 | Submit the remaining 148 sitemap URLs to Bing, 100 a day | Agent | Open |
-| Install the weekly list refresh on OVH (`self-host-awesome-list`, Monday 14:02 UTC) | Agent | Code is on `main`. Needs `PUBLIC_REPOS_GITHUB_TOKEN` in Infisical `stack127 /vps/self-host-apps`: one shared fine-grained token for the public output repositories (select repositories, Contents read and write), never the main repository. Then follow `scripts/self-host-apps/ovh/README.md`, including the supervisor reinstall |
 | Pull the numbers and write the first data story | Agent | Open. Use 4,815 apps |
 | Post the story on r/selfhosted | Owner | After review |
 | Measure referring domains as a baseline | Agent | Open |
@@ -52,4 +52,4 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 
 ## Waiting on the owner
 
-- The GitHub token for the weekly list refresh.
+- Nothing right now.

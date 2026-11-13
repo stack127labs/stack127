@@ -237,7 +237,7 @@ file belongs inside either checkout.
 
 ## Weekly public list: install and operate
 
-Built, waiting for install. After the reviewed merge, the lead adds
+Installed on OVH on 2026-11-13. After a reviewed change, the lead adds
 `PUBLIC_REPOS_GITHUB_TOKEN` to Infisical as described above and waits for the
 sync to deliver the mode-600 env file. Do not edit that file on OVH. The existing
 dataset sync uses `gh` with `GH_TOKEN`/`GITHUB_TOKEN`; this job uses Git HTTPS
