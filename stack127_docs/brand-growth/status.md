@@ -16,7 +16,7 @@ Last updated: 2026-11-13. Rules and decisions are in [AGENTS.md](AGENTS.md).
 
 Target: 150 indexed pages by 2027-01-08.
 
-The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-host-apps`, the 14 beginner course pages, `/dns-tools`, `/domain-tools`, `/software-licenses-for-self-hosting`, `/drive-reliability`, six tools, and one ad network page. None of the 42 self-host category pages or 12 CLI category pages is indexed yet; they were published on 2026-11-12 and 2026-11-10.
+The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-host-apps`, the 14 beginner course pages, `/dns-tools`, `/domain-tools`, `/software-licenses-for-self-hosting`, `/drive-reliability`, six tools, and one ad network page. None of the 42 self-host category pages or 12 CLI category pages was indexed on 2026-11-13; they were published on 2026-11-12 and 2026-11-10.
 
 ## Done
 
@@ -24,28 +24,35 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 - 2026-11-12: self-host app categories reviewed app by app; 42 self-host category pages published.
 - 2026-11-13: sitemap resubmitted to Google (248 URLs read, 0 errors).
 - 2026-11-13: 100 URLs submitted to Bing: the hubs, catalogs, all 42 self-host category pages, the CLI and platform fee category pages.
+- 2026-11-13: `stack127labs/awesome-self-hosted-apps` made public with the owner's yes; description, topics, and homepage set.
+- 2026-11-13: all 54 published category pages (42 self-host, 12 CLI) rebuilt with the main page's cards, filters, search, sort, and pagination, plus a "how to choose" section below the cards. Released in pull request #120, commit `070a5c79`.
+- 2026-11-13: 98 duplicate directory entries retired in production (4,913 to 4,815 published self-hostable apps). The decisions are in `scripts/self-host-apps/batches/2026-11-13-published-duplicates-reviewed.json`. The public list was refreshed by hand: 4,803 apps in 42 categories.
+- 2026-11-13: owner did the "Request indexing" clicks for the 10 hub URLs.
 
 ## Next
 
 | Step | Who | State |
 | --- | --- | --- |
-| Request indexing for the 10 hub URLs, then the 10 largest self-host category pages the day after | Owner | Open |
+| Request indexing for the 10 largest self-host category pages | Owner | Open |
 | Submit the remaining 148 sitemap URLs to Bing, 100 a day | Agent | Open |
-| Make `stack127labs/awesome-self-hosted-apps` public | Owner approves, agent flips | The repository is private with the first export: 4,814 apps in 42 categories |
-| Merge the export script, pull request #120 | Agent, after the owner's go | Reviewed twice; waiting on the owner |
-| Refresh the list on a schedule | Agent | built, waiting for install |
-| Pull the numbers and write the first data story | Agent | After the list is public |
+| Install the weekly list refresh on OVH (`self-host-awesome-list`, Monday 14:02 UTC) | Agent | Code is on `main`. Needs `AWESOME_LIST_GITHUB_TOKEN` in Infisical `stack127 /vps/self-host-apps`: a fine-grained token limited to that repository with Contents read and write. Then follow `scripts/self-host-apps/ovh/README.md`, including the supervisor reinstall |
+| Make search survive a retired app | Agent, after the owner's go | Open. See the gap below |
+| Pull the numbers and write the first data story | Agent | Open. Use 4,815 apps |
 | Post the story on r/selfhosted | Owner | After review |
 | Measure referring domains as a baseline | Agent | Open |
 | CLI apps list, then ad networks list | Agent | After the first list |
 
 ## Known data gaps
 
-- 95 source repositories are listed twice or more in the directory, 194 entries in all, for example "Jellyfin" and "binhex-jellyfin". The public list shows each repository once. The directory still shows all of them, so its count is 4,913 and the list's is 4,814. Cleaning the directory changes category counts and needs its own data task.
-- The directory has 4,913 published self-hostable apps. The category review covered 4,978 published apps, which includes entries that are not self-hostable. Use 4,913 or the list's 4,814 in the story, not 4,978.
+- Retiring apps broke live search for about 20 minutes on 2026-11-13. `/api/self-host-apps/search` returned 503 for any result that included a retired app, because the cached app index still listed it while its details were gone. It recovered when the frontend refresh run finished. `lib/self-host-apps-search-data.ts` throws "Missing search detail"; it should drop such an app from the result.
+- 11 possible duplicate groups were left untouched as unsure, for example "Borg" and "borgserver", and "ONLYOFFICE" and "ONLYOFFICE Docs". They are marked `unsure` in the batch file.
+- The public list still shows one app per source repository, so 12 real apps that share a repository with another app, for example "Joplin Server", are missing from it (4,803 against 4,815). Now that the directory is clean, the export can list every published app.
+- The "Has mobile app" filter matches 0 to 4 apps per category in development, and "Needs database" is empty for most apps. Both need data work.
+- Two CLI categories, `communication` and `games-fun`, are below 15 apps and unpublished. Their intros are placeholder text.
+- The main repository `stack127labs/stack127` is public on GitHub for build-minute reasons. The owner plans to make it private later.
+- Use 4,815 in the story. Do not use 4,978, which counted entries that are not self-hostable.
 
 ## Waiting on the owner
 
-- The "Request indexing" clicks in Search Console.
-- A look at the private list repository, then a yes to make it public.
-- A yes to merge pull request #120.
+- The GitHub token for the weekly list refresh.
+- A yes to release the search fix.
