@@ -1,6 +1,5 @@
 import { Note, Tip, Warning } from "@/app/ui/callout";
 import { ContentBlock } from "@/app/ui/content-block";
-import { Term, Terms } from "@/app/ui/content-elements";
 import { Faq } from "@/app/ui/faq";
 import { CodeBlock } from "@/app/ui/site/code-block";
 import { proseClassName, proseFlowClassName } from "@/app/ui/site/prose";
@@ -65,24 +64,6 @@ Each month returns $80, so the cost comes back in 15 months.
           <ContentBlock kind="example" title="A $1,200 customer">
             <p>A customer costs $1,200 to win and pays $100 a month at an 80% gross margin. Each month returns $80, so the cost comes back in 15 months.</p>
           </ContentBlock>
-        </div>
-      </Example>
-
-      <Example
-        components={["Terms", "Term"]}
-        note="Words a reader may not know, each with its meaning."
-        source="app/ui/content-elements.tsx"
-        title="Terms"
-        usage={{ label: "MDX", code: `<Terms>
-<Term name="TTL">How long a resolver may keep a record before it asks again.</Term>
-<Term name="Resolver">The DNS server that looks up names for your device.</Term>
-</Terms>` }}
-      >
-        <div className={flow}>
-          <Terms>
-            <Term name="TTL">How long a resolver may keep a record before it asks again.</Term>
-            <Term name="Resolver">The DNS server that looks up names for your device.</Term>
-          </Terms>
         </div>
       </Example>
 

@@ -10,8 +10,6 @@ import {
   ContentParagraph,
   ContentPre,
   ContentTable,
-  Term,
-  Terms,
 } from "@/app/ui/content-elements";
 import { UiDataTable } from "@/app/ui/display";
 
@@ -31,8 +29,6 @@ const contentComponents: MDXComponents = {
   Tip: ({ children, title }: BlockProps) => <ContentCallout kind="tip" title={title}>{children}</ContentCallout>,
   Formula: ({ children, title }: BlockProps) => <ContentCallout kind="formula" title={title}>{children}</ContentCallout>,
   Example: ({ children, title }: BlockProps) => <ContentCallout kind="example" title={title}>{children}</ContentCallout>,
-  Terms,
-  Term,
   UiStaticChart,
   UiDataTable,
   MarkerArt: ({ alt, figure }: { alt: string; figure: string }) => <ContentMarkerArt alt={alt} reference={`marker-art://${figure}`} />,
