@@ -373,3 +373,23 @@ When a credential changes:
 The tracked example files are schemas, not backups. A full recovery also needs the password manager entries and the secret records kept by each service.
 
 The rebrand's pre-migration production table recovery dump is stored outside the repository at `/Users/ravitejaknts/backups/stack127/2026-08-20/open_projects-before-provenance.dump`. It's mode `0600`. Its checksum is in the rebrand migration document.
+
+## Private ad network MCP and REST API
+
+Runtime owner: Infisical `stack127 /vps/web-app`. See [mcp-and-api.md](mcp-and-api.md) for formats, defaults, rotation and connection steps. These switches default off; no public mode is available.
+
+```text
+STACK127_MCP_ENABLED
+STACK127_REST_ENABLED
+STACK127_DATA_SQL_ENABLED
+STACK127_DATA_SQL_DATABASE_URL
+STACK127_MCP_TOKEN
+STACK127_MCP_PATH_SECRET
+STACK127_DATA_RPM
+STACK127_DATA_RPD
+STACK127_DATA_MAX_ROWS
+STACK127_DATA_TIMEOUT_MS
+STACK127_DATA_ALLOWED_ORIGINS
+```
+
+The eight fixed tools use the existing app database login in read-only transactions. This release creates no custom reader role. `STACK127_MCP_ENABLED`, `STACK127_REST_ENABLED` and `STACK127_DATA_SQL_ENABLED` default off. Keep all three off until release checks pass; SQL must stay off for this release and `STACK127_DATA_SQL_DATABASE_URL` must remain absent. A future administrator must provision and audit a dedicated restricted SQL login before that key can be set. See the "Before you turn it on" checklist in [mcp-and-api.md](mcp-and-api.md) for live proxy-header, Traefik and Cloudflare log checks and credential rotation.

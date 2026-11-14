@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import vm from "node:vm";
+import * as pathPolicy from "../../lib/data-api/path-policy.mjs";
+import * as privateResponse from "../../lib/data-api/private-response.mjs";
 import ts from "typescript";
 import * as queryIndexing from "../../lib/seo/query-indexing.mjs";
 
@@ -15,6 +17,8 @@ function publicationProxy({ published = false } = {}) {
   vm.runInNewContext(code, {
     exports, Headers, URLSearchParams, process: { env: { NODE_ENV: "production" } },
     require(name) {
+      if (name === "./lib/data-api/path-policy.mjs") return pathPolicy;
+      if (name === "./lib/data-api/private-response.mjs") return privateResponse;
       if (name === "next/server") return {
         NextResponse: {
           next: () => ({ status: 200, headers: new Headers() }),
@@ -108,4 +112,16 @@ test("directory parent and child documents share the inherited-icon purge tag", 
     const unrelated = await proxy(request(`/${parent}-other/example`));
     assert.equal(unrelated.headers.get("Cache-Tag").split(",").includes(tag), false);
   }
+});
+
+
+test("private and unknown API queries have no page canonical or pathname metadata", async () => {
+  const { proxy, lookups } = publicationProxy();
+  for (const path of ["/api/mcp/private?q=word", "/api/v1/missing?q=word", "/api/unknown?q=word"]) {
+    const response = await proxy(request(path));
+    for (const header of ["Cache-Tag", "Link", "X-Robots-Tag", "x-stack127-pathname", "X-Stack127-Cache-Class"]) {
+      assert.equal(response.headers.get(header), null, path + " " + header);
+    }
+  }
+  assert.deepEqual(lookups, []);
 });
