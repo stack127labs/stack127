@@ -30,6 +30,7 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 - 2026-11-13: owner did the "Request indexing" clicks for the 10 hub URLs.
 - 2026-11-13: retiring the 98 apps broke live search for about 20 minutes: `/api/self-host-apps/search` returned 503 for any result that included a retired app, until the frontend refresh run finished. Fixed the same day: the API now leaves out an app whose details are gone and does not cache that response. The public list now shows every published app, not one per repository.
 - 2026-11-13: weekly list refresh installed on OVH (`self-host-awesome-list`, Monday 14:02 UTC). First run passed as a no-op: 4,815 apps, 42 categories. The first real push has not happened yet. `PUBLIC_REPOS_GITHUB_TOKEN` is in Infisical `stack127 /vps/self-host-apps`; the owner limited the token to `awesome-self-hosted-apps`. Add each new public list repository to that same token on GitHub.
+- 2026-11-14: ad network checker fixed and the false departures repaired. Two faults ended live relationships: a blocked or challenged homepage counted as "network not found" (pull request #124), and scripts delayed by speed and consent plugins were ignored (pull requests #125 and #126). The production correction checked 10,273 records: 3,186 restored, 2,889 left ended (network really missing), about 3,900 unchanged because the site blocks our checker. AdSense confirmed sites went from 78,914 to 81,923. Hourly verification resumed 2026-11-14 04:33 UTC; its first run passed. Backups from the window: `/srv/stack127-data/state/homepage-backup-20261113T155359Z` and `/srv/stack127-db/backups/stack127-20261113T155416258783896Z.dump`.
 
 ## Next
 
@@ -44,7 +45,6 @@ The 30 indexed pages are the home page, `/about`, `/privacy`, `/terms`, `/self-h
 
 ## Known data gaps
 
-- **The hourly ad network verification job on OVH is paused** (since 2026-11-13, line commented `# paused-until-matcher-fix` in ubuntu's crontab; original saved at `/srv/stack127-data/state/crontab-before-homepage-20261113T133014Z.txt`). Reason: the AdSense matcher ignores scripts rewritten by speed and consent plugins (for example `type="litespeed/javascript"`), so it ends live AdSense relationships. Re-enable it after that fix is released, then continue the homepage-miss correction from `content_docs/ad-networks/production-runbook.md` (first 25-domain batch done: 1 restored). Backups from that window: `/srv/stack127-data/state/homepage-backup-20261113T133043Z` and `/srv/stack127-db/backups/stack127-20261113T133102934154088Z.dump`.
 - 11 possible duplicate groups were left untouched as unsure, for example "Borg" and "borgserver", and "ONLYOFFICE" and "ONLYOFFICE Docs". They are marked `unsure` in the batch file.
 - The "Has mobile app" filter matches 0 to 4 apps per category in development, and "Needs database" is empty for most apps. Both need data work.
 - Two CLI categories, `communication` and `games-fun`, are below 15 apps and unpublished. Their intros are placeholder text.
