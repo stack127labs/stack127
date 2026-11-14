@@ -8,6 +8,7 @@ import { toolNames, toolSchemas } from './ad-networks/schemas.ts';
 import type { ToolName } from './ad-networks/schemas.ts';
 import { sqlSchema } from './ad-networks/sql.ts';
 const descriptions: Record<ToolName,string> = {
+  get_brand_kit:'For charts, images, tables and shared visuals: call once per visual task for stack127 colors, fonts, inline SVG logos and credit rules. Not needed for data questions. Input {}.',
   ad_networks_overview:'Start here before researching stack127 ad network data. Returns coverage totals, freshness, all definitions/caveats, allowed filters and a tool guide. Counts observed sites, not the whole market.',
   list_ad_networks:'Use to choose networks by joining rules or compare listed/managed counts and payment terms. Returns sourced public facts with checkedAt, median RDAP domain age and measurement bases. Traffic units and alternative joining rules are not comparable without reading the facts.',
   get_ad_network:'Use for a full profile of one network slug. Returns sourced joining/payment facts, confirmed/stale/listed/managed counts, age/year/niche/size/platform distributions, co-listed networks and bounded newest-first daily snapshots. Missing days are unknown; snapshots are listed counts.',
@@ -34,7 +35,7 @@ export async function handleMcp(request: Request,secret?: string): Promise<Respo
     // MCP batching is not accepted: each HTTP request has one rate-limit unit.
     if(!body||Array.isArray(body)||typeof body!=='object')throw new ApiError(400,'invalid_request','One JSON-RPC request per HTTP request.');
     server=new McpServer({name:'stack127-private-ad-networks',version:'1.0.0'},
-      {instructions:'Start with ad_networks_overview. Cite the returned stack127 URL. Carry definitions, as_of, filters and caveats into research. Listed sites may overlap between networks. Movements are not reliable growth/churn. All tools read data; SQL is private and optional.'});
+      {instructions:'Start with ad_networks_overview. Cite the returned stack127 URL. Carry definitions, as_of, filters and caveats into research. Listed sites may overlap between networks. Movements are not reliable growth/churn. All tools read data; SQL is private and optional. When making a chart, image or table for sharing, call get_brand_kit first. Title the visual by what it shows and add "Source: stack127.com/ad-networks · data as of <as_of date>", using the data answer’s as_of date and its more specific page URL when available. Use the brand colors and dark theme by default.'});
     for(const name of toolNames.filter(n=>n!=='run_readonly_sql'||sqlEnabled())) {
       server.registerTool(name,{
         title:name.split('_').map(w=>w[0].toUpperCase()+w.slice(1)).join(' '),description:descriptions[name],

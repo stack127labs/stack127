@@ -1,3 +1,4 @@
+import { brandKit } from '../brand.ts';
 import { createHash } from 'node:crypto';
 import { domainToASCII } from 'node:url';
 import { adNetworkFacts } from '../../../app/(site)/(directories)/ad-networks/network-facts.ts';
@@ -133,9 +134,10 @@ export function boundResults(data: Record<string, any>,cap: number) {
   sets.forEach((set,i)=>{if(set.parent[set.key].length>counts[i]){set.parent[set.key]=set.parent[set.key].slice(0,counts[i]);set.parent.truncated=true;truncatedSets.push(set.path);}});
   return {row_count:cap-left,truncated_sets:truncatedSets};
 }
-export type DataAnswer = { as_of: unknown; queried_at: string; definitions: typeof definitions; caveats: string[]; filters: Record<string, any>; url: string; data: Record<string, any>; limits: { max_rows: number; row_count:number; truncated: boolean; truncated_sets:string[] } };
+export type DataAnswer = { as_of: unknown; queried_at: string; definitions: Record<string, string>; caveats: string[]; filters: Record<string, any>; url: string; data: Record<string, any>; limits: { max_rows: number; row_count:number; truncated: boolean; truncated_sets:string[] } };
 export async function queryTool(db: Reader,name: ToolName,f: Record<string, any>,cap: number): Promise<Record<string, any>> {
   switch(name) {
+    case 'get_brand_kit': return brandKit;
     case 'ad_networks_overview': {
       const stats=(await db.query('select * from dataset_summary'))[0];
       const totals=(await db.query(`select count(distinct publisher_id)::int as listed,count(distinct publisher_id) filter(where relationship_type='primary_or_exclusive_manager')::int as managed from ad_network_publisher_relationships r where ${listed}`))[0];
@@ -198,6 +200,13 @@ export async function executeTool(name: ToolName,input: unknown,transaction?: ty
   if (!toolNames.includes(name)) throw new ApiError(404,'not_found','Unknown tool.');
   if (name==='run_readonly_sql' && !sqlEnabled()) throw new ApiError(404,'not_found','Not found.');
   const f=validateInput(name,input),cap=rowLimit();
+  if(name==='get_brand_kit') return {
+    as_of:null,queried_at:new Date().toISOString(),
+    definitions:{as_of:'Brand assets have no dataset freshness date. Use as_of from the data answer in the source line.'},
+    caveats:['Use the data tool answer for its citation URL, as_of date, definitions and caveats.'],
+    filters:f,url:sourceUrl,data:brandKit,
+    limits:{max_rows:cap,row_count:0,truncated:false,truncated_sets:[]},
+  };
   return (transaction ?? (name==='run_readonly_sql' ? sqlReadTransaction : readTransaction))(async db=>{
     const freshness=(await db.query('select * from dataset_summary'))[0];
     const data=await queryTool(db,name,f,cap);

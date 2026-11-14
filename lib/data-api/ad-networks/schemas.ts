@@ -15,6 +15,7 @@ export const filtersShape = {
   status: z.enum(['confirmed','stale']).optional().describe('Further restrict listed status. Ended relationships are available only in lookup_site and movements.'),
 };
 export const toolSchemas = {
+  get_brand_kit: z.object({}).strict(),
   ad_networks_overview: z.object({}).strict(),
   list_ad_networks: z.object({
     max_minimum_traffic: z.number().int().nonnegative().optional().describe('Maximum published monthly minimum. Unknown minimums are excluded; units differ, use traffic_unit. Example: 50000.'),
