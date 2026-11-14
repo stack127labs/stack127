@@ -15,5 +15,12 @@ fi
 cd /srv/stack127
 # The lock is outside /tmp so systemd PrivateTmp and manual invocations share it.
 # Node reads dotenv directly; values are never evaluated as shell commands.
+# Check the update journal only after taking the lock: a busy lock (also held by a
+# healthy updater) is a quiet skip, and a journal left behind after that is a real failure.
 exec flock -n -E 0 /srv/stack127-data/cache-worker.lock \
-  node --experimental-strip-types --env-file="$worker_env" scripts/stack127/cache/worker.mjs
+  sh -c '
+    if [ -e /srv/stack127-data/checkout/update-in-progress ]; then
+      echo "ERROR: checkout update in progress or interrupted" >&2; exit 1
+    fi
+    exec "$@"
+  ' sh node --experimental-strip-types --env-file="$worker_env" scripts/stack127/cache/worker.mjs

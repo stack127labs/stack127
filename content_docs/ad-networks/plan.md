@@ -143,7 +143,7 @@ This phase establishes the page and database contract. It does not assign a netw
 
 Database history is reconciled through the cleanup release. Keep the canonical versions in both managed projects. The old development ledger gaps and SQL experiments are historical context, not pending migrations.
 
-The GitHub discovery and verification workflows remain manual-only, without `--apply`. They preview candidates and checks without saving database changes. Keep their production schedules disabled until a separate activation review. The independent homelab SQLite workers remain separate.
+The manual GitHub discovery and verification workflows have been removed. Run previews without `--apply` in the OVH checkout, using the hold and commands in [the maintenance guide](maintenance.md#manual-previews-on-ovh). Recurring production jobs run on OVH.
 
 ### 2. Gather the initial domain list
 

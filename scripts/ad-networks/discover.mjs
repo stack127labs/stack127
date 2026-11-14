@@ -1,10 +1,7 @@
 #!/usr/bin/env node
 
-import { createReadStream } from "node:fs";
-import { readFile, mkdir, mkdtemp, rename, rm, writeFile } from "node:fs/promises";
-import { spawn } from "node:child_process";
-import { tmpdir } from "node:os";
-import { dirname, join, resolve } from "node:path";
+import { readFile, mkdir, rename, writeFile } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
 import { parseArgs } from "node:util";
 import pg from "pg";
 import {
@@ -14,6 +11,9 @@ import {
   publisherLinkDomains,
   sellerDomainsStream,
 } from "./lib.mjs";
+import { downloadToFile } from "./discovery-download.mjs";
+import { runDiscoverySources } from "./discovery-run.mjs";
+import { SELLERS_ACCEPT } from "./fetch-policy.mjs";
 import { createLocalDiscoveryStore } from "./local-discovery-store.mjs";
 import { defaultLocalDatabasePath, openLocalDatabase } from "./local-db.mjs";
 import { selectSources, sources } from "./sources.mjs";
@@ -123,52 +123,11 @@ async function existingSourceDomains(pool, sourceKey) {
   return domains;
 }
 
-async function downloadToFile(source, previous, { maxTimeSeconds, accept }) {
-  const directory = await mkdtemp(join(tmpdir(), "stack127-source-"));
-  const file = join(directory, "source-data");
-  const headerFile = join(directory, "headers.txt");
-  const args = [
-    "--ipv4", "--http1.1", "--location", "--silent", "--show-error", "--fail",
-    "--retry", "4", "--retry-all-errors", "--connect-timeout", "20",
-    "--max-time", String(maxTimeSeconds), "--user-agent", "stack127bot/1.0 (+https://stack127.com/ad-networks)",
-    "--header", `Accept: ${accept}`,
-    "--dump-header", headerFile, "--output", file, "--write-out", "%{http_code} %{url_effective}",
-  ];
-  if (apply && previous?.url === source.url) {
-    if (previous.etag && !/[\r\n]/.test(previous.etag)) args.push("--header", `If-None-Match: ${previous.etag}`);
-    if (previous.lastModified && !/[\r\n]/.test(previous.lastModified)) args.push("--header", `If-Modified-Since: ${previous.lastModified}`);
-  }
-  args.push(source.url);
-  try {
-    const result = await new Promise((resolveDownload, rejectDownload) => {
-      const child = spawn("curl", args, { stdio: ["ignore", "pipe", "pipe"] });
-      let output = "";
-      let errors = "";
-      child.stdout.on("data", (chunk) => { output += chunk.toString(); });
-      child.stderr.on("data", (chunk) => { errors = `${errors}${chunk.toString()}`.slice(-1000); });
-      child.on("error", rejectDownload);
-      child.on("close", (code) => code === 0 ? resolveDownload(output.trim()) : rejectDownload(new Error(`${source.key} download failed: ${errors.trim() || `curl exit ${code}`}`)));
-    });
-    const headerText = await readFile(headerFile, "utf8");
-    const headerValue = (name) => [...headerText.matchAll(new RegExp(`^${name}:\\s*(.+)$`, "gim"))].at(-1)?.[1]?.trim() ?? null;
-    const [status, finalUrl] = result.split(" ", 2);
-    return {
-      status: Number(status),
-      url: finalUrl,
-      body: status === "304" ? null : createReadStream(file),
-      headers: { get: headerValue },
-      cleanup: () => rm(directory, { recursive: true, force: true }),
-    };
-  } catch (error) {
-    await rm(directory, { recursive: true, force: true });
-    throw error;
-  }
-}
 
 async function sourceResponse(source, previous) {
   if (!source.skipRobotsCheck) await checkRobots(source.url);
   if (source.kind === "majestic-csv") {
-    const response = await downloadToFile(source, previous, { maxTimeSeconds: 600, accept: "text/csv" });
+    const response = await downloadToFile(source, previous, { maxTimeSeconds: 600, accept: "text/csv", apply });
     if (response.url !== source.url) {
       try { await checkRobots(response.url); }
       catch (error) { await response.cleanup(); throw error; }
@@ -177,8 +136,9 @@ async function sourceResponse(source, previous) {
   }
   if (source.transport === "curl-file") {
     const response = await downloadToFile(source, previous, {
+      apply,
       maxTimeSeconds: Math.ceil((source.timeoutMs ?? 180_000) / 1000),
-      accept: source.kind === "sellers-json" ? "application/json" : "text/html",
+      accept: source.kind === "sellers-json" ? SELLERS_ACCEPT : "text/html",
     });
     if (response.url !== source.url) {
       try { await checkRobots(response.url); }
@@ -187,7 +147,7 @@ async function sourceResponse(source, previous) {
     return response;
   }
   const accept = source.kind === "sellers-json"
-    ? "application/json"
+    ? SELLERS_ACCEPT
     : source.kind === "publisher-list-html"
       ? "text/html"
       : "text/csv";
@@ -216,15 +176,19 @@ async function processSource(source, storage, state) {
 
   const seenAt = new Date().toISOString();
   const stats = { source: source.key, status: apply ? "applied" : "dry_run", candidates: 0, newDomains: 0, newSightings: 0 };
-  const previouslyAttributed = source.kind === "majestic-csv" && storage
-    ? await storage.existingSourceDomains(source.key)
-    : null;
+  let previouslyAttributed = null;
+  if (source.kind === "majestic-csv" && storage) {
+    try { previouslyAttributed = await storage.existingSourceDomains(source.key); }
+    catch (error) { error.discoveryStorage = true; throw error; }
+  }
   const batch = [];
   const flush = async () => {
     if (!batch.length) return;
     if (storage) {
       const unique = [...new Map(batch.map((candidate) => [candidate.domain, candidate])).values()];
-      const result = await storage.upsertBatch(source, unique, seenAt);
+      let result;
+      try { result = await storage.upsertBatch(source, unique, seenAt); }
+      catch (error) { error.discoveryStorage = true; throw error; }
       stats.newDomains += result.inserted;
       stats.newSightings += result.newSightings;
     }
@@ -280,8 +244,6 @@ async function processSource(source, storage, state) {
       candidates: stats.candidates,
       completedAt: seenAt,
     };
-    if (storage?.saveSourceState) storage.saveSourceState(source.key, state[source.key]);
-    else await saveState(state);
   }
   return stats;
 }
@@ -302,20 +264,23 @@ const storage = localStore ?? (pool ? {
   existingSourceDomains: (sourceKey) => existingSourceDomains(pool, sourceKey),
 } : null);
 
-let failures = 0;
 try {
   const state = apply ? (localStore ? localStore.readState() : await readState()) : {};
-  for (const source of selected) {
-    try {
-      console.log(JSON.stringify(await processSource(source, storage, state)));
-    } catch (error) {
-      failures += 1;
-      localStore?.saveSourceFailure(source, error);
-      console.error(JSON.stringify({ source: source.key, status: "failed", error: error.message }));
-    }
-  }
+  process.exitCode = await runDiscoverySources({
+    sources: selected, state,
+    processSource: source => processSource(source, storage, state),
+    saveSuccess: async (source, entry) => {
+      if (!apply) return;
+      if (localStore) localStore.saveSourceState(source.key, entry);
+      else await saveState(state);
+    },
+    saveFailure: async (source, error) => {
+      if (!apply) return;
+      if (localStore) localStore.saveSourceFailure(source, error);
+      else await saveState(state);
+    },
+  });
 } finally {
   if (pool) await pool.end();
   localDatabase?.close();
 }
-if (failures) process.exitCode = 1;

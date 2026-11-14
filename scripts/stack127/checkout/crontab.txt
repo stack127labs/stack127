@@ -1,0 +1,3 @@
+# BEGIN stack127 checkout update (ubuntu, UTC; install outside Git first)
+25 * * * * /bin/bash /srv/stack127-data/checkout/run-job.sh stack127-checkout-update >> /srv/stack127-data/logs/stack127-checkout-update.log 2>&1
+# END stack127 checkout update

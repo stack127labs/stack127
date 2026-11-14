@@ -96,6 +96,8 @@ export function createLocalDiscoveryStore(database) {
           lastModified: row.last_modified,
           candidates: row.candidate_count,
           completedAt: row.completed_at,
+          lastStatus: row.last_status,
+          lastError: row.last_error,
         };
       }
       return state;

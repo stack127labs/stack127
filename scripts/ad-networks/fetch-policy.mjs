@@ -4,8 +4,11 @@ import dns from "node:dns/promises";
 import { isIP } from "node:net";
 import { getDomain } from "tldts";
 import { sharedHostSlot } from './shared-fetch-slots.mjs';
+import { isStorageError, storageError } from './storage-errors.mjs';
 
 export const USER_AGENT = "stack127bot/1.0 (+https://stack127.com/ad-networks)";
+// Seller feeds can be served as JSON, plain text, or generic binary content.
+export const SELLERS_ACCEPT = "application/json, text/plain;q=0.9, */*;q=0.8";
 const TRANSIENT_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
 const MAX_REDIRECTS = 5;
 const MAX_EXTERNAL_REDIRECTS = 1;
@@ -91,12 +94,16 @@ async function requestOnce(url, options, dependencies) {
   const release = () => {
     if (released) return; released = true;
     try {sharedUnlock?.();}
-    catch(error){console.error(`Shared fetch lease release failed for ${host}: ${error.message}; its bounded lease will expire.`);}
+    catch(error){
+      if (options.failOnStorageError) throw storageError(error);
+      console.error(`Shared fetch lease release failed for ${host}: ${error.message}; its bounded lease will expire.`);
+    }
     finally {setTimeout(() => { unlock(); if (hostSlots.get(host) === slot) hostSlots.delete(host); }, 1000);}
   };
   await previous;
   try {
-    sharedUnlock=await dependencies.sharedHostSlot(host,{leaseMs:2*(options.timeoutMs??15000)+60000});
+    try { sharedUnlock=await dependencies.sharedHostSlot(host,{leaseMs:2*(options.timeoutMs??15000)+60000}); }
+    catch (error) { throw storageError(error); }
     const response = await requestPublic(url, options, dependencies);
     if (!response.body) { release(); return response; }
     const reader = response.body.getReader();
@@ -104,8 +111,11 @@ async function requestOnce(url, options, dependencies) {
       async pull(controller) {
         try {
           const { done, value } = await reader.read();
-          if (done) { controller.close(); release(); } else controller.enqueue(value);
-        } catch (error) { controller.error(error); release(); }
+          if (done) { release(); controller.close(); } else controller.enqueue(value);
+        } catch (error) {
+          try { release(); } catch (releaseError) { error = releaseError; }
+          controller.error(error);
+        }
       },
       async cancel(reason) { try { await reader.cancel(reason); } finally { release(); } },
     });
@@ -152,7 +162,7 @@ export async function safeFetch(value, options = {}, dependencies = {}) {
       try {
         response = await requestOnce(url, options, runtime);
       } catch (error) {
-        if (attempt + 1 >= (options.attempts ?? 3)) throw error;
+        if (isStorageError(error) || attempt + 1 >= (options.attempts ?? 3)) throw error;
         await sleep(Math.min(1000 * (2 ** attempt), 5000));
         continue;
       }

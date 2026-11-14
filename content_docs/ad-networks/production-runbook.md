@@ -18,6 +18,8 @@ On OVH (`ssh ovh`, user `ubuntu`, UTC):
 
 The env file also sets `GITHUB_ALERT_TOKEN`, `AD_NETWORK_DB_PATH`, and `AD_NETWORKS_STATE_DIRECTORY`. Never print it. Homelab owns env values; Mac copies must not be edited.
 
+The shared checkout updates at minute 25 each hour through the [installed updater](../../scripts/stack127/checkout/README.md). Cron and manual updates start only at UTC minutes 15–28, so the ten-minute timeout plus 30-second kill period releases job locks before :40. It skips maintenance holds and active jobs, uses fast-forward only, and installs dependencies only when needed. Never pull or install packages underneath a running job.
+
 The wrapper is [`run-job.sh`](../../scripts/ad-networks/ovh/run-job.sh). The full schedule is [`crontab.txt`](../../scripts/ad-networks/ovh/crontab.txt). Homelab's `stack127-ad-network-niche.timer` runs daily at 06:00 UTC (11:30 IST), with up to 3,000 sites per run.
 
 ## Counts in titles and headings
@@ -67,13 +69,13 @@ Ordinary vacuum makes dead space reusable; it does not generally shrink files on
 The coordinator performs these steps after review and release authorization. Keep cron removed and pause homelab's niche timer while doing the first sync.
 
 1. Confirm the latest database backup and SQLite backup are usable. Wait for any old ad-network processes to stop. Keep the existing OVH working store.
-2. Update OVH to the reviewed release:
+2. Let the [hourly checkout updater](../../scripts/stack127/checkout/README.md) reach the reviewed release (install it with that guide first if needed). Run it by hand only at UTC minutes 15–28, before opening a maintenance window. The first install run has the same time limit:
 
    ```bash
-   ssh ovh 'cd /srv/stack127 && git pull --ff-only && npm ci --omit=dev --ignore-scripts && git rev-parse HEAD'
+   ssh ovh '/bin/bash /srv/stack127-data/checkout/run-job.sh stack127-checkout-update && git -C /srv/stack127 rev-parse HEAD'
    ```
 
-   Check that SHA against the released revision. Check the env target privately: `AD_NETWORKS_RUNTIME_ENVIRONMENT=production`, loopback port 5432, and login `stack127_app`. Source it with `set -a; . /srv/stack127-data/ad-networks.env; set +a`. Do not use a parser that leaves surrounding quotes in values.
+   Exit 76 means outside UTC minutes 15–28, held or busy; wait for the next safe window and retry without bypassing locks. Check that SHA against the released revision. Set the checkout hold and wait for the updater using the linked guide before the manual steps below; remove your hold only after all release/maintenance work is complete. Check the env target privately: `AD_NETWORKS_RUNTIME_ENVIRONMENT=production`, loopback port 5432, and login `stack127_app`. Source it with `set -a; . /srv/stack127-data/ad-networks.env; set +a`. Do not use a parser that leaves surrounding quotes in values.
 3. If the separate evidence cleanup is approved, run its SQL as the database administrator. Each pass selects at most 5,000 keys per table before projecting JSON. Temporary cursors advance in one database session, including through unchanged batches. Stop when both scanned counts are zero, even if earlier trimmed counts were zero. For example, on OVH from `/srv/stack127`:
 
    ```bash
@@ -191,6 +193,11 @@ From the operator's local checkout, pause frontend dispatch and save the existin
 ```bash
 # Local shell. The implementation agent must not run these production mutations.
 export ADN_WINDOW=$(date -u +%Y%m%dT%H%M%SZ)
+# Hold code first; refuse an existing hold. Wait for any update already in flight.
+ssh ovh 'set -eu
+install -d -m 755 /srv/stack127-data/state
+(set -C; : > /srv/stack127-data/state/checkout-hold)
+flock -w 660 /srv/stack127-data/checkout/updater.lock true'
 ssh ovh python3 - "$ADN_WINDOW" <<'PYTHON'
 import pathlib
 import subprocess
@@ -214,7 +221,7 @@ ssh ovh 'sudo -n systemctl stop stack127-cache-worker.timer'
 ssh ovh 'while systemctl is-active --quiet stack127-cache-worker.service; do sleep 2; done'
 ```
 
-Coordinate other writers and releases for the same window. The authorized operator pauses homelab niche imports with `ssh homelab 'systemctl --user stop stack127-ad-network-niche.timer'` and waits until `ssh homelab 'systemctl --user is-active stack127-ad-network-niche.service'` reports inactive. Do not kill an active importer. These are release instructions, not permission for the implementation agent to operate on homelab. Wait for existing OVH collectors, syncs and retry wrappers to finish; inspect with:
+Keep this hold through the complete window. Update code before setting it, using the updater only at UTC minutes 15–28; never bypass the start window while collectors are paused. It survives restarts, but does not pause data jobs or dispatch. If waiting for the updater fails, leave the hold and investigate before proceeding. Coordinate other writers and releases for the same window. The authorized operator pauses homelab niche imports with `ssh homelab 'systemctl --user stop stack127-ad-network-niche.timer'` and waits until `ssh homelab 'systemctl --user is-active stack127-ad-network-niche.service'` reports inactive. Do not kill an active importer. These are release instructions, not permission for the implementation agent to operate on homelab. Wait for existing OVH collectors, syncs and retry wrappers to finish; inspect with:
 
 ```bash
 ssh ovh 'ps -eo pid,etime,args | grep -E "[s]cripts/ad-networks/(ovh/run-job.sh|refresh.mjs|verify.mjs|sync.mjs|niche-import.mjs)"'
@@ -388,6 +395,8 @@ print('Exactly one verification line enabled; every other line preserved')
 PYTHON
 ssh ovh 'crontab -l'
 ```
+
+After the complete window and public acceptance pass, remove only the checkout hold created in step 1 with `ssh ovh 'rm /srv/stack127-data/state/checkout-hold'`. If no new window was opened, do not remove an existing hold belonging to another operator. The next minute-25 update catches up.
 
 After the next hourly `:40` run finishes, inspect `ssh ovh 'tail -n 100 /srv/stack127-data/logs/verification.log'`. Require a `start verification` timestamp after `$ADN_RESUMED_AT` and its following `end verification exit 0`. An old exit line or an active crontab alone does not pass. If that next run fails, keep the release incomplete and investigate before claiming acceptance.
 
