@@ -6,6 +6,7 @@ const root = process.cwd();
 const originals = path.join(root, "public", "brand", "originals");
 const logos = path.join(root, "public", "logos");
 
+// The wordmark itself ships as SVG (public/logos/*.svg). This PNG is only the source of the 127 mark and icons.
 const wordmarkSource = path.join(originals, "stack127-wordmark-approved.png");
 
 const darkBackground = { r: 16, g: 16, b: 16 };
@@ -97,14 +98,10 @@ function icoFromPngs(entries) {
 async function main() {
   await mkdir(logos, { recursive: true });
 
-  const wordmarkOnLight = await extractedLogo(wordmarkSource, darkInk);
-  const wordmarkOnDark = await extractedLogo(wordmarkSource, lightInk);
   const markOnLight = await extractedLogo(wordmarkSource, darkInk, 8, true);
   const markOnDark = await extractedLogo(wordmarkSource, lightInk, 8, true);
 
   await Promise.all([
-    writeFile(path.join(logos, "stack127-wordmark-on-light.png"), wordmarkOnLight),
-    writeFile(path.join(logos, "stack127-wordmark-on-dark.png"), wordmarkOnDark),
     writeFile(path.join(logos, "stack127-mark-on-light.png"), markOnLight),
     writeFile(path.join(logos, "stack127-mark-on-dark.png"), markOnDark),
   ]);

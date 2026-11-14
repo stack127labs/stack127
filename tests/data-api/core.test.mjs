@@ -119,3 +119,58 @@ test('future SQL uses only its dedicated pool and read-only transaction, includi
     globalThis.stack127DataApiPool=previous.app;globalThis.stack127DataSqlPool=previous.sql;
   }
 });
+
+test('brand kit has theme colors and inline logos, stays small and never opens a data transaction',async()=>{
+  const answer=await executeTool('get_brand_kit',{},()=>assert.fail('brand kit opened a transaction'));
+  assert.equal(answer.as_of,null);
+  assert.equal(answer.data.colors.dark.accent,'#bafc3c');
+  assert.equal(answer.data.colors.light.accent_text,'#3a7000');
+  assert.equal(answer.data.colors.dark.categorical.cyan,'#45cbd3');
+  assert.equal(answer.data.colors.light.categorical.cyan,'#1596a3');
+  for(const theme of ['dark','light']) {
+    assert.match(answer.data.logo[theme].wordmark_svg,/<svg/);
+    assert.match(answer.data.logo[theme].mark_svg,/<circle fill="#bafc3c"/);
+    assert.ok(answer.data.logo[theme].mark_png_url.endsWith('.png'));
+  }
+  assert.ok(Buffer.byteLength(JSON.stringify(answer))<20000);
+  const {mcpAnswer}=await import('../../lib/data-api/mcp.ts');
+  assert.ok(Buffer.byteLength(mcpAnswer(answer).content[0].text)<20000);
+  await assert.rejects(executeTool('get_brand_kit',{unknown:true}),{status:400});
+});
+
+test('brand kit is listed in MCP and both front doors share its answer and authentication/rate limits',async()=>{
+  const previousPool=globalThis.stack127DataApiPool;
+  const keys=['STACK127_MCP_ENABLED','STACK127_REST_ENABLED','STACK127_MCP_TOKEN'];
+  const previousEnv=Object.fromEntries(keys.map(key=>[key,process.env[key]]));
+  let rates=0,limited=false;
+  globalThis.stack127DataApiPool={
+    connect:()=>assert.fail('brand kit opened a DB transaction'),
+    query:async sql=>{assert.match(sql,/insert into stack127_api.rate_limits/);rates++;return {rowCount:limited?0:1};},
+  };
+  Object.assign(process.env,{STACK127_MCP_ENABLED:'true',STACK127_REST_ENABLED:'true',STACK127_MCP_TOKEN:token});
+  const headers={authorization:'Bearer '+token,'content-type':'application/json',accept:'application/json, text/event-stream'};
+  const mcp=async(method,params)=>{
+    const response=await handleMcp(new Request('http://localhost/api/mcp',{method:'POST',headers,body:JSON.stringify({jsonrpc:'2.0',id:1,method,params})}));
+    assert.equal(response.status,200);return response.json();
+  };
+  try {
+    const list=await mcp('tools/list',{});
+    const tool=list.result.tools.find(t=>t.name==='get_brand_kit');
+    assert.ok(tool);assert.equal(tool.annotations.readOnlyHint,true);assert.ok(tool.outputSchema);
+    const called=await mcp('tools/call',{name:'get_brand_kit',arguments:{}});
+    assert.ok(!called.result.isError);
+    const response=await handleRest(new Request('http://localhost',{method:'POST',headers,body:'{}'}),'get_brand_kit');
+    assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'no-store');
+    const rest=await response.json();
+    assert.deepEqual(rest.data,called.result.structuredContent.data);
+    assert.equal(rates,3);
+    assert.equal((await handleRest(new Request('http://localhost',{method:'POST',body:'{}'}),'get_brand_kit')).status,401);
+    assert.equal((await handleMcp(new Request('http://localhost',{method:'POST',body:'{}'}))).status,401);
+    limited=true;
+    assert.equal((await handleRest(new Request('http://localhost',{method:'POST',headers,body:'{}'}),'get_brand_kit')).status,429);
+    assert.equal((await handleMcp(new Request('http://localhost',{method:'POST',headers,body:'{}'}))).status,429);
+  } finally {
+    globalThis.stack127DataApiPool=previousPool;
+    for(const key of keys){if(previousEnv[key]===undefined)delete process.env[key];else process.env[key]=previousEnv[key];}
+  }
+});

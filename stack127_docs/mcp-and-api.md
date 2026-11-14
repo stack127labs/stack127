@@ -8,7 +8,7 @@ This is the owner's research API. It reads the same ad network dataset and sourc
 
 The official TypeScript SDK is pinned to `@modelcontextprotocol/sdk` **1.32.2**. npm reports publication on **2026-10-23**, 22 days before the **2026-11-14** review. Its [SDK documentation](https://github.com/modelcontextprotocol/typescript-sdk) describes Streamable HTTP; the installed package includes the stateless and JSON-response examples. The server uses the SDK's Web Standards transport, no session IDs, and JSON responses. GET event streams and resumable sessions are not offered. There is no scheduler or new service.
 
-Every successful answer carries `as_of`, `queried_at`, definitions, caveats, normalized filters, a stack127 citation URL, data, and limits. `as_of` is the latest stored successful site check, relationship event, or daily snapshot capture, not the request time and not a guarantee that every row is that fresh. Overview also gives oldest/newest successful site checks. CrUX's import month is not retained in these serving tables; answers say it is unknown. Factual joining/payment sources have their own `checkedAt` date.
+Every successful answer carries `as_of`, `queried_at`, definitions, caveats, normalized filters, a stack127 citation URL, data, and limits. For data tools, `as_of` is the latest stored successful site check, relationship event, or daily snapshot capture, not the request time and not a guarantee that every row is that fresh. Overview also gives oldest/newest successful site checks. CrUX's import month is not retained in these serving tables; answers say it is unknown. Factual joining/payment sources have their own `checkedAt` date.
 
 ## Tools and REST routes
 
@@ -16,6 +16,7 @@ For every row below, the REST route is **POST `/api/v1/ad-networks/<tool-name>`*
 
 | Tool / REST suffix | Use it for |
 | --- | --- |
+| `get_brand_kit` | Colors for both themes, font stacks, inline SVG wordmarks and marks, public logo URLs, credit and chart rules. Input `{}`. Call once per visual task; skip for data questions. |
 | `ad_networks_overview` | Start here: sites checked, distinct listed/managed totals, freshness, measurement, definitions, caveats, allowed values, tool guide. Input `{}`. |
 | `list_ad_networks` | Counts, domain-age median and measured base, sourced joining/payment facts and checked dates. Filter published numeric minimum, traffic unit, or public numeric rule; sort by listed, managed, name or minimum traffic. |
 | `get_ad_network` | One `network` slug, facts/sources, counts, domain-age buckets/median, registration years, niche/size/platform mix, co-listing and daily listed snapshots. |
@@ -31,6 +32,16 @@ For every row below, the REST route is **POST `/api/v1/ad-networks/<tool-name>`*
 Listed means confirmed or stale. Managed means a listed `primary_or_exclusive_manager` relationship. This is the requested relationship-based measure; it differs from the public page's manager resolver, which also reconciles retained manager-domain evidence and ambiguous signals. Do not call those two measures interchangeable. The API reuses the public listed-status rule, domain-age bucket thresholds/median expression, source facts and observed-event definitions. Minimum traffic in sessions and pageviews is not interchangeable; use `traffic_unit`. `has_public_rule` specifically means a published numeric monthly traffic minimum, including an explicit zero; read full joining facts for alternatives.
 
 Movement answers are not reliable growth/churn series. History begins around October 19, 2026. Homepage/checker faults were repaired November 13/14; the conservative repair search begins September 28. Some false departures were repaired; others remain uncertain. Missing history days are unknown, not zero. See [the production runbook](../content_docs/ad-networks/production-runbook.md) and [growth status](brand-growth/status.md).
+
+## Brand kit
+
+Call `get_brand_kit` before making a chart, image or table for sharing. Use dark mode by default, title it by what it shows, and add "Ad network data from stack127" with a small logo. Include `Source: stack127.com/ad-networks · data as of <as_of date>`. Use the data answer's `as_of` date and its more specific page URL when available. Keep its definitions and caveats with the visual.
+
+The kit returns `as_of: null` because brand assets have no dataset freshness date. It opens no data transaction. Authentication and database-backed rate limits still apply to both front doors.
+
+Colors and font stacks come from `app/globals.css` and the ad network visualization tokens. SVG text is embedded in `lib/data-api/brand-assets.generated.ts`, so standalone server bundles need no runtime file reads. After changing the source tokens or wordmarks, run `node scripts/stack127/brand/build-api-kit.mjs` to refresh the embedded assets and mark SVGs.
+
+Connected clients must refresh their tool list to see `get_brand_kit` and the updated server instructions.
 
 ## Authentication and future public plans
 
@@ -233,7 +244,7 @@ npm run test:data-api:routing
 npm run test:data-api:development
 ```
 
-The development test uses `.env.local` and is skipped unless the effective connection exactly matches the pinned managed development project and its postgres pooler login. It starts only a temporary loopback HTTP adapter for the actual Next route handlers, and calls tools/list plus all eight fixed tools using the official SDK client. It tests REST parity, public count parity, grouping, cursor continuation, projection fields, read-only transactions, timeout, row limits, off switches, SQL hidden even with its flag on, and concurrent minute/day limits. Focused tests also run the real proxy plus route handlers for all methods and status/error paths, compare wrong-secret and unknown-API 404s, reject nested collections and check MCP text byte limits. It does not run a Next build or connect the owner's actual Claude/ChatGPT accounts.
+The development test uses `.env.local` and is skipped unless the effective connection exactly matches the pinned managed development project and its postgres pooler login. It starts only a temporary loopback HTTP adapter for the actual Next route handlers, and calls tools/list plus all fixed tools using the official SDK client. It tests REST parity, public count parity, grouping, cursor continuation, projection fields, read-only transactions, timeout, row limits, off switches, SQL hidden even with its flag on, and concurrent minute/day limits. Focused tests also run the real proxy plus route handlers for all methods and status/error paths, compare wrong-secret and unknown-API 404s, reject nested collections and check MCP text byte limits. It does not run a Next build or connect the owner's actual Claude/ChatGPT accounts.
 
 To add a tool, add its strict described schema in `schemas.ts`, its read-only query in `core.ts`, and its AI-facing description in `mcp.ts`. The generic REST route automatically exposes that same tool name. Add safe projections to a reviewed migration only if new fields are needed. Keep output metadata and the shared result-row budget. Add focused tests and extend the SDK development test; run quality. Release through the normal reviewer/PR path, then refresh connected tool lists. No separate MCP server deployment is needed.
 
