@@ -1,3 +1,4 @@
+import * as ahrefs from "../../../lib/ahrefs.ts";
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {adNetworksLibrary} from './loader-harness.mjs';
@@ -28,6 +29,7 @@ test('site API returns each relationship ad-system domains without substituting 
   });
   const {GET}=loadTypeScript(new URL('../../../app/api/ad-networks/site/route.ts',import.meta.url),{
     'next/server':{NextResponse:{json:(body,options)=>Response.json(body,options)}},
+    "@/lib/ahrefs":ahrefs,
     '@/lib/ad-networks':{getAdNetworkCheckerSite:lib.loadAdNetworkCheckerSite},
     '@/lib/page-registry':{getPublishedPage:async()=>({})},'../input':input,
   });

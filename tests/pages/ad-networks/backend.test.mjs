@@ -1,3 +1,4 @@
+import * as ahrefs from "../../../lib/ahrefs.ts";
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { deriveManagedBy, buildAdsTxtPreview, aggregateAdNetworkManagers, aggregateAdNetworkTrafficShares } from '../../../lib/ad-network-site-facts.mjs';
@@ -43,7 +44,7 @@ test('sync defaults to a read-only development preview and requires explicit pro
 });
 test('sites inputs support both network and niche with bounded pagination and literal search',()=>{
   assert.deepEqual(parseAdNetworkSitesParams(new URLSearchParams('network=mediavine&niche=food&q=Food%25&sort=oldest&page=2&pageSize=50')),
-    {network:'mediavine',niche:'food',q:'food%',sort:'oldest',page:2,pageSize:50});
+    {network:'mediavine',niche:'food',q:'food%',sort:'oldest',page:2,pageSize:50,minDr:null});
   for (const query of ['page=0','page=-1','page=1.5','page=10001','pageSize=101','pageSize=0','sort=drop','niche=made-up','network=x%27','q=a&q=b','x=1']) {
     assert.throws(()=>parseAdNetworkSitesParams(new URLSearchParams(query)),AdNetworkInputError,query);
   }
@@ -59,15 +60,15 @@ test('checker accepts URLs and international domains and rejects local or malfor
 
 const { loadTypeScript } = await import('../../helpers/load-typescript.mjs');
 const input = {parseAdNetworkSitesParams,parseAdNetworkSiteParams,AdNetworkInputError};
-function route(kind, {published=true,fail=false}={}) {
+function route(kind, {published=true,fail=false,rating=null}={}) {
   let calls=0;
   const lib={
-    getAdNetworkSites: async query=>{calls++;if(fail)throw Error('database unavailable');return {rows:[],total:0,page:query.page,pageSize:query.pageSize,totalPages:1};},
-    getAdNetworkCheckerSite: async domain=>{calls++;if(fail)throw Error('database unavailable');return domain==='known.com'?{site:{domain}}:null;},
+    getAdNetworkSites: async query=>{calls++;if(fail)throw Error('database unavailable');return {rows:[{domain:"known.com",domain_rating:rating}],total:1,page:query.page,pageSize:query.pageSize,totalPages:1,...ahrefs.ahrefsAttribution([rating])};},
+    getAdNetworkCheckerSite: async domain=>{calls++;if(fail)throw Error('database unavailable');return domain==='known.com'?{site:{domain,domain_rating:rating},similar_sites:[]}:null;},
   };
   const {GET}=loadTypeScript(new URL(`../../../app/api/ad-networks/${kind}/route.ts`,import.meta.url),{
     'next/server':{NextResponse:{json:(body,options)=>new Response(JSON.stringify(body),options)}},
-    '@/lib/ad-networks':lib,'@/lib/page-registry':{getPublishedPage:async()=>published?{}:null},'../input':input,
+    '@/lib/ahrefs':ahrefs,'@/lib/ad-networks':lib,'@/lib/page-registry':{getPublishedPage:async()=>published?{}:null},'../input':input,
   });
   return {GET,calls:()=>calls};
 }
@@ -197,4 +198,15 @@ test('traffic shares retain confirmed managers after failed checks and count eac
   assert.deepEqual(aggregateAdNetworkTrafficShares(groups,networks),expected);
   assert.deepEqual(aggregateAdNetworkTrafficShares([...groups].reverse(),networks),expected);
   assert.deepEqual(aggregateAdNetworkTrafficShares([],networks),[]);
+});
+
+test('both public API responses credit Ahrefs for a present DR including zero, and omit credit for unknown DR',async()=>{
+  for(const kind of ['sites','site'])for(const rating of [0,42,null]) {
+    const api=route(kind,{rating});
+    const response=await api.GET(new Request(`https://stack127.com/api/ad-networks/${kind}?${kind==='site'?'domain=known.com':''}`));
+    assert.equal(response.status,200);
+    const body=await response.json();
+    if(rating===null)assert.equal(Object.hasOwn(body,'attribution'),false);
+    else assert.deepEqual(body.attribution,ahrefs.AHREFS_ATTRIBUTION);
+  }
 });

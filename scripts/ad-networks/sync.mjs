@@ -14,7 +14,7 @@ const reviewed = new Set(['confirmed', 'stale', 'ended']);
 const reviewedWhere = (prefix = '') => `(${prefix}status in ('confirmed','stale') or (${prefix}status='ended' and ${prefix}first_confirmed_at is not null))`;
 const publisherFields = ['normalized_domain','display_domain','first_seen_at','last_discovered_at','last_checked_at',
   'check_status','last_check_outcome','last_check_evidence','last_successful_check_at','discovery_sources'];
-export const enrichmentFields = ['niche','publisher_name','platform','domain_created_on','traffic_group','ads_txt_summary','favicon'];
+export const enrichmentFields = ['niche','publisher_name','platform','domain_created_on','domain_rating','domain_rating_checked_on','traffic_group','ads_txt_summary','favicon'];
 // Recurring model work on homelab owns existing target niches. SQLite can seed
 // a newly inserted publisher, but a full collector sync must never replace one.
 export const publisherUpdateFields = fields => fields.filter(field => !['normalized_domain','niche'].includes(field));

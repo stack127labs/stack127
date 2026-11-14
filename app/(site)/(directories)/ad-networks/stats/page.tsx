@@ -10,12 +10,13 @@ import { Report, ReportBars, ReportBlock, ReportGroup, ReportNumbers, ReportRow,
 import { ColumnChart } from "@/app/ui/ad-networks/viz/columns";
 import { DivergingBars } from "@/app/ui/ad-networks/viz/diverging-bars";
 import { DotPlot } from "@/app/ui/ad-networks/viz/dot-plot";
-import { formatCompact, logStepPosition } from "@/app/ui/ad-networks/viz/format";
+import { formatCompact, formatNumber, logStepPosition } from "@/app/ui/ad-networks/viz/format";
 import { MultiLine, type LineSeries } from "@/app/ui/ad-networks/viz/multi-line";
 import { ScatterPlot } from "@/app/ui/ad-networks/viz/scatter-plot";
 import { SizeStacks } from "@/app/ui/ad-networks/viz/size-stacks";
 import { StackedColumns } from "@/app/ui/ad-networks/viz/stacked-columns";
 import { formatCount } from "@/app/ui/ad-networks/site-format";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import { AppShell } from "@/app/ui/site/app-shell";
 import { EntryHero } from "@/app/ui/site/entry-hero";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
@@ -139,6 +140,34 @@ export default async function AdNetworkStatsPage() {
   const ageRows = data.median_domain_age.slice(0, 9).map((row) => ({ label: row.name, shortLabel: shortName(row.name), value: Math.round(row.years) }));
   const wordpressRows = data.wordpress_share.slice(0, 8)
     .map((row) => ({ label: row.name, value: row.share, display: percent(row.share), href: `/ad-networks/${row.slug}` }));
+  // Only networks with enough rated sites (AD_NETWORK_DR_GATE), highest average first.
+  const drRows = (data.domain_rating_by_network ?? []).slice(0, 8)
+    .map((row) => ({ label: row.name, value: row.average, display: <>{Math.round(row.average)}<br />{formatNumber(row.rated)} of {formatNumber(row.listed)} rated</>, href: `/ad-networks/${row.slug}` }));
+
+  // data-gate: the domain-age run fills median ages; the platform run fills WordPress shares; the
+  // domain-rating run fills average DR, with the Ahrefs credit its license needs.
+  const compareBlocks = [
+    scatter.length > 1 ? (
+      <ReportBlock description={`Each dot is a network, placed by the monthly traffic it asks for and how many sites run it.${guideNote} Networks without a public traffic rule are left out.`} key="rules" label="joining rule vs sites">
+        <ScatterPlot caption="Monthly traffic rule and sites per network" points={scatter} xLabels={ruleStepLabels} xTitle="traffic to join →" />
+      </ReportBlock>
+    ) : null,
+    ageRows.length ? (
+      <ReportBlock description="How long the domains of each network's sites have been registered." key="age" label="median domain age">
+        <DotPlot caption="Median domain age per network, in years" rows={ageRows} unit="yrs" />
+      </ReportBlock>
+    ) : null,
+    wordpressRows.length ? (
+      <ReportBlock description="The share of each network's sites built on WordPress." key="wordpress" label="WordPress share">
+        <ReportBars ariaLabel="WordPress share by network" max={100} rows={wordpressRows} />
+      </ReportBlock>
+    ) : null,
+    drRows.length ? (
+      <ReportBlock description={<>Average backlink strength from 0 to 100, covering rated sites only. <AhrefsCredit /></>} key="dr" label="average domain rating">
+        <ReportBars ariaLabel="Average Domain Rating by network" max={100} rows={drRows} />
+      </ReportBlock>
+    ) : null,
+  ].filter(Boolean);
 
   const ads = data.ads_txt_metrics;
   const fileSizeTop = Math.max(0, ...data.ads_txt.file_sizes.map((row) => row.count));
@@ -237,26 +266,15 @@ export default async function AdNetworkStatsPage() {
             </ReportGroup>
           ) : null}
 
-          {/* data-gate: the domain-age run fills median ages; the platform run fills WordPress shares. */}
-          {scatter.length > 1 || ageRows.length || wordpressRows.length ? (
+          {compareBlocks.length ? (
             <ReportGroup level={2} title="How do the networks compare?">
-              <ReportRow layout="1-1-1">
-                {scatter.length > 1 ? (
-                  <ReportBlock description={`Each dot is a network, placed by the monthly traffic it asks for and how many sites run it.${guideNote} Networks without a public traffic rule are left out.`} label="joining rule vs sites">
-                    <ScatterPlot caption="Monthly traffic rule and sites per network" points={scatter} xLabels={ruleStepLabels} xTitle="traffic to join →" />
-                  </ReportBlock>
-                ) : null}
-                {ageRows.length ? (
-                  <ReportBlock description="How long the domains of each network's sites have been registered." label="median domain age">
-                    <DotPlot caption="Median domain age per network, in years" rows={ageRows} unit="yrs" />
-                  </ReportBlock>
-                ) : null}
-                {wordpressRows.length ? (
-                  <ReportBlock description="The share of each network's sites built on WordPress." label="WordPress share">
-                    <ReportBars ariaLabel="WordPress share by network" max={100} rows={wordpressRows} />
-                  </ReportBlock>
-                ) : null}
-              </ReportRow>
+              {/* Four blocks sit as two pairs; three keep the original row of three. */}
+              {compareBlocks.length === 4 ? (
+                <>
+                  <ReportRow layout="1-1">{compareBlocks.slice(0, 2)}</ReportRow>
+                  <ReportRow layout="1-1">{compareBlocks.slice(2)}</ReportRow>
+                </>
+              ) : <ReportRow layout="1-1-1">{compareBlocks}</ReportRow>}
             </ReportGroup>
           ) : null}
 

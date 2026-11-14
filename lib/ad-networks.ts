@@ -1,3 +1,4 @@
+import { ahrefsAttribution } from "./ahrefs";
 import { getPublicSuffix } from "tldts";
 import { adNetworkNiches, getAdNetworkNiche } from "./ad-network-niches";
 import type { AdNetworkNicheSlug } from "./ad-network-niches";
@@ -7,13 +8,15 @@ import type {
   AdNetworkStatsPageData, AdNetworkShare, AdNetworkCount, AdNetworkDailyCount,
   AdNetworkMovement, AdNetworkSwitch, AdNetworkTrafficShare, AdNetworkCheckerSiteView,
   AdNetworkSiteRelationship, AdNetworkAdsTxtSummary, AdNetworkSitesAvailability, AdNetworkDirectoryData, AdNetworkJoiningRule, AdNetworkDomainAgeStrip,
+  AdNetworkDomainRatingSummary,
 } from "./ad-networks-types";
 import { deriveManagedBy, buildAdsTxtPreview, aggregateAdNetworkManagers, aggregateAdNetworkTrafficShares } from "./ad-network-site-facts.mjs";
 
-import { AD_NETWORK_SITES_PAGE_SIZE, adNetworkSiteAvailability, adNetworkNicheShares, hasAdNetworkNicheCoverage, adNetworkMonthEnds, adNetworkYearChange,
+import { AD_NETWORK_SITES_PAGE_SIZE, AD_NETWORK_DR_FILTER_STEPS, adNetworkSiteAvailability, adNetworkNicheShares, hasAdNetworkNicheCoverage, adNetworkMonthEnds, adNetworkYearChange,
   adNetworkMovementTotals, adNetworkManagerBreakdown, trafficOrder, domainAgeOrder,
   adNetworkSwitchFlow, adNetworkMovementPeriods, adNetworkPlatformMix,
-  adNetworkCheckerEvents, adNetworkObservedDomainAge, adNetworkUtcWindow } from "./ad-networks-report";
+  adNetworkCheckerEvents, adNetworkObservedDomainAge, adNetworkUtcWindow,
+  adNetworkDomainRatingReport, hasAdNetworkDomainRatingCoverage } from "./ad-networks-report";
 import type { AdNetworkSiteCoverage } from "./ad-networks-report";
 import { adNetworkFacts } from "../app/(site)/(directories)/ad-networks/network-facts";
 
@@ -179,7 +182,7 @@ function cached<T extends unknown[], R>(key: string, loader: (...args: T) => Pro
     }
     try { return await read; }
     finally { if (pending.get(argumentKey) === read) pending.delete(argumentKey); }
-  }, [key, "v15"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
+  }, [key, "v17"], { revalidate: false, tags: [AD_NETWORKS_TAG] });
 }
 const iso = (value: Date | string | null): string | null => value === null ? null : new Date(value).toISOString();
 const ref = (network: AdNetworkRef): AdNetworkRef => ({ slug: network.slug, name: network.name });
@@ -203,7 +206,8 @@ const managerEvidenceProjection = `jsonb_build_object('manager_domains',p.last_c
     where r.publisher_id=p.id and r.status='confirmed' and r.relationship_type='primary_or_exclusive_manager'),
     '[]'::jsonb) as manager_relationships`;
 const siteProjection = `p.normalized_domain as domain, p.publisher_name, p.niche, p.traffic_group,
-  p.domain_created_on::text, p.platform, p.last_successful_check_at as last_checked_at, p.favicon,${managerEvidenceProjection},
+  p.domain_created_on::text, p.platform, p.last_successful_check_at as last_checked_at, p.favicon,
+  p.domain_rating, p.domain_rating_checked_on::text,${managerEvidenceProjection},
   coalesce((select jsonb_agg(jsonb_build_object('slug',n.slug,'name',n.name) order by n.name)
     from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
     where r.publisher_id=p.id and r.status in ('confirmed','stale')),'[]'::jsonb) as networks`;
@@ -240,20 +244,22 @@ export async function loadAdNetworkManagerStatistics() {
 const getAdNetworkManagerStatistics=cached("ad-network-manager-statistics",loadAdNetworkManagerStatistics);
 function toSite(row: SiteRecord, identities: Awaited<ReturnType<typeof loadNetworkIdentities>>): AdNetworkSiteRow {
   const { evidence, manager_relationships, ...site } = row;
-  return { ...site, last_checked_at: iso(row.last_checked_at), ...deriveManagedBy(evidence, identities, manager_relationships) };
+  return { ...site, ...ahrefsAttribution([site.domain_rating]), last_checked_at: iso(row.last_checked_at), ...deriveManagedBy(evidence, identities, manager_relationships) };
 }
 const siteWhere = `exists(select 1 from public.ad_network_publisher_relationships r
   join public.ad_networks n on n.id=r.ad_network_id where r.publisher_id=p.id
   and r.status in ('confirmed','stale') and ($1::text is null or n.slug=$1))
   and ($2::text is null or p.niche=$2)
   and ($3::text='' or position($3 in p.normalized_domain)>0 or position($3 in lower(coalesce(p.publisher_name,'')))>0)`;
+/** The sites table adds its DR filter as $4. Unrated sites never pass a DR filter. */
+const siteListWhere = `${siteWhere} and ($4::int is null or p.domain_rating>=$4)`;
 /** Scope controls to the table's network/niche, independent of search and page. */
 export async function loadAdNetworkSitesAvailability(network: string | null, niche: string | null): Promise<AdNetworkSitesAvailability> {
   const [coverage, networks, managerGroups, identities] = await Promise.all([
     queryAdNetworkReport<Omit<AdNetworkSiteCoverage,"networks">>(`${scopedCoverageSites}
       select count(*)::int as listed,count(p.niche)::int as classified,count(p.traffic_group)::int as traffic,
         count(p.domain_created_on)::int as age,count(p.platform)::int as platform,count(p.publisher_name)::int as publisher,
-        count(p.last_checked_at)::int as checked,
+        count(p.last_checked_at)::int as checked,count(p.domain_rating)::int as rated,
         0::int as manager,
         coalesce(array_agg(distinct p.niche) filter(where p.niche is not null),'{}') as niches from sites p`,[network,niche]),
     queryAdNetworkReport<AdNetworkRef>(`${scopedCoverageSites} select distinct n.slug,n.name from sites p
@@ -275,8 +281,8 @@ export async function loadAdNetworkSitesAvailability(network: string | null, nic
 const coverageWhere = `exists(select 1 from public.ad_network_publisher_relationships r join public.ad_networks n on n.id=r.ad_network_id
     where r.publisher_id=p.id and r.status in ('confirmed','stale') and ($1::text is null or n.slug=$1))
     and ($2::text is null or p.niche=$2)`;
-const scopedCoverageSites = `with sites as materialized (select p.id,p.niche,p.traffic_group,p.domain_created_on,p.platform,p.publisher_name,p.last_successful_check_at as last_checked_at
-  from public.ad_network_publishers p where ${coverageWhere})`;
+const scopedCoverageSites = `with sites as materialized (select p.id,p.niche,p.traffic_group,p.domain_created_on,p.platform,p.publisher_name,p.last_successful_check_at as last_checked_at,
+  p.domain_rating from public.ad_network_publishers p where ${coverageWhere})`;
 const scopedManagerSites = `with sites as materialized (select p.id,
   jsonb_build_object('manager_domains',p.report_manager_domains) as last_check_evidence
   from public.ad_network_publishers p
@@ -289,17 +295,21 @@ const siteSort: Record<AdNetworkSitesQuery["sort"], string> = {
   oldest: "p.domain_created_on asc nulls last,p.normalized_domain",
   newest: "p.domain_created_on desc nulls last,p.normalized_domain",
   checked: "p.last_successful_check_at desc nulls last,p.normalized_domain",
+  // Unrated sites sort last both ways.
+  "highest-dr": "p.domain_rating desc nulls last,p.normalized_domain",
+  "lowest-dr": "p.domain_rating asc nulls last,p.normalized_domain",
 };
 /** Uncached source loader for signed origin verification. */
 export async function loadAdNetworkSites(query: AdNetworkSitesQuery): Promise<AdNetworkSitesResponse> {
   // Apply bounds here too: server page callers do not go through the API parser.
   if (!Object.hasOwn(siteSort, query.sort) || !Number.isInteger(query.pageSize) || query.pageSize < 1 || query.pageSize > 100
-    || !Number.isInteger(query.page) || query.page < 1 || query.page > 10000 || query.q.length > 100) throw new Error("Invalid sites query");
+    || !Number.isInteger(query.page) || query.page < 1 || query.page > 10000 || query.q.length > 100
+    || (query.minDr !== null && !AD_NETWORK_DR_FILTER_STEPS.includes(query.minDr))) throw new Error("Invalid sites query");
   const availability = await loadAdNetworkSitesAvailability(query.network,query.niche);
   // data-gate: unavailable traffic/age sorts fall back to domain until enrichment lands.
   const effectiveSort = availability.availableSorts.includes(query.sort) ? query.sort : "domain";
-  const values = [query.network, query.niche, query.q.trim().toLowerCase()];
-  const count = await queryAdNetworkReport<{total:number}>(`select count(*)::int as total from public.ad_network_publishers p where ${siteWhere}`, values);
+  const values = [query.network, query.niche, query.q.trim().toLowerCase(), query.minDr];
+  const count = await queryAdNetworkReport<{total:number}>(`select count(*)::int as total from public.ad_network_publishers p where ${siteListWhere}`, values);
   const total = count.rows[0].total;
   const totalPages = Math.max(1, Math.ceil(total / query.pageSize));
   const page = Math.min(query.page, totalPages);
@@ -307,19 +317,19 @@ export async function loadAdNetworkSites(query: AdNetworkSitesQuery): Promise<Ad
     // Filter and page using the small indexed facts before reading full evidence.
     // Sparse searches must not walk every evidence-heavy heap row in domain order.
     queryAdNetworkReport<SiteRecord>(`with matches as materialized (
-      select p.id,p.normalized_domain,p.traffic_group,p.domain_created_on,p.last_successful_check_at
-      from public.ad_network_publishers p where ${siteWhere}
+      select p.id,p.normalized_domain,p.traffic_group,p.domain_created_on,p.last_successful_check_at,p.domain_rating
+      from public.ad_network_publishers p where ${siteListWhere}
     ), selected as materialized (
-      select p.id from matches p order by ${siteSort[effectiveSort]} limit $4 offset $5
+      select p.id from matches p order by ${siteSort[effectiveSort]} limit $5 offset $6
     ) select ${siteProjection} from selected s join public.ad_network_publishers p on p.id=s.id
       order by ${siteSort[effectiveSort]}`, [...values, query.pageSize, (page - 1) * query.pageSize]),
     queryNetworkIdentities(),
   ]);
-  return { rows: result.rows.map(row => toSite(row, identities)), total, page, pageSize: query.pageSize, totalPages, effectiveSort, ...availability };
+  return { ...ahrefsAttribution(result.rows.map(row => row.domain_rating)), rows: result.rows.map(row => toSite(row, identities)), total, page, pageSize: query.pageSize, totalPages, effectiveSort, ...availability };
 }
 export const getAdNetworkSites=cached("ad-network-sites-traffic-age",loadAdNetworkSites);
 export function defaultAdNetworkSitesQuery(network: string | null = null, niche: AdNetworkNicheSlug | null = null, pageSize = AD_NETWORK_SITES_PAGE_SIZE): AdNetworkSitesQuery {
-  return { network, niche, q: "", sort: network || niche ? "traffic" : "domain", page: 1, pageSize };
+  return { network, niche, q: "", sort: network || niche ? "traffic" : "domain", page: 1, pageSize, minDr: null };
 }
 
 const scopedSites = `with sites as materialized (select p.id,p.normalized_domain,p.niche,p.publisher_name,p.traffic_group,p.platform,p.domain_created_on
@@ -445,6 +455,28 @@ export async function loadAdNetworkDomainAgeByNetwork(niche: string | null=null)
 }
 export const getAdNetworkDomainAgeByNetwork=cached("ad-network-domain-age-by-network",loadAdNetworkDomainAgeByNetwork);
 
+type DomainRatingRecord = AdNetworkDomainRatingSummary & { bands: { min: number; count: number }[] };
+
+/** Every network's Domain Rating over its listed sites, with 10-point band counts (70 and up in one).
+ * Unrated sites count only in `listed`; median and average use rated sites only. */
+export async function loadAdNetworkDomainRatings(): Promise<DomainRatingRecord[]> {
+  return (await queryAdNetworkReport<DomainRatingRecord>(`with records as materialized (
+    select n.id,n.slug,n.name,p.domain_rating from public.ad_network_publisher_relationships r
+    join public.ad_networks n on n.id=r.ad_network_id join public.ad_network_publishers p on p.id=r.publisher_id
+    where r.status in ('confirmed','stale')
+  ), bands as (
+    select id,least(domain_rating/10,7)*10 as min,count(*)::int as count
+    from records where domain_rating is not null group by 1,2
+  ) select r.slug,r.name,count(*)::int as listed,count(r.domain_rating)::int as rated,
+    coalesce(percentile_cont(0.5) within group(order by r.domain_rating),0)::float8 as median,
+    coalesce(avg(r.domain_rating),0)::float8 as average,
+    coalesce((select jsonb_agg(jsonb_build_object('min',b.min,'count',b.count) order by b.min)
+      from bands b where b.id=r.id),'[]'::jsonb) as bands
+    from records r group by r.id,r.slug,r.name order by r.slug`)).rows.map(row=>({...row,...ahrefsAttribution(row.rated ? [row.average] : [])}));
+}
+const getAdNetworkDomainRatings=cached("ad-network-domain-ratings",loadAdNetworkDomainRatings);
+const domainRatingSummaries=(rows: DomainRatingRecord[]): AdNetworkDomainRatingSummary[] => rows.map(({bands:_,...row})=>row);
+
 type Breakdowns = Pick<AdNetworkStatsReport,"niches"|"traffic"|"publishers"|"domain_age"|"median_domain_age"|"median_domain_registered_year"|"platforms"|"domain_endings"|"managers"|"also_runs"|"platform_mix">;
 const loadBreakdowns = cached("ad-network-breakdowns", async (network: string): Promise<Breakdowns> => {
   const pool = {query:queryAdNetworkReport};
@@ -495,12 +527,14 @@ export async function getAdNetworkPageData(slug: string): Promise<AdNetworkPageD
   const asOf=observedDay.toISOString().slice(0,10);
   const network = await getAdNetwork(slug);
   if (!network) return null;
-  const [sites,breakdowns,history,ranking,movements,switches,metadata,domain_age_strip] = await Promise.all([
+  const [sites,breakdowns,history,ranking,movements,switches,metadata,domain_age_strip,ratings] = await Promise.all([
     getAdNetworkSites(defaultAdNetworkSitesQuery(slug)),loadBreakdowns(slug),loadHistory(slug),networkShares(null),loadMovements(slug,asOf),loadSwitches(slug,null,asOf),loadReportMetadata(slug),getAdNetworkDomainAgeStrip(slug,null),
+    getAdNetworkDomainRatings(),
   ]);
+  const domain_rating=adNetworkDomainRatingReport(slug,domainRatingSummaries(ratings),ratings.find(row=>row.slug===slug)?.bands??[]);
   // data-gate: a 90-day-old snapshot establishes the observation span for real gains/losses.
   const older = history.filter(row=>row.date<=adNetworkUtcWindow(90,observedDay).baseline).at(-1);
-  return { network,sites,stats:{ domain_age_strip,switch_flow:adNetworkSwitchFlow(ref(network),switches),
+  return { network,sites,stats:{ domain_rating,domain_age_strip,switch_flow:adNetworkSwitchFlow(ref(network),switches),
     movement_periods:adNetworkMovementPeriods(movements,observedDay),confirmed_share:network.listed_count ? share(network.verified_count,network.listed_count) : null,
     change_year:adNetworkYearChange(history,network.listed_count,observedDay),networks_tracked:ranking.length,...metadata,listed:network.listed_count,confirmed:network.verified_count,
     rank:network.listed_count ? ranking.findIndex(row=>row.slug===slug)+1 : null,
@@ -728,6 +762,10 @@ export const getAdNetworkStatsPageData = cached("ad-network-market-report", asyn
       count(*) filter(where last_checked_at is null)::int as waiting from public.ad_network_publishers`),
     getAdNetworkDomainAgeStrip(),getAdNetworkDomainAgeByNetwork(),
   ]);
+  // data-gate: only networks with enough rated sites enter the DR comparison.
+  const domain_rating_by_network=domainRatingSummaries(await getAdNetworkDomainRatings())
+    .filter(row=>hasAdNetworkDomainRatingCoverage(row.rated,row.listed))
+    .sort((a,b)=>b.average-a.average||a.slug.localeCompare(b.slug));
   // Cache each network's history separately so the aggregate never approaches the 2 MB limit.
   const history=await Promise.all(market_share.slice(0,5).map(async n=>({...ref(n),history:adNetworkMonthEnds(await loadHistory(n.slug))})));
   const net_change:AdNetworkStatsPageData["net_change"]=[];
@@ -746,7 +784,7 @@ export const getAdNetworkStatsPageData = cached("ad-network-market-report", asyn
   const ads_txt_metrics=managerStats.measured ? {manager_share:share(managerStats.with_manager,managerStats.measured),
     broken_share:share(ads.rows[0].with_broken_lines,managerStats.measured),median_lines:ads.rows[0].median_lines} : null;
   const queueCount=queue.rows[0];
-  return {domain_age_strip,domain_age_by_network,confirmed_share:niches.listed ? share(niches.confirmed,niches.listed) : null,
+  return {...ahrefsAttribution(domain_rating_by_network.map(row=>row.average)),domain_rating_by_network,domain_age_strip,domain_age_by_network,confirmed_share:niches.listed ? share(niches.confirmed,niches.listed) : null,
     multiple_networks_share:niches.listed ? share(multiple,niches.listed) : null,...metadata,
     joining_rules:joiningRules(market_share.filter(n=>n.count>0)).map(n=>({...n,sites:market_share.find(row=>row.slug===n.slug)!.count})),
     check_queue:queueCount.total ? {...queueCount,checked_share:share(queueCount.checked,queueCount.total)} : null,ads_txt_metrics,

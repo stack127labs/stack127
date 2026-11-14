@@ -1,3 +1,4 @@
+import type { AhrefsAttribution } from "./ahrefs";
 import type { AdNetworkNicheSlug } from "./ad-network-niches";
 
 /** API dates are ISO strings. Null means the field has not been collected. */
@@ -8,25 +9,32 @@ export type AdNetworkListRow = AdNetworkRef & {
   id: string; official_url: string | null; summary: string | null;
   verified_count: number; listed_count: number; stale_count: number; ended_count: number;
 };
-export type AdNetworkSiteRow = {
+export type AdNetworkSiteRow = AhrefsAttribution & {
   domain: string; publisher_name: string | null; niche: AdNetworkNicheSlug | null;
   traffic_group: string | null; domain_created_on: string | null; platform: string | null;
   /** MANAGERDOMAIN evidence, with a confirmed manager relationship as fallback. */
   managed_by: AdNetworkRef | null; manager_domain: string | null;
   last_checked_at: string | null; favicon: string | null; networks: AdNetworkRef[];
+  /** Ahrefs Domain Rating, 0 to 100, and the day it was read. Null until the domain-rating run rates
+   * the site. Show it only with the linked "Domain Rating by Ahrefs" credit. */
+  domain_rating?: number | null; domain_rating_checked_on?: string | null;
 };
-export type AdNetworkSitesSort = "domain" | "traffic" | "oldest" | "newest" | "checked";
+export type AdNetworkSitesSort = "domain" | "traffic" | "oldest" | "newest" | "checked" | "highest-dr" | "lowest-dr";
+/** The DR filter's steps: sites rated at least this much. Values live in AD_NETWORK_DR_FILTER_STEPS. */
+export type AdNetworkDrFilter = 10 | 20 | 30 | 50 | 70;
 export type AdNetworkSitesQuery = {
   network: string | null; niche: AdNetworkNicheSlug | null; q: string;
   sort: AdNetworkSitesSort; page: number; pageSize: number;
+  /** Sites with a Domain Rating of at least this. Null shows every site, rated or not. */
+  minDr: AdNetworkDrFilter | null;
 };
 export type AdNetworkSitesAvailability = {
-  availableColumns: ("domain" | "niche" | "traffic" | "domain_age" | "platform" | "manager" | "checked" | "network" | "publisher")[];
+  availableColumns: ("domain" | "niche" | "traffic" | "domain_age" | "platform" | "manager" | "checked" | "network" | "publisher" | "domain_rating")[];
   availableSorts: AdNetworkSitesSort[];
-  availableFilters: ("niche" | "network")[];
+  availableFilters: ("niche" | "network" | "domain_rating")[];
   filters: { niches: { slug: string; name: string; line: string }[]; networks: AdNetworkRef[] };
 };
-export type AdNetworkSitesResponse = AdNetworkSitesAvailability & {
+export type AdNetworkSitesResponse = AdNetworkSitesAvailability & AhrefsAttribution & {
   effectiveSort: AdNetworkSitesSort;
   rows: AdNetworkSiteRow[]; total: number; page: number; pageSize: number; totalPages: number;
 };
@@ -61,7 +69,21 @@ export type AdNetworkMovementPeriod = {
   joined: number; left: number; net: number;
 };
 export type AdNetworkArrival = { site: AdNetworkSiteRow; network: AdNetworkRef; observed_at: string };
+/** One network's Domain Rating summary over its rated listed sites. */
+export type AdNetworkDomainRatingSummary = AdNetworkRef & AhrefsAttribution & {
+  listed: number; rated: number; median: number; average: number;
+};
+/** A network's DR block. Null until enough of its sites are rated (see AD_NETWORK_DR_GATE). */
+export type AdNetworkDomainRatingReport = AdNetworkDomainRatingSummary & {
+  /** Sites per 10-point band, 0–9 to 70+, every band present. */
+  bands: { key: string; label: string; min: number; count: number }[];
+  /** The band holding the rounded median. */
+  median_band: string;
+  /** This network beside the big networks that also pass the gate, highest average first. */
+  comparison: (AdNetworkDomainRatingSummary & { current: boolean })[];
+};
 export type AdNetworkStatsReport = {
+  domain_rating?: AdNetworkDomainRatingReport | null;
   domain_age_strip?: AdNetworkDomainAgeStrip | null;
   switch_flow?: AdNetworkSwitchFlow | null;
   movement_periods?: AdNetworkMovementPeriod[];
@@ -95,7 +117,9 @@ export type AdNetworkNichePageData = {
   niche: AdNetworkNicheRow; sites: AdNetworkSitesResponse; traffic: AdNetworkTrafficShare[];
   switches: AdNetworkSwitch[]; newest: (AdNetworkRef & { sites: AdNetworkSiteRow[] })[];
 };
-export type AdNetworkStatsPageData = {
+export type AdNetworkStatsPageData = AhrefsAttribution & {
+  /** Networks with enough rated sites, highest average DR first. */
+  domain_rating_by_network?: AdNetworkDomainRatingSummary[];
   domain_age_strip?: AdNetworkDomainAgeStrip | null;
   domain_age_by_network?: (AdNetworkRef & { strip: AdNetworkDomainAgeStrip })[];
   confirmed_share: number | null; multiple_networks_share: number | null; updated_at: string | null;
@@ -159,7 +183,7 @@ export type AdNetworkCheckerSiteView = {
   domain_age_years: number | null;
   similar_available_columns: AdNetworkSitesAvailability["availableColumns"];
 };
-export type AdNetworkSiteResponse = { domain: string; found: boolean; site: AdNetworkCheckerSiteView | null };
+export type AdNetworkSiteResponse = AhrefsAttribution & { domain: string; found: boolean; site: AdNetworkCheckerSiteView | null };
 
 export type AdNetworkJoiningRule = AdNetworkRef & { amount: number; unit: "sessions" | "pageviews" | "visitors" | "visits" | "monthly active users"; label?: string };
 export type AdNetworkDirectorySort = "most-sites" | "easiest-to-join" | "by-niche";

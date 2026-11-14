@@ -1,3 +1,4 @@
+import { ahrefsAttribution } from "@/lib/ahrefs";
 import { NextResponse } from "next/server";
 import { getAdNetworkCheckerSite } from "@/lib/ad-networks";
 import { getPublishedPage } from "@/lib/page-registry";
@@ -14,7 +15,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Tool not found." }, { status: 404, headers: noStore });
     }
     const site = await getAdNetworkCheckerSite(domain);
-    const result: AdNetworkSiteResponse = { domain, found: site !== null, site };
+    const result: AdNetworkSiteResponse = { domain, found: site !== null, site, ...ahrefsAttribution([site?.site.domain_rating, ...(site?.similar_sites ?? []).map(row => row.domain_rating)]) };
     return NextResponse.json(result, { headers: site ? {
       "Cache-Control": "public, max-age=0, must-revalidate, s-maxage=604800",
       "Cache-Tag": "stack127-public,ad-networks-catalog", "X-Robots-Tag": "noindex, follow",

@@ -3,7 +3,7 @@ import { RankedBars, StackBar } from "@/app/ui/ad-networks/viz/bars";
 import { ColumnChart } from "@/app/ui/ad-networks/viz/columns";
 import type { LaunchDirectory } from "@/lib/launch-directories";
 import { launchDirectoryHasFreeOption } from "@/lib/launch-directories-query";
-import { AhrefsCredit } from "./ahrefs-credit";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import { linkOptions } from "./launch-directory-options";
 import styles from "./launch-directories.module.css";
 

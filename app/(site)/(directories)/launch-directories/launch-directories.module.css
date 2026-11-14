@@ -195,9 +195,6 @@
 
 .countLine { display: grid; gap: 2px; }
 .count { margin: 0; color: var(--color-text-muted); font: var(--text-small) var(--font-mono); }
-.ahrefsCredit { color: var(--color-text-muted); font: 0.78rem / 1.4 var(--font-mono); }
-.ahrefsCredit a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.ahrefsCredit a:hover { color: var(--color-text); }
 .count b { color: var(--color-text); font-weight: var(--weight-semibold); }
 .toolbarControls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
 .toolbarControls :global(.directory-select) { display: flex; align-items: center; gap: var(--space-4); }

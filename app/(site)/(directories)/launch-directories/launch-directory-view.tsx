@@ -21,7 +21,7 @@ import { queryLaunchDirectories } from "@/lib/launch-directories-query";
 import { LaunchCard, LaunchGrid, launchHref, type LaunchCategory } from "./launch-card";
 import { costShort, isSubmitReady, linkShort, submitStatusText, waitShort } from "./launch-format";
 import { LaunchLogo } from "./launch-logo";
-import { AhrefsCredit } from "./ahrefs-credit";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import { backlinkOptions, costOptions, drOptions, linkOptions, quickPicks, sortOptions, submissionOptions } from "./launch-directory-options";
 import styles from "./launch-directories.module.css";
 

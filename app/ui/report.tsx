@@ -103,7 +103,7 @@ export type ReportBar = {
   label: string;
   value: number;
   /** The number as shown at the end of the row, such as `31%` or `7,852`. */
-  display: string;
+  display: ReactNode;
   href?: string;
   /** Marks the row the page is about, such as this network in a ranking. */
   current?: boolean;

@@ -2,7 +2,7 @@ import { parse } from 'pgsql-ast-parser';
 import { ApiError } from '../config.ts';
 export const sqlSchema = `Only these read-only views exist in stack127_data:
 ad_networks(id,slug,name,official_url,summary);
-ad_network_publishers(id,normalized_domain,niche,platform,domain_created_on,traffic_group,last_successful_check_at,ads_txt_summary);
+ad_network_publishers(id,normalized_domain,niche,platform,domain_created_on,traffic_group,last_successful_check_at,ads_txt_summary,domain_rating,domain_rating_checked_on);
 ad_network_publisher_relationships(ad_network_id,publisher_id,status,relationship_type,first_confirmed_at,last_confirmed_at,ended_at);
 ad_network_relationship_events(ad_network_id,publisher_id,event,observed_at,relationship_type);
 ad_network_daily_counts(ad_network_id,snapshot_on,listed_count,confirmed_count,stale_count,captured_at).

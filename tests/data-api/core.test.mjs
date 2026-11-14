@@ -46,7 +46,7 @@ test('SQL parser rejects writes, batches, CTE mutations, locks, private fields b
     'select * from (select slug from stack127_data.ad_networks) as n'])assert.equal(validateReadonlySql(sql),sql);
 });
 test('every core response carries definitions, caveats, filters, data time and citation',async()=>{
-  const transaction=async run=>run({query:async sql=>sql.includes('dataset_summary')?[{as_of:'2026-11-14T00:00:00Z'}]:[{total:2}]});
+  const transaction=async run=>run({query:async sql=>sql.includes('dataset_summary')?[{as_of:'2026-11-14T00:00:00Z',domain_rating_base:1,domain_rating_total:2}]:[{total:2,domain_rating_base:1}]});
   const answer=await executeTool('count_sites',{},transaction);
   assert.equal(answer.data.total,2);assert.equal(answer.filters.relationship,'listed');assert.ok(answer.as_of);
   assert.match(answer.definitions.not_ranked,/not small/);assert.ok(answer.definitions.managed);assert.ok(answer.definitions.shares);
@@ -86,7 +86,7 @@ test('SQL flag alone cannot run a query or expose a REST route',async()=>{
 });
 test('MCP text contains the full answer and applies the same byte limit after formatting',async()=>{
   const {mcpAnswer}=await import('../../lib/data-api/mcp.ts');
-  const answer=await executeTool('count_sites',{},async run=>run({query:async sql=>sql.includes('dataset_summary')?[{as_of:null}]:[{total:42}]}));
+  const answer=await executeTool('count_sites',{},async run=>run({query:async sql=>sql.includes('dataset_summary')?[{as_of:null,domain_rating_base:10,domain_rating_total:42}]:[{total:42,domain_rating_base:10}]}));
   const result=mcpAnswer(answer);
   assert.deepEqual(JSON.parse(result.content[0].text),result.structuredContent);
   assert.equal(JSON.parse(result.content[0].text).data.total,42);
@@ -100,7 +100,7 @@ test('future SQL uses only its dedicated pool and read-only transaction, includi
   const previous={app:globalThis.stack127DataApiPool,sql:globalThis.stack127DataSqlPool,flag:process.env.STACK127_DATA_SQL_ENABLED,url:process.env.STACK127_DATA_SQL_DATABASE_URL};
   globalThis.stack127DataApiPool={connect:()=>assert.fail('arbitrary SQL used the app login')};
   globalThis.stack127DataSqlPool={connect:async()=>({query:async(sql,values)=>{
-    statements.push({sql,values});return {rows:sql.includes('dataset_summary')?[{as_of:null}]:[{value:1}]};
+    statements.push({sql,values});return {rows:sql.includes('dataset_summary')?[{as_of:null,domain_rating_base:10,domain_rating_total:42}]:[{value:1}]};
   },release(){released++;}})};
   Object.assign(process.env,{STACK127_DATA_SQL_ENABLED:'true',STACK127_DATA_SQL_DATABASE_URL:'postgresql://restricted:unused@localhost/research'});
   try {
@@ -173,4 +173,30 @@ test('brand kit is listed in MCP and both front doors share its answer and authe
     globalThis.stack127DataApiPool=previousPool;
     for(const key of keys){if(previousEnv[key]===undefined)delete process.env[key];else process.env[key]=previousEnv[key];}
   }
+});
+
+test('DR filters validate integer ranges, bind zero and combine with managed/network filters',()=>{
+  for(const f of [{min_domain_rating:-1},{max_domain_rating:101},{min_domain_rating:1.5},{min_domain_rating:50,max_domain_rating:20}])
+    assert.throws(()=>validateInput('count_sites',f),{status:400});
+  const f=filterSql(validateInput('count_sites',{networks:['mediavine'],relationship:'managed',min_domain_rating:0,max_domain_rating:69}));
+  assert.match(f.text,/p.domain_rating>=\$2/);assert.match(f.text,/p.domain_rating<=\$3/);
+  assert.deepEqual(f.values,[['mediavine'],0,69]);
+  assert.deepEqual(validateInput('count_sites',{group_by:['domain_rating']}).group_by,['domain_rating']);
+  assert.equal(validateInput('compare_ad_networks',{networks:['ezoic','mediavine'],dimension:'domain_rating'}).dimension,'domain_rating');
+});
+
+test('DR answers carry linked attribution, third-party caveat and measured coverage in MCP text too',async()=>{
+  const transaction=async run=>run({query:async sql=>sql.includes('dataset_summary')?
+    [{as_of:null,domain_rating_base:2,domain_rating_total:3}]:sql.includes('group by')?
+    [{group_1:'0–9',count:1},{group_1:'unknown',count:1}]:[{total:2,domain_rating_base:1}]});
+  const answer=await executeTool('count_sites',{group_by:['domain_rating']},transaction);
+  assert.deepEqual(answer.data.domain_rating_coverage,{sites_with_rating:1,total_sites:2,scope:'distinct sites matching all filters'});
+  assert.equal(answer.data.domain_rating_metadata.attribution,'Domain Rating by Ahrefs');
+  assert.equal(answer.data.domain_rating_metadata.url,'https://ahrefs.com');
+  assert.match(answer.data.domain_rating_metadata.caveat,/third-party estimate/);
+  assert.equal(answer.data.domain_rating_metadata.coverage.sites_with_rating,2);
+  assert.deepEqual(answer.data.rows.map(r=>r.domain_rating),['0–9','unknown']);
+  const {mcpAnswer}=await import('../../lib/data-api/mcp.ts');
+  const text=JSON.parse(mcpAnswer(answer).content[0].text);
+  assert.deepEqual(text.data.domain_rating_metadata,answer.data.domain_rating_metadata);
 });

@@ -12,7 +12,9 @@ import { JoinedLeftBars } from "@/app/ui/ad-networks/viz/joined-left";
 import { SwitchFlow } from "@/app/ui/ad-networks/viz/switch-flow";
 import { TypeScale } from "@/app/ui/ad-networks/viz/type-scale";
 import { nicheName } from "@/app/ui/ad-networks/site-format";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import { ordinal, percent } from "../ad-networks-shared";
+import styles from "./network-stats.module.css";
 
 // Loader shares are 0 to 100. Never round a share that isn't 100% up to 100%.
 const pct = (share: number | undefined) => percent(share ?? 0);
@@ -104,6 +106,7 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
     ...(otherPlatforms > 0 ? [{ label: "Other", value: otherPlatforms }] : []),
     ...(unknownPlatforms > 0 ? [{ label: "Unknown", value: unknownPlatforms, tone: "track" as const }] : []),
   ];
+  const dr = stats.domain_rating;
   const topEndings = stats.domain_endings.slice(0, 5);
   const otherEndings = stats.domain_endings.slice(5).reduce((sum, row) => sum + (row.share ?? 0), 0);
   const endings = [
@@ -162,6 +165,38 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
       />
     </ReportBlock>
   ) : null;
+  // Hidden until enough of this network's sites are rated (AD_NETWORK_DR_GATE in lib/ad-networks-report.ts).
+  // Ahrefs' license needs the linked credit wherever DR shows, so it sits in the block's last line.
+  const drBlock = dr ? (
+    <ReportBlock description="How strong each site's backlinks are, on Ahrefs' 0 to 100 scale. Higher means more and better sites link to it." key="dr" label="Domain rating">
+      <ReportNumbers
+        items={[
+          { label: "median DR", value: Math.round(dr.median), accent: true },
+          { label: "average DR", value: Math.round(dr.average) },
+          { label: `of ${formatNumber(dr.listed)} sites rated`, value: formatNumber(dr.rated) },
+        ]}
+        variant="plain"
+      />
+      <ColumnChart
+        caption={`${name} sites by Domain Rating`}
+        items={dr.bands.map((band) => ({ label: band.label, value: band.count, tone: band.key === dr.median_band ? "ac" as const : "ac2" as const }))}
+      />
+      {dr.comparison.length ? (
+        <div className={styles.drCompare}>
+          <p>Average DR of rated sites only: {shortName(name)} vs other big networks</p>
+          <RankedBars
+            ariaLabel={`Average Domain Rating of ${name} and other big networks`}
+            rows={dr.comparison.map((row) => ({
+              label: shortName(row.name), value: row.average, display: <>{Math.round(row.average)}<br />{formatNumber(row.rated)} of {formatNumber(row.listed)} rated</>,
+              highlight: row.current, href: row.current ? undefined : `/ad-networks/${row.slug}`,
+            }))}
+            tone="highlight"
+          />
+        </div>
+      ) : null}
+      <p className={styles.drNote}><span>{name} sites by Domain Rating. The highlighted bar holds the median.</span><AhrefsCredit /></p>
+    </ReportBlock>
+  ) : null;
   const buildBlocks = [
     measuredPlatforms.length ? (
       <ReportBlock description="What the sites are built with, from clues in their page code." key="platforms" label="Platforms">
@@ -214,7 +249,7 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
     },
     { title: `What kind of sites use ${name}?`, has: kindBlocks.some(Boolean), content: <Row blocks={kindBlocks} layout="1-1" /> },
     { title: `Which sites joined or left ${name}?`, has: moveBlocks.some(Boolean), content: <Row blocks={moveBlocks} layout="1-1" /> },
-    { title: `How are ${name} sites built?`, has: Boolean(ageBlock) || buildBlocks.some(Boolean), content: <>{ageBlock}<Row blocks={buildBlocks} layout="1-1" /></> },
+    { title: `How are ${name} sites built?`, has: Boolean(ageBlock || drBlock) || buildBlocks.some(Boolean), content: <>{ageBlock}{drBlock}<Row blocks={buildBlocks} layout="1-1" /></> },
     { title: "What else is in their ads.txt?", has: adsTxtBlocks.some(Boolean), content: <Row blocks={adsTxtBlocks} layout="1-1" /> },
   ];
 
