@@ -2,7 +2,7 @@
 
 ## Recurring production jobs (since 2026-10-19)
 
-The jobs run as plain cron on the OVH server and write straight to the production database. Niche sorting runs on homelab with its logged-in Claude CLI and the reviewed Haiku alias; no model API key is needed. All ad-network pages stay unpublished and return 404. The [production runbook](production-runbook.md) covers paths, checks, updates, pausing and recovery.
+The jobs run as plain cron on the OVH server and write straight to the production database. Niche sorting runs on homelab with its logged-in Claude CLI and the reviewed Haiku alias; no model API key is needed. All ad-network pages stay unpublished and return 404. The [production runbook](production-runbook.md) covers paths, checks, updates, pausing and recovery. The [hourly checkout updater](../../scripts/stack127/checkout/README.md) keeps OVH job code current. Manual updates and the first install run start only at UTC minutes 15–28, protecting scheduled jobs from losing their turn to updater locks. Set its hold before a maintenance window, wait for an active update, and remove your hold only after the window is complete. Keep the runbook's exact cron prefixes and cache timer steps.
 
 | Job | Schedule, UTC | Work |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ The jobs run as plain cron on the OVH server and write straight to the productio
 
 The crontab and its wrapper are [`scripts/ad-networks/ovh/`](../../scripts/ad-networks/ovh/). One session-level PostgreSQL advisory lock lets only one heavy job run at a time. A scheduled job that finds it taken retries every minute for up to 6 hours, and verification steps aside while one waits. `flock` stops the same job from starting twice. Site-based enrichment stops admitting work after 30 minutes or 5,000 sites. Source-feed jobs need a complete feed and have an outer timeout. Existing host limits remain authoritative.
 
-`node --experimental-strip-types scripts/ad-networks/refresh.mjs --job <job> --environment development` prints the full collector, sync, and revalidation plan without changing anything. `--apply` runs it. Production additionally requires `--environment production --confirm stack127-production`. Every scheduled run ends with a consistent reviewed sync and an authenticated on-demand origin revalidation. Completed checkpoints are still synced when a collector fails, and the run still counts as failed. A failed sync or revalidation never reports success. Snapshots and backups also use this final pipeline. Normal operation has no separate human sync step.
+`node --experimental-strip-types scripts/ad-networks/refresh.mjs --job <job> --environment development` prints the full collector, sync, and revalidation plan without changing anything. `--apply` runs it. Production additionally requires `--environment production --confirm stack127-production`. Every scheduled run ends with a consistent reviewed sync and an authenticated on-demand origin revalidation. Completed checkpoints are still synced when a collector fails. Discovery logs one isolated source failure as a warning and succeeds if another source completed; all sources failing or the same source failing on consecutive runs fails the job. Source status persists in SQLite `source_state` (or the existing JSON state file for PostgreSQL discovery). A successful HTTP 304 clears failure status while preserving feed metadata. Database write failures always fail. Other collector failures still fail the run. A failed sync or revalidation never reports success. Snapshots and backups also use this final pipeline. Normal operation has no separate human sync step.
 
 Sync's database triggers already queue `ad_networks:all` and affected page changes. The runner's extra revalidation immediately expires the origin data/page caches. It deliberately does not delete queued events. The existing Supabase cache worker verifies/purges the legacy host, or dispatches the Cloudflare static frontend refresh, before acknowledging events. In Cloudflare mode the public files update after that workflow completes. No collector publishes routes.
 
@@ -47,13 +47,22 @@ Job failures reuse the existing `GITHUB_ALERT_TOKEN` and the repository's GitHub
 
 Keep the one-time homelab RDAP pass and gather supervisor running. When both finish, follow "Merge the homelab RDAP pass" in the runbook: `merge-rdap.mjs`, run through `refresh --job rdap-import`, merges only newer RDAP checkpoints and registration dates by domain into OVH's store, then syncs and revalidates. It never replaces the working SQLite file, niches, site checks, sources, or relationships.
 
-## GitHub preview workflows
+### Outbrain seller-feed access
 
-The repository discovery and verification workflows are manual-only previews. Neither has a schedule or passes `--apply`. Discovery needs no database credential in preview mode. Verification reads candidates from PostgreSQL and writes only its summary artifact, without saving database results. Its default preview batch is 100 domains.
+On November 14, 2026, plain GETs to `https://www.outbrain.com/sellers.json` returned HTTP 406 with an empty body from both OVH and the Mac. From OVH, `application/json`, wildcard, broader JSON/plain-text and full HTML Accept values all failed with the unchanged `stack127bot/1.0 (+https://stack127.com/ad-networks)` identity. Compression and language negotiation also failed. The response included `X-Served-By: cache-lcy-…`, `Cache-Control: private, max-age=600`, and `Content-Length: 0`.
 
-The verifier rejects `--store postgres --apply`. Apply verification to the SQLite working store, then copy reviewed results through `sync`; this keeps one verification write path. PostgreSQL previews still load protected review signals.
+This is an unresolved upstream refusal; the response does not identify its exact rule. It is not proven to be an Accept-only problem, unlike the homepage cases in PR #126. Discovery (including curl downloads) and publisher-name requests now consistently accept JSON, plain text and wildcard content while keeping the bot identity. This does not establish that Outbrain is fixed. The source `sellers-json:teads-outbrain` is paused in `sources.mjs` (since November 14, 2026), so the weekly job stops failing on it. Its last good run on October 27 read 974 domains and added no new ones. To try it again, run `npm run ad-networks:discover -- --kind sellers-json` with the source re-enabled in a reviewed change; do not impersonate a browser. Existing SQLite `last_status='failed'` also counts as the preceding failed run under the new policy.
 
-These workflows do not change the independent homelab workers described below. Keep production pages unpublished and draft tables private. Before enabling a production sync or schedule, review the queue import, permissions, identity rules, sample results, and limits. Publication is a separate registry decision.
+## Manual previews on OVH
+
+The manual GitHub discovery and verification workflows have been removed. Use the OVH checkout for previews, without `--apply`. First set the [checkout hold](../../scripts/stack127/checkout/README.md#maintenance-hold-and-manual-commands) and wait for an active updater. Remove your hold after the preview. Discovery needs no database credential. Verification reads the protected candidates and writes a local summary, without saving database results.
+
+```sh
+ssh ovh 'cd /srv/stack127 && npm run ad-networks:discover -- --store postgres --kind sellers-json'
+ssh ovh 'cd /srv/stack127 && set -a && . /srv/stack127-data/ad-networks.env && set +a && npm run ad-networks:verify -- --store postgres --limit 100 --concurrency 4 --time-budget-minutes 10'
+```
+
+The verifier rejects `--store postgres --apply`. Apply verification to the SQLite working store, then copy reviewed results through `sync`; this keeps one verification write path. PostgreSQL previews still load protected review signals. Publication is a separate registry decision.
 
 ## Phase 2 one-time import
 
@@ -143,7 +152,7 @@ The default is a dry run. `--apply` is required for database writes. `--source` 
 
 HTTP ETag, Last-Modified, candidate counts, and source failures are stored in SQLite. A 304 response skips an unchanged source. Source count drops greater than 50% cause a failure for review; disappearance from a source never deletes a candidate. The old PostgreSQL path remains available with `--store postgres` for a later controlled sync.
 
-Check the workflow log for failed sources, unusually low domain counts, and changes in redirects or robots rules. When a source URL changes, update the manifest and this guide, run its dry run, then apply that source in development. Keep `source_key` stable across URL changes so existing provenance remains idempotent. Before a new source is scheduled, record its exact URL, extraction method, permitted use, robots result, and review date.
+Check the OVH discovery log for failed sources, unusually low domain counts, and changes in redirects or robots rules. When a source URL changes, update the manifest and this guide, run its dry run, then apply that source in development. Keep `source_key` stable across URL changes so existing provenance remains idempotent. Before a new source is scheduled, record its exact URL, extraction method, permitted use, robots result, and review date.
 
 ## Verify publisher relationships
 
