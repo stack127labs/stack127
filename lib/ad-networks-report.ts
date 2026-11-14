@@ -1,4 +1,5 @@
 import type {
+  AdNetworkDomainRatingReport, AdNetworkDomainRatingSummary, AdNetworkDrFilter,
   AdNetworkCount, AdNetworkDailyCount, AdNetworkMovement, AdNetworkSitesAvailability,
   AdNetworkRef, AdNetworkSwitch, AdNetworkSwitchFlow, AdNetworkSwitchFlowSide, AdNetworkMovementPeriod, AdNetworkHistoryObservation, AdNetworkCheckerEvent,
 } from "./ad-networks-types.ts";
@@ -19,9 +20,57 @@ export function adNetworkNicheShares(rows: AdNetworkCount[]): AdNetworkCount[] {
   return sorted ? rows.map(row => ({ ...row, share: row.count / sorted * 100 })) : [];
 }
 
+/**
+ * When a network's Domain Rating numbers are worth showing. A half-collected network would show a
+ * misleading median, so its DR block and comparison rows hide until at least `minRated` sites and
+ * `minShare` of its listed sites are rated. Change the bar here only.
+ */
+export const AD_NETWORK_DR_GATE = { minRated: 20, minShare: 0.25 } as const;
+
+export function hasAdNetworkDomainRatingCoverage(rated: number, listed: number) {
+  // data-gate: the domain-rating run has rated enough of this network's listed sites.
+  return listed > 0 && rated >= AD_NETWORK_DR_GATE.minRated && rated / listed >= AD_NETWORK_DR_GATE.minShare;
+}
+
+/** The sites table's DR filter: sites rated at least this much. */
+export const AD_NETWORK_DR_FILTER_STEPS: readonly AdNetworkDrFilter[] = [10, 20, 30, 50, 70];
+
+/** The big networks every network page compares its average DR against. */
+export const AD_NETWORK_DR_COMPARISON = ["mediavine", "raptive", "ezoic", "journey-by-mediavine"] as const;
+
+/** 10-point bands, with everything from 70 in the last one. */
+export const AD_NETWORK_DR_BANDS = [0, 10, 20, 30, 40, 50, 60, 70].map((min) => ({
+  key: min === 70 ? "70+" : `${min}-${min + 9}`,
+  label: min === 70 ? "70+" : `${min}–${min + 9}`,
+  min,
+}));
+export const adNetworkDrBand = (rating: number) => AD_NETWORK_DR_BANDS[Math.min(7, Math.max(0, Math.floor(rating / 10)))];
+
+/**
+ * One network's DR block from per-network summaries and its band counts. Null below the gate.
+ * The median is shown rounded, so the highlighted band is the one holding the rounded median.
+ */
+export function adNetworkDomainRatingReport(slug: string, summaries: readonly AdNetworkDomainRatingSummary[],
+  bandCounts: readonly { min: number; count: number }[]): AdNetworkDomainRatingReport | null {
+  const own = summaries.find((row) => row.slug === slug);
+  if (!own || !hasAdNetworkDomainRatingCoverage(own.rated, own.listed)) return null;
+  const bands = AD_NETWORK_DR_BANDS.map((band) => ({ ...band,
+    count: bandCounts.filter((row) => adNetworkDrBand(row.min).key === band.key).reduce((sum, row) => sum + row.count, 0) }));
+  const comparison = summaries
+    .filter((row) => row.slug === slug || ((AD_NETWORK_DR_COMPARISON as readonly string[]).includes(row.slug)
+      && hasAdNetworkDomainRatingCoverage(row.rated, row.listed)))
+    .map((row) => ({ ...row, current: row.slug === slug }))
+    .sort((a, b) => b.average - a.average || a.slug.localeCompare(b.slug));
+  return { ...own, bands, median_band: adNetworkDrBand(Math.round(own.median)).key,
+    // A comparison of one network with itself says nothing.
+    comparison: comparison.length > 1 ? comparison : [] };
+}
+
 export type AdNetworkSiteCoverage = {
   listed: number; classified: number; traffic: number; age: number; platform: number;
   publisher: number; checked: number; manager: number;
+  /** Sites with a Domain Rating. Optional so older fixtures read as none rated. */
+  rated?: number;
   niches: string[]; networks: { slug: string; name: string }[];
 };
 
@@ -40,6 +89,10 @@ export function adNetworkSiteAvailability(coverage: AdNetworkSiteCoverage): AdNe
   if (coverage.publisher > 0) availableColumns.push("publisher");
   if (coverage.checked > 0) { availableColumns.push("checked"); availableSorts.push("checked"); }
   if (coverage.manager > 0) availableColumns.push("manager");
+  // data-gate: domain-rating run. Unrated rows read "not yet" and sort last.
+  if ((coverage.rated ?? 0) > 0) {
+    availableColumns.push("domain_rating"); availableSorts.push("highest-dr", "lowest-dr"); availableFilters.push("domain_rating");
+  }
   if (coverage.networks.length) { availableColumns.push("network"); availableFilters.push("network"); }
   return { availableColumns, availableSorts, availableFilters,
     filters: { niches: nicheReady ? adNetworkNiches.filter(n => coverage.niches.includes(n.slug)) : [], networks: coverage.networks } };

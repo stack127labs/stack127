@@ -1,13 +1,15 @@
 import { z } from 'zod';
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(80);
 const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(s => !Number.isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0,10) === s, 'Use a real YYYY-MM-DD date');
-export const dimensions = ['network','niche','registration_year','age_bucket','size_group','platform'] as const;
+export const dimensions = ['network','niche','registration_year','age_bucket','size_group','platform','domain_rating'] as const;
 export const filtersShape = {
   networks: z.array(slug).min(1).max(44).optional().describe('Network slugs, matched with OR. Example: ["mediavine","ezoic"]. Omit for all.'),
   relationship: z.enum(['managed','listed']).default('listed').describe('managed = listed primary_or_exclusive_manager; listed = confirmed or stale.'),
   niche: z.string().max(80).optional().describe('One stack127 niche slug; see overview. Example: food. Unknown values match no sites.'),
   registered_after: date.optional().describe('Exclusive RDAP registration lower bound. Example: 2020-01-01.'),
   registered_before: date.optional().describe('Exclusive RDAP registration upper bound. Example: 2026-01-01.'),
+  min_domain_rating: z.number().int().min(0).max(100).optional().describe('Minimum Ahrefs Domain Rating, inclusive. Unknown ratings are excluded. Example: 30.'),
+  max_domain_rating: z.number().int().min(0).max(100).optional().describe('Maximum Ahrefs Domain Rating, inclusive. Unknown ratings are excluded. Example: 69.'),
   min_age: z.number().min(0).max(100).optional().describe('Minimum completed years since RDAP registration, inclusive. Example: 3.'),
   max_age: z.number().min(0).max(100).optional().describe('Maximum completed years since RDAP registration, inclusive. Example: 10.'),
   size_group: z.enum(['top-10k','top-100k','top-1m','not-ranked']).optional().describe('CrUX size group. not-ranked does not mean small. Example: top-1m.'),
@@ -26,7 +28,7 @@ export const toolSchemas = {
   get_ad_network: z.object({ network: slug.describe('Network slug from overview. Example: mediavine.') }).strict(),
   compare_ad_networks: z.object({ ...filtersShape,
     networks: z.array(slug).min(2).max(6).describe('2–6 distinct network slugs. Example: ["mediavine","ezoic"].'),
-    dimension: z.enum(['niche','registration_year','age_bucket','size_group','platform']).describe('One comparison dimension. Example: niche.'),
+    dimension: z.enum(['niche','registration_year','age_bucket','size_group','platform','domain_rating']).describe('One comparison dimension. Example: niche.'),
   }).strict(),
   count_sites: z.object({ ...filtersShape,
     group_by: z.array(z.enum(dimensions)).max(2).default([]).describe('Up to two distinct dimensions. Example: ["network","niche"]. Empty returns only the distinct-site total.'),

@@ -1,6 +1,7 @@
 export const definitions = {
   listed: "A site is listed when its relationship status is confirmed or stale. A site may be listed for several networks.",
   managed: "A managed site has a listed relationship with relationship_type = primary_or_exclusive_manager. Its own ads.txt names that network as manager; this does not prove exclusivity.",
+  domain_rating: 'Domain Rating by Ahrefs (https://ahrefs.com) is a third-party estimate of backlink strength, rounded to a whole number from dr3; it is not traffic, revenue, quality or a recommendation. Unknown is null. Summaries use measured listed sites only; check coverage before comparing networks.',
   domain_age: "RDAP domain_created_on, not the site's launch date. Age buckets use completed years as of the UTC query date; medians use the public page's age()/31557600 definition. Unknown dates stay unknown.",
   top_million: "Chrome UX Report traffic_group in (top-10k, top-100k, top-1m). These groups are exclusive. The imported CrUX month is not stored in the serving tables and is unknown here.",
   not_ranked: "Not ranked means absent from the imported CrUX list, not small or zero traffic.",
@@ -14,6 +15,7 @@ export const caveats = [
   'ads.txt lists authorized sellers; it does not prove revenue, exclusivity, or an active contract. AdSense and page-signature networks also use homepage checks.',
   'Stale means retained after an inconclusive check, not freshly confirmed. Last successful check is not a freshness guarantee for every field.',
   'Unknown values remain null. Monthly traffic units and alternative joining rules are not interchangeable; read each network’s cited rules.',
+  'Display the linked credit [Domain Rating by Ahrefs](https://ahrefs.com) beside every DR value or summary, with its coverage and third-party estimate caveat.',
   movementWarning,
 ];
 export const sourceUrl = 'https://stack127.com/ad-networks';

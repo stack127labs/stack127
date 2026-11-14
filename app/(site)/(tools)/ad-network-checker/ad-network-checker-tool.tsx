@@ -17,6 +17,7 @@ import {
   type SiteFact,
 } from "@/app/ui/ad-networks/site-view";
 import { TrafficMeter } from "@/app/ui/ad-networks/traffic-meter";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import { RankedBars, StackBar } from "@/app/ui/ad-networks/viz/bars";
 import { formatNumber, formatShare, type VizTone } from "@/app/ui/ad-networks/viz/format";
 import { HistoryGantt, type GanttRow } from "@/app/ui/ad-networks/viz/history-gantt";
@@ -270,6 +271,11 @@ function facts(view: AdNetworkCheckerSiteView): SiteFact[] {
     site.managed_by ? { label: "main ad network", value: <Link href={networkHref(site.managed_by)} prefetch={false}>{site.managed_by.name}</Link> } : null,
     // data-gate: the traffic, niche, platform, domain-age, and publisher-names runs fill these facts.
     site.traffic_group ? { label: "traffic", value: <TrafficMeter group={site.traffic_group} muted={false} /> } : null,
+    // data-gate: the domain-rating run. Ahrefs' license needs the linked credit beside the number.
+    typeof site.domain_rating === "number" ? { label: "domain rating", value: <>
+      {site.domain_rating}{site.domain_rating_checked_on ? <> <FactMuted>· {formatDay(site.domain_rating_checked_on)}</FactMuted></> : null}
+      <br /><AhrefsCredit />
+    </> } : null,
     niche && site.niche ? { label: "niche", value: <Link href={`/ad-networks/niches/${site.niche}`} prefetch={false}>{niche}</Link> } : null,
     site.platform ? { label: "platform", value: site.platform } : null,
     age ? { label: "domain registered", value: <>{age.year}{age.years !== null ? <> <FactMuted>· {age.years} {age.years === 1 ? "yr" : "yrs"}</FactMuted></> : null}</> } : null,

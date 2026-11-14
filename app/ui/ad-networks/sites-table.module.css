@@ -45,6 +45,11 @@
   white-space: nowrap;
 }
 
+.table thead abbr {
+  text-decoration: none;
+  text-transform: none;
+}
+
 .table tbody th,
 .table tbody td {
   border-top: 1px solid var(--color-border);
@@ -78,6 +83,28 @@
 
 .none {
   font: var(--text-small) var(--font-mono);
+}
+
+/* DR: the number, then a small bar on the 0 to 100 scale. */
+.dr {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--space-3);
+}
+
+.drBar {
+  background: var(--color-surface-2);
+  border-radius: 1px;
+  display: inline-block;
+  height: 6px;
+  overflow: hidden;
+  width: 46px;
+}
+
+.drBar i {
+  background: var(--color-accent-text);
+  display: block;
+  height: 100%;
 }
 
 .site {
@@ -210,6 +237,18 @@
 
   .table tbody td[data-column="checked"] {
     display: none;
+  }
+
+  .table tbody td + td[data-column="dr"]::before {
+    content: " · DR ";
+  }
+
+  .drBar {
+    display: none;
+  }
+
+  .table tbody td[data-column="dr"] .none {
+    font: inherit;
   }
 
   .table tbody td + td[data-column="manager"]::before {

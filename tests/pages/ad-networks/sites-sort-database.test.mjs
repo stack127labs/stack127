@@ -14,7 +14,7 @@ test('traffic groups, oldest registrations, null dates and stable ties survive p
     return {rows:[]};
   });
   await library.loadAdNetworkSites(library.defaultAdNetworkSitesQuery('mediavine'));
-  const pagingOrder=tableSql.match(/select p.id from matches p order by (.*?) limit \$4 offset \$5/s)[1];
+  const pagingOrder=tableSql.match(/select p.id from matches p order by (.*?) limit \$5 offset \$6/s)[1];
   const resultOrder=tableSql.slice(tableSql.lastIndexOf('order by '));
   const site=(id,normalized_domain,traffic_group,domain_created_on)=>({id,normalized_domain,traffic_group,domain_created_on});
   const rows=[

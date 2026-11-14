@@ -1,4 +1,5 @@
 import { brandKit } from '../brand.ts';
+import { AHREFS_ATTRIBUTION } from "../../ahrefs.ts";
 import { createHash } from 'node:crypto';
 import { domainToASCII } from 'node:url';
 import { adNetworkFacts } from '../../../app/(site)/(directories)/ad-networks/network-facts.ts';
@@ -13,7 +14,8 @@ import { validateReadonlySql } from './sql.ts';
 const listed = "r.status in ('confirmed','stale')";
 export const ageYears = 'extract(year from age(current_date,p.domain_created_on))';
 const ageBucket = `case when p.domain_created_on is null then null when ${ageYears}<3 then '0–2 years' when ${ageYears}<6 then '3–5 years' when ${ageYears}<11 then '6–10 years' when ${ageYears}<16 then '11–15 years' else '16+ years' end`;
-const dimensionSql = { network:'n.slug',niche:'p.niche',registration_year:'extract(year from p.domain_created_on)::int',age_bucket:ageBucket,size_group:'p.traffic_group',platform:'p.platform' };
+export const domainRatingBucket = `case when p.domain_rating is null then 'unknown' when p.domain_rating<10 then '0–9' when p.domain_rating<20 then '10–19' when p.domain_rating<30 then '20–29' when p.domain_rating<50 then '30–49' when p.domain_rating<70 then '50–69' else '70–100' end`;
+const dimensionSql = { network:'n.slug',niche:'p.niche',registration_year:'extract(year from p.domain_created_on)::int',age_bucket:ageBucket,size_group:'p.traffic_group',platform:'p.platform',domain_rating:domainRatingBucket };
 export function filterSql(f: Partial<Filters>) {
   const values: unknown[] = [];
   const add = (v: unknown) => { values.push(v); return `$${values.length}`; };
@@ -28,6 +30,8 @@ export function filterSql(f: Partial<Filters>) {
   if (f.registered_before) conditions.push(`p.domain_created_on<${add(f.registered_before)}::date`);
   if (f.min_age !== undefined) conditions.push(`${ageYears}>=${add(f.min_age)}`);
   if (f.max_age !== undefined) conditions.push(`${ageYears}<=${add(f.max_age)}`);
+  if (f.min_domain_rating !== undefined) conditions.push(`p.domain_rating>=${add(f.min_domain_rating)}`);
+  if (f.max_domain_rating !== undefined) conditions.push(`p.domain_rating<=${add(f.max_domain_rating)}`);
   return { text: conditions.join(' and '), values };
 }
 const joins = 'from ad_network_publishers p join ad_network_publisher_relationships r on r.publisher_id=p.id join ad_networks n on n.id=r.ad_network_id';
@@ -44,6 +48,7 @@ export function validateInput(name: ToolName, input: unknown): Record<string, an
   const f = parsed.data as Record<string, any>;
   if ((f.registered_after && f.registered_before && f.registered_after>=f.registered_before)
     || (f.min_age !== undefined && f.max_age !== undefined && f.min_age>f.max_age)
+    || (f.min_domain_rating !== undefined && f.max_domain_rating !== undefined && f.min_domain_rating>f.max_domain_rating)
     || (f.networks && new Set(f.networks).size!==f.networks.length)
     || (f.group_by && new Set(f.group_by).size!==f.group_by.length)
     || (f.from && (f.from>f.to || Date.parse(f.to)-Date.parse(f.from)>366*86400000))) throw new ApiError(400,'invalid_input','Invalid range or duplicate dimension/network.');
@@ -53,23 +58,27 @@ export function validateInput(name: ToolName, input: unknown): Record<string, an
 }
 async function grouped(db: Reader, f: Partial<Filters>, dimensions: (keyof typeof dimensionSql)[], cap: number) {
   const w=filterSql(f);
-  const base=(await db.query(`select count(distinct p.id)::int as total ${joins} where ${w.text}`,w.values))[0].total as number;
-  if (!dimensions.length) return { total:base,base:'distinct sites matching all filters; networks are OR',rows:[],truncated:false };
+  const counts=(await db.query(`select count(distinct p.id)::int as total,
+    count(distinct p.id) filter(where p.domain_rating is not null)::int as domain_rating_base ${joins} where ${w.text}`,w.values))[0];
+  const base=counts.total as number;
+  const domain_rating_coverage={sites_with_rating:counts.domain_rating_base,total_sites:base,scope:'distinct sites matching all filters'};
+  if (!dimensions.length) return { total:base,domain_rating_coverage,base:'distinct sites matching all filters; networks are OR',rows:[],truncated:false };
   const selections=dimensions.map((d,i)=>`${dimensionSql[d]} as group_${i+1}`);
   const rows=await db.query(`select ${selections.join(',')},count(distinct p.id)::int as count ${joins}
     where ${w.text} group by ${dimensions.map((_,i)=>i+1).join(',')}
     order by count desc,${dimensions.map((_,i)=>`${i+1} nulls last`).join(',')} limit ${cap+1}`,w.values);
   const truncated=rows.length>cap;
-  const networkBases=dimensions.includes('network') ? await db.query(`select n.slug,count(distinct p.id)::int as total ${joins} where ${w.text} group by n.slug`,w.values) : [];
-  return { total:base,base:'distinct filtered sites; network shares use their own filtered base; null groups include unknowns',dimensions,
+  const networkBases=dimensions.includes('network') ? await db.query(`select n.slug,count(distinct p.id)::int as total,count(distinct p.id) filter(where p.domain_rating is not null)::int as domain_rating_base ${joins} where ${w.text} group by n.slug`,w.values) : [];
+  return { total:base,domain_rating_coverage,base:'distinct filtered sites; network shares use their own filtered base; null groups include unknowns',dimensions,
     network_bases:dimensions.includes('network')?Object.fromEntries((f.networks??networkBases.map(n=>n.slug)).map(slug=>[slug,networkBases.find(n=>n.slug===slug)?.total??0])):undefined,
+    network_domain_rating_coverage:dimensions.includes('network')?Object.fromEntries((f.networks??networkBases.map(n=>n.slug)).map(slug=>[slug,{sites_with_rating:networkBases.find(n=>n.slug===slug)?.domain_rating_base??0,total_sites:networkBases.find(n=>n.slug===slug)?.total??0}])):undefined,
     rows:rows.slice(0,cap).map(row=>{
       const networkIndex=dimensions.indexOf('network');
       const denominator=networkIndex<0 ? base : networkBases.find(n=>n.slug===row[`group_${networkIndex+1}`])?.total ?? 0;
       return {...Object.fromEntries(dimensions.map((d,i)=>[d,row[`group_${i+1}`]])),count:row.count,base:denominator,share_percent:denominator ? row.count/denominator*100 : 0};
     }),truncated };
 }
-type NetworkRow = {slug:string;name:string;official_url:string|null;summary:string|null;listed:number;managed:number;confirmed:number;stale:number;median_domain_age_years:number|null;domain_age_base:number};
+type NetworkRow = {slug:string;name:string;official_url:string|null;summary:string|null;listed:number;managed:number;confirmed:number;stale:number;median_domain_age_years:number|null;domain_age_base:number;median_domain_rating:number|null;average_domain_rating:number|null;domain_rating_base:number};
 async function networks(db: Reader) {
   return (await db.query<NetworkRow>(`select n.slug,n.name,n.official_url,n.summary,
     count(r.publisher_id) filter(where ${listed})::int as listed,
@@ -78,13 +87,16 @@ async function networks(db: Reader) {
     count(r.publisher_id) filter(where r.status='stale')::int as stale,
     percentile_cont(0.5) within group(order by extract(epoch from age(current_date,p.domain_created_on))/31557600)
       filter(where ${listed} and p.domain_created_on is not null)::float8 as median_domain_age_years,
-    count(r.publisher_id) filter(where ${listed} and p.domain_created_on is not null)::int as domain_age_base
+    count(r.publisher_id) filter(where ${listed} and p.domain_created_on is not null)::int as domain_age_base,
+    percentile_cont(0.5) within group(order by p.domain_rating) filter(where ${listed})::float8 as median_domain_rating,
+    avg(p.domain_rating) filter(where ${listed})::float8 as average_domain_rating,
+    count(r.publisher_id) filter(where ${listed} and p.domain_rating is not null)::int as domain_rating_base
     from ad_networks n left join ad_network_publisher_relationships r on r.ad_network_id=n.id
     left join ad_network_publishers p on p.id=r.publisher_id group by n.id,n.slug,n.name,n.official_url,n.summary order by n.slug limit 201`)).map(n=>({
       ...n,facts:adNetworkFacts[n.slug]??null,url:`${sourceUrl}/${n.slug}`,
     }));
 }
-const siteFields = 'p.normalized_domain as domain,p.niche,p.platform,p.domain_created_on::text,p.traffic_group as size_group,p.last_successful_check_at';
+const siteFields = 'p.normalized_domain as domain,p.niche,p.platform,p.domain_created_on::text,p.traffic_group as size_group,p.last_successful_check_at,p.domain_rating,p.domain_rating_checked_on::text';
 const membership = `coalesce((select jsonb_agg(jsonb_build_object('network',n.slug,'status',r.status,'relationship_type',r.relationship_type,
   'first_confirmed_at',r.first_confirmed_at,'last_confirmed_at',r.last_confirmed_at,'ended_at',r.ended_at) order by n.slug)
   from ad_network_publisher_relationships r join ad_networks n on n.id=r.ad_network_id
@@ -142,7 +154,7 @@ export async function queryTool(db: Reader,name: ToolName,f: Record<string, any>
       const stats=(await db.query('select * from dataset_summary'))[0];
       const totals=(await db.query(`select count(distinct publisher_id)::int as listed,count(distinct publisher_id) filter(where relationship_type='primary_or_exclusive_manager')::int as managed from ad_network_publisher_relationships r where ${listed}`))[0];
       return { ...stats,...totals,measurement:'We check the publisher’s ads.txt for seller signals and MANAGERDOMAIN. AdSense and page-signature networks also require homepage signals. Discovery lists alone do not confirm a relationship.',
-        available_values:{niche:adNetworkNiches.map(n=>({slug:n.slug,name:n.name})),size_group:['top-10k','top-100k','top-1m','not-ranked'],
+        available_values:{niche:adNetworkNiches.map(n=>({slug:n.slug,name:n.name})),domain_rating:['0–9','10–19','20–29','30–49','50–69','70–100','unknown'],size_group:['top-10k','top-100k','top-1m','not-ranked'],
           platform:(await db.query(`select distinct platform from ad_network_publishers where platform is not null order by platform limit 200`)).map(r=>r.platform),
           networks:(await db.query(`select slug,name from ad_networks order by slug limit 200`))},
         tools:{ad_networks_overview:'Start here for definitions, coverage and values.',list_ad_networks:'Joining and payment facts and network totals.',get_ad_network:'Full network profile and distributions.',compare_ad_networks:'One dimension side by side.',count_sites:'Distinct counts with filters and up to two groups.',find_sites:'Bounded site list with cursor.',lookup_site:'One domain with current and past memberships.',network_movements:'Observed events with a strong quality warning.',...(sqlEnabled()?{run_readonly_sql:'Private SQL for documented safe views only.'}:{})}};
@@ -158,7 +170,7 @@ export async function queryTool(db: Reader,name: ToolName,f: Record<string, any>
     case 'get_ad_network': {
       const n=(await networks(db)).find(n=>n.slug===f.network);if(!n)throw new ApiError(404,'not_found','Unknown network slug.');
       const distributions:Record<string,unknown>={};
-      for(const dim of ['age_bucket','registration_year','niche','size_group','platform'] as const) distributions[dim]=await grouped(db,{networks:[f.network]},[dim],cap);
+      for(const dim of ['age_bucket','registration_year','niche','size_group','platform','domain_rating'] as const) distributions[dim]=await grouped(db,{networks:[f.network]},[dim],cap);
       const co=await db.query(`select n.slug,count(distinct r.publisher_id)::int as count from ad_network_publisher_relationships r
         join ad_networks n on n.id=r.ad_network_id where ${listed} and n.slug<>$1 and r.publisher_id in
         (select r.publisher_id from ad_network_publisher_relationships r join ad_networks n on n.id=r.ad_network_id where n.slug=$1 and ${listed})
@@ -213,7 +225,9 @@ export async function executeTool(name: ToolName,input: unknown,transaction?: ty
     const budget=boundResults(data,cap);
     const result={as_of:freshness.as_of,queried_at:new Date().toISOString(),definitions,caveats,filters:f,
       url:name==='get_ad_network'?`${sourceUrl}/${f.network}`:name==='lookup_site'?`https://stack127.com/ad-network-checker?domain=${encodeURIComponent(f.domain)}`:name==='network_movements'?'https://stack127.com/ad-networks/stats':sourceUrl,
-      data,limits:{max_rows:cap,...budget,truncated:JSON.stringify(data).includes('"truncated":true')}};
+      data:{...data,domain_rating_metadata:{attribution:AHREFS_ATTRIBUTION.text,url:AHREFS_ATTRIBUTION.url,
+        credit:`[${AHREFS_ATTRIBUTION.text}](${AHREFS_ATTRIBUTION.url})`,caveat:definitions.domain_rating,
+        coverage:{sites_with_rating:freshness.domain_rating_base,total_sites:freshness.domain_rating_total,scope:'all distinct listed sites in the dataset; not the returned page or filtered cohort'}}},limits:{max_rows:cap,...budget,truncated:JSON.stringify(data).includes('"truncated":true')}};
     if(Buffer.byteLength(JSON.stringify(result))>MAX_ANSWER_BYTES)throw new ApiError(413,'answer_too_large','Answer exceeds 1 MB. Narrow the query or lower the row limit.');
     return result;
   });

@@ -5,12 +5,13 @@ import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
+import { ahrefsStateFile } from '../stack127/ahrefs-dr.mjs';
 import { defaultLocalDatabasePath } from './local-db.mjs';
 import { jobAlert, safeError } from './alerts.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 export const refreshJobs = ['sync', 'snapshot', 'verification', 'discovery', 'catalog', 'backup',
-  'platform', 'publisher-names', 'traffic', 'domain-age', 'ads-txt-summary', 'niche-export', 'rdap-import'];
+  'platform', 'publisher-names', 'traffic', 'domain-age', 'domain-rating', 'ads-txt-summary', 'niche-export', 'rdap-import'];
 
 export function refreshArgs(argv) {
   const { values } = parseArgs({ args: argv, options: {
@@ -20,6 +21,7 @@ export function refreshArgs(argv) {
     'state-directory': { type: 'string', default: join(homedir(), '.local/state/stack127/ad-networks') },
     concurrency: { type: 'string', default: '4' }, limit: { type: 'string', default: '500' },
     'time-budget-minutes': { type: 'string', default: '10' }, 'source-sqlite': { type: 'string' },
+    'pace-ms': { type: 'string', default: '3000' },
     'sync-only': { type: 'boolean', default: false }, full: { type: 'boolean', default: false },
   } });
   if (!refreshJobs.includes(values.job)) throw new Error(`Choose --job ${refreshJobs.join('|')}`);
@@ -28,6 +30,7 @@ export function refreshArgs(argv) {
   for (const [key, max] of [['concurrency', 8], ['limit', 5000], ['time-budget-minutes', 45]]) {
     if (!/^[1-9]\d*$/.test(values[key]) || Number(values[key]) > max) throw new Error(`${key} must be 1 to ${max}`);
   }
+  if (!/^\d+$/.test(values['pace-ms']) || +values['pace-ms'] < 3000 || +values['pace-ms'] > 60000) throw new Error('pace-ms must be 3000 to 60000');
   if (values.job === 'rdap-import' && !values['source-sqlite']) throw new Error('rdap-import needs --source-sqlite');
   return { ...values, 'local-database': resolve(values['local-database']), 'state-directory': resolve(values['state-directory']) };
 }
@@ -52,6 +55,7 @@ export function refreshCommand(options) {
     '--run-directory', join(state, 'niche/input'), '--progress-file', join(state, 'niche-export.json')] };
   return { script: options.job, args: [...local, '--concurrency', options.concurrency, '--limit', options.limit,
     '--time-budget-minutes', options['time-budget-minutes'], '--progress-file', join(state, `${options.job}.json`),
+    ...(options.job === 'domain-rating' ? ['--pace-ms', options['pace-ms'], '--ahrefs-state-file', ahrefsStateFile(options.environment)] : []),
     ...(options.job === 'traffic' ? ['--cache-directory', join(state, 'crux')] : []),
     ...(options.job === 'publisher-names' ? ['--refresh'] : [])] };
 }

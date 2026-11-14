@@ -71,8 +71,9 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
       <PageCanvas flow className={styles.body}>
         {network.listed_count ? (
           <SitesTable
-            columns={["niche", "traffic", "age", "platform", "manager", "checked"]}
+            columns={["niche", "traffic", "dr", "age", "platform", "manager", "checked"]}
             defaultSort={sites.effectiveSort}
+            drFilter
             heading={`Sites using ${network.name}`}
             headingId="sites"
             initial={sites}
@@ -80,7 +81,7 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
             noun="sites"
             route={`/ad-networks/${slug}`}
             scope={{ network: slug }}
-            sorts={["traffic", "oldest", "newest", "domain"]}
+            sorts={["traffic", "highest-dr", "lowest-dr", "oldest", "newest", "domain"]}
           />
         ) : null}
         <NetworkDetails content={content} name={network.name} slug={slug} />

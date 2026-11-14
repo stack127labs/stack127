@@ -1,3 +1,4 @@
+import * as ahrefs from "../../../lib/ahrefs.ts";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { loadTypeScript } from "../../helpers/load-typescript.mjs";
@@ -11,6 +12,7 @@ import * as tldts from "tldts";
 function library(rows, fail = false) {
   const calls = [];
   const exports = loadTypeScript(new URL("../../../lib/ad-networks.ts", import.meta.url), {
+    "./ahrefs":ahrefs,
     "./db": { getPool: () => ({
       query: async (sql, args) => {
         calls.push({ sql, args });

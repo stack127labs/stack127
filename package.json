@@ -93,6 +93,7 @@
     "stack127:content:export": "node scripts/stack127/content/export-page-content.mjs",
     "ad-networks:ads-txt-summary": "node --experimental-strip-types scripts/ad-networks/ads-txt-summary.mjs",
     "ad-networks:platform": "node --experimental-strip-types scripts/ad-networks/platform.mjs",
+    "ad-networks:domain-rating": "node --experimental-strip-types scripts/ad-networks/domain-rating.mjs",
     "ad-networks:domain-age": "node --experimental-strip-types scripts/ad-networks/domain-age.mjs",
     "ad-networks:publisher-names": "node --experimental-strip-types scripts/ad-networks/publisher-names.mjs",
     "ad-networks:traffic": "node --experimental-strip-types scripts/ad-networks/traffic.mjs",

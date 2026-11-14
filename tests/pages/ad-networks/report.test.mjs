@@ -137,7 +137,7 @@ test('sites loader and parser default to 10, preserve explicit sizes, and bound 
   assert.equal(result.effectiveSort,'domain');assert.equal(result.page,8);assert.equal(result.totalPages,8);
   assert.deepEqual(Array.from(result.availableSorts),['domain','checked']);
   const table=calls.find(c=>c.sql.includes('p.normalized_domain as domain'));
-  assert.match(table.sql,/order by p.normalized_domain limit \$4 offset \$5/);
+  assert.match(table.sql,/order by p.normalized_domain limit \$5 offset \$6/);
   assert.deepEqual(Array.from(table.args).slice(-2),[10,70]);
   const explicit=await loadAdNetworkSites({...query,page:99,pageSize:50});
   assert.equal(explicit.pageSize,50);assert.equal(explicit.page,2);assert.equal(explicit.totalPages,2);
@@ -160,13 +160,13 @@ test('default and explicit traffic sort use age, domain and id ties in both pagi
   }
   const order="case p.traffic_group when 'top-1k' then 0 when 'top-10k' then 1 when 'top-100k' then 2 when 'top-1m' then 3 when 'not-ranked' then 4 else 5 end,p.domain_created_on asc nulls last,p.normalized_domain,p.id";
   for(const {sql} of tables) {
-    assert.ok(sql.includes(`order by ${order} limit $4 offset $5`));
+    assert.ok(sql.includes(`order by ${order} limit $5 offset $6`));
     assert.ok(sql.trimEnd().endsWith(`order by ${order}`));
   }
-  assert.deepEqual(Array.from(tables[0].args),['mediavine',null,'',10,0]);
-  assert.deepEqual(Array.from(tables[1].args),['mediavine',null,'',10,10]);
-  assert.deepEqual(Array.from(tables[2].args),[null,'tech','',10,0]);
-  assert.deepEqual(Array.from(tables[3].args),[null,'tech','',10,10]);
+  assert.deepEqual(Array.from(tables[0].args),['mediavine',null,'',null,10,0]);
+  assert.deepEqual(Array.from(tables[1].args),['mediavine',null,'',null,10,10]);
+  assert.deepEqual(Array.from(tables[2].args),[null,'tech','',null,10,0]);
+  assert.deepEqual(Array.from(tables[3].args),[null,'tech','',null,10,10]);
 });
 test('an all-network data event refreshes every network, niches and both APIs',()=>{
   const targets=targetsForEvents([{entity_type:'ad_networks',slug:'all'}]);

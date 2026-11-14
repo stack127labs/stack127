@@ -21,7 +21,7 @@ import {
   shortUrl, submitStatusText, trafficLabels, trafficSteps, waitShort,
 } from "../launch-format";
 import { LaunchLogo } from "../launch-logo";
-import { AhrefsCredit } from "../ahrefs-credit";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import styles from "./directory.module.css";
 
 // Build every place during the release. A place without a published registry row still returns 404.
