@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "npm run typecheck",
     "test": "npm run test:core",
-    "test:core": "node --experimental-strip-types --test-concurrency=1 --test tests/stack127/database-errors.test.mjs tests/stack127/deployment-target.test.mjs tests/stack127/dokploy-release.test.mjs tests/stack127/page-registry.test.mjs tests/stack127/analytics.test.mjs tests/stack127/static-routes.test.mjs tests/stack127/cache-refresh.test.mjs tests/stack127/cache-worker.test.mjs tests/stack127/cache-targets.test.mjs tests/stack127/page-content.test.mjs tests/stack127/selfhost-db-recovery.test.mjs",
+    "test:core": "node --experimental-strip-types --test-concurrency=1 --test tests/stack127/database-errors.test.mjs tests/stack127/deployment-target.test.mjs tests/stack127/dokploy-release.test.mjs tests/stack127/page-registry.test.mjs tests/stack127/analytics.test.mjs tests/stack127/static-routes.test.mjs tests/stack127/cache-refresh.test.mjs tests/stack127/cache-worker.test.mjs tests/stack127/cache-targets.test.mjs tests/stack127/page-content.test.mjs tests/stack127/selfhost-db-recovery.test.mjs tests/data-api/core.test.mjs tests/data-api/proxy-headers.test.mjs tests/data-api/public-api-headers.test.mjs",
     "test:focused": "node --experimental-strip-types --test-concurrency=1 --test",
     "keyboard-shortcuts:sync": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs",
     "keyboard-shortcuts:check": "node --experimental-strip-types scripts/keyboard-shortcuts/sync-pages.mjs --check",
@@ -103,12 +103,16 @@
     "ad-networks:gather-once": "node --experimental-strip-types scripts/ad-networks/gather-once.mjs",
     "ad-networks:enrichment:status": "node scripts/ad-networks/enrichment-status.mjs",
     "ad-networks:snapshot-local": "node scripts/ad-networks/snapshot-local.mjs",
-    "ad-networks:refresh": "node --experimental-strip-types scripts/ad-networks/refresh.mjs"
+    "ad-networks:refresh": "node --experimental-strip-types scripts/ad-networks/refresh.mjs",
+    "test:data-api": "node --experimental-strip-types --test tests/data-api/core.test.mjs tests/data-api/proxy-headers.test.mjs tests/data-api/public-api-headers.test.mjs",
+    "test:data-api:development": "STACK127_DATA_INTEGRATION=true node --env-file=.env.local --experimental-strip-types --test tests/data-api/integration.test.mjs",
+    "test:data-api:routing": "node --experimental-strip-types --test tests/data-api/next-routing.test.mjs"
   },
   "dependencies": {
     "@internationalized/date": "^3.12.4",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
+    "@modelcontextprotocol/sdk": "1.32.2",
     "@namefi/dnssec-audit": "^2.1.1",
     "@next/mdx": "16.2.9",
     "@types/pg": "^8.20.0",
@@ -121,6 +125,7 @@
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^6.3.289",
     "pg": "^8.21.0",
+    "pgsql-ast-parser": "12.0.2",
     "react": "19.2.1",
     "react-aria-components": "^1.21.0",
     "react-dom": "19.2.1",
@@ -131,7 +136,8 @@
     "remark-parse": "^11.0.0",
     "tldts": "^7.4.15",
     "unified": "^11.0.5",
-    "yaml": "2.8.1"
+    "yaml": "2.8.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@types/dns-packet": "^5.6.5",

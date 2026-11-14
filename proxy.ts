@@ -7,9 +7,28 @@ import { sitePageAvailable } from "@/lib/page-source";
 import { absoluteUrl } from "@/lib/seo";
 import { queryNeedsNoindex } from "@/lib/seo/query-indexing.mjs";
 
+import { isPrivateApiPath, isCanonicalPrivateApiPath } from "./lib/data-api/path-policy.mjs";
+import { notFoundResponse } from "./lib/data-api/private-response.mjs";
+
+function isPublicApiPath(pathname: string) {
+  return /^\/api\/(?:ad-networks(?:\/|$)|cache(?:\/|$)|cli-apps(?:\/|$)|dns(?:\/|$)|domain(?:\/|$)|self-host-apps(?:\/|$)|shortcuts(?:\/|$)|resource-planner-app(?:\/|$)|resource-planner-index(?:\/|$)|ip-asn-lookup(?:\/|$)|health(?:\/|$))/.test(pathname);
+}
+
 export async function proxy(request: NextRequest) {
   const headers = new Headers(request.headers);
   const pathname = request.nextUrl.pathname;
+  // Only private namespaces bypass the existing public API cache/SEO policy.
+  // Reject noncanonical spellings that reach the proxy. Next may normalize
+  // repeated/backslashes or redirect trailing slashes before this runs.
+  if (isPrivateApiPath(request.url ?? pathname)) {
+    if (!isCanonicalPrivateApiPath(request.url ?? pathname)) return notFoundResponse();
+    headers.delete("x-stack127-pathname");
+    return request.headers.has("x-stack127-pathname")
+      ? NextResponse.next({ request: { headers } }) : NextResponse.next();
+  }
+  if ((pathname === "/api" || pathname.startsWith("/api/")) && !isPublicApiPath(pathname)) {
+    return notFoundResponse();
+  }
   const userQuery = new URLSearchParams(request.nextUrl.search);
   userQuery.delete("_rsc");
   const withQueryIndexing = (response: NextResponse) => {
@@ -74,6 +93,8 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/api/mcp/:path*",
+    "/api/v1/:path*",
     "/sitemap.xml",
     "/robots.txt",
     "/((?!_next/static|_next/image|favicon.ico|favicon-16x16.png|favicon-32x32.png|apple-touch-icon.png|android-chrome-192x192.png|android-chrome-512x512.png|logos|app-icons|.*\\..*).*)",

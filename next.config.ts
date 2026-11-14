@@ -4,6 +4,9 @@ import { collectAllowedDevOrigins } from "./lib/allowed-dev-origins";
 import { legacyShortcutRedirects } from "./lib/legacy-shortcut-redirects";
 
 const nextConfig: NextConfig = {
+  // Keep normal development request logs, except the canonical private APIs.
+  // Next tests these expressions against the raw request URL.
+  logging: { incomingRequests: { ignore: [/^\/api\/(?:mcp|v1)(?:[/?]|$)/] } },
   allowedDevOrigins: collectAllowedDevOrigins(),
   distDir: process.env.STACK127_TEST_DIST_DIR ?? ".next",
   images: {

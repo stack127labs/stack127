@@ -28,4 +28,5 @@ Keep each current decision in the operating doc it belongs to. Page-specific pla
 | `seo.md` | Canonicals, sitemap, robots, structured data, and indexing rules. |
 | `rdap.md` | Shared registration data engine contract for the planned `/domain-tools` pages. |
 | `ovh-vps-migration.md` | Runbook for moving stack127 to its own OVH VPS: IPv6, acceptance, cutover, and rollback. |
+| [mcp-and-api.md](mcp-and-api.md) | Private ad network MCP and REST, authentication, limits, projection migration, and client connection steps. |
 | `production-deployment.md` | Active production target, preflight, deployment, and verification runbook. |
