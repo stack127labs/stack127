@@ -35,12 +35,7 @@ tries=0
 sync_only=
 while :; do
   rc=0
-  nice -n 10 flock -n -E 76 "/tmp/adn-$job.lock" sh -c '
-    if [ -e /srv/stack127-data/checkout/update-in-progress ]; then
-      echo "ERROR: checkout update in progress or interrupted"; exit 1
-    fi
-    exec "$@"
-  ' sh node --no-warnings --experimental-strip-types scripts/ad-networks/refresh.mjs \
+  nice -n 10 flock -n -E 76 "/tmp/adn-$job.lock" sh -c '[ ! -e /srv/stack127-data/checkout/update-in-progress ] || { echo "ERROR: checkout update in progress or interrupted"; exit 1; }; exec "$@"' sh node --no-warnings --experimental-strip-types scripts/ad-networks/refresh.mjs \
     --job "$job" --environment production --confirm stack127-production --apply \
     --local-database "$AD_NETWORK_DB_PATH" --state-directory "$AD_NETWORKS_STATE_DIRECTORY" $sync_only "$@" || rc=$?
   [ "$rc" = 76 ] && { echo "already running"; break; }
