@@ -46,6 +46,17 @@ Why this method: the [current OpenAI custom MCP guide](https://developers.openai
 
 A secret URL is a credential. Before enabling it, the lead must check OVH reverse-proxy logs, Cloudflare request logs, error tracking and analytics. Redact or omit the full `/api/mcp/*` path from logs; do not retain the capability in screenshots, public issue text or monitoring URLs. Application usage logs contain no URLs, bodies, SQL, headers, raw errors or credentials. Keep this connector private to the owner; a shared connector URL grants everyone who receives it the same owner's access.
 
+## Plan for going public (owner decision, 2026-11-14)
+
+When this becomes a public product, it moves to its own subdomain and gets real sign-in. Nothing below is built yet; the private setup above stays as it is until then.
+
+- **Address:** `https://mcp.stack127.com` for MCP and the API, not `stack127.com/api/...`. The tool gets its own home, separate from the website: its own DNS record proxied by Cloudflare to the OVH app, its own cache rules (never cache), and its own logs. The website's `/api/*` routes stay for the website's own data.
+- **Sign-in:** OAuth for claude.ai and ChatGPT, so each user clicks Connect, signs in on stack127, and approves access. No secret URLs for public users. Per-user API keys for REST and header clients. Both replace `authenticate(request)`; the tools and their input and output stay the same.
+- **Accounts and plans:** user accounts, plans (for example free and paid), billing, and per-plan limits on requests a day, rows per answer, and which tools are available. The existing rate-limit and usage-log design is per principal, so it extends to per user.
+- **What stays private:** `run_readonly_sql` is never offered publicly. `publisher_name` and internal check fields are never returned. Whether site-by-site lists (`find_sites`, `lookup_site`) are paid-only is an owner decision to make before launch.
+- **Before launch:** terms of use and an acceptable-use rule, public documentation for each tool, a status or uptime check, alerts on errors and abuse, and a review of data accuracy and its stated limits.
+- **The owner's private access** moves to the same sign-in at launch, and the secret path is switched off.
+
 ## Environment keys
 
 The lead adds runtime values through Infisical **`stack127 /vps/web-app`**. No values were added or changed by this implementation. Keys are also indexed in [environment-inventory.md](environment-inventory.md).
