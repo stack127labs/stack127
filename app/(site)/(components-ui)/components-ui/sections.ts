@@ -106,9 +106,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "content",
     label: "Content",
-    description: "Notes, warnings, tips, formulas, examples, terms, questions, and code.",
+    description: "Notes, warnings, tips, formulas, examples, questions, and code.",
     icon: FileText,
-    components: ["Callout", "Note", "Warning", "Tip", "ContentBlock", "Terms", "Term", "Faq", "CodeBlock"],
+    components: ["Callout", "Note", "Warning", "Tip", "ContentBlock", "Faq", "CodeBlock"],
   },
   {
     slug: "prose",

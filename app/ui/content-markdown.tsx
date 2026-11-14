@@ -8,6 +8,7 @@ import type { UiChartSpec } from "./charts/chart-option";
 type MarkdownNode = {
   type: string;
   value?: string;
+  align?: null[];
   data?: { hName?: string; hProperties?: Record<string, string> };
   children?: MarkdownNode[];
 };
@@ -32,13 +33,15 @@ function remarkDefinitionLists() {
           index += 1;
         }
         if (entries.length) {
+          // Terms show as a two-column table, the same as terms in MDX pages.
+          const row = (cells: string[]): MarkdownNode => ({
+            type: "tableRow",
+            children: cells.map((value) => ({ type: "tableCell", children: [{ type: "text", value }] })),
+          });
           children.push({
-            type: "paragraph",
-            data: { hName: "dl" },
-            children: entries.flatMap((entry) => [
-              { type: "paragraph", data: { hName: "dt" }, children: [{ type: "text", value: entry.term }] },
-              { type: "paragraph", data: { hName: "dd" }, children: [{ type: "text", value: entry.description }] },
-            ]),
+            type: "table",
+            align: [null, null],
+            children: [row(["Term", "Meaning"]), ...entries.map((entry) => row([entry.term, entry.description]))],
           });
           continue;
         }

@@ -76,15 +76,3 @@ export function ContentImage({ alt, src, ...props }: ComponentPropsWithoutRef<"i
   if (typeof src === "string" && src.startsWith("marker-art://")) return <ContentMarkerArt alt={alt} reference={src} />;
   return <img src={src} alt={alt} {...props} />;
 }
-
-export function Terms({ children }: { children: ReactNode }) {
-  return <dl>{children}</dl>;
-}
-
-/** A meaning written as one paragraph sits directly in the dd, as Markdown definition lists render it. */
-export function Term({ children, name }: { children: ReactNode; name: string }) {
-  const items = Children.toArray(children);
-  const only = items.length === 1 ? items[0] : null;
-  const meaning = isValidElement<{ children?: ReactNode }>(only) && (only.type === "p" || only.type === ContentParagraph) ? only.props.children : children;
-  return <><dt>{name}</dt><dd>{meaning}</dd></>;
-}

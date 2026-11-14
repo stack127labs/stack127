@@ -53,7 +53,7 @@ MDX renders on the server, so pages stay static and send no extra script.
 
 ## Writing in MDX
 
-MDX is Markdown that can hold our components. Write ordinary Markdown for headings, paragraphs, lists, links, tables, and code. Use a component only for the blocks below.
+MDX is Markdown that can hold our components. Write ordinary Markdown for headings, paragraphs, lists, links, tables, and code. Terms and their meanings are a two-column Markdown table, with headers that fit the page, such as "Word" and "What it counts". Use a component only for the blocks below.
 
 | Block | Write |
 | --- | --- |
@@ -62,7 +62,6 @@ MDX is Markdown that can hold our components. Write ordinary Markdown for headin
 | Recommendation | `<Tip title="Start small">…</Tip>` |
 | Formula | `<Formula title="Conversion rate">…</Formula>` |
 | Worked example | `<Example title="400 visitors">…</Example>` |
-| Terms and their meanings | `<Terms>` holding `<Term name="Churn">…</Term>` items |
 | Chart | `<UiStaticChart spec={…} />`. Use `<UiChart spec={…} />` only when the reader needs hover, toggles, or ranges. |
 | Data table with row headers or mobile rows | `<UiDataTable … />` |
 | Marker art | `<MarkerArt figure="catalog/zfs-capacity" alt="…" />` |
@@ -115,7 +114,7 @@ Copy fixes, such as a typo, leave the date alone.
 
 Move a page before you change its content. Make the move and the content change as separate commits, so the text check below stays easy.
 
-1. Recover its archived content when needed: `npm run stack127:content:export -- --slug <slug>`. It reads `stack127_retired_page_content` after column retirement and writes the `content/` files and turns callouts, terms, and marker art into components. A directory with section markers gets one file per section, named for the marker. The export reads development by default; add `--environment production` to read the live text. It never writes to the database, and it won't overwrite files unless you add `--force`.
+1. Recover its archived content when needed: `npm run stack127:content:export -- --slug <slug>`. It reads `stack127_retired_page_content` after column retirement and writes the `content/` files. It turns callouts and marker art into components, and terms into a two-column table headed "Term" and "Meaning". Rename those headers to fit the page. A directory with section markers gets one file per section, named for the marker. The export reads development by default; add `--environment production` to read the live text. It never writes to the database, and it won't overwrite files unless you add `--force`.
 2. If the export stops on a chart fence or raw HTML, it names the line. Those need a manual conversion, such as a chart to `<UiStaticChart spec={…} />`.
 3. Read every file and clean it to the rules above. Keep the reader's text the same unless a sentence breaks a rule.
 4. Change the route to import the files, as the pilot pages do.

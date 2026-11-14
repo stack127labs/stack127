@@ -231,7 +231,7 @@ Content tables written in Markdown use a scrollable `TableFrame`. Keep tables re
 
 ## Content blocks
 
-Page content is MDX beside each route. [page-content.md](page-content.md) lists every block content can use and how to write it: notes, warnings, tips, formulas, examples, terms, charts, data tables, and marker art. `mdx-components.tsx` maps them to the shared elements in `app/ui/content-elements.tsx`, so every page renders them the same way.
+Page content is MDX beside each route. [page-content.md](page-content.md) lists every block content can use and how to write it: notes, warnings, tips, formulas, examples, charts, data tables, and marker art. `mdx-components.tsx` maps them to the shared elements in `app/ui/content-elements.tsx`, so every page renders them the same way.
 
 - Use a note for context, a warning for something that can cost money, data, or time, and a tip for a recommendation.
 - Give a formula or example one clear home instead of repeating it around the page.
