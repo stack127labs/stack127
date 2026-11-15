@@ -1,0 +1,14 @@
+{
+  "slug": "convox",
+  "name": "Convox",
+  "url": "https://www.convox.com/pricing",
+  "jobs": ["paas", "panel"],
+  "line": "Deploy apps to your cloud account or Convox managed cloud.",
+  "free": { "kind": "free", "text": "Console: 1 user/1 Rack; X-Small Cloud machine has 250 free hours/month" },
+  "cells": { "type": "Deployment platform", "regions": "Selected cloud provider regions", "selfhost": "Yes; Rack runs in your cloud account" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$12 a month for the X-Small machine, which includes 250 free machine hours and 100 build minutes. Data sent out and domain costs are not published." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$199 a month for the Basic Console, plus the provider's rack, node, load balancer, data sent out and domain. The provider and region are not selected." },
+    { "v": "Unknown", "plan": "", "state": "conflicting", "math": "$25 for Cloud Small + $19 for a Cloud DB dev database = $44 displayed subtotal. The database docs say managed RDS, but the pricing FAQ says it is not directly available." }
+  ] }
+}

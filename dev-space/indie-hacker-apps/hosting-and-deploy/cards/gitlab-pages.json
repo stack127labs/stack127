@@ -1,0 +1,14 @@
+{
+  "slug": "gitlab-pages",
+  "name": "GitLab Pages",
+  "url": "https://docs.gitlab.com/user/project/pages/",
+  "jobs": ["static"],
+  "line": "Build and publish static websites from GitLab repositories.",
+  "free": { "kind": "free", "text": "Free plan includes 400 CI compute minutes per namespace monthly" },
+  "cells": { "type": "Static hosting", "regions": "GitLab.com hosted infrastructure", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$0", "plan": "Free", "state": "unclear", "math": "100 build minutes fit within 400 a month. 100 MB fits the 1 GB site limit. No 100 GB traffic allowance or overage price was found." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Pages only hosts static sites and does not run an API." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Pages has no app runtime or managed PostgreSQL service." }
+  ] }
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "xano",
+  "name": "Xano",
+  "url": "https://www.xano.com/",
+  "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "line": "Backend platform with PostgreSQL, APIs, authentication, files and background tasks.",
+  "free": { "kind": "free", "text": "1GB DB, 100K records; no scheduled tasks; term unclear; no idle rule found" },
+  "cells": {
+    "metered": "$99/mo Essential: 3 WS, 5 seats; $249/mo Pro: 5 WS, 10 seats",
+    "regions": "US Free; 15 listed paid countries",
+    "selfhost": "Yes, Custom-only BYOC/on-prem; separate license"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$99+",
+        "plan": "Essential monthly",
+        "state": "unclear",
+        "math": "The Essential plan costs $99. 1 GB of data fits within 10 GB of SSD, and 10 peak connections fit the 45-connection pool. Performance, how output is counted and index overhead are not yet confirmed."
+      },
+      {
+        "v": "$99",
+        "plan": "Essential monthly",
+        "state": "confirmed",
+        "math": "The Essential plan stays at $99 a month when idle. Pause, add-ons and outside services are not included."
+      }
+    ],
+    "files": [
+      {
+        "v": "$99",
+        "plan": "Essential monthly",
+        "state": "unclear",
+        "math": "The Essential plan at $99 a month includes exactly 100 GB of files, with no room to grow, and 250 GB of file bandwidth. 100 GB of output fits if it is counted there. Each upload must fit within 128 MB."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$99+",
+        "plan": "Essential monthly",
+        "state": "unclear",
+        "math": "The Essential plan supports tasks with no fee per run. Whether 0.5 vCPU and 0.5 GB fits is unknown. Schedules shorter than a minute need the Pro plan at $249 a month."
+      }
+    ]
+  }
+}

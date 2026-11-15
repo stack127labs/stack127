@@ -1,0 +1,17 @@
+{
+  "slug": "dragonpay",
+  "name": "Dragonpay",
+  "official_url": "https://www.dragonpay.ph/",
+  "image_url": "https://www.dragonpay.ph/favicon.ico",
+  "source_page": "https://www.dragonpay.ph/",
+  "kind": "favicon",
+  "source_host": "dragonpay.ph",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "0cc5259d35ceb02012c8a9cca7dbfe5f093a5c562a4feb1927b57b2a34e1bb59",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

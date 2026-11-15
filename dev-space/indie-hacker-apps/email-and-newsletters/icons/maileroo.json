@@ -1,0 +1,17 @@
+{
+  "slug": "maileroo",
+  "name": "Maileroo",
+  "official_url": "https://maileroo.com/",
+  "image_url": "https://cdn.maileroo.com/media/branding/android-chrome-512x512.png",
+  "source_page": "https://maileroo.com/",
+  "kind": "logo-mark",
+  "source_host": "cdn.maileroo.com",
+  "original": {
+    "format": "webp",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "3965c0300f46806b3f88e7387ffb0030c283f42a1f01f6efef17e10631774120",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

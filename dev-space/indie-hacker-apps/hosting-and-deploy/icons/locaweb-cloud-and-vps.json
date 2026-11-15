@@ -1,0 +1,17 @@
+{
+  "slug": "locaweb-cloud-and-vps",
+  "name": "Locaweb Cloud and VPS",
+  "official_url": "https://www.locaweb.com.br/cloud/",
+  "image_url": "https://www.locaweb.com.br/images/favicon.ico",
+  "source_page": "https://www.locaweb.com.br/locaweb-cloud/",
+  "kind": "favicon",
+  "source_host": "locaweb.com.br",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "aca50cce0a14040c865530cf3b1e436ae8ee2516a79b53511b8bfa5af3629473",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

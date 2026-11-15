@@ -1,0 +1,40 @@
+{
+  "slug": "render",
+  "name": "Render",
+  "url": "https://render.com/",
+  "jobs": [
+    "paas"
+  ],
+  "line": "Managed web services, static sites, workers and Postgres.",
+  "free": {
+    "kind": "free",
+    "text": "Free static sites; free web services sleep"
+  },
+  "cells": {
+    "type": "App platform",
+    "regions": "5 regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "$14.25",
+        "plan": "Hobby",
+        "state": "confirmed",
+        "math": "$0 + $0 + $14.25 + $0. Hobby's 5 GB pool leaves 95 GB of data sent out billable."
+      },
+      {
+        "v": "$39.25",
+        "plan": "Hobby + 1c-2g web",
+        "state": "confirmed",
+        "math": "$0 for the workspace + $25 for the web instance + (100 minus 5) GB × $0.15 for data sent out."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Pro + Postgres",
+        "state": "unclear",
+        "math": "The daily-export workload needs cron and S3. Their charges and backup size are unknown. Seven-day point-in-time recovery (PITR) is a different recovery option."
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "chatwoot",
+  "name": "Chatwoot",
+  "url": "https://www.chatwoot.com/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "inbox",
+    "ai"
+  ],
+  "line": "Open source support inbox, live chat and AI assistant.",
+  "free": {
+    "kind": "free",
+    "text": "Hacker: 2 agents, 500 conversations/month; or self-host free"
+  },
+  "cells": {
+    "channels": "Email, chat, WhatsApp, Instagram, SMS, voice",
+    "ai": "Credits; $20 per extra 1,000",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Hacker",
+        "state": "unclear",
+        "math": "The Hacker plan: 2 agents, 500 conversations a month, live chat only."
+      },
+      {
+        "v": "$57",
+        "plan": "Startups",
+        "state": "unclear",
+        "math": "3 agents at $19 a month each = $57 a month in total."
+      }
+    ]
+  }
+}

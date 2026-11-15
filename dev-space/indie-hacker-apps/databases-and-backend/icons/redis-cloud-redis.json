@@ -1,0 +1,17 @@
+{
+  "slug": "redis-cloud-redis",
+  "name": "Redis Cloud",
+  "official_url": "https://redis.io/cloud/",
+  "image_url": "https://redis.io/icon.png?icon.3r8p6nysrg-mh.png",
+  "source_page": "https://redis.io/cloud/",
+  "kind": "favicon",
+  "source_host": "redis.io",
+  "original": {
+    "format": "png",
+    "width": 1028,
+    "height": 1028
+  },
+  "sha256": "7dec29264c2d1c7a7a5ef3cd302276824ff466f82480871db548aabf92d97689",
+  "note": "Redis brand icon used for Redis Cloud; the cloud product page publishes this shared mark.",
+  "saved_at": "2026-11-14"
+}

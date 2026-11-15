@@ -1,0 +1,17 @@
+{
+  "slug": "bigmailer",
+  "name": "BigMailer",
+  "official_url": "https://www.bigmailer.io/",
+  "image_url": "https://www.bigmailer.io/wp-content/uploads/2023/09/cropped-bigmailer_favicon-192x192.png",
+  "source_page": "https://www.bigmailer.io/",
+  "kind": "favicon",
+  "source_host": "bigmailer.io",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "18bf0450665242f58c90d8e07f9f17a08be330270a108400d97654f44b81aa3f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

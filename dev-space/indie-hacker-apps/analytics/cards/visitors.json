@@ -1,0 +1,12 @@
+{
+  "slug": "visitors", "name": "Visitors", "url": "https://visitors.now/",
+  "jobs": ["web", "product", "revenue"],
+  "line": "Tracks website and product activity with visitor journeys and revenue attribution.",
+  "free": {"kind": "trial", "text": "14-day trial, no card; unlimited usage"},
+  "cells": {"cookieless": "Optional (visitor cookie can persist identity)", "location": "Germany (Hetzner; EU processing)", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "$9", "plan": "10K events", "state": "unclear", "math": "This is the known price if 10,000 pageviews are the only billed events. Other automatic events may add usage."},
+    {"v": "$19", "plan": "100K events", "state": "unclear", "math": "This is the known price if 100,000 pageviews are the only billed events. Other automatic events may add usage."},
+    {"v": "$79", "plan": "1M events", "state": "unclear", "math": "This is the known price if 1,000,000 pageviews are the only billed events. Other automatic events may add usage."}
+  ]}
+}

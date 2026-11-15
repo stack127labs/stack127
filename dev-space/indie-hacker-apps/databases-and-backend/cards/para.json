@@ -1,0 +1,25 @@
+{
+  "slug": "para",
+  "name": "Para",
+  "url": "https://paraio.org/",
+  "jobs": ["kv", "jobs"],
+  "line": "Hosted or self-hosted JSON API with search, cache, auth, and webhooks.",
+  "free": { "kind": "free", "text": "1 app, up to 10,000 objects; 90 idle days may delete data" },
+  "cells": {
+    "metered": "€25/app/month; includes 10 GB app storage",
+    "regions": "AWS US, EU, or Japan; exact region unclear",
+    "selfhost": "Yes, Apache-2.0 self-hosted software"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Para Cloud Paid", "state": "unclear", "math": "€25 is the known plan subtotal if app data fits 10 GB. Object count, request and transfer costs are unknown." },
+      { "v": "€25", "plan": "Para Cloud Paid", "state": "unclear", "math": "€25 a month continues when idle, if billable data stays within 10 GB. Actual indexed storage and other costs are unclear." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Para Cloud has no published hosted file storage plan." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Para Cloud plus worker", "state": "not_published", "math": "€25 is the known app part. Webhook workers need separate hosting, and they have no published price for running time." }
+    ]
+  }
+}

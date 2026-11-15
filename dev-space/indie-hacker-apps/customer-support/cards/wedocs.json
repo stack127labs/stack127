@@ -1,0 +1,19 @@
+{
+  "slug": "wedocs",
+  "name": "weDocs",
+  "url": "https://wedocs.co/",
+  "jobs": ["helpdesk", "ai"],
+  "line": "WordPress knowledge base with an optional AI chat widget.",
+  "free": { "kind": "selfhost", "text": "Free GPL plugin; you provide WordPress hosting" },
+  "cells": {
+    "channels": "WordPress docs, contact form, AI chat",
+    "ai": "Customer AI Chat $7.99/month; usage limit unknown",
+    "selfhost": "Yes, WordPress plugin"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base and contact form; no shared support inbox." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base and contact form; no shared support inbox." }
+    ]
+  }
+}

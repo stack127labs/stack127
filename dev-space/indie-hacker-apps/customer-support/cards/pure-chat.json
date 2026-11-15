@@ -1,0 +1,19 @@
+{
+  "slug": "pure-chat",
+  "name": "Pure Chat",
+  "url": "https://purechat.com/",
+  "jobs": ["chat"],
+  "line": "Website live chat with visitor tracking and lead capture.",
+  "free": { "kind": "trial", "text": "30-day PRO trial, no card" },
+  "cells": {
+    "channels": "Website chat",
+    "ai": "No native AI price or usage allowance established",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$49", "plan": "Growth", "state": "confirmed", "math": "The Growth plan includes four operators and one website. One person works." },
+      { "v": "$49", "plan": "Growth", "state": "confirmed", "math": "The Growth plan includes four operators, which covers three workers on one website." }
+    ]
+  }
+}

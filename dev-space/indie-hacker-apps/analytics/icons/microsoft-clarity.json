@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-clarity",
+  "name": "Microsoft Clarity",
+  "official_url": "https://clarity.microsoft.com/",
+  "image_url": "https://claritystatic.azureedge.net/images/logo.ico",
+  "source_page": "https://clarity.microsoft.com/",
+  "kind": "favicon",
+  "source_host": "claritystatic.azureedge.net",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "52800724ce2d7ca81f86a53cb2a8b87f068742ab75c82938687e9ffea1ce9003",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

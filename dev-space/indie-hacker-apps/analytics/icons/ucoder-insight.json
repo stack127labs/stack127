@@ -1,0 +1,17 @@
+{
+  "slug": "ucoder-insight",
+  "name": "Ucoder Insight",
+  "official_url": "https://insights.ucoder.in/",
+  "image_url": "https://insights.ucoder.in/android-chrome-512x512.png",
+  "source_page": "https://insights.ucoder.in/",
+  "kind": "manifest-icon",
+  "source_host": "insights.ucoder.in",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "c3d8018885c7f873035d477808b07bd0da506dff61fca8db33e747b68e67abad",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

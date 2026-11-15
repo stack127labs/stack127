@@ -1,0 +1,19 @@
+{
+  "slug": "daykeeper",
+  "name": "Daykeeper",
+  "url": "https://www.mydaykeeper.com/",
+  "jobs": ["inbox", "chat", "helpdesk", "ai"],
+  "line": "Developer-focused support inbox for humans and software agents.",
+  "free": { "kind": "free", "text": "Free: 1 inbox and 100 conversations/month" },
+  "cells": {
+    "channels": "Website messenger, API, email on paid Pro",
+    "ai": "No separate per-resolution charge advertised",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "One free workspace covers 100 threads a month, one inbox, and one agent." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "No charge per seat. One free workspace covers three people and 100 threads." }
+    ]
+  }
+}

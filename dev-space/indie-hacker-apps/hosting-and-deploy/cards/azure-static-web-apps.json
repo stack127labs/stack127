@@ -1,0 +1,14 @@
+{
+  "slug": "azure-static-web-apps",
+  "name": "Azure Static Web Apps",
+  "url": "https://azure.microsoft.com/en-us/products/app-service/static/",
+  "jobs": ["static", "paas"],
+  "line": "Host globally distributed static sites with optional Functions APIs.",
+  "free": { "kind": "free", "text": "Free tier with 100 GB/month bandwidth allowance" },
+  "cells": { "type": "Static and API hosting", "regions": "Global static delivery; Functions region selected", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$9", "plan": "Standard", "state": "confirmed", "math": "$9 a month. 100 GB uses an unused subscription allowance. 100 minutes of local builds fit within the included compute and stated storage limits." },
+    { "v": "$9", "plan": "Standard", "state": "confirmed", "math": "$9 for Standard + $0 for functions, assuming 256 MB of memory and 250 ms of run time. Unused grants: 400,000 GB-seconds and 1 million executions." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$9 for hosting + $12.41 for database compute = $21.41 subtotal. The 32 GiB disk, backup excess and database network use leave the full total unknown." }
+  ] }
+}

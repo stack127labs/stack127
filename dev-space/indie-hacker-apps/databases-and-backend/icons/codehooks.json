@@ -1,0 +1,17 @@
+{
+  "slug": "codehooks",
+  "name": "Codehooks",
+  "official_url": "https://codehooks.io/",
+  "image_url": "https://codehooks.io/web-app-manifest-512x512.png",
+  "source_page": "https://codehooks.io/",
+  "kind": "manifest-icon",
+  "source_host": "codehooks.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "91cbacb94e63aefe81f6af2cb9008c8dc418863b4ca7077994d225125f93e64e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

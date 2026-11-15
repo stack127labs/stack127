@@ -1,0 +1,45 @@
+{
+  "slug": "sealos-databases",
+  "name": "Sealos",
+  "url": "https://sealos.io/products/databases/",
+  "jobs": ["sql", "kv", "files", "jobs", "vector"],
+  "line": "Managed SQL, document, cache, vector, and Kafka services on one cloud platform.",
+  "free": { "kind": "trial", "text": "7d: 4 vCPU/4GB RAM, 5GB storage, 500MB bandwidth; post-trial data policy unknown" },
+  "cells": {
+    "metered": "Starter $34/mo; 2 vCPU, 2 GiB RAM, 10 GiB disk",
+    "regions": "Managed region list is not published",
+    "selfhost": "Yes, internal use only; SSL bars third-party cloud service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$34+",
+        "plan": "Starter, regular price",
+        "state": "unclear",
+        "math": "The $34 package includes 2 vCPUs, 2 GiB of RAM and 10 GiB of disk. The region, connection limits and performance fit are not verified."
+      },
+      {
+        "v": "$34+",
+        "plan": "Starter, regular price",
+        "state": "unclear",
+        "math": "The kept package stays at $34 a month when idle. The exact database fit and any optional backup charges are unknown."
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "Paid Sealos package",
+        "state": "unclear",
+        "math": "S3-compatible storage is included on paid plans. Object storage capacity is not tied to the package disk, and no rate for 100 GB is published."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$70+",
+        "plan": "Hobby, regular price",
+        "state": "unclear",
+        "math": "The Hobby plan has 4 vCPUs and 4 GiB of RAM for a peak of 2.5 vCPUs and 2.5 GB. Cron limits and whether the workers fit are not verified."
+      }
+    ]
+  }
+}

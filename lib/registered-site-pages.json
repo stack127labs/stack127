@@ -46,6 +46,8 @@
   "/drive-reliability",
   "/epp-status-codes",
   "/free-trial-conversion-calculator",
+  "/indie-hacker-apps",
+  "/indie-hacker-apps/[category]",
   "/ip-asn-lookup",
   "/isbn-barcode-generator",
   "/kdp-backend-keywords-builder",

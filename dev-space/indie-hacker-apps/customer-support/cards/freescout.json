@@ -1,0 +1,35 @@
+{
+  "slug": "freescout",
+  "name": "FreeScout",
+  "url": "https://freescout.net/",
+  "jobs": [
+    "inbox",
+    "helpdesk"
+  ],
+  "line": "Self-hosted shared email help desk with optional chat and knowledge modules.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free AGPL software; you provide hosting"
+  },
+  "cells": {
+    "channels": "Email; chat requires a paid module",
+    "ai": "Free integration module; model/provider costs extra",
+    "selfhost": "Yes, AGPL-3.0"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Self-hosted core",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-hosted core",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

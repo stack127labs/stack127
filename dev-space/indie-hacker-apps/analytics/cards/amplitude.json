@@ -1,0 +1,20 @@
+{
+  "slug": "amplitude",
+  "name": "Amplitude",
+  "url": "https://amplitude.com/",
+  "jobs": ["product", "replay"],
+  "line": "Product analytics for app events, user journeys and session replays.",
+  "free": {"kind": "free", "text": "Free up to 2 million events/month"},
+  "cells": {
+    "cookieless": "No",
+    "location": "US or EU (project region)",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {"v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Assumes one event per pageview and no other events. 10,000 events fit inside the free limit of 2,000,000 events."},
+      {"v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Assumes one event per pageview and no other events. 100,000 events fit inside the free limit of 2,000,000 events."},
+      {"v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Assumes one event per pageview and no other events. 1,000,000 events fit inside the free limit of 2,000,000 events."}
+    ]
+  }
+}

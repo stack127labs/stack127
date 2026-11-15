@@ -1,0 +1,17 @@
+{
+  "slug": "ngan-luong",
+  "name": "Ngan Luong",
+  "official_url": "https://www.nganluong.vn/vn/home.html",
+  "image_url": "https://upload.nganluong.vn/public/css/nganluong/images/apple-touch-icon.png",
+  "source_page": "https://www.nganluong.vn/vn/home.html",
+  "kind": "apple-touch-icon",
+  "source_host": "upload.nganluong.vn",
+  "original": {
+    "format": "png",
+    "width": 114,
+    "height": 114
+  },
+  "sha256": "4731085791afa9f751da0e62df5a8bf840e14286890c84ef298ce4a1befeec53",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

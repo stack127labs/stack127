@@ -1,0 +1,17 @@
+{
+  "slug": "applaunch",
+  "name": "AppLaunch",
+  "official_url": "https://applaunch.org/",
+  "image_url": "https://applaunch.org/favicon.png",
+  "source_page": "https://applaunch.org/",
+  "kind": "favicon",
+  "source_host": "applaunch.org",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "532a20b1c97f1fcb7db0cfc57133a7bb44c863d2848bd5c4ad0d3f47f2271f7e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

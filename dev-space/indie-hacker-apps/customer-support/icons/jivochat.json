@@ -1,0 +1,17 @@
+{
+  "slug": "jivochat",
+  "name": "JivoChat",
+  "official_url": "https://www.jivochat.com/",
+  "image_url": "https://www.jivochat.com/favicon.svg",
+  "source_page": "https://www.jivochat.com/",
+  "kind": "svg-icon",
+  "source_host": "jivochat.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "fe78072dc4aa79b9a9b4f7023f358d76a1600d27bd15844c869b4638d581452e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

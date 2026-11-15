@@ -1,0 +1,17 @@
+{
+  "slug": "laravel-cloud",
+  "name": "Laravel Cloud",
+  "official_url": "https://laravel.com/cloud",
+  "image_url": "https://laravel.com/images/cloud/apple-touch-icon-light.png",
+  "source_page": "https://laravel.com/cloud",
+  "kind": "apple-touch-icon",
+  "source_host": "laravel.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "7a21926aeebad706421b0c8ae511b77811b55156c5682ac5d884250ccb6dc0b1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

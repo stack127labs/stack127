@@ -1,0 +1,17 @@
+{
+  "slug": "pethost",
+  "name": "Pethost",
+  "official_url": "https://pethost.dev/",
+  "image_url": "https://pethost.dev/favicon.svg",
+  "source_page": "https://pethost.dev/",
+  "kind": "svg-icon",
+  "source_host": "pethost.dev",
+  "original": {
+    "format": "svg",
+    "width": 683,
+    "height": 683
+  },
+  "sha256": "7a819dff47a548be348b2816905fd596f8b2bdfe7deccb5c7a74ac9f1bc2d0e3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

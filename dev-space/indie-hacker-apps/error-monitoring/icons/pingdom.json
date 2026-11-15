@@ -1,0 +1,17 @@
+{
+  "slug": "pingdom",
+  "name": "Pingdom",
+  "official_url": "https://www.pingdom.com/",
+  "image_url": "https://www.pingdom.com/apple-touch-icon.png",
+  "source_page": "https://www.pingdom.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "pingdom.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "27de05557c89ea1b4700cb203d844f216fef1cad6055da1547184e916638e743",
+  "note": "parent brand: SolarWinds; no Pingdom-specific icon was among the downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

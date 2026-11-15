@@ -1,0 +1,45 @@
+{
+  "slug": "zilliz-cloud",
+  "name": "Zilliz Cloud",
+  "url": "https://zilliz.com/",
+  "jobs": ["vector"],
+  "line": "Hosted vector database for similarity, filtered and hybrid search.",
+  "free": { "kind": "free", "text": "5 GB storage; 2.5M vCUs/mo; 7 consecutive idle days to suspend; resumable" },
+  "cells": {
+    "metered": "Serverless $4/million vCUs; storage billed separately",
+    "regions": "AWS, Google Cloud and Azure; availability varies by plan",
+    "selfhost": "No, managed cloud; Milvus is a separate product"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "Unknown",
+        "plan": "Free (if it fits) / Serverless",
+        "state": "unclear",
+        "math": "Free is $0 only if 2.5M vCUs (compute units) and 5 GB storage fit. The paid minimum for reads is 100,000 × 6 minimum vCUs × $4 per million = $2.40. Writes, storage, index overhead and transfer leave the total unknown."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "Free is $0 if the data plus indexes fit within 5 GB. 0.7168 GB is raw data before index overhead. After 7 inactive days it suspends, and it can be resumed."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Managed Volumes are for imports and migrations, not general app file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zilliz Cloud does not provide a customer job or workflow runner."
+      }
+    ]
+  }
+}

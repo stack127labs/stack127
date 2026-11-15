@@ -1,0 +1,19 @@
+{
+  "slug": "edesk",
+  "name": "eDesk",
+  "url": "https://www.edesk.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Ecommerce help desk that brings store and marketplace support together.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, marketplaces, social",
+    "ai": "$0.99 per billable automated outcome",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$55", "plan": "Essential", "state": "confirmed", "math": "1 agent at $55 a month, with email support and 100 conversations." },
+      { "v": "$165", "plan": "Essential", "state": "confirmed", "math": "3 agents at $55 a month each, with email support and 100 conversations." }
+    ]
+  }
+}

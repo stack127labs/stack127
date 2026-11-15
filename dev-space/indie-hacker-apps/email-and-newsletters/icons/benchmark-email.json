@@ -1,0 +1,17 @@
+{
+  "slug": "benchmark-email",
+  "name": "Benchmark Email",
+  "official_url": "https://www.benchmarkemail.com/",
+  "image_url": "https://www.benchmarkemail.com/favicon.ico",
+  "source_page": "https://www.benchmarkemail.com/",
+  "kind": "favicon",
+  "source_host": "benchmarkemail.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "b404f5240580f3b37c499726cdbd233a8a507797bc1c6ca6a142bfc970f43344",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

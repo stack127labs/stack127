@@ -1,0 +1,17 @@
+{
+  "slug": "tidb",
+  "name": "TiDB Cloud",
+  "official_url": "https://www.pingcap.com/tidb/cloud/",
+  "image_url": "https://www.pingcap.com/wp-content/themes/pingcap/media/favicon/android-chrome-512x512.png",
+  "source_page": "https://www.pingcap.com/tidb/cloud/",
+  "kind": "manifest-icon",
+  "source_host": "pingcap.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "f4a2a3d04313be28222a12bd6bd993b0a79bf825c215d70f54f91d727dee51f1",
+  "note": "TiDB brand mark from its official product page.",
+  "saved_at": "2026-11-14"
+}

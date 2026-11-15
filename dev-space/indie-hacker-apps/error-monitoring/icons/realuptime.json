@@ -1,0 +1,17 @@
+{
+  "slug": "realuptime",
+  "name": "RealUptime Errors",
+  "official_url": "https://realuptime.io/errors",
+  "image_url": "https://realuptime.io/icons/icon-512-any.png",
+  "source_page": "https://realuptime.io/errors",
+  "kind": "manifest-icon",
+  "source_host": "realuptime.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "eba50ec44a4daacee5972793889feffa0d04238e8233de27f61cc5ee5258863c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

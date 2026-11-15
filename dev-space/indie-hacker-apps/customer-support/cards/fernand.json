@@ -1,0 +1,19 @@
+{
+  "slug": "fernand",
+  "name": "Fernand",
+  "url": "https://getfernand.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Support inbox with email, live chat, help center, and AI replies.",
+  "free": { "kind": "free", "text": "Free forever; 100 sent messages/month" },
+  "cells": {
+    "channels": "Email, website chat, help center",
+    "ai": "Included; no per-resolution price advertised",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29", "plan": "Do more", "state": "confirmed", "math": "1 active responder at $29 a month. Paid message volume is unlimited." },
+      { "v": "$87", "plan": "Do more", "state": "confirmed", "math": "3 active responders at $29 a month each. Paid message volume is unlimited." }
+    ]
+  }
+}

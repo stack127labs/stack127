@@ -1,0 +1,17 @@
+{
+  "slug": "exoscale-compute-instances",
+  "name": "Exoscale Compute Instances",
+  "official_url": "https://www.exoscale.com/compute/",
+  "image_url": "https://www.exoscale.com/static/safari-pinned-tab.svg",
+  "source_page": "https://www.exoscale.com/compute/",
+  "kind": "svg-icon",
+  "source_host": "exoscale.com",
+  "original": {
+    "format": "svg",
+    "width": 4978,
+    "height": 4978
+  },
+  "sha256": "6fd22c264010d4c3d971bbfa153242c4b61ca4c470b042271fa184e087b38b28",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

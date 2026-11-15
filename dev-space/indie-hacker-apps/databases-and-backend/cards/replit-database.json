@@ -1,0 +1,45 @@
+{
+  "slug": "replit-database",
+  "name": "Replit Database",
+  "url": "https://replit.com/products/database",
+  "jobs": ["sql"],
+  "line": "Managed PostgreSQL for Replit apps, with separate development and production data.",
+  "free": { "kind": "free", "text": "Dev cap 20GB/GiB unclear; account may end after 1y idle; prod sleeps at 5m" },
+  "cells": {
+    "metered": "$0.16/active hr + $0.35/GiB-mo; Core costs $20/mo",
+    "regions": "North America, Europe, Asia, South America, Australia",
+    "selfhost": "No, Replit hosts the database"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$20",
+        "plan": "Core",
+        "state": "unclear",
+        "math": "10 active hours, 1 GiB of storage and 0.1 GiB of assumed PITR (point-in-time recovery) use come to $1.97. The $20 Core credit covers it. Direct database transfer is not priced."
+      },
+      {
+        "v": "$20",
+        "plan": "Core",
+        "state": "unclear",
+        "math": "After 5 idle minutes, live-data storage is $0.35. History and backup costs remain. The Core plan's $20 subscription still applies."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Replit App Storage is separate. This product is a SQL database."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Replit Database does not host job workers"
+      }
+    ]
+  }
+}

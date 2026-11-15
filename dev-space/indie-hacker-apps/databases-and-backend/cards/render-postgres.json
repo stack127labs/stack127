@@ -1,0 +1,45 @@
+{
+  "slug": "render-postgres",
+  "name": "Render Postgres",
+  "url": "https://render.com/docs/postgresql-creating-connecting",
+  "jobs": ["sql", "vector"],
+  "line": "Managed PostgreSQL with optional vector and geospatial extensions.",
+  "free": { "kind": "trial", "text": "30d, 1GB/one DB; locks at day 30; deleted after 14 more days" },
+  "cells": {
+    "metered": "Postgres from $6/mo plus $0.30/GB-mo storage",
+    "regions": "Oregon, Ohio, Virginia, Frankfurt, Singapore",
+    "selfhost": "No, Render Postgres is managed"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$7.50",
+        "plan": "Hobby + 0.1c-256mb",
+        "state": "unclear",
+        "math": "$6 for compute, plus 5 GB × $0.30 for storage. The 5 GB allocation assumes the full database fits. The Hobby plan's 5 GB of bandwidth covers outbound data (egress)."
+      },
+      {
+        "v": "$7.50",
+        "plan": "Hobby + 0.1c-256mb",
+        "state": "unclear",
+        "math": "$6 for compute while online, plus 5 GB × $0.30 for kept storage. The bill left over for a suspended database is unknown."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Render Postgres is a database, not file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Postgres does not run worker jobs. Render's worker and cron services are separate."
+      }
+    ]
+  }
+}

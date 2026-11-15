@@ -1,0 +1,17 @@
+{
+  "slug": "civo-compute",
+  "name": "Civo Compute",
+  "official_url": "https://www.civo.com/public-cloud/compute",
+  "image_url": "https://www.civo.com/assets-rebrand/favicons/favicon.svg",
+  "source_page": "https://www.civo.com/public-cloud/compute",
+  "kind": "svg-icon",
+  "source_host": "civo.com",
+  "original": {
+    "format": "svg",
+    "width": 3840,
+    "height": 3840
+  },
+  "sha256": "616d59ab80fccad1ecfea79a2002f3bdbbedcf970f9a5cb95a54d4e8c1f2b646",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

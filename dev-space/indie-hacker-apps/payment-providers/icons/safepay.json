@@ -1,0 +1,17 @@
+{
+  "slug": "safepay",
+  "name": "Safepay",
+  "official_url": "https://getsafepay.pk/",
+  "image_url": "https://getsafepay.pk/favicon.ico",
+  "source_page": "https://getsafepay.pk/",
+  "kind": "favicon",
+  "source_host": "getsafepay.pk",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "dd4d68c4d739bca2fe57c800d2d390c77493a5c9a18569f633ab583141ad05b1",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

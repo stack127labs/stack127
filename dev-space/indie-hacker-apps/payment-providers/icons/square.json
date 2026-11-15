@@ -1,0 +1,17 @@
+{
+  "slug": "square",
+  "name": "Square",
+  "official_url": "https://squareup.com/us/en/payments/online-payments",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/51/80/e2/5180e274-0378-2342-9783-72f6b829a529/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/square-point-of-sale-pos/id335393788?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "c0e12b3b4a58530c5ddde109b16f3705487b0b83b748e968782e53449c774ed2",
+  "note": "Square Point of Sale merchant app by Block, Inc.",
+  "saved_at": "2026-11-14"
+}

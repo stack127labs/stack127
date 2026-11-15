@@ -1,0 +1,17 @@
+{
+  "slug": "cockroachdb",
+  "name": "CockroachDB",
+  "official_url": "https://www.cockroachlabs.com/pricing/",
+  "image_url": "https://www.cockroachlabs.com/icon1.png?38190d312b196e2c",
+  "source_page": "https://www.cockroachlabs.com/pricing/",
+  "kind": "favicon",
+  "source_host": "cockroachlabs.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "9892489c86c55072bc81c58b040ae75efdfe93cdd1aad062aafb0396cabbab90",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

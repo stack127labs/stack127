@@ -1,0 +1,45 @@
+{
+  "slug": "sqlite-cloud",
+  "name": "SQLite Cloud",
+  "url": "https://www.sqlite.ai/cloud",
+  "jobs": ["sql", "files", "jobs", "vector"],
+  "line": "Managed SQLite with REST APIs, authentication, vector search, and edge functions.",
+  "free": { "kind": "free", "text": "512MB, 20 connections, 500K calls/mo; inactive projects delete after 3 months" },
+  "cells": {
+    "metered": "Dev $19/mo; 1 GB RAM, 3 GB storage, 100 connections",
+    "regions": "Multi-region nodes; selectable region IDs are unpublished",
+    "selfhost": "No, the full cloud service is hosted"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$19+",
+        "plan": "Dev",
+        "state": "unclear",
+        "math": "The Dev plan is $19 a month, with 3 GB of storage and 100 connections. General SQL transfer and overage costs are not published."
+      },
+      {
+        "v": "$19",
+        "plan": "Dev",
+        "state": "confirmed",
+        "math": "The kept Dev subscription stays at $19 a month while idle. No automatic sleep or idle-billing waiver is published."
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "Object storage feature",
+        "state": "not_published",
+        "math": "Marketing mentions object storage, but the docs do not confirm a separate file API, limit or rate."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$19+",
+        "plan": "Dev Edge Functions",
+        "state": "unclear",
+        "math": "10,000 calls fit within the Dev plan's 2M monthly limit. Memory per call, run time, transfer and extra-use rates are unknown."
+      }
+    ]
+  }
+}

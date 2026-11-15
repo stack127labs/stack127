@@ -1,0 +1,17 @@
+{
+  "slug": "sliplane",
+  "name": "Sliplane",
+  "official_url": "https://sliplane.io/",
+  "image_url": "https://sliplane.io/icon.png",
+  "source_page": "https://sliplane.io/",
+  "kind": "favicon",
+  "source_host": "sliplane.io",
+  "original": {
+    "format": "png",
+    "width": 144,
+    "height": 144
+  },
+  "sha256": "997404591c1235a687254649df118b6830997ac06da5a57b1f64f38f11f1c2cf",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "dodo-payments",
+  "name": "Dodo Payments",
+  "url": "https://dodopayments.com/",
+  "jobs": ["mor", "billing"],
+  "line": "Merchant of Record checkout and billing for digital products.",
+  "free": { "kind": "none", "text": "No monthly fee stated; transaction fees apply" },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "177 listed new-application countries and territories",
+    "payout": "Twice monthly by default; contract terms conflict"
+  },
+  "costs": {
+    "fee": [
+      { "v": "4% + $0.40", "plan": "Standard US card", "state": "conflicting", "math": "The pricing page and docs say 4% plus $0.40. The contract terms (the MSA) say 5% plus $0.50." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "UK sellers are accepted, but no UK card rate is listed on the pricing schedule." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "German sellers are accepted, but no German card rate is listed on the pricing schedule." },
+      { "v": "4% + 15¢", "plan": "India local cards and UPI", "state": "unclear", "math": "The published India rate says 4% plus 15 cents. Fees for international payments also apply." }
+    ]
+  }
+}

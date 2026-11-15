@@ -1,0 +1,24 @@
+{
+  "slug": "checkcle",
+  "name": "CheckCle",
+  "url": "https://docs.checkcle.io/",
+  "jobs": ["uptime", "status", "performance"],
+  "line": "Self-hosted checks for websites, ports, DNS, servers and Docker.",
+  "free": { "kind": "selfhost", "text": "Free MIT software; v1 is not advised for critical production use" },
+  "cells": {
+    "interval": "10 s minimum; 60 s default",
+    "maintained": "Last release 2025-09-13"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "Only the chosen server and weekly backups are priced. Email sending (SMTP), domain and other costs aren't known." },
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "Only the chosen server and weekly backups are priced. Email sending (SMTP), domain and other costs aren't known." },
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "Only the chosen server and weekly backups are priced. Email sending (SMTP), domain and other costs aren't known." }
+    ]
+  }
+}

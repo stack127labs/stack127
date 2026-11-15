@@ -1,0 +1,17 @@
+{
+  "slug": "phplist",
+  "name": "phpList",
+  "official_url": "https://www.phplist.org/",
+  "image_url": "https://www.phplist.org/wp-content/themes/org15/images/favicon.ico",
+  "source_page": "https://www.phplist.org/",
+  "kind": "favicon",
+  "source_host": "phplist.org",
+  "original": {
+    "format": "png",
+    "width": 270,
+    "height": 270
+  },
+  "sha256": "b07403dac0194608c81b2777436e4e70259c3ce1da61ac89c8fe175aeadf2625",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

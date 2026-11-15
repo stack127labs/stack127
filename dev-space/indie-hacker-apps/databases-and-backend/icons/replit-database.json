@@ -1,0 +1,17 @@
+{
+  "slug": "replit-database",
+  "name": "Replit Database",
+  "official_url": "https://replit.com/products/database",
+  "image_url": "https://replit.com/cdn-cgi/imagedelivery/3caXs657xcWBvFz04GwEnw/marketing-logo-png/fullsize",
+  "source_page": "https://replit.com/products/database",
+  "kind": "logo-mark",
+  "source_host": "replit.com",
+  "original": {
+    "format": "png",
+    "width": 710,
+    "height": 256
+  },
+  "sha256": "9b407d6c0b42a0370690d8754b97437e56c2f37e23b7f4fe7663fc301fa9af22",
+  "note": "Official logo is a wordmark with Replit's product mark; no square app icon at 64 px or larger was available.",
+  "saved_at": "2026-11-14"
+}

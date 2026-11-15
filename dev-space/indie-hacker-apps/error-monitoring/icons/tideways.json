@@ -1,0 +1,17 @@
+{
+  "slug": "tideways",
+  "name": "Tideways",
+  "official_url": "https://tideways.com/",
+  "image_url": "https://tideways.com/wordpress/wp-content/uploads/2026/06/fav-tideways.png",
+  "source_page": "https://tideways.com/",
+  "kind": "favicon",
+  "source_host": "tideways.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "5fc540ac46f3ce016087ec46783df5581eb64f77c5329305dfea4d066c728160",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

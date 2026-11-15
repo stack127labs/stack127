@@ -1,0 +1,24 @@
+{
+  "slug": "errbit",
+  "name": "Errbit",
+  "url": "https://errbit.com/",
+  "jobs": ["errors"],
+  "line": "Self-hosted Airbrake-compatible error tracking for application exceptions.",
+  "free": { "kind": "selfhost", "text": "Free MIT software; you run the app and MongoDB" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-10-20"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "The software license is free. Hosting, MongoDB (the database), backups and delivery costs aren't priced." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "The software license is free. Hosting, MongoDB (the database), backups and delivery costs aren't priced." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "The software license is free. Hosting, MongoDB (the database), backups and delivery costs aren't priced." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

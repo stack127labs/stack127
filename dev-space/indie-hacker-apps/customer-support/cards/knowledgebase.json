@@ -1,0 +1,19 @@
+{
+  "slug": "knowledgebase",
+  "name": "KnowledgeBase",
+  "url": "https://www.knowledgebase.com/",
+  "jobs": ["helpdesk", "ai"],
+  "line": "Hosted customer help center with AI search and article writing.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Help center and search; inbox is separate",
+    "ai": "Included AI; response allowance not published",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Help center only. Email support and staffed chat need separate services." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Help center only. Email support and staffed chat need separate services." }
+    ]
+  }
+}

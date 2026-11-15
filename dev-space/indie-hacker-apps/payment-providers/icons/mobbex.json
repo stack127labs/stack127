@@ -1,0 +1,17 @@
+{
+  "slug": "mobbex",
+  "name": "Mobbex",
+  "official_url": "https://www.mobbex.com/",
+  "image_url": "https://www.mobbex.com/favicon.svg",
+  "source_page": "https://www.mobbex.com/",
+  "kind": "svg-icon",
+  "source_host": "mobbex.com",
+  "original": {
+    "format": "svg",
+    "width": 3200,
+    "height": 3200
+  },
+  "sha256": "d2a2cbd2869120bd56d2c0b708b87680d68ee4c1bd95f8c67965eaf07ff6c981",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

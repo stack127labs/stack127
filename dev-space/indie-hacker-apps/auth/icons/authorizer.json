@@ -1,0 +1,17 @@
+{
+  "slug": "authorizer",
+  "name": "Authorizer",
+  "official_url": "https://www.authorizer.dev/",
+  "image_url": "https://www.authorizer.dev/images/favicon_io/android-chrome-512x512.png",
+  "source_page": "https://www.authorizer.dev/",
+  "kind": "favicon",
+  "source_host": "authorizer.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "492b5d9e6286f83b47c7fa40f985ec960a5962c29f7f202a797f227ad1244e94",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

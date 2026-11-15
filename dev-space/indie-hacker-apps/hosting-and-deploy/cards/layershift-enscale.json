@@ -1,0 +1,14 @@
+{
+  "slug": "layershift-enscale",
+  "name": "Layershift Enscale",
+  "url": "https://www.layershift.com/enscale-paas-hosting",
+  "jobs": ["paas"],
+  "line": "Deploy managed applications and databases on a container PaaS.",
+  "free": { "kind": "trial", "text": "14 days: public IP off by default, no Elastic VPS; paid upgrade needs deposit" },
+  "cells": { "type": "Certified stacks managed; custom Docker/VPS self-managed", "regions": "UK, US and Singapore; Manchester default", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Web node + build", "state": "unclear", "math": "An example of 2 cloudlets reserved for 730 hours = 1,460 cloudlet hours. Rates for builds, disk, traffic, public IP and HTTPS certificates are not published." },
+    { "v": "Unknown", "plan": "App node + build", "state": "unclear", "math": "1 GiB needs 8 cloudlets, which is 5,840 cloudlet hours. The vCPU entitlement is not verified. Rates and the smallest qualifying plan are not published." },
+    { "v": "Unknown", "plan": "App + PostgreSQL + logical backups", "state": "unclear", "math": "The app and the database each need 8 cloudlets for 1 GiB, which is 11,680 hours combined. Disk, traffic and seven daily dumps of unknown size are not priced." }
+  ] }
+}

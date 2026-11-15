@@ -1,0 +1,21 @@
+{
+  "slug": "fasterpay",
+  "name": "FasterPay",
+  "url": "https://www.fasterpay.com/business",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Merchant payment processing with hosted checkout and a business wallet.",
+  "free": { "kind": "free", "text": "Free business account; payment fees apply" },
+  "cells": {
+    "type": "Gateway and business wallet",
+    "countries": "200+ countries, with named country exclusions",
+    "payout": "Timing conflicts: FAQ 5–7 days; terms allow Net 30–90+"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2.7% + $0.30", "plan": "US/Canada", "state": "confirmed", "math": "The published processing rate for businesses based in the US or Canada." },
+      { "v": "2.7% + €0.30", "plan": "Europe", "state": "confirmed", "math": "The published processing rate for businesses based in Europe." },
+      { "v": "2.7% + €0.30", "plan": "Europe", "state": "confirmed", "math": "The published processing rate for businesses based in Europe." },
+      { "v": "3.9% + $0.30", "plan": "Rest of World", "state": "confirmed", "math": "The published processing rate for businesses based in the rest of the world." }
+    ]
+  }
+}

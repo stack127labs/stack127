@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-logging",
+  "name": "Google Cloud Logging",
+  "official_url": "https://cloud.google.com/logging",
+  "image_url": "https://services.google.com/fh/files/misc/core-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "253de7a98cdb00ca35397bba1cd4ab658f7fbc2123f3d32d3b41c5dad13b6fe1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "intasend",
+  "name": "IntaSend",
+  "url": "https://intasend.com/",
+  "jobs": ["gateway", "links"],
+  "line": "East African payments API for cards, mobile money and bank transfers.",
+  "free": { "kind": "none", "text": "No setup fee; current transaction prices are quote-based" },
+  "cells": {
+    "type": "Payment gateway",
+    "countries": "Kenya default; US Shopify route also described",
+    "payout": "Withdrawal timing and bank arrival not published"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "Mobile money", "state": "not_published", "math": "Current API rates are given as quotes. US Shopify sellers are a special case with no public price list." },
+      { "v": "Quote", "plan": "Mobile money", "state": "not_published", "math": "Current API rates are given as quotes. It isn't published whether UK sellers can sign up, and no UK pricing is published." },
+      { "v": "Quote", "plan": "Mobile money", "state": "not_published", "math": "Current API rates are given as quotes. It isn't published whether German sellers can sign up, and no German pricing is published." },
+      { "v": "Quote", "plan": "Mobile money", "state": "not_published", "math": "Current API rates are given as quotes. It isn't published whether Indian sellers can sign up, and no India pricing is published." }
+    ]
+  }
+}

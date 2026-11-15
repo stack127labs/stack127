@@ -1,0 +1,19 @@
+{
+  "slug": "aidbase",
+  "name": "Aidbase",
+  "url": "https://www.aidbase.ai/",
+  "jobs": ["ai", "helpdesk", "inbox"],
+  "line": "AI answers website questions and routes tickets and email to a team.",
+  "free": { "kind": "trial", "text": "7-day trial; paid plan required afterward" },
+  "cells": {
+    "channels": "Email, website chat, ticket forms, Slack",
+    "ai": "Included quotas; OpenAI key adds its own bill",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "€29", "plan": "Standard", "state": "confirmed", "math": "One Standard plan covers one person and 100 human email conversations. AI use is left out of this price." },
+      { "v": "€29", "plan": "Standard", "state": "confirmed", "math": "The same plan covers three people and 100 human email conversations. AI use is left out of this price." }
+    ]
+  }
+}

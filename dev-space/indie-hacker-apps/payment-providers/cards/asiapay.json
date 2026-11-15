@@ -1,0 +1,47 @@
+{
+  "slug": "asiapay",
+  "name": "AsiaPay",
+  "url": "https://www.asiapay.com/",
+  "jobs": [
+    "gateway",
+    "links"
+  ],
+  "line": "Online gateway with regional brands for merchant payments.",
+  "free": {
+    "kind": "none",
+    "text": "No public monthly price; fees are quoted"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Hong Kong only",
+    "payout": "HK/MY/SG twice monthly; TH twice monthly; PH rolling 15 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Hong Kong."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Hong Kong."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Hong Kong."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Hong Kong."
+      }
+    ]
+  }
+}

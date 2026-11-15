@@ -1,0 +1,24 @@
+{
+  "slug": "robotalp",
+  "name": "Robotalp",
+  "url": "https://robotalp.com/",
+  "jobs": ["uptime", "status", "performance"],
+  "line": "Checks website availability and page speed, then publishes status pages.",
+  "free": { "kind": "free", "text": "Free: 3 properties; 5-minute checks; 1 branded status page" },
+  "cells": {
+    "interval": "5 min free; 60 s paid",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Page-speed monitoring isn't application error tracking." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Page-speed monitoring isn't application error tracking." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Page-speed monitoring isn't application error tracking." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Solo candidate", "state": "unclear", "math": "The Solo plan fits 5 sites at 60-second checks. Its current price and a fixed one-location setup aren't published." },
+      { "v": "Unknown", "plan": "Team candidate", "state": "unclear", "math": "The Team plan fits 25 sites at 60-second checks. Its current price and a fixed one-location setup aren't published." },
+      { "v": "Unknown", "plan": "Agency or special plan", "state": "unclear", "math": "The Agency plan's exact site limit and price aren't public. Whether 100 sites fit isn't confirmed." }
+    ]
+  }
+}

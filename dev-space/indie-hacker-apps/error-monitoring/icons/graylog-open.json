@@ -1,0 +1,17 @@
+{
+  "slug": "graylog-open",
+  "name": "Graylog Open",
+  "official_url": "https://graylog.org/products/source-available/",
+  "image_url": "https://graylog.org/wp-content/uploads/2026/04/Product_icons_OpenSource_bluegray-1024x1024.png",
+  "source_page": "https://graylog.org/products/source-available/",
+  "kind": "logo-mark",
+  "source_host": "graylog.org",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "e4e4ef736d6c5134f7be7781ba63b283abe48f81a674545c1ebca4188aed2dd3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

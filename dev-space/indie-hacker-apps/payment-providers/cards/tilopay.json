@@ -1,0 +1,21 @@
+{
+  "slug": "tilopay",
+  "name": "Tilopay",
+  "url": "https://tilopay.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Central American gateway for checkout, recurring payments, and payment links.",
+  "free": { "kind": "none", "text": "No monthly or annual platform fee; transaction fees apply" },
+  "cells": {
+    "type": "Payment facilitator and gateway",
+    "countries": "Costa Rica, Panama, Guatemala; wider list incomplete",
+    "payout": "Contract-set frequency; no universal payout delay published"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether US sellers can sign up, and no US card rate is published. Current public rates cover Central American markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether UK sellers can sign up, and no UK card rate is published. Current public rates cover Central American markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether German sellers can sign up, and no German card rate is published. Current public rates cover Central American markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether Indian sellers can sign up, and no India card rate is published. Current public rates cover Central American markets." }
+    ]
+  }
+}

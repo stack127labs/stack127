@@ -1,0 +1,20 @@
+{
+  "slug": "wristband",
+  "name": "Wristband",
+  "url": "https://www.wristband.dev/",
+  "jobs": ["hosted"],
+  "line": "Hosted account login and customer tenants for business apps.",
+  "free": { "kind": "free", "text": "Free: 10,000 active users and 5 tenants" },
+  "cells": {
+    "freeUsers": "10,000 active users; 5 tenants and 20 machines",
+    "sso": "SAML/OIDC included; no connection surcharge"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Standard", "state": "confirmed", "math": "Assumes one global tenant and up to 20 machines. The base is $0, within the 10,000-user allowance." },
+      { "v": "$0", "plan": "Standard", "state": "confirmed", "math": "Assumes one global tenant and up to 20 machines. The base is $0, at the 10,000-user allowance." },
+      { "v": "$800", "plan": "Standard", "state": "confirmed", "math": "Assumes one global tenant and up to 20 machines. Each user above the 10,000 allowance costs $0.02, so 50,000 users come to $800 a month." },
+      { "v": "$1,800", "plan": "Standard", "state": "confirmed", "math": "Assumes one global tenant and up to 20 machines. Each user above the 10,000 allowance costs $0.02, so 100,000 users come to $1,800 a month." }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "fastbots",
+  "name": "FastBots",
+  "url": "https://fastbots.ai/",
+  "jobs": ["ai", "helpdesk", "chat"],
+  "line": "Knowledge-trained agents for customer questions, with human handoff.",
+  "free": { "kind": "trial", "text": "14-day trial, no card; 200 message credits" },
+  "cells": {
+    "channels": "Website chat, email replies, voice",
+    "ai": "Credit-based; extra 1,000 monthly credits cost $10",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$89", "plan": "Business", "state": "unclear", "math": "Business is the human chat and email tier. The exact AI-off setup is not confirmed." },
+      { "v": "$89", "plan": "Business", "state": "unclear", "math": "One Business account includes five members. The exact AI-off setup is not confirmed." }
+    ]
+  }
+}

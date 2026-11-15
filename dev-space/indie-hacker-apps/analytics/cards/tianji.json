@@ -1,0 +1,12 @@
+{
+  "slug": "tianji", "name": "Tianji", "url": "https://tianji.dev/",
+  "jobs": ["web", "product"],
+  "line": "Open-source website analytics, app events and infrastructure monitoring.",
+  "free": {"kind": "selfhost", "text": "Free Apache-licensed software to self-host"},
+  "cells": {"cookieless": "Yes (vendor says no tracking cookies)", "location": "Frankfurt, Germany (Cloud)", "selfhost": "Yes"},
+  "costs": {"pv": [
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "The pageview limit and the Cloud price you can buy are not known yet. The pricing page says coming soon."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "The pageview limit and the Cloud price you can buy are not known yet. The pricing page says coming soon."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "The pageview limit and the Cloud price you can buy are not known yet. The pricing page says coming soon."}
+  ]}
+}

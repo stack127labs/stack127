@@ -1,0 +1,14 @@
+{
+  "slug": "ownkube",
+  "name": "Ownkube",
+  "url": "https://ownkube.io/",
+  "jobs": ["paas"],
+  "line": "Deploy container apps and databases on managed or own-cloud infrastructure.",
+  "free": { "kind": "none", "text": "No free hosted compute; own-cloud Starter still needs paid AWS resources" },
+  "cells": { "type": "Managed app platform", "regions": "Hosted: Mumbai/Germany; BYOC: 17 AWS regions", "selfhost": "No; Ownkube controller remains hosted" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Personal + Spark 1", "state": "unclear", "math": "Listed month: Spark 1 at $5, plus 100 GB sent out ($2 Germany, $13 Mumbai) = $7 or $18. A $5 wallet load pays for usage once. 100 build minutes fit within 500. Image, log, repo and 730-hour pricing are unknown." },
+    { "v": "Unknown", "plan": "Personal + Spark 3", "state": "unclear", "math": "Listed month: Spark 3 ($19) + 100 GB sent out ($2 Germany, $13 Mumbai) = $21 or $32. 1 vCPU and 2 GiB meets the minimum, and 100 builds fit within 500. The 730-hour, image, log and repo costs are not confirmed." },
+    { "v": "Unknown", "plan": "Personal + Spark 3 + DB 1", "state": "unclear", "math": "Small app API + database 1 ($8) + $0.25 times storage. Germany: $29 + $0.25 times storage. Mumbai: $40 + $0.25 times storage. 10 GB same-region traffic is free. 10 GiB storage and backup schedule are unclear." }
+  ] }
+}

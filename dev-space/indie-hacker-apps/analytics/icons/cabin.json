@@ -1,0 +1,17 @@
+{
+  "slug": "cabin",
+  "name": "Cabin",
+  "official_url": "https://withcabin.com/",
+  "image_url": "https://withcabin.com/cabin-icon-512.png",
+  "source_page": "https://withcabin.com/",
+  "kind": "manifest-icon",
+  "source_host": "withcabin.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "63e617dc2d1016dc5723726227ce6571a3488a3bba0e9844c8207262a24917fd",
+  "note": "official square icon is the Cabin wordmark; no separate brand mark found",
+  "saved_at": "2026-11-14"
+}

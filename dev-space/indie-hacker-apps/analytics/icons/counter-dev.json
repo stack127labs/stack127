@@ -1,0 +1,17 @@
+{
+  "slug": "counter-dev",
+  "name": "Counter.dev",
+  "official_url": "https://counter.dev/",
+  "image_url": "https://github.com/ihucos.png?size=460",
+  "source_page": "https://github.com/ihucos",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 420,
+    "height": 420
+  },
+  "sha256": "14b7a17ae1f9100ed086e2b3bccecf72f36250054806d975ede7ec73044d0af2",
+  "note": "official GitHub organization avatar; official site only has a 32 px favicon",
+  "saved_at": "2026-11-14"
+}

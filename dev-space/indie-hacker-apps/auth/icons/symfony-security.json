@@ -1,0 +1,17 @@
+{
+  "slug": "symfony-security",
+  "name": "Symfony Security",
+  "official_url": "https://symfony.com/doc/current/security.html",
+  "image_url": "https://symfony.com/favicons/android-chrome-256x256.png",
+  "source_page": "https://symfony.com/doc/current/security.html",
+  "kind": "manifest-icon",
+  "source_host": "symfony.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "b59cd5f4a11d012312f4104b156c00d76f65b512de2bb158e35c22281910b80c",
+  "note": "parent brand: Symfony; Security is a Symfony framework component",
+  "saved_at": "2026-11-14"
+}

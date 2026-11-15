@@ -1,0 +1,17 @@
+{
+  "slug": "keila",
+  "name": "Keila",
+  "official_url": "https://www.keila.io/",
+  "image_url": "https://www.keila.io/favicon.ico",
+  "source_page": "https://www.keila.io/",
+  "kind": "favicon",
+  "source_host": "keila.io",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "63bd2f840f2fd74d80970f7614757679486204a13f47bc918e1df64a8a74bbf2",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

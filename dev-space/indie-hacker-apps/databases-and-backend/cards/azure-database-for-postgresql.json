@@ -1,0 +1,25 @@
+{
+  "slug": "azure-database-for-postgresql",
+  "name": "Azure Database for PostgreSQL",
+  "url": "https://azure.microsoft.com/en-us/products/postgresql",
+  "jobs": ["sql", "vector", "jobs"],
+  "line": "Run managed PostgreSQL with vector search and scheduled SQL.",
+  "free": { "kind": "trial", "text": "750 B1MS hours/month, 32 GB; stopped server restarts after 7 days" },
+  "cells": {
+    "metered": "From $0.017/server-hour, plus storage and extras",
+    "regions": "Multiple Azure regions; availability varies by option",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$133.62", "plan": "General Purpose D2ds_v5, East US", "state": "unclear", "math": "730 hours × $0.178 an hour for compute, plus 32 GiB × $0.115 for storage. Extras and tax are not included." },
+      { "v": "$133.62", "plan": "General Purpose D2ds_v5, East US", "state": "unclear", "math": "Even when idle, a running server bills 730 hours of compute and 32 GiB of storage. Extras and tax are not included." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Has no separate object-storage service." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Scheduled SQL jobs use the same server resources. Whether the required run time and CPU fit is not confirmed." }
+    ]
+  }
+}

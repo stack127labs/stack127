@@ -1,0 +1,37 @@
+{
+  "slug": "proprofs-help-desk",
+  "name": "ProProfs Help Desk",
+  "url": "https://www.proprofsdesk.com/",
+  "jobs": [
+    "helpdesk",
+    "inbox",
+    "chat",
+    "ai"
+  ],
+  "line": "Support ticketing and shared inbox with workflow automation and a portal.",
+  "free": {
+    "kind": "free",
+    "text": "Free for 1 agent and 100 tickets/month"
+  },
+  "cells": {
+    "channels": "Email, website chat, WhatsApp, customer portal",
+    "ai": "50 AI drafts included; extra-draft rate unknown",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "One agent fits the free plan. 100 conversations may create more than 100 tickets."
+      },
+      {
+        "v": "$119.97",
+        "plan": "Essentials",
+        "state": "unclear",
+        "math": "3 seats at $39.99 a month each, but only under conditions. Checkout did not confirm capacity for three seats."
+      }
+    ]
+  }
+}

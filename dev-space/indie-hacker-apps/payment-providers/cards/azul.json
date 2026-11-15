@@ -1,0 +1,48 @@
+{
+  "slug": "azul",
+  "name": "AZUL",
+  "url": "https://www.azul.com.do/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Dominican card acquiring with checkout, payment links and recurring charges.",
+  "free": {
+    "kind": "none",
+    "text": "DOP 2,750/month for e-commerce or payment links"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "the Dominican Republic only",
+    "payout": "Next-day deposits advertised"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the Dominican Republic."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the Dominican Republic."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the Dominican Republic."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the Dominican Republic."
+      }
+    ]
+  }
+}

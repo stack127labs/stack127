@@ -1,0 +1,25 @@
+{
+  "slug": "cloudflare-workflows",
+  "name": "Cloudflare Workflows",
+  "url": "https://developers.cloudflare.com/workflows/",
+  "jobs": ["jobs"],
+  "line": "Run durable multi-step jobs on Cloudflare Workers.",
+  "free": { "kind": "free", "text": "100,000 invocations and 3,000 billed steps per day" },
+  "cells": {
+    "metered": "Paid includes 500K steps/month; then $0.80 per 100K",
+    "regions": "EU, US, or FedRAMP-Moderate jurisdictions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a SQL database." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a SQL database." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Workflow state is not a general file store." }
+    ],
+    "jobs": [
+      { "v": "$5", "plan": "Workers Paid account", "state": "unclear", "math": "10K workflows, each with one step, fit within the paid step and request allowances. The $5 account minimum applies. Worker CPU and stored state costs depend on actual use." }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "upstash-workflow",
+  "name": "Upstash Workflow",
+  "url": "https://upstash.com/docs/workflow/getstarted",
+  "jobs": ["jobs"],
+  "line": "Managed durable workflows with retries, waits, schedules and event-driven steps.",
+  "free": { "kind": "free", "text": "1,000 steps/day; 50 GB/mo; Terms may delete idle Free resources after 1 week" },
+  "cells": {
+    "metered": "$1/100K steps; PAYG bandwidth over 50 GB: $0.05/GB",
+    "regions": "EU Central and US East",
+    "selfhost": "No (none found), managed orchestration service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Workflow does not provide a database."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Workflow does not provide a database."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Workflow does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "Pay as You Go",
+        "state": "not_published",
+        "math": "The price is per step. The 10,000-job workload does not say how many billed steps each run uses."
+      }
+    ]
+  }
+}

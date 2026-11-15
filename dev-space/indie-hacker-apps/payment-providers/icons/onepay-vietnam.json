@@ -1,0 +1,17 @@
+{
+  "slug": "onepay-vietnam",
+  "name": "OnePay Vietnam",
+  "official_url": "https://www.onepay.vn/",
+  "image_url": "https://www.onepay.vn/wp-content/uploads/2022/01/favicon-300x300.png",
+  "source_page": "https://www.onepay.vn/",
+  "kind": "favicon",
+  "source_host": "onepay.vn",
+  "original": {
+    "format": "webp",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "7e615cd1cdffb00bb1648b2d3097b2cd985db9824d2ea1a6667e76b5d0b67161",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

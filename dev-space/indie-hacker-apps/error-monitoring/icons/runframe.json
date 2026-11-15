@@ -1,0 +1,17 @@
+{
+  "slug": "runframe",
+  "name": "Runframe",
+  "official_url": "https://runframe.io/",
+  "image_url": "https://runframe.io/brand-icon.svg",
+  "source_page": "https://runframe.io/",
+  "kind": "svg-icon",
+  "source_host": "runframe.io",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "686fbe147116281499fbf03bb456946a8b3ff56a8dcfb9437cfb23ca5c0bac9b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

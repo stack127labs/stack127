@@ -1,0 +1,14 @@
+{
+  "slug": "doprax",
+  "name": "Doprax",
+  "url": "https://www.doprax.com/",
+  "jobs": ["paas"],
+  "line": "Deploy apps on managed App Space or virtual server plans.",
+  "free": { "kind": "none", "text": "No recurring free VM or App Space allowance" },
+  "cells": { "type": "App platform and VPS", "regions": "Canada, France, Germany, Poland, UK", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$8.06", "plan": "ProVM P1", "state": "confirmed", "math": "$7.95 times 730 divided by 720 = $8.0604, rounded to $8.06. Includes 100 GB of transfer and 100 build minutes on the VM, before tax." },
+    { "v": "$13.13", "plan": "ProVM P2", "state": "confirmed", "math": "$12.95 times 730 divided by 720 = $13.1299, rounded to $13.13. 1 CPU and 2 GB; 100 GB of transfer included, before tax." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The P3 resource subtotal of $19.2132 before tax, plus $0.20 for each snapshot created, plus $0.20 divided by 720 for each GB-hour of snapshot storage. You handle backup consistency." }
+  ] }
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "appwrite-sites",
+  "name": "Appwrite Sites",
+  "url": "https://appwrite.io/products/sites",
+  "jobs": [
+    "static",
+    "paas"
+  ],
+  "line": "Build and host static, single page, and server rendered sites.",
+  "free": {
+    "kind": "free",
+    "text": "Free: two projects and unlimited Sites within shared quotas"
+  },
+  "cells": {
+    "type": "Static and full-stack hosting",
+    "regions": "Frankfurt, New York, Sydney, San Francisco, Singapore",
+    "selfhost": "Yes; Appwrite supports self-hosting"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "$25",
+        "plan": "Pro project",
+        "state": "unclear",
+        "math": "$25 per billing period on the Pro plan, if the conditions apply. Storage, serving and tax details prevent an exact total."
+      },
+      {
+        "v": "$25",
+        "plan": "Pro project",
+        "state": "unclear",
+        "math": "$25 per billing period on the Pro plan, if the conditions apply. Full capacity and whether billing fits the workload are not verified."
+      },
+      {
+        "v": "$35",
+        "plan": "Pro + PostgreSQL Standard",
+        "state": "unclear",
+        "math": "$25 for the Pro project + PostgreSQL database after a $10 credit = $35 per billing period, if the conditions apply."
+      }
+    ]
+  }
+}

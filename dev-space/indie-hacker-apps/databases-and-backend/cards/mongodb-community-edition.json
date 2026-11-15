@@ -1,0 +1,25 @@
+{
+  "slug": "mongodb-community-edition",
+  "name": "MongoDB Community Edition",
+  "url": "https://www.mongodb.com/products/self-managed/community-edition",
+  "jobs": ["vector", "files"],
+  "line": "Self-hosted document database with GridFS and vector search.",
+  "free": { "kind": "selfhost", "text": "Free SSPL-1.0; no hosted quota or idle rule; you run and retain the data" },
+  "cells": {
+    "metered": "Community software $0; hardware and operations extra",
+    "regions": "Choose your own server region",
+    "selfhost": "Yes, self-managed MongoDB Community Edition"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Community plus mongot", "state": "not_published", "math": "$0 software fee. Host size, search resources, disks, backups, traffic and embeddings are not priced." },
+      { "v": "Unknown", "plan": "Community plus mongot", "state": "not_published", "math": "The software stays $0. Kept host, data, backups and operations depend on your infrastructure provider." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "GridFS on Community", "state": "not_published", "math": "$0 software fee. 100 GB of file storage needs database hosts with known prices, chunk I/O, backups and delivery infrastructure." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Community Server does not include managed job workers" }
+    ]
+  }
+}

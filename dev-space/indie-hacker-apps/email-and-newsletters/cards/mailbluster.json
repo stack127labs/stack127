@@ -1,0 +1,26 @@
+{
+  "slug": "mailbluster",
+  "name": "MailBluster",
+  "url": "https://mailbluster.com/",
+  "jobs": ["marketing", "newsletter"],
+  "line": "Hosted email marketing for campaigns and scheduled sequences.",
+  "free": { "kind": "credits", "text": "3,000 emails total, one time per account" },
+  "cells": {
+    "newsletters": "Yes, bulk campaigns and marketing sequences",
+    "api": "Yes, leads and orders API; no email-send endpoint"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 17/month", "plan": "Managed 10,000 emails", "state": "confirmed", "math": "The managed 10,000-email pack covers 4,000 campaign emails to 1,000 subscribers." },
+      { "v": "USD 29/month", "plan": "Managed 20,000 emails", "state": "confirmed", "math": "The managed 20,000-email pack covers 20,000 campaign emails to 5,000 subscribers." },
+      { "v": "USD 49/month", "plan": "Managed 40,000 emails", "state": "confirmed", "math": "The managed 40,000-email pack covers 40,000 campaign emails to 10,000 subscribers." },
+      { "v": "USD 228.50/month", "plan": "Managed 150,000 + overage", "state": "confirmed", "math": "USD 165 for 150,000 emails, plus 50,000 extra emails at USD 1.27 per 1,000 = USD 228.50 a month." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "App email sending is not supported at the moment." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "App email sending is not supported at the moment." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "App email sending is not supported at the moment." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "App email sending is not supported at the moment." }
+    ]
+  }
+}

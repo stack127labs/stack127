@@ -1,0 +1,17 @@
+{
+  "slug": "logit-io",
+  "name": "Logit.io",
+  "official_url": "https://logit.io/",
+  "image_url": "https://logit.io/apple-icon.png",
+  "source_page": "https://logit.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "logit.io",
+  "original": {
+    "format": "png",
+    "width": 125,
+    "height": 125
+  },
+  "sha256": "59e1a023f53c2c8680f4f6810724eea2ea2237006149f873e2a11ce70893b587",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

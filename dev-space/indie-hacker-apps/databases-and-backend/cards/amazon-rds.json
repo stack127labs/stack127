@@ -1,0 +1,21 @@
+{
+  "slug": "amazon-rds",
+  "name": "Amazon RDS",
+  "url": "https://aws.amazon.com/rds/",
+  "jobs": ["sql"],
+  "line": "Managed relational databases for PostgreSQL, MySQL and other engines.",
+  "free": { "kind": "credits", "text": "$100 signup credit and up to $100 earned credits" },
+  "cells": {
+    "metered": "$0.016/instance-hour for PostgreSQL t4g.micro",
+    "regions": "Region-dependent; US East rates shown",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$13.98", "plan": "PostgreSQL t4g.micro Single-AZ", "state": "unclear", "math": "730 hours × $0.016 an hour, plus 20 × $0.115 for the disk space you allocate. This is an estimate for compute and storage that depends on conditions." },
+      { "v": "$13.98", "plan": "PostgreSQL t4g.micro Single-AZ", "state": "unclear", "math": "730 hours × $0.016 an hour, plus 20 × $0.115. Idle traffic does not pause the normal compute charge." }
+    ],
+    "files": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Database storage is not a separate file store for the app." }],
+    "jobs": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide general background job execution" }]
+  }
+}

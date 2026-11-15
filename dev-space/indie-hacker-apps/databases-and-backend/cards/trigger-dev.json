@@ -1,0 +1,50 @@
+{
+  "slug": "trigger-dev",
+  "name": "Trigger.dev",
+  "url": "https://trigger.dev/",
+  "jobs": [
+    "jobs"
+  ],
+  "line": "Background jobs and workflows written as code, hosted or self-hosted.",
+  "free": {
+    "kind": "free",
+    "text": "Free plan: $5 monthly compute credit"
+  },
+  "cells": {
+    "metered": "$0.000025 per run + compute seconds",
+    "regions": "3 regions",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide a SQL database."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide a SQL database."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "Small-1x (0.5 vCPU and 0.5 GB): 10,000 × (1 second × $0.0000338 + $0.000025) = $0.588. This is within the $5 credit."
+      }
+    ]
+  }
+}

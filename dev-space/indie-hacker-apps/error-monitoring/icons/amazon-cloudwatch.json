@@ -1,0 +1,17 @@
+{
+  "slug": "amazon-cloudwatch",
+  "name": "Amazon CloudWatch",
+  "official_url": "https://aws.amazon.com/cloudwatch/",
+  "image_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+  "source_page": "https://aws.amazon.com/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "d1.awsstatic.com",
+  "original": {
+    "format": "svg",
+    "width": 427,
+    "height": 427
+  },
+  "sha256": "34f34c8cb526b70a29fb7bd11556ea7fb788fa9a4138f81587e79ee13c469d98",
+  "note": "official AWS Architecture Icons: Amazon CloudWatch",
+  "saved_at": "2026-11-14"
+}

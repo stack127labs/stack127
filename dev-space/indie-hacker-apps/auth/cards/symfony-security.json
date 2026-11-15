@@ -1,0 +1,20 @@
+{
+  "slug": "symfony-security",
+  "name": "Symfony Security",
+  "url": "https://symfony.com/doc/current/security.html",
+  "jobs": ["library"],
+  "line": "PHP framework module for authentication, sessions, and access control.",
+  "free": { "kind": "selfhost", "text": "Free MIT libraries; you host the app" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No core connection fee; SAML needs separate code"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Symfony Security software licence costs $0. App hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Symfony Security software licence costs $0. App hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Symfony Security software licence costs $0. App hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Symfony Security software licence costs $0. App hosting, database, delivery and operations cost extra." }
+    ]
+  }
+}

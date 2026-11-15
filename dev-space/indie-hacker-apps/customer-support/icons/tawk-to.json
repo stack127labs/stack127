@@ -1,0 +1,17 @@
+{
+  "slug": "tawk-to",
+  "name": "tawk.to",
+  "official_url": "https://www.tawk.to/",
+  "image_url": "https://www.tawk.to/icon.png?icon.074cb158.png",
+  "source_page": "https://www.tawk.to/",
+  "kind": "favicon",
+  "source_host": "tawk.to",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "4b98bcc72d6e8be9c255a1f01ed2cdc3e30d6e92a8e9f6f5503b24265dce5a58",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

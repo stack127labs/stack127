@@ -1,0 +1,25 @@
+{
+  "slug": "idrive-e2",
+  "name": "IDrive e2",
+  "url": "https://www.idrive.com/s3-storage-e2/",
+  "jobs": ["files"],
+  "line": "Store objects in S3-compatible buckets across multiple regions.",
+  "free": { "kind": "trial", "text": "10 GB; duration unknown; empty region removed after 30d; free account may end" },
+  "cells": {
+    "metered": "$6/month minimum for 1 TB on PAYG",
+    "regions": "15 marketed regions; endpoint list has 20 codes",
+    "selfhost": "No, hosted; Direct Access is a separate appliance"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IDrive e2 is object storage, not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IDrive e2 is object storage, not a database" }
+    ],
+    "files": [
+      { "v": "$6/month", "plan": "PAYG minimum", "state": "confirmed", "math": "100 GB is below the 1 TB minimum, which costs $6 a month. 100 GB of outbound data (egress) is within 3 times the stored volume, and requests are free." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IDrive e2 stores files and does not run background jobs" }
+    ]
+  }
+}

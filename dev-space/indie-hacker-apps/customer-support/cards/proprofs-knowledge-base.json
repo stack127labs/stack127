@@ -1,0 +1,19 @@
+{
+  "slug": "proprofs-knowledge-base",
+  "name": "ProProfs Knowledge Base",
+  "url": "https://www.proprofskb.com/",
+  "jobs": ["helpdesk", "ai"],
+  "line": "Hosted customer help center for articles, FAQs, and product documentation.",
+  "free": { "kind": "free", "text": "Free: 1 author and up to 25 pages" },
+  "cells": {
+    "channels": "Public help center and internal wiki",
+    "ai": "AI search included; no monthly ceiling stated",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base only. An email inbox and staffed chat need separate products." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base only. An email inbox and staffed chat need separate products." }
+    ]
+  }
+}

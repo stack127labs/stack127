@@ -1,0 +1,40 @@
+{
+  "slug": "vercel",
+  "name": "Vercel",
+  "url": "https://vercel.com/",
+  "jobs": [
+    "static"
+  ],
+  "line": "Managed frontend hosting with a CDN, builds and autoscaling functions.",
+  "free": {
+    "kind": "free",
+    "text": "Hobby is free, personal use only"
+  },
+  "cells": {
+    "type": "Frontend",
+    "regions": "19 regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "$20",
+        "plan": "Pro",
+        "state": "confirmed",
+        "math": "The $20 platform fee covers about $0.90 of usage. The credit pays for usage, not the fee."
+      },
+      {
+        "v": "$20",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "Known usage is $12.327777, assuming requests do not overlap. The credit covers up to $20. Inbound data and storage are unknown."
+      },
+      {
+        "v": "$62.19+",
+        "plan": "Pro + Neon Launch",
+        "state": "unclear",
+        "math": "$20 for Pro + $38.69 for database compute + $3.50 for storage. Snapshots, history and tax are not added."
+      }
+    ]
+  }
+}

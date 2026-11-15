@@ -1,0 +1,24 @@
+{
+  "slug": "logrocket",
+  "name": "LogRocket",
+  "url": "https://logrocket.com/",
+  "jobs": ["errors", "performance"],
+  "line": "Pairs browser and mobile errors with session replay and user context.",
+  "free": { "kind": "free", "text": "1,000 sessions/month; Free forever" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Session-based", "state": "not_published", "math": "The error-report count doesn't set how many sessions are captured. The mix of sessions and plan details aren't known." },
+      { "v": "Unknown", "plan": "Session-based", "state": "not_published", "math": "The error-report count doesn't set how many sessions are captured. The mix of sessions and plan details aren't known." },
+      { "v": "Unknown", "plan": "Session-based", "state": "not_published", "math": "The error-report count doesn't set how many sessions are captured. The mix of sessions and plan details aren't known." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

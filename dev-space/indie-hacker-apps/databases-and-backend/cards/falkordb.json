@@ -1,0 +1,25 @@
+{
+  "slug": "falkordb",
+  "name": "FalkorDB",
+  "url": "https://www.falkordb.com/",
+  "jobs": ["vector"],
+  "line": "Query property graphs with Cypher, vector search, and full-text search.",
+  "free": { "kind": "free", "text": "100 MB RAM and a maximum 100 MB graph dataset" },
+  "cells": {
+    "metered": "Startup $0.100/GB-hour; $73 per 730 hours at 1 GB RAM",
+    "regions": "AWS and GCP; Cloud Enterprise also supports Azure",
+    "selfhost": "Yes, self-hosted under SSPL terms"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Startup", "state": "unclear", "math": "A 2 GB Startup plan is a $146 subtotal for 730 hours, if 1.5 GB of graph capacity fits. Transfer and extras are unknown." },
+      { "v": "Unknown", "plan": "Startup", "state": "unclear", "math": "The same 2 GB allocation, running for 730 hours, costs $146. Costs for a stopped month and any extra storage or backup charges are unknown." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "FalkorDB has no general file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "FalkorDB does not provide hosted background-job workers" }
+    ]
+  }
+}

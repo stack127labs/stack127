@@ -1,0 +1,20 @@
+{
+  "slug": "prisme-analytics",
+  "name": "Prisme Analytics",
+  "url": "https://www.prismeanalytics.com/",
+  "jobs": ["web", "product"],
+  "line": "Tracks website traffic and custom events with configurable reports.",
+  "free": { "kind": "trial", "text": "30-day trial; no permanent free cloud plan" },
+  "cells": {
+    "cookieless": "Yes, no default visitor cookie",
+    "location": "EU hosting",
+    "selfhost": "Yes, AGPL self-hosted edition"
+  },
+  "costs": {
+    "pv": [
+      { "v": "€8.99", "plan": "Cloud", "state": "confirmed", "math": "The flat Cloud subscription is €8.99 a month, with unlimited pageviews." },
+      { "v": "€8.99", "plan": "Cloud", "state": "confirmed", "math": "The flat Cloud subscription is €8.99 a month, with unlimited pageviews." },
+      { "v": "€8.99", "plan": "Cloud", "state": "confirmed", "math": "The flat Cloud subscription is €8.99 a month, with unlimited pageviews." }
+    ]
+  }
+}

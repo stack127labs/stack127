@@ -1,0 +1,17 @@
+{
+  "slug": "chroma-self-hosted-only",
+  "name": "Chroma",
+  "official_url": "https://www.trychroma.com/",
+  "image_url": "https://www.trychroma.com/img/favicon.ico",
+  "source_page": "https://www.trychroma.com/",
+  "kind": "favicon",
+  "source_host": "trychroma.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "dc56d9e0da8d8f3e38af84563fe69e4793d281eedb326b2a6ea9afb437b29253",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

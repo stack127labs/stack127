@@ -1,0 +1,21 @@
+{
+  "slug": "statuspal",
+  "name": "StatusPal",
+  "url": "https://www.statuspal.io/",
+  "jobs": ["status", "uptime"],
+  "line": "Hosts status pages, checks endpoints, and manages incidents.",
+  "free": { "kind": "free", "text": "Next Free: 5 checks, 1 page, 500 subscribers, no custom domain" },
+  "cells": { "interval": "Classic 60 s; Next interval unknown", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Next Free", "state": "not_published", "math": "The Next Free plan includes 5 checks but no custom domain. A one-minute schedule and the full price for this setup aren't known." },
+      { "v": "Unknown", "plan": "Next Pro", "state": "not_published", "math": "$15 a month per admin includes 20 checks. The one-minute price for 25 endpoints isn't confirmed." },
+      { "v": "Unknown", "plan": "Next Pro", "state": "not_published", "math": "$15 a month per admin includes 20 checks. A price for 100 endpoints and a one-minute schedule aren't confirmed." }
+    ]
+  }
+}

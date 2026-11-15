@@ -1,0 +1,17 @@
+{
+  "slug": "fluentcrm",
+  "name": "FluentCRM",
+  "official_url": "https://fluentcrm.com/",
+  "image_url": "https://fluentcrm.com/wp-content/uploads/2020/09/cropped-icon-192x192.png",
+  "source_page": "https://fluentcrm.com/",
+  "kind": "favicon",
+  "source_host": "fluentcrm.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "cbe572c6f2a4dbf898037b34b9f29b26c9598a2cf9d914aaecf1d28d819a2384",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "thrivedesk",
+  "name": "ThriveDesk",
+  "url": "https://www.thrivedesk.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Shared customer support inbox for email, website chat, and forms.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, forms, help center",
+    "ai": "Credit-based; included allowance and rates unclear",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29", "plan": "Basic", "state": "confirmed", "math": "The Basic plan includes two teammates and one inbox. One person works." },
+      { "v": "$69", "plan": "Standard", "state": "confirmed", "math": "The Standard plan includes five teammates and two inboxes. Three people work." }
+    ]
+  }
+}

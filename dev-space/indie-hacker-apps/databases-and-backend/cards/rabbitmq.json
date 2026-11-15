@@ -1,0 +1,25 @@
+{
+  "slug": "rabbitmq",
+  "name": "RabbitMQ",
+  "url": "https://www.rabbitmq.com/",
+  "jobs": ["jobs"],
+  "line": "Message broker with durable queues, event streams, and acknowledgements.",
+  "free": { "kind": "selfhost", "text": "MPL-2.0; no vendor quota or idle expiry; you host and retain messages" },
+  "cells": {
+    "metered": "No message fee; host, disk, and worker costs are separate",
+    "regions": "Choose your own hosting region",
+    "selfhost": "Yes, self-hosted RabbitMQ Server"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "RabbitMQ is a message broker, not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "RabbitMQ is a message broker, not a database" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "RabbitMQ does not provide file or object storage" }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "RabbitMQ plus worker host", "state": "not_published", "math": "The server software is $0. Host, disk, network, backups and worker run time for 10,000 jobs are not priced." }
+    ]
+  }
+}

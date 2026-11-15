@@ -1,0 +1,17 @@
+{
+  "slug": "botsonic",
+  "name": "Botsonic",
+  "official_url": "https://botsonic.com/",
+  "image_url": "https://cdn.prod.website-files.com/65e6ec2daf39c088fe6cd402/65e89bc0a967c0e47d3476b8_Frame%201116605940.svg",
+  "source_page": "https://botsonic.com/",
+  "kind": "svg-icon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "741e9129f7c2ae4d52aadd72a90654b951065bd04e839f3e9cbc5310fd72b9a8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

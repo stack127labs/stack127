@@ -1,0 +1,17 @@
+{
+  "slug": "burst-statistics",
+  "name": "Burst Statistics",
+  "official_url": "https://burst-statistics.com/",
+  "image_url": "https://burst-statistics.com/wp-content/uploads/2021/02/cropped-burst-favicon-300x300.png",
+  "source_page": "https://burst-statistics.com/",
+  "kind": "favicon",
+  "source_host": "burst-statistics.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "164a2344aa51be61cf64fa06eeb58ed29a92ff5b61f95e5d23093eff7a9196e3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

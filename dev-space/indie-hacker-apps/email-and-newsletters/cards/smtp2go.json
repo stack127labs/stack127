@@ -1,0 +1,26 @@
+{
+  "slug": "smtp2go",
+  "name": "SMTP2GO",
+  "url": "https://www.smtp2go.com/",
+  "jobs": ["transactional", "marketing", "newsletter"],
+  "line": "Hosted SMTP and API delivery for app email and permission-based lists.",
+  "free": { "kind": "free", "text": "Free: 1,000/month, 200/day, 25/hour until sender-domain verification" },
+  "cells": {
+    "newsletters": "Yes, permission-based bulk mail through your own software",
+    "api": "Yes, SMTP relay and JSON REST API"
+  },
+  "costs": {
+    "subs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "SMTP2GO bills by emails sent, not by stored subscribers. See the app email volume prices." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "SMTP2GO bills by emails sent, not by stored subscribers. See the app email volume prices." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "SMTP2GO bills by emails sent, not by stored subscribers. See the app email volume prices." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "SMTP2GO bills by emails sent, not by stored subscribers. See the app email volume prices." }
+    ],
+    "appmail": [
+      { "v": "US$15/month", "plan": "Starter 10K", "state": "confirmed", "math": "3,000 sends fit the 10K Starter plan. The Free plan caps at 1,000. The annual option is US$100. A verified sender and account review apply." },
+      { "v": "US$15/month", "plan": "Starter 10K", "state": "confirmed", "math": "10,000 sends use the 10K Starter plan. The annual option is US$100. A verified sender and account review apply." },
+      { "v": "US$30/month", "plan": "Starter 50K", "state": "conflicting", "math": "An official article lists 50K for US$30 a month, but the selector shows 40K. Account review and domain verification apply. Confirm tier availability." },
+      { "v": "US$75/month", "plan": "Professional 100K", "state": "confirmed", "math": "The 100K allowance includes one dedicated IP. A US$750 a year alternative is listed. A verified sender and full account activation are required." }
+    ]
+  }
+}

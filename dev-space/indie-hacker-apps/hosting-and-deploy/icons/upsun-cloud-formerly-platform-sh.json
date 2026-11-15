@@ -1,0 +1,17 @@
+{
+  "slug": "upsun-cloud-formerly-platform-sh",
+  "name": "Upsun Cloud",
+  "official_url": "https://upsun.com/cloud/",
+  "image_url": "https://upsun.com/icons/icon-512x512.png?v=cdd6ef938d75e3c80c7f4330f35ea20d",
+  "source_page": "https://upsun.com/cloud/",
+  "kind": "apple-touch-icon",
+  "source_host": "upsun.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "0589c6a9bcf30643af691bb31a63ab7bcef1fda4713f449846a10b51b8fc2ad9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

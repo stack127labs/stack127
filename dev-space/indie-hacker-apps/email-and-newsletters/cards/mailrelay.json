@@ -1,0 +1,26 @@
+{
+  "slug": "mailrelay",
+  "name": "Mailrelay",
+  "url": "https://mailrelay.com/en/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "line": "Newsletters, marketing automation and API/SMTP transactional email.",
+  "free": { "kind": "free", "text": "80,000 emails, 20,000 recipients/month; review starts at 500/day" },
+  "cells": {
+    "newsletters": "Yes, newsletters and campaigns; free plan has branding",
+    "api": "Yes, REST send endpoint and SMTP"
+  },
+  "costs": {
+    "subs": [
+      { "v": "€0/month", "plan": "Free", "state": "confirmed", "math": "4,000 emails to 1,000 readers fit inside 80,000 credits and 20,000 recipients, after account review. The initial review limit is about 500 sends a day." },
+      { "v": "€0/month", "plan": "Free", "state": "confirmed", "math": "20,000 emails to 5,000 readers fit inside 80,000 credits and 20,000 recipients, after account review. The initial review limit is about 500 sends a day." },
+      { "v": "€0/month", "plan": "Free", "state": "confirmed", "math": "40,000 emails to 10,000 readers fit inside 80,000 credits and 20,000 recipients, after account review. The initial review limit is about 500 sends a day." },
+      { "v": "€87.40/month", "plan": "Standard 250,000 credits / 50,000 recipients", "state": "confirmed", "math": "200,000 emails to 50,000 readers. The no-commitment Standard plan is €76 × 1.15 before VAT. Open and click statistics are excluded." }
+    ],
+    "appmail": [
+      { "v": "€14.95/month", "plan": "Free account + SMTP/API add-on", "state": "confirmed", "math": "3,000 app emails a month to 1,000 unique recipients. The add-on is billed after the trial." },
+      { "v": "€14.95/month", "plan": "Free account + SMTP/API add-on", "state": "confirmed", "math": "10,000 app emails a month to 1,000 unique recipients. The add-on is billed after the trial." },
+      { "v": "€14.95/month", "plan": "Free account + SMTP/API add-on", "state": "confirmed", "math": "50,000 app emails a month to 1,000 unique recipients. The add-on is billed after the trial." },
+      { "v": "€55.20/month", "plan": "Standard 100,000 credits", "state": "confirmed", "math": "For 100,000 app emails a month to 1,000 recipients. The no-commitment plan includes SMTP and API access." }
+    ]
+  }
+}

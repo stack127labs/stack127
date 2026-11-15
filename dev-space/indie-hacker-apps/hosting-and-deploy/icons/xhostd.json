@@ -1,0 +1,17 @@
+{
+  "slug": "xhostd",
+  "name": "xhostd",
+  "official_url": "https://xhostd.com/",
+  "image_url": "https://xhostd.com/favicon.svg",
+  "source_page": "https://xhostd.com/",
+  "kind": "svg-icon",
+  "source_host": "xhostd.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "96cb3b2a7165927d739e0ab32efea4ac102799b02d3f557190ce57310a473c7c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

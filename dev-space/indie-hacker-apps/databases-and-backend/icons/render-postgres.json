@@ -1,0 +1,17 @@
+{
+  "slug": "render-postgres",
+  "name": "Render Postgres",
+  "official_url": "https://render.com/docs/postgresql-creating-connecting",
+  "image_url": "https://render.com/favicon.svg",
+  "source_page": "https://render.com/docs/postgresql-creating-connecting",
+  "kind": "logo-mark",
+  "source_host": "render.com",
+  "original": {
+    "format": "svg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "467b689b4019a2ddaca01c1d312eacfd4d710b918851560f380c604145251b48",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

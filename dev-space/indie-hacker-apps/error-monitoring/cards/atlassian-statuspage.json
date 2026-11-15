@@ -1,0 +1,21 @@
+{
+  "slug": "atlassian-statuspage",
+  "name": "Atlassian Statuspage",
+  "url": "https://www.atlassian.com/software/statuspage",
+  "jobs": ["status"],
+  "line": "Publishes service status, incidents, maintenance, and uptime history.",
+  "free": { "kind": "free", "text": "Free public page: 100 subscribers, 25 components" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Publishes status pages; does not monitor endpoints" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Publishes status pages; does not monitor endpoints" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Publishes status pages; does not monitor endpoints" }
+    ]
+  }
+}

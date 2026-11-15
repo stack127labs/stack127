@@ -1,0 +1,20 @@
+{
+  "slug": "revenuecat",
+  "name": "RevenueCat",
+  "url": "https://www.revenuecat.com/",
+  "jobs": ["revenue", "product"],
+  "line": "Tracks in-app purchases, subscriptions, and customer revenue.",
+  "free": { "kind": "free", "text": "Pro service fee is $0 below $2,500 tracked revenue" },
+  "cells": {
+    "cookieless": "Unknown, web SDK storage details are not published",
+    "location": "US; exact production region not published",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Mobile purchase analytics is not priced by website pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Mobile purchase analytics is not priced by website pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Mobile purchase analytics is not priced by website pageviews." }
+    ]
+  }
+}

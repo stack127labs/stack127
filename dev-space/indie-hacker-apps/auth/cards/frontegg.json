@@ -1,0 +1,20 @@
+{
+  "slug": "frontegg",
+  "name": "Frontegg",
+  "url": "https://frontegg.com/",
+  "jobs": ["hosted"],
+  "line": "Hosted account login and customer management for business apps.",
+  "free": { "kind": "free", "text": "Free PAYG allowance includes 7,500 MAU" },
+  "cells": {
+    "freeUsers": "7,500 MAU, 5 enterprise connections, unlimited orgs",
+    "sso": "5 connections included; $125 each beyond 5"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "PAYG", "state": "confirmed", "math": "The base is $0. Users within the 7,500 free allowance add $0, and extra connections add $0." },
+      { "v": "$250", "plan": "PAYG", "state": "confirmed", "math": "Users above the 7,500 allowance cost $0.10 each. At 10,000 users, that comes to $250 a month." },
+      { "v": "Quote", "plan": "PAYG", "state": "unclear", "math": "The calculator shows a quote instead of totals above $2,500. The $4,250 figure is only a calculated sum, not an accepted price." },
+      { "v": "Quote", "plan": "PAYG", "state": "unclear", "math": "The calculator shows a quote instead of totals above $2,500. The $9,250 figure is only a calculated sum, not an accepted price." }
+    ]
+  }
+}

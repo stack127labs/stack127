@@ -1,0 +1,17 @@
+{
+  "slug": "monoscope-formerly-apitoolkit",
+  "name": "Monoscope",
+  "official_url": "https://monoscopehq.com/",
+  "image_url": "https://monoscopehq.com/static/android-chrome-512x512.png",
+  "source_page": "https://monoscopehq.com/",
+  "kind": "manifest-icon",
+  "source_host": "monoscopehq.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "7fe53b7e7cf197737262b15ab6e4d7dfa59f78e3e840b66a07639d8f39874333",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

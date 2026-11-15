@@ -1,0 +1,24 @@
+{
+  "slug": "new-relic",
+  "name": "New Relic",
+  "url": "https://newrelic.com/",
+  "jobs": ["errors", "logs", "uptime", "performance"],
+  "line": "Investigates application errors, logs and traces, with synthetic checks.",
+  "free": { "kind": "free", "text": "100 GB/month shared ingest; no card" },
+  "cells": {
+    "interval": "60 s minimum; longer intervals up to 24 h",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "The error count doesn't show billable data size, and it doesn't confirm that 30-day detail is kept." },
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "The error count doesn't show billable data size, and it doesn't confirm that 30-day detail is kept." },
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "The error count doesn't show billable data size, and it doesn't confirm that 30-day detail is kept." }
+    ],
+    "uptime": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "Simple-ping monitors fit the Free plan. The cost of a customer status page on your own domain isn't known." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "Simple-ping monitors fit the Free plan. The cost of a customer status page on your own domain isn't known." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "Simple-ping monitors fit the Free plan. The cost of a customer status page on your own domain isn't known." }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "conekta",
+  "name": "Conekta",
+  "url": "https://www.conekta.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Mexican online payment gateway for cards, cash, wallets and transfers.",
+  "free": { "kind": "none", "text": "No setup or monthly platform fee; per-transaction charges apply" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Mexico only",
+    "payout": "Usually 2 business days; first payout may take longer"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Mexico." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Mexico." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Mexico." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Mexico." }
+    ]
+  }
+}

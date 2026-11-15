@@ -1,0 +1,25 @@
+{
+  "slug": "filess-io",
+  "name": "filess.io",
+  "url": "https://filess.io/",
+  "jobs": ["sql", "jobs"],
+  "line": "Host SQL and MongoDB databases alongside separate container apps.",
+  "free": { "kind": "free", "text": "2 DBs × 10 MB; 5 connections; weekly backups; disable at 30d, delete after 60d" },
+  "cells": {
+    "metered": "Basic €3.99/mo homepage; docs show €2.99/mo",
+    "regions": "Europe, US, Asia, India; Shared placement unclear",
+    "selfhost": "No, vendor-managed database and app hosting"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Basic", "state": "unclear", "math": "Basic costs €3.99 a month on the homepage, but €2.99 in the docs. Whether it is eligible for production and how many connections it allows are not verified." },
+      { "v": "Unknown", "plan": "Basic", "state": "unclear", "math": "Idle data still needs a Basic subscription. Its price conflicts: €3.99 on the homepage, €2.99 in the docs. The full total is unknown." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Hosting volume", "state": "not_published", "math": "The rate for a 100 GB volume, the minimum allocation, file requests and delivery charges are not published." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Container hosting", "state": "not_published", "math": "One-shot containers are supported. Prices for worker CPU, memory, runs and retries are not confirmed." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "filebase",
+  "name": "Filebase",
+  "official_url": "https://filebase.com/",
+  "image_url": "https://filebase.com/icons/icon-512x512.png?v=b5362f1edeef1df41d42540c6094b1ce",
+  "source_page": "https://filebase.com/",
+  "kind": "manifest-icon",
+  "source_host": "filebase.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "31125cf09fee2e8ae4c5239925ba8e179535c9bc1fa4356c91c0b0deaf9aee62",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

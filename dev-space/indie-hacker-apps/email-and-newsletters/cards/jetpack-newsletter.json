@@ -1,0 +1,26 @@
+{
+  "slug": "jetpack-newsletter",
+  "name": "Jetpack Newsletter",
+  "url": "https://jetpack.com/newsletter/",
+  "jobs": ["newsletter"],
+  "line": "Send new posts and newsletters to subscribers from WordPress.",
+  "free": { "kind": "free", "text": "Unlimited direct signups and sends; 100 imported contacts, fair use applies" },
+  "cells": {
+    "newsletters": "Yes, newsletters and new-post notifications",
+    "api": "No, no email-send endpoint or SMTP relay documented"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$0/month incremental", "plan": "Free Newsletter", "state": "confirmed", "math": "4,000 sends to 1,000 readers who signed up directly. Imports are limited to 100 on the Free plan. Hosting and fair-use capacity are extra." },
+      { "v": "$0/month incremental", "plan": "Free Newsletter", "state": "confirmed", "math": "20,000 sends to 5,000 readers who signed up directly. Imports are limited to 100 on the Free plan. Hosting and fair-use capacity are extra." },
+      { "v": "$0/month incremental", "plan": "Free Newsletter", "state": "confirmed", "math": "40,000 sends to 10,000 readers who signed up directly. Imports are limited to 100 on the Free plan. Hosting and fair-use capacity are extra." },
+      { "v": "$0/month incremental", "plan": "Free Newsletter", "state": "confirmed", "math": "200,000 sends to 50,000 readers who signed up directly. Imports are limited to 100 on the Free plan. Hosting, fair use and capacity are extra." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This newsletter setup does not send app emails." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This newsletter setup does not send app emails." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This newsletter setup does not send app emails." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This newsletter setup does not send app emails." }
+    ]
+  }
+}

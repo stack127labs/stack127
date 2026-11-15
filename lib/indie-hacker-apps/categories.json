@@ -1,0 +1,650 @@
+{
+  "schema_version": 1,
+  "categories": [
+    {
+      "slug": "payments",
+      "research_dir": "payment-providers",
+      "name": "Payments",
+      "summary": "Card fees, seller countries and payout times.",
+      "jobs": [
+        [
+          "mor",
+          "Merchant of record",
+          "They sell for you and handle sales tax. Higher fees, less paperwork."
+        ],
+        [
+          "gateway",
+          "Gateway",
+          "You are the seller. Lower fees; you handle tax and disputes."
+        ],
+        [
+          "billing",
+          "Subscription billing",
+          "Runs plans and invoices on top of a gateway."
+        ],
+        [
+          "links",
+          "Payment links",
+          "Sell without a website: a link or a checkout page."
+        ],
+        [
+          "crypto",
+          "Crypto",
+          "Take crypto payments."
+        ]
+      ],
+      "cells": [
+        [
+          "type",
+          "Type",
+          "Short provider type, e.g. \"Merchant of record\", \"Gateway\", \"Gateway (bank debit)\"."
+        ],
+        [
+          "countries",
+          "Seller countries",
+          "Where a seller can sign up, short, e.g. \"44 countries direct\", \"India only\"."
+        ],
+        [
+          "payout",
+          "Payout",
+          "Payout timing, short, e.g. \"US 2 business days\"."
+        ]
+      ],
+      "signals": [],
+      "show_free": false,
+      "sets": {
+        "fee": {
+          "label": "Seller based in",
+          "unit": "",
+          "levels": [
+            "United States",
+            "United Kingdom",
+            "Germany",
+            "India"
+          ],
+          "short": [
+            "US fee",
+            "UK fee",
+            "Germany fee",
+            "India fee"
+          ],
+          "default": 0,
+          "note": "Fee for one domestic card payment, standard online rate, in the provider's currency."
+        }
+      },
+      "job_sets": {}
+    },
+    {
+      "slug": "hosting",
+      "research_dir": "hosting-and-deploy",
+      "name": "Hosting",
+      "summary": "One small app priced on every host.",
+      "jobs": [
+        [
+          "paas",
+          "App platform",
+          "Push code, they run it."
+        ],
+        [
+          "vps",
+          "Server",
+          "A server you manage yourself."
+        ],
+        [
+          "panel",
+          "Self-hosted panel",
+          "Free software that turns your server into an app platform."
+        ],
+        [
+          "static",
+          "Static sites",
+          "Sites and frontends with no server code."
+        ]
+      ],
+      "cells": [
+        [
+          "type",
+          "Type",
+          "Short type, e.g. \"App platform\", \"VPS\", \"Self-hosted panel\", \"Frontend\"."
+        ],
+        [
+          "regions",
+          "Regions",
+          "Short region summary, e.g. \"19 regions\", \"EU and US\", \"Your server\"."
+        ],
+        [
+          "selfhost",
+          "Self-host",
+          "Exactly \"Yes\" or \"No\", optionally followed by a short note."
+        ]
+      ],
+      "signals": [
+        [
+          "selfhost",
+          "Yes",
+          "Can self-host"
+        ]
+      ],
+      "show_free": true,
+      "sets": {
+        "work": {
+          "label": "Workload",
+          "unit": "",
+          "levels": [
+            "A. Static site",
+            "B. Small app API",
+            "C. App + Postgres"
+          ],
+          "short": [
+            "Static site",
+            "Small app API",
+            "App + Postgres"
+          ],
+          "default": 1,
+          "note": "A: static site, 1M requests, 100 GB out. B: small app API, 1M requests, 100 GB out. C: B plus Postgres (1 GiB memory, 10 GB)."
+        }
+      },
+      "job_sets": {}
+    },
+    {
+      "slug": "databases",
+      "research_dir": "databases-and-backend",
+      "name": "Databases",
+      "summary": "Free tiers that last, metered prices, and how you leave.",
+      "jobs": [
+        [
+          "sql",
+          "SQL",
+          "Postgres, MySQL, SQLite and similar."
+        ],
+        [
+          "kv",
+          "Key-value and cache",
+          "Redis-style stores."
+        ],
+        [
+          "files",
+          "File storage",
+          "S3-style object storage."
+        ],
+        [
+          "jobs",
+          "Queues and workflows",
+          "Background jobs and scheduled tasks."
+        ],
+        [
+          "backend",
+          "Full backend",
+          "Database, auth, files and functions in one."
+        ],
+        [
+          "vector",
+          "Vector",
+          "Search by meaning, for AI features."
+        ]
+      ],
+      "cells": [
+        [
+          "metered",
+          "Metered price",
+          "Main paid price, short, e.g. \"$25/month Pro plus usage\"."
+        ],
+        [
+          "regions",
+          "Regions",
+          "Short region summary, e.g. \"17 regions\"."
+        ],
+        [
+          "selfhost",
+          "Self-host",
+          "Exactly \"Yes\" or \"No\", optionally followed by a short note."
+        ]
+      ],
+      "signals": [
+        [
+          "selfhost",
+          "Yes",
+          "Can self-host"
+        ]
+      ],
+      "show_free": true,
+      "sets": {
+        "sql": {
+          "label": "Workload",
+          "unit": "",
+          "levels": [
+            "Small SQL app",
+            "Idle project"
+          ],
+          "short": [
+            "Small SQL app",
+            "Idle project"
+          ],
+          "default": 0,
+          "note": "Small SQL app: 1 GB stored, 100,000 reads, 20,000 writes a month. Idle project: same data, no traffic."
+        },
+        "files": {
+          "label": "Workload",
+          "unit": "",
+          "levels": [
+            "100 GB file store"
+          ],
+          "short": [
+            "100 GB files"
+          ],
+          "default": 0,
+          "note": "100 GB stored, 100,000 writes, 1M reads, 100 GB out a month."
+        },
+        "jobs": {
+          "label": "Workload",
+          "unit": "",
+          "levels": [
+            "10,000 jobs"
+          ],
+          "short": [
+            "10k jobs"
+          ],
+          "default": 0,
+          "note": "10,000 jobs a month, 1 second each."
+        }
+      },
+      "job_sets": {
+        "sql": "sql",
+        "kv": "sql",
+        "backend": "sql",
+        "vector": "sql",
+        "files": "files",
+        "jobs": "jobs"
+      }
+    },
+    {
+      "slug": "error-monitoring",
+      "research_dir": "error-monitoring",
+      "name": "Error monitoring",
+      "summary": "Free limits, check intervals, and who still ships updates.",
+      "jobs": [
+        [
+          "errors",
+          "Error tracking",
+          "Catch crashes and exceptions in your code."
+        ],
+        [
+          "uptime",
+          "Uptime",
+          "Check from outside that your site answers."
+        ],
+        [
+          "status",
+          "Status pages",
+          "Tell users when something is down."
+        ],
+        [
+          "logs",
+          "Logs",
+          "Search what your app printed."
+        ],
+        [
+          "performance",
+          "Performance and metrics",
+          "Slow requests, traces and app metrics."
+        ],
+        [
+          "cron",
+          "Cron job checks",
+          "Alerts when a scheduled job doesn't run."
+        ]
+      ],
+      "cells": [
+        [
+          "interval",
+          "Check interval",
+          "Fastest uptime check interval, short, e.g. \"60 s free, 30 s paid\"; \"—\" if no uptime checks."
+        ],
+        [
+          "maintained",
+          "Maintained",
+          "\"Hosted service\" for hosted-only tools, else \"Last release YYYY-MM-DD\"; if the file has no release date, \"Last update YYYY-MM-DD\" or \"Unknown\"."
+        ]
+      ],
+      "signals": [],
+      "show_free": true,
+      "sets": {
+        "errors": {
+          "label": "Error reports",
+          "unit": "errors",
+          "levels": [
+            "5,000",
+            "50,000",
+            "500,000"
+          ],
+          "short": [
+            "5k errors",
+            "50k errors",
+            "500k errors"
+          ],
+          "default": 0,
+          "note": "Error reports a month, one builder, three apps, 30 days of detail."
+        },
+        "uptime": {
+          "label": "Endpoints",
+          "unit": "checks",
+          "levels": [
+            "5",
+            "25",
+            "100"
+          ],
+          "short": [
+            "5 checks",
+            "25 checks",
+            "100 checks"
+          ],
+          "default": 0,
+          "note": "Endpoints checked every 60 seconds from one location, email alerts."
+        }
+      },
+      "job_sets": {
+        "errors": "errors",
+        "logs": "errors",
+        "uptime": "uptime",
+        "status": "uptime"
+      }
+    },
+    {
+      "slug": "customer-support",
+      "research_dir": "customer-support",
+      "name": "Customer support",
+      "summary": "Help desks and chat priced for 1 or 3 people, AI cost apart.",
+      "jobs": [
+        [
+          "helpdesk",
+          "Help desk",
+          "Email tickets and a help center."
+        ],
+        [
+          "chat",
+          "Live chat",
+          "A chat bubble on your site."
+        ],
+        [
+          "ai",
+          "AI agent",
+          "Answers questions for you; often billed per answer."
+        ],
+        [
+          "inbox",
+          "Shared inbox",
+          "One inbox for the team."
+        ]
+      ],
+      "cells": [
+        [
+          "channels",
+          "Channels",
+          "Customer channels, short, e.g. \"Email, chat, WhatsApp\"."
+        ],
+        [
+          "ai",
+          "AI billing",
+          "How AI is billed, short, e.g. \"$0.99 per resolution\", \"Included\", \"No AI\"."
+        ],
+        [
+          "selfhost",
+          "Self-host",
+          "Exactly \"Yes\" or \"No\", optionally followed by a short note."
+        ]
+      ],
+      "signals": [
+        [
+          "selfhost",
+          "Yes",
+          "Can self-host"
+        ]
+      ],
+      "show_free": true,
+      "sets": {
+        "agents": {
+          "label": "Team size",
+          "unit": "",
+          "levels": [
+            "1 agent",
+            "3 agents"
+          ],
+          "short": [
+            "1 agent",
+            "3 agents"
+          ],
+          "default": 0,
+          "note": "100 customer conversations a month, AI turned off. AI cost is shown on its own."
+        }
+      },
+      "job_sets": {}
+    },
+    {
+      "slug": "email",
+      "research_dir": "email-and-newsletters",
+      "name": "Email",
+      "summary": "Newsletters and app email priced at the same list size.",
+      "jobs": [
+        [
+          "newsletter",
+          "Newsletter",
+          "Write and send to readers. Many let you charge for it."
+        ],
+        [
+          "marketing",
+          "Marketing automation",
+          "Campaigns plus automatic sequences."
+        ],
+        [
+          "transactional",
+          "App emails",
+          "Password resets and receipts sent from your code."
+        ],
+        [
+          "multichannel",
+          "Lifecycle and multi-channel",
+          "Messages triggered by what users do, across channels."
+        ]
+      ],
+      "cells": [
+        [
+          "newsletters",
+          "Newsletters allowed",
+          "Exactly \"Yes\", \"No\" or \"Unknown\", optionally followed by a short note. Can you send a newsletter or bulk campaign to a list?"
+        ],
+        [
+          "api",
+          "API",
+          "Exactly \"Yes\" or \"No\", optionally followed by a short note (e.g. \"Yes, plus SMTP\")."
+        ]
+      ],
+      "signals": [
+        [
+          "newsletters",
+          "Yes",
+          "Newsletters allowed"
+        ]
+      ],
+      "show_free": true,
+      "sets": {
+        "subs": {
+          "label": "Subscribers",
+          "unit": "subscribers",
+          "levels": [
+            "1,000",
+            "5,000",
+            "10,000",
+            "50,000"
+          ],
+          "short": [
+            "1k subs",
+            "5k subs",
+            "10k subs",
+            "50k subs"
+          ],
+          "default": 2,
+          "note": "4 campaigns a month to everyone. 10,000 subscribers = 40,000 emails."
+        },
+        "appmail": {
+          "label": "App emails a month",
+          "unit": "app emails",
+          "levels": [
+            "3,000",
+            "10,000",
+            "50,000",
+            "100,000"
+          ],
+          "short": [
+            "3k emails",
+            "10k emails",
+            "50k emails",
+            "100k emails"
+          ],
+          "default": 1,
+          "note": "Emails sent from your code each month."
+        }
+      },
+      "job_sets": {
+        "newsletter": "subs",
+        "marketing": "subs",
+        "multichannel": "subs",
+        "transactional": "appmail"
+      }
+    },
+    {
+      "slug": "analytics",
+      "research_dir": "analytics",
+      "name": "Analytics",
+      "summary": "Cookies, data location and self-hosting, with sources.",
+      "jobs": [
+        [
+          "web",
+          "Website analytics",
+          "Visitors, pages, and sources."
+        ],
+        [
+          "product",
+          "Product analytics",
+          "What users do inside your app."
+        ],
+        [
+          "replay",
+          "Session replay",
+          "Recordings of real visits."
+        ],
+        [
+          "revenue",
+          "Revenue",
+          "Sales and subscription numbers."
+        ]
+      ],
+      "cells": [
+        [
+          "cookieless",
+          "Cookieless",
+          "Exactly \"Yes\", \"No\", \"Optional\" or \"Unknown\", optionally followed by a short note."
+        ],
+        [
+          "location",
+          "Data location",
+          "Where data is stored, short, e.g. \"EU (Germany)\", \"US\", \"Your server\"."
+        ],
+        [
+          "selfhost",
+          "Self-host",
+          "Exactly \"Yes\" or \"No\", optionally followed by a short note."
+        ]
+      ],
+      "signals": [
+        [
+          "cookieless",
+          "Yes",
+          "Cookieless"
+        ],
+        [
+          "selfhost",
+          "Yes",
+          "Can self-host"
+        ]
+      ],
+      "show_free": true,
+      "sets": {
+        "pv": {
+          "label": "Pageviews a month",
+          "unit": "pageviews",
+          "levels": [
+            "10,000",
+            "100,000",
+            "1,000,000"
+          ],
+          "short": [
+            "10k views",
+            "100k views",
+            "1M views"
+          ],
+          "default": 1,
+          "note": "One site, one user, pageviews only."
+        }
+      },
+      "job_sets": {}
+    },
+    {
+      "slug": "auth",
+      "research_dir": "auth",
+      "name": "Auth",
+      "summary": "Cost at your user count, plus what SSO adds.",
+      "jobs": [
+        [
+          "hosted",
+          "Hosted service",
+          "They run login for you."
+        ],
+        [
+          "library",
+          "Library",
+          "Code you add to your app. Free; you host it."
+        ],
+        [
+          "server",
+          "Self-hosted server",
+          "A login server you run yourself."
+        ]
+      ],
+      "cells": [
+        [
+          "freeUsers",
+          "Free users",
+          "Free user allowance, short, e.g. \"50,000 MRU per app\", \"Unlimited (self-host)\"."
+        ],
+        [
+          "sso",
+          "SSO",
+          "Business SSO price, short, e.g. \"1 included; $75/month each after\", \"Free\", \"Quote\", \"Unknown\"."
+        ]
+      ],
+      "signals": [],
+      "show_free": true,
+      "sets": {
+        "mau": {
+          "label": "Monthly users",
+          "unit": "users",
+          "levels": [
+            "1,000",
+            "10,000",
+            "50,000",
+            "100,000"
+          ],
+          "short": [
+            "1k users",
+            "10k users",
+            "50k users",
+            "100k users"
+          ],
+          "default": 1,
+          "note": "Users who log in during the month. SSO and organizations priced on their own."
+        }
+      },
+      "job_sets": {}
+    }
+  ]
+}

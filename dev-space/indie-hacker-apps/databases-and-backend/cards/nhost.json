@@ -1,0 +1,25 @@
+{
+  "slug": "nhost",
+  "name": "Nhost",
+  "url": "https://nhost.io/",
+  "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "line": "PostgreSQL backend with GraphQL, user authentication, files, and functions.",
+  "free": { "kind": "free", "text": "1 GB DB, 1 GB files, 5 GB egress; pauses after 1 idle week" },
+  "cells": {
+    "metered": "$25/mo Pro; data, egress, and function overages",
+    "regions": "US, Europe, Asia, Australia; exact choices unclear",
+    "selfhost": "Yes, community self-hosting; components have own licenses"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "$25 is the starting price, if the conditions apply. The shared compute allocation and CPU billing are not yet confirmed." },
+      { "v": "$25", "plan": "Pro", "state": "unclear", "math": "The $25 starting price of a running project stays with zero requests. How compute is counted, and the full cost with protection, are not yet confirmed." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "$32.50 is the known subtotal for 100 GB of storage and outbound data (egress). File requests and total compute cost are not yet confirmed." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Pro Functions", "state": "unclear", "math": "$25 is the starting price, if the conditions apply. 2.78 GB-hours fit within the 10-hour allowance, but machine size and how many jobs run at once are not verified." }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "framer-analytics",
+  "name": "Framer Analytics",
+  "url": "https://www.framer.com/analytics/",
+  "jobs": ["web"],
+  "line": "Built-in traffic and engagement analytics for Framer websites.",
+  "free": { "kind": "free", "text": "Free site plan; 1 GB bandwidth" },
+  "cells": { "cookieless": "Yes", "location": "May transfer outside EEA, including US", "selfhost": "No (none found)" },
+  "costs": { "pv": [
+    { "v": "$10", "plan": "Basic", "state": "unclear", "math": "Basic site hosting is $10 a month equivalent, billed yearly. Analytics is included, assuming bandwidth is enough." },
+    { "v": "$10", "plan": "Basic", "state": "unclear", "math": "Basic site hosting is $10 a month equivalent, billed yearly. Analytics is included, assuming bandwidth is enough." },
+    { "v": "$10", "plan": "Basic", "state": "unclear", "math": "Basic site hosting is $10 a month equivalent, billed yearly. Pageviews do not show bandwidth use." }
+  ] }
+}

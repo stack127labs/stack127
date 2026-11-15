@@ -1,0 +1,17 @@
+{
+  "slug": "tiledesk",
+  "name": "Tiledesk",
+  "official_url": "https://tiledesk.com/",
+  "image_url": "https://tiledesk.com/wp-content/uploads/2022/08/tiledesk_v14.png",
+  "source_page": "https://tiledesk.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "tiledesk.com",
+  "original": {
+    "format": "png",
+    "width": 3000,
+    "height": 3000
+  },
+  "sha256": "eb38fae376063361daf9258d4ffa3a7a6ff760e06b191f153ed30d11d751c4fe",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

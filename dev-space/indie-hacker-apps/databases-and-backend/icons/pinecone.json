@@ -1,0 +1,17 @@
+{
+  "slug": "pinecone",
+  "name": "Pinecone",
+  "official_url": "https://www.pinecone.io/",
+  "image_url": "https://www.pinecone.io/images/brand/pinecone-icon-black-on-white-512.png",
+  "source_page": "https://www.pinecone.io/",
+  "kind": "logo-mark",
+  "source_host": "pinecone.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "0034c78cfdaa0fb8ad539488eb84d6b259dbd3f9d5be4da81a2dc27806356091",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

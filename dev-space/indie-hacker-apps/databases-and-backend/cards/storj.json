@@ -1,0 +1,45 @@
+{
+  "slug": "storj",
+  "name": "Storj Object Storage",
+  "url": "https://www.storj.io/",
+  "jobs": ["files"],
+  "line": "S3-compatible object storage with global Standard and regional US Advanced tiers.",
+  "free": { "kind": "trial", "text": "30d trial; storage unknown; expired trials queued for deletion; timing unknown" },
+  "cells": {
+    "metered": "$5/mo minimum; Standard $7/TB-mo plus $7/TB egress",
+    "regions": "Global Standard; US Advanced; metadata US, EU, or AP",
+    "selfhost": "No, the storage network is hosted"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Storj Object Storage is not a database"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Storj Object Storage is not a database"
+      }
+    ],
+    "files": [
+      {
+        "v": "$5",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "100 GB of storage + 100 GB of egress = $1.40 of usage before the minimum. The $5 monthly minimum for active accounts applies. Tax is not included."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Storj Object Storage does not run background jobs"
+      }
+    ]
+  }
+}

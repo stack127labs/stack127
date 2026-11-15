@@ -1,0 +1,19 @@
+{
+  "slug": "tiledesk",
+  "name": "Tiledesk",
+  "url": "https://tiledesk.com/",
+  "jobs": ["ai", "chat", "inbox"],
+  "line": "AI agents and human support chat with workflows and knowledge sources.",
+  "free": { "kind": "trial", "text": "14-day hosted trial, no card" },
+  "cells": {
+    "channels": "Website chat; email ticketing requires Enterprise",
+    "ai": "5M tokens/month included on Pro",
+    "selfhost": "Yes, Community components"
+  },
+  "costs": {
+    "agents": [
+      { "v": "€149", "plan": "Pro", "state": "confirmed", "math": "One Pro project includes three users and 3,000 conversations a month." },
+      { "v": "€149", "plan": "Pro", "state": "confirmed", "math": "The same project includes all three users and 3,000 conversations a month." }
+    ]
+  }
+}

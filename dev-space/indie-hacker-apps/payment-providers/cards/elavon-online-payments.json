@@ -1,0 +1,21 @@
+{
+  "slug": "elavon-online-payments",
+  "name": "Elavon online payments",
+  "url": "https://www.elavon.co.uk/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Online acquiring and checkout for UK, European and North American merchants.",
+  "free": { "kind": "none", "text": "UK Always Open costs £25/month" },
+  "cells": {
+    "type": "Gateway and acquiring",
+    "countries": "UK, Ireland, Germany and other local markets",
+    "payout": "UK next day or within 48 hours by plan"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "Converge", "state": "not_published", "math": "The US card price is set by a sales quote, not a public rate." },
+      { "v": "0.99%", "plan": "Always Open", "state": "confirmed", "math": "The UK rate starts at 0.99% per transaction. The final rate depends on card turnover, meaning total card sales." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Germany has its own local merchant site, but no German card price is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether Indian sellers can sign up, and no India card price is published." }
+    ]
+  }
+}

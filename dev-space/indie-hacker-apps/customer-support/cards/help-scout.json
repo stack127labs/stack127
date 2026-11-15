@@ -1,0 +1,37 @@
+{
+  "slug": "help-scout",
+  "name": "Help Scout",
+  "url": "https://www.helpscout.com/",
+  "jobs": [
+    "helpdesk",
+    "inbox",
+    "chat",
+    "ai"
+  ],
+  "line": "Shared support inbox with Beacon chat and Docs.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 5 users, 1 inbox, 100 contacts/month"
+  },
+  "cells": {
+    "channels": "Email, chat, WhatsApp, Instagram, Messenger, SMS",
+    "ai": "$0.75 per resolution",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "Free email: 100 contacts helped a month. Standard is $25 a user a month, paid annually."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "Free allows 5 users, but only 100 contacts a month for the whole account."
+      }
+    ]
+  }
+}

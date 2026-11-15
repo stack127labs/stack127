@@ -1,0 +1,48 @@
+{
+  "slug": "pagbank",
+  "name": "PagBank",
+  "url": "https://pagbank.com.br/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Brazilian gateway for hosted checkout, payment links and recurring sales.",
+  "free": {
+    "kind": "none",
+    "text": "No setup/monthly fee; R$75 after 360 days inactive"
+  },
+  "cells": {
+    "type": "Payment gateway, acquirer and online checkout",
+    "countries": "Brazil only",
+    "payout": "Na Hora, 5, 14 or 30 days, depending on product"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      }
+    ]
+  }
+}

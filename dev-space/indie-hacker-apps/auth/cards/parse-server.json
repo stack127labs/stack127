@@ -1,0 +1,20 @@
+{
+  "slug": "parse-server",
+  "name": "Parse Server",
+  "url": "https://docs.parseplatform.org/js/guide/#users",
+  "jobs": ["server"],
+  "line": "Self-hosted backend with user accounts, login, and sessions.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 server; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No connection royalty; SAML needs an extension"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Apache server", "state": "confirmed", "math": "The Parse Server licence costs $0. Hosting, database, delivery, backups and operations cost extra." },
+      { "v": "$0", "plan": "Apache server", "state": "confirmed", "math": "The Parse Server licence costs $0. Hosting, database, delivery, backups and operations cost extra." },
+      { "v": "$0", "plan": "Apache server", "state": "confirmed", "math": "The Parse Server licence costs $0. Hosting, database, delivery, backups and operations cost extra." },
+      { "v": "$0", "plan": "Apache server", "state": "confirmed", "math": "The Parse Server licence costs $0. Hosting, database, delivery, backups and operations cost extra." }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "checkmate",
+  "name": "Checkmate",
+  "url": "https://checkmate.so/",
+  "jobs": ["uptime", "status", "performance"],
+  "line": "Self-hosted website, protocol and server checks with public status pages.",
+  "free": { "kind": "selfhost", "text": "Free AGPL software; run it with your own server and MongoDB" },
+  "cells": {
+    "interval": "15 s minimum; 60 s default; geo ≥5 min",
+    "maintained": "Last release 2026-10-22"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "No server, backup, domain or email (SMTP) provider was priced." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "No server, backup, domain or email (SMTP) provider was priced." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "No server, backup, domain or email (SMTP) provider was priced." }
+    ]
+  }
+}

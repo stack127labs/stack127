@@ -1,0 +1,21 @@
+{
+  "slug": "multisafepay",
+  "name": "MultiSafepay",
+  "url": "https://www.multisafepay.com/",
+  "jobs": ["gateway", "links"],
+  "line": "European payment gateway with hosted pages, payment links and QR checkout.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; transaction rate quoted" },
+  "cells": {
+    "type": "Payment gateway, processor and acquirer",
+    "countries": "Supports EEA businesses; broader signup list unpublished",
+    "payout": "NL and Belgium 1 business day; others 3–5 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Card pricing is quoted for each merchant. No US card rate is published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Card pricing is quoted for each merchant. No UK card rate is published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Card pricing is quoted for each merchant. No German card rate is published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Card pricing is quoted for each merchant. No India card rate is published." }
+    ]
+  }
+}

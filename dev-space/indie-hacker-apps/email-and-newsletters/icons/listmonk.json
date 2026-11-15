@@ -1,0 +1,17 @@
+{
+  "slug": "listmonk",
+  "name": "listmonk",
+  "official_url": "https://listmonk.app/",
+  "image_url": "https://listmonk.app/static/images/favicon.webp",
+  "source_page": "https://listmonk.app/",
+  "kind": "favicon",
+  "source_host": "listmonk.app",
+  "original": {
+    "format": "webp",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "46720ac5ea002e6baa6ef5edcc58e3405ad487c83db3c27f3f87e9a69c90dd0a",
+  "note": "Official favicon is 64 px; no larger icon was found.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "digitalocean-functions",
+  "name": "DigitalOcean Functions",
+  "url": "https://www.digitalocean.com/products/functions",
+  "jobs": [
+    "paas"
+  ],
+  "line": "Deploy managed functions that scale with requests.",
+  "free": {
+    "kind": "free",
+    "text": "90,000 GiB-seconds per month, pooled across Functions"
+  },
+  "cells": {
+    "type": "Serverless functions",
+    "regions": "North America, Europe, Asia-Pacific, Australia",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "\u2014",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Standalone Functions is not a built-in way to host static sites."
+      },
+      {
+        "v": "$1.11",
+        "plan": "512 MiB function",
+        "state": "confirmed",
+        "math": "Modeled at 150,000 GiB-seconds. This is the Functions cost after free usage."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "Managed PostgreSQL is billed separately. The full hosting total is not confirmed."
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "reclaim-cloud",
+  "name": "Reclaim Cloud",
+  "url": "https://www.reclaimhosting.com/product-overview/",
+  "jobs": ["paas"],
+  "line": "Deploy and manage containerized apps on a prepaid cloud platform.",
+  "free": { "kind": "trial", "text": "2-week trial, no funds to start; prepaid use after trial" },
+  "cells": { "type": "Managed app platform", "regions": "US, Canada, UK and European Union", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "2-cloudlet illustration", "state": "unclear", "math": "Compute is 2 × $0.0039 × 730 = $5.694. Add the unknown public IP cost, plus build, disk, traffic and tax costs (unknown). 100 GB fits 2 GB an hour only if traffic is spread evenly." },
+    { "v": "Unknown", "plan": "8-cloudlet illustration", "state": "unclear", "math": "8 × $0.0037 × 730 = $21.608 for compute. The 1,024 MiB figure applies only under 128 MiB units. 400 MHz per cloudlet is not a vCPU. IP, build, disk and traffic costs are still unknown." },
+    { "v": "Unknown", "plan": "Two 8-cloudlet nodes", "state": "unclear", "math": "Compute is $43.216 at the 5–9 rate, or $38.544 only if 16 units pool at the 10–19 rate. Add unknown IP, disk, backup, build and tax costs. Private 10 GB database traffic is free." }
+  ] }
+}

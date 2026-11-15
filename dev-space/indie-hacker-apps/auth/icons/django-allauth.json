@@ -1,0 +1,17 @@
+{
+  "slug": "django-allauth",
+  "name": "django-allauth",
+  "official_url": "https://allauth.org/",
+  "image_url": "https://allauth.org/img/logo-dark.png",
+  "source_page": "https://allauth.org/",
+  "kind": "logo-mark",
+  "source_host": "allauth.org",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "afdd51e70e2cf60d6737ef70ee34670ce05145c2f1df67d1ee9b9cd46a7f5486",
+  "note": "official allauth logo (dragon mark); the small wordmark under it is light and fades on white",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "polar-analytics",
+  "name": "Polar Analytics",
+  "url": "https://polar.sh/docs/features/analytics",
+  "jobs": ["revenue"],
+  "line": "Built-in revenue and billing reports for Polar merchants.",
+  "free": { "kind": "free", "text": "Starter has no monthly fee; transaction fees apply" },
+  "cells": {
+    "cookieless": "Unknown, not a visitor analytics tracker",
+    "location": "US processors; complete region not published",
+    "selfhost": "Yes, technically possible; feature parity unclear"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billing analytics is tied to merchant transactions, not website pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billing analytics is tied to merchant transactions, not website pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billing analytics is tied to merchant transactions, not website pageviews." }
+    ]
+  }
+}

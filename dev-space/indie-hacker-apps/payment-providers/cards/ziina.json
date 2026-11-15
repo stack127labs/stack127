@@ -1,0 +1,47 @@
+{
+  "slug": "ziina",
+  "name": "Ziina",
+  "url": "https://ziina.com/",
+  "jobs": [
+    "gateway",
+    "links"
+  ],
+  "line": "UAE gateway with payment links, invoices, and hosted checkout.",
+  "free": {
+    "kind": "none",
+    "text": "No setup or monthly payment fee; per-transaction rates apply"
+  },
+  "cells": {
+    "type": "Gateway + payment links",
+    "countries": "the United Arab Emirates only",
+    "payout": "Wallet next day; bank 12 h to 1–2 days (conflict)"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE)."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE)."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE)."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE)."
+      }
+    ]
+  }
+}

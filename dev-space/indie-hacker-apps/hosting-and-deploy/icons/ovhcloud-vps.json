@@ -1,0 +1,17 @@
+{
+  "slug": "ovhcloud-vps",
+  "name": "OVHcloud VPS",
+  "official_url": "https://www.ovhcloud.com/en/vps/",
+  "image_url": "https://www.ovhcloud.com/icon.svg",
+  "source_page": "https://www.ovhcloud.com/en/vps/",
+  "kind": "svg-icon",
+  "source_host": "ovhcloud.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "837e4b47abc5c8f8e44486288dfafcacbac6e3ee39d29f00bdacfdecebf13ae6",
+  "note": "parent brand: OVHcloud; no distinct VPS mark found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

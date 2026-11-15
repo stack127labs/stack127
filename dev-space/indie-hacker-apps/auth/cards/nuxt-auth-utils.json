@@ -1,0 +1,20 @@
+{
+  "slug": "nuxt-auth-utils",
+  "name": "Nuxt Auth Utils",
+  "url": "https://github.com/atinux/nuxt-auth-utils",
+  "jobs": ["library"],
+  "line": "Nuxt session and login helpers with provider and passkey support.",
+  "free": { "kind": "selfhost", "text": "Free MIT module; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No SSO connection subscription in the module"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The module licence costs $0. App hosting, user storage, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The module licence costs $0. App hosting, user storage, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The module licence costs $0. App hosting, user storage, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The module licence costs $0. App hosting, user storage, delivery and operations cost extra." }
+    ]
+  }
+}

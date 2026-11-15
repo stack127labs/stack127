@@ -1,0 +1,25 @@
+{
+  "slug": "inngest",
+  "name": "Inngest",
+  "url": "https://www.inngest.com/",
+  "jobs": ["jobs"],
+  "line": "Build durable event-triggered workflows with retries, waits, and schedules.",
+  "free": { "kind": "free", "text": "50K executions, 500K events/mo; branches archive 3 days after last deploy" },
+  "cells": {
+    "metered": "Pro $99/month includes 1M executions and 5M events",
+    "regions": "US control and data planes; no region selector",
+    "selfhost": "Yes, SSPL server; provide your infrastructure and workers"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Inngest coordinates workflows but is not a database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Inngest coordinates workflows but is not a database service" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Inngest does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Cloud Free plus worker", "state": "unclear", "math": "10,000 one-run executions and trigger events fit the Free plan's limits of 50,000 and 500,000. Worker hosting is not priced." }
+    ]
+  }
+}

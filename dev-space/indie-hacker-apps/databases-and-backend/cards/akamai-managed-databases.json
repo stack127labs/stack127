@@ -1,0 +1,25 @@
+{
+  "slug": "akamai-managed-databases",
+  "name": "Akamai Managed Databases",
+  "url": "https://www.akamai.com/products/managed-databases",
+  "jobs": ["sql", "kv"],
+  "line": "Managed PostgreSQL, MySQL, and Valkey clusters on Akamai Cloud.",
+  "free": { "kind": "credits", "text": "Possible $100 promotional credit for 60 days; eligibility unclear" },
+  "cells": {
+    "metered": "$0.024/hour, capped at $16/month",
+    "regions": "26 locations with Object Storage; DB regions vary",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$16", "plan": "Shared 1 GB, one node", "state": "confirmed", "math": "The database cluster costs at most $16 a month. 730 hours at $0.024 an hour would be more, so the $16 cap applies." },
+      { "v": "$0", "plan": "Suspended cluster", "state": "confirmed", "math": "Suspended all month, so 0 hours are billed. It must be resumed within 180 days." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a database service, not file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer a job queue or workflow service" }
+    ]
+  }
+}

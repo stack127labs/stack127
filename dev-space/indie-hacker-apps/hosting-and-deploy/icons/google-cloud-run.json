@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-run",
+  "name": "Google Cloud Run",
+  "official_url": "https://cloud.google.com/run",
+  "image_url": "https://services.google.com/fh/files/misc/core-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "922522322f790d5500a2cd65bb3c6eca0bd060698015d93165f30fd2b17d9924",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

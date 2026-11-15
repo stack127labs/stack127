@@ -1,0 +1,45 @@
+{
+  "slug": "auth0",
+  "name": "Auth0",
+  "url": "https://auth0.com/",
+  "jobs": [
+    "hosted"
+  ],
+  "line": "Hosted identity service for app login, users, and social sign-in.",
+  "free": {
+    "kind": "free",
+    "text": "Free: $0/month, 25,000 monthly active users"
+  },
+  "cells": {
+    "freeUsers": "25,000 MAU",
+    "sso": "Free includes 1 enterprise connection; paid price unclear"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "1,000 users is within the 25,000 free limit, so the base price is $0 and no paid feature is needed."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "10,000 users is within the 25,000 free limit, so the base price is $0 and no paid feature is needed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "50,000 users is above the 25,000 free limit. The paid price for this size was not found, and no custom quote was obtained."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "100,000 users is above the 25,000 free limit. The paid price for this size was not found, and no custom quote was obtained."
+      }
+    ]
+  }
+}

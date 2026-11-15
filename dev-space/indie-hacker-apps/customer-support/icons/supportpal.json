@@ -1,0 +1,17 @@
+{
+  "slug": "supportpal",
+  "name": "SupportPal",
+  "official_url": "https://www.supportpal.com/",
+  "image_url": "https://www.supportpal.com/assets/img/favicon/favicon-196x196.png",
+  "source_page": "https://www.supportpal.com/",
+  "kind": "favicon",
+  "source_host": "supportpal.com",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "a324ed46c90b440fcf536d4576a22e52516f2b01012272d040fb70b66c988c94",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

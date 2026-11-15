@@ -1,0 +1,48 @@
+{
+  "slug": "wix-payments",
+  "name": "Wix Payments",
+  "url": "https://www.wix.com/payments",
+  "jobs": [
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "line": "Integrated payments, recurring charges, and payment links for Wix sites.",
+  "free": {
+    "kind": "none",
+    "text": "Requires a Wix Core or higher plan; processing fees apply"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "15 countries incl. US, UK, Germany; no India",
+    "payout": "First funds ~7 days; bank adds 3–5 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "2.9% + $0.30",
+        "plan": "Standard cards",
+        "state": "confirmed",
+        "math": "The rate for cards from the US. American Express costs 3.7% plus $0.30."
+      },
+      {
+        "v": "2.1% + £0.20",
+        "plan": "Standard cards",
+        "state": "confirmed",
+        "math": "The rate for cards from the UK. American Express costs 3.1% plus £0.20."
+      },
+      {
+        "v": "1.9% + €0.30",
+        "plan": "Standard cards",
+        "state": "confirmed",
+        "math": "The rate for Germany and nine other listed EU countries. American Express costs 3.1% plus €0.30."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "India isn't one of the 15 published seller countries."
+      }
+    ]
+  }
+}

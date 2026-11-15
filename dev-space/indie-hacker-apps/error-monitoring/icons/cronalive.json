@@ -1,0 +1,17 @@
+{
+  "slug": "cronalive",
+  "name": "CronAlive",
+  "official_url": "https://cronalive.com/",
+  "image_url": "https://cronalive.com/favicon.svg",
+  "source_page": "https://cronalive.com/",
+  "kind": "svg-icon",
+  "source_host": "cronalive.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "6c524628cab6f28e319946ba415c0ec9fbb23c0ccd8b3b66c0e1d9211c71daa0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

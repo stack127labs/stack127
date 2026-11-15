@@ -1,0 +1,48 @@
+{
+  "slug": "geidea",
+  "name": "Geidea",
+  "url": "https://geidea.net/ksa/ar",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Online gateway with hosted checkout, payment links and subscriptions.",
+  "free": {
+    "kind": "none",
+    "text": "Saudi online plan: SAR 499 setup and SAR 99/month, plus VAT"
+  },
+  "cells": {
+    "type": "Gateway and acquirer",
+    "countries": "Saudi Arabia, the UAE and Egypt only",
+    "payout": "Schedule depends on merchant terms and risk review"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Saudi Arabia, the United Arab Emirates (UAE) and Egypt."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Saudi Arabia, the United Arab Emirates (UAE) and Egypt."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Saudi Arabia, the United Arab Emirates (UAE) and Egypt."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Saudi Arabia, the United Arab Emirates (UAE) and Egypt."
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "instantdb",
+  "name": "InstantDB",
+  "url": "https://www.instantdb.com/docs/auth",
+  "jobs": ["server"],
+  "line": "Open-source backend with social login and guest accounts.",
+  "free": { "kind": "selfhost", "text": "Free software; cloud signups are closed" },
+  "cells": {
+    "freeUsers": "No new Cloud plan; self-hosted capacity varies",
+    "sso": "No native SAML or SCIM price found"
+  },
+  "costs": {
+    "mau": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Cloud sign-ups are closed. The self-host software licence is $0, but running costs depend on how you deploy it." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Cloud sign-ups are closed. The self-host software licence is $0, but running costs depend on how you deploy it." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Cloud sign-ups are closed. The self-host software licence is $0, but running costs depend on how you deploy it." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Cloud sign-ups are closed. The self-host software licence is $0, but running costs depend on how you deploy it." }
+    ]
+  }
+}

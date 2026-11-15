@@ -1,0 +1,17 @@
+{
+  "slug": "scalahosting-managed-cloud",
+  "name": "ScalaHosting managed cloud",
+  "official_url": "https://www.scalahosting.com/managed-cloud-hosting.html",
+  "image_url": "https://www.scalahosting.com/asset/images/favicons/android-icon-192x192.png",
+  "source_page": "https://www.scalahosting.com/managed-cloud-hosting.html",
+  "kind": "favicon",
+  "source_host": "scalahosting.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "a9f42aef16f0ee824e7b5a330a38898e67a3d1278c631c26806b539f2f984ef2",
+  "note": "parent brand: ScalaHosting",
+  "saved_at": "2026-11-14"
+}

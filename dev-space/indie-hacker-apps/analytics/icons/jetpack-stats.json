@@ -1,0 +1,17 @@
+{
+  "slug": "jetpack-stats",
+  "name": "Jetpack Stats",
+  "official_url": "https://jetpack.com/stats/",
+  "image_url": "https://jetpack.com/wp-content/uploads/2022/06/85c4b-74462-jp-favicon-new.png?w=192",
+  "source_page": "https://jetpack.com/stats/",
+  "kind": "favicon",
+  "source_host": "jetpack.com",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "2cbf27667f6d87d8387fc3478c095ac1113b787e35866ad9653ac08857668bbe",
+  "note": "parent brand: Jetpack; Stats has no separate product mark",
+  "saved_at": "2026-11-14"
+}

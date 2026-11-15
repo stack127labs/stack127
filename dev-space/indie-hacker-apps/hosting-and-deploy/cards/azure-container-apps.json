@@ -1,0 +1,14 @@
+{
+  "slug": "azure-container-apps",
+  "name": "Azure Container Apps",
+  "url": "https://azure.microsoft.com/en-us/products/container-apps/",
+  "jobs": ["paas"],
+  "line": "Run containerized applications on managed serverless infrastructure.",
+  "free": { "kind": "free", "text": "Monthly grant: 180,000 vCPU-seconds, 360,000 GiB-seconds, 2M requests" },
+  "cells": { "type": "Managed containers", "regions": "East US example; many Azure regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "At 0.25 vCPU and 0.5 GiB, the charge is $0.0000075 per replica-second (one copy of the app running for one second) above 720,000, and $0 below that. Startup and scale-in time count." },
+    { "v": "$22.03–$73.44", "plan": "Consumption baseline", "state": "confirmed", "math": "1 vCPU and 2 GiB for 730 hours. This range runs from idle to active, after unused monthly grants. Extra copies started during rollouts are not included." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The small app API range of $22.03–$73.44, plus $133.62 for PostgreSQL compute and 32 GiB of storage. Backup excess, 10 GB of traffic and extra copies during rollouts are unknown." }
+  ] }
+}

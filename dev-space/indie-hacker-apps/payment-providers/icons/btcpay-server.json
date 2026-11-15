@@ -1,0 +1,17 @@
+{
+  "slug": "btcpay-server",
+  "name": "BTCPay Server",
+  "official_url": "https://btcpayserver.org/",
+  "image_url": "https://btcpayserver.org/android-chrome-512x512.png",
+  "source_page": "https://btcpayserver.org/",
+  "kind": "manifest-icon",
+  "source_host": "btcpayserver.org",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "9040666fb40f54f861f5b97a5e714bdc743463243d5ae8aeeb977da054e35114",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

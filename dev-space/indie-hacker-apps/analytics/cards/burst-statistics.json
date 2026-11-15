@@ -1,0 +1,20 @@
+{
+  "slug": "burst-statistics",
+  "name": "Burst Statistics",
+  "url": "https://burst-statistics.com/",
+  "jobs": ["web"],
+  "line": "WordPress traffic and conversion reports stored on your own site.",
+  "free": {"kind": "selfhost", "text": "Free WordPress plugin with unlimited pageviews"},
+  "cells": {
+    "cookieless": "Optional",
+    "location": "Your WordPress server and database",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "pv": [
+      {"v": "Unknown", "plan": "Free", "state": "unclear", "math": "The free software costs $0 a year. Hosting, storage, backups and maintenance cost extra."},
+      {"v": "Unknown", "plan": "Free", "state": "unclear", "math": "The free software costs $0 a year. The total depends on your WordPress hosting setup."},
+      {"v": "Unknown", "plan": "Free", "state": "unclear", "math": "The free software costs $0 a year. The total depends on your WordPress hosting setup."}
+    ]
+  }
+}

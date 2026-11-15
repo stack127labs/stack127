@@ -1,0 +1,14 @@
+{
+  "slug": "sliplane",
+  "name": "Sliplane",
+  "url": "https://sliplane.io/",
+  "jobs": ["paas"],
+  "line": "Deploy container apps and PostgreSQL on managed servers.",
+  "free": { "kind": "trial", "text": "48-hour demo, no card, up to twice; data is deleted at expiry" },
+  "cells": { "type": "Managed container platform", "regions": "DE, FI, US East/West, SG; Confidential needs agreement", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€9", "plan": "Germany Shared Starter", "state": "confirmed", "math": "€9 a month before VAT. Includes 100 build minutes and 100 GB of data sent out, within the 1 TB fair-use level. Assumes file and server use fit 20 GB. Capacity is untested." },
+    { "v": "€17.80", "plan": "Germany Shared Base, fixed monthly", "state": "confirmed", "math": "The fixed monthly price is €17.80 before VAT. Hourly billing for 730 whole hours is €22.24967. The base has 2 shared vCPU and 2 GB. 100 GB of traffic and builds fit fair use." },
+    { "v": "Unknown", "plan": "Shared Base + PG Base + daily backups", "state": "unclear", "math": "€17.80 for the app + €24.70 for a PG Base database = €42.50 a month before VAT. 7-day point-in-time recovery (PITR) and 10 GB same-region traffic are included. Daily portable dumps need SimpleBackups Plus at $99 a month." }
+  ] }
+}

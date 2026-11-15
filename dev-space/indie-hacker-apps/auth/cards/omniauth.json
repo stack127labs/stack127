@@ -1,0 +1,20 @@
+{
+  "slug": "omniauth",
+  "name": "OmniAuth",
+  "url": "https://github.com/omniauth/omniauth",
+  "jobs": ["library"],
+  "line": "Ruby middleware for adding login through external providers.",
+  "free": { "kind": "selfhost", "text": "Free MIT middleware; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No connection licence fee; strategy and IdP setup needed"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OmniAuth and strategy software licences cost $0. Your app's accounts, sessions, hosting and running the sign-in providers cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OmniAuth and strategy software licences cost $0. Your app's accounts, sessions, hosting and running the sign-in providers cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OmniAuth and strategy software licences cost $0. Your app's accounts, sessions, hosting and running the sign-in providers cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OmniAuth and strategy software licences cost $0. Your app's accounts, sessions, hosting and running the sign-in providers cost extra." }
+    ]
+  }
+}

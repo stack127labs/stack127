@@ -1,0 +1,36 @@
+{
+  "slug": "freshchat",
+  "name": "Freshchat",
+  "url": "https://www.freshworks.com/live-chat-software/",
+  "jobs": [
+    "inbox",
+    "chat",
+    "helpdesk"
+  ],
+  "line": "Shared support inbox for website chat, mobile messaging, and email.",
+  "free": {
+    "kind": "free",
+    "text": "Free for up to 10 agents"
+  },
+  "cells": {
+    "channels": "Website chat, mobile chat, email",
+    "ai": "$49 per 100 AI chat sessions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The free plan includes up to 10 agents. A limit on human conversations is not published."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The free plan includes up to 10 agents. A limit on human conversations is not published."
+      }
+    ]
+  }
+}

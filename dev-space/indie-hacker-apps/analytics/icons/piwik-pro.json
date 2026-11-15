@@ -1,0 +1,17 @@
+{
+  "slug": "piwik-pro",
+  "name": "Piwik PRO",
+  "official_url": "https://piwik.pro/",
+  "image_url": "https://piwik.pro/wp-content/uploads/2024/04/favicon.png",
+  "source_page": "https://piwik.pro/",
+  "kind": "favicon",
+  "source_host": "piwik.pro",
+  "original": {
+    "format": "heif",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "6d2eefa1af635151eb2e0e023a9b7d85d1bf8b933d9748a40b548710c20de0a3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

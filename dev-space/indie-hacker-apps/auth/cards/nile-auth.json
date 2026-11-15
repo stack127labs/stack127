@@ -1,0 +1,20 @@
+{
+  "slug": "nile-auth",
+  "name": "Nile Auth",
+  "url": "https://www.thenile.dev/auth",
+  "jobs": ["hosted", "server"],
+  "line": "Account login and customer organizations in a PostgreSQL backend.",
+  "free": { "kind": "free", "text": "Free: unlimited users; 50 million query tokens" },
+  "cells": {
+    "freeUsers": "Unlimited users; 1 GB storage and 50M query tokens",
+    "sso": "SAML availability conflicts; connection price unknown"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "With 2 logins per user and 130,000 query tokens (a unit for database work), Free usage and 1 GB of storage fit. The monthly user fee is $0." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "With 2 logins per user and 1,300,000 query tokens (a unit for database work), Free usage and 1 GB of storage fit. The monthly user fee is $0." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "With 2 logins per user and 6,500,000 query tokens (a unit for database work), Free usage and 1 GB of storage fit. The monthly user fee is $0." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "With 2 logins per user and 13,000,000 query tokens (a unit for database work), Free usage and 1 GB of storage fit. The monthly user fee is $0." }
+    ]
+  }
+}

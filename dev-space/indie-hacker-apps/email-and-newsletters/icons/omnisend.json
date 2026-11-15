@@ -1,0 +1,17 @@
+{
+  "slug": "omnisend",
+  "name": "Omnisend",
+  "official_url": "https://www.omnisend.com/",
+  "image_url": "https://www.omnisend.com/wp-content/uploads/2026/09/Omnisend-logo_out-05-1.jpg",
+  "source_page": "https://www.omnisend.com/",
+  "kind": "logo-mark",
+  "source_host": "omnisend.com",
+  "original": {
+    "format": "jpeg",
+    "width": 699,
+    "height": 699
+  },
+  "sha256": "e644aba8929eb9625e214c1c620162ce390d5fb07869206ef1fe4afe18cc009e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

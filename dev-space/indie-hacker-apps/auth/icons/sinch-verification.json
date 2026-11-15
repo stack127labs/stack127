@@ -1,0 +1,17 @@
+{
+  "slug": "sinch-verification",
+  "name": "Sinch Verification",
+  "official_url": "https://developers.sinch.com/docs/verification/introduction",
+  "image_url": "https://github.com/sinch.png?size=460",
+  "source_page": "https://github.com/sinch",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "b08fcd7b240b6759b387d8f94fe8ee6b42a61639e4b8ea3389890dd452db09c7",
+  "note": "parent brand: Sinch",
+  "saved_at": "2026-11-14"
+}

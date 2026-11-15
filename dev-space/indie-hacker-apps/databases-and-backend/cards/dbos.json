@@ -1,0 +1,25 @@
+{
+  "slug": "dbos",
+  "name": "DBOS",
+  "url": "https://www.dbos.dev/",
+  "jobs": ["jobs"],
+  "line": "Build durable workflows, task queues, and scheduled jobs for apps.",
+  "free": { "kind": "selfhost", "text": "MIT library; no plan quota; unused resources may be deleted on 2 weeks' notice" },
+  "cells": {
+    "metered": "Cloud execution is contact-sales; Conductor Pro is $99/month",
+    "regions": "DBOS Cloud app hosting in AWS us-east-1",
+    "selfhost": "Yes, using the MIT Transact libraries"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "DBOS is workflow software, not a hosted SQL database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "DBOS is workflow software, not a hosted SQL database" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No general-purpose file storage service" }
+    ],
+    "jobs": [
+      { "v": "Quote", "plan": "DBOS Cloud", "state": "not_published", "math": "The cloud price for running jobs is not public. DBOS tells customers to contact sales." }
+    ]
+  }
+}

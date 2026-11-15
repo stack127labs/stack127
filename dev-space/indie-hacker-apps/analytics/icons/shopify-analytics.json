@@ -1,0 +1,17 @@
+{
+  "slug": "shopify-analytics",
+  "name": "Shopify Analytics",
+  "official_url": "https://www.shopify.com/",
+  "image_url": "https://www.shopify.com/favicon.ico",
+  "source_page": "https://www.shopify.com/",
+  "kind": "favicon",
+  "source_host": "shopify.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "66a5821b902bc0010ff5243d0d7b8af0f46fd6e862e91539047e7b7ba82fcf8b",
+  "note": "parent brand: Shopify; Analytics has no separate product mark",
+  "saved_at": "2026-11-14"
+}

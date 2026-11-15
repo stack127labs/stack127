@@ -1,0 +1,20 @@
+{
+  "slug": "appwrite-auth",
+  "name": "Appwrite Auth",
+  "url": "https://appwrite.io/products/auth",
+  "jobs": ["hosted", "server"],
+  "line": "User accounts and login in Appwrite Cloud or your own server.",
+  "free": { "kind": "free", "text": "Cloud free tier includes 75,000 MAU" },
+  "cells": {
+    "freeUsers": "75,000 MAU; 5 GB bandwidth and 2 GB storage",
+    "sso": "Unavailable on Free/Pro; Enterprise coming soon"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "The base is $0, and the users included in the plan cost $0. The total only holds when its conditions are met. Hosting, provider and operating costs outside it are unknown." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "The base is $0, and the users included in the plan cost $0. The total only holds when its conditions are met. Hosting, provider and operating costs outside it are unknown." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "The base is $0, and the users included in the plan cost $0. The total only holds when its conditions are met. Hosting, provider and operating costs outside it are unknown." },
+      { "v": "$10–$25", "plan": "Start or Pro", "state": "unclear", "math": "Start from $10 if you qualify for it, otherwise Pro from $25. Either plan works only if users fit its allowance. The full operating total is unknown." }
+    ]
+  }
+}

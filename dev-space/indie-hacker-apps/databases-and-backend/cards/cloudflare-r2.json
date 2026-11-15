@@ -1,0 +1,50 @@
+{
+  "slug": "cloudflare-r2",
+  "name": "Cloudflare R2",
+  "url": "https://developers.cloudflare.com/r2/",
+  "jobs": [
+    "files"
+  ],
+  "line": "S3-compatible object storage with no egress fees.",
+  "free": {
+    "kind": "free",
+    "text": "Free each month: 10 GB-month, 1M writes, 10M reads"
+  },
+  "cells": {
+    "metered": "$0.015/GB-month storage",
+    "regions": "Auto, 6 hints",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide a database."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide a database."
+      }
+    ],
+    "files": [
+      {
+        "v": "$1.35",
+        "plan": "Standard",
+        "state": "unclear",
+        "math": "(100 GB − 10 GB free) × $0.015 a GB a month. 100,000 writes and 1 million reads fit within the free allowances. Outbound data (egress) costs $0."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not run jobs."
+      }
+    ]
+  }
+}

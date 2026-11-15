@@ -1,0 +1,17 @@
+{
+  "slug": "clicky",
+  "name": "Clicky",
+  "official_url": "https://clicky.com/",
+  "image_url": "https://clicky.com/media/favicon/android-chrome-512x512.png",
+  "source_page": "https://clicky.com/",
+  "kind": "manifest-icon",
+  "source_host": "clicky.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "085712e4356c62beedbfd7cc5da1e550d09caa11a5f2ef70afcc6fdeb0dac0a2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

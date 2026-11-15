@@ -1,0 +1,21 @@
+{
+  "slug": "uptimetoolbox",
+  "name": "UptimeToolbox",
+  "url": "https://www.uptimetoolbox.com/",
+  "jobs": ["uptime", "status", "performance", "cron"],
+  "line": "Monitors websites and servers and publishes status pages.",
+  "free": { "kind": "free", "text": "Free: 5 monitors, 3-min checks, 1 page, 1 server" },
+  "cells": { "interval": "3 min free, 1 min Pro, 30 s Business", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Professional", "state": "unclear", "math": "The $9 a month plan covers 5 one-minute monitors. A fixed one-location setup and the full invoice total aren't verified." },
+      { "v": "Unknown", "plan": "Professional", "state": "unclear", "math": "The $9 a month plan covers 25 one-minute monitors. A fixed one-location setup and the full invoice total aren't verified." },
+      { "v": "Unknown", "plan": "Business", "state": "unclear", "math": "The $29 a month plan covers 100 monitors. The current one-minute setting and one-location setup aren't verified." }
+    ]
+  }
+}

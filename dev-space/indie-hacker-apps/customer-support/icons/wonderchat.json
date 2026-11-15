@@ -1,0 +1,17 @@
+{
+  "slug": "wonderchat",
+  "name": "Wonderchat",
+  "official_url": "https://wonderchat.io/",
+  "image_url": "https://wonderchat.io/assets/icons/icon-512.png",
+  "source_page": "https://wonderchat.io/",
+  "kind": "manifest-icon",
+  "source_host": "wonderchat.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "e0f923cf1eaf0e7043c1c937d45b7749cd0ab13955557bc97900bef35d64dbff",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

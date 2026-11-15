@@ -1,0 +1,26 @@
+{
+  "slug": "mdirector",
+  "name": "MDirector",
+  "url": "https://www.mdirector.com/en/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "line": "Email campaigns, lifecycle messaging and transactional API delivery.",
+  "free": { "kind": "free", "text": "Advertised free for 5,000 contacts and emails/month; signup suspended" },
+  "cells": {
+    "newsletters": "Yes, newsletters and bulk campaigns",
+    "api": "Yes, marketing/transactional APIs on Pro or Total"
+  },
+  "costs": {
+    "subs": [
+      { "v": "€0/month", "plan": "MD Free", "state": "confirmed", "math": "The advertised plan covers 4,000 emails a month. New sign-ups are temporarily suspended." },
+      { "v": "€19.90 or €21.90/month", "plan": "MD Lite 20K", "state": "conflicting", "math": "The product page lists €19.90 a month. The public catalogue lists €21.90 a month for 20,000 sends." },
+      { "v": "€38.40/month", "plan": "MD Lite 40K", "state": "confirmed", "math": "The catalogue base price is for 40,000 emails a month. The full annual amount is €414.80." },
+      { "v": "€148.50/month", "plan": "MD Lite 300K", "state": "confirmed", "math": "The catalogue base price is for 300,000 sends, which covers 200,000 emails a month. The annual amount is €1,603.80." }
+    ],
+    "appmail": [
+      { "v": "€54.90/month base", "plan": "Pro 20K", "state": "unclear", "math": "A candidate tier for 3,000 emails. The exact SMTP total is not confirmed, and sign-ups are suspended." },
+      { "v": "€54.90/month base", "plan": "Pro 20K", "state": "unclear", "math": "A candidate tier for 10,000 emails. The exact SMTP total is not confirmed, and sign-ups are suspended." },
+      { "v": "€82.40/month base", "plan": "Pro 60K", "state": "unclear", "math": "A candidate tier for 50,000 emails. The exact SMTP total is not confirmed, and sign-ups are suspended." },
+      { "v": "€104.40/month base", "plan": "Pro 100K", "state": "unclear", "math": "A candidate tier for 100,000 emails. The exact SMTP total is not confirmed, and sign-ups are suspended." }
+    ]
+  }
+}

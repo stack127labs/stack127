@@ -1,0 +1,21 @@
+{
+  "slug": "fungies",
+  "name": "Fungies",
+  "url": "https://fungies.io/",
+  "jobs": ["mor", "billing"],
+  "line": "Merchant of Record checkout and subscriptions for digital products.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; commission on successful sales" },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "121 locations incl. US, UK, Germany and India",
+    "payout": "Initial payout typically 7–14 days; bank payouts daily"
+  },
+  "costs": {
+    "fee": [
+      { "v": "5% + $0.50", "plan": "Standard USD sale", "state": "confirmed", "math": "The published standard price for USD sales. Payment processing is included." },
+      { "v": "5% + £0.40", "plan": "Standard GBP sale", "state": "unclear", "math": "The standard 5% rate, plus a published fixed fee in GBP. There is no single local card quote for every seller." },
+      { "v": "5% + €0.45", "plan": "Standard EUR sale", "state": "unclear", "math": "The standard 5% rate, plus a published fixed fee in EUR. There is no single local card quote for every seller." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Indian sellers are supported, but no fixed fee in INR and no India card quote is published." }
+    ]
+  }
+}

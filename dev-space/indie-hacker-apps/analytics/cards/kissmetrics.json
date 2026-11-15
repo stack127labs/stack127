@@ -1,0 +1,20 @@
+{
+  "slug": "kissmetrics",
+  "name": "Kissmetrics",
+  "url": "https://kissmetrics.io/",
+  "jobs": ["product", "web", "revenue"],
+  "line": "Connects product events to customer journeys and revenue reports.",
+  "free": { "kind": "free", "text": "Free: 100,000 events/month, 3 seats, 3 active integrations" },
+  "cells": {
+    "cookieless": "No, browser tracking uses first-party cookies",
+    "location": "Unknown; exact core hosting region not published",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Assumes exactly one billable Page View for each pageview, with no extra startup, campaign or custom events. Core reports only." },
+      { "v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Assumes exactly one billable Page View for each pageview, with no extra startup, campaign or custom events. Core reports only." },
+      { "v": "$198/month", "plan": "Growth", "state": "confirmed", "math": "Assumes exactly one billable Page View for each pageview and no extra events. This is the Growth price for 1M events. Advanced reports need Growth." }
+    ]
+  }
+}

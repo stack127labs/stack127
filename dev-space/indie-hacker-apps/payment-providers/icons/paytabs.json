@@ -1,0 +1,17 @@
+{
+  "slug": "paytabs",
+  "name": "PayTabs",
+  "official_url": "https://paytabs.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/99/d5/af/99d5af76-ade0-772e-5e19-ec4c0065c82a/AppIcon-paytabs-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/paytabs/id1310582906?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "74eed9d7917b01f2e6d27b90d3d40b23c617eaa2ef73e5cd9d7c9b43701fdac3",
+  "note": "PayTabs product app by PayTabs Payment Services Provider LLC.",
+  "saved_at": "2026-11-14"
+}

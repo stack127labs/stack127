@@ -1,0 +1,17 @@
+{
+  "slug": "azure-blob-storage",
+  "name": "Azure Blob Storage",
+  "official_url": "https://azure.microsoft.com/en-us/products/storage/blobs",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "a25e0520cbbbb44e441f8660aedbc6a6eb19951573951814973cad9dc2cb6f0e",
+  "note": "Azure Storage Accounts service icon for Blob Storage",
+  "saved_at": "2026-11-14"
+}

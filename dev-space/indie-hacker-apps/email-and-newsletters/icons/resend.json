@@ -1,0 +1,17 @@
+{
+  "slug": "resend",
+  "name": "Resend",
+  "official_url": "https://resend.com/",
+  "image_url": "https://resend.com/static/logo-black-square.png",
+  "source_page": "https://resend.com/",
+  "kind": "logo-mark",
+  "source_host": "resend.com",
+  "original": {
+    "format": "png",
+    "width": 600,
+    "height": 600
+  },
+  "sha256": "379ebe262241003e2b20ba614fa19e4c6c3e0ae2aa37bf2670764df736b4ffa1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

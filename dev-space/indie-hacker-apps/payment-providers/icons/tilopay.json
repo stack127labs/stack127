@@ -1,0 +1,17 @@
+{
+  "slug": "tilopay",
+  "name": "Tilopay",
+  "official_url": "https://tilopay.com/",
+  "image_url": "https://tilopay.com/favicon.png?v=3",
+  "source_page": "https://tilopay.com/",
+  "kind": "favicon",
+  "source_host": "tilopay.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "9fa4d93c6ac4ad8936b34d76f1608d3afd84b406ea8bbe696f42e66abf2f3d87",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

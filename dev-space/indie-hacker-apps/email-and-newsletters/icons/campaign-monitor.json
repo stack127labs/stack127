@@ -1,0 +1,17 @@
+{
+  "slug": "campaign-monitor",
+  "name": "Campaign Monitor",
+  "official_url": "https://www.campaignmonitor.com/",
+  "image_url": "https://www.campaignmonitor.com/wp-content/themes/cm-theme/assets/ico/cm-marque.svg",
+  "source_page": "https://www.campaignmonitor.com/",
+  "kind": "svg-icon",
+  "source_host": "campaignmonitor.com",
+  "original": {
+    "format": "svg",
+    "width": 1557,
+    "height": 1054
+  },
+  "sha256": "09d4c8f01efd17483f966a07d3eaac2b8a404f46eb1d3a24224540cdf04f754e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

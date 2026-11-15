@@ -1,0 +1,12 @@
+{
+  "slug": "zoho-pagesense", "name": "Zoho PageSense", "url": "https://www.zoho.com/pagesense/",
+  "jobs": ["replay", "web"],
+  "line": "Analyzes website behavior with replay, heatmaps, funnels and tests.",
+  "free": {"kind": "free", "text": "Free: 5k users, 5k recordings/month, 1 project, 1-month history; goals unclear"},
+  "cells": {"cookieless": "No (cookies and browser storage)", "location": "US, EU, India, Japan, Australia, Canada and others", "selfhost": "No"},
+  "costs": {"pv": [
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Billed by tracked users. Pageviews alone do not show how many unique users there are a month."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Billed by tracked users. Pageviews alone do not show how many unique users there are a month."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Billed by tracked users. Pageviews alone do not show how many unique users there are a month."}
+  ]}
+}

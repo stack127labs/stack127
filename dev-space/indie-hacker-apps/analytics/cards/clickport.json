@@ -1,0 +1,20 @@
+{
+  "slug": "clickport",
+  "name": "Clickport",
+  "url": "https://clickport.io/",
+  "jobs": ["web"],
+  "line": "Website analytics for traffic, campaigns and conversion goals.",
+  "free": {"kind": "trial", "text": "30-day trial"},
+  "cells": {
+    "cookieless": "Yes",
+    "location": "Germany (analytics and backups)",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {"v": "€9", "plan": "Starter", "state": "confirmed", "math": "10,000 pageviews fit Starter's monthly allowance of 10,000."},
+      {"v": "€19", "plan": "Growth", "state": "confirmed", "math": "100,000 pageviews fit Growth's monthly allowance of 100,000."},
+      {"v": "€69", "plan": "Business", "state": "confirmed", "math": "1,000,000 pageviews fit Business's monthly allowance of 1,000,000."}
+    ]
+  }
+}

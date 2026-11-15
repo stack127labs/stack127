@@ -1,0 +1,20 @@
+{
+  "slug": "rodauth",
+  "name": "Rodauth",
+  "url": "https://rodauth.jeremyevans.net/",
+  "jobs": ["library"],
+  "line": "Ruby account and login toolkit with passkey support.",
+  "free": { "kind": "selfhost", "text": "Free software; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No connection meter; SAML/OIDC use separate gems"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rodauth software licence costs $0. The app's database, sessions, hosting and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rodauth software licence costs $0. The app's database, sessions, hosting and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rodauth software licence costs $0. The app's database, sessions, hosting and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rodauth software licence costs $0. The app's database, sessions, hosting and operations cost extra." }
+    ]
+  }
+}

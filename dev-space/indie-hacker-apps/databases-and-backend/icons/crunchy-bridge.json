@@ -1,0 +1,17 @@
+{
+  "slug": "crunchy-bridge",
+  "name": "Crunchy Bridge",
+  "official_url": "https://www.crunchydata.com/products/crunchy-bridge",
+  "image_url": "https://www.crunchydata.com/favicon.ico",
+  "source_page": "https://www.crunchydata.com/products/crunchy-bridge",
+  "kind": "favicon",
+  "source_host": "crunchydata.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "6358d4c1c48c4bc9c89a8fe1a079a31fd3f1a43dd9222d4dc8a9d3ebd0ebd049",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

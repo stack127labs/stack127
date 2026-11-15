@@ -1,0 +1,14 @@
+{
+  "slug": "buyvm",
+  "name": "BuyVM",
+  "url": "https://buyvm.net/",
+  "jobs": ["vps"],
+  "line": "KVM virtual servers with root access and customer managed apps.",
+  "free": { "kind": "none", "text": "No recurring free KVM VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Las Vegas, New York, Luxembourg; location lists conflict", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Slice 512 is listed at $24 a year. No monthly total is stated, and whether it is in stock and can be ordered was not confirmed." },
+    { "v": "$3.50", "plan": "Slice 1024", "state": "unclear", "math": "The $3.50 a month plan covers 730 hours. It is out of stock right now." },
+    { "v": "$16.50", "plan": "Slice 4096 + nightly backup", "state": "unclear", "math": "$15 a month for the VM + 10% ($1.50) for seven nightly backups = $16.50 before tax. Stock was out when checked." }
+  ] }
+}

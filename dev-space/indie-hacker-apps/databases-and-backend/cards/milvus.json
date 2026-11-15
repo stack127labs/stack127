@@ -1,0 +1,25 @@
+{
+  "slug": "milvus",
+  "name": "Milvus",
+  "url": "https://milvus.io/",
+  "jobs": ["vector"],
+  "line": "Open-source vector database for similarity search and metadata filtering.",
+  "free": { "kind": "selfhost", "text": "Apache-2.0; no hosted quota or idle rule; host compute and storage yourself" },
+  "cells": {
+    "metered": "Community software $0; hosting and storage are separate",
+    "regions": "Choose your own hosting region",
+    "selfhost": "Yes, Apache-2.0 open-source software"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Self-hosted Milvus", "state": "not_published", "math": "The Community license is $0. Host size, object storage, backups, transfer and embedding rates depend on the provider you choose." },
+      { "v": "Unknown", "plan": "Self-hosted Milvus", "state": "not_published", "math": "The license is $0. Kept host, storage, backups and provider minimums decide the idle cost." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Milvus does not provide file storage for users." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Milvus does not run customer code or background jobs" }
+    ]
+  }
+}

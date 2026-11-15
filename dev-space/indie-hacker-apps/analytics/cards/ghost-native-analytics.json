@@ -1,0 +1,14 @@
+{
+  "slug": "ghost-native-analytics",
+  "name": "Ghost native analytics",
+  "url": "https://ghost.org/",
+  "jobs": ["web", "revenue"],
+  "line": "Built-in website, newsletter, member, and subscription analytics.",
+  "free": { "kind": "selfhost", "text": "Included with self-hosted Ghost; server costs apply" },
+  "cells": { "cookieless": "Yes", "location": "EU on Ghost(Pro); self-host region chosen by operator", "selfhost": "Yes" },
+  "costs": { "pv": [
+    { "v": "$35", "plan": "Publisher", "state": "confirmed", "math": "One publication with up to 1,000 registered members, billed monthly." },
+    { "v": "$35", "plan": "Publisher", "state": "confirmed", "math": "One publication with up to 1,000 registered members, billed monthly." },
+    { "v": "$35", "plan": "Publisher", "state": "confirmed", "math": "One publication with up to 1,000 registered members, billed monthly." }
+  ] }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "crypto-com-pay",
+  "name": "Crypto.com Pay",
+  "url": "https://crypto.com/pay-merchant",
+  "jobs": ["crypto"],
+  "line": "Merchant crypto checkout with invoicing, subscriptions and payouts.",
+  "free": { "kind": "none", "text": "No setup or monthly fee published; settlement fees apply" },
+  "cells": {
+    "type": "Crypto payment processor",
+    "countries": "Direct seller-country list not published",
+    "payout": "Crypto credited instantly; fiat timing varies"
+  },
+  "costs": {
+    "fee": [
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "The merchant API states there is no transaction fee. Fees for settling payouts apply, but their rate isn't published." },
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "The merchant API states there is no transaction fee. Fees for settling payouts apply, but their rate isn't published." },
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "The merchant API states there is no transaction fee. Fees for settling payouts apply, but their rate isn't published." },
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "The merchant API states there is no transaction fee. Fees for settling payouts apply, but their rate isn't published." }
+    ]
+  }
+}

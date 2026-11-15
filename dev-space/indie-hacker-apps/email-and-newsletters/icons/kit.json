@@ -1,0 +1,17 @@
+{
+  "slug": "kit",
+  "name": "Kit",
+  "official_url": "https://kit.com/",
+  "image_url": "https://kit.com/apple-touch-icon.png",
+  "source_page": "https://kit.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "kit.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "7f35f543dce7c666b401166feae16f3eb21faa1789de59618c97142e4d21659e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "authing",
+  "name": "Authing",
+  "official_url": "https://www.authing.cn/",
+  "image_url": "https://www.authing.cn/favicon.ico",
+  "source_page": "https://www.authing.cn/",
+  "kind": "favicon",
+  "source_host": "authing.cn",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "2722ddf9c725bffe528ecd1d3cf515ccb097c8a8575d4bc1d313b9d8163c1fa3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

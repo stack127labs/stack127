@@ -1,0 +1,20 @@
+{
+  "slug": "laravel-authentication",
+  "name": "Laravel authentication",
+  "url": "https://laravel.com/framework/docs/authentication",
+  "jobs": ["library"],
+  "line": "Laravel account and login tools, including Fortify and Sanctum.",
+  "free": { "kind": "selfhost", "text": "Free MIT packages; you host them" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No hosted SAML or SCIM connection plan"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required software licence costs $0. Application hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required software licence costs $0. Application hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required software licence costs $0. Application hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required software licence costs $0. Application hosting, database, delivery and operations cost extra." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "seaweedfs",
+  "name": "SeaweedFS",
+  "official_url": "https://seaweedfs.com/",
+  "image_url": "https://seaweedfs.com/apple-touch-icon.png",
+  "source_page": "https://seaweedfs.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "seaweedfs.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "e1baf73390119a187680bce8d8564492eda1d8a9814fdc4a34ab45ae35c130a2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

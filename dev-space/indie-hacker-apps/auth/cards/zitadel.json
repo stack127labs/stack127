@@ -1,0 +1,46 @@
+{
+  "slug": "zitadel",
+  "name": "ZITADEL",
+  "url": "https://zitadel.com/",
+  "jobs": [
+    "server",
+    "hosted"
+  ],
+  "line": "Open-source identity platform with a Cloud or self-host option.",
+  "free": {
+    "kind": "free",
+    "text": "Cloud Free: $0/month, 100 daily active user units"
+  },
+  "cells": {
+    "freeUsers": "100 DAU (Free); 25,000 DAU units on Pro",
+    "sso": "Pro: $100 per 5 extra external IdPs after 3"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$100",
+        "plan": "Cloud Pro",
+        "state": "unclear",
+        "math": "This case assumes exactly 2 active days per user, but the actual number is unknown. That is 2,000 daily active user units. The Pro base is $100, plus $0 extra, so auth costs $100."
+      },
+      {
+        "v": "$100",
+        "plan": "Cloud Pro",
+        "state": "unclear",
+        "math": "This case assumes exactly 2 active days per user, but the actual number is unknown. That is 20,000 daily active user units. The Pro base is $100, plus $0 extra, so auth costs $100."
+      },
+      {
+        "v": "$1,600",
+        "plan": "Cloud Pro",
+        "state": "unclear",
+        "math": "This case assumes exactly 2 active days per user, but the actual number is unknown. The Pro base is $100, plus 30 blocks of daily active users at $50 each, which makes $1,600 for auth."
+      },
+      {
+        "v": "Quote",
+        "plan": "",
+        "state": "unclear",
+        "math": "This case assumes exactly 2 active days per user, but the actual number is unknown. The sum comes to US$3,600, but the calculator hides totals above US$3,000, so a quote is needed."
+      }
+    ]
+  }
+}

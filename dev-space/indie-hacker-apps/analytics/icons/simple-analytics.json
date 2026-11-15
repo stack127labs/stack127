@@ -1,0 +1,17 @@
+{
+  "slug": "simple-analytics",
+  "name": "Simple Analytics",
+  "official_url": "https://www.simpleanalytics.com/",
+  "image_url": "https://www.simpleanalytics.com/favicon-196x196.png",
+  "source_page": "https://www.simpleanalytics.com/",
+  "kind": "favicon",
+  "source_host": "simpleanalytics.com",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "e2da5d7c80a066dc8f71dd6aac99b9889729d8cae594a2b318ed78a38d6556b4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "coingate",
+  "name": "CoinGate",
+  "official_url": "https://coingate.com/",
+  "image_url": "https://coingate.com/app/themes/coingate/dist/images/icons/favicons/android-chrome-512x512.png",
+  "source_page": "https://coingate.com/",
+  "kind": "manifest-icon",
+  "source_host": "coingate.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "cd7f86eb22afa6b7ee760e7b3c476050e9066fb442230ff40027575939dfba56",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

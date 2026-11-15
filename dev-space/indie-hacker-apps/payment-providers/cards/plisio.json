@@ -1,0 +1,21 @@
+{
+  "slug": "plisio",
+  "name": "Plisio",
+  "url": "https://plisio.net/",
+  "jobs": ["crypto", "gateway", "links"],
+  "line": "Crypto gateway for invoices, checkout links, and blockchain payouts.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; standard gateway fee is 0.5%" },
+  "cells": {
+    "type": "Crypto payment gateway",
+    "countries": "Global signup list unpublished; sanctions restrictions apply",
+    "payout": "Instant advertised; chain timing varies with congestion"
+  },
+  "costs": {
+    "fee": [
+      { "v": "0.5%", "plan": "Standard Gateway API crypto fee", "state": "unclear", "math": "One published global API rate applies. Minimum amounts for each coin and which seller countries are eligible aren't published. Network fees are separate." },
+      { "v": "0.5%", "plan": "Standard Gateway API crypto fee", "state": "unclear", "math": "One published global API rate applies. Minimum amounts for each coin and which seller countries are eligible aren't published. Network fees are separate." },
+      { "v": "0.5%", "plan": "Standard Gateway API crypto fee", "state": "unclear", "math": "One published global API rate applies. Minimum amounts for each coin and which seller countries are eligible aren't published. Network fees are separate." },
+      { "v": "0.5%", "plan": "Standard Gateway API crypto fee", "state": "unclear", "math": "One published global API rate applies. Minimum amounts for each coin and which seller countries are eligible aren't published. Network fees are separate." }
+    ]
+  }
+}

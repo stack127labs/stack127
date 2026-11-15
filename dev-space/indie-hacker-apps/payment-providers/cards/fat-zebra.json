@@ -1,0 +1,21 @@
+{
+  "slug": "fat-zebra",
+  "name": "Fat Zebra",
+  "url": "https://www.fatzebra.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Australian payment gateway with online processing and merchant accounts.",
+  "free": { "kind": "none", "text": "Gateway Only starts at AUD $250/month plus $0.30/transaction" },
+  "cells": {
+    "type": "Gateway and acquiring",
+    "countries": "Australia and New Zealand; broader eligibility unpublished",
+    "payout": "Business-day schedule set after risk assessment"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The full list of seller countries isn't published, and no processing price for US cards is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The full list of seller countries isn't published, and no processing price for UK cards is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The full list of seller countries isn't published, and no processing price for German cards is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The full list of seller countries isn't published, and no processing price for Indian cards is published." }
+    ]
+  }
+}

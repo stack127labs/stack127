@@ -1,0 +1,21 @@
+{
+  "slug": "paykickstart",
+  "name": "PayKickstart",
+  "url": "https://paykickstart.com/",
+  "jobs": ["billing", "gateway", "links"],
+  "line": "Subscription checkout software with optional Connect card processing.",
+  "free": { "kind": "free", "text": "Launch Plan: no subscription; 6% per sale" },
+  "cells": {
+    "type": "Subscription billing, checkout and affiliate software",
+    "countries": "Connect global; fee table is US/Canada",
+    "payout": "Daily to vendor bank; bank-arrival time unpublished"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2.80% + $0.25", "plan": "Connect; up to $5,000/month volume", "state": "confirmed", "math": "The published Connect rate for the US and Canada, for sellers with up to $5,000 a month in successful sales." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Connect is offered worldwide, but the published card-fee table covers only the US and Canada." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Connect is offered worldwide, but the published card-fee table covers only the US and Canada." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Connect is offered worldwide, but the published card-fee table covers only the US and Canada." }
+    ]
+  }
+}

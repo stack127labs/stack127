@@ -1,0 +1,17 @@
+{
+  "slug": "pagbank",
+  "name": "PagBank",
+  "official_url": "https://pagbank.com.br/",
+  "image_url": "https://acq-static-pages.pagseguro.com.br/static-pages/website/website-home-pages/_next/static/media/favicon.8d97ac92.ico",
+  "source_page": "https://pagbank.com.br/",
+  "kind": "favicon",
+  "source_host": "acq-static-pages.pagseguro.com.br",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "abf7a6082af96298f5f415d6d516a15753ec401e026cdc1f00cfb50b884ac2d8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

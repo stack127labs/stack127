@@ -1,0 +1,17 @@
+{
+  "slug": "snapdeploy",
+  "name": "SnapDeploy",
+  "official_url": "https://snapdeploy.dev/",
+  "image_url": "https://snapdeploy.dev/android-chrome-512x512.png",
+  "source_page": "https://snapdeploy.dev/",
+  "kind": "manifest-icon",
+  "source_host": "snapdeploy.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "61e6d30ef7e3679e9b93d24abddf0fbb67f2fa7b52988331e6d9f67e66c49bcb",
+  "note": "Official square app icon includes the SnapDeploy wordmark.",
+  "saved_at": "2026-11-14"
+}

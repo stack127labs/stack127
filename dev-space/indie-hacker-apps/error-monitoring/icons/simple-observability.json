@@ -1,0 +1,17 @@
+{
+  "slug": "simple-observability",
+  "name": "Simple Observability",
+  "official_url": "https://simpleobservability.com/",
+  "image_url": "https://simpleobservability.com/favicon/web-app-manifest-512x512.png",
+  "source_page": "https://simpleobservability.com/",
+  "kind": "manifest-icon",
+  "source_host": "simpleobservability.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "f73b8a042fa96dffd4c93b703d22c010cee6a3bb147c66053d475470ed91eff9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

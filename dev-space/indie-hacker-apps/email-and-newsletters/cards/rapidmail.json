@@ -1,0 +1,26 @@
+{
+  "slug": "rapidmail",
+  "name": "rapidmail",
+  "url": "https://www.rapidmail.com/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "line": "Business newsletters, subscriber automation and transactional SMTP.",
+  "free": { "kind": "credits", "text": "First campaign up to 2,000 free; transactional includes 1,000/month" },
+  "cells": {
+    "newsletters": "Yes, newsletters and follow-up campaigns",
+    "api": "Yes, REST API and SMTP projects"
+  },
+  "costs": {
+    "subs": [
+      { "v": "€20/month before VAT", "plan": "Essential", "state": "confirmed", "math": "4,000 recipient emails a month for 1,000 subscribers." },
+      { "v": "€55/month before VAT", "plan": "Essential", "state": "confirmed", "math": "20,000 recipient emails a month for 5,000 subscribers." },
+      { "v": "€92.50/month before VAT", "plan": "Essential", "state": "confirmed", "math": "40,000 recipient emails a month for 10,000 subscribers." },
+      { "v": "€277/month before VAT", "plan": "Essential", "state": "confirmed", "math": "200,000 recipient emails a month for 50,000 subscribers." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "SMTP pack", "state": "unclear", "math": "€59 a month before VAT buys up to 50,000 emails, but the base plan needed is not settled." },
+      { "v": "Unknown", "plan": "SMTP pack", "state": "unclear", "math": "€59 a month before VAT buys up to 50,000 emails, but the base plan needed is not settled." },
+      { "v": "Unknown", "plan": "SMTP pack", "state": "unclear", "math": "€59 a month before VAT buys up to 50,000 emails, but the base plan needed is not settled." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "100,000 emails is more than the published 50,000-email pack. The higher-tier price is not published." }
+    ]
+  }
+}

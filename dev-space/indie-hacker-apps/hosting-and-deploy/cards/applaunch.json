@@ -1,0 +1,14 @@
+{
+  "slug": "applaunch",
+  "name": "AppLaunch",
+  "url": "https://applaunch.org/",
+  "jobs": ["paas", "static"],
+  "line": "Host container apps, websites, and static portfolios.",
+  "free": { "kind": "free", "text": "Free portfolio: one site, 100 MB storage, provider subdomain" },
+  "cells": { "type": "Managed app hosting", "regions": "EEA nodes; exact locations unpublished", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The workload has build and delivery costs that are not priced, so the full total is unknown." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The known plan fees do not cover private-repository builds or other workload costs." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The known plan fees do not prove that PostgreSQL backups are consistent, and do not give the full workload cost." }
+  ] }
+}

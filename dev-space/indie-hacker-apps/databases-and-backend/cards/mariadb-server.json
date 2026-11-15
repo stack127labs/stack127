@@ -1,0 +1,25 @@
+{
+  "slug": "mariadb-server",
+  "name": "MariaDB Server",
+  "url": "https://mariadb.org/",
+  "jobs": ["sql", "vector", "jobs"],
+  "line": "Self-hosted SQL database with event scheduling and vector search.",
+  "free": { "kind": "selfhost", "text": "Free GPLv2 server; no provider quota or hosted idle rule; you run it" },
+  "cells": {
+    "metered": "Community software $0; Enterprise pricing by quote",
+    "regions": "Choose the region for your own server",
+    "selfhost": "Yes, GPLv2 Community Server"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Community Server", "state": "unclear", "math": "The Community software license is $0. Host, disk, backups, transfer and operations are not priced." },
+      { "v": "Unknown", "plan": "Community Server", "state": "unclear", "math": "The software license stays $0. Kept host, data, backups and operations depend on your provider." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "MariaDB Server does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Community Server", "state": "unclear", "math": "SQL events have no fee per run, but they use database resources that are not priced. No general worker is included." }
+    ]
+  }
+}

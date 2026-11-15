@@ -1,0 +1,17 @@
+{
+  "slug": "cachet",
+  "name": "Cachet",
+  "official_url": "https://cachethq.io/",
+  "image_url": "https://cachethq.io/apple-touch-icon.png",
+  "source_page": "https://cachethq.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "cachethq.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "e83a6d04cf6cf6988c91c2a252bfcc130a6f805ebe836250206027a83cae4752",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

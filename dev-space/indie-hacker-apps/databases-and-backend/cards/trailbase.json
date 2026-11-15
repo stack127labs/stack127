@@ -1,0 +1,45 @@
+{
+  "slug": "trailbase",
+  "name": "TrailBase",
+  "url": "https://trailbase.io/",
+  "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "line": "Self-hosted SQLite backend with auth, file APIs, live updates, WASM code and jobs.",
+  "free": { "kind": "selfhost", "text": "OSL-3.0; no vendor quota or idle expiry; you host and retain the data" },
+  "cells": {
+    "metered": "No TrailBase fees; host and storage billed separately",
+    "regions": "Operator chooses server, file and backup locations",
+    "selfhost": "Yes, OSL-3.0 software license"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "Unknown",
+        "plan": "Self-hosted",
+        "state": "unclear",
+        "math": "$0 software fee. Host, kept disk, network and backup costs are unknown."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Self-hosted",
+        "state": "unclear",
+        "math": "$0 software fee. 730 host hours, kept storage and backups are not priced."
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "Local disk or external S3",
+        "state": "unclear",
+        "math": "TrailBase has no price per GB or per request. Host or S3 storage, network and backups are not priced."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "Self-hosted runtime",
+        "state": "unclear",
+        "math": "No fee per job. Shared server resources, stored job state, logs and outside services are not priced."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "convex",
+  "name": "Convex",
+  "official_url": "https://www.convex.dev/",
+  "image_url": "https://www.convex.dev/favicon.ico?favicon.0-xvzi-2x5h06.ico",
+  "source_page": "https://www.convex.dev/",
+  "kind": "favicon",
+  "source_host": "convex.dev",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "ae0df0fac111bc39d613a21f3ed2cfbc015e8e76b2ee55d3f0d4659565f7380c",
+  "note": "square mark; largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

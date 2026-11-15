@@ -1,0 +1,20 @@
+{
+  "slug": "twilio-verify",
+  "name": "Twilio Verify",
+  "url": "https://www.twilio.com/en-us/user-authentication-identity/verify",
+  "jobs": ["hosted"],
+  "line": "Hosted phone, email, and device verification for app sign-in.",
+  "free": { "kind": "credits", "text": "40 trial units and 40 after upgrade" },
+  "cells": {
+    "freeUsers": "No recurring free production units published",
+    "sso": "No customer SSO or SCIM product"
+  },
+  "costs": {
+    "mau": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide the password or social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide the password or social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide the password or social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide the password or social sign-in that a whole account needs, so no cost is shown." }
+    ]
+  }
+}

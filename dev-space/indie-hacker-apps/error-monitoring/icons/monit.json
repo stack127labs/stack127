@@ -1,0 +1,17 @@
+{
+  "slug": "monit",
+  "name": "Monit",
+  "official_url": "https://mmonit.com/monit/",
+  "image_url": "https://mmonit.com/monit/img/logo.png",
+  "source_page": "https://mmonit.com/monit/",
+  "kind": "logo-mark",
+  "source_host": "mmonit.com",
+  "original": {
+    "format": "png",
+    "width": 200,
+    "height": 200
+  },
+  "sha256": "b0c7989b75e64d792b0c3f55d1431714ad40769b5906da55bfe4a67fd32012cc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "bug-recorder",
+  "name": "Bug Recorder",
+  "official_url": "https://bugrecorder.com/",
+  "image_url": "https://bugrecorder.com/images/logo/logo-light.svg?v=2",
+  "source_page": "https://bugrecorder.com/",
+  "kind": "svg-icon",
+  "source_host": "bugrecorder.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "7aaf5d7ce7b0a19be6b70af90369968e9f5f74eb83582ae97ceb8c9ea26b8690",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "pagopar-by-upay",
+  "name": "Pagopar by upay",
+  "url": "https://upay.com.py/pagopar/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Paraguay payment gateway for checkout, payment links and recurring charges.",
+  "free": {
+    "kind": "free",
+    "text": "upay Base is PYG 0/month; required Pagopar plan is unclear"
+  },
+  "cells": {
+    "type": "Payment aggregation and online checkout platform",
+    "countries": "Paraguay only",
+    "payout": "Tue/Fri batches; newer upay timing also appears"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "downtime-monkey",
+  "name": "Downtime Monkey",
+  "official_url": "https://downtimemonkey.com/",
+  "image_url": "https://downtimemonkey.com/favicons/apple-touch-icon.png",
+  "source_page": "https://downtimemonkey.com/index.php",
+  "kind": "apple-touch-icon",
+  "source_host": "downtimemonkey.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "a270f37c708c581d8e6a97aff65f9c31d34f75eafe71c616cae1f3454651a862",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

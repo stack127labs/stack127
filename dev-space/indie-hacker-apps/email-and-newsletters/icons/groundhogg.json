@@ -1,0 +1,17 @@
+{
+  "slug": "groundhogg",
+  "name": "Groundhogg",
+  "official_url": "https://groundhogg.io/",
+  "image_url": "https://groundhogg.io/wp-content/uploads/2022/03/groundhogg-icon.svg",
+  "source_page": "https://groundhogg.io/",
+  "kind": "svg-icon",
+  "source_host": "groundhogg.io",
+  "original": {
+    "format": "svg",
+    "width": 1658,
+    "height": 1873
+  },
+  "sha256": "68451182f47a09a5d15a19da819e63ca25e48cd2817dcb5c970203faec36fa0c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

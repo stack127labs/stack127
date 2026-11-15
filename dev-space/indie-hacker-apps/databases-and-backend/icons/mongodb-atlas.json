@@ -1,0 +1,17 @@
+{
+  "slug": "mongodb-atlas",
+  "name": "MongoDB Atlas",
+  "official_url": "https://www.mongodb.com/products/platform/atlas-database",
+  "image_url": "https://www.mongodb.com/favicon.ico",
+  "source_page": "https://www.mongodb.com/products/platform/atlas-database",
+  "kind": "favicon",
+  "source_host": "mongodb.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "3cfa77ff3c14e56d15c8394e9f993c5665277e7356cc39fb10f4bdeae14741f0",
+  "note": "Official 64 px MongoDB product site favicon; no larger icon is published in the candidates.",
+  "saved_at": "2026-11-14"
+}

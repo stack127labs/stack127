@@ -1,0 +1,17 @@
+{
+  "slug": "upstash-workflow",
+  "name": "Upstash Workflow",
+  "official_url": "https://upstash.com/docs/workflow/getstarted",
+  "image_url": "https://upstash.com/docs/docs-assets/favicon.png",
+  "source_page": "https://upstash.com/docs/workflow/getstarted",
+  "kind": "favicon",
+  "source_host": "upstash.com",
+  "original": {
+    "format": "png",
+    "width": 354,
+    "height": 354
+  },
+  "sha256": "da1f7451b0e9322b844686c9ce95d21f5cd9d35b8aaf625dc952db5a3edfd0e6",
+  "note": "Parent brand: Upstash; Workflow has no separate icon in its official documentation candidates.",
+  "saved_at": "2026-11-14"
+}

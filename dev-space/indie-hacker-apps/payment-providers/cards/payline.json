@@ -1,0 +1,21 @@
+{
+  "slug": "payline",
+  "name": "Payline",
+  "url": "https://paylinedata.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Online payment processor with hosted checkout, links and recurring billing.",
+  "free": { "kind": "none", "text": "Processing, account and setup pricing are not published" },
+  "cells": {
+    "type": "Payment processor, gateway and billing tools",
+    "countries": "Seller-country eligibility list not published",
+    "payout": "Account-specific; no standard payout schedule published"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "Interchange-plus processing", "state": "not_published", "math": "Public pricing leaves out the processor's own markup and fixed fee. The cost for cards from the seller's own country needs a quote for your account." },
+      { "v": "Quote", "plan": "Interchange-plus processing", "state": "not_published", "math": "Public pricing leaves out the processor's own markup and fixed fee. The cost for cards from the seller's own country needs a quote for your account." },
+      { "v": "Quote", "plan": "Interchange-plus processing", "state": "not_published", "math": "Public pricing leaves out the processor's own markup and fixed fee. The cost for cards from the seller's own country needs a quote for your account." },
+      { "v": "Quote", "plan": "Interchange-plus processing", "state": "not_published", "math": "Public pricing leaves out the processor's own markup and fixed fee. The cost for cards from the seller's own country needs a quote for your account." }
+    ]
+  }
+}

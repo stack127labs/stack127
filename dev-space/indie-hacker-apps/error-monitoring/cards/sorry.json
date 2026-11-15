@@ -1,0 +1,21 @@
+{
+  "slug": "sorry",
+  "name": "Sorry",
+  "url": "https://www.sorryapp.com/",
+  "jobs": ["status"],
+  "line": "Publishes status pages, incident updates, and scheduled maintenance notices.",
+  "free": { "kind": "trial", "text": "7-day trial, no card; an older guide says 14 days" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Sorry publishes status pages. Other monitoring tools supply the checks." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Sorry publishes status pages. Other monitoring tools supply the checks." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Sorry publishes status pages. Other monitoring tools supply the checks." }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "supportbee",
+  "name": "SupportBee",
+  "url": "https://supportbee.com/",
+  "jobs": ["helpdesk", "inbox"],
+  "line": "Email help desk with a shared ticket inbox and customer portal.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, ticket portal, help center",
+    "ai": "No native AI billing unit established",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$20", "plan": "Startup", "state": "confirmed", "math": "1 seat at $20 a month, with unlimited email inboxes and tickets." },
+      { "v": "$60", "plan": "Startup", "state": "confirmed", "math": "3 seats at $20 a month each, with unlimited email inboxes and tickets." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "hetzner-object-storage",
+  "name": "Hetzner Object Storage",
+  "official_url": "https://www.hetzner.com/storage/object-storage/",
+  "image_url": "https://www.hetzner.com/_resources/themes/hetzner/images/favicons/android-icon-192x192.png",
+  "source_page": "https://www.hetzner.com/storage/object-storage/",
+  "kind": "favicon",
+  "source_host": "hetzner.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "a5e1fe376466bad6c38a0ffb4f5123326d9d4e4449f313ee576c130ecee6e100",
+  "note": "Hetzner brand mark used for Object Storage.",
+  "saved_at": "2026-11-14"
+}

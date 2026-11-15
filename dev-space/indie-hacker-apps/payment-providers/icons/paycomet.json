@@ -1,0 +1,17 @@
+{
+  "slug": "paycomet",
+  "name": "PAYCOMET",
+  "official_url": "https://www.paycomet.com/",
+  "image_url": "https://www.paycomet.com/img/favicon.webp",
+  "source_page": "https://www.paycomet.com/",
+  "kind": "favicon",
+  "source_host": "paycomet.com",
+  "original": {
+    "format": "webp",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "f96d4d37a4e424caf05e0057b9cffc00727f5a76e9b58900954fd6a62e0e4b2e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

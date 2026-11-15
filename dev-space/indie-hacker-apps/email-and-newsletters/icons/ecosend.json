@@ -1,0 +1,17 @@
+{
+  "slug": "ecosend",
+  "name": "EcoSend",
+  "official_url": "https://ecosend.io/",
+  "image_url": "https://ecosend.io/favicon.ico?favicon.36eef727.ico",
+  "source_page": "https://ecosend.io/",
+  "kind": "favicon",
+  "source_host": "ecosend.io",
+  "original": {
+    "format": "png",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "376dcf915295be5a0aea757c09a2cb38f9d3931f37a095156973ef79d358297a",
+  "note": "Official favicon is 96 px; no larger icon was found.",
+  "saved_at": "2026-11-14"
+}

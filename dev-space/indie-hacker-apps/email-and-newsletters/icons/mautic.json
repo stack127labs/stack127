@@ -1,0 +1,17 @@
+{
+  "slug": "mautic",
+  "name": "Mautic",
+  "official_url": "https://mautic.org/",
+  "image_url": "https://mautic.org/wp-content/uploads/2024/10/iTunesArtwork2x-300x300.png",
+  "source_page": "https://mautic.org/",
+  "kind": "favicon",
+  "source_host": "mautic.org",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "eb3431b21af763c6efc112a31410891c42b7e21a9afd9035f9bc0ae82a4a2357",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

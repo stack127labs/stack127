@@ -1,0 +1,14 @@
+{
+  "slug": "aws-lambda",
+  "name": "AWS Lambda",
+  "url": "https://aws.amazon.com/lambda/",
+  "jobs": ["paas"],
+  "line": "Run event functions or HTTP applications on managed AWS compute.",
+  "free": { "kind": "free", "text": "Event functions: 1 million requests and 400,000 GB-seconds monthly" },
+  "cells": { "type": "Serverless functions", "regions": "AWS regions; Web Functions in five regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Lambda storage is limited to code and execution files. A separate S3 + CloudFront example is not a price for hosting on Lambda." },
+    { "v": "$0", "plan": "Event Functions free allowance", "state": "confirmed", "math": "1 million requests and 62,500 GB-seconds fit within the unused monthly allowances of 1 million and 400,000 GB-seconds. Assumes logs and request transfer stay free." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The small app API cost, plus $13.98 a month for RDS compute and 20 GB of storage. Backup excess, CPU credits, network path and logs vary." }
+  ] }
+}

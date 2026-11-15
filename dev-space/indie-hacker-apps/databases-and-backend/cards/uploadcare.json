@@ -1,0 +1,45 @@
+{
+  "slug": "uploadcare",
+  "name": "Uploadcare",
+  "url": "https://uploadcare.com/",
+  "jobs": ["files"],
+  "line": "Upload, store, transform and deliver files and media through a managed CDN.",
+  "free": { "kind": "free", "text": "Personal: 1GB, 5GB traffic, 1K ops/mo; 500MB/file; temp uploads expire 24h" },
+  "cells": {
+    "metered": "Pro $79/mo; extra storage and traffic $0.35/GB",
+    "regions": "Global CDN; managed-storage region not published",
+    "selfhost": "No, hosted Uploadcare service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Uploadcare is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Uploadcare is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "$136.75+",
+        "plan": "Pro monthly",
+        "state": "unclear",
+        "math": "$79 base + 90 GB × $0.35 for storage + 75 GB × $0.35 for traffic = $136.75. Operation overage is unknown."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Uploadcare does not run background application jobs."
+      }
+    ]
+  }
+}

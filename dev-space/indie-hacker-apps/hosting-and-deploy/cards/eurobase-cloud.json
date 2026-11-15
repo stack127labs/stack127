@@ -1,0 +1,14 @@
+{
+  "slug": "eurobase-cloud",
+  "name": "Eurobase Cloud",
+  "url": "https://eurobase.dev/",
+  "jobs": ["paas", "static"],
+  "line": "Deploy static sites, serverless functions, and container apps in Europe.",
+  "free": { "kind": "free", "text": "2 projects, 10 containers/functions, 2 buckets; 100 build min, 25GiB transfer" },
+  "cells": { "type": "Serverless and container hosting", "regions": "Paris (Scaleway); multi-region list unavailable", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€10", "plan": "Starter", "state": "unclear", "math": "€10 a month net. Assumes up to 20,000 files, each up to 25 MiB, up to 5 GB of account storage, and 20 builds within a 250-minute quota." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The Pro plan at €20 a month net is a possible fee. The fit and charge for the 730-hour server, and how Function memory is billed, are not verified." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "A possible Pro fee of €20 a month net, plus outside PostgreSQL, 10 GB of storage, daily 7-day backups and transfer. No complete quote is available." }
+  ] }
+}

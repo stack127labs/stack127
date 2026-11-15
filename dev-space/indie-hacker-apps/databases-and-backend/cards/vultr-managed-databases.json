@@ -1,0 +1,45 @@
+{
+  "slug": "vultr-managed-databases",
+  "name": "Vultr Managed Databases",
+  "url": "https://docs.vultr.com/products/storage/databases",
+  "jobs": ["sql", "kv", "jobs", "vector"],
+  "line": "Managed PostgreSQL, MySQL, Valkey and Kafka clusters with regional choices.",
+  "free": { "kind": "credits", "text": "No recurring quota; advertised $250 credit (terms unclear); no idle rule found" },
+  "cells": {
+    "metered": "SQL/Valkey $0.02/hr; Kafka $0.65/hr, 3-node min",
+    "regions": "US, EU and Asia-Pacific; choices vary by engine",
+    "selfhost": "No, managed database clusters"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$14.60+",
+        "plan": "PostgreSQL or MySQL starting offer",
+        "state": "unclear",
+        "math": "730 hours × $0.02 an hour = $14.60, a starting-rate reference. The exact product, cap, transfer and size are not yet confirmed."
+      },
+      {
+        "v": "$14.60+",
+        "plan": "PostgreSQL or MySQL starting offer",
+        "state": "unclear",
+        "math": "An idle cluster keeps its allocated charges: 730 hours × $0.02 an hour = $14.60, a reference figure. The exact bill is not yet confirmed."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Managed database disk and backups are not general file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$474.50+",
+        "plan": "Kafka starting offer",
+        "state": "unclear",
+        "math": "$0.65 an hour × 730 hours = $474.50, a starting-rate reference. The 3-node scope and worker costs are not yet confirmed."
+      }
+    ]
+  }
+}

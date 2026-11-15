@@ -1,0 +1,25 @@
+{
+  "slug": "qdrant",
+  "name": "Qdrant",
+  "url": "https://qdrant.tech/",
+  "jobs": ["vector"],
+  "line": "Vector database for semantic search with dense, sparse, and hybrid retrieval.",
+  "free": { "kind": "free", "text": "1 node, 1 GB RAM, 4 GB disk; suspends after 1 week, deletes after 4" },
+  "cells": {
+    "metered": "Hourly vCPU/RAM/disk; calculator quote required",
+    "regions": "AWS, GCP, Azure; region rates need a quote",
+    "selfhost": "Yes, Apache-2.0 Qdrant Server"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0", "plan": "Qdrant Cloud Free", "state": "unclear", "math": "Free is $0 if the 0.7168 GB of raw data plus indexes fits within 4 GB of disk and 1 GB of RAM. Whether it fits is not verified." },
+      { "v": "$0", "plan": "Qdrant Cloud Free", "state": "unclear", "math": "A Free instance with no traffic costs $0 if the data fits in 4 GB of disk and 1 GB of RAM. It suspends after 1 week idle and is deleted after 4 weeks idle." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Qdrant stores searchable vectors, not general files." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Qdrant does not execute customer jobs." }
+    ]
+  }
+}

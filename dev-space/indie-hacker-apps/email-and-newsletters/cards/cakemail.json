@@ -1,0 +1,23 @@
+{
+  "slug": "cakemail",
+  "name": "Cakemail",
+  "url": "https://www.cakemail.com/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "line": "Marketing campaigns and transactional email through API or SMTP.",
+  "free": {"kind": "free", "text": "Free: 500 contacts, 6,000 marketing sends; API 35k needs card/approval"},
+  "cells": {"newsletters": "Yes", "api": "Yes; free API allowance needs card and approval"},
+  "costs": {
+    "subs": [
+      {"v": "$14", "plan": "Growth", "state": "confirmed", "math": "4,000 emails a month fit the 12,000-email Growth plan for 1,000 contacts."},
+      {"v": "$49", "plan": "Growth", "state": "confirmed", "math": "20,000 emails a month fit the 60,000-email Growth plan for 5,000 contacts."},
+      {"v": "$63", "plan": "Growth", "state": "confirmed", "math": "40,000 emails a month fit the 120,000-email Growth plan for 10,000 contacts."},
+      {"v": "$206", "plan": "Growth", "state": "confirmed", "math": "200,000 emails a month fit the 600,000-email Growth plan for 50,000 contacts."}
+    ],
+    "appmail": [
+      {"v": "$0", "plan": "Free API", "state": "confirmed", "math": "3,000 emails a month fit inside the free API allowance of 35,000 a month, which needs approval first."},
+      {"v": "$0", "plan": "Free API", "state": "confirmed", "math": "10,000 emails a month fit inside the free API allowance of 35,000 a month, which needs approval first."},
+      {"v": "$15", "plan": "Free API with overage", "state": "confirmed", "math": "50,000 emails a month. Emails above the 35,000 free API allowance cost $1 per 1,000, which comes to $15 a month."},
+      {"v": "$50", "plan": "100,000 API emails", "state": "confirmed", "math": "The published 100,000-email API offer costs $50 a month."}
+    ]
+  }
+}

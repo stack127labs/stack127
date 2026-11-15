@@ -1,0 +1,14 @@
+{
+  "slug": "ramnode-cloud-vps",
+  "name": "RamNode Cloud VPS",
+  "url": "https://ramnode.com/products/cloud-vps",
+  "jobs": ["vps"],
+  "line": "Run KVM virtual servers with hourly billing and root access.",
+  "free": { "kind": "none", "text": "No ongoing free compute allowance" },
+  "cells": { "type": "Cloud VPS", "regions": "Lite: EWR, LAX, NLX; ATL/SEA availability conflicts", "selfhost": "Yes; root access, manage the guest OS" },
+  "costs": { "work": [
+    { "v": "$4", "plan": "Lite 1 GB + IPv4", "state": "confirmed", "math": "$2 a month VM cap + $2 for an IPv4 address. 100 GB of data sent out fits the 500 GB allowance. Building and deploying are self-managed, and tax is not included." },
+    { "v": "$4", "plan": "Lite 1 GB + IPv4", "state": "confirmed", "math": "The VM with 1 vCPU and 1 GiB runs 730 hours at the $2 cap, plus $2 for an IPv4 address. 100 GB of data sent out fits 500 GB, but throughput is untested, and tax is not included." },
+    { "v": "Unknown", "plan": "Lite 2 GB + IPv4 + 10-GB volume", "state": "not_published", "math": "$5.85 a month is the subtotal for the VM, IPv4 address and volume. The seven-day daily backup adds an amount that is not priced. The $7 example assumes seven full 10 GB copies." }
+  ] }
+}

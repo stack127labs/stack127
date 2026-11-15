@@ -1,0 +1,17 @@
+{
+  "slug": "phpmyfaq",
+  "name": "phpMyFAQ",
+  "official_url": "https://www.phpmyfaq.de/",
+  "image_url": "https://www.phpmyfaq.de/favicon.ico",
+  "source_page": "https://www.phpmyfaq.de/",
+  "kind": "favicon",
+  "source_host": "phpmyfaq.de",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "b2517101e3b42df2b15b7e9877682f7d9c5ff4672e9379014999c299c7e6e33c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

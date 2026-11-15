@@ -1,0 +1,17 @@
+{
+  "slug": "drag",
+  "name": "Drag",
+  "official_url": "https://www.dragapp.com/",
+  "image_url": "https://www.dragapp.com/icon.png?b72a44b2c04d96c3",
+  "source_page": "https://www.dragapp.com/",
+  "kind": "favicon",
+  "source_host": "dragapp.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "9c2d7c8658adc3ebfd9a401e3968173733950d10787ec7e4526cb5f5e6083eca",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

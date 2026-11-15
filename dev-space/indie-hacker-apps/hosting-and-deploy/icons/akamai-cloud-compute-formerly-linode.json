@@ -1,0 +1,17 @@
+{
+  "slug": "akamai-cloud-compute-formerly-linode",
+  "name": "Akamai Cloud Compute",
+  "official_url": "https://www.akamai.com/products/cpu",
+  "image_url": "https://www.akamai.com/site/favicon/apple-touch-icon-180x180.png",
+  "source_page": "https://www.akamai.com/products/cpu",
+  "kind": "apple-touch-icon",
+  "source_host": "akamai.com",
+  "original": {
+    "format": "heif",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "4b476a41961a62210b1e6e20fb8e352edb15f2990b5bd89c11b93bd3bc655eaf",
+  "note": "parent brand: Akamai",
+  "saved_at": "2026-11-14"
+}

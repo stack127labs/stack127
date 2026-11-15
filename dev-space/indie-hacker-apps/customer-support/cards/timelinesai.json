@@ -1,0 +1,19 @@
+{
+  "slug": "timelinesai",
+  "name": "TimelinesAI",
+  "url": "https://timelines.ai/",
+  "jobs": ["inbox", "ai"],
+  "line": "Shared WhatsApp inbox with CRM connections and messaging automation.",
+  "free": { "kind": "trial", "text": "10-day trial, no card" },
+  "cells": {
+    "channels": "WhatsApp",
+    "ai": "Credits plus separate OpenAI usage",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$35", "plan": "Starter", "state": "confirmed", "math": "1 seat at $35 a month, with one shared WhatsApp number and 100 conversations." },
+      { "v": "$105", "plan": "Starter", "state": "confirmed", "math": "3 seats at $35 a month each, with one shared WhatsApp number and 100 conversations." }
+    ]
+  }
+}

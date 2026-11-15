@@ -1,0 +1,45 @@
+{
+  "slug": "supabase-auth",
+  "name": "Supabase Auth",
+  "url": "https://supabase.com/auth",
+  "jobs": [
+    "hosted"
+  ],
+  "line": "Postgres-backed auth that comes with Supabase projects.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 50,000 monthly active users"
+  },
+  "cells": {
+    "freeUsers": "50,000 MAU",
+    "sso": "Pro/Team include 50 SSO MAU; $0.015 per extra SSO MAU"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "The base is $0, and the monthly user charge is $0 because 1,000 users is within the 50,000 limit."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "The base is $0, and the monthly user charge is $0 because 10,000 users is within the 50,000 limit."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "50,000 users is exactly the included limit, so the cost is $0."
+      },
+      {
+        "v": "$25",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "The Pro base is $25, plus $0 for compute after credit and $0 for monthly user overage. That makes $25, but the full total is unknown."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "statify",
+  "name": "Statify",
+  "official_url": "https://statify.pluginkollektiv.org/",
+  "image_url": "https://github.com/pluginkollektiv.png?size=460",
+  "source_page": "https://github.com/pluginkollektiv",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "7f9fb03d07847929bcff39ab984e56913769f94e0aee787ac615f9e06ff272d0",
+  "note": "official GitHub organization avatar; Statify has no separate mark",
+  "saved_at": "2026-11-14"
+}

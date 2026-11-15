@@ -1,0 +1,17 @@
+{
+  "slug": "elastic-observability",
+  "name": "Elastic Observability",
+  "official_url": "https://www.elastic.co/observability",
+  "image_url": "https://www.elastic.co/favicon.svg",
+  "source_page": "https://www.elastic.co/observability",
+  "kind": "svg-icon",
+  "source_host": "elastic.co",
+  "original": {
+    "format": "svg",
+    "width": 1093,
+    "height": 1088
+  },
+  "sha256": "4e48034f566b211e111cd57b3cee23a7e4d66a86c9754f3ddc642a79aff855e7",
+  "note": "parent brand: Elastic; no Observability-specific icon was among the downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

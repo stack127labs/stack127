@@ -1,0 +1,19 @@
+{
+  "slug": "chatlio",
+  "name": "Chatlio",
+  "url": "https://chatlio.com/",
+  "jobs": ["chat", "inbox"],
+  "line": "Website chat that agents answer from Slack, Discord, or Teams.",
+  "free": { "kind": "trial", "text": "30-day trial, no card" },
+  "cells": {
+    "channels": "Website chat; replies via Slack, Discord, Teams",
+    "ai": "No generative AI; custom bots are separate",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$30", "plan": "Mini", "state": "confirmed", "math": "The Mini plan covers one agent, one widget, and 250 conversations a month." },
+      { "v": "$70", "plan": "Team launch", "state": "confirmed", "math": "The Team launch plan covers five operators and 2,000 conversations a month." }
+    ]
+  }
+}

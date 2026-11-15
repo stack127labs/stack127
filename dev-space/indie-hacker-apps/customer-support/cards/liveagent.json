@@ -1,0 +1,19 @@
+{
+  "slug": "liveagent",
+  "name": "LiveAgent",
+  "url": "https://www.liveagent.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Help desk with shared tickets, website chat, and a customer portal.",
+  "free": { "kind": "trial", "text": "30-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, social, phone, WhatsApp",
+    "ai": "Bring your own model; provider charges extra",
+    "selfhost": "Yes, existing licences only"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$15", "plan": "Starter offer", "state": "confirmed", "math": "One agent at $15 a month. The offer requires signing up for the trial by Nov 22, 2026." },
+      { "v": "$45", "plan": "Starter offer", "state": "confirmed", "math": "Three agents at $15 a month each. The offer requires signing up for the trial by Nov 22, 2026." }
+    ]
+  }
+}

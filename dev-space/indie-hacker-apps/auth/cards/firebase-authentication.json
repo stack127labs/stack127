@@ -1,0 +1,45 @@
+{
+  "slug": "firebase-authentication",
+  "name": "Firebase Authentication",
+  "url": "https://firebase.google.com/products/auth",
+  "jobs": [
+    "hosted"
+  ],
+  "line": "Google's hosted sign-in, free for basic methods.",
+  "free": {
+    "kind": "free",
+    "text": "Basic non-phone auth is no-cost; Identity Platform has 50,000 free MAU"
+  },
+  "cells": {
+    "freeUsers": "No cap on basic auth; 50,000 MAU on Identity Platform",
+    "sso": "SAML needs Identity Platform; $0.015 per SAML MAU after 50"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Spark, basic",
+        "state": "confirmed",
+        "math": "The base is $0, and sign-in usage that does not use phone numbers is $0."
+      },
+      {
+        "v": "$0",
+        "plan": "Spark, basic",
+        "state": "confirmed",
+        "math": "The base is $0, and sign-in usage that does not use phone numbers is $0."
+      },
+      {
+        "v": "$0",
+        "plan": "Spark, basic",
+        "state": "confirmed",
+        "math": "The base is $0, and sign-in usage that does not use phone numbers is $0."
+      },
+      {
+        "v": "$0",
+        "plan": "Spark, basic",
+        "state": "confirmed",
+        "math": "The base is $0, and sign-in usage that does not use phone numbers is $0."
+      }
+    ]
+  }
+}

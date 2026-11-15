@@ -1,0 +1,45 @@
+{
+  "slug": "stackhero",
+  "name": "Stackhero",
+  "url": "https://www.stackhero.io/en-US",
+  "jobs": ["sql", "kv", "files", "jobs", "backend", "vector"],
+  "line": "Managed SQL, MinIO storage, Redis caching, and RabbitMQ queues.",
+  "free": { "kind": "none", "text": "Free start terms unknown; unpaid data may be deleted; no idle expiry stated" },
+  "cells": {
+    "metered": "SQL from $19/mo; billed by the hour",
+    "regions": "Choose Europe/EU or USA; city codes are unpublished",
+    "selfhost": "No, Stackhero operates the hosted services"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$19.26",
+        "plan": "PostgreSQL Hobby, 10 GB",
+        "state": "confirmed",
+        "math": "730 hours × $0.02638888888888889 an hour = about $19.26. This is for 1 vCPU, 2 GB of RAM and 10 GB of SSD. VAT is not included."
+      },
+      {
+        "v": "$19.26",
+        "plan": "PostgreSQL Hobby, 10 GB",
+        "state": "confirmed",
+        "math": "An idle instance stays billed for 730 hours: 730 × $0.02638888888888889 ≈ $19.26. VAT is not included."
+      }
+    ],
+    "files": [
+      {
+        "v": "$19.00",
+        "plan": "MinIO Hobby, 100 GB",
+        "state": "unclear",
+        "math": "720 hours × $0.02638888888888889 an hour ≈ $19.00. VAT is not included. The 100 GB capacity exactly matches the data, leaving no room to spare."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$19.26+",
+        "plan": "RabbitMQ Hobby plus worker host",
+        "state": "unclear",
+        "math": "The RabbitMQ broker costs about $19.26 for 730 hours. Worker hosting, resources and the total are not priced."
+      }
+    ]
+  }
+}

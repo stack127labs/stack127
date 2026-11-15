@@ -1,0 +1,20 @@
+{
+  "slug": "betterlytics",
+  "name": "Betterlytics",
+  "url": "https://betterlytics.io/",
+  "jobs": ["web", "replay"],
+  "line": "Website analytics with session replay, errors and uptime checks.",
+  "free": {"kind": "free", "text": "Free up to 10,000 events/month"},
+  "cells": {
+    "cookieless": "Yes",
+    "location": "EU (Germany; replay storage in EU)",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "pv": [
+      {"v": "USD 0/month", "plan": "Growth", "state": "confirmed", "math": "Assumes pageviews are the only billable events. Optional outbound link clicks, Web Vitals and error events are turned off."},
+      {"v": "USD 14/month", "plan": "Growth", "state": "confirmed", "math": "Assumes pageviews are the only billable events. Optional outbound link clicks, Web Vitals and error events are turned off."},
+      {"v": "USD 59/month", "plan": "Growth", "state": "confirmed", "math": "Assumes pageviews are the only billable events. Optional outbound link clicks, Web Vitals and error events are turned off."}
+    ]
+  }
+}

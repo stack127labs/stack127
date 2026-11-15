@@ -1,0 +1,17 @@
+{
+  "slug": "fasterpay",
+  "name": "FasterPay",
+  "official_url": "https://www.fasterpay.com/business",
+  "image_url": "https://www.fasterpay.com/favicon.ico",
+  "source_page": "https://www.fasterpay.com/business",
+  "kind": "favicon",
+  "source_host": "fasterpay.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "30fcb94aafedf694e2d73b0e377ac167e20e0261fa41769b618fa2fd2c72cd0a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

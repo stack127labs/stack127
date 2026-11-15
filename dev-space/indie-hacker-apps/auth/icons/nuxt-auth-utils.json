@@ -1,0 +1,17 @@
+{
+  "slug": "nuxt-auth-utils",
+  "name": "Nuxt Auth Utils",
+  "official_url": "https://github.com/atinux/nuxt-auth-utils",
+  "image_url": "https://github.com/nuxt.png?size=460",
+  "source_page": "https://github.com/nuxt",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "ff2f4b52b6930bbd5dd692e8813e080a050231f0c765113735e6783cdc9431b1",
+  "note": "parent brand: Nuxt",
+  "saved_at": "2026-11-14"
+}

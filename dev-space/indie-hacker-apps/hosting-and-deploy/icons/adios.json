@@ -1,0 +1,17 @@
+{
+  "slug": "adios",
+  "name": "Adios",
+  "official_url": "https://www.adios.dev/",
+  "image_url": "https://www.adios.dev/android-chrome-512x512.png",
+  "source_page": "https://www.adios.dev/",
+  "kind": "manifest-icon",
+  "source_host": "adios.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "c932e8d98ad2f7a3372ba27f0ad61b4753f3892b6015ae0508a4fbe44c1e812f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

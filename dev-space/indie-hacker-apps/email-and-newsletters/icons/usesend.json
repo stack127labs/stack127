@@ -1,0 +1,17 @@
+{
+  "slug": "usesend",
+  "name": "useSend",
+  "official_url": "https://usesend.com/",
+  "image_url": "https://usesend.com/logo-squircle.png",
+  "source_page": "https://usesend.com/",
+  "kind": "logo-mark",
+  "source_host": "usesend.com",
+  "original": {
+    "format": "png",
+    "width": 650,
+    "height": 650
+  },
+  "sha256": "739359c5f20d0fde9a0e6b3dfc336b0f8a603cc652fe3eb03af9010f961884c0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

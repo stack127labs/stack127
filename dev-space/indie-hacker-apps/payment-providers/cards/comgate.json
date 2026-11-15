@@ -1,0 +1,48 @@
+{
+  "slug": "comgate",
+  "name": "Comgate",
+  "url": "https://www.comgate.eu/cs",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "European gateway with hosted checkout, links and recurring card payments.",
+  "free": {
+    "kind": "none",
+    "text": "No universal free offer outside Czechia and Slovakia"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Czechia and Slovakia only",
+    "payout": "Daily by default; weekly or monthly options"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Czechia and Slovakia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Czechia and Slovakia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Czechia and Slovakia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Czechia and Slovakia."
+      }
+    ]
+  }
+}

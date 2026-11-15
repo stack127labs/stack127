@@ -1,0 +1,12 @@
+{
+  "slug": "statify", "name": "Statify", "url": "https://statify.pluginkollektiv.org/",
+  "jobs": ["web"],
+  "line": "A WordPress plugin that counts pageviews and referral sources.",
+  "free": {"kind": "selfhost", "text": "Free plugin; default history is 14 days"},
+  "cells": {"cookieless": "Yes (no visitor identifiers)", "location": "Your WordPress database", "selfhost": "Yes"},
+  "costs": {"pv": [
+    {"v": "$0", "plan": "Free plugin", "state": "confirmed", "math": "The core software fee is $0. Hosting, database, backups and upkeep cost extra."},
+    {"v": "$0", "plan": "Free plugin", "state": "confirmed", "math": "The core software fee is $0. Hosting, database, backups and upkeep cost extra."},
+    {"v": "$0", "plan": "Free plugin", "state": "confirmed", "math": "The core software fee is $0. Hosting, database, backups and upkeep cost extra."}
+  ]}
+}

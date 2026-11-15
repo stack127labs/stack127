@@ -1,0 +1,19 @@
+{
+  "slug": "gorgias",
+  "name": "Gorgias",
+  "url": "https://www.gorgias.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Ecommerce help desk for email, website chat, and social support.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, social, voice, SMS",
+    "ai": "$1.50 per extra AI interaction",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$30", "plan": "Starter", "state": "confirmed", "math": "$10 account fee + 50 tickets over the plan limit at $0.40 each. Three seats are included." },
+      { "v": "$30", "plan": "Starter", "state": "confirmed", "math": "The total is the same. The Starter plan includes three user seats." }
+    ]
+  }
+}

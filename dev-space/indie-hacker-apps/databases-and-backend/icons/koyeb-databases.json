@@ -1,0 +1,17 @@
+{
+  "slug": "koyeb-databases",
+  "name": "Koyeb Serverless Postgres",
+  "official_url": "https://www.koyeb.com/docs/databases",
+  "image_url": "https://www.koyeb.com/favicon/favicon.ico",
+  "source_page": "https://www.koyeb.com/docs/databases",
+  "kind": "favicon",
+  "source_host": "koyeb.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "f97a306597a8bf0f5efd3257fb68e3585a17fc51d59fe0b9dc049ba0c124b164",
+  "note": "parent brand: Koyeb; largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "sitesure",
+  "name": "Sitesure",
+  "url": "https://sitesure.net/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Checks website uptime and scheduled-job heartbeats, with status pages.",
+  "free": { "kind": "free", "text": "2 monitors free; the first two remain free" },
+  "cells": { "interval": "60 s example; fastest unknown", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Petite", "state": "unclear", "math": "A $20 estimate for monitors only. The 60-second plan setting and the own-domain status page haven't been verified." },
+      { "v": "Unknown", "plan": "Plus", "state": "unclear", "math": "A $52.5 estimate for monitors only. The 60-second plan setting and the own-domain status page haven't been verified." },
+      { "v": "Unknown", "plan": "Prestige or Prime", "state": "unclear", "math": "A $150 estimate for monitors only. The 60-second plan setting and the own-domain status page haven't been verified." }
+    ]
+  }
+}

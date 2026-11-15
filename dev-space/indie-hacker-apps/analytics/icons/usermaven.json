@@ -1,0 +1,17 @@
+{
+  "slug": "usermaven",
+  "name": "Usermaven",
+  "official_url": "https://usermaven.com/",
+  "image_url": "https://usermaven.com/favicon-144x144.png",
+  "source_page": "https://usermaven.com/",
+  "kind": "favicon",
+  "source_host": "usermaven.com",
+  "original": {
+    "format": "png",
+    "width": 145,
+    "height": 145
+  },
+  "sha256": "5a9528f6a08015a5ef914c98ee2b91e3b5e9af37c68e82c4aa1094e3171c1fb1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "hawk",
+  "name": "Hawk",
+  "official_url": "https://hawk.so/",
+  "image_url": "https://hawk.so/_nuxt/img/hawk-logo.63daeaa.png",
+  "source_page": "https://hawk.so/",
+  "kind": "logo-mark",
+  "source_host": "hawk.so",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "fab8081d7a7effb272c61877053f70180b6f4856d7b1359acbe4b87aa7b65f6d",
+  "note": "largest product-specific icon is 48 px",
+  "saved_at": "2026-11-14"
+}

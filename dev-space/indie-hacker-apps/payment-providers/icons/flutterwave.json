@@ -1,0 +1,17 @@
+{
+  "slug": "flutterwave",
+  "name": "Flutterwave",
+  "official_url": "https://flutterwave.com/ng/",
+  "image_url": "https://flutterwave.com/_nuxt/icons/icon_512x512.776a2a.png",
+  "source_page": "https://flutterwave.com/ng/",
+  "kind": "apple-touch-icon",
+  "source_host": "flutterwave.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "859c4959e9842dcac98f7230ed0bbe1477c808edd06e3437816041fb638ea729",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

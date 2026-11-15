@@ -1,0 +1,20 @@
+{
+  "slug": "openpanel",
+  "name": "OpenPanel",
+  "url": "https://openpanel.dev/",
+  "jobs": ["web", "product"],
+  "line": "Tracks website and product events with replay and self-hosted options.",
+  "free": { "kind": "selfhost", "text": "Free self-host; OSS: active public OSI repo + backlink; 2.5M Cloud events/mo" },
+  "cells": {
+    "cookieless": "Yes, no analytics tracking cookies",
+    "location": "Germany; backups in the EU",
+    "selfhost": "Yes, free core software"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$5", "plan": "Cloud 10K events", "state": "confirmed", "math": "Billed by events. Assumes one screen_view per pageview and no other events. Open-source use is eligible for up to 2.5M events a month. Ordinary Cloud starts at $2.50 a month. This 10K-event band costs $5 a month." },
+      { "v": "$20", "plan": "Cloud 100K events", "state": "confirmed", "math": "Billed by events. Assumes one screen_view per pageview and no other events. Open-source use is eligible for up to 2.5M events a month. Ordinary Cloud starts at $2.50 a month. This 100K-event band costs $20 a month." },
+      { "v": "$90", "plan": "Cloud 1M events", "state": "confirmed", "math": "Billed by events. Assumes one screen_view per pageview and no other events. Open-source use is eligible for up to 2.5M events a month. Ordinary Cloud starts at $2.50 a month. This 1M-event band costs $90 a month." }
+    ]
+  }
+}

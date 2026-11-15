@@ -1,0 +1,17 @@
+{
+  "slug": "zabbix",
+  "name": "Zabbix",
+  "official_url": "https://www.zabbix.com/",
+  "image_url": "https://assets.zabbix.com/img/apple-touch-icon-180x180-precomposed.png",
+  "source_page": "https://www.zabbix.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "assets.zabbix.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "d78a87930b665032ec9a47cadc3de82e5a6640eca484d1fc4931fa0dbd7fafc1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

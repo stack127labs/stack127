@@ -1,0 +1,17 @@
+{
+  "slug": "pirsch",
+  "name": "Pirsch",
+  "official_url": "https://pirsch.io/",
+  "image_url": "https://pirsch.io/static/img/favicon/favicon.svg",
+  "source_page": "https://pirsch.io/",
+  "kind": "manifest-icon",
+  "source_host": "pirsch.io",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "83a187696d8d9a6b36f8c47d63ebecea67cd54e0c3d8c4550b5fdeb29c889dff",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

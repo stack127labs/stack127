@@ -1,0 +1,21 @@
+{
+  "slug": "monnify",
+  "name": "Monnify",
+  "url": "https://monnify.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Nigerian payment gateway for checkout, links and recurring collections.",
+  "free": { "kind": "none", "text": "No setup or monthly platform fee" },
+  "cells": {
+    "type": "Payment gateway for collection and settlement",
+    "countries": "Nigeria standard; international seller eligibility unclear",
+    "payout": "Local T+0; approved USD settlements T+3 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers in the United States can sign up." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers in the United Kingdom can sign up." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers in Germany can sign up." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers in India can sign up." }
+    ]
+  }
+}

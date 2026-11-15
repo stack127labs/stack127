@@ -1,0 +1,17 @@
+{
+  "slug": "doprax",
+  "name": "Doprax",
+  "official_url": "https://www.doprax.com/",
+  "image_url": "https://www.doprax.com/apple-touch-icon.png",
+  "source_page": "https://www.doprax.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "doprax.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "3412a1b98fa2b4434020c7ba792dfb0d6a92295898861e99a85e8f625188960f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

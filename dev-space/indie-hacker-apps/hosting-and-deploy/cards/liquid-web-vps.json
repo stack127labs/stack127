@@ -1,0 +1,14 @@
+{
+  "slug": "liquid-web-vps",
+  "name": "Liquid Web VPS",
+  "url": "https://www.liquidweb.com/vps-hosting/",
+  "jobs": ["vps"],
+  "line": "Rent a managed or self-managed virtual server with root access.",
+  "free": { "kind": "none", "text": "No recurring free VPS tier or allowance" },
+  "cells": { "type": "Root-access VM; managed support optional", "regions": "Lansing, Phoenix, Amsterdam, London; availability varies", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$5", "plan": "1 vCPU, 1 GB VPS", "state": "confirmed", "math": "$5 a month before tax. 1 vCPU, 1 GB, a 30 GB disk and 1 TB of traffic fit 100 MB of files and 100 GB of data sent out. You manage builds. The domain is extra." },
+    { "v": "$5", "plan": "1 vCPU, 1 GB VPS", "state": "confirmed", "math": "$5 a month before tax. 1 vCPU, 1 GB and 1 TB meet the minimum and cover 100 GB of data sent out. Throughput is untested. 730 hours at $0.007 an hour = $5.11, but the monthly price is $5." },
+    { "v": "Unknown", "plan": "2 vCPU, 4 GB, 80 GB, 3 TB VPS + backup", "state": "unclear", "math": "$17 a month regular VPS price. $8.50 applies only for months 1 and 2. 10 GB of database traffic and 100 GB of data sent out fit, but the daily 7-day backup price depends on the account." }
+  ] }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "emailoctopus",
+  "name": "EmailOctopus",
+  "official_url": "https://emailoctopus.com/",
+  "image_url": "https://emailoctopus.com/icon.svg",
+  "source_page": "https://emailoctopus.com/",
+  "kind": "svg-icon",
+  "source_host": "emailoctopus.com",
+  "original": {
+    "format": "svg",
+    "width": 2491,
+    "height": 2491
+  },
+  "sha256": "dc0bda51f7f97e681a1c2ab6a0584cc3499e74c4de11fdd66b75c924d4fb2ae2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

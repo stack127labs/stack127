@@ -1,0 +1,26 @@
+{
+  "slug": "mailchimp",
+  "name": "Mailchimp",
+  "url": "https://mailchimp.com/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "line": "Email campaigns and marketing automation with a transactional add-on.",
+  "free": { "kind": "free", "text": "Free for 250 contacts, 500 emails/month and 250/day" },
+  "cells": {
+    "newsletters": "Yes, campaigns and marketing flows",
+    "api": "Yes, Transactional needs paid Standard or higher"
+  },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "Essentials", "state": "unclear", "math": "1,000 contacts and 4,000 sends fit inside the 10,000-send allowance. The base fee for the selected contact band is not settled." },
+      { "v": "Unknown", "plan": "Essentials", "state": "unclear", "math": "5,000 contacts and 20,000 sends fit inside the 50,000-send allowance. The base fee for the selected contact band is not settled." },
+      { "v": "Unknown", "plan": "Essentials", "state": "unclear", "math": "10,000 contacts and 40,000 sends fit inside the 100,000-send allowance. The base fee for the selected contact band is not settled." },
+      { "v": "USD 385/month", "plan": "Essentials", "state": "confirmed", "math": "50,000 contacts and 200,000 emails fit inside the 500,000-send allowance." }
+    ],
+    "appmail": [
+      { "v": "USD 40/month", "plan": "Standard + 1 block", "state": "confirmed", "math": "USD 20 Standard plan, plus 1 block at USD 20, gives 25,000 monthly app emails, covering 3,000." },
+      { "v": "USD 40/month", "plan": "Standard + 1 block", "state": "confirmed", "math": "USD 20 Standard plan, plus 1 block at USD 20, gives 25,000 monthly app emails, covering 10,000." },
+      { "v": "USD 60/month", "plan": "Standard + 2 blocks", "state": "confirmed", "math": "USD 20 Standard plan, plus 2 blocks at USD 20 each, gives 50,000 monthly app emails." },
+      { "v": "USD 100/month", "plan": "Standard + 4 blocks", "state": "confirmed", "math": "USD 20 Standard plan, plus 4 blocks at USD 20 each, gives 100,000 monthly app emails." }
+    ]
+  }
+}

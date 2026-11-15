@@ -1,0 +1,17 @@
+{
+  "slug": "chargebee",
+  "name": "Chargebee",
+  "official_url": "https://www.chargebee.com/",
+  "image_url": "https://www.chargebee.com/static/resources/brand/favicon.png?v=1",
+  "source_page": "https://www.chargebee.com/",
+  "kind": "favicon",
+  "source_host": "chargebee.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "ea20af60326fa07af63020dd323671ab5999069cc1a874f96069cd43f4a0c3e9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

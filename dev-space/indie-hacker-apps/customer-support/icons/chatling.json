@@ -1,0 +1,17 @@
+{
+  "slug": "chatling",
+  "name": "Chatling",
+  "official_url": "https://chatling.ai/",
+  "image_url": "https://static.chatling.ai/img/website/v4/favicon/android-icon-192x192.png",
+  "source_page": "https://chatling.ai/",
+  "kind": "favicon",
+  "source_host": "static.chatling.ai",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "f368c5ebdde8d2e290cb1869e9fd7a6be384902d56867a4bd14adee2741466bc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

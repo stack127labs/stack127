@@ -1,0 +1,21 @@
+{
+  "slug": "billplz",
+  "name": "Billplz",
+  "url": "https://main.billplz.com/",
+  "jobs": ["gateway", "links"],
+  "line": "Malaysian gateway for collecting payments and sending payment orders.",
+  "free": { "kind": "none", "text": "MYR0 Basic membership; successful-payment fees apply" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Malaysia only",
+    "payout": "Cards T+2 business days; timing varies by method"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Malaysia." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Malaysia." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Malaysia." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Malaysia." }
+    ]
+  }
+}

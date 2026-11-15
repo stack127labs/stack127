@@ -1,0 +1,15 @@
+{
+  "slug": "amazon-pay",
+  "name": "Amazon Pay",
+  "url": "https://pay.amazon.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Let shoppers pay with payment details saved in their Amazon account.",
+  "free": { "kind": "none", "text": "No setup or monthly fee listed for US accounts" },
+  "cells": { "type": "Payment gateway and digital wallet", "countries": "US, UK, Europe, Japan and India", "payout": "US next schedule; EU daily; Japan every 14 days" },
+  "costs": { "fee": [
+    { "v": "2.9% + USD 0.30", "plan": "Standard US", "state": "confirmed", "math": "The rate for a US card charge made on the web or in a mobile app." },
+    { "v": "2.7% + GBP 0.30", "plan": "Standard UK", "state": "confirmed", "math": "The UK rate for sellers taking under GBP 50,000 a month in payments." },
+    { "v": "1.9% + EUR 0.35", "plan": "Standard Germany", "state": "confirmed", "math": "The Germany rate for sellers who take under EUR 50,000 a month in payments on average." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "In India, prices are agreed directly with Amazon. No standard rate is published." }
+  ] }
+}

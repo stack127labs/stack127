@@ -1,0 +1,14 @@
+{
+  "slug": "cleavr",
+  "name": "Cleavr",
+  "url": "https://cleavr.io/",
+  "jobs": ["panel"],
+  "line": "Manage deployments to servers rented from cloud providers.",
+  "free": { "kind": "trial", "text": "5-day Pro trial; card requirement differs by page" },
+  "cells": { "type": "Deployment panel", "regions": "Your server provider's regions", "selfhost": "Yes; connect servers you manage" },
+  "costs": { "work": [
+    { "v": "$5.50", "plan": "Lite", "state": "confirmed", "math": "$66 a year, split across 12 months = $5.50 a month, billed yearly. The server and domain are paid separately." },
+    { "v": "$5.50", "plan": "Lite", "state": "confirmed", "math": "$66 a year, split across 12 months, is the panel fee only. Price the required server (1 vCPU and 1 GiB) separately." },
+    { "v": "$15", "plan": "Pro", "state": "confirmed", "math": "$180 a year, split across 12 months = $15 a month equivalent. The server, database and backup infrastructure are paid separately." }
+  ] }
+}

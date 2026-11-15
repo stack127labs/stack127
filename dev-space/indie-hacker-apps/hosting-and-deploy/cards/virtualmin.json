@@ -1,0 +1,20 @@
+{
+  "slug": "virtualmin",
+  "name": "Virtualmin",
+  "url": "https://www.virtualmin.com/",
+  "jobs": ["panel"],
+  "line": "Manage websites, databases and mail on your own server.",
+  "free": { "kind": "selfhost", "text": "Free GPL, no domain limit; install on your server" },
+  "cells": {
+    "type": "Self-hosted panel",
+    "regions": "Your server's region",
+    "selfhost": "Yes; install on your own server"
+  },
+  "costs": {
+    "work": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" }
+    ]
+  }
+}

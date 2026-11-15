@@ -1,0 +1,17 @@
+{
+  "slug": "pay",
+  "name": "Pay.",
+  "official_url": "https://www.pay.nl/",
+  "image_url": "https://www.pay.nl/hubfs/Pay%20Logo%20-%20RGB_Icon%20-%20full.png",
+  "source_page": "https://www.pay.nl/",
+  "kind": "favicon",
+  "source_host": "pay.nl",
+  "original": {
+    "format": "png",
+    "width": 1214,
+    "height": 1204
+  },
+  "sha256": "b29636b50c35011b3ef8c3d9798bbbbb3b39b8624c226f0111da752e0f0474e5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

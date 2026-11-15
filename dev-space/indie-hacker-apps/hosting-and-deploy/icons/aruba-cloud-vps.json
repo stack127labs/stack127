@@ -1,0 +1,17 @@
+{
+  "slug": "aruba-cloud-vps",
+  "name": "Aruba Cloud VPS",
+  "official_url": "https://www.arubacloud.com/vps/",
+  "image_url": "https://www.arubacloud.com/.resources/aruba/webresources/business/images/favicons/apple-icon-180x180.png",
+  "source_page": "https://www.arubacloud.com/vps/",
+  "kind": "apple-touch-icon",
+  "source_host": "arubacloud.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "ae922e6db2d980d729c50fa987ee0a3be3baf04361f83ec99d68ccd5567b696b",
+  "note": "Official icon is a full Aruba wordmark rather than a square mark.",
+  "saved_at": "2026-11-14"
+}

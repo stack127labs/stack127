@@ -1,0 +1,17 @@
+{
+  "slug": "monocloud",
+  "name": "MonoCloud",
+  "official_url": "https://www.monocloud.com/",
+  "image_url": "https://www.monocloud.com/favicon/favicon.svg",
+  "source_page": "https://www.monocloud.com/",
+  "kind": "svg-icon",
+  "source_host": "monocloud.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "4c458a489a6e8a17397922beb35a00b221a8f9b32f8a9624ec16a69f67e4d329",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

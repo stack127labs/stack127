@@ -1,0 +1,17 @@
+{
+  "slug": "depay",
+  "name": "DePay",
+  "official_url": "https://www.depay.com/",
+  "image_url": "https://www.depay.com/favicon.png",
+  "source_page": "https://www.depay.com/",
+  "kind": "favicon",
+  "source_host": "depay.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "964988687fef6a8f3f8f8e329a2c141b305010da07f7e64ae32d8566e5ffea19",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

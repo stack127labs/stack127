@@ -1,0 +1,17 @@
+{
+  "slug": "buttondown",
+  "name": "Buttondown",
+  "official_url": "https://buttondown.com/",
+  "image_url": "https://static-assets.buttondown.com/images/icons/icon@512.png",
+  "source_page": "https://buttondown.com/",
+  "kind": "manifest-icon",
+  "source_host": "static-assets.buttondown.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "e945b5bee025100ef92bf5e83ba80cadc262bd5e5585e5754c1880331c8e52a5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

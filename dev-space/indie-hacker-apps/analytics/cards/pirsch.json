@@ -1,0 +1,20 @@
+{
+  "slug": "pirsch",
+  "name": "Pirsch",
+  "url": "https://pirsch.io/",
+  "jobs": ["web", "product"],
+  "line": "Tracks website traffic, campaigns, and custom events.",
+  "free": { "kind": "trial", "text": "30 days or 100,000 pageviews; no card" },
+  "cells": {
+    "cookieless": "Yes, no visitor tracking cookies",
+    "location": "Germany (Nuremberg and Falkenstein)",
+    "selfhost": "Yes, Enterprise on-premise by quote"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$6", "plan": "Standard", "state": "confirmed", "math": "10,000 pageviews a month fit the 10,000-unit Standard band, at $6 a month." },
+      { "v": "$12", "plan": "Standard", "state": "confirmed", "math": "100,000 pageviews a month fit the 100,000-unit Standard band, at $12 a month." },
+      { "v": "$54", "plan": "Standard", "state": "confirmed", "math": "1,000,000 pageviews a month fit the 1,000,000-unit Standard band, at $54 a month." }
+    ]
+  }
+}

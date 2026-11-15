@@ -1,0 +1,17 @@
+{
+  "slug": "instatus",
+  "name": "Instatus",
+  "official_url": "https://instatus.com/",
+  "image_url": "https://instatus.com/android-chrome-512x512.png",
+  "source_page": "https://instatus.com/",
+  "kind": "logo-mark",
+  "source_host": "instatus.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "b65d064e2791e58a2c79a9d871a49c433d474f14acf3d9534906da1616b34f29",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "ucoder-insight", "name": "Ucoder Insight", "url": "https://insights.ucoder.in/",
+  "jobs": ["web", "product"],
+  "line": "Tracks website visits, custom events, funnels and browser errors.",
+  "free": {"kind": "free", "text": "Free forever, no card; 6-month history, 10 events per batch"},
+  "cells": {"cookieless": "Yes (vendor says no visitor cookies)", "location": "India (Mumbai/Bangalore region conflict)", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Community capacity and qualifying plan limits are not published, so an exact total cannot be compared."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Permanent plan volume bands and upgrade rules are not published, so an exact total cannot be compared."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Permanent plan volume bands and upgrade rules are not published, so an exact total cannot be compared."}
+  ]}
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "tappay",
+  "name": "TapPay",
+  "official_url": "https://www.tappaysdk.com/taiwan-zhtw",
+  "image_url": "https://www.tappaysdk.com/favicon.ico",
+  "source_page": "https://www.tappaysdk.com/taiwan-zhtw",
+  "kind": "favicon",
+  "source_host": "tappaysdk.com",
+  "original": {
+    "format": "png",
+    "width": 230,
+    "height": 230
+  },
+  "sha256": "11d32a2e3338ef105c9714915bfc069a8cc5fdfcb12f45f46573968aa567c7bb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

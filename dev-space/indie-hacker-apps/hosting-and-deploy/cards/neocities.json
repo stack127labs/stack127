@@ -1,0 +1,14 @@
+{
+  "slug": "neocities",
+  "name": "Neocities",
+  "url": "https://neocities.org/",
+  "jobs": ["static"],
+  "line": "Create and host static HTML, CSS, and JavaScript websites.",
+  "free": { "kind": "free", "text": "1 GB storage, 200 GB/month, neocities.org subdomain" },
+  "cells": { "type": "Static hosting", "regions": "Global CDN (>12 data centers); no app-region choice", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$5", "plan": "Supporter", "state": "confirmed", "math": "$5 a month. A custom domain needs the Supporter plan, though Free has 1 GB / 200 GB limits. 100 MB fits within 50 GB. Uploads under 100 MB and builds at least 10 minutes apart. Tax and the domain are extra." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Neocities has no server-side runtime for running API code." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Neocities cannot host the API and PostgreSQL deployment." }
+  ] }
+}

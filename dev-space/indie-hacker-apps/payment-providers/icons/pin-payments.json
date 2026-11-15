@@ -1,0 +1,17 @@
+{
+  "slug": "pin-payments",
+  "name": "Pin Payments",
+  "official_url": "https://pinpayments.com/",
+  "image_url": "https://pinpayments.com/android-chrome-512x512.png",
+  "source_page": "https://pinpayments.com/",
+  "kind": "manifest-icon",
+  "source_host": "pinpayments.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "e07f2b49aa03dfc89ced8260a55846c6f5dad44a4f4ca967bb26b0a06dd91484",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

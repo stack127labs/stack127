@@ -1,0 +1,45 @@
+{
+  "slug": "restate",
+  "name": "Restate",
+  "url": "https://restate.dev/",
+  "jobs": ["jobs"],
+  "line": "Durable workflow runtime that resumes handlers and schedules work after failures.",
+  "free": { "kind": "free", "text": "100K actions/mo (older page: 50K); 1GB state; no idle pause/deletion rule" },
+  "cells": {
+    "metered": "Cloud Starter $75/mo; then $25 per million actions",
+    "regions": "US or EU hosting listed; exact Cloud regions unknown",
+    "selfhost": "Yes, BSL 1.1 for own services; not open source"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Restate is a workflow runtime, not a SQL database"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Restate is a workflow runtime, not a SQL database"
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Restate does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "Cloud Free plus handler host",
+        "state": "not_published",
+        "math": "Assuming 2 actions per job, 10,000 jobs use 20,000 actions. Extra steps and outside worker hosting are not priced."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "appmetrica",
+  "name": "AppMetrica",
+  "official_url": "https://appmetrica.yandex.com/about",
+  "image_url": "https://yastatic.net/s3/vda/appmetrica/favicon.ico",
+  "source_page": "https://appmetrica.yandex.com/about",
+  "kind": "favicon",
+  "source_host": "yastatic.net",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "a6e83f863313a760bbb1a7f686d9bda03d7eef84edca3e795d63a94ba90da9f3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

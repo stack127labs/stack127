@@ -1,0 +1,24 @@
+{
+  "slug": "cloudflare-workers-observability",
+  "name": "Cloudflare Workers Observability",
+  "url": "https://www.cloudflare.com/products/workers-observability/",
+  "jobs": ["errors", "logs", "performance"],
+  "line": "Collects Worker logs, traces, metrics and exceptions in Cloudflare.",
+  "free": { "kind": "free", "text": "Workers Free includes 200,000 log events/day through Nov 30" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Workers Observability", "state": "unclear", "math": "The error count alone doesn't show how much telemetry data is sent, or total account usage." },
+      { "v": "Unknown", "plan": "Workers Observability", "state": "unclear", "math": "The error count alone doesn't show how much telemetry data is sent, or total account usage." },
+      { "v": "Unknown", "plan": "Workers Observability", "state": "unclear", "math": "The error count alone doesn't show how much telemetry data is sent, or total account usage." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" }
+    ]
+  }
+}

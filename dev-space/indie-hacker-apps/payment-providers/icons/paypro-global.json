@@ -1,0 +1,17 @@
+{
+  "slug": "paypro-global",
+  "name": "PayPro Global",
+  "official_url": "https://payproglobal.com/",
+  "image_url": "https://payproglobal.com/wp-content/uploads/2024/06/cropped-favicon-96x96-1-192x192.png",
+  "source_page": "https://payproglobal.com/",
+  "kind": "favicon",
+  "source_host": "payproglobal.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "9d98f2f284cad7c19a05b9e8da3dc32fce2801f61730d05bdfa7d280579366e8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

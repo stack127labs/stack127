@@ -1,0 +1,17 @@
+{
+  "slug": "duitku",
+  "name": "Duitku",
+  "official_url": "https://www.duitku.com/",
+  "image_url": "https://www.duitku.com/wp-content/uploads/2020/01/cropped-favicon-duitku-1-192x192.png",
+  "source_page": "https://www.duitku.com/",
+  "kind": "favicon",
+  "source_host": "duitku.com",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "49532c9430f94958437e3ed2d98fe860a4423951ad19f6a9384bb941ff5bbfd2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

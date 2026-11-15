@@ -1,0 +1,17 @@
+{
+  "slug": "uploadthing",
+  "name": "UploadThing",
+  "official_url": "https://uploadthing.com/",
+  "image_url": "https://github.com/pingdotgg.png?size=256",
+  "source_page": "https://github.com/pingdotgg/uploadthing",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "3aa6d76e9c4e97f3a247d519d8095f284b3cf5e019a5e15b5ec511d01adfb448",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

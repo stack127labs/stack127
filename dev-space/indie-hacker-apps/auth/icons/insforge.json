@@ -1,0 +1,17 @@
+{
+  "slug": "insforge",
+  "name": "InsForge",
+  "official_url": "https://insforge.dev/",
+  "image_url": "https://insforge.dev/favicon.ico",
+  "source_page": "https://insforge.dev/",
+  "kind": "favicon",
+  "source_host": "insforge.dev",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "686709520f2442d0dce7572b333eb4c424edf71608ce8ef6c85593e3deba9b32",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

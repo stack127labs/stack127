@@ -1,0 +1,37 @@
+{
+  "slug": "zendesk",
+  "name": "Zendesk",
+  "url": "https://www.zendesk.com/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "ai",
+    "inbox"
+  ],
+  "line": "Ticketing and messaging suite with AI agents.",
+  "free": {
+    "kind": "trial",
+    "text": "14-day trial; 6 months free for startups"
+  },
+  "cells": {
+    "channels": "Email, chat, WhatsApp, Instagram, SMS, voice",
+    "ai": "Per resolution; rate unclear",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$25",
+        "plan": "Support Team",
+        "state": "confirmed",
+        "math": "1 agent at $25 a month, or $228 a year paid upfront ($19 a month)."
+      },
+      {
+        "v": "$75",
+        "plan": "Support Team",
+        "state": "confirmed",
+        "math": "3 agents at $25 a month each = $75 a month, or $684 a year paid upfront ($57 a month). Email only."
+      }
+    ]
+  }
+}

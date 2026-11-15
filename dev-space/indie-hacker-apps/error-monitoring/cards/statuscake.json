@@ -1,0 +1,21 @@
+{
+  "slug": "statuscake",
+  "name": "StatusCake",
+  "url": "https://www.statuscake.com/",
+  "jobs": ["uptime", "status", "performance", "cron"],
+  "line": "Checks sites and APIs, watches servers, and publishes status pages.",
+  "free": { "kind": "free", "text": "Free: 3 checks/15 min in client pricing; homepage says 10/5 min" },
+  "cells": { "interval": "900 s free / 300 s homepage (conflict); 30 s Business", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "$39.44", "plan": "Superior + Bronze Pages", "state": "unclear", "math": "$24.49 plus $14.95 comes to $39.44 a month for 5 checks, one region, email, and one page with 10 services." },
+      { "v": "$74.44", "plan": "Superior + Silver Pages", "state": "unclear", "math": "$24.49 plus $49.95 comes to $74.44 a month for 25 checks, one region, email, and one page with 25 services." },
+      { "v": "$274.45", "plan": "Superior + Gold Pages", "state": "unclear", "math": "$24.49 plus $249.96 comes to $274.45 a month for 100 checks, one region, email, and one page with 100 services." }
+    ]
+  }
+}

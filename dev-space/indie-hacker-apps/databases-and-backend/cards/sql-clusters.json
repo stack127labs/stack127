@@ -1,0 +1,45 @@
+{
+  "slug": "sql-clusters",
+  "name": "SQL Clusters",
+  "url": "https://www.sqlclusters.com/mysql-pricing",
+  "jobs": ["sql"],
+  "line": "Managed MySQL hosting with backups, monitoring, and migration help.",
+  "free": { "kind": "trial", "text": "7-day app trial; paid plan needed; cancelled backups may delete after 2 months" },
+  "cells": {
+    "metered": "MySQL Express $6.99/mo; 2 cores, 2 GB RAM, 60 GB SSD",
+    "regions": "Dallas, Kansas City, Bend; location lists conflict",
+    "selfhost": "No, this is the managed MySQL service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$6.99",
+        "plan": "MySQL Express, 1-month term",
+        "state": "confirmed",
+        "math": "One monthly Express subscription costs $6.99. 1 GB of data and 10 connections fit within the listed storage and default limits."
+      },
+      {
+        "v": "$6.99",
+        "plan": "MySQL Express, 1-month term",
+        "state": "confirmed",
+        "math": "The subscription stays at $6.99 a month with no queries. No idle discount is published."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "SQL Clusters does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "SQL Clusters does not provide worker jobs"
+      }
+    ]
+  }
+}

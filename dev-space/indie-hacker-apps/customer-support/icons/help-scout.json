@@ -1,0 +1,17 @@
+{
+  "slug": "help-scout",
+  "name": "Help Scout",
+  "official_url": "https://www.helpscout.com/",
+  "image_url": "https://www.helpscout.com/images/favicon/favicon.svg",
+  "source_page": "https://www.helpscout.com/",
+  "kind": "svg-icon",
+  "source_host": "helpscout.com",
+  "original": {
+    "format": "svg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "0ae367274584c3b7d01fe26be6127c180b2b9b2549f5c0e968456e99081f1762",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

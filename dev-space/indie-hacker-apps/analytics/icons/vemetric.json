@@ -1,0 +1,17 @@
+{
+  "slug": "vemetric",
+  "name": "Vemetric",
+  "official_url": "https://vemetric.com/",
+  "image_url": "https://vemetric.com/favicon-196.png",
+  "source_page": "https://vemetric.com/",
+  "kind": "favicon",
+  "source_host": "vemetric.com",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "f147853337ec6666686e7e4d305e1f675e54561ff394e4736202469d1152660a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

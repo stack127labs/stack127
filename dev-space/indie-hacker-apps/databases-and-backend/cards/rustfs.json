@@ -1,0 +1,45 @@
+{
+  "slug": "rustfs",
+  "name": "RustFS",
+  "url": "https://rustfs.com/",
+  "jobs": ["files"],
+  "line": "Self-hosted S3-compatible object storage with versioning and bucket policies.",
+  "free": { "kind": "selfhost", "text": "Apache-2.0; no vendor quota or idle rule; you supply disks and retention" },
+  "cells": {
+    "metered": "No service fee; hosting, disks, and network cost extra",
+    "regions": "You choose the hosting location",
+    "selfhost": "Yes, Apache-2.0 RustFS Server"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "RustFS provides object storage, not a database"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "RustFS provides object storage, not a database"
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "Self-hosted",
+        "state": "not_published",
+        "math": "The software is Apache-2.0, a free open-source license. The costs for 100 GB of disks, host, power and network depend on your setup."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "RustFS does not run background jobs"
+      }
+    ]
+  }
+}

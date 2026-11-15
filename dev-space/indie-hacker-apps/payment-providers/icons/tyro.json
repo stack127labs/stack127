@@ -1,0 +1,17 @@
+{
+  "slug": "tyro",
+  "name": "Tyro",
+  "official_url": "https://www.tyro.com/",
+  "image_url": "https://www.tyro.com//wp-content//uploads//2026//08//cropped-tyro_favicon-1.png",
+  "source_page": "https://www.tyro.com/",
+  "kind": "logo-mark",
+  "source_host": "tyro.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "77905305aa9de8b12233eccb8121cb8903113dd55b74188d0a2ab7f4b775077c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

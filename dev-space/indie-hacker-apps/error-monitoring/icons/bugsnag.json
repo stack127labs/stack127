@@ -1,0 +1,17 @@
+{
+  "slug": "bugsnag",
+  "name": "BugSnag",
+  "official_url": "https://www.bugsnag.com/",
+  "image_url": "https://github.com/bugsnag.png?size=460",
+  "source_page": "https://www.bugsnag.com/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 397,
+    "height": 397
+  },
+  "sha256": "2370109f49770cbb2937a9810324a1332bb3703a5ddc42fcf94531edf85c5f65",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

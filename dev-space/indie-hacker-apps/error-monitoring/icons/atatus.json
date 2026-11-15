@@ -1,0 +1,17 @@
+{
+  "slug": "atatus",
+  "name": "Atatus",
+  "official_url": "https://www.atatus.com/",
+  "image_url": "https://www.atatus.com/favicon.ico",
+  "source_page": "https://www.atatus.com/",
+  "kind": "favicon",
+  "source_host": "atatus.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "afcdb24604c6c997a1373ba12718149818617080f0e902bc457e1497fe89039a",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "amazon-lightsail",
+  "name": "Amazon Lightsail",
+  "official_url": "https://aws.amazon.com/lightsail/",
+  "image_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+  "source_page": "https://aws.amazon.com/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "d1.awsstatic.com",
+  "original": {
+    "format": "svg",
+    "width": 427,
+    "height": 427
+  },
+  "sha256": "6105605d02391300c6ac7099682b2dcbd4a7915401e22f44cba867cf21b03944",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

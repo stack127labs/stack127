@@ -1,0 +1,48 @@
+{
+  "slug": "windcave",
+  "name": "Windcave",
+  "url": "https://windcave.com/",
+  "jobs": [
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "line": "Online gateway with cards, wallets, ACH, recurring billing, and hosted payment pages.",
+  "free": {
+    "kind": "none",
+    "text": "Setup and monthly gateway fees require an individual offer"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "NZ, AU, UK, US, Canada, Europe",
+    "payout": "Business-day settlement; timing varies by market"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "No standard US card rate is published. Merchant fees need an individual offer."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "No standard UK card rate is published. Merchant fees need an individual offer."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "No standard EU card rate is published. Merchant fees need an individual offer."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "It isn't published whether Indian sellers can sign up, and no India card rate is published."
+      }
+    ]
+  }
+}

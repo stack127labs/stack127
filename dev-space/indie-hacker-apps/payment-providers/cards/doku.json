@@ -1,0 +1,21 @@
+{
+  "slug": "doku",
+  "name": "DOKU",
+  "url": "https://www.doku.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Payment gateway with checkout, links and recurring billing tools.",
+  "free": { "kind": "none", "text": "Indonesia gateway has no setup or monthly fee" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Indonesia and Malaysia; international entities case-reviewed",
+    "payout": "Indonesia card T+2 or T+3; Malaysia cards T+2"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether international sellers can sign up, and no US card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether international sellers can sign up, and no UK card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether international sellers can sign up, and no German card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether international sellers can sign up, and no India card rate is published." }
+    ]
+  }
+}

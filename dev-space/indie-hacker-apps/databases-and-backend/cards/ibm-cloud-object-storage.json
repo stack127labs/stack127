@@ -1,0 +1,25 @@
+{
+  "slug": "ibm-cloud-object-storage",
+  "name": "IBM Cloud Object Storage",
+  "url": "https://www.ibm.com/products/cloud-object-storage",
+  "jobs": ["files"],
+  "line": "Store and serve objects in S3-compatible regional and cross-region buckets.",
+  "free": { "kind": "trial", "text": "12mo: 5GB, 2K A/20K B, 10GB retrieval/5GB egress; 7d delete recovery" },
+  "cells": {
+    "metered": "Standard storage $0.023/GB-month in Dallas",
+    "regions": "Regional, cross-region, or single-data-center choices",
+    "selfhost": "No, IBM-managed storage service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IBM COS stores objects, not SQL databases" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IBM COS stores objects, not SQL databases" }
+    ],
+    "files": [
+      { "v": "$12.24/month", "plan": "Standard, Dallas", "state": "confirmed", "math": "$2.30 for storage, plus $0.52 for Class A requests, plus $0.42 for Class B requests, plus $9.00 for outbound data (egress). The total is $12.24 a month, before tax or discounts." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IBM COS stores files and does not run background jobs" }
+    ]
+  }
+}

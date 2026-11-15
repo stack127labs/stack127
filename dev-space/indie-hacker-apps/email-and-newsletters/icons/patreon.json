@@ -1,0 +1,17 @@
+{
+  "slug": "patreon",
+  "name": "Patreon",
+  "official_url": "https://www.patreon.com/",
+  "image_url": "https://c5.patreon.com/external/favicon/rebrand/pwa-512.png?v=af5597c2ef",
+  "source_page": "https://www.patreon.com/",
+  "kind": "manifest-icon",
+  "source_host": "c5.patreon.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "744b5bfef232181ec80fa36965e34510ca3cabbe3715d419381f8ffe68f79a03",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "smartsupp",
+  "name": "Smartsupp",
+  "url": "https://www.smartsupp.com/",
+  "jobs": ["chat", "inbox", "ai"],
+  "line": "Website chat and shared inbox for email, social, and ecommerce support.",
+  "free": { "kind": "free", "text": "Free for 1 operator and 25 chats/month" },
+  "cells": {
+    "channels": "Website chat, email, WhatsApp, Messenger, Instagram",
+    "ai": "Mira costs €20 per 100 AI conversations/month",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "€20", "plan": "Solo", "state": "confirmed", "math": "The Solo plan covers one operator and 100 conversations a month." },
+      { "v": "€30", "plan": "Plus", "state": "confirmed", "math": "The Plus plan includes three working operators and 100 conversations a month." }
+    ]
+  }
+}

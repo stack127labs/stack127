@@ -1,0 +1,17 @@
+{
+  "slug": "eway",
+  "name": "Eway",
+  "official_url": "https://www.eway.com.au/",
+  "image_url": "https://www.eway.com.au/wp-content/uploads/sites/12/2026/04/cropped-Eway_Favicon_01-1-192x192.jpg",
+  "source_page": "https://www.eway.com.au/",
+  "kind": "favicon",
+  "source_host": "eway.com.au",
+  "original": {
+    "format": "jpeg",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "739154868bdf9f530a903f2f1e50ec97d597b09fef7bac5e600335280e230ac5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

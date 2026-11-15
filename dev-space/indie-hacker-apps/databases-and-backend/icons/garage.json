@@ -1,0 +1,17 @@
+{
+  "slug": "garage",
+  "name": "Garage",
+  "official_url": "https://garagehq.deuxfleurs.fr/",
+  "image_url": "https://garagehq.deuxfleurs.fr/icons/apple-touch-icon.png",
+  "source_page": "https://garagehq.deuxfleurs.fr/",
+  "kind": "apple-touch-icon",
+  "source_host": "garagehq.deuxfleurs.fr",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "54892585f6fb797c94051e7d5784e8fe1586e4a221a1a6cfeaa467b2d4934e46",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

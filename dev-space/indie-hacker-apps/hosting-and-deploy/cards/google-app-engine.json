@@ -1,0 +1,14 @@
+{
+  "slug": "google-app-engine",
+  "name": "Google App Engine",
+  "url": "https://cloud.google.com/appengine",
+  "jobs": ["paas"],
+  "line": "Build and run apps on Google's managed application platform.",
+  "free": { "kind": "free", "text": "Standard: 28 F1/9 B1 hours + 1GiB egress/day; Flexible has no free compute" },
+  "cells": { "type": "Managed application platform", "regions": "US, Europe, Asia and other GCP regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Delivery is $7.46–$11.06 a month (even spread, or all 100 GB in one day). Standard build, storage and other usage are not priced." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Assuming 1 vCPU, 2 GiB of memory and 10 GiB of disk, the $67.70 subtotal includes one free IPv4 hour per GiB. The actual VM size, other charges and rollout costs vary." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The small app API's $67.70 example + $54.62 Cloud SQL base + $0.00011726 for each backup GiB-hour, plus database network and other charges. The exact total is unknown." }
+  ] }
+}

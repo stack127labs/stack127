@@ -1,0 +1,21 @@
+{
+  "slug": "bitpay",
+  "name": "BitPay",
+  "url": "https://www.bitpay.com/business",
+  "jobs": ["crypto"],
+  "line": "Crypto checkout that can settle to a bank account or wallet.",
+  "free": { "kind": "none", "text": "No monthly fee stated; transaction fees apply" },
+  "cells": {
+    "type": "Crypto payment processor",
+    "countries": "US and Canada; new UK and EEA onboarding paused",
+    "payout": "Business-day settlement; bank arrival 1–2 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2% + $0.25", "plan": "Crypto payment", "state": "confirmed", "math": "The published fee for crypto payments, for sellers under $500,000 a month in volume. Example: 2% of $100, plus $0.25, is $2.25." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "New sign-ups from the UK are paused right now." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "New sign-ups from the European Economic Area (EEA) are paused right now." },
+      { "v": "2% + $0.25", "plan": "Crypto payment", "state": "unclear", "math": "The published crypto fee applies to sellers under $500,000 a month in volume. It isn't published whether sellers in India can sign up." }
+    ]
+  }
+}

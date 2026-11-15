@@ -1,0 +1,25 @@
+{
+  "slug": "bunny-database",
+  "name": "Bunny Database",
+  "url": "https://bunny.net/database/",
+  "jobs": ["sql", "vector"],
+  "line": "Run managed SQL with global read replicas and vector search.",
+  "free": { "kind": "free", "text": "1 GB/database in Preview; idle DBs move to object storage" },
+  "cells": {
+    "metered": "$0.30/billion rows read; $0.30/million written",
+    "regions": "41 advertised regions; data storage in Toronto or Frankfurt",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0", "plan": "Public Preview", "state": "unclear", "math": "Database parts are free during the Preview. It is unclear whether the $1 account minimum applies to the database only." },
+      { "v": "$0", "plan": "Public Preview", "state": "unclear", "math": "The Preview free offer covers storage. The account-wide minimum may apply, and it is unclear whether it covers only the database." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This has no object storage. Bunny Storage is a separate product." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No application job execution service" }
+    ]
+  }
+}

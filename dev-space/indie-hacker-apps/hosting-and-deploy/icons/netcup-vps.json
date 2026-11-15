@@ -1,0 +1,17 @@
+{
+  "slug": "netcup-vps",
+  "name": "netcup VPS",
+  "official_url": "https://www.netcup.com/en/server/vps",
+  "image_url": "https://www.netcup.com/favicon.ico",
+  "source_page": "https://www.netcup.com/en/server/vps",
+  "kind": "favicon",
+  "source_host": "netcup.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "59857e974c9724df05bbbc19784b8cd4304119b3e5b6845054dbfd637f4f8228",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

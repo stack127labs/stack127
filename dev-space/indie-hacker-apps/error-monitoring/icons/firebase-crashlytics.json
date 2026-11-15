@@ -1,0 +1,17 @@
+{
+  "slug": "firebase-crashlytics",
+  "name": "Firebase Crashlytics",
+  "official_url": "https://firebase.google.com/products/crashlytics",
+  "image_url": "https://firebase.google.com/_pwa/firebase/icons/icon-512x512.png",
+  "source_page": "https://firebase.google.com/products/crashlytics",
+  "kind": "manifest-icon",
+  "source_host": "firebase.google.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "6aff09c6b4366c785bb246e120ab29a3de146680f6bcfa4f9e0b9d257046eba7",
+  "note": "parent brand: Firebase; no Crashlytics-specific icon was among the downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

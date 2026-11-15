@@ -1,0 +1,19 @@
+{
+  "slug": "callbell",
+  "name": "Callbell",
+  "url": "https://www.callbell.eu/",
+  "jobs": ["inbox", "chat", "ai"],
+  "line": "Combines WhatsApp, social messages, and website chat in a team inbox.",
+  "free": { "kind": "trial", "text": "7-day trial; no card advertised" },
+  "cells": {
+    "channels": "WhatsApp, Instagram, Messenger, website chat",
+    "ai": "Credit-based; exact answer cost varies",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "€42", "plan": "Multi-agent chat", "state": "confirmed", "math": "A 3-seat minimum at €14 per agent a month (monthly equivalent), billed quarterly or longer." },
+      { "v": "€42", "plan": "Multi-agent chat", "state": "confirmed", "math": "Three working agents at €14 per agent a month (monthly equivalent), billed quarterly or longer." }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "scout-monitoring",
+  "name": "Scout APM",
+  "url": "https://www.scoutapm.com/",
+  "jobs": ["errors", "logs", "performance"],
+  "line": "Traces requests and background jobs, groups errors, and searches application logs.",
+  "free": { "kind": "free", "text": "Free: 300K transactions, 5,000 errors, 1 GB logs" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "5,000 errors fit inside the Free plan's monthly allowance. Individual errors are kept for 30 days." },
+      { "v": "$19", "plan": "Free + 1 error block", "state": "unclear", "math": "If each $19 block adds 50,000 events, one block covers 50,000 errors. This reading isn't confirmed." },
+      { "v": "$190", "plan": "Free + 10 error blocks", "state": "unclear", "math": "If each $19 block adds 50,000 events, ten blocks cover 500,000 errors. This reading isn't confirmed." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

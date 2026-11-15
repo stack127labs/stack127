@@ -1,0 +1,17 @@
+{
+  "slug": "tianji",
+  "name": "Tianji",
+  "official_url": "https://tianji.dev/",
+  "image_url": "https://tianji.dev/img/logo.svg",
+  "source_page": "https://tianji.dev/",
+  "kind": "logo-mark",
+  "source_host": "tianji.dev",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "3b44e25b48854dd20bd91b9dd1ba6385ee1b21efc6fe0e30713af41e976269dc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

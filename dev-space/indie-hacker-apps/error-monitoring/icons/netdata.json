@@ -1,0 +1,17 @@
+{
+  "slug": "netdata",
+  "name": "Netdata",
+  "official_url": "https://www.netdata.cloud/",
+  "image_url": "https://github.com/netdata.png?size=460",
+  "source_page": "https://www.netdata.cloud/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "4d76cf82955105b94392614065dfdcf5deaacff46bcb8d4886969f9397ff844d",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

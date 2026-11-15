@@ -1,0 +1,20 @@
+{
+  "slug": "piwik-pro",
+  "name": "Piwik PRO",
+  "url": "https://piwik.pro/",
+  "jobs": ["web", "product"],
+  "line": "Combines website and product analytics with consent management.",
+  "free": { "kind": "trial", "text": "30-day Business trial" },
+  "cells": {
+    "cookieless": "Optional, a non-consenting mode is available",
+    "location": "Sweden for Business; other plans vary",
+    "selfhost": "Yes, customer-cloud options; terms unclear"
+  },
+  "costs": {
+    "pv": [
+      { "v": "Unknown", "plan": "Business", "state": "check_failed", "math": "The Business minimum is €36 a month, but the price for 10,000 actions could not be confirmed with the calculator." },
+      { "v": "Unknown", "plan": "Business", "state": "check_failed", "math": "The exact Business fee for 100,000 actions could not be confirmed, because the calculator check failed." },
+      { "v": "Unknown", "plan": "Business", "state": "check_failed", "math": "The exact Business fee for 1,000,000 actions could not be confirmed, because the calculator check failed." }
+    ]
+  }
+}

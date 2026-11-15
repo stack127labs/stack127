@@ -1,0 +1,17 @@
+{
+  "slug": "storj",
+  "name": "Storj Object Storage",
+  "official_url": "https://www.storj.io/",
+  "image_url": "https://www.storj.io/assets/brand/storj-logo-mark-color.svg",
+  "source_page": "https://www.storj.io/",
+  "kind": "svg-icon",
+  "source_host": "storj.io",
+  "original": {
+    "format": "svg",
+    "width": 245,
+    "height": 155
+  },
+  "sha256": "3cf107b5c9cccf2a359ba66ffd20f64257714ef61e7835a502348d3fb9842685",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

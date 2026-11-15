@@ -1,0 +1,17 @@
+{
+  "slug": "smtpeter",
+  "name": "SMTPeter",
+  "official_url": "https://www.smtpeter.com/en",
+  "image_url": "https://www.smtpeter.com/Resources/images/smtpeter-vertical-192.svg",
+  "source_page": "https://www.smtpeter.com/en",
+  "kind": "manifest-icon",
+  "source_host": "smtpeter.com",
+  "original": {
+    "format": "svg",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "edc887c2fde741efd6c5a0932bfeb545fe77a3fdf19d9ee43f23d3f94dd9fd61",
+  "note": "Official square icon uses the SMTPeter wordmark; no separate mark was found.",
+  "saved_at": "2026-11-14"
+}

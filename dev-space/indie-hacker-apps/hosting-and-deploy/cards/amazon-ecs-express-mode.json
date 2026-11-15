@@ -1,0 +1,14 @@
+{
+  "slug": "amazon-ecs-express-mode",
+  "name": "Amazon ECS Express Mode",
+  "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html",
+  "jobs": ["paas"],
+  "line": "Deploy container apps on ECS with generated load balancing and scaling.",
+  "free": { "kind": "credits", "text": "AWS account credits; no recurring Express hosting bundle" },
+  "cells": { "type": "Container app platform", "regions": "AWS ECS and Fargate regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$36.485025", "plan": "Fargate and Express resources", "state": "unclear", "math": "Known base price for a static site. The load balancer (ALB), task and IP address usage, plus logs and data transfer, can change the full total." },
+    { "v": "$63.5151", "plan": "Fargate and Express resources", "state": "unclear", "math": "Known base price for a small app API. Logs, overlapping tasks, overlapping IP addresses and data transfer can still change the total." },
+    { "v": "$77.4951", "plan": "Fargate + RDS", "state": "unclear", "math": "Known base price for app plus Postgres, including a $13.98 database cost. Backups, logs, routing and task charges vary." }
+  ] }
+}

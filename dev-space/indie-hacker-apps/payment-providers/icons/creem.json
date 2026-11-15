@@ -1,0 +1,17 @@
+{
+  "slug": "creem",
+  "name": "Creem",
+  "official_url": "https://www.creem.io/",
+  "image_url": "https://www.creem.io/icon.png",
+  "source_page": "https://www.creem.io/",
+  "kind": "favicon",
+  "source_host": "creem.io",
+  "original": {
+    "format": "png",
+    "width": 363,
+    "height": 363
+  },
+  "sha256": "22f9c4c8218aab997b3e2d07fd749d7a38a22b8d94623a5802c556d1167dfd05",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

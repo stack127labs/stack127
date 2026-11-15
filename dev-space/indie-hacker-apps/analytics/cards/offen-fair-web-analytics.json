@@ -1,0 +1,20 @@
+{
+  "slug": "offen-fair-web-analytics",
+  "name": "Offen Fair Web Analytics",
+  "url": "https://www.offen.dev/",
+  "jobs": ["web"],
+  "line": "Self-hosted visitor analytics that lets people inspect their data.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you provide the server" },
+  "cells": {
+    "cookieless": "No, uses consent and session cookies",
+    "location": "Your server and database",
+    "selfhost": "Yes, binary or Docker deployment"
+  },
+  "costs": {
+    "pv": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The software license costs zero. Computing, storage, backups and maintenance are not priced." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The software license costs zero. Computing, storage, backups and maintenance are not priced." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The software license costs zero. Computing, storage, backups and maintenance are not priced." }
+    ]
+  }
+}

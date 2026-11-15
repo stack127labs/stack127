@@ -1,0 +1,14 @@
+{
+  "slug": "arvancloud-cloud-container",
+  "name": "ArvanCloud Cloud Container",
+  "url": "https://www.arvancloud.ir/en/products/cloud-container",
+  "jobs": ["paas"],
+  "line": "Deploy and scale container workloads on managed Kubernetes.",
+  "free": { "kind": "free", "text": "Free upload traffic and first 250 GB download tier" },
+  "cells": { "type": "Managed containers", "regions": "Iran and Europe; region sources conflict", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€2.76", "plan": "CPU, RAM and storage", "state": "unclear", "math": "0.5 core, 1 GB RAM and 1 GB temporary storage at the monthly price shown. Build, tax and data transfer terms are not confirmed." },
+    { "v": "€5.42", "plan": "CPU, RAM and storage", "state": "unclear", "math": "1 core, 2 GB RAM and 1 GB temporary storage at the monthly price shown, before VAT. Build costs and data transfer costs are not confirmed." },
+    { "v": "€11.84", "plan": "App and database containers", "state": "unclear", "math": "The app, plus a separate PostgreSQL container with 1 core, 2 GB RAM and 1 GB storage, and a 10 GB disk. Backups and other unconfirmed costs are not included." }
+  ] }
+}

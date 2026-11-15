@@ -1,0 +1,17 @@
+{
+  "slug": "terminusdb",
+  "name": "TerminusDB",
+  "official_url": "https://terminusdb.com/",
+  "image_url": "https://terminusdb.com/icon.svg?0ab8faf8d8fdbb70",
+  "source_page": "https://terminusdb.com/",
+  "kind": "svg-icon",
+  "source_host": "terminusdb.com",
+  "original": {
+    "format": "svg",
+    "width": 240,
+    "height": 267
+  },
+  "sha256": "c3feb8a87a43b02bcf6cbbe3d7bc30f6e2edbbdca6af142c5b67afc65280c8e4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

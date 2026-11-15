@@ -1,0 +1,17 @@
+{
+  "slug": "honeycomb",
+  "name": "Honeycomb",
+  "official_url": "https://www.honeycomb.io/",
+  "image_url": "https://www.honeycomb.io/favicon.ico?favicon.07o~09ebmt8eg.ico",
+  "source_page": "https://www.honeycomb.io/",
+  "kind": "favicon",
+  "source_host": "honeycomb.io",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "4ba4a0e41aa5597e3eb9af9cb053fd715fca1b6b08186cae62ac13d2d2835801",
+  "note": "largest official square icon is 48 px",
+  "saved_at": "2026-11-14"
+}

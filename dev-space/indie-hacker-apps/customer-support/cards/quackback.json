@@ -1,0 +1,19 @@
+{
+  "slug": "quackback",
+  "name": "Quackback",
+  "url": "https://quackback.io/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Support inbox with website chat, email, help center, and feedback boards.",
+  "free": { "kind": "free", "text": "Free: 1 seat, 1 board, 1 email address" },
+  "cells": {
+    "channels": "Website chat, email, tickets, help center",
+    "ai": "Included by plan; no current per-resolution fee",
+    "selfhost": "Yes, AGPL-3.0"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The free Cloud plan has one seat. The website messenger handles support chat." },
+      { "v": "$348/year", "plan": "Pro", "state": "confirmed", "math": "One Pro workspace covers three agents. The price is annual, and five seats are included." }
+    ]
+  }
+}

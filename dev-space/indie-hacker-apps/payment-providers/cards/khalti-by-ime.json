@@ -1,0 +1,21 @@
+{
+  "slug": "khalti-by-ime",
+  "name": "Khalti by IME",
+  "url": "https://khalti.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Nepal payment gateway with wallet checkout, links and merchant payouts.",
+  "free": { "kind": "none", "text": "Setup and processing charges are personalized" },
+  "cells": {
+    "type": "Payment gateway and wallet",
+    "countries": "Nepal only",
+    "payout": "On-demand withdrawal; instant bank transfer advertised"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Nepal." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Nepal." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Nepal." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Nepal." }
+    ]
+  }
+}

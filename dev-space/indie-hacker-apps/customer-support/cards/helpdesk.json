@@ -1,0 +1,19 @@
+{
+  "slug": "helpdesk",
+  "name": "HelpDesk.com (Text)",
+  "url": "https://www.helpdesk.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Text combines email tickets, human chat, workflows, and AI support.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, messaging",
+    "ai": "10 resolutions included; more sold in packs of 50",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$25", "plan": "Essential", "state": "confirmed", "math": "1 user at $25 a month, for email tickets and human chat, with AI off." },
+      { "v": "$75", "plan": "Essential", "state": "confirmed", "math": "3 users at $25 a month each, for email tickets and human chat, with AI off." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "clickport",
+  "name": "Clickport",
+  "official_url": "https://clickport.io/",
+  "image_url": "https://clickport.io/favicon-192x192.png",
+  "source_page": "https://clickport.io/",
+  "kind": "favicon",
+  "source_host": "clickport.io",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "1947eaf09cf89be3d599a30eec2c40022f3030e64361bb6b6c70e6bf81a13541",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

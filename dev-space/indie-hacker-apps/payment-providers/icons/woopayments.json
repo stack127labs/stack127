@@ -1,0 +1,17 @@
+{
+  "slug": "woopayments",
+  "name": "WooPayments",
+  "official_url": "https://woocommerce.com/payments/",
+  "image_url": "https://woocommerce.com/wp-content/uploads/2024/12/cropped-logo-w-favicon.png?w=192",
+  "source_page": "https://woocommerce.com/payments/",
+  "kind": "favicon",
+  "source_host": "woocommerce.com",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "41dd1f2d3e3e9d53c830ad76bf9a3d3f6578708b4f6d26221b22ab20a76df903",
+  "note": "parent brand: WooCommerce",
+  "saved_at": "2026-11-14"
+}

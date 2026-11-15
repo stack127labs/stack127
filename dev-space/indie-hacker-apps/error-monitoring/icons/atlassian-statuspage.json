@@ -1,0 +1,17 @@
+{
+  "slug": "atlassian-statuspage",
+  "name": "Atlassian Statuspage",
+  "official_url": "https://www.atlassian.com/software/statuspage",
+  "image_url": "https://www.atlassian.com/apple-touch-icon.png",
+  "source_page": "https://www.atlassian.com/software/statuspage",
+  "kind": "apple-touch-icon",
+  "source_host": "atlassian.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "87c78d45175640eb7648797352a0091aefc782ede6f0bbb3368495b11c6d1365",
+  "note": "parent brand: Atlassian; no Statuspage-specific icon was among the downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

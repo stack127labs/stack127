@@ -1,0 +1,17 @@
+{
+  "slug": "nile-auth",
+  "name": "Nile Auth",
+  "official_url": "https://www.thenile.dev/auth",
+  "image_url": "https://www.thenile.dev/apple-icon.png",
+  "source_page": "https://www.thenile.dev/auth",
+  "kind": "manifest-icon",
+  "source_host": "thenile.dev",
+  "original": {
+    "format": "png",
+    "width": 1000,
+    "height": 1000
+  },
+  "sha256": "71c1bed4e5c082cca960e5e22af20227bb59b19a77a6b4a0433dc2985777ec2c",
+  "note": "parent brand: Nile; Auth is a Nile product",
+  "saved_at": "2026-11-14"
+}

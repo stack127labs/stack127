@@ -1,0 +1,17 @@
+{
+  "slug": "ghost",
+  "name": "Ghost",
+  "official_url": "https://ghost.org/",
+  "image_url": "https://ghost.org/favicon.svg",
+  "source_page": "https://ghost.org/",
+  "kind": "svg-icon",
+  "source_host": "ghost.org",
+  "original": {
+    "format": "svg",
+    "width": 853,
+    "height": 853
+  },
+  "sha256": "4e311fcdd8261a4f95565daf2fe308c05cfb9eac0d2827c0fab9d4bde647c066",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

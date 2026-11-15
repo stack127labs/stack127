@@ -1,0 +1,21 @@
+{
+  "slug": "paymongo",
+  "name": "PayMongo",
+  "url": "https://www.paymongo.com/en",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Philippine payment gateway for checkout, links and recurring payments; signup paused.",
+  "free": { "kind": "none", "text": "No setup/monthly fee; new merchant sign-ups are paused" },
+  "cells": {
+    "type": "Payment gateway and payment-processing provider",
+    "countries": "Philippines; foreign entities need local operations",
+    "payout": "Weekly Wednesday by default; T+1 by request"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate covers cards issued in the Philippines. It isn't published whether US sellers are eligible, and no US card fee is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate covers cards issued in the Philippines. It isn't published whether UK sellers are eligible, and no UK card fee is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate covers cards issued in the Philippines. It isn't published whether German sellers are eligible, and no German card fee is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate covers cards issued in the Philippines. It isn't published whether Indian sellers are eligible, and no India card fee is published." }
+    ]
+  }
+}

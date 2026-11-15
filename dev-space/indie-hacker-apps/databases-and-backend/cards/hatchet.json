@@ -1,0 +1,25 @@
+{
+  "slug": "hatchet",
+  "name": "Hatchet",
+  "url": "https://hatchet.run/",
+  "jobs": ["jobs"],
+  "line": "Coordinate durable background tasks and workflows on your own workers.",
+  "free": { "kind": "free", "text": "With card: 1M runs/events monthly; 2K/day without; no Cloud idle deletion" },
+  "cells": {
+    "metered": "PAYG: 1M runs free, then $30/M runs and $5/M events",
+    "regions": "US West/East, Ireland, Sydney; control plane in Oregon",
+    "selfhost": "Yes, MIT software; provide workers and PostgreSQL"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hatchet needs a database to keep its state, but it is not a managed database product." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hatchet needs a database to keep its state, but it is not a managed database product." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hatchet does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "PAYG plus worker", "state": "unclear", "math": "10,000 task runs fit within the 1 million runs included each month. Hatchet does not price the outside worker compute." }
+    ]
+  }
+}

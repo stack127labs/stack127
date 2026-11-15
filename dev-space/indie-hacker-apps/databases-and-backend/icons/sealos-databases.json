@@ -1,0 +1,17 @@
+{
+  "slug": "sealos-databases",
+  "name": "Sealos",
+  "official_url": "https://sealos.io/products/databases/",
+  "image_url": "https://sealos.io/apple-touch-icon.png",
+  "source_page": "https://sealos.io/products/databases/",
+  "kind": "apple-touch-icon",
+  "source_host": "sealos.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "5e18ed98fedacc41a3546d253a92097e4d2ccc92ee00b70d06dd89df2606547d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

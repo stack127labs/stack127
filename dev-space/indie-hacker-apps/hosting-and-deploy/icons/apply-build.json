@@ -1,0 +1,17 @@
+{
+  "slug": "apply-build",
+  "name": "Apply.Build",
+  "official_url": "https://apply.build/",
+  "image_url": "https://apply.build/logo512.png",
+  "source_page": "https://apply.build/",
+  "kind": "manifest-icon",
+  "source_host": "apply.build",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "18204e4618c543d08f4cfa13af08bc0d43b9fa4ff955e3d7445dd09fab120690",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "payhere",
+  "name": "PayHere",
+  "url": "https://www.payhere.lk/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Sri Lankan gateway with payment links, checkout and recurring card plans.",
+  "free": { "kind": "free", "text": "Lite plan has no monthly fee; recurring billing needs Plus or higher" },
+  "cells": {
+    "type": "Payment gateway and online processor",
+    "countries": "Sri Lankan businesses; foreign seller rules unclear",
+    "payout": "Daily settlement at T+2 bank days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card prices are for Sri Lankan sellers. It isn't published whether US sellers are eligible, and no US card fee is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card prices are for Sri Lankan sellers. It isn't published whether UK sellers are eligible, and no UK card fee is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card prices are for Sri Lankan sellers. It isn't published whether German sellers are eligible, and no German card fee is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card prices are for Sri Lankan sellers. It isn't published whether Indian sellers are eligible, and no India card fee is published." }
+    ]
+  }
+}

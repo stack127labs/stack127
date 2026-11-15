@@ -1,0 +1,17 @@
+{
+  "slug": "bold",
+  "name": "Bold",
+  "official_url": "https://bold.co/",
+  "image_url": "https://bold.co/android-chrome-512x512.png",
+  "source_page": "https://bold.co/",
+  "kind": "manifest-icon",
+  "source_host": "bold.co",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "2df95cd8eb8670cb578dc2cfb906ddfb2232bb634e1802088522903a0fa8e0f7",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "docsbot",
+  "name": "DocsBot",
+  "url": "https://docsbot.ai/",
+  "jobs": ["ai"],
+  "line": "AI agents answer from your docs and connect to support channels.",
+  "free": { "kind": "free", "text": "Free for personal use; 1 bot, 50 pages, 100 credits/month" },
+  "cells": {
+    "channels": "Web, WhatsApp, Messenger, Slack, Help Scout",
+    "ai": "Monthly credits; model multipliers vary usage",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No standalone human support inbox or staffed live chat" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No standalone human support inbox or staffed live chat" }
+    ]
+  }
+}

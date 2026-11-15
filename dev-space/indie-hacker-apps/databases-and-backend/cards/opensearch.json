@@ -1,0 +1,25 @@
+{
+  "slug": "opensearch",
+  "name": "OpenSearch",
+  "url": "https://opensearch.org/",
+  "jobs": ["vector"],
+  "line": "Open-source search and analytics engine for documents and vector retrieval.",
+  "free": { "kind": "selfhost", "text": "Apache-2.0; no hosted quota or idle rule; you manage disks and retention" },
+  "cells": {
+    "metered": "Software $0; server and storage costs are separate",
+    "regions": "Choose your own hosting region",
+    "selfhost": "Yes, Apache-2.0 self-hosted software"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Self-hosted OpenSearch", "state": "not_published", "math": "$0 software fee. Host size and count, disk, replicas, transfer, backups and model costs are not priced." },
+      { "v": "Unknown", "plan": "Self-hosted OpenSearch", "state": "not_published", "math": "The software stays $0. Kept compute, storage, snapshots and provider minimums decide the idle cost." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "OpenSearch is not a general file store." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "OpenSearch does not run customer application jobs" }
+    ]
+  }
+}

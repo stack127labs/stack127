@@ -1,0 +1,21 @@
+{
+  "slug": "gopay",
+  "name": "GoPay",
+  "url": "https://www.gopay.com/en/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Czech and Slovak gateway for online payments and recurring cards.",
+  "free": { "kind": "free", "text": "Start: 12 months with free card volume up to CZK 50,000/month" },
+  "cells": {
+    "type": "Payment gateway",
+    "countries": "Czechia and Slovakia; foreign companies may be reviewed",
+    "payout": "Monthly default; daily or weekly available"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Foreign companies can apply, but no card rate for US sellers is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Foreign companies can apply, but no card rate for UK sellers is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Foreign companies can apply, but no card rate for German sellers is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Foreign companies can apply, but no card rate for Indian sellers is published." }
+    ]
+  }
+}

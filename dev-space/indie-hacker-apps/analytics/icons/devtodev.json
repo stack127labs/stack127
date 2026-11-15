@@ -1,0 +1,17 @@
+{
+  "slug": "devtodev",
+  "name": "devtodev",
+  "official_url": "https://www.devtodev.com/",
+  "image_url": "https://www.devtodev.com/icon.png?1c4efe1436024026",
+  "source_page": "https://www.devtodev.com/",
+  "kind": "favicon",
+  "source_host": "devtodev.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "d2823c35fd0a4b8bd4344ea41b13a1a9b03fc161618c0e961b4ad683afda0301",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

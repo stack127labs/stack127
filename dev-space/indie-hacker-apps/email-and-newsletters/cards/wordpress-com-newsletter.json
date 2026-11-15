@@ -1,0 +1,26 @@
+{
+  "slug": "wordpress-com-newsletter",
+  "name": "WordPress.com Newsletter",
+  "url": "https://wordpress.com/newsletter/",
+  "jobs": ["newsletter"],
+  "line": "Hosted WordPress posts sent as newsletters, with free and paid readers.",
+  "free": { "kind": "free", "text": "Unlimited sends; 100 imported subscribers; WordPress.com address" },
+  "cells": {
+    "newsletters": "Yes, native post newsletters with subscriber preferences",
+    "api": "Yes, WordPress.com REST API; email sending API not listed"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 0/month", "plan": "Free", "state": "confirmed", "math": "Unlimited native sends. This assumes people sign up directly. Importing more than 100 existing subscribers needs the Personal plan at USD 9 a month." },
+      { "v": "USD 0/month", "plan": "Free", "state": "confirmed", "math": "Unlimited native sends. This assumes people sign up directly. Importing more than 100 existing subscribers needs the Personal plan at USD 9 a month." },
+      { "v": "USD 0/month", "plan": "Free", "state": "confirmed", "math": "Unlimited native sends. This assumes people sign up directly. Importing more than 100 existing subscribers needs the Personal plan at USD 9 a month." },
+      { "v": "USD 0/month", "plan": "Free", "state": "confirmed", "math": "Unlimited native sends. This assumes people sign up directly. Imports of 50,000 contacts need manual review and the Personal plan at USD 9 a month." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a native newsletter, not a general app email service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a native newsletter, not a general app email service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a native newsletter, not a general app email service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a native newsletter, not a general app email service." }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "koyeb-databases",
+  "name": "Koyeb Serverless Postgres",
+  "url": "https://www.koyeb.com/docs/databases",
+  "jobs": ["sql", "vector"],
+  "line": "Managed PostgreSQL with selectable compute sizes and vector search.",
+  "free": { "kind": "free", "text": "0.25 vCPU, 1GB RAM, 5h/mo, 1GB storage; sleeps after 5 idle minutes" },
+  "cells": {
+    "metered": "Pro $29/mo plus compute; Small DB is $0.04/hour",
+    "regions": "Frankfurt, Washington DC, Singapore",
+    "selfhost": "No, Koyeb-managed database service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Pro plus Small", "state": "unclear", "math": "$48.69 is the known subtotal. The $10 compute credit is not used in this figure. Charges for reading data, and how exact the rates are, are not yet confirmed." },
+      { "v": "Unknown", "plan": "Pro plus Small", "state": "unclear", "math": "Idle storage costs $0.49056. The Pro total may be $29 or $29.49, depending on how the storage credit applies." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Koyeb Postgres does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Koyeb Database Services does not execute background jobs" }
+    ]
+  }
+}

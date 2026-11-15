@@ -1,0 +1,25 @@
+{
+  "slug": "google-cloud-storage",
+  "name": "Google Cloud Storage",
+  "url": "https://cloud.google.com/storage",
+  "jobs": ["files"],
+  "line": "Store, secure, and deliver files in regional and multi-region buckets.",
+  "free": { "kind": "free", "text": "5 GB-mo; 5K A, 50K B ops; 100 GB NA egress; 7d deleted hold; no idle pause" },
+  "cells": {
+    "metered": "Usage-based; Iowa Standard storage $0.000027397/GiB-hour",
+    "regions": "Choose a region, dual-region, or multi-region bucket",
+    "selfhost": "No, Google-managed storage service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud Storage stores objects, not SQL databases" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud Storage stores objects, not SQL databases" }
+    ],
+    "files": [
+      { "v": "$13.94/month", "plan": "Iowa Standard", "state": "unclear", "math": "100 GB is 93.1323 GiB (one GiB is 2³⁰ bytes). Storage: 93.1323 × 730 × $0.000027397. Requests: 100 × $0.005, plus 1,000 × $0.0004. Outbound data: 93.1323 × $0.12. These add up to about $13.94. There is no free tier." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud Storage stores files and does not run background jobs" }
+    ]
+  }
+}

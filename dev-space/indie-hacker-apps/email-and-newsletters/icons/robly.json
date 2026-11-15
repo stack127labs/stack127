@@ -1,0 +1,17 @@
+{
+  "slug": "robly",
+  "name": "Robly",
+  "official_url": "https://www.robly.com/",
+  "image_url": "https://img.robly.com/assets/favicon-c1e6927c54ca497b56c52318b382f94fee8790ab2ead4c3a2a347b129f919e48.ico",
+  "source_page": "https://www.robly.com/",
+  "kind": "favicon",
+  "source_host": "img.robly.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "cb3cc78a07939bcaf732d02433b39921e89254adde7705b7cd2cb9266230a582",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

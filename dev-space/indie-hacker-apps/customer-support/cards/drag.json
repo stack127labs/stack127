@@ -1,0 +1,19 @@
+{
+  "slug": "drag",
+  "name": "Drag",
+  "url": "https://www.dragapp.com/",
+  "jobs": ["inbox", "helpdesk", "chat", "ai"],
+  "line": "Turns Gmail into a shared support inbox with chat and AI agents.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, WhatsApp",
+    "ai": "50 credits per AI resolution; $0.01 per extra credit",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$16", "plan": "Starter", "state": "confirmed", "math": "1 seat at $16 a month, with one support email and 100 conversations." },
+      { "v": "$48", "plan": "Starter", "state": "confirmed", "math": "3 seats at $16 a month each, with one support email and 100 conversations." }
+    ]
+  }
+}

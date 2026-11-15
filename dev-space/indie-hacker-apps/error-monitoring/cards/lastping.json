@@ -1,0 +1,24 @@
+{
+  "slug": "lastping",
+  "name": "LastPing",
+  "url": "https://lastping.dev/",
+  "jobs": ["uptime", "status", "logs", "performance", "cron"],
+  "line": "Monitors cron jobs and HTTP endpoints, with traces, logs and status pages.",
+  "free": { "kind": "free", "text": "Free hosted plan; no card or monitor cap advertised" },
+  "cells": {
+    "interval": "30 s minimum; 60 s default",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "LastPing doesn't have a dedicated error-report tracker." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "LastPing doesn't have a dedicated error-report tracker." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "LastPing doesn't have a dedicated error-report tracker." }
+    ],
+    "uptime": [
+      { "v": "$0", "plan": "Individual", "state": "unclear", "math": "HTTP checks are free. LastPing doesn't publish whether it supports check locations or own-domain status pages." },
+      { "v": "$0", "plan": "Individual", "state": "unclear", "math": "HTTP checks are free. LastPing doesn't publish whether it supports check locations or own-domain status pages." },
+      { "v": "$0", "plan": "Individual", "state": "unclear", "math": "HTTP checks are free. LastPing doesn't publish whether it supports check locations or own-domain status pages." }
+    ]
+  }
+}

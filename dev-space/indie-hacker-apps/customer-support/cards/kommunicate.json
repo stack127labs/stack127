@@ -1,0 +1,19 @@
+{
+  "slug": "kommunicate",
+  "name": "Kommunicate",
+  "url": "https://www.kommunicate.io/",
+  "jobs": ["helpdesk", "chat", "ai", "inbox"],
+  "line": "Human support inbox and AI agents for chat, email, and messaging.",
+  "free": { "kind": "trial", "text": "30-day trial, no card" },
+  "cells": {
+    "channels": "Website chat, email, voice, messaging",
+    "ai": "250 conversations included; $15 per 1,000 extra",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$40", "plan": "Starter", "state": "confirmed", "math": "The Starter account includes one human member and 250 conversations a month." },
+      { "v": "$80", "plan": "Starter", "state": "confirmed", "math": "$40 base + two added humans at $20 a month each. Billing for add-ons may vary yearly." }
+    ]
+  }
+}

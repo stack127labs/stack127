@@ -1,0 +1,21 @@
+{
+  "slug": "revolut-business-merchant-payments",
+  "name": "Revolut Business Merchant Payments",
+  "url": "https://www.revolut.com/business/accept-payments/",
+  "jobs": ["gateway", "links"],
+  "line": "Take online and in-person card payments, Revolut Pay, and payment links.",
+  "free": { "kind": "none", "text": "No setup or Merchant maintenance fee; Business plan fees still apply" },
+  "cells": {
+    "type": "Processor, acquirer, and merchant account",
+    "countries": "UK, EEA, Australia, Singapore; NZ invite-only",
+    "payout": "Funds available within 24 hours or next day"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Revolut's official Merchant eligibility list doesn't include the US. Its US business banking doesn't include merchant processing." },
+      { "v": "1% + GBP 0.20", "plan": "UK online domestic consumer card", "state": "confirmed", "math": "The rate for UK Visa or Mastercard consumer cards, charged on each successful online payment." },
+      { "v": "1% + EUR 0.20", "plan": "EEA online domestic consumer card", "state": "confirmed", "math": "This is the online Visa or Mastercard rate for consumer cards issued in the EEA, which includes Germany." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "India isn't on Revolut's official Merchant eligibility country list." }
+    ]
+  }
+}

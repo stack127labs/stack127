@@ -1,0 +1,20 @@
+{
+  "slug": "authentik",
+  "name": "authentik",
+  "url": "https://goauthentik.io/",
+  "jobs": ["server"],
+  "line": "Self-hosted identity server for app login and SSO.",
+  "free": { "kind": "selfhost", "text": "Free MIT core; you run the server" },
+  "cells": {
+    "freeUsers": "No core user cap; you host",
+    "sso": "Core SAML and SCIM included; OAuth SCIM is Enterprise"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Open Source", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, storage, delivery and running costs are unknown." },
+      { "v": "$0", "plan": "Open Source", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, storage, delivery and running costs are unknown." },
+      { "v": "$0", "plan": "Open Source", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, storage, delivery and running costs are unknown." },
+      { "v": "$0", "plan": "Open Source", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, storage, delivery and running costs are unknown." }
+    ]
+  }
+}

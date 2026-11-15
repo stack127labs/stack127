@@ -1,0 +1,17 @@
+{
+  "slug": "phare",
+  "name": "Phare",
+  "official_url": "https://phare.io/",
+  "image_url": "https://phare.io/favicons/favicon-512.png",
+  "source_page": "https://phare.io/",
+  "kind": "manifest-icon",
+  "source_host": "phare.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "a39b4140b9ef81ac050f4e62a65a39e71d612b6438b76f78824764a80e85608c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

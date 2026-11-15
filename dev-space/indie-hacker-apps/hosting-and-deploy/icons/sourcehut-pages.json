@@ -1,0 +1,17 @@
+{
+  "slug": "sourcehut-pages",
+  "name": "sourcehut pages",
+  "official_url": "https://srht.site/",
+  "image_url": "https://srht.site/logo.svg",
+  "source_page": "https://srht.site/",
+  "kind": "svg-icon",
+  "source_host": "srht.site",
+  "original": {
+    "format": "svg",
+    "width": 683,
+    "height": 683
+  },
+  "sha256": "01f21c9fd07827767162403fdf506e45015bcc43778f478d43daa123832623aa",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

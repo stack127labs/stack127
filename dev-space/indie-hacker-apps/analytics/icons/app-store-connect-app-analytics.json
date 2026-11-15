@@ -1,0 +1,17 @@
+{
+  "slug": "app-store-connect-app-analytics",
+  "name": "App Store Connect App Analytics",
+  "official_url": "https://developer.apple.com/app-store-connect/analytics/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/14/f6/43/14f643e8-3973-1508-106d-43992797e6b2/AppIcon-0-1x_U007epad-0-0-0-1-0-0-P3-85-220-0.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/app-store-connect/id1234793120?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "62ebea0e7d43f1005333438eab61be0e4fbd6306ef715800c60902d0bbd610fc",
+  "note": "App Store app 'App Store Connect' by Apple Inc.; product icon instead of the Apple logo",
+  "saved_at": "2026-11-14"
+}

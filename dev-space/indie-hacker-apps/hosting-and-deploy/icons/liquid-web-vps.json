@@ -1,0 +1,17 @@
+{
+  "slug": "liquid-web-vps",
+  "name": "Liquid Web VPS",
+  "official_url": "https://www.liquidweb.com/vps-hosting/",
+  "image_url": "https://res.cloudinary.com/lwcom/images/f_auto,q_auto/v1776858458/prod/favicon/favicon.svg?_i=AA",
+  "source_page": "https://www.liquidweb.com/vps-hosting/",
+  "kind": "svg-icon",
+  "source_host": "res.cloudinary.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "578ef914b3010d564b658a0f337af56be92a8d14fd86d4abae381425ee61ad62",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

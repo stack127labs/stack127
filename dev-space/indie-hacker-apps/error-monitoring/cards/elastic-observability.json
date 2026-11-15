@@ -1,0 +1,24 @@
+{
+  "slug": "elastic-observability",
+  "name": "Elastic Observability",
+  "url": "https://www.elastic.co/observability",
+  "jobs": ["errors", "logs", "uptime", "performance"],
+  "line": "Searches logs and traces, investigates errors and runs synthetic checks.",
+  "free": { "kind": "selfhost", "text": "Free Basic self-managed software; hosting costs extra" },
+  "cells": {
+    "interval": "Set in minutes; minimum unknown",
+    "maintained": "Last release 2026-10-22"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Serverless or self-managed", "state": "not_published", "math": "Elastic doesn't list a price by error count. Hosted and self-managed costs depend on usage and system size." },
+      { "v": "Unknown", "plan": "Serverless or self-managed", "state": "not_published", "math": "Elastic doesn't list a price by error count. Hosted and self-managed costs depend on usage and system size." },
+      { "v": "Unknown", "plan": "Serverless or self-managed", "state": "not_published", "math": "Elastic doesn't list a price by error count. Hosted and self-managed costs depend on usage and system size." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Synthetics", "state": "not_published", "math": "Elastic doesn't publish a monthly total for a 60-second endpoint check." },
+      { "v": "Unknown", "plan": "Synthetics", "state": "not_published", "math": "Elastic doesn't publish a monthly total for a 60-second endpoint check." },
+      { "v": "Unknown", "plan": "Synthetics", "state": "not_published", "math": "Elastic doesn't publish a monthly total for a 60-second endpoint check." }
+    ]
+  }
+}

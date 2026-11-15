@@ -1,0 +1,14 @@
+{
+  "slug": "cloudflare-pages",
+  "name": "Cloudflare Pages",
+  "url": "https://www.cloudflare.com/products/pages/",
+  "jobs": ["static"],
+  "line": "Build and host static sites with optional edge Functions.",
+  "free": { "kind": "free", "text": "Static delivery unlimited; Functions share 100,000 daily requests" },
+  "cells": { "type": "Static hosting and functions", "regions": "Global edge network", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$0", "plan": "Static Pages", "state": "unclear", "math": "Static-only subtotal. Assumes up to 20,000 files, each up to 25 MiB, and builds within the Free plan limit. Whether commercial use is allowed is unclear." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "The 256 MiB of memory the workload needs is more than the 128 MB limit for each isolate (a separate running copy of the code)." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Same memory limit problem as the small app API. D1 is not the required Postgres database." }
+  ] }
+}

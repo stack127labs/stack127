@@ -1,0 +1,17 @@
+{
+  "slug": "scout-monitoring",
+  "name": "Scout APM",
+  "official_url": "https://www.scoutapm.com/",
+  "image_url": "https://www.scoutapm.com/assets/images/webclip.png",
+  "source_page": "https://www.scoutapm.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "scoutapm.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "ad374e19691db0c438f385371a25015598d80b2f44c5a9aca506732e7fe7d0be",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

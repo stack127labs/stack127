@@ -1,0 +1,21 @@
+{
+  "slug": "faspay",
+  "name": "Faspay",
+  "url": "https://faspay.co.id/id/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Indonesian gateway with payment links, invoices and billing tools.",
+  "free": { "kind": "none", "text": "Gateway setup and maintenance fees advertised as zero" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Indonesia; foreign sellers may collect locally",
+    "payout": "Card settlement timing differs by aggregator or direct route"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no US card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no UK card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no German card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no India card rate is published." }
+    ]
+  }
+}

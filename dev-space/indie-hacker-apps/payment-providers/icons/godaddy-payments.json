@@ -1,0 +1,17 @@
+{
+  "slug": "godaddy-payments",
+  "name": "GoDaddy Payments",
+  "official_url": "https://www.godaddy.com/payments",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/29/cb/ee29cb1c-b3e6-ee49-6bd2-d6889d784195/AppIcon-0-0-1x_U007ephone-0-1-0-P3-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/godaddy-commerce-pos-payments/id1152717397?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "1f2b9ff78f77208d0447d0fbc35ff1c86e23ffc509046299df139981db24f6c6",
+  "note": "GoDaddy Commerce POS Payments app, product app by GoDaddy Mobile LLC.",
+  "saved_at": "2026-11-14"
+}

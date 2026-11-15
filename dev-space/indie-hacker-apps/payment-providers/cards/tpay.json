@@ -1,0 +1,21 @@
+{
+  "slug": "tpay",
+  "name": "Tpay",
+  "url": "https://tpay.com/",
+  "jobs": ["gateway", "links"],
+  "line": "Polish gateway for bank transfers, BLIK, cards, and payment links.",
+  "free": { "kind": "none", "text": "Starter PLN 0/month; PLN 99 activation and transaction fees" },
+  "cells": {
+    "type": "Online payment gateway",
+    "countries": "Poland; foreign companies may be considered",
+    "payout": "PLN within 3 business days; foreign currency within 7"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Tpay may consider foreign sellers, but its eligibility list isn't published, and no US card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Tpay may consider foreign sellers, but its eligibility list isn't published, and no UK card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Tpay may consider foreign sellers, but its eligibility list isn't published, and no German card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Tpay may consider foreign sellers, but its eligibility list isn't published, and no India card rate is published." }
+    ]
+  }
+}

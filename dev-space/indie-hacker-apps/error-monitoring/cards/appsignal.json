@@ -1,0 +1,21 @@
+{
+  "slug": "appsignal",
+  "name": "AppSignal",
+  "url": "https://www.appsignal.com/",
+  "jobs": ["errors", "uptime", "status", "logs", "performance", "cron"],
+  "line": "Tracks application errors, performance, logs and uptime.",
+  "free": {"kind": "free", "text": "30,000 requests/month and 1 GB logs; five-day retention"},
+  "cells": {"interval": "60 s from four fixed regions", "maintained": "Hosted service"},
+  "costs": {
+    "errors": [
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The error count doesn't set how many requests are monitored, so the plan cost isn't known."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The error count doesn't set how many requests are monitored, so the plan cost isn't known."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The error count doesn't set how many requests are monitored, so the plan cost isn't known."}
+    ],
+    "uptime": [
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "Published prices cover four regions, and no price is listed for checks from one location."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "Published prices cover four regions, and no price is listed for checks from one location."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "Published prices cover four regions, and no price is listed for checks from one location."}
+    ]
+  }
+}

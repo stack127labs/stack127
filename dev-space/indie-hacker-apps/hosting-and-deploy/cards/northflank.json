@@ -1,0 +1,14 @@
+{
+  "slug": "northflank",
+  "name": "Northflank",
+  "url": "https://northflank.com/",
+  "jobs": ["paas"],
+  "line": "Build and run container services, jobs, and databases.",
+  "free": { "kind": "free", "text": "Sandbox $20/mo; max 2 services, 2 jobs, 1 DB, 2 projects; not production" },
+  "cells": { "type": "Managed app platform", "regions": "17 project regions; location fixed at creation", "selfhost": "No; BYOC/BYOK do not host its control plane" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Static container + build", "state": "unclear", "math": "Assuming 730 hours: $2.7375 for runtime + $6 for 100 GB of data sent out + $0.3333 for 100 build minutes = $9.0708 before images ($0.08 per GB a month), logs (over 10 GB) and tax. API rounding gives $9.2533." },
+    { "v": "Unknown", "plan": "1 vCPU/1 GiB + transfer + build", "state": "unclear", "math": "730 hours of runtime at $18.25 + 100 GB of data sent out at $6 + 100 build minutes at $0.3333 = $24.5833 before images, logs (over 10 GB) and tax. Capacity is untested." },
+    { "v": "Unknown", "plan": "App + PostgreSQL", "state": "unclear", "math": "The small app API's $24.5833 + $12.1667 for the database (0.5 vCPU and 1 GiB for 730 hours) + $1.1657 for a 10 GiB disk = $37.9157. Images, logs, 7-day backup storage and 10 GB database transfer are not priced." }
+  ] }
+}

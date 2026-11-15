@@ -1,0 +1,20 @@
+{
+  "slug": "authsignal",
+  "name": "Authsignal",
+  "url": "https://www.authsignal.com/",
+  "jobs": ["hosted"],
+  "line": "Passwordless login and extra authentication checks for apps.",
+  "free": { "kind": "trial", "text": "30-day trial; no ongoing free plan listed" },
+  "cells": {
+    "freeUsers": "30-day evaluation; no ongoing free allowance",
+    "sso": "No public app-customer SSO price found"
+  },
+  "costs": {
+    "mau": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Alone, this app does not cover the password and social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Alone, this app does not cover the password and social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Alone, this app does not cover the password and social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Alone, this app does not cover the password and social sign-in that a whole account needs, so no cost is shown." }
+    ]
+  }
+}

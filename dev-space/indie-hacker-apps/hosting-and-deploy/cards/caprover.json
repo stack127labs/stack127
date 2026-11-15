@@ -1,0 +1,14 @@
+{
+  "slug": "caprover",
+  "name": "CapRover",
+  "url": "https://caprover.com/",
+  "jobs": ["panel"],
+  "line": "Install a free app deployment panel on your own Docker server.",
+  "free": { "kind": "selfhost", "text": "Free forever core software; provide your own server" },
+  "cells": { "type": "Self-hosted panel", "regions": "Your server's region", "selfhost": "Yes; install on your own infrastructure" },
+  "costs": { "work": [
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" }
+  ] }
+}

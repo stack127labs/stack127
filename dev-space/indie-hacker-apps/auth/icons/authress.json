@@ -1,0 +1,17 @@
+{
+  "slug": "authress",
+  "name": "Authress",
+  "official_url": "https://authress.io/",
+  "image_url": "https://authress.io/app/img/logo.svg",
+  "source_page": "https://authress.io/",
+  "kind": "logo-mark",
+  "source_host": "authress.io",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "68e87029fce0407888b36d08a1c3fc0f8ee68f6c65e93cec871e6178c96e64d2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

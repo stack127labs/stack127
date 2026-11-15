@@ -1,0 +1,23 @@
+{
+  "slug": "campaignlark",
+  "name": "CampaignLark",
+  "url": "https://campaignlark.com/",
+  "jobs": ["newsletter", "marketing"],
+  "line": "Newsletter campaigns and marketing automation with audience segments.",
+  "free": {"kind": "free", "text": "5,000 contacts; 1,000 email sends/month"},
+  "cells": {"newsletters": "Yes", "api": "Yes, campaign and event APIs"},
+  "costs": {
+    "subs": [
+      {"v": "$15", "plan": "Starter", "state": "confirmed", "math": "4,000 emails a month fit inside Starter's 5,000-email monthly allowance, which costs $15 a month."},
+      {"v": "Unknown", "plan": "Custom", "state": "check_failed", "math": "20,000 emails a month. We could not find the price for this volume."},
+      {"v": "Unknown", "plan": "Custom", "state": "check_failed", "math": "40,000 emails a month. We could not find the price for this volume."},
+      {"v": "Unknown", "plan": "Custom", "state": "check_failed", "math": "200,000 emails a month. We could not find the price for this volume."}
+    ],
+    "appmail": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "No separate price for app emails."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "No separate price for app emails."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "No separate price for app emails."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "No separate price for app emails."}
+    ]
+  }
+}

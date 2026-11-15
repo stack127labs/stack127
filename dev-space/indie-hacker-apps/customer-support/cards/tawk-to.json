@@ -1,0 +1,19 @@
+{
+  "slug": "tawk-to",
+  "name": "tawk.to",
+  "url": "https://www.tawk.to/",
+  "jobs": ["chat", "helpdesk", "inbox", "ai"],
+  "line": "Free live chat and shared support inbox with email tickets and help articles.",
+  "free": { "kind": "free", "text": "Free forever; unlimited agents, chats, and sites" },
+  "cells": {
+    "channels": "Website chat, email tickets, knowledge base",
+    "ai": "Free 100 credits/month; Growth is $29/month",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The core support software is free. Unlimited agents and 100 conversations fit." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The core support software is free. Unlimited agents and 100 conversations fit." }
+    ]
+  }
+}

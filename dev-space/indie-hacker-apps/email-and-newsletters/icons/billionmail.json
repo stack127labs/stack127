@@ -1,0 +1,17 @@
+{
+  "slug": "billionmail",
+  "name": "BillionMail",
+  "official_url": "https://www.billionmail.com/",
+  "image_url": "https://www.billionmail.com/logo.png",
+  "source_page": "https://www.billionmail.com/",
+  "kind": "logo-mark",
+  "source_host": "billionmail.com",
+  "original": {
+    "format": "png",
+    "width": 800,
+    "height": 800
+  },
+  "sha256": "dc2ad9d3f6ef3fa87d9b5fc0d8ac2daacf7f6c6dd610569166a6e7450a8d2df7",
+  "note": "Official BillionMail header mark",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "fivenines",
+  "name": "Fivenines",
+  "url": "https://fivenines.io/",
+  "jobs": ["uptime", "status", "performance", "cron"],
+  "line": "Monitors servers, websites and scheduled jobs, with public status pages.",
+  "free": { "kind": "trial", "text": "14-day trial; no ongoing free plan" },
+  "cells": {
+    "interval": "5 s Enterprise; 30 s Business; 60 s Pro",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "€40", "plan": "Pro", "state": "confirmed", "math": "The Pro plan is the lowest standard plan for 5 checks at 60-second intervals. VAT isn't included." },
+      { "v": "€40", "plan": "Pro", "state": "confirmed", "math": "25 checks fit the Pro plan at 60-second intervals. VAT isn't included." },
+      { "v": "€79", "plan": "Business", "state": "confirmed", "math": "100 checks fit the Business plan at 60-second intervals. VAT isn't included." }
+    ]
+  }
+}

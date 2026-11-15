@@ -1,0 +1,20 @@
+{
+  "slug": "asp-net-core-identity",
+  "name": "ASP.NET Core Identity",
+  "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity",
+  "jobs": ["library"],
+  "line": "Account, password, role, and sign-in tools for .NET apps.",
+  "free": { "kind": "selfhost", "text": "Free framework library; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No core SAML connection fee; SAML not included"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required .NET and Identity software licence costs $0. Hosting, database, delivery and operation cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required .NET and Identity software licence costs $0. Hosting, database, delivery and operation cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required .NET and Identity software licence costs $0. Hosting, database, delivery and operation cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The required .NET and Identity software licence costs $0. Hosting, database, delivery and operation cost extra." }
+    ]
+  }
+}

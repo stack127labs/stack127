@@ -1,0 +1,17 @@
+{
+  "slug": "hatchet",
+  "name": "Hatchet",
+  "official_url": "https://hatchet.run/",
+  "image_url": "https://hatchet.run/brand/logomark-bg.svg",
+  "source_page": "https://hatchet.run/",
+  "kind": "logo-mark",
+  "source_host": "hatchet.run",
+  "original": {
+    "format": "svg",
+    "width": 661,
+    "height": 661
+  },
+  "sha256": "387a7e0a9d478e520630b6b94cf6b83c396ad408a69899774b299520b9a72b7a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "appsignal",
+  "name": "AppSignal",
+  "official_url": "https://www.appsignal.com/",
+  "image_url": "https://www.appsignal.com/assets/favicon/apple-touch-icon.png",
+  "source_page": "https://www.appsignal.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "appsignal.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "f790ba44bb12cd7eb62e4d486413aa339bd3d6fde4c7c84983a67aeaa16cbf2c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

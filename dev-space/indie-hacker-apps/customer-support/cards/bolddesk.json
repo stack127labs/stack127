@@ -1,0 +1,19 @@
+{
+  "slug": "bolddesk",
+  "name": "BoldDesk",
+  "url": "https://www.bolddesk.com/",
+  "jobs": ["helpdesk", "chat", "ai"],
+  "line": "Hosted help desk for email, chat, tickets, and customer self-service.",
+  "free": { "kind": "trial", "text": "15-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, messaging, voice",
+    "ai": "AI plans include monthly credits; extra credit packs",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$25", "plan": "Enterprise Without AI", "state": "confirmed", "math": "1 agent at $25 a month. Buying needs sales help, and the minimum order is unclear." },
+      { "v": "$75", "plan": "Enterprise Without AI", "state": "confirmed", "math": "3 agents at $25 a month each. Buying needs sales help, and the minimum order is unclear." }
+    ]
+  }
+}

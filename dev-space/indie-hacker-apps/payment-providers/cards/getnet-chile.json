@@ -1,0 +1,21 @@
+{
+  "slug": "getnet-chile",
+  "name": "Getnet Chile",
+  "url": "https://www.getnet.cl/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Chilean online gateway with payment links and recurring card collection.",
+  "free": { "kind": "none", "text": "Web Checkout has no setup or monthly fee" },
+  "cells": {
+    "type": "Card acquirer and gateway",
+    "countries": "Chile; local business activity and bank account required",
+    "payout": "Daily with Santander; other banks 2–3 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Beyond the Chilean registration route, it isn't published whether US sellers can sign up. No US card price is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Beyond the Chilean registration route, it isn't published whether UK sellers can sign up. No UK card price is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Beyond the Chilean registration route, it isn't published whether German sellers can sign up. No German card price is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Beyond the Chilean registration route, it isn't published whether Indian sellers can sign up. No India card price is published." }
+    ]
+  }
+}

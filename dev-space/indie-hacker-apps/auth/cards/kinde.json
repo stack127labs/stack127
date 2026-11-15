@@ -1,0 +1,45 @@
+{
+  "slug": "kinde",
+  "name": "Kinde",
+  "url": "https://www.kinde.com/",
+  "jobs": [
+    "hosted"
+  ],
+  "line": "Hosted authentication, authorization and billing for SaaS applications.",
+  "free": {
+    "kind": "free",
+    "text": "Free: $0/month, 10,500 monthly active users"
+  },
+  "cells": {
+    "freeUsers": "10,500 MAU",
+    "sso": "Free and Pro: 1 connection; Plus and up: unlimited"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The Free plan covers 1,000 users, so it costs nothing."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The Free plan covers 10,000 users, so it costs nothing."
+      },
+      {
+        "v": "$716.25",
+        "plan": "Pro",
+        "state": "confirmed",
+        "math": "The Pro plan is $25, plus $0.0175 for each of the 39,500 users above the included amount. That totals $716.25 a month."
+      },
+      {
+        "v": "$1,533.85",
+        "plan": "Plus",
+        "state": "confirmed",
+        "math": "The Plus plan is $75, plus $0.0163 for each of the 89,500 users above the included amount. That totals $1,533.85 a month."
+      }
+    ]
+  }
+}

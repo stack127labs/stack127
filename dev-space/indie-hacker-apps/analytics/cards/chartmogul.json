@@ -1,0 +1,20 @@
+{
+  "slug": "chartmogul",
+  "name": "ChartMogul",
+  "url": "https://chartmogul.com/",
+  "jobs": ["revenue"],
+  "line": "Subscription revenue reports for MRR, churn and customer cohorts.",
+  "free": {"kind": "free", "text": "Free up to $10,000 MRR"},
+  "cells": {
+    "cookieless": "Unknown",
+    "location": "EU (Ireland); some processors elsewhere",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Subscription reports are priced by recurring revenue, not pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Subscription reports are priced by recurring revenue, not pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Subscription reports are priced by recurring revenue, not pageviews."}
+    ]
+  }
+}

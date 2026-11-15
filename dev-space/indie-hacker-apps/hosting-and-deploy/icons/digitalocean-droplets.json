@@ -1,0 +1,17 @@
+{
+  "slug": "digitalocean-droplets",
+  "name": "DigitalOcean Droplets",
+  "official_url": "https://www.digitalocean.com/products/droplets",
+  "image_url": "https://www.digitalocean.com/_do-www-marketing/9221ebb1/_next/static/media/favicon.91372345.svg",
+  "source_page": "https://www.digitalocean.com/products/droplets",
+  "kind": "svg-icon",
+  "source_host": "digitalocean.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "2a514b6b949efdbb554ce1cf961db5e46a786f9e20974b9e76103eefc0bc94e7",
+  "note": "parent brand: DigitalOcean; no distinct service icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

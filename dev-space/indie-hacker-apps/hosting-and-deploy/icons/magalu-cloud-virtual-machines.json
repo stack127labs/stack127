@@ -1,0 +1,17 @@
+{
+  "slug": "magalu-cloud-virtual-machines",
+  "name": "Magalu Cloud Virtual Machines",
+  "official_url": "https://magalu.cloud/virtual-machines/",
+  "image_url": "https://magalu.cloud/favicon.svg",
+  "source_page": "https://magalu.cloud/virtual-machines/",
+  "kind": "svg-icon",
+  "source_host": "magalu.cloud",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "4c6b3c4d907d9393276b2cde5ce001fd3bcba97bc01a5bd148ce000bd784e413",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

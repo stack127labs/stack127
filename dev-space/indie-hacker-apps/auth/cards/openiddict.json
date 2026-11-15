@@ -1,0 +1,20 @@
+{
+  "slug": "openiddict",
+  "name": "OpenIddict",
+  "url": "https://documentation.openiddict.com/",
+  "jobs": ["library"],
+  "line": ".NET framework for OAuth and OpenID Connect clients and servers.",
+  "free": { "kind": "selfhost", "text": "Free Apache core; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "OIDC core free; SAML add-on £4,269 perpetual"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OpenIddict core licence costs $0. App hosting, account logic and database cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OpenIddict core licence costs $0. App hosting, account logic and database cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OpenIddict core licence costs $0. App hosting, account logic and database cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The OpenIddict core licence costs $0. App hosting, account logic and database cost extra." }
+    ]
+  }
+}

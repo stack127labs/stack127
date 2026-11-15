@@ -1,0 +1,19 @@
+{
+  "slug": "re-amaze",
+  "name": "Re:amaze",
+  "url": "https://www.reamaze.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Shared support inbox for email, website chat, social, and ecommerce.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, social, SMS",
+    "ai": "$0.85 per resolution; 5 included per user",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29", "plan": "Basic", "state": "confirmed", "math": "1 user at $29 a month, with one brand and 100 conversations." },
+      { "v": "$59", "plan": "Starter", "state": "confirmed", "math": "A flat $59 a month for unlimited staff and up to 500 responded conversations." }
+    ]
+  }
+}

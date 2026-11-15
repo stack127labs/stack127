@@ -1,0 +1,20 @@
+{
+  "slug": "insforge",
+  "name": "InsForge",
+  "url": "https://insforge.dev/",
+  "jobs": ["hosted", "server"],
+  "line": "Backend platform with user accounts, authentication, and app services.",
+  "free": { "kind": "free", "text": "Free up to 50,000 MAU, within resource limits" },
+  "cells": {
+    "freeUsers": "50,000 MAU; resource and inactivity limits apply",
+    "sso": "Enterprise SSO listed; connection price unknown"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "1,000 users is within the 50,000 monthly user allowance. Compute, resources, mail, tax and the exact total are still unknown." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "10,000 users is within the 50,000 monthly user allowance. Compute, resources, mail, tax and the exact total are still unknown." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "50,000 users is at the top of the advertised free limit. Compute, resources, mail, tax and the exact total are still unknown." },
+      { "v": "$25", "plan": "Pro", "state": "unclear", "math": "The estimate is $25 a month, based on the subscription, users and one Micro compute machine. Resource, mail, tax and workload costs may add more." }
+    ]
+  }
+}

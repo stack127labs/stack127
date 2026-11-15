@@ -1,0 +1,20 @@
+{
+  "slug": "prelude",
+  "name": "Prelude",
+  "url": "https://prelude.so/",
+  "jobs": ["hosted"],
+  "line": "Phone and email verification with a separate account-auth product.",
+  "free": { "kind": "none", "text": "No recurring free production allowance found" },
+  "cells": {
+    "freeUsers": "Verify is PAYG; Auth enablement requires support",
+    "sso": "SAML/OIDC documented; connection price not published"
+  },
+  "costs": {
+    "mau": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The auth platform has a €100 reference price for 50k monthly users. Which features qualify and which fees are required are not confirmed." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The auth platform has a €100 reference price for 50k monthly users. Which features qualify and which fees are required are not confirmed." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The auth platform has a €100 reference price for 50k monthly users. Which features qualify and which fees are required are not confirmed." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Usage is above the 50k self-serve reference, so the qualifying price needs a quote." }
+    ]
+  }
+}

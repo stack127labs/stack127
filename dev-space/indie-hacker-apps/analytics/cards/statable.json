@@ -1,0 +1,12 @@
+{
+  "slug": "statable", "name": "Statable", "url": "https://statable.com/",
+  "jobs": ["web", "product"],
+  "line": "Website analytics with goals, funnels and imported GA4 history.",
+  "free": {"kind": "free", "text": "Free unlimited on .edu/.github.io/.gitlab.io; public widget and dashboard"},
+  "cells": {"cookieless": "Yes (daily IP and browser hash)", "location": "Netherlands", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "$9", "plan": "10K", "state": "confirmed", "math": "Only pageviews are captured, with no extra events. The 10K event band costs $9 a month."},
+    {"v": "$19", "plan": "100K", "state": "confirmed", "math": "Only pageviews are captured, with no extra events. The 100K event band costs $19 a month."},
+    {"v": "$69", "plan": "1M", "state": "confirmed", "math": "Only pageviews are captured, with no extra events. The 1M event band costs $69 a month."}
+  ]}
+}

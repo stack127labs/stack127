@@ -1,0 +1,41 @@
+{
+  "slug": "wix-analytics",
+  "name": "Wix Analytics",
+  "url": "https://www.wix.com/",
+  "jobs": [
+    "web",
+    "revenue"
+  ],
+  "line": "Built-in website, marketing and sales reports for Wix sites.",
+  "free": {
+    "kind": "free",
+    "text": "Core Analytics on free Wix site; no analytics quota stated"
+  },
+  "cells": {
+    "cookieless": "No (Wix uses cookies)",
+    "location": "Israel; worldwide processing/transfers",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$17.77/mo eq.",
+        "plan": "Light",
+        "state": "unclear",
+        "math": "This is the monthly equivalent for paying yearly. $213.24 a year is paid upfront. Local taxes and the exact bill vary."
+      },
+      {
+        "v": "$17.77/mo eq.",
+        "plan": "Light",
+        "state": "unclear",
+        "math": "This is the monthly equivalent for paying yearly. $213.24 a year is paid upfront. Local taxes and the exact bill vary."
+      },
+      {
+        "v": "$17.77/mo eq.",
+        "plan": "Light",
+        "state": "unclear",
+        "math": "This is the monthly equivalent for paying yearly. $213.24 a year is paid upfront. Wix gives no guarantee of pageview capacity."
+      }
+    ]
+  }
+}

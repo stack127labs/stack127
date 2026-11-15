@@ -1,0 +1,17 @@
+{
+  "slug": "hubspot-service-hub",
+  "name": "HubSpot Service Hub",
+  "official_url": "https://www.hubspot.com/products/service",
+  "image_url": "https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png",
+  "source_page": "https://www.hubspot.com/products/service",
+  "kind": "favicon",
+  "source_host": "hubspot.com",
+  "original": {
+    "format": "webp",
+    "width": 288,
+    "height": 288
+  },
+  "sha256": "9a57efd22971c9d19aaf907eccabb3701934498da8ae9783cd7ee778f9d899b3",
+  "note": "parent brand: HubSpot",
+  "saved_at": "2026-11-14"
+}

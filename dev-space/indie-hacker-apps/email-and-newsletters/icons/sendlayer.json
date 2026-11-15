@@ -1,0 +1,17 @@
+{
+  "slug": "sendlayer",
+  "name": "SendLayer",
+  "official_url": "https://sendlayer.com/",
+  "image_url": "https://sendlayer.com/wp-content/uploads/2026/05/apple-touch-icon.png",
+  "source_page": "https://sendlayer.com/",
+  "kind": "logo-mark",
+  "source_host": "sendlayer.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "33880a594ba4ecdba333fda897f771746170fa6a333ac3cbebcb3320c0d2dece",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

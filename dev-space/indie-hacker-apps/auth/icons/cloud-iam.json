@@ -1,0 +1,17 @@
+{
+  "slug": "cloud-iam",
+  "name": "Cloud-IAM",
+  "official_url": "https://www.cloud-iam.com/",
+  "image_url": "https://www.cloud-iam.com/favicons/favicon-192.png",
+  "source_page": "https://www.cloud-iam.com/",
+  "kind": "favicon",
+  "source_host": "cloud-iam.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "eaeec8b00304cd2217bd75c2576ed6ba0a4d38bb18b166a2d0f787c5efcbde63",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

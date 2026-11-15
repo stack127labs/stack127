@@ -1,0 +1,17 @@
+{
+  "slug": "jitbit-helpdesk",
+  "name": "Jitbit Helpdesk",
+  "official_url": "https://www.jitbit.com/",
+  "image_url": "https://www.jitbit.com/assets/img/logocloud.svg",
+  "source_page": "https://www.jitbit.com/",
+  "kind": "svg-icon",
+  "source_host": "jitbit.com",
+  "original": {
+    "format": "svg",
+    "width": 11378,
+    "height": 11947
+  },
+  "sha256": "4ade2940109418f4d8a48788b336cd4909eeef45043573f51c6b1f46fd03f87a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

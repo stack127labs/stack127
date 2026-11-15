@@ -1,0 +1,17 @@
+{
+  "slug": "diploi",
+  "name": "Diploi",
+  "official_url": "https://diploi.com/",
+  "image_url": "https://diploi.com/_astro/logo-icon.3bWEw0CN.svg",
+  "source_page": "https://diploi.com/",
+  "kind": "svg-icon",
+  "source_host": "diploi.com",
+  "original": {
+    "format": "svg",
+    "width": 683,
+    "height": 704
+  },
+  "sha256": "d74ef251c4528972521234328674b3c8bed77b69d9cd450b98b0bba9252c6b06",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

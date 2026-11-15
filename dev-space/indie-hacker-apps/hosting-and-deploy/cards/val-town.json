@@ -1,0 +1,20 @@
+{
+  "slug": "val-town",
+  "name": "Val Town",
+  "url": "https://www.val.town/",
+  "jobs": ["paas"],
+  "line": "Runs JavaScript and TypeScript HTTP apps, cron jobs and APIs.",
+  "free": { "kind": "free", "text": "100k runs/day; public code, 1-min runs, 15-min cron, no domains" },
+  "cells": {
+    "type": "Serverless app platform",
+    "regions": "US data hosting; app region not published",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "$25 a month for Pro covers private vals and a custom domain. 1M daily runs only if requests stay within quota. 100 GB transfer and outside build or certificate costs are not priced. 100 MB uses shared Pro blob storage." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "$25 a month for Pro. 1M requests must fit the 1M daily run quota. 250 ms is under the 10-minute run limit; 256 MiB under the 4 GiB worker limit. CPU and concurrency fit: unverified. 100 GB transfer not priced." },
+      { "v": "Unknown", "plan": "Pro + Neon Launch", "state": "unclear", "math": "$67.19 a month subtotal: Pro $25 + Neon 0.5 CU × 730 hours × $0.106 + 10 GB × $0.35, same dollar currency. Add daily 7-day backups and Val Town transfer (100 GB out + 10 GB database). Same-region/private path unverified." }
+    ]
+  }
+}

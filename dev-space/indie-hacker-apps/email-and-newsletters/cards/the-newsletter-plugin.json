@@ -1,0 +1,26 @@
+{
+  "slug": "the-newsletter-plugin",
+  "name": "The Newsletter Plugin",
+  "url": "https://www.thenewsletterplugin.com/",
+  "jobs": ["newsletter", "marketing"],
+  "line": "Self-hosted WordPress newsletters, campaigns and email sequences.",
+  "free": { "kind": "selfhost", "text": "Free plugin; no subscriber cap; server and sending costs extra" },
+  "cells": {
+    "newsletters": "Yes, with opt-in controls and unsubscribe links",
+    "api": "Yes, free REST for Newsletter; no general app-mail relay"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 12.65536/month subtotal", "plan": "Free plugin + SES + DigitalOcean", "state": "confirmed", "math": "1,000 subscribers × 4 campaigns. Each email is 32 KB. $12 server + $0.64 Amazon SES + $0.01536 data. Amazon SES approval is required; tax, domain and backups are extra. Journeys need the $140 one-time Pro plan." },
+      { "v": "USD 15.27680/month subtotal", "plan": "Free plugin + SES + DigitalOcean", "state": "confirmed", "math": "5,000 subscribers × 4 campaigns. Each email is 32 KB. $12 server + $3.20 Amazon SES + $0.0768 data. Amazon SES approval is required; tax, domain and backups are extra. Journeys need the $140 one-time Pro plan." },
+      { "v": "USD 18.55360/month subtotal", "plan": "Free plugin + SES + DigitalOcean", "state": "confirmed", "math": "10,000 subscribers × 4 campaigns. Each email is 32 KB. $12 server + $6.40 Amazon SES + $0.1536 data. Amazon SES approval is required; tax, domain and backups are extra. Journeys need the $140 one-time Pro plan." },
+      { "v": "USD 44.76800/month subtotal", "plan": "Free plugin + SES + DigitalOcean", "state": "confirmed", "math": "50,000 subscribers × 4 campaigns. Each email is 32 KB. $12 server + $32 Amazon SES + $0.768 data. Amazon SES approval is required; tax, domain and backups are extra. Journeys need the $140 one-time Pro plan." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The SMTP add-on sends newsletter mail, not app messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The SMTP add-on sends newsletter mail, not app messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The SMTP add-on sends newsletter mail, not app messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The SMTP add-on sends newsletter mail, not app messages." }
+    ]
+  }
+}

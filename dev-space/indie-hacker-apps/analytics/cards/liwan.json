@@ -1,0 +1,20 @@
+{
+  "slug": "liwan",
+  "name": "liwan",
+  "url": "https://liwan.dev/",
+  "jobs": ["web", "product"],
+  "line": "Self-hosted web analytics for traffic, sources, and custom events.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you provide the server" },
+  "cells": {
+    "cookieless": "Yes, no visitor-tracking cookies",
+    "location": "Your server",
+    "selfhost": "Yes, self-hosted Rust server"
+  },
+  "costs": {
+    "pv": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "There is no software license fee. Server, storage, backups and upkeep are not priced." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "There is no software license fee. Server, storage, backups and upkeep are not priced." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "There is no software license fee. Server, storage, backups and upkeep are not priced." }
+    ]
+  }
+}

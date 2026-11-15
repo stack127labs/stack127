@@ -1,0 +1,14 @@
+{
+  "slug": "oracle-cloud-infrastructure-compute",
+  "name": "Oracle Cloud Infrastructure Compute",
+  "url": "https://www.oracle.com/cloud/compute/",
+  "jobs": ["vps"],
+  "line": "Run virtual machines and manage the guest operating system yourself.",
+  "free": { "kind": "free", "text": "Home region: 2 E2 Micro VMs, A1 2 OCPU/12 GB, 200 GB disk, 10 TB egress" },
+  "cells": { "type": "Cloud compute", "regions": "Global regions; Always Free limited to home region", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$0", "plan": "Always Free E2.1.Micro", "state": "confirmed", "math": "The home region's 1/8 OCPU and 1 GB E2 Micro, 50 GB boot disk, IPv4 address and 100 GB of data sent out fit free quotas. It may be reclaimed if CPU and network each stay below 20% for 7 days. Builds and domain are extra." },
+    { "v": "$25.485", "plan": "E5 Flex + 50 GB boot volume", "state": "confirmed", "math": "730 hours of E5 (1 OCPU, 1 GB) at $23.36 + a 50 GB volume at $2.125. 100 GB of data sent out and the IP address are $0. Subtotal $25.485 before tax, plus outside build and domain costs." },
+    { "v": "Unknown", "plan": "E5 Flex + 100 GB volume + daily backups", "state": "unclear", "math": "$55.48 for compute + $4.25 for a 100 GB volume = $59.73 subtotal. The IP address and 100 GB of data sent out are $0. But 2 of 7 daily backups go over 5 free copies, and their cost is unknown." }
+  ] }
+}

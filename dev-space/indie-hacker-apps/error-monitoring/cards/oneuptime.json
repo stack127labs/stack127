@@ -1,0 +1,24 @@
+{
+  "slug": "oneuptime",
+  "name": "OneUptime",
+  "url": "https://oneuptime.com/",
+  "jobs": ["errors", "logs", "uptime", "status", "performance", "cron"],
+  "line": "Tracks exceptions, logs and uptime, with hosted and self-hosted status pages.",
+  "free": { "kind": "free", "text": "Free base: 1 page, 100 subscribers; checks $1/mo" },
+  "cells": {
+    "interval": "1 min; 5 min default",
+    "maintained": "Last release 2026-11-04"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Free base + usage", "state": "unclear", "math": "5,000 reports can't be priced. 30-day error detail costs $0.20 per GB, but the billable bytes per report aren't known." },
+      { "v": "Unknown", "plan": "Free base + usage", "state": "unclear", "math": "50,000 reports can't be priced. 30-day error detail costs $0.20 per GB, but the billable bytes per report aren't known." },
+      { "v": "Unknown", "plan": "Free base + usage", "state": "unclear", "math": "500,000 reports can't be priced. 30-day error detail costs $0.20 per GB, but the billable bytes per report aren't known." }
+    ],
+    "uptime": [
+      { "v": "$5", "plan": "Free base + paid monitors", "state": "confirmed", "math": "5 active website monitors at $1 a month each. The free base is $0. One-minute checks, one own-domain page and email are included." },
+      { "v": "$25", "plan": "Free base + paid monitors", "state": "confirmed", "math": "25 active website monitors at $1 a month each. The free base is $0. One-minute checks, one own-domain page and email are included." },
+      { "v": "$100", "plan": "Free base + paid monitors", "state": "confirmed", "math": "100 active website monitors at $1 a month each. The free base is $0. One-minute checks, one own-domain page and email are included." }
+    ]
+  }
+}

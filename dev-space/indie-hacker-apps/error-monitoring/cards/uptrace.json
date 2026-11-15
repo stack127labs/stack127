@@ -1,0 +1,21 @@
+{
+  "slug": "uptrace",
+  "name": "Uptrace",
+  "url": "https://uptrace.dev/",
+  "jobs": ["errors", "logs", "uptime", "performance"],
+  "line": "Collects traces, errors, and logs, with customer-run synthetic HTTP checks.",
+  "free": { "kind": "free", "text": "Free Cloud: 50 GB spans/logs + 5,000 timeseries/month; Community is free too" },
+  "cells": { "interval": "60 s Collector default; fastest unknown", "maintained": "Last release 2026-10-22" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Cloud", "state": "unclear", "math": "The bytes per report and the GB rate that applies aren't settled. Cloud's default keeps data for 28 days, less than the 30 days this needs." },
+      { "v": "Unknown", "plan": "Cloud", "state": "unclear", "math": "The bytes per report and the GB rate that applies aren't settled. Cloud's default keeps data for 28 days, less than the 30 days this needs." },
+      { "v": "Unknown", "plan": "Cloud", "state": "unclear", "math": "The bytes per report and the GB rate that applies aren't settled. Cloud's default keeps data for 28 days, less than the 30 days this needs." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Cloud + Collector", "state": "unclear", "math": "Collector runs aren't what's billed. Each run exports several metrics, and the Cloud cost depends on data points and usage." },
+      { "v": "Unknown", "plan": "Cloud + Collector", "state": "unclear", "math": "Collector runs aren't what's billed. Each run exports several metrics, and the Cloud cost depends on data points and usage." },
+      { "v": "Unknown", "plan": "Cloud + Collector", "state": "unclear", "math": "Collector runs aren't what's billed. Each run exports several metrics, and the Cloud cost depends on data points and usage." }
+    ]
+  }
+}

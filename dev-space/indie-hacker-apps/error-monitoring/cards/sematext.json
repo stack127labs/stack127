@@ -1,0 +1,24 @@
+{
+  "slug": "sematext",
+  "name": "Sematext",
+  "url": "https://sematext.com/",
+  "jobs": ["logs", "uptime", "status", "performance"],
+  "line": "Collects logs and traces, with uptime checks and customer status pages.",
+  "free": { "kind": "trial", "text": "14-day Pro trial; no card" },
+  "cells": {
+    "interval": "60 s minimum",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Sematext has no dedicated workflow that groups application errors." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Sematext has no dedicated workflow that groups application errors." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Sematext has no dedicated workflow that groups application errors." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Synthetics PAYG", "state": "unclear", "math": "5 HTTP monitors cost $10 a month at $2 each. The price of a custom-domain status page, and whether it's included, isn't known." },
+      { "v": "Unknown", "plan": "Synthetics PAYG", "state": "unclear", "math": "25 HTTP monitors cost $50 a month at $2 each. The price of a custom-domain status page, and whether it's included, isn't known." },
+      { "v": "Unknown", "plan": "Synthetics PAYG", "state": "unclear", "math": "100 HTTP monitors cost $200 a month at $2 each. The price of a custom-domain status page, and whether it's included, isn't known." }
+    ]
+  }
+}

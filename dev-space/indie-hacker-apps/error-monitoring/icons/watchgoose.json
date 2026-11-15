@@ -1,0 +1,17 @@
+{
+  "slug": "watchgoose",
+  "name": "Watchgoose",
+  "official_url": "https://watchgoose.com/",
+  "image_url": "https://watchgoose.com/static/img/watchgoose-favicon.png",
+  "source_page": "https://watchgoose.com/",
+  "kind": "favicon",
+  "source_host": "watchgoose.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "05cfe6e1ab21d5ee956495bd6cf580fbee536a7ecb2d794196470424a937a015",
+  "note": "largest square official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

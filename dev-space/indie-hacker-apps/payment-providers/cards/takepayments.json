@@ -1,0 +1,21 @@
+{
+  "slug": "takepayments",
+  "name": "takepayments",
+  "url": "https://www.takepayments.com/",
+  "jobs": ["gateway", "links"],
+  "line": "UK payment gateway with hosted checkout, payment links, and invoices.",
+  "free": { "kind": "none", "text": "Online gateway fees and monthly plan are by quote" },
+  "cells": {
+    "type": "Payment gateway",
+    "countries": "United Kingdom; foreign seller access not published",
+    "payout": "Next-working-day settlement, subject to acquirer approval"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether non-UK sellers can sign up, and no card pricing for US businesses is published." },
+      { "v": "Quote", "plan": "UK domestic card", "state": "not_published", "math": "The UK card percentage and fixed fee per transaction are only given as quotes. No public number is listed." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether non-UK sellers can sign up, and no card pricing for German businesses is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether non-UK sellers can sign up, and no card pricing for Indian businesses is published." }
+    ]
+  }
+}

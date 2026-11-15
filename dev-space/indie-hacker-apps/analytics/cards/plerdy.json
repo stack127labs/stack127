@@ -1,0 +1,20 @@
+{
+  "slug": "plerdy",
+  "name": "Plerdy",
+  "url": "https://www.plerdy.com/",
+  "jobs": ["replay", "web"],
+  "line": "Combines website heatmaps, session replays, funnels, and SEO tools.",
+  "free": { "kind": "free", "text": "Free: 100 views/day, 3 pages; 500 total replay sessions" },
+  "cells": {
+    "cookieless": "Yes, visitor IDs use localStorage; no ad cookies",
+    "location": "Germany; support team may access from Ukraine",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$32", "plan": "Startup", "state": "confirmed", "math": "10,000 views a month need 334 a day. Startup covers 500 a day, at $32 a month." },
+      { "v": "$149", "plan": "Enterprise 1", "state": "confirmed", "math": "100,000 views a month need 3,334 a day. Enterprise 1 covers 7,000 a day, at $149 a month." },
+      { "v": "$390", "plan": "Enterprise 3", "state": "confirmed", "math": "1,000,000 views a month need 33,334 a day. Enterprise 3 covers 50,000 a day, at $390 a month." }
+    ]
+  }
+}

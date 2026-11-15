@@ -1,0 +1,21 @@
+{
+  "slug": "sslcommerz",
+  "name": "SSLCOMMERZ",
+  "url": "https://sslcommerz.com/",
+  "jobs": ["gateway", "links"],
+  "line": "Bangladesh gateway for cards, mobile wallets, bank payments, and invoices.",
+  "free": { "kind": "trial", "text": "7-day trial; digital goods are excluded during the trial" },
+  "cells": {
+    "type": "Payment gateway and aggregator",
+    "countries": "Bangladesh merchant onboarding",
+    "payout": "Released after delivery proof; payout schedule not published"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Sign-up for Bangladesh sellers is documented. It isn't published whether foreign sellers can sign up, and no card rates for US sellers are published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Sign-up for Bangladesh sellers is documented. It isn't published whether foreign sellers can sign up, and no card rates for UK sellers are published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Sign-up for Bangladesh sellers is documented. It isn't published whether foreign sellers can sign up, and no card rates for German sellers are published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Sign-up for Bangladesh sellers is documented. It isn't published whether foreign sellers can sign up, and no card rates for Indian sellers are published." }
+    ]
+  }
+}

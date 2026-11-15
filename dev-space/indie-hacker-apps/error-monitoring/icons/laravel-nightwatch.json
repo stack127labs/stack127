@@ -1,0 +1,17 @@
+{
+  "slug": "laravel-nightwatch",
+  "name": "Laravel Nightwatch",
+  "official_url": "https://laravel.com/nightwatch",
+  "image_url": "https://laravel.com/images/nightwatch/android-chrome-512x512.png",
+  "source_page": "https://laravel.com/nightwatch",
+  "kind": "manifest-icon",
+  "source_host": "laravel.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "e0d052741c864f1a12c20c2df812a1fb2517dff278ecec01260bbbd538e46ebb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

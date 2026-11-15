@@ -1,0 +1,21 @@
+{
+  "slug": "mobbex",
+  "name": "Mobbex",
+  "url": "https://www.mobbex.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Argentine payment platform for checkout, payment links and subscriptions.",
+  "free": { "kind": "none", "text": "Essential has no setup fee or minimum charge" },
+  "cells": {
+    "type": "Payment gateway, aggregator and recurring billing",
+    "countries": "Argentina documented; other seller countries unpublished",
+    "payout": "Debit 2 business days; credit 10–18 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Argentina's pricing is published. It isn't published whether US sellers can sign up, and no US card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Argentina's pricing is published. It isn't published whether UK sellers can sign up, and no UK card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Argentina's pricing is published. It isn't published whether German sellers can sign up, and no German card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Argentina's pricing is published. It isn't published whether Indian sellers can sign up, and no India card rate is published." }
+    ]
+  }
+}

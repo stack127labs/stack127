@@ -1,0 +1,45 @@
+{
+  "slug": "vercel-blob",
+  "name": "Vercel Blob",
+  "url": "https://vercel.com/storage/blob",
+  "jobs": ["files"],
+  "line": "Hosted object storage for app uploads, files and media with public or private access.",
+  "free": { "kind": "free", "text": "Hobby noncommercial: 1 GB, 10K+2K ops, 10 GB transfer; no idle rule stated" },
+  "cells": {
+    "metered": "Pro $20/mo includes $20 shared usage credit",
+    "regions": "Multiple Vercel regions; rates vary by region",
+    "selfhost": "No (none found), hosted Vercel storage service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Vercel Blob is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Vercel Blob is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "$20+",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "The Pro plan costs $20 a month, with a shared $20 credit. 100 GB of average storage × $0.023 a GB a month = $2.30, which the credit covers if it is unused. Traffic and team use may add charges."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Blob storage does not run application jobs."
+      }
+    ]
+  }
+}

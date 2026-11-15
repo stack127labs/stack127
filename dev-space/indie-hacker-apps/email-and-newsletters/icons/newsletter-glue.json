@@ -1,0 +1,17 @@
+{
+  "slug": "newsletter-glue",
+  "name": "Newsletter Glue",
+  "official_url": "https://newsletterglue.com/pricing/",
+  "image_url": "https://newsletterglue.com/wp-content/uploads/2020/11/cropped-circle-logo-dark1-192x192.png",
+  "source_page": "https://newsletterglue.com/pricing/",
+  "kind": "favicon",
+  "source_host": "newsletterglue.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "9f45edee67d92b0dfbf9eda970949f36d78ae5c9e3a02c603fc2c4a69892de39",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

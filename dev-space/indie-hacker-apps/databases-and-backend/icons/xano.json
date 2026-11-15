@@ -1,0 +1,17 @@
+{
+  "slug": "xano",
+  "name": "Xano",
+  "official_url": "https://www.xano.com/",
+  "image_url": "https://cdn.xano.com/home/0.0.654-d8eujKFR/assets/favicon/favicon.png",
+  "source_page": "https://www.xano.com/",
+  "kind": "favicon",
+  "source_host": "cdn.xano.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "3fdbd9d74841cc1b203b3a1179e79e6284a5f741996916d8a6410ebc57df16bf",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

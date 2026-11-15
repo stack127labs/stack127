@@ -1,0 +1,17 @@
+{
+  "slug": "webxpay",
+  "name": "WEBXPAY",
+  "official_url": "https://webxpay.com/",
+  "image_url": "https://webxpay.com/favicon.ico",
+  "source_page": "https://webxpay.com/",
+  "kind": "favicon",
+  "source_host": "webxpay.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "d0c6e87de248e195e618a00b9d744a73398fdc9f3d68e9c85903cb606f51a08b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

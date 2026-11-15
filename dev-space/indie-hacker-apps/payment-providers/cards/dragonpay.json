@@ -1,0 +1,21 @@
+{
+  "slug": "dragonpay",
+  "name": "Dragonpay",
+  "url": "https://www.dragonpay.ph/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Philippine online gateway now onboarding merchants through Xendit.",
+  "free": { "kind": "none", "text": "$50 monthly minimum on the new route" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Philippines; foreign sellers may be reviewed individually",
+    "payout": "Cards T+5 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Dragonpay's current pricing is documented for the Philippines. No rate for US sellers is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Dragonpay's current pricing is documented for the Philippines. No rate for UK sellers is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Dragonpay's current pricing is documented for the Philippines. No rate for German sellers is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Dragonpay's current pricing is documented for the Philippines. No rate for Indian sellers is published." }
+    ]
+  }
+}

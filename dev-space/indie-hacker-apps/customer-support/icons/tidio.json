@@ -1,0 +1,17 @@
+{
+  "slug": "tidio",
+  "name": "Tidio",
+  "official_url": "https://www.tidio.com/",
+  "image_url": "https://www.tidio.com/images/favicon/web-app-manifest-512x512.png",
+  "source_page": "https://www.tidio.com/",
+  "kind": "manifest-icon",
+  "source_host": "tidio.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "370728e0564dcedc2774da73f46c14c3186922100df631e97b676b78e69bec31",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "uploadthing",
+  "name": "UploadThing",
+  "url": "https://uploadthing.com/",
+  "jobs": ["files"],
+  "line": "Hosted file uploads, storage and CDN delivery with SDKs for app frameworks.",
+  "free": { "kind": "free", "text": "2GB shared; uploads/downloads unlimited; no idle or file deletion timer" },
+  "cells": {
+    "metered": "$10/mo for 100 GB; Usage Based $25/mo includes 250 GB",
+    "regions": "10 named regions; paid plans only",
+    "selfhost": "No, hosted storage and API service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "UploadThing is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "UploadThing is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "$10+",
+        "plan": "100GB App",
+        "state": "unclear",
+        "math": "$10 a month includes 100 GB of storage. Egress and request prices for the fixed plan are not published."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "UploadThing does not provide a background job service."
+      }
+    ]
+  }
+}

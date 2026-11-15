@@ -1,0 +1,26 @@
+{
+  "slug": "scaleway-transactional-email",
+  "name": "Scaleway Transactional Email",
+  "url": "https://www.scaleway.com/en/transactional-email-tem/",
+  "jobs": ["transactional"],
+  "line": "Managed email API and SMTP for application notifications.",
+  "free": { "kind": "credits", "text": "Essential includes 300 emails; then €0.25/1,000 before tax" },
+  "cells": {
+    "newsletters": "No, marketing and newsletter email are prohibited",
+    "api": "Yes, REST API and SMTP relay"
+  },
+  "costs": {
+    "subs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Terms prohibit newsletters and other marketing messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Terms prohibit newsletters and other marketing messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Terms prohibit newsletters and other marketing messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Terms prohibit newsletters and other marketing messages." }
+    ],
+    "appmail": [
+      { "v": "About €0.675/month before tax", "plan": "Essential pay-as-you-go", "state": "confirmed", "math": "One recipient per send. Estimate: (3,000 − 300 included) × €0.25 per 1,000, never below 0. How partial units are billed is not specified." },
+      { "v": "About €2.425/month before tax", "plan": "Essential pay-as-you-go", "state": "confirmed", "math": "One recipient per send. Estimate: (10,000 − 300 included) × €0.25 per 1,000, never below 0. How partial units are billed is not specified." },
+      { "v": "About €12.425/month before tax", "plan": "Essential pay-as-you-go", "state": "confirmed", "math": "One recipient per send. Estimate: (50,000 − 300 included) × €0.25 per 1,000, never below 0. A quota increase needs Support review, and how partial units are billed is not specified." },
+      { "v": "About €24.925/month before tax", "plan": "Essential pay-as-you-go", "state": "confirmed", "math": "One recipient per send. Estimate: (100,000 − 300 included) × €0.25 per 1,000, never below 0. A quota increase needs Support review, and how partial units are billed is not specified." }
+    ]
+  }
+}

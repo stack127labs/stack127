@@ -1,0 +1,17 @@
+{
+  "slug": "plesk",
+  "name": "Plesk",
+  "official_url": "https://www.plesk.com/",
+  "image_url": "https://www.plesk.com/favicon.ico",
+  "source_page": "https://www.plesk.com/",
+  "kind": "favicon",
+  "source_host": "plesk.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "547bb12a20e1d055be7c1c4f5206dde975aa64521d5769fe3c0fffd84bfb9648",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

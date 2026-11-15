@@ -1,0 +1,20 @@
+{
+  "slug": "sinch-verification",
+  "name": "Sinch Verification",
+  "url": "https://developers.sinch.com/docs/verification/introduction",
+  "jobs": ["hosted"],
+  "line": "Hosted phone verification API for app signup and login.",
+  "free": { "kind": "credits", "text": "Testing credit of 2 units in account currency" },
+  "cells": {
+    "freeUsers": "Trial credit only; no recurring free production quota",
+    "sso": "No customer SSO or SCIM account product"
+  },
+  "costs": {
+    "mau": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide a password or social-login plan for a whole account, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide a password or social-login plan for a whole account, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide a password or social-login plan for a whole account, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This verification add-on does not provide a password or social-login plan for a whole account, so no cost is shown." }
+    ]
+  }
+}

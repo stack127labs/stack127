@@ -1,0 +1,17 @@
+{
+  "slug": "supertokens",
+  "name": "SuperTokens",
+  "official_url": "https://supertokens.com/",
+  "image_url": "https://github.com/supertokens.png?size=460",
+  "source_page": "https://github.com/supertokens",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "b536b2a8f69cd1b15677303ae4bffa6496671f29ccd920607845b7db686ad97a",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

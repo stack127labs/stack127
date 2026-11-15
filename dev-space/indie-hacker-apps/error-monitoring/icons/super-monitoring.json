@@ -1,0 +1,17 @@
+{
+  "slug": "super-monitoring",
+  "name": "Super Monitoring",
+  "official_url": "https://www.supermonitoring.com/",
+  "image_url": "https://super-monitoring.com/images/icons/apple-touch-icon.png",
+  "source_page": "https://www.supermonitoring.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "super-monitoring.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "25efdcd530884089c1e21ac070dad80e74b6a6f1071bd0c9522ea2cd87bf3551",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

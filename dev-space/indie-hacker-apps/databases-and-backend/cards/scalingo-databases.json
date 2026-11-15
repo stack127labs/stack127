@@ -1,0 +1,45 @@
+{
+  "slug": "scalingo-databases",
+  "name": "Scalingo Databases",
+  "url": "https://scalingo.com/databases",
+  "jobs": ["sql", "kv", "vector"],
+  "line": "Managed PostgreSQL, MySQL, MongoDB, caching, and search databases.",
+  "free": { "kind": "trial", "text": "30d; 1 app/5 containers/1 small DB each; runs and bills or deletes after expiry" },
+  "cells": {
+    "metered": "Postgres Starter €7.20/30 days; 512 MB RAM, 10 GB disk",
+    "regions": "Two Paris regions; SecNumCloud access is restricted",
+    "selfhost": "No, Scalingo hosts the databases"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "€7.30",
+        "plan": "PostgreSQL Starter, Standard",
+        "state": "unclear",
+        "math": "€7.20 × 730 ÷ 720 = €7.30. The plan includes 10 GB of disk and 30 connections, but query performance is untested."
+      },
+      {
+        "v": "€7.30",
+        "plan": "PostgreSQL Starter, Standard",
+        "state": "unclear",
+        "math": "Idle, it stays provisioned for 730 hours: €7.20 × 730 ÷ 720 = €7.30. No lower idle rate for the database is published."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Scalingo database plans do not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Scalingo databases do not run worker jobs."
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "coolify",
+  "name": "Coolify",
+  "url": "https://coolify.io/",
+  "jobs": [
+    "panel"
+  ],
+  "line": "Open-source deploy panel you install on your own server.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free to self-host; Cloud is $5/month"
+  },
+  "cells": {
+    "type": "Deploy panel",
+    "regions": "Your servers",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Panel is free; needs your own server"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Panel is free; needs your own server"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Panel is free; needs your own server"
+      }
+    ]
+  }
+}

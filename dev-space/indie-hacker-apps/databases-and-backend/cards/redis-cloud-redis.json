@@ -1,0 +1,45 @@
+{
+  "slug": "redis-cloud-redis",
+  "name": "Redis Cloud",
+  "url": "https://redis.io/cloud/",
+  "jobs": ["kv", "vector", "jobs"],
+  "line": "Hosted Redis database for key-value data, vector search, and message streams.",
+  "free": { "kind": "free", "text": "30MB, 100 ops/s, 5GB/mo; evaluation deletes after 14d idle; Free rule unclear" },
+  "cells": {
+    "metered": "Essentials from USD $5/mo; Pro min USD $200/mo",
+    "regions": "AWS, GCP and Azure; plan coverage varies",
+    "selfhost": "Yes, Redis 8+ offers an AGPLv3 option"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "Unknown",
+        "plan": "Essentials",
+        "state": "check_failed",
+        "math": "1 GB of data needs a 2.5 GB plan with replication (nominal size). The exact regional quote and add-ons are not available."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Essentials",
+        "state": "check_failed",
+        "math": "The kept 1 GB workload is more than Free's 30 MB. The paid regional subscription price is not available, and it stays due while idle."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Redis Cloud does not offer general file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "Redis Streams plus worker host",
+        "state": "unclear",
+        "math": "Both the Streams broker and outside workers are needed. Worker hosting, message size, commands and retention are not priced."
+      }
+    ]
+  }
+}

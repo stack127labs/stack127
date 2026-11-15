@@ -1,0 +1,17 @@
+{
+  "slug": "teamwork-desk",
+  "name": "Teamwork Desk",
+  "official_url": "https://www.teamwork.com/desk/",
+  "image_url": "https://cdn-website.teamwork.com/offload/app/uploads/2019/03/04183535/cropped-favicon-192x192.png",
+  "source_page": "https://www.teamwork.com/desk/",
+  "kind": "favicon",
+  "source_host": "cdn-website.teamwork.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "1ae0f90f8a91d4d33de7506b76f8799999cadd150df15bc16df5f3e0e68ec9a6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

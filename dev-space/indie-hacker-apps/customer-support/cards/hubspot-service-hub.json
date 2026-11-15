@@ -1,0 +1,19 @@
+{
+  "slug": "hubspot-service-hub",
+  "name": "HubSpot Service Hub",
+  "url": "https://www.hubspot.com/products/service",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Customer support inbox, tickets, live chat, and AI within HubSpot CRM.",
+  "free": { "kind": "free", "text": "Free for 2 users; 1,000 CRM contacts" },
+  "cells": {
+    "channels": "Email, website chat, tickets, messaging",
+    "ai": "50 credits per resolved text conversation",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "Free covers one user and a basic shared inbox for 100 conversations." },
+      { "v": "$30", "plan": "Starter promotion", "state": "unclear", "math": "3 seats at $10 a month each for eligible new customers, under a limited-time promotion." }
+    ]
+  }
+}

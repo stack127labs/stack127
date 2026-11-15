@@ -1,0 +1,17 @@
+{
+  "slug": "geidea",
+  "name": "Geidea",
+  "official_url": "https://geidea.net/ksa/ar",
+  "image_url": "https://d13foss6evtcd5.cloudfront.net/public/favicon.svg",
+  "source_page": "https://www.geidea.net/ksa/ar",
+  "kind": "svg-icon",
+  "source_host": "d13foss6evtcd5.cloudfront.net",
+  "original": {
+    "format": "svg",
+    "width": 1184,
+    "height": 1472
+  },
+  "sha256": "b6007374b22b7ab994ba9a18abe846c96ffb252b73650ef4b0428f1e3a43243a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "seguno",
+  "name": "Seguno Email Marketing",
+  "url": "https://www.seguno.com/",
+  "jobs": ["marketing", "newsletter"],
+  "line": "Shopify newsletters, targeted campaigns and marketing automations.",
+  "free": { "kind": "free", "text": "Free for up to 250 subscribers with unlimited sending" },
+  "cells": {
+    "newsletters": "Yes, newsletters and targeted campaigns",
+    "api": "No, no public general sending API or SMTP"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 35/30 days", "plan": "Standard", "state": "confirmed", "math": "1,000 subscribed contacts × 4 broadcasts. Standard is USD 35 per 30 days. The Shopify store cost and tax are extra." },
+      { "v": "USD 55/30 days", "plan": "Standard + increments", "state": "confirmed", "math": "5,000 subscribed contacts × 4 broadcasts. USD 35 + USD 20 × 1 increment, per billing period. The Shopify store cost and tax are extra." },
+      { "v": "USD 95/30 days", "plan": "Standard + increments", "state": "confirmed", "math": "10,000 subscribed contacts × 4 broadcasts. USD 35 + USD 20 × 3 increments, per billing period. The Shopify store cost and tax are extra." },
+      { "v": "USD 415/30 days", "plan": "Professional/Pro + increments", "state": "confirmed", "math": "50,000 subscribed contacts × 4 broadcasts. USD 35 + USD 20 × 19 increments, per billing period. The Shopify store cost and tax are extra." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "3,000 one-email workflow runs a month. There is no general app email sending service. The 5,000-contact marketing plan is USD 55 per 30 days; run limits are unknown." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "10,000 one-email workflow runs a month. There is no general app email sending service. The 5,000-contact marketing plan is USD 55 per 30 days; run limits are unknown." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "50,000 one-email workflow runs a month. There is no general app email sending service. The 5,000-contact marketing plan is USD 55 per 30 days; run limits are unknown." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "100,000 one-email workflow runs a month. There is no general app email sending service. The 5,000-contact marketing plan is USD 55 per 30 days; run limits are unknown." }
+    ]
+  }
+}

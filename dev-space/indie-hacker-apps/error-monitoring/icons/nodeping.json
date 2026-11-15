@@ -1,0 +1,17 @@
+{
+  "slug": "nodeping",
+  "name": "NodePing",
+  "official_url": "https://nodeping.com/",
+  "image_url": "https://github.com/NodePing.png?size=460",
+  "source_page": "https://nodeping.com/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "2250d103f5c0e6b61a37759ee39ed293a314a2430657cb9a9bcd46b4cfbd84be",
+  "note": "official GitHub organization avatar; only available logo is a wordmark",
+  "saved_at": "2026-11-14"
+}

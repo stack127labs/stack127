@@ -1,0 +1,17 @@
+{
+  "slug": "supportcandy",
+  "name": "SupportCandy",
+  "official_url": "https://supportcandy.net/",
+  "image_url": "https://supportcandy.net/wp-content/uploads/2022/07/cropped-logo-192x192.png",
+  "source_page": "https://supportcandy.net/",
+  "kind": "favicon",
+  "source_host": "supportcandy.net",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "1f2a2f1b098e700a9baa42bb9f93d1bbbb45e9cadc23cb85cc7d51d37756d83b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

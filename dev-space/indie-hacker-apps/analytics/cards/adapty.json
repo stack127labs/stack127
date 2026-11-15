@@ -1,0 +1,20 @@
+{
+  "slug": "adapty",
+  "name": "Adapty",
+  "url": "https://adapty.io/",
+  "jobs": ["revenue"],
+  "line": "Mobile subscription analytics for revenue, retention and lifetime value.",
+  "free": {"kind": "free", "text": "Core analytics free before $5K tracked revenue"},
+  "cells": {
+    "cookieless": "Unknown",
+    "location": "US or EU for Enterprise; Pro region unknown",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed on tracked purchase revenue, not pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed on tracked purchase revenue, not pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed on tracked purchase revenue, not pageviews."}
+    ]
+  }
+}

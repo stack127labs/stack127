@@ -1,0 +1,25 @@
+{
+  "slug": "akamai-object-storage",
+  "name": "Akamai Object Storage",
+  "url": "https://www.akamai.com/products/object-storage",
+  "jobs": ["files"],
+  "line": "S3-compatible object storage for app files, backups, and media.",
+  "free": { "kind": "credits", "text": "$100 promotional credit for 60 days, for eligible new accounts" },
+  "cells": {
+    "metered": "$5/month includes up to 250 GB storage",
+    "regions": "26 locations",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a database" }
+    ],
+    "files": [
+      { "v": "$5.00", "plan": "Object Storage", "state": "confirmed", "math": "100 GB storage and 100 GB transfer fit within the included allowances. Requests are not charged." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide job execution" }
+    ]
+  }
+}

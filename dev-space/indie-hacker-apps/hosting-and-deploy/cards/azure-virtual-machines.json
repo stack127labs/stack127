@@ -1,0 +1,14 @@
+{
+  "slug": "azure-virtual-machines",
+  "name": "Azure Virtual Machines",
+  "url": "https://azure.microsoft.com/en-us/products/virtual-machines/",
+  "jobs": ["vps"],
+  "line": "Run Linux or Windows virtual machines and manage the guest OS yourself.",
+  "free": { "kind": "trial", "text": "Eligible new customers: time-limited 12-month VM offer" },
+  "cells": { "type": "Virtual machines", "regions": "East US example; Azure regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Known fixed subtotal is $12.912 a month: a VM for 730 hours, an E4 disk and an IPv4 address. Disk transactions, and data sent out beyond the unused allowance, vary." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Known fixed subtotal is $12.912 a month. E4 disk transactions, and data sent out beyond the unused allowance, vary. How much traffic it can handle is not tested." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Known fixed subtotal is $38.818 a month: a VM for 730 hours, two E4 disks and an IPv4 address. Disk transactions, seven-day backups and data sent out beyond the allowance vary." }
+  ] }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "zerops",
+  "name": "Zerops",
+  "url": "https://zerops.io/",
+  "jobs": ["paas", "static"],
+  "line": "Deploys apps, static sites and managed databases from Git.",
+  "free": { "kind": "free", "text": "Lightweight core: 15 build h, 100 GB egress, 5 GB backup; app resources extra" },
+  "cells": {
+    "type": "App platform",
+    "regions": "Prague, New York and US West",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      { "v": "$4.47", "plan": "Lightweight + IPv4", "state": "confirmed", "math": "($0.60 core + $0.75 RAM + $0.10 disk) × 730 divided by 720, + $3 for IPv4 = $4.47 estimate before tax. 100 GB sent out and 100 build minutes fit the quotas. 1 shared core, 0.25 GB RAM, 1 GB disk. Capacity untested." },
+      { "v": "$7.13", "plan": "Lightweight + IPv4", "state": "confirmed", "math": "($0.60 core + 4.5 × $0.75 RAM + $0.10 disk) × 730 divided by 720, + $3 for IPv4 = $7.13 before tax. 1.125 GB exceeds 1 GiB; core is shared. 100 GB sent out and 100 build minutes fit the quotas. Throughput untested." },
+      { "v": "Unknown", "plan": "Lightweight + IPv4", "state": "unclear", "math": "$12.18 for app and DB, pre-tax. 1 shared core, 1.125 GB RAM each, 1 GB app disk, 10 GB DB disk, IPv4. 7-day backup overage: (backup amount − 5, minimum 0) ÷ 5 × $0.50, period unknown. Internal 10 GB transfer unconfirmed." }
+    ]
+  }
+}

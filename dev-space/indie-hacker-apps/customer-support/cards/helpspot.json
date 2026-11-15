@@ -1,0 +1,19 @@
+{
+  "slug": "helpspot",
+  "name": "HelpSpot",
+  "url": "https://www.helpspot.com/",
+  "jobs": ["helpdesk", "inbox"],
+  "line": "Email-first help desk with ticketing, customer portal, and knowledge base.",
+  "free": { "kind": "trial", "text": "21-day trial, no card" },
+  "cells": {
+    "channels": "Email, forms, customer portal",
+    "ai": "Included; fair-use limit not published",
+    "selfhost": "Yes, paid subscription licence"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$899/year", "plan": "3-agent bundle", "state": "confirmed", "math": "The minimum is a 3-agent annual bundle. One working agent leaves two seats unused." },
+      { "v": "$899/year", "plan": "3-agent bundle", "state": "confirmed", "math": "One annual bundle includes three working agents and unlimited tickets." }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "cryptapi",
+  "name": "CryptAPI",
+  "url": "https://cryptapi.io/",
+  "jobs": ["crypto"],
+  "line": "No-signup crypto payment API that forwards funds to your wallet.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; 1% at the lowest volume tier" },
+  "cells": {
+    "type": "Crypto payment API",
+    "countries": "Marketed globally; full seller-country list unpublished",
+    "payout": "Forwards after the configured network confirmations"
+  },
+  "costs": {
+    "fee": [
+      { "v": "1%", "plan": "Crypto payment", "state": "unclear", "math": "One published rate list applies worldwide: 1% for sellers under $250,000 in volume over the past 30 days. The full list of seller countries isn't published." },
+      { "v": "1%", "plan": "Crypto payment", "state": "unclear", "math": "One published rate list applies worldwide: 1% for sellers under $250,000 in volume over the past 30 days. The full list of seller countries isn't published." },
+      { "v": "1%", "plan": "Crypto payment", "state": "unclear", "math": "One published rate list applies worldwide: 1% for sellers under $250,000 in volume over the past 30 days. The full list of seller countries isn't published." },
+      { "v": "1%", "plan": "Crypto payment", "state": "unclear", "math": "One published rate list applies worldwide: 1% for sellers under $250,000 in volume over the past 30 days. The full list of seller countries isn't published." }
+    ]
+  }
+}

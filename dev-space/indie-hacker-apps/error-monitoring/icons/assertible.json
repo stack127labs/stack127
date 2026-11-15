@@ -1,0 +1,17 @@
+{
+  "slug": "assertible",
+  "name": "Assertible",
+  "official_url": "https://assertible.com/",
+  "image_url": "https://assertible.com/images/logo/logo-128x128.png",
+  "source_page": "https://assertible.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "assertible.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "b874625127d03165908d1b87ae94d62155c6f57db90e429375fdb7729d334a08",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

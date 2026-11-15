@@ -1,0 +1,21 @@
+{
+  "slug": "pay-jp",
+  "name": "PAY.JP",
+  "url": "https://pay.jp/",
+  "jobs": ["gateway", "billing"],
+  "line": "Japanese payment gateway with hosted checkout and recurring cards.",
+  "free": { "kind": "free", "text": "Standard plan is ¥0/month; card fees apply" },
+  "cells": {
+    "type": "Payment gateway, processor and card-receivable service",
+    "countries": "Japan only",
+    "payout": "Month-end sales paid at the end of the following month"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Japan." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Japan." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Japan." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Japan." }
+    ]
+  }
+}

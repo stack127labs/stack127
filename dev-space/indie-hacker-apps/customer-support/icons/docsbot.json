@@ -1,0 +1,17 @@
+{
+  "slug": "docsbot",
+  "name": "DocsBot",
+  "official_url": "https://docsbot.ai/",
+  "image_url": "https://docsbot.ai/android-chrome-384x384.png",
+  "source_page": "https://docsbot.ai/",
+  "kind": "manifest-icon",
+  "source_host": "docsbot.ai",
+  "original": {
+    "format": "png",
+    "width": 384,
+    "height": 384
+  },
+  "sha256": "557bc03f89d1b9505597832b536dd040683c7262beb0b691bd7503d2afb1ecd4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

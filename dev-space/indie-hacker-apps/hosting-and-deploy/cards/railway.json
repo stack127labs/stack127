@@ -1,0 +1,40 @@
+{
+  "slug": "railway",
+  "name": "Railway",
+  "url": "https://railway.com/",
+  "jobs": [
+    "paas"
+  ],
+  "line": "Deploy apps and databases together on a managed platform.",
+  "free": {
+    "kind": "free",
+    "text": "After trial: $1/mo credit; 1 project/3 services; new signups must pay"
+  },
+  "cells": {
+    "type": "App platform",
+    "regions": "4 compute regions; edge POPs route to them",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "Unknown",
+        "plan": "Hobby",
+        "state": "unclear",
+        "math": "$5 for data sent out, plus unmeasured CPU and RAM. The bill is the higher of the plan price ($5 Hobby, $20 Pro) or usage. Builds are free. Private Git and tax are unclear. Pro is recommended for business use."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Hobby or Pro",
+        "state": "unclear",
+        "math": "100 GB sent out = $5. Requests (1 million × 100 ms of CPU) = $0.772. Idle CPU, RAM and memory over 730 hours are unknown. Bill: the higher of the plan ($5 Hobby, $20 Pro) or usage. Pro is recommended for business use."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "Pro is needed for a 10 GB volume. Its $20 minimum applies against usage. Database compute and backup size are unknown. Private 10 GB database traffic is $0. Daily backups keep 6 days, not 7."
+      }
+    ]
+  }
+}

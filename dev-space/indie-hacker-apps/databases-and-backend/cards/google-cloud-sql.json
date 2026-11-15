@@ -1,0 +1,25 @@
+{
+  "slug": "google-cloud-sql",
+  "name": "Google Cloud SQL",
+  "url": "https://cloud.google.com/sql",
+  "jobs": ["sql", "vector"],
+  "line": "Managed MySQL, PostgreSQL, and SQL Server with vector search support.",
+  "free": { "kind": "trial", "text": "30d trial: 8 vCPU, 64 GB RAM, 100 GB; stops day 30, deleted after 90 more" },
+  "cells": {
+    "metered": "Iowa Enterprise: $0.0413/vCPU-hour + $0.007/GiB-hour RAM",
+    "regions": "Choose a region; listed in Iowa, Mumbai, London, and Sydney",
+    "selfhost": "No, Google-managed database service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$51.98/month", "plan": "Enterprise, Iowa", "state": "confirmed", "math": "730 hours: $49.3115 for compute, plus $1.7000021 for SSD storage, plus $0.88475644588470458984375 for egress, plus $0.07999997 for backup (assumed). The total is $51.98. Whether it fits the workload is not proven." },
+      { "v": "$51.09/month", "plan": "Enterprise, Iowa", "state": "confirmed", "math": "An idle instance that stays running: $49.3115 for compute, plus $1.7000021 for SSD storage, plus $0.07999997 for backup. The total is $51.09 for 730 hours." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud SQL is a database, not a file store." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud SQL does not run app workers." }
+    ]
+  }
+}

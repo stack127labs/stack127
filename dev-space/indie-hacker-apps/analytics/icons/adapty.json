@@ -1,0 +1,17 @@
+{
+  "slug": "adapty",
+  "name": "Adapty",
+  "official_url": "https://adapty.io/",
+  "image_url": "https://adapty.io/img/favicon/favicon.svg",
+  "source_page": "https://adapty.io/",
+  "kind": "svg-icon",
+  "source_host": "adapty.io",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "f3072f1cb2a71932a110e0a71c2de9ecfa78b51d469f309e78c565931c256738",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

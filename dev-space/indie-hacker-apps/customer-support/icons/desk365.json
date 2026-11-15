@@ -1,0 +1,17 @@
+{
+  "slug": "desk365",
+  "name": "Desk365",
+  "official_url": "https://www.desk365.io/",
+  "image_url": "https://www.desk365.io/apple-touch-icon.png",
+  "source_page": "https://www.desk365.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "desk365.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "2f55c36f7f0530a5409f69ece79b22d6624cf5e00bcf949251beaf1773d0f613",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

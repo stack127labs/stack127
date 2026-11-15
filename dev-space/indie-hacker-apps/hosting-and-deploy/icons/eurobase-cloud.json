@@ -1,0 +1,17 @@
+{
+  "slug": "eurobase-cloud",
+  "name": "Eurobase Cloud",
+  "official_url": "https://eurobase.dev/",
+  "image_url": "https://eurobase.dev/brand/eurobase-logo-mark-256.png",
+  "source_page": "https://eurobase.dev/",
+  "kind": "logo-mark",
+  "source_host": "eurobase.dev",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 226
+  },
+  "sha256": "fdb23c1420578ef2cfad74db3b9885b78c4fcba947651282149ea1fe30a74b34",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

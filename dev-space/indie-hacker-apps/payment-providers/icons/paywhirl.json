@@ -1,0 +1,17 @@
+{
+  "slug": "paywhirl",
+  "name": "PayWhirl",
+  "official_url": "https://paywhirl.com/",
+  "image_url": "https://paywhirl.com/images/misc/favicon.svg",
+  "source_page": "https://paywhirl.com/",
+  "kind": "svg-icon",
+  "source_host": "paywhirl.com",
+  "original": {
+    "format": "svg",
+    "width": 187,
+    "height": 187
+  },
+  "sha256": "a4decee2f2212acad1fef222cadf618bea5519e20e1baac5a855e3a99e37248a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

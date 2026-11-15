@@ -1,0 +1,17 @@
+{
+  "slug": "keycloak",
+  "name": "Keycloak",
+  "official_url": "https://www.keycloak.org/",
+  "image_url": "https://www.keycloak.org/resources/favicon.svg",
+  "source_page": "https://www.keycloak.org/",
+  "kind": "svg-icon",
+  "source_host": "keycloak.org",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "cec373e7dc2931c8368a8bf993a08fb93ecf63f069bd7c08b1bdb1b351c2fa53",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

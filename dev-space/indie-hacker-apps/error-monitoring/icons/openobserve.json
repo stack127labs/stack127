@@ -1,0 +1,17 @@
+{
+  "slug": "openobserve",
+  "name": "OpenObserve",
+  "official_url": "https://openobserve.ai/",
+  "image_url": "https://openobserve.ai/favicon.svg",
+  "source_page": "https://openobserve.ai/",
+  "kind": "svg-icon",
+  "source_host": "openobserve.ai",
+  "original": {
+    "format": "svg",
+    "width": 885,
+    "height": 885
+  },
+  "sha256": "db0cd66f10f90f70ef013eb22f429f7316c71b3998ee0c5f4bead6a51937df46",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

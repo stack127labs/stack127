@@ -1,0 +1,17 @@
+{
+  "slug": "hostwinds-vps",
+  "name": "Hostwinds VPS",
+  "official_url": "https://www.hostwinds.com/vps/linux",
+  "image_url": "https://www.hostwinds.com/images/apple-touch-icon-180x180.png",
+  "source_page": "https://www.hostwinds.com/vps/linux",
+  "kind": "apple-touch-icon",
+  "source_host": "hostwinds.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "b817ad52b7a1a6701d89697d4a503eafe503bafd83ba53ac69fe1f408938e593",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

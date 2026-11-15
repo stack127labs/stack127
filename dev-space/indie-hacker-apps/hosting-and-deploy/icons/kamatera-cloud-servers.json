@@ -1,0 +1,17 @@
+{
+  "slug": "kamatera-cloud-servers",
+  "name": "Kamatera Cloud Servers",
+  "official_url": "https://www.kamatera.com/",
+  "image_url": "https://www.kamatera.com/wp-content/uploads/cropped-cropped-06169472-7db8-4ba3-91f6-3b4e34b5e168-1-192x192.png",
+  "source_page": "https://www.kamatera.com/",
+  "kind": "manifest-icon",
+  "source_host": "kamatera.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "5c2093c566c9b63335bb79b7949b79e1695e63b853ce1334611f41db2b66ce96",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "bold",
+  "name": "Bold",
+  "url": "https://bold.co/",
+  "jobs": [
+    "gateway",
+    "links"
+  ],
+  "line": "Colombia and Peru payment links and online card acceptance.",
+  "free": {
+    "kind": "none",
+    "text": "No standard monthly fee published"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Colombia only",
+    "payout": "CO next day or immediate; Peru 24–48 hours"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      }
+    ]
+  }
+}

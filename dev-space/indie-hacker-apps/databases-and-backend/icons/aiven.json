@@ -1,0 +1,17 @@
+{
+  "slug": "aiven",
+  "name": "Aiven",
+  "official_url": "https://aiven.io/",
+  "image_url": "https://aiven.io/favicon.svg",
+  "source_page": "https://aiven.io/",
+  "kind": "svg-icon",
+  "source_host": "aiven.io",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "e915879768ad397bc23d9b5f5744bc582d6c8965f89735276caacd535c690c9d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

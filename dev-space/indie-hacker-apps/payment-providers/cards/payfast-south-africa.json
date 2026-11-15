@@ -1,0 +1,21 @@
+{
+  "slug": "payfast-south-africa",
+  "name": "Payfast",
+  "url": "https://payfast.io/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "South African checkout gateway with payment requests and recurring cards.",
+  "free": { "kind": "none", "text": "No setup/monthly fee; R115 inactivity fee after 12 months" },
+  "cells": {
+    "type": "Payment aggregator and gateway",
+    "countries": "South African bank required; residency not required",
+    "payout": "48-hour hold; bank arrival 1–2 workdays after request"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether US sellers are eligible, and no US rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether UK sellers are eligible, and no UK rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether German sellers are eligible, and no German rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether Indian sellers are eligible, and no India rate is published." }
+    ]
+  }
+}

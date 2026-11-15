@@ -1,0 +1,17 @@
+{
+  "slug": "bknd",
+  "name": "bknd",
+  "official_url": "https://github.com/bknd-io/bknd",
+  "image_url": "https://github.com/bknd-io.png?size=256",
+  "source_page": "https://github.com/bknd-io/bknd",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "4aead0599b0530546f585b351d4059d2354b7112541fee6e88b60f880bfb9442",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

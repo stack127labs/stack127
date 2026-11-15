@@ -1,0 +1,26 @@
+{
+  "slug": "write-as",
+  "name": "Write.as",
+  "url": "https://write.as/",
+  "jobs": ["newsletter"],
+  "line": "Hosted blog posts delivered as newsletters, with web and RSS publishing.",
+  "free": { "kind": "trial", "text": "14-day Pro or 30-day Team trial; Free excludes newsletters" },
+  "cells": {
+    "newsletters": "Yes, blog-post newsletters with subscriber signup",
+    "api": "Yes, content API; newsletter sending API not stated"
+  },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "Team starts at $30/month", "state": "unclear", "math": "4,000 emails to 1,000 readers. Whether Team accepts this audience and the email quota are unknown, so $30 is not a quote for this workload." },
+      { "v": "Unknown", "plan": "Team starts at $30/month", "state": "unclear", "math": "20,000 emails to 5,000 readers. Whether Team accepts this audience and the email quota are unknown, so $30 is not a quote for this workload." },
+      { "v": "Unknown", "plan": "Team starts at $30/month", "state": "unclear", "math": "40,000 emails to 10,000 readers. Whether Team accepts this audience and the email quota are unknown, so $30 is not a quote for this workload." },
+      { "v": "Unknown", "plan": "Team starts at $30/month", "state": "unclear", "math": "200,000 emails to 50,000 readers. Whether Team accepts this audience and the email quota are unknown, so $30 is not a quote for this workload." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a hosted publishing newsletter, not a general app email service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a hosted publishing newsletter, not a general app email service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a hosted publishing newsletter, not a general app email service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a hosted publishing newsletter, not a general app email service." }
+    ]
+  }
+}

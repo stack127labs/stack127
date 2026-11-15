@@ -1,0 +1,17 @@
+{
+  "slug": "contabo-vps",
+  "name": "Contabo VPS",
+  "official_url": "https://contabo.com/en/vps/",
+  "image_url": "https://cdn.contabo.com/contabo.svg",
+  "source_page": "https://contabo.com/en/vps/",
+  "kind": "logo-mark",
+  "source_host": "cdn.contabo.com",
+  "original": {
+    "format": "svg",
+    "width": 533,
+    "height": 533
+  },
+  "sha256": "4695460902f1a82eb86b95429ff57596ff6c9406cb02f073717183f7f9d56c17",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

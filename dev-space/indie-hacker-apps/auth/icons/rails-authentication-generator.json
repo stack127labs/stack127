@@ -1,0 +1,17 @@
+{
+  "slug": "rails-authentication-generator",
+  "name": "Rails authentication generator",
+  "official_url": "https://guides.rubyonrails.org/security.html",
+  "image_url": "https://guides.rubyonrails.org/images/favicon.ico",
+  "source_page": "https://guides.rubyonrails.org/security.html",
+  "kind": "favicon",
+  "source_host": "guides.rubyonrails.org",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "087dce58dcdebac7fd0514c4aab2a61857351067265d7e45b6b0217020242c82",
+  "note": "parent brand: Ruby on Rails; authentication generator is a Rails framework feature; source icon is 64×64",
+  "saved_at": "2026-11-14"
+}

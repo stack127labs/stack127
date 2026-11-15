@@ -1,0 +1,17 @@
+{
+  "slug": "couchbase-capella",
+  "name": "Couchbase Capella",
+  "official_url": "https://www.couchbase.com/pricing/",
+  "image_url": "https://www.couchbase.com//wp-content//uploads//2026//11//Couchbase_Logo_Couchbase_Token_Red-1.png",
+  "source_page": "https://www.couchbase.com/pricing/",
+  "kind": "logo-mark",
+  "source_host": "couchbase.com",
+  "original": {
+    "format": "png",
+    "width": 1129,
+    "height": 1129
+  },
+  "sha256": "0b07db9730d445109789d3018d8e3b4cb81774f15f31b5dd1045c863800bc78d",
+  "note": "Couchbase product mark used for Capella; official site publishes this shared mark.",
+  "saved_at": "2026-11-14"
+}

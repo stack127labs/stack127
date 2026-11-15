@@ -1,0 +1,17 @@
+{
+  "slug": "azure-database-for-postgresql",
+  "name": "Azure Database for PostgreSQL",
+  "official_url": "https://azure.microsoft.com/en-us/products/postgresql",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "473d08285d54c41147df4cdf2a4580df1bec2851adaf6a27c3fddf08dd7a1666",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

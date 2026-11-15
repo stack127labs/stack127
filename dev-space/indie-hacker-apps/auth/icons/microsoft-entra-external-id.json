@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-entra-external-id",
+  "name": "Microsoft Entra External ID",
+  "official_url": "https://www.microsoft.com/en-us/security/business/identity/microsoft-entra-external-id",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "4e5b66ad1d2ebcca33f848d79eb2e85ec56c944f41d3b488b774a3613e2e42a3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

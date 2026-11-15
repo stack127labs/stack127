@@ -1,0 +1,21 @@
+{
+  "slug": "flow",
+  "name": "Flow",
+  "url": "https://web.flow.cl/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Online payments, links and subscriptions for sellers in Latin America.",
+  "free": { "kind": "none", "text": "No setup or monthly fee for online access" },
+  "cells": {
+    "type": "Gateway and payment collection",
+    "countries": "Chile, Peru and Mexico",
+    "payout": "Chile next or third business day; Peru and Mexico day three"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published which countries outside Chile, Peru and Mexico can sign up. No US rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published which countries outside Chile, Peru and Mexico can sign up. No UK rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published which countries outside Chile, Peru and Mexico can sign up. No German rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published which countries outside Chile, Peru and Mexico can sign up. No India rate is published." }
+    ]
+  }
+}

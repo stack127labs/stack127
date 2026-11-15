@@ -1,0 +1,26 @@
+{
+  "slug": "hubspot-marketing-hub",
+  "name": "HubSpot Marketing Hub",
+  "url": "https://www.hubspot.com/products/marketing",
+  "jobs": ["marketing", "newsletter", "multichannel", "transactional"],
+  "line": "Marketing campaigns, workflows and transactional email in a CRM.",
+  "free": { "kind": "free", "text": "Free for 2 users and 2,000 email sends per month" },
+  "cells": {
+    "newsletters": "Yes, marketing broadcasts",
+    "api": "Yes, paid transactional email add-on"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$20/month", "plan": "Starter", "state": "confirmed", "math": "1,000 contacts. 4 campaigns use 4,000 of the 5,000 sends a month." },
+      { "v": "$210/month", "plan": "Starter", "state": "confirmed", "math": "5,000 contacts. 4 campaigns use 20,000 of the 25,000 sends a month." },
+      { "v": "$410/month", "plan": "Starter", "state": "confirmed", "math": "10,000 contacts. 4 campaigns use 40,000 of the 50,000 sends a month." },
+      { "v": "$2,010/month", "plan": "Starter", "state": "confirmed", "math": "50,000 contacts. 4 campaigns use 200,000 of the 250,000 sends a month." }
+    ],
+    "appmail": [
+      { "v": "$1,490/month + $3,000 onboarding", "plan": "Transactional Email Add-On", "state": "confirmed", "math": "3,000 emails, each to one recipient. Professional at $890, plus a $600 add-on and $3,000 onboarding. This price is for a dedicated IP only; the shared-IP price is not available." },
+      { "v": "$1,490/month + $3,000 onboarding", "plan": "Transactional Email Add-On", "state": "confirmed", "math": "10,000 emails, each to one recipient. Professional at $890, plus a $600 add-on and $3,000 onboarding. This price is for a dedicated IP only; the shared-IP price is not available." },
+      { "v": "$1,490/month + $3,000 onboarding", "plan": "Transactional Email Add-On", "state": "confirmed", "math": "50,000 emails, each to one recipient. Professional at $890, plus a $600 add-on and $3,000 onboarding. This price is for a dedicated IP only; the shared-IP price is not available." },
+      { "v": "$1,490/month + $3,000 onboarding", "plan": "Transactional Email Add-On", "state": "confirmed", "math": "100,000 emails, each to one recipient. Professional at $890, plus a $600 add-on and $3,000 onboarding. This price is for a dedicated IP only; the shared-IP price is not available." }
+    ]
+  }
+}

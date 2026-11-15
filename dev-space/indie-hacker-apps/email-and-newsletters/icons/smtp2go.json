@@ -1,0 +1,17 @@
+{
+  "slug": "smtp2go",
+  "name": "SMTP2GO",
+  "official_url": "https://www.smtp2go.com/",
+  "image_url": "https://www.smtp2go.com/favicon.ico",
+  "source_page": "https://www.smtp2go.com/",
+  "kind": "favicon",
+  "source_host": "smtp2go.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "1747f4541986cd310c51efd3c759b5fb6727325bac33652bf77952521618a962",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

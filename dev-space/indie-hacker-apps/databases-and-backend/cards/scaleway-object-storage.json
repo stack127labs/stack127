@@ -1,0 +1,45 @@
+{
+  "slug": "scaleway-object-storage",
+  "name": "Scaleway Object Storage",
+  "url": "https://www.scaleway.com/en/object-storage/",
+  "jobs": ["files"],
+  "line": "S3-compatible object storage with Multi-AZ and One Zone bucket options.",
+  "free": { "kind": "trial", "text": "750GB for 90d; eligibility unclear; no idle bucket deletion rule" },
+  "cells": {
+    "metered": "Paris €0.01606/GB-mo; 75 GB egress included",
+    "regions": "Paris, Amsterdam, Warsaw, and Milan",
+    "selfhost": "No, Scaleway operates the service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Scaleway Object Storage is not a database"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Scaleway Object Storage is not a database"
+      }
+    ],
+    "files": [
+      {
+        "v": "€1.856",
+        "plan": "Standard Multi-AZ, Paris",
+        "state": "unclear",
+        "math": "100 GB × €0.01606 = €1.606 for storage, plus (100 GB − 75 GB) × €0.01 = €0.25 for outbound data (egress). Requests are included. Tax is not included."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Scaleway Object Storage does not run background jobs"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "apply-build",
+  "name": "Apply.Build",
+  "url": "https://apply.build/",
+  "jobs": ["paas"],
+  "line": "Build and run Git based apps in isolated micro-VMs.",
+  "free": { "kind": "free", "text": "Free: 0.5 vCPU, 512 MiB memory, 5 GB storage" },
+  "cells": { "type": "Managed app platform", "regions": "Finland", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€5", "plan": "One resource package", "state": "unclear", "math": "€5 a month for the known package. Whether the workload is accepted, and the full delivery and build cost, depend on conditions not yet confirmed." },
+    { "v": "€5", "plan": "One resource package", "state": "unclear", "math": "€5 a month for the known package. Whether the workload fits exactly, and the full cost, depend on conditions not yet confirmed." },
+    { "v": "€10", "plan": "Two resource packages", "state": "unclear", "math": "€10 a month for the known packages. PostgreSQL and whether the workload is accepted depend on conditions not yet confirmed." }
+  ] }
+}

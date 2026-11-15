@@ -1,0 +1,35 @@
+{
+  "slug": "faveo-helpdesk",
+  "name": "Faveo Helpdesk",
+  "url": "https://www.faveohelpdesk.com/",
+  "jobs": [
+    "helpdesk",
+    "inbox"
+  ],
+  "line": "Email ticketing and customer support with hosted and self-managed options.",
+  "free": {
+    "kind": "free",
+    "text": "Freelancer is free for up to 2 agents"
+  },
+  "cells": {
+    "channels": "Email, web forms, knowledge base",
+    "ai": "No public AI rate established",
+    "selfhost": "Yes, Community and paid editions"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Freelancer",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$21",
+        "plan": "Self-hosted Startup",
+        "state": "unclear",
+        "math": "3 agents at $7 a month each for the license. Server and operating costs are extra."
+      }
+    ]
+  }
+}

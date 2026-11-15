@@ -1,0 +1,45 @@
+{
+  "slug": "scaleway-managed-postgresql-and-mysql",
+  "name": "Scaleway Managed Databases",
+  "url": "https://www.scaleway.com/en/managed-postgresql-mysql/",
+  "jobs": ["sql", "vector", "jobs"],
+  "line": "Managed PostgreSQL and MySQL with backups, replicas, and pgvector support.",
+  "free": { "kind": "credits", "text": "Startups: up to €1,000/12mo; no idle expiry; unpaid service may be deleted" },
+  "cells": {
+    "metered": "Paris DEV-S €0.0156/hr + storage from €0.0993/GB-mo",
+    "regions": "Paris, Amsterdam, Warsaw, and Milan",
+    "selfhost": "No, Scaleway hosts the managed service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "€11.388+",
+        "plan": "Paris DB-DEV-S",
+        "state": "unclear",
+        "math": "730 hours × €0.0156 an hour = €11.388 for compute. Add €0.0993 per GB of storage a month, €0.03 per GB of backups a month, plus transfer and extras. The amounts for these are not set."
+      },
+      {
+        "v": "€11.388+",
+        "plan": "Paris DB-DEV-S",
+        "state": "unclear",
+        "math": "Idle still bills for 730 provisioned hours: €11.388 for compute, plus €0.0993 per GB of storage a month and €0.03 per GB of backups a month, for amounts that are not set. Transfer and extras are also not set."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Scaleway Managed Databases does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "PostgreSQL pg_cron + DB-DEV-S",
+        "state": "unclear",
+        "math": "pg_cron schedules SQL on the paid database. The €11.388 compute part remains, but job capacity and the full database cost are unknown."
+      }
+    ]
+  }
+}

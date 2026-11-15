@@ -1,0 +1,17 @@
+{
+  "slug": "xsolla",
+  "name": "Xsolla",
+  "official_url": "https://xsolla.com/",
+  "image_url": "https://cdn.xsolla.net/merchant-bucket-prod/files/uploaded/sitebuilder/859921/61c805b3c00f61b47a22b0aaa30e387a.jpg",
+  "source_page": "https://xsolla.com/",
+  "kind": "favicon",
+  "source_host": "cdn.xsolla.net",
+  "original": {
+    "format": "heif",
+    "width": 87,
+    "height": 83
+  },
+  "sha256": "e48f70efc85396cf944eecdb67e0fb0c180154904f84cd23630bcc32a3f7ed81",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "freshmarketer",
+  "name": "Freshmarketer",
+  "official_url": "https://www.freshworks.com/crm/marketing/",
+  "image_url": "https://www.freshworks.com/favicons/apple-touch-icon.png",
+  "source_page": "https://www.freshworks.com/crm/marketing/",
+  "kind": "apple-touch-icon",
+  "source_host": "freshworks.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "f11f923ec902c7100152093441a76df945780ff560acf898655a6225c59af3a1",
+  "note": "parent brand: Freshworks; Freshmarketer has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

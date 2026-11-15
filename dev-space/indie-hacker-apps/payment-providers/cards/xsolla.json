@@ -1,0 +1,48 @@
+{
+  "slug": "xsolla",
+  "name": "Xsolla",
+  "url": "https://xsolla.com/",
+  "jobs": [
+    "mor",
+    "billing",
+    "links"
+  ],
+  "line": "Game checkout with subscriptions, tax handling, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "No upfront fee; 5% per transaction plus payment-channel costs"
+  },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "Global; license review and sanctions apply",
+    "payout": "Monthly; schedule depends on contract and minimum"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      }
+    ]
+  }
+}

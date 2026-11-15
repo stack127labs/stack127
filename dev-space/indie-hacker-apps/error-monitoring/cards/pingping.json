@@ -1,0 +1,24 @@
+{
+  "slug": "pingping",
+  "name": "PingPing",
+  "url": "https://pingping.io/",
+  "jobs": ["uptime", "status"],
+  "line": "Checks websites and certificates, then publishes status pages for each site.",
+  "free": { "kind": "trial", "text": "14-day trial, up to 5 websites; no card" },
+  "cells": {
+    "interval": "30 s paid; trial interval unclear",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "Starter's own monitoring and status-page part costs €6 a month for 5 sites. Whether it can run from one fixed location isn't confirmed." },
+      { "v": "Unknown", "plan": "Growth", "state": "unclear", "math": "Growth's own monitoring and status-page part costs €30 a month for 25 sites. Whether it can run from one fixed location isn't confirmed." },
+      { "v": "Unknown", "plan": "Scale", "state": "unclear", "math": "Scale's own monitoring and status-page part costs €90 a month for 100 sites. Whether it can run from one fixed location isn't confirmed." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "paddle-billing-reporting",
+  "name": "Paddle Billing Reporting",
+  "official_url": "https://www.paddle.com/billing/reporting",
+  "image_url": "https://www.paddle.com/favicon.svg",
+  "source_page": "https://www.paddle.com/billing/reporting",
+  "kind": "svg-icon",
+  "source_host": "paddle.com",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "839cda2363c4e0e0fcae6241e32834c958f8edb05a34fa18115cee029f84c783",
+  "note": "parent brand: Paddle; Billing Reporting has no separate product mark",
+  "saved_at": "2026-11-14"
+}

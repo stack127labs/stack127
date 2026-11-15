@@ -1,0 +1,17 @@
+{
+  "slug": "status-io",
+  "name": "Status.io",
+  "official_url": "https://status.io/",
+  "image_url": "https://static.status.io/public/ico/apple-touch-icon-144-precomposed.png",
+  "source_page": "https://status.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "static.status.io",
+  "original": {
+    "format": "png",
+    "width": 144,
+    "height": 144
+  },
+  "sha256": "99f00d9b2cdc89bff0d8e600ba2b67257ba811272d1fea528cb6163fe439c03a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

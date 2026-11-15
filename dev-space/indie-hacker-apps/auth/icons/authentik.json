@@ -1,0 +1,17 @@
+{
+  "slug": "authentik",
+  "name": "authentik",
+  "official_url": "https://goauthentik.io/",
+  "image_url": "https://goauthentik.io/img/icon.png",
+  "source_page": "https://goauthentik.io/",
+  "kind": "favicon",
+  "source_host": "goauthentik.io",
+  "original": {
+    "format": "png",
+    "width": 1001,
+    "height": 1000
+  },
+  "sha256": "61797f8551b1b65cba9f315c1937b2c1be815fdde2fb25f41a1dd40baaf0f53f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "servervana",
+  "name": "Servervana",
+  "url": "https://servervana.com/",
+  "jobs": ["uptime", "status"],
+  "line": "Checks websites and domains, runs browser checks, and publishes status pages.",
+  "free": { "kind": "free", "text": "10 HTTP, 1 DNS monitor, 1 status page, 1 user, 1 policy" },
+  "cells": { "interval": "180 s free, 60 s paid", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Flexible normal", "state": "unclear", "math": "The monitoring part costs $3. The full total isn't known, because the status-page domain and traffic limits aren't settled." },
+      { "v": "Unknown", "plan": "Flexible normal", "state": "unclear", "math": "The monitoring part costs $9. The full total isn't known, because the status-page domain and traffic limits aren't settled." },
+      { "v": "Unknown", "plan": "Flexible normal", "state": "unclear", "math": "The monitoring part costs $39. The full total isn't known, because the status-page domain and traffic limits aren't settled." }
+    ]
+  }
+}

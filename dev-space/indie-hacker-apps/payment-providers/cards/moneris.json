@@ -1,0 +1,21 @@
+{
+  "slug": "moneris",
+  "name": "Moneris",
+  "url": "https://www.moneris.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Canadian payment processor for online checkout, payment requests and recurring cards.",
+  "free": { "kind": "none", "text": "Moneris Online starts at CAD 27/month paid annually" },
+  "cells": {
+    "type": "Payment processor, acquirer and gateway",
+    "countries": "Canada only",
+    "payout": "Next day at BMO/RBC; others within 2 days after close"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Canada." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Canada." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Canada." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Canada." }
+    ]
+  }
+}

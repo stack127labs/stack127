@@ -1,0 +1,17 @@
+{
+  "slug": "wp-statistics",
+  "name": "WP Statistics",
+  "official_url": "https://wp-statistics.com/",
+  "image_url": "https://wp-statistics.com/wp-content/uploads/2024/10/Logo.png",
+  "source_page": "https://wp-statistics.com/",
+  "kind": "logo-mark",
+  "source_host": "wp-statistics.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "2a72c5badf0892f288308431915cd818f528dc5055362aa0dc2ff5adf57062b7",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

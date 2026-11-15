@@ -1,0 +1,26 @@
+{
+  "slug": "tinyemail",
+  "name": "tinyEmail",
+  "url": "https://www.tinyemail.com/",
+  "jobs": ["newsletter", "marketing"],
+  "line": "Hosted newsletters, campaigns and marketing workflows.",
+  "free": { "kind": "free", "text": "Eligible Shopify stores: unlimited contacts, 1M emails/month" },
+  "cells": {
+    "newsletters": "Yes, with opt-in forms and required unsubscribe links",
+    "api": "Yes, Enterprise-only campaign API"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 65/month", "plan": "15,000-send paid plan", "state": "confirmed", "math": "4,000 emails fit inside the paid band, before tax. Eligible Shopify stores get up to 1M emails a month free." },
+      { "v": "USD 75/month", "plan": "25,000-send paid plan", "state": "confirmed", "math": "20,000 emails fit inside the paid band, before tax. Eligible Shopify stores get up to 1M emails a month free." },
+      { "v": "USD 100/month", "plan": "50,000-send paid plan", "state": "confirmed", "math": "40,000 emails fit inside the paid band, before tax. Eligible Shopify stores get up to 1M emails a month free." },
+      { "v": "USD 450/month", "plan": "250,000-send paid plan", "state": "confirmed", "math": "200,000 emails fit inside the paid band, before tax. Eligible Shopify stores get up to 1M emails a month free." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "Enterprise API / Ongage SMTP", "state": "not_published", "math": "The Enterprise API sends campaigns, and Ongage SMTP is a specific integration. No public app email plan or price is listed." },
+      { "v": "Unknown", "plan": "Enterprise API / Ongage SMTP", "state": "not_published", "math": "The Enterprise API sends campaigns, and Ongage SMTP is a specific integration. No public app email plan or price is listed." },
+      { "v": "Unknown", "plan": "Enterprise API / Ongage SMTP", "state": "not_published", "math": "The Enterprise API sends campaigns, and Ongage SMTP is a specific integration. No public app email plan or price is listed." },
+      { "v": "Unknown", "plan": "Enterprise API / Ongage SMTP", "state": "not_published", "math": "The Enterprise API sends campaigns, and Ongage SMTP is a specific integration. No public app email plan or price is listed." }
+    ]
+  }
+}

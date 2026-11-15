@@ -1,0 +1,17 @@
+{
+  "slug": "infomaniak-public-cloud",
+  "name": "Infomaniak Public Cloud",
+  "official_url": "https://www.infomaniak.com/en/hosting/public-cloud",
+  "image_url": "https://www.infomaniak.com/favicon.ico",
+  "source_page": "https://www.infomaniak.com/en/hosting/public-cloud",
+  "kind": "favicon",
+  "source_host": "infomaniak.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "e416f98a9d1483b5c36bec0ae78002d37d4e3a666214aa22b67dbba3ab4eae1b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

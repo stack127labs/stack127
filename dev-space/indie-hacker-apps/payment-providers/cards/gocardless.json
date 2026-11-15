@@ -1,0 +1,47 @@
+{
+  "slug": "gocardless",
+  "name": "GoCardless",
+  "url": "https://gocardless.com/",
+  "jobs": [
+    "gateway",
+    "billing"
+  ],
+  "line": "Bank debit payments for recurring and one-off sales.",
+  "free": {
+    "kind": "none",
+    "text": "Pay as you go; no base fee for most"
+  },
+  "cells": {
+    "type": "Gateway (bank debit)",
+    "countries": "US, UK, Eurozone and nine other countries",
+    "payout": "UK debit: 3 business days to charge, then 2 for bank"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "0.5% + $0.05",
+        "plan": "Bank debit",
+        "state": "confirmed",
+        "math": "A US ACH debit (a payment taken from a US bank account), with a fee capped at $5. GoCardless has no cards, so this is bank debit."
+      },
+      {
+        "v": "1% + £0.20",
+        "plan": "Bank debit",
+        "state": "confirmed",
+        "math": "A UK Bacs debit (a direct debit from a UK bank account), with a fee capped at £4. No cards are taken, so this is bank debit."
+      },
+      {
+        "v": "1% + €0.20",
+        "plan": "Bank debit",
+        "state": "confirmed",
+        "math": "A German SEPA debit (a euro direct debit), with a fee capped at €1. No cards are taken, so this is bank debit."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "India is not one of the countries where GoCardless sellers can sign up."
+      }
+    ]
+  }
+}

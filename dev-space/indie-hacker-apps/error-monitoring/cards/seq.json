@@ -1,0 +1,24 @@
+{
+  "slug": "seq",
+  "name": "Seq",
+  "url": "https://datalust.co/",
+  "jobs": ["errors", "logs", "performance"],
+  "line": "Collects structured logs and traces, including logged exception details.",
+  "free": { "kind": "selfhost", "text": "Free Individual: 1 person; 50 GB retained data" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-10-29"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Individual or paid", "state": "not_published", "math": "There's no fee per error. The license tier depends on how many GB are kept, which can't be worked out from 5,000 reports." },
+      { "v": "Unknown", "plan": "Individual or paid", "state": "not_published", "math": "There's no fee per error. The license tier depends on how many GB are kept, which can't be worked out from 50,000 reports." },
+      { "v": "Unknown", "plan": "Individual or paid", "state": "not_published", "math": "There's no fee per error. The license tier depends on how many GB are kept, which can't be worked out from 500,000 reports." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

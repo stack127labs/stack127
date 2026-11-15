@@ -1,0 +1,17 @@
+{
+  "slug": "measuremy-site",
+  "name": "measuremy.site",
+  "official_url": "https://measuremy.site/",
+  "image_url": "https://measuremy.site/mascot/wave.webp",
+  "source_page": "https://measuremy.site/",
+  "kind": "logo-mark",
+  "source_host": "measuremy.site",
+  "original": {
+    "format": "webp",
+    "width": 389,
+    "height": 720
+  },
+  "sha256": "c74dd37c4f9260da84221c3f333c3069671480d8d4e4ba31a88a6678dc7328f5",
+  "note": "official product mascot; no separate square mark found",
+  "saved_at": "2026-11-14"
+}

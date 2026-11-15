@@ -1,0 +1,20 @@
+{
+  "slug": "nocodelytics",
+  "name": "Nocodelytics",
+  "url": "https://www.nocodelytics.com/",
+  "jobs": ["web", "product"],
+  "line": "Tracks Webflow site traffic and visitor actions.",
+  "free": { "kind": "free", "text": "Free: 1,000 views/month; over-limit disables site and deletes events" },
+  "cells": {
+    "cookieless": "Yes, uses localStorage visitor IDs",
+    "location": "Germany",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$29", "plan": "Premium", "state": "confirmed", "math": "Premium covers 100,000 pageviews a month and costs $29 a month." },
+      { "v": "$29", "plan": "Premium", "state": "confirmed", "math": "Premium covers 100,000 pageviews a month and costs $29 a month." },
+      { "v": "$49", "plan": "Business", "state": "confirmed", "math": "Business covers 1,000,000 pageviews a month and costs $49 a month." }
+    ]
+  }
+}

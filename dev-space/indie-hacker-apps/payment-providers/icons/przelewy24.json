@@ -1,0 +1,17 @@
+{
+  "slug": "przelewy24",
+  "name": "Przelewy24",
+  "official_url": "https://www.przelewy24.pl/",
+  "image_url": "https://www.przelewy24.pl/themes/przelewy24/assets/img/base/favicon.ico",
+  "source_page": "https://www.przelewy24.pl/",
+  "kind": "favicon",
+  "source_host": "przelewy24.pl",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "c8f5f7f415b31e154f44bc622963a5276a0d3b6ea1cb70be9dc1a7729c216b36",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "featurebase",
+  "name": "Featurebase",
+  "url": "https://www.featurebase.app/",
+  "jobs": ["inbox", "chat", "helpdesk", "ai"],
+  "line": "Shared support inbox with chat, email, help center, and feedback boards.",
+  "free": { "kind": "free", "text": "Free forever; 1 seat, unlimited chats, 50 help articles" },
+  "cells": {
+    "channels": "Web chat, email, Slack",
+    "ai": "$0.49 per Fibi resolution; Copilot add-on per seat",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "One full seat. Unlimited support conversations and web chat are included." },
+      { "v": "$111", "plan": "Growth monthly", "state": "confirmed", "math": "3 full seats at $37 a month each, for chat and support email, before tax." }
+    ]
+  }
+}

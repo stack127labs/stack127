@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-sql",
+  "name": "Google Cloud SQL",
+  "official_url": "https://cloud.google.com/sql",
+  "image_url": "https://services.google.com/fh/files/misc/core-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "370ff8a5f6bf06d2b2146f83c8e4bf153da7f2e03e152a15653d1bc44d0ab4af",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

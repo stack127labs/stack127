@@ -1,0 +1,17 @@
+{
+  "slug": "peach-payments",
+  "name": "Peach Payments",
+  "official_url": "https://www.peachpayments.com/",
+  "image_url": "https://www.peachpayments.com/wp-content/uploads/2026/09/peach-favicon-v2.svg",
+  "source_page": "https://www.peachpayments.com/",
+  "kind": "svg-icon",
+  "source_host": "peachpayments.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "fc32a19aa74ffb0273b2e7c07efb4e6045c594ec353ad0233fecc674d216611a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

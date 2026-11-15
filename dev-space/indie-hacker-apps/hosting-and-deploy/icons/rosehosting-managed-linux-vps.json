@@ -1,0 +1,17 @@
+{
+  "slug": "rosehosting-managed-linux-vps",
+  "name": "RoseHosting managed Linux VPS",
+  "official_url": "https://www.rosehosting.com/linux-vps-hosting/",
+  "image_url": "https://www.rosehosting.com/wp-content/uploads/2021/11/logo-224-224.png",
+  "source_page": "https://www.rosehosting.com/linux-vps-hosting/",
+  "kind": "logo-mark",
+  "source_host": "rosehosting.com",
+  "original": {
+    "format": "png",
+    "width": 224,
+    "height": 224
+  },
+  "sha256": "91b97230aee9ca6d2a77091b0e83f871089e5f1ed1cbf3bd2590d74fc759435a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

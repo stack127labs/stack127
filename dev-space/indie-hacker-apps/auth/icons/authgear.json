@@ -1,0 +1,17 @@
+{
+  "slug": "authgear",
+  "name": "Authgear",
+  "official_url": "https://www.authgear.com/",
+  "image_url": "https://www.authgear.com/images/webclip.png",
+  "source_page": "https://www.authgear.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "authgear.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "d5f3dac4ffc12cb144df5a7fdcdee19922643d8d23260e5d5f0e052452767f50",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

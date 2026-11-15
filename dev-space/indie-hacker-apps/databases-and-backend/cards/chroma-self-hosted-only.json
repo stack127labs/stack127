@@ -1,0 +1,25 @@
+{
+  "slug": "chroma-self-hosted-only",
+  "name": "Chroma",
+  "url": "https://www.trychroma.com/",
+  "jobs": ["vector"],
+  "line": "Self-hosted vector database for embeddings, documents, and metadata.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; self-hosted only" },
+  "cells": {
+    "metered": "No vendor usage meter; self-hosted software",
+    "regions": "Choose your own hosting region",
+    "selfhost": "Yes, open-source self-hosted database"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Chroma is a vector database, not a SQL database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Chroma is a vector database, not a SQL database" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Chroma does not offer file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Chroma does not provide a job execution service" }
+    ]
+  }
+}

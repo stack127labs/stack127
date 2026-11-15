@@ -1,0 +1,17 @@
+{
+  "slug": "cloudtype",
+  "name": "Cloudtype",
+  "official_url": "https://cloudtype.io/",
+  "image_url": "https://cloudtype.io/favicon.svg",
+  "source_page": "https://cloudtype.io/",
+  "kind": "svg-icon",
+  "source_host": "cloudtype.io",
+  "original": {
+    "format": "svg",
+    "width": 867,
+    "height": 1017
+  },
+  "sha256": "6a6f1fb0f812717821f96e867eb946e7a502fa123c3a622c966f83a19be26c31",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

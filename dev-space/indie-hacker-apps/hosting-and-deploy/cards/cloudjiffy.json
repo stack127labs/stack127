@@ -1,0 +1,14 @@
+{
+  "slug": "cloudjiffy",
+  "name": "CloudJiffy",
+  "url": "https://cloudjiffy.com/",
+  "jobs": ["paas"],
+  "line": "Deploy web apps on a managed container platform.",
+  "free": { "kind": "trial", "text": "14-day trial: 2 environments, 12 cloudlets/node; no IP, Docker or .NET" },
+  "cells": { "type": "Managed app platform", "regions": "India, USA, Germany", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Subtotals for 2 cloudlets (CloudJiffy's resource units) plus an IP address: India $3.21857, USA $3.54999, Germany $4.9932. How much build resource and hourly traffic is used is unknown." },
+    { "v": "Unknown", "plan": "", "state": "conflicting", "math": "Subtotals for 9 cloudlets plus an IP address: India $9.0593, USA $10.55069, Germany $15.4687. The docs conflict on how cloudlets map to CPU cores." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Subtotals for 18 cloudlets (app plus database): India $16.24031, USA $18.76319, Germany $28.9372. Backup storage, traffic and build charges are unknown." }
+  ] }
+}

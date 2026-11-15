@@ -1,0 +1,24 @@
+{
+  "slug": "laravel-nightwatch",
+  "name": "Laravel Nightwatch",
+  "url": "https://laravel.com/nightwatch",
+  "jobs": ["errors", "logs", "performance"],
+  "line": "Tracks Laravel exceptions, logs, requests, jobs and scheduler runs.",
+  "free": { "kind": "free", "text": "300,000 events/month; 14-day lookback" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$20", "plan": "Pro minimum", "state": "unclear", "math": "The Pro plan is needed for 30-day detail. Other captured events can raise the total." },
+      { "v": "$20", "plan": "Pro minimum", "state": "unclear", "math": "The Pro plan is needed for 30-day detail. Other captured events can raise the total." },
+      { "v": "$20", "plan": "Pro minimum", "state": "unclear", "math": "The Pro plan is needed for 30-day detail. Other captured events can raise the total." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

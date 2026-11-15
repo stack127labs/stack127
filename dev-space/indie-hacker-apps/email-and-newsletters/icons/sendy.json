@@ -1,0 +1,17 @@
+{
+  "slug": "sendy",
+  "name": "Sendy",
+  "official_url": "https://sendy.co/",
+  "image_url": "https://dlgo7qh09pizs.cloudfront.net/images/sendy-logo-notext.png",
+  "source_page": "https://sendy.co/",
+  "kind": "logo-mark",
+  "source_host": "dlgo7qh09pizs.cloudfront.net",
+  "original": {
+    "format": "png",
+    "width": 95,
+    "height": 94
+  },
+  "sha256": "bf8facfe9c85d3ae32176ab63565bb6ce00d6ca8b84117f0ddd2fd8ab45ebf41",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

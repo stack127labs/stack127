@@ -1,0 +1,17 @@
+{
+  "slug": "chatlio",
+  "name": "Chatlio",
+  "official_url": "https://chatlio.com/",
+  "image_url": "https://chatlio.com/brand/favicon.svg",
+  "source_page": "https://chatlio.com/",
+  "kind": "svg-icon",
+  "source_host": "chatlio.com",
+  "original": {
+    "format": "svg",
+    "width": 5461,
+    "height": 5461
+  },
+  "sha256": "9483430cd4974f158a14e1faa7b4c46f8758014cdb10e41ef37c9e3c9dcdbc51",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

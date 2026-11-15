@@ -1,0 +1,37 @@
+{
+  "slug": "plain",
+  "name": "Plain",
+  "url": "https://www.plain.com/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "ai",
+    "inbox"
+  ],
+  "line": "Support platform built for software companies.",
+  "free": {
+    "kind": "trial",
+    "text": "7-day trial, no card; no free plan"
+  },
+  "cells": {
+    "channels": "Email, chat, Slack, Discord, Teams",
+    "ai": "100 credits per resolution",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$55",
+        "plan": "Foundation",
+        "state": "confirmed",
+        "math": "1 member at $55 a month, or $540 a year when paid yearly."
+      },
+      {
+        "v": "$165",
+        "plan": "Foundation",
+        "state": "confirmed",
+        "math": "3 members at $55 a month each = $165 a month, or $1,620 a year when paid yearly."
+      }
+    ]
+  }
+}

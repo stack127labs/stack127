@@ -1,0 +1,14 @@
+{
+  "slug": "oracle-cloud-infrastructure-functions",
+  "name": "Oracle Cloud Infrastructure Functions",
+  "url": "https://www.oracle.com/cloud/cloud-native/functions/",
+  "jobs": ["paas"],
+  "line": "Deploy event-driven functions on Oracle's managed serverless platform.",
+  "free": { "kind": "free", "text": "2 million invocations and 400,000 GB memory-seconds monthly" },
+  "cells": { "type": "Serverless functions", "regions": "Regional; examples in US, India, UK and Germany", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Function + API Gateway", "state": "unclear", "math": "100 MB site, responses up to 6 MB. 1 million calls fit 2 million free, but run time at 512 MB is unknown. Gateway is $3. 100 GB sent out fits the unused 10 TB North America (NA) allowance. Other costs are unknown." },
+    { "v": "Unknown", "plan": "512 MB Function + API Gateway", "state": "unclear", "math": "1 million calls × 250 ms × 0.5 GB = 125,000 GB-seconds, within 400,000 free. Gateway is $3. Assumes an archive up to 25 MB and an unused 10 TB North America (NA) data allowance. Logs, network and certificates are extra." },
+    { "v": "Unknown", "plan": "Function + Gateway + OCI PostgreSQL", "state": "unclear", "math": "$3 for the gateway + $71.54 for a database surcharge (1 OCPU for 730 hours) + $0.72 for 10 billable GB. Base database compute and storage, 7-day backups, transfer and logs are unknown." }
+  ] }
+}

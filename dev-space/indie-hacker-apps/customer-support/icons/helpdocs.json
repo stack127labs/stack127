@@ -1,0 +1,17 @@
+{
+  "slug": "helpdocs",
+  "name": "HelpDocs",
+  "official_url": "https://www.helpdocs.io/",
+  "image_url": "https://www.helpdocs.io/apple-touch-icon.png",
+  "source_page": "https://www.helpdocs.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "helpdocs.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "0429bcdb2184930ee2db04ba91218903dbbf321b957d614a3e93a462dd2cf28c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

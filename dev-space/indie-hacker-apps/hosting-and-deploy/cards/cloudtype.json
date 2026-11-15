@@ -1,0 +1,14 @@
+{
+  "slug": "cloudtype",
+  "name": "Cloudtype",
+  "url": "https://cloudtype.io/",
+  "jobs": ["paas"],
+  "line": "Build and run containerized apps with managed deployments.",
+  "free": { "kind": "free", "text": "1GB RAM, 4 services, 1 project, 1GB temp DB disk; 100GB outbound" },
+  "cells": { "type": "Managed app platform", "regions": "Seoul clusters", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "₩6,600 a month for the Hobby capacity subtotal. 100 GB is the paid traffic allowance. Request charges and the full commercial total are not confirmed." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "A nominal 1 GB RAM + 1 vCPU is ₩19,800 a month. A conservative 1,536 MB RAM + 1 vCPU is ₩26,400. Whether it exactly fits 1 GiB is not confirmed." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Nominal app and database capacity subtotal is ₩46,200 a month (conservative ₩59,400). Automatic backups are not included and must be priced separately." }
+  ] }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "ravion-successor-to-flightcontrol",
+  "name": "Ravion",
+  "official_url": "https://www.ravion.com/",
+  "image_url": "https://www.ravion.com/favicon.svg",
+  "source_page": "https://www.ravion.com/",
+  "kind": "svg-icon",
+  "source_host": "ravion.com",
+  "original": {
+    "format": "svg",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "8f849b4099cb5a925e10cf6e4fbd0da151fcf77d7cb7464d522650addc3bd4c8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

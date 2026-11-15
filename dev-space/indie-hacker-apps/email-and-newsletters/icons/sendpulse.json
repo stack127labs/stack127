@@ -1,0 +1,17 @@
+{
+  "slug": "sendpulse",
+  "name": "SendPulse",
+  "official_url": "https://sendpulse.com/",
+  "image_url": "https://sendpulse.com/templates/sendpulsev1/img/favicons/google-touch-icon.png",
+  "source_page": "https://sendpulse.com/",
+  "kind": "manifest-icon",
+  "source_host": "sendpulse.com",
+  "original": {
+    "format": "webp",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "662a3a5fc721634ea32533523064e01af381059be9a45de15dec29889dc0403c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

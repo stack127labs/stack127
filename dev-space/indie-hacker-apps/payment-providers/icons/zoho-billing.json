@@ -1,0 +1,17 @@
+{
+  "slug": "zoho-billing",
+  "name": "Zoho Billing",
+  "official_url": "https://www.zoho.com/billing/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/bd/db/91bddb42-ac35-aa03-a284-14289d389df6/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-sRGB-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/zoho-billing-management-app/id1184196693?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "8f0b63f856d2e53529a2f3bd6a7f4fe1aa34b6af934d8c3be156f15e14f91f6a",
+  "note": "Zoho Billing management app by Zoho Corporation.",
+  "saved_at": "2026-11-14"
+}

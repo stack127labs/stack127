@@ -1,0 +1,21 @@
+{
+  "slug": "square",
+  "name": "Square",
+  "url": "https://squareup.com/us/en/payments/online-payments",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Online payments, invoices, payment links, and subscriptions for Square sellers.",
+  "free": { "kind": "free", "text": "Free ordinary account can stay open unused" },
+  "cells": {
+    "type": "Payment facilitator and gateway",
+    "countries": "US, Canada, Australia, France, Ireland, Spain, UK, Japan",
+    "payout": "US next business day; UK 1–2 working days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "3.3% + USD 0.30", "plan": "US Free hosted online", "state": "confirmed", "math": "This rate covers online payments on Square's hosted pages and online invoices. API processing has a different rate." },
+      { "v": "1.4% + GBP 0.25", "plan": "UK online store/Checkout", "state": "confirmed", "math": "The rate for UK-issued cards in an online store, Checkout, or the eCommerce API." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Square seller processing is offered in eight listed countries. Germany isn't supported." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Square seller processing is offered in eight listed countries. India isn't supported." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "akamai-object-storage",
+  "name": "Akamai Object Storage",
+  "official_url": "https://www.akamai.com/products/object-storage",
+  "image_url": "https://www.akamai.com/site/favicon/favicon-194x194.png",
+  "source_page": "https://www.akamai.com/products/object-storage",
+  "kind": "favicon",
+  "source_host": "akamai.com",
+  "original": {
+    "format": "heif",
+    "width": 194,
+    "height": 194
+  },
+  "sha256": "071c9ed6ff2b3bc3954660e23e3a5025fb3d9e818f53b9a2d61da7f48972de48",
+  "note": "Akamai brand mark used for its Object Storage product.",
+  "saved_at": "2026-11-14"
+}

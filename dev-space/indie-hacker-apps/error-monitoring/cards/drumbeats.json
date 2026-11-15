@@ -1,0 +1,24 @@
+{
+  "slug": "drumbeats",
+  "name": "Drumbeats",
+  "url": "https://drumbeats.io/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Monitors cron jobs, heartbeats and HTTP uptime, with public status pages.",
+  "free": { "kind": "free", "text": "200,000 Beats/month and 50 monitors; no card" },
+  "cells": {
+    "interval": "30 s paid / 1 min docs; 1 min free (conflict)",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not capture application exception events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not capture application exception events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not capture application exception events" }
+    ],
+    "uptime": [
+      { "v": "$20", "plan": "Pro", "state": "unclear", "math": "216,000 Beats fit the Pro plan. The docs disagree on own-domain support." },
+      { "v": "$21.60", "plan": "Pro + PAYG", "state": "unclear", "math": "$20 for the Pro plan, plus 80,000 Beats billed pay-as-you-go at $0.00002 each. The docs disagree on own-domain support." },
+      { "v": "$75.40", "plan": "Business + PAYG", "state": "unclear", "math": "$49 for the Business plan, plus 1,320,000 Beats billed pay-as-you-go at $0.00002 each. The docs disagree on own-domain support." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "sqlite-cloud",
+  "name": "SQLite Cloud",
+  "official_url": "https://www.sqlite.ai/cloud",
+  "image_url": "https://www.sqlite.ai/favicon.svg",
+  "source_page": "https://www.sqlite.ai/cloud",
+  "kind": "svg-icon",
+  "source_host": "sqlite.ai",
+  "original": {
+    "format": "svg",
+    "width": 288,
+    "height": 288
+  },
+  "sha256": "e3d44a2b4256301e8096a647c19e49d1a7a679461c2142486651e8cb0334a558",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

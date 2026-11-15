@@ -1,0 +1,17 @@
+{
+  "slug": "clever-cloud-databases",
+  "name": "Clever Cloud databases",
+  "official_url": "https://www.clever.cloud/product/postgresql/",
+  "image_url": "https://cdn.clever-cloud.com/uploads/2023/03/cropped-cropped-favicon-192x192.png",
+  "source_page": "https://www.clever.cloud/product/postgresql/",
+  "kind": "favicon",
+  "source_host": "cdn.clever-cloud.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "7d024990275f7a99126b151963394295c5c9407dc70ad2fd7f23ed255e228abf",
+  "note": "Clever Cloud brand mark; product page publishes a shared mark.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "kkiapay",
+  "name": "KKiaPay",
+  "url": "https://kkiapay.me/",
+  "jobs": ["gateway", "links"],
+  "line": "West African gateway for online payments, links and merchant payouts.",
+  "free": { "kind": "none", "text": "No entry or setup fee listed" },
+  "cells": {
+    "type": "Payment gateway and aggregator",
+    "countries": "Benin, Togo, Côte d’Ivoire or Senegal registration required",
+    "payout": "Card funds available 72 hours after payment"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be businesses registered in Benin, Togo, Côte d’Ivoire or Senegal." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be businesses registered in Benin, Togo, Côte d’Ivoire or Senegal." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be businesses registered in Benin, Togo, Côte d’Ivoire or Senegal." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be businesses registered in Benin, Togo, Côte d’Ivoire or Senegal." }
+    ]
+  }
+}

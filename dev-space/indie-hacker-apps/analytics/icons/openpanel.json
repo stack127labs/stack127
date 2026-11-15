@@ -1,0 +1,17 @@
+{
+  "slug": "openpanel",
+  "name": "OpenPanel",
+  "official_url": "https://openpanel.dev/",
+  "image_url": "https://openpanel.dev/web-app-manifest-512x512.png",
+  "source_page": "https://openpanel.dev/",
+  "kind": "manifest-icon",
+  "source_host": "openpanel.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "9340b39e8c12d40980bd5fb583f8c4f8421f30e1b949ba9b155b5e960f1a8932",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

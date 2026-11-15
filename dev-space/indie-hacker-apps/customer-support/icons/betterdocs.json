@@ -1,0 +1,17 @@
+{
+  "slug": "betterdocs",
+  "name": "BetterDocs",
+  "official_url": "https://betterdocs.co/",
+  "image_url": "https://betterdocs.co/wp-content/uploads/2024/10/betterdocs-site-logo-icon-300x300.png",
+  "source_page": "https://betterdocs.co/",
+  "kind": "apple-touch-icon",
+  "source_host": "betterdocs.co",
+  "original": {
+    "format": "webp",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "c8179d7a862baed318324a7311044847fb438c4b89c548df025d08847c8ce040",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

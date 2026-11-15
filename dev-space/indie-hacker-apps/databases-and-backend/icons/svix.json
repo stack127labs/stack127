@@ -1,0 +1,17 @@
+{
+  "slug": "svix",
+  "name": "Svix",
+  "official_url": "https://www.svix.com/",
+  "image_url": "https://www.svix.com/icon.svg",
+  "source_page": "https://www.svix.com/",
+  "kind": "svg-icon",
+  "source_host": "svix.com",
+  "original": {
+    "format": "svg",
+    "width": 315,
+    "height": 315
+  },
+  "sha256": "a62e2adcd85702da53da3562a02555348c9e9026b4871f91f1246b68251622d3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

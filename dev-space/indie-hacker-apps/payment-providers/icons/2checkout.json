@@ -1,0 +1,17 @@
+{
+  "slug": "2checkout",
+  "name": "2Checkout",
+  "official_url": "https://www.2checkout.com/",
+  "image_url": "https://www.2checkout.com/resources/en/site_pages/favicon.png",
+  "source_page": "https://www.2checkout.com/",
+  "kind": "favicon",
+  "source_host": "2checkout.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "cada881abb991147bcbfc5cc58ab5187f5184d4eb93840bc476c276651891e5a",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

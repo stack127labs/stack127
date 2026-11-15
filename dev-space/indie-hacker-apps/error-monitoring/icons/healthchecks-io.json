@@ -1,0 +1,17 @@
+{
+  "slug": "healthchecks-io",
+  "name": "Healthchecks.io",
+  "official_url": "https://healthchecks.io/",
+  "image_url": "https://healthchecks.io/static/img/logo.svg",
+  "source_page": "https://healthchecks.io/",
+  "kind": "manifest-icon",
+  "source_host": "healthchecks.io",
+  "original": {
+    "format": "svg",
+    "width": 5160,
+    "height": 5160
+  },
+  "sha256": "affd1182bc50cfa1fb3a368b01aeecc7ad63f6ed0983756caeab9dc9bfc63f86",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

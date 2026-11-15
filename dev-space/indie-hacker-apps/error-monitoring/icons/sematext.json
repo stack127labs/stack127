@@ -1,0 +1,17 @@
+{
+  "slug": "sematext",
+  "name": "Sematext",
+  "official_url": "https://sematext.com/",
+  "image_url": "https://sematext.com//wp-content//uploads//2024//10//sematext.svg",
+  "source_page": "https://sematext.com/",
+  "kind": "logo-mark",
+  "source_host": "sematext.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 133
+  },
+  "sha256": "e8522c71d0bfea4ba2c19be14086690b7253758e8f58e821e2bcf012799b9676",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "microanalytics",
+  "name": "Microanalytics",
+  "url": "https://microanalytics.io/",
+  "jobs": ["web"],
+  "line": "Tracks website traffic, acquisition, goals, and conversions.",
+  "free": { "kind": "free", "text": "Free signup; current pageview allowance is unclear" },
+  "cells": {
+    "cookieless": "Yes, but sessionStorage holds visitor IDs",
+    "location": "France; EU hosting",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$9.00", "plan": "Starter", "state": "confirmed", "math": "Starter covers 25,000 pageviews a month. The monthly plan price is $9.00." },
+      { "v": "$29.00", "plan": "Growth", "state": "confirmed", "math": "Growth covers 200,000 pageviews a month. The monthly plan price is $29.00." },
+      { "v": "$99.00", "plan": "Pro", "state": "confirmed", "math": "Pro covers 1,000,000 pageviews a month. The monthly plan price is $99.00." }
+    ]
+  }
+}

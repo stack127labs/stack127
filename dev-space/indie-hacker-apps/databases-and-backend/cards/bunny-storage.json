@@ -1,0 +1,25 @@
+{
+  "slug": "bunny-storage",
+  "name": "Bunny Storage",
+  "url": "https://bunny.net/storage/",
+  "jobs": ["files"],
+  "line": "Store and replicate files across regions with an S3-compatible API.",
+  "free": { "kind": "trial", "text": "14-day trial; no fixed storage quota published" },
+  "cells": {
+    "metered": "$0.01/GB-month for Standard HDD; $1 account minimum",
+    "regions": "Standard and Edge regions; up to 9 Standard regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No database service" }
+    ],
+    "files": [
+      { "v": "$1", "plan": "Standard HDD, one region", "state": "confirmed", "math": "100 GB at $0.01 per GB a month. The $1 account minimum applies. API requests and outbound data (egress) are free." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No queue or workflow service" }
+    ]
+  }
+}

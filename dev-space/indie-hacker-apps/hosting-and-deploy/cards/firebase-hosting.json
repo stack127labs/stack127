@@ -1,0 +1,14 @@
+{
+  "slug": "firebase-hosting",
+  "name": "Firebase Hosting",
+  "url": "https://firebase.google.com/products/hosting",
+  "jobs": ["static"],
+  "line": "Host static web apps on a global CDN with optional backend rewrites.",
+  "free": { "kind": "free", "text": "Spark: 10GB storage; transfer limit listed as 10GB/mo or 360MB/day" },
+  "cells": { "type": "Static hosting and CDN", "regions": "Global CDN delivery", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "100 GB requires the Blaze plan. The delivery estimate is $13.50 a month with 10 GB a month free, or $13.38 at 360 MB a day for 30 days. Storage is assumed to be up to 10 GB." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Cloud Run example: $2.88 for CPU + $13.38 or $13.50 for delivery, for isolated requests of 300 ms each. Startup, images, logs and network add costs that are unknown." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The small app API's partial total, plus $27.25 for Cloud SQL compute and a 10 GiB disk. Backup storage used and connection and network costs are unknown." }
+  ] }
+}

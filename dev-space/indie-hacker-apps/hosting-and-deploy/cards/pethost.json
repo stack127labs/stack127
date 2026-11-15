@@ -1,0 +1,14 @@
+{
+  "slug": "pethost",
+  "name": "Pethost",
+  "url": "https://pethost.dev/",
+  "jobs": ["paas"],
+  "line": "Run Docker Compose projects on an account-exclusive hosted VM.",
+  "free": { "kind": "none", "text": "No ongoing free tier" },
+  "cells": { "type": "Managed app server", "regions": "Europe data centres; specific locations unpublished", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€9.99", "plan": "EU Starter", "state": "confirmed", "math": "€9.99 a month before VAT. 2 vCPU, 3 GB and 30 GB, shared by the app and builds. 100 GB of traffic is included, subject to a 100 Mbps limit on the average over the last 24 hours." },
+    { "v": "€9.99", "plan": "EU Starter", "state": "confirmed", "math": "A fixed €9.99 a month before VAT, for 730 hours. 2 vCPU and 3 GB, shared by the app and builds. No request meter. Throughput is untested." },
+    { "v": "€9.99", "plan": "EU Starter + included PostgreSQL", "state": "confirmed", "math": "€9.99 a month before VAT. 1 GiB each for app and database fits within 3 GB; 10 GB of data fits a 30 GB disk. Private traffic is free. Nightly 14-day snapshots are not transaction-consistent." }
+  ] }
+}

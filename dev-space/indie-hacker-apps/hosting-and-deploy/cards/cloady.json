@@ -1,0 +1,14 @@
+{
+  "slug": "cloady",
+  "name": "Cloady",
+  "url": "https://cloady.com/",
+  "jobs": ["paas"],
+  "line": "Deploy source code and container apps in one managed workspace.",
+  "free": { "kind": "free", "text": "0.5 vCPU/1GB/5GB; 15GB, 1M requests, 4 CPU-h/mo; pauses after 7 idle days" },
+  "cells": { "type": "Managed app platform", "regions": "US, Germany, UK, Japan, Singapore, Australia, India", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$3", "plan": "Nano", "state": "unclear", "math": "$3 a month as a rough starting estimate. The exact resource use and full hosting total vary." },
+    { "v": "$5", "plan": "Small", "state": "unclear", "math": "$5 a month as a rough starting estimate. The exact total varies with usage." },
+    { "v": "$6–18", "plan": "Resource + managed backup range", "state": "unclear", "math": "The total is 1.20 times the resource cost, which ranges from $5 to $15. The seven restore points are not guaranteed to be full calendar-day backups or consistent with the database." }
+  ] }
+}

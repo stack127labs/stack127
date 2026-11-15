@@ -1,0 +1,12 @@
+{
+  "slug": "stripe-billing-analytics", "name": "Stripe Billing analytics", "url": "https://stripe.com/billing",
+  "jobs": ["revenue"],
+  "line": "Subscription billing with reports on recurring revenue and recovery.",
+  "free": {"kind": "none", "text": "No recurring fee; pay-as-you-go charges 0.7% of Billing volume"},
+  "cells": {"cookieless": "Unknown (not a visitor tracker)", "location": "US and global affiliate processing", "selfhost": "No"},
+  "costs": {"pv": [
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billing analytics is included with Billing; it is priced by billing volume, not pageviews."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billing analytics is included with Billing; it is priced by billing volume, not pageviews."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billing analytics is included with Billing; it is priced by billing volume, not pageviews."}
+  ]}
+}

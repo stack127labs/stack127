@@ -1,0 +1,17 @@
+{
+  "slug": "intasend",
+  "name": "IntaSend",
+  "official_url": "https://intasend.com/",
+  "image_url": "https://intasend.com/images/1AICdHASa2TetBCzesDxXdDmqk.png",
+  "source_page": "https://intasend.com/",
+  "kind": "favicon",
+  "source_host": "intasend.com",
+  "original": {
+    "format": "png",
+    "width": 145,
+    "height": 184
+  },
+  "sha256": "c4feae792b440f6623fafd3ca1215692f6c24adc5b0cb470d6409bc0ef287a12",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

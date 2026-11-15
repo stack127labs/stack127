@@ -1,0 +1,17 @@
+{
+  "slug": "feathers-authentication",
+  "name": "Feathers Authentication",
+  "official_url": "https://feathersjs.com/api/authentication/",
+  "image_url": "https://feathersjs.com/apple-touch-icon.png",
+  "source_page": "https://feathersjs.com/api/authentication/",
+  "kind": "apple-touch-icon",
+  "source_host": "feathersjs.com",
+  "original": {
+    "format": "png",
+    "width": 360,
+    "height": 360
+  },
+  "sha256": "41e8a64b2c7176986f113db490c5ebd41dfacda406f09c7f380bff2821660447",
+  "note": "parent brand: FeathersJS; authentication is a FeathersJS component",
+  "saved_at": "2026-11-14"
+}

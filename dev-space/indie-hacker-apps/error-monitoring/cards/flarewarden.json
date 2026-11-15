@@ -1,0 +1,24 @@
+{
+  "slug": "flarewarden",
+  "name": "FlareWarden",
+  "url": "https://flarewarden.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Checks websites, domains and dependencies, with cron alerts and status pages.",
+  "free": { "kind": "free", "text": "15 monitors, 5-minute checks, 1 status page; no card" },
+  "cells": {
+    "interval": "30 s Business; 60 s Starter; 5 min free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$29", "plan": "Business", "state": "confirmed", "math": "The Business plan covers 5 endpoints, 60-second checks and one own-domain status page." },
+      { "v": "$29", "plan": "Business", "state": "confirmed", "math": "The Business plan covers 25 endpoints, 60-second checks and one own-domain status page." },
+      { "v": "$29", "plan": "Business", "state": "confirmed", "math": "The Business plan covers 100 endpoints, 60-second checks and one own-domain status page." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "zoho-payments",
+  "name": "Zoho Payments",
+  "official_url": "https://www.zoho.com/payments/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/78/81/eb/7881ebc7-94a6-9310-db66-2abea4ea8c38/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/zoho-payments/id6752647351?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "47f4e0427f44a43c59b564aa9360b28bcd1bdd9c9bf44cd926fa52012ee96fa1",
+  "note": "Zoho Payments product app by Zoho Corporation.",
+  "saved_at": "2026-11-14"
+}

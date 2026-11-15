@@ -1,0 +1,17 @@
+{
+  "slug": "monitorable",
+  "name": "Monitorable",
+  "official_url": "https://monitorable.io/",
+  "image_url": "https://monitorable.io/favicon.svg",
+  "source_page": "https://monitorable.io/",
+  "kind": "svg-icon",
+  "source_host": "monitorable.io",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "a15f407cb4bb7068f59161e1309908f231eee0d83deb2bc5636180368eb9adcb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

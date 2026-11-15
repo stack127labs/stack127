@@ -1,0 +1,17 @@
+{
+  "slug": "azure-app-service",
+  "name": "Azure App Service",
+  "official_url": "https://azure.microsoft.com/en-us/products/app-service/",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "92b6513b5fd3266b4734338c679181485c3e21bb1e1529a86058c614aa2b561e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

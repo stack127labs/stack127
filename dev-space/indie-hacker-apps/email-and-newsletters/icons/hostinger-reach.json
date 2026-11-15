@@ -1,0 +1,17 @@
+{
+  "slug": "hostinger-reach",
+  "name": "Hostinger Reach",
+  "official_url": "https://www.hostinger.com/reach",
+  "image_url": "https://www.hostinger.com/logo-400x400.png",
+  "source_page": "https://www.hostinger.com/reach",
+  "kind": "logo-mark",
+  "source_host": "hostinger.com",
+  "original": {
+    "format": "png",
+    "width": 400,
+    "height": 400
+  },
+  "sha256": "14dcf0797769d82dd4004f0c86b8b3c3a7c0fcb65993892834040317a309ad93",
+  "note": "parent brand: Hostinger; Reach has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "gopay",
+  "name": "GoPay",
+  "official_url": "https://www.gopay.com/en/",
+  "image_url": "https://static1.gopaycdn.com/favicon/android-chrome-512x512.png",
+  "source_page": "https://www.gopay.com/en/",
+  "kind": "manifest-icon",
+  "source_host": "static1.gopaycdn.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "f67f44814379009b3f32a2feed78debeddfa82524ee5ac9e36bf8b806258e328",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

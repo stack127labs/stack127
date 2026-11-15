@@ -1,0 +1,17 @@
+{
+  "slug": "catchjs",
+  "name": "CatchJS",
+  "official_url": "https://catchjs.com/",
+  "image_url": "https://catchjs.com/favicon.ico",
+  "source_page": "https://catchjs.com/",
+  "kind": "favicon",
+  "source_host": "catchjs.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "d1d3725b12eb232d1b88b8472ee7078eb21c33a1d6749919557d8ff7244f7476",
+  "note": "64 px favicon, the largest official icon candidate available.",
+  "saved_at": "2026-11-14"
+}

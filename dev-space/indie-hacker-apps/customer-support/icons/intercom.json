@@ -1,0 +1,17 @@
+{
+  "slug": "intercom",
+  "name": "Intercom",
+  "official_url": "https://www.intercom.com/",
+  "image_url": "https://cdn.sanity.io/images/4bgok82s/monorepo-static-assets/ed46d257e438b1f3263622b570e1ff6d2fa8112b-232x228.webp",
+  "source_page": "https://www.intercom.com/",
+  "kind": "logo-mark",
+  "source_host": "cdn.sanity.io",
+  "original": {
+    "format": "webp",
+    "width": 232,
+    "height": 228
+  },
+  "sha256": "41719d915c05423adaaa7bae96812510a945e80e972b2e4e9e826975836f2681",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "jivochat",
+  "name": "JivoChat",
+  "url": "https://www.jivochat.com/",
+  "jobs": ["chat", "inbox", "helpdesk", "ai"],
+  "line": "Website chat and omnichannel inbox for customer messages and calls.",
+  "free": { "kind": "free", "text": "Free plan; agent cap conflicts between 2 and 5" },
+  "cells": {
+    "channels": "Website chat, email, social, phone, SMS",
+    "ai": "AI Agent $99/month; AI Assistant $19/month",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "One agent fits both published free-seat limits, and conversations are unlimited." },
+      { "v": "Unknown", "plan": "", "state": "conflicting", "math": "The free limit is listed as two or five agents. The paid Basic plan for three agents is $120 a month." }
+    ]
+  }
+}

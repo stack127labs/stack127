@@ -1,0 +1,17 @@
+{
+  "slug": "cyberimpact",
+  "name": "Cyberimpact",
+  "official_url": "https://www.cyberimpact.com/",
+  "image_url": "https://www.cyberimpact.com/favicon.png",
+  "source_page": "https://www.cyberimpact.com/",
+  "kind": "favicon",
+  "source_host": "cyberimpact.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "8259e7e46948819bc99a77d374c6a456eec41951d0c565131e4505035543f286",
+  "note": "site favicon.svg is the Astro framework default; this is the real mark; largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "statuscake",
+  "name": "StatusCake",
+  "official_url": "https://www.statuscake.com/",
+  "image_url": "https://www.statuscake.com/wp-content/uploads/fbrfg/android-chrome-256x256.png?v=3",
+  "source_page": "https://www.statuscake.com/",
+  "kind": "manifest-icon",
+  "source_host": "statuscake.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "d6d1ef85c66025f27f9b1faf863bde9af0bb8cea7766b2df23cea041365714cf",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

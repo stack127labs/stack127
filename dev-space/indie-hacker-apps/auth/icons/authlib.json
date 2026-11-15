@@ -1,0 +1,17 @@
+{
+  "slug": "authlib",
+  "name": "Authlib",
+  "official_url": "https://authlib.org/",
+  "image_url": "https://authlib.org/icon.svg",
+  "source_page": "https://authlib.org/",
+  "kind": "svg-icon",
+  "source_host": "authlib.org",
+  "original": {
+    "format": "svg",
+    "width": 2987,
+    "height": 2987
+  },
+  "sha256": "da3141c70d63be1fabc76a122b7282884b066b04b9953df7e78148cd01f574e0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "statcounter",
+  "name": "Statcounter",
+  "official_url": "https://statcounter.com/",
+  "image_url": "https://www.statcounter.com/images/apple-touch-icon-144x144-precomposed.png?v=1",
+  "source_page": "https://statcounter.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "statcounter.com",
+  "original": {
+    "format": "png",
+    "width": 144,
+    "height": 144
+  },
+  "sha256": "f9152b5835d3fcabd7f2da564b9de860bf342d56f1f18342a7c2e0c4096bcbd4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

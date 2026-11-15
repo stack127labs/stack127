@@ -1,0 +1,21 @@
+{
+  "slug": "coinremitter",
+  "name": "Coinremitter",
+  "url": "https://coinremitter.com/",
+  "jobs": ["crypto"],
+  "line": "Crypto gateway with hosted checkout, invoices and wallet payouts.",
+  "free": { "kind": "free", "text": "Free: 8 coins, 100 API requests/min, 500 wallet addresses" },
+  "cells": {
+    "type": "Crypto payment gateway",
+    "countries": "Over 130 countries; Singapore excluded",
+    "payout": "Automatic wallet withdrawals every 30 minutes"
+  },
+  "costs": {
+    "fee": [
+      { "v": "0.23%", "plan": "Crypto processing", "state": "conflicting", "math": "The published processing fee is 0.23%. The fee page says it's taken when you withdraw. The terms say it's taken from each transaction." },
+      { "v": "0.23%", "plan": "Crypto processing", "state": "conflicting", "math": "The published processing fee is 0.23%. The fee page says it's taken when you withdraw. The terms say it's taken from each transaction." },
+      { "v": "0.23%", "plan": "Crypto processing", "state": "conflicting", "math": "The published processing fee is 0.23%. The fee page says it's taken when you withdraw. The terms say it's taken from each transaction." },
+      { "v": "0.23%", "plan": "Crypto processing", "state": "conflicting", "math": "The published processing fee is 0.23%. The fee page says it's taken when you withdraw. The terms say it's taken from each transaction." }
+    ]
+  }
+}

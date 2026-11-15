@@ -1,0 +1,17 @@
+{
+  "slug": "openstatus",
+  "name": "OpenStatus",
+  "official_url": "https://www.openstatus.dev/",
+  "image_url": "https://www.openstatus.dev/icon.png?icon.0ql4z1tq5lt1f.png",
+  "source_page": "https://www.openstatus.dev/",
+  "kind": "favicon",
+  "source_host": "openstatus.dev",
+  "original": {
+    "format": "png",
+    "width": 478,
+    "height": 494
+  },
+  "sha256": "4d53dc65838c420789e907b65ba99e73e62c82994e49f0082d9f464cddab601d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

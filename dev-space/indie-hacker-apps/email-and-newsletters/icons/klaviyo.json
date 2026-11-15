@@ -1,0 +1,17 @@
+{
+  "slug": "klaviyo",
+  "name": "Klaviyo",
+  "official_url": "https://www.klaviyo.com/",
+  "image_url": "https://www.klaviyo.com/icons/icon-512x512.png",
+  "source_page": "https://www.klaviyo.com/",
+  "kind": "manifest-icon",
+  "source_host": "klaviyo.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "70d82ffd1c76cd264ed383ee3d854d722c074eb7645f0ab011460e7e3149cfd4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

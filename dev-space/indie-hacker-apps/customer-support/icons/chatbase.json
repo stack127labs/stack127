@@ -1,0 +1,17 @@
+{
+  "slug": "chatbase",
+  "name": "Chatbase",
+  "official_url": "https://www.chatbase.co/",
+  "image_url": "https://www.chatbase.co/favicon.ico",
+  "source_page": "https://www.chatbase.co/",
+  "kind": "favicon",
+  "source_host": "chatbase.co",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "d5755ed4ebfa943fe66b5f130af39fb4c5d9bfe0d3f69f2dec2a31b4f78f479c",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

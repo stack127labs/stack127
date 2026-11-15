@@ -1,0 +1,17 @@
+{
+  "slug": "quackback",
+  "name": "Quackback",
+  "official_url": "https://quackback.io/",
+  "image_url": "https://quackback.io/apple-touch-icon.png",
+  "source_page": "https://quackback.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "quackback.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "17d1593d14352c6eb8135464fc4d7707da12e5ce84f51f1c7b7fc5e9e9e04e23",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

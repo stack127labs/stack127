@@ -1,0 +1,26 @@
+{
+  "slug": "zoho-cpaas",
+  "name": "Zoho CPaaS",
+  "url": "https://www.zoho.com/cpaas/",
+  "jobs": ["transactional"],
+  "line": "Transactional email delivery through API and SMTP.",
+  "free": { "kind": "credits", "text": "One credit, up to 10,000 emails; 100/day, valid 1 month" },
+  "cells": {
+    "newsletters": "No, promotional and newsletter email is prohibited",
+    "api": "Yes, REST API and SMTP relay"
+  },
+  "costs": {
+    "subs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The email channel bans newsletters and promotional campaigns." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The email channel bans newsletters and promotional campaigns." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The email channel bans newsletters and promotional campaigns." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The email channel bans newsletters and promotional campaigns." }
+    ],
+    "appmail": [
+      { "v": "US$2.50/month", "plan": "1 email credit", "state": "confirmed", "math": "3,000 emails ÷ 30 = 100 a day. 1 credit covers 10,000 emails. Assumes a reviewed account, a verified domain, one recipient per message, and a shared IP. Excludes the free credit and tax." },
+      { "v": "US$2.50/month", "plan": "1 email credit", "state": "confirmed", "math": "10,000 emails ÷ 30 = 333.3 a day. 1 credit covers 10,000 emails. Assumes a reviewed account, a verified domain, one recipient per message, and a shared IP. Excludes the free credit and tax." },
+      { "v": "US$12.50/month", "plan": "5 email credits", "state": "confirmed", "math": "5 credits × US$2.50 for 50,000 emails. Assumes a reviewed account, a verified domain, one recipient per message, and a shared IP. Excludes the free credit and tax." },
+      { "v": "US$25.00/month", "plan": "10 email credits", "state": "confirmed", "math": "10 credits × US$2.50 for 100,000 emails. Assumes a reviewed account, a verified domain, one recipient per message, and a shared IP. Excludes the free credit and tax." }
+    ]
+  }
+}

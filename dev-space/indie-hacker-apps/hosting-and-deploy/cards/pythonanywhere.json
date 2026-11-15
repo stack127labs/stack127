@@ -1,0 +1,14 @@
+{
+  "slug": "pythonanywhere",
+  "name": "PythonAnywhere",
+  "url": "https://www.pythonanywhere.com/",
+  "jobs": ["paas"],
+  "line": "Develop and host Python web apps on managed shared infrastructure.",
+  "free": { "kind": "free", "text": "Beginner free account; web app expires monthly and must be renewed" },
+  "cells": { "type": "Managed Python hosting", "regions": "US or EU accounts", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$10", "plan": "US Developer", "state": "confirmed", "math": "$10 a month hosting subtotal, if the conditions apply. Capacity and whether 100 GB is accepted are untested." },
+    { "v": "Unknown", "plan": "US Developer", "state": "unclear", "math": "$10 is the subtotal for a service that is not directly equivalent. A guaranteed allocation of 1 vCPU and 1 GiB is not available." },
+    { "v": "Unknown", "plan": "Developer + PostgreSQL", "state": "unclear", "math": "A Postgres database can be quoted, but its RAM and the seven-day backup cost are not verified." }
+  ] }
+}

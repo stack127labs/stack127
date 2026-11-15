@@ -1,0 +1,21 @@
+{
+  "slug": "mollie",
+  "name": "Mollie",
+  "url": "https://www.mollie.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "European payment gateway with checkout, links and recurring collections.",
+  "free": { "kind": "none", "text": "Pay per successful transaction; no general monthly plan" },
+  "cells": {
+    "type": "Payment service provider and gateway",
+    "countries": "Selected European countries, including UK and Switzerland",
+    "payout": "Weekly by default; daily, monthly and manual options"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Mollie's sign-up country list covers selected European markets. The US isn't on it." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "UK sellers are supported, but the published standard card rates are for the Netherlands." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "German sellers are supported, but the published standard card rates are for the Netherlands." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Mollie's sign-up country list covers selected European markets. India isn't on it." }
+    ]
+  }
+}

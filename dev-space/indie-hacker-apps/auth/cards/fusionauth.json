@@ -1,0 +1,20 @@
+{
+  "slug": "fusionauth",
+  "name": "FusionAuth",
+  "url": "https://fusionauth.io/",
+  "jobs": ["server", "hosted"],
+  "line": "Customer identity server with self-hosted and managed options.",
+  "free": { "kind": "selfhost", "text": "Free Community software; unlimited users, you host" },
+  "cells": {
+    "freeUsers": "Community: unlimited users on self-hosted software",
+    "sso": "SP-initiated SAML/OIDC; no separate connection fee"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Community self-hosted", "state": "confirmed", "math": "The Community software licence costs $0. Infrastructure, email delivery and operations cost extra." },
+      { "v": "$0", "plan": "Community self-hosted", "state": "confirmed", "math": "The Community software licence costs $0. Infrastructure, email delivery and operations cost extra." },
+      { "v": "$0", "plan": "Community self-hosted", "state": "confirmed", "math": "The Community software licence costs $0. Infrastructure, email delivery and operations cost extra." },
+      { "v": "$0", "plan": "Community self-hosted", "state": "confirmed", "math": "The Community software licence costs $0. Infrastructure, email delivery and operations cost extra." }
+    ]
+  }
+}

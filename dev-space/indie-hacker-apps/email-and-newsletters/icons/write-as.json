@@ -1,0 +1,17 @@
+{
+  "slug": "write-as",
+  "name": "Write.as",
+  "official_url": "https://write.as/",
+  "image_url": "https://write.as/img/icon_512.png",
+  "source_page": "https://write.as/",
+  "kind": "manifest-icon",
+  "source_host": "write.as",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "7551b49434c2c23704c54f1001f1afe89686e102316605c759b2873be8903f2e",
+  "note": "Official square icon is a monochrome Write.as wordmark mark.",
+  "saved_at": "2026-11-14"
+}

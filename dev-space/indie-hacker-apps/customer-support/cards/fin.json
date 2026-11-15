@@ -1,0 +1,19 @@
+{
+  "slug": "fin",
+  "name": "Fin AI Agent",
+  "url": "https://fin.ai/",
+  "jobs": ["ai"],
+  "line": "AI agent that resolves customer questions alongside a separate help desk.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Website chat, email, messaging, voice",
+    "ai": "$49/month includes 50 outcomes; then $0.99 each",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Fin is an AI agent; human inbox pricing is separate." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Fin is an AI agent; human inbox pricing is separate." }
+    ]
+  }
+}

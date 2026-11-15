@@ -1,0 +1,14 @@
+{
+  "slug": "hostwinds-vps",
+  "name": "Hostwinds VPS",
+  "url": "https://www.hostwinds.com/vps/linux",
+  "jobs": ["vps"],
+  "line": "Rent a Linux virtual server with managed or unmanaged support.",
+  "free": { "kind": "none", "text": "No recurring free VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Seattle, Dallas, Amsterdam; regional prices not listed", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$4.99", "plan": "Unmanaged Linux V1", "state": "confirmed", "math": "$4.99 a month includes 1 TB of bandwidth and one IPv4 address. 100 GB fits. The domain and outside CI are extra, before tax." },
+    { "v": "$7.14", "plan": "Managed Linux V1", "state": "confirmed", "math": "1 CPU and 1 GB, 30 GB SSD, 1 TB bandwidth: $7.14 a month, with no request meter. Throughput is untested, before tax." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$15.29 a month base (V2 plan $14.29 + backup $1) + $0.03 per GB of stored backup. The size depends on the data on the full server." }
+  ] }
+}

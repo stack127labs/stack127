@@ -1,0 +1,17 @@
+{
+  "slug": "github-pages",
+  "name": "GitHub Pages",
+  "official_url": "https://pages.github.com/",
+  "image_url": "https://docs.github.com/assets/cb-27314/images/site/apple-touch-icon-512x512.png",
+  "source_page": "https://pages.github.com/",
+  "kind": "manifest-icon",
+  "source_host": "docs.github.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "a707f1f898f4afa9f32efb2dfdbef5c3eded6e5b80bca58e6d8287a5cb42a739",
+  "note": "parent brand: GitHub; no distinct Pages icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "supabase-edge-functions",
+  "name": "Supabase Edge Functions",
+  "official_url": "https://supabase.com/edge-functions",
+  "image_url": "https://supabase.com/favicon/android-icon-512x512.png",
+  "source_page": "https://supabase.com/edge-functions",
+  "kind": "manifest-icon",
+  "source_host": "supabase.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "2563adf0c6a4da7fe7890ed221e811287242493b61c850ff8a962cba0ccf5d79",
+  "note": "parent brand: Supabase; no distinct Edge Functions icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

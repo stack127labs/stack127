@@ -1,0 +1,21 @@
+{
+  "slug": "seerbit",
+  "name": "SeerBit",
+  "url": "https://www.seerbit.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "African payments gateway for checkout, links, and subscription collections.",
+  "free": { "kind": "none", "text": "Free account; transaction fees apply" },
+  "cells": {
+    "type": "Payment gateway and processor",
+    "countries": "Seller list unpublished; 9 African pricing markets",
+    "payout": "T+1 settlement for collected payments"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No US card pricing is published. The public local card rates cover African markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No UK card pricing is published. The public local card rates cover African markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No German card pricing is published. The public local card rates cover African markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No India card pricing is published. The public local card rates cover African markets." }
+    ]
+  }
+}

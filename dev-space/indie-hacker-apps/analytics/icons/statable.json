@@ -1,0 +1,17 @@
+{
+  "slug": "statable",
+  "name": "Statable",
+  "official_url": "https://statable.com/",
+  "image_url": "https://statable.com/favicon.ico",
+  "source_page": "https://statable.com/",
+  "kind": "favicon",
+  "source_host": "statable.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "cfd381810340f403643d31f86c5f8d00e38a734d3ac254b8547a9e9366b1ad4c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

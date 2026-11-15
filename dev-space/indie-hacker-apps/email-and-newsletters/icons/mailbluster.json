@@ -1,0 +1,17 @@
+{
+  "slug": "mailbluster",
+  "name": "MailBluster",
+  "official_url": "https://mailbluster.com/",
+  "image_url": "https://mailbluster.com/wp-content/themes/mailbluster/resources/assets/images/favicon.ico",
+  "source_page": "https://mailbluster.com/",
+  "kind": "favicon",
+  "source_host": "mailbluster.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "f25ab06a6230718f7faa2547eb1782b50ee0fc2a9e8f4e8bdb5051980cd896f0",
+  "note": "Official favicon is 64 px; no larger square icon was found.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "healthchecks-io",
+  "name": "Healthchecks.io",
+  "url": "https://healthchecks.io/",
+  "jobs": ["cron"],
+  "line": "Alerts when scheduled jobs miss a check-in or report a failure.",
+  "free": { "kind": "free", "text": "Free for up to 20 jobs; 100 log entries each" },
+  "cells": { "interval": "—", "maintained": "Last release 2026-10-27" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Healthchecks.io doesn't check websites from outside." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Healthchecks.io doesn't check websites from outside." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Healthchecks.io doesn't check websites from outside." }
+    ]
+  }
+}

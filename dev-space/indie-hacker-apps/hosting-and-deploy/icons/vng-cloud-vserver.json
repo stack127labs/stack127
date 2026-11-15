@@ -1,0 +1,17 @@
+{
+  "slug": "vng-cloud-vserver",
+  "name": "VNG Cloud vServer",
+  "official_url": "https://www.vngcloud.vn/vi/web/guest/product/vserver",
+  "image_url": "https://www.vngcloud.vn/favicon.ico",
+  "source_page": "https://greennode.ai/product/cpu-instances",
+  "kind": "favicon",
+  "source_host": "vngcloud.vn",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "cdfbefae225f4e85cde348097d69c663a5d67fab11fefbcaedc43b2fb3335808",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

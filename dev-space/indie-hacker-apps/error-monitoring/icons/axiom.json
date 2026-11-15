@@ -1,0 +1,17 @@
+{
+  "slug": "axiom",
+  "name": "Axiom",
+  "official_url": "https://axiom.co/",
+  "image_url": "https://axiom.co/apple-touch-icon.png",
+  "source_page": "https://axiom.co/",
+  "kind": "apple-touch-icon",
+  "source_host": "axiom.co",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "cbce91ab94595b53b4c35762a72c60d956b38de2604af5e00ba33ec403d58458",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "terminusdb",
+  "name": "TerminusDB",
+  "url": "https://terminusdb.com/",
+  "jobs": ["vector"],
+  "line": "Versioned document graph database; vector search is documented in v12.1 RC.",
+  "free": { "kind": "selfhost", "text": "Apache-2.0; no vendor quota or idle rule; you host and retain the data" },
+  "cells": {
+    "metered": "Free self-hosted; managed Cloud has no public price",
+    "regions": "Self-host anywhere; Cloud region list unpublished",
+    "selfhost": "Yes, Apache-2.0 Community edition"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "Unknown",
+        "plan": "Community self-hosted",
+        "state": "unclear",
+        "math": "The Apache-2.0 software costs $0 (a free open-source license). Host, disk, backups, transfer and tax are not priced here."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Community self-hosted",
+        "state": "unclear",
+        "math": "The software stays $0 while idle. Server, kept storage, backup and transfer costs depend on your host."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "TerminusDB is a graph and document database, not a file storage service."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "TerminusDB does not host background job workers"
+      }
+    ]
+  }
+}

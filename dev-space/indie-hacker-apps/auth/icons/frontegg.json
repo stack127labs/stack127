@@ -1,0 +1,17 @@
+{
+  "slug": "frontegg",
+  "name": "Frontegg",
+  "official_url": "https://frontegg.com/",
+  "image_url": "https://frontegg.com/apple-touch-icon.png",
+  "source_page": "https://frontegg.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "frontegg.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "a443f1c8c7c13c3689292c612759907950fad27ba541c8a4231bea8aa3f20c00",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

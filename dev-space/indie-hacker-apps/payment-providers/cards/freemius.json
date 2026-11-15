@@ -1,0 +1,21 @@
+{
+  "slug": "freemius",
+  "name": "Freemius",
+  "url": "https://freemius.com/",
+  "jobs": ["mor", "billing"],
+  "line": "Merchant of Record checkout, licensing and subscriptions for software makers.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; pay when a sale succeeds" },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "190+ countries where a supported payout method exists",
+    "payout": "Monthly sales calculated later; payout processing 3–6 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "6.7% + $0.80", "plan": "US card", "state": "unclear", "math": "Platform fee of 3.8% + $0.50, plus gateway fee of 2.9% + $0.30. Together they make the total shown, and the gateway fee may vary." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The UK card gateway rate isn't published. The GBP platform fixed fee alone isn't the full rate." },
+      { "v": "5.2% + €0.70", "plan": "EUR card example", "state": "unclear", "math": "Example: a platform fee of 3.8% plus €0.45, plus a Europe gateway fee of 1.4% plus €0.25. It isn't a live quote that applies to everyone." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The India card gateway rate isn't published." }
+    ]
+  }
+}

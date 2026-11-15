@@ -1,0 +1,61 @@
+{
+  "slug": "instatus",
+  "name": "Instatus",
+  "url": "https://instatus.com/",
+  "jobs": [
+    "status",
+    "uptime",
+    "cron"
+  ],
+  "line": "Hosted status pages with built-in uptime checks.",
+  "free": {
+    "kind": "free",
+    "text": "15 monitors, 2-minute checks, public page free"
+  },
+  "cells": {
+    "interval": "120 s Starter, 30 s Pro/Business",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$20",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "5 endpoints fit the Pro plan's 50 monitors, at $20 a month. Whether a 60-second check interval is available isn't confirmed."
+      },
+      {
+        "v": "$20",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "25 endpoints fit the Pro plan's 50 monitors, at $20 a month. Whether a 60-second check interval is available isn't confirmed."
+      },
+      {
+        "v": "$300",
+        "plan": "Business",
+        "state": "unclear",
+        "math": "100 endpoints need the Business plan, which has 1,000 monitors, at $300 a month. Whether a 60-second check interval is available isn't confirmed."
+      }
+    ]
+  }
+}

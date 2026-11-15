@@ -1,0 +1,17 @@
+{
+  "slug": "chatway",
+  "name": "Chatway",
+  "official_url": "https://chatway.app/",
+  "image_url": "https://chatway.app/wp-content/uploads/2023/05/Favicon.png",
+  "source_page": "https://chatway.app/",
+  "kind": "favicon",
+  "source_host": "chatway.app",
+  "original": {
+    "format": "png",
+    "width": 97,
+    "height": 97
+  },
+  "sha256": "f3903969e5fcde87fd44ea78f1c64e62fdcbb359570046b3f608e8cf75527b1e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

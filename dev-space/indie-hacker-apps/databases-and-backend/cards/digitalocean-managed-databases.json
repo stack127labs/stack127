@@ -1,0 +1,25 @@
+{
+  "slug": "digitalocean-managed-databases",
+  "name": "DigitalOcean Managed Databases",
+  "url": "https://www.digitalocean.com/products/managed-databases",
+  "jobs": ["sql", "kv", "vector", "jobs"],
+  "line": "Managed PostgreSQL, MySQL, MongoDB, Valkey, OpenSearch, and Kafka clusters.",
+  "free": { "kind": "credits", "text": "$5 signup credit, expires after 90 days" },
+  "cells": {
+    "metered": "PG/MySQL Standard $15.15/mo table; docs say from $15",
+    "regions": "12 shared locations; some regions have limited plans",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$15.15/month", "plan": "Standard PG, 1 GiB", "state": "conflicting", "math": "The cost is capped at $15.15 a month, because 730 hours × $0.02254 an hour would be more. Engine docs also say from $15." },
+      { "v": "$15.15/month", "plan": "Standard PG, 1 GiB", "state": "conflicting", "math": "The provisioned node still costs $15.15 a month with zero traffic. Engine docs also say from $15." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Managed databases do not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Kafka plus worker", "state": "unclear", "math": "Three Kafka brokers cost $148.80 a month. Separate worker costs are not priced, so the full job total is unknown." }
+    ]
+  }
+}

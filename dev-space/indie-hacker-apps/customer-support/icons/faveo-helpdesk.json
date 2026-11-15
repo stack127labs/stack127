@@ -1,0 +1,17 @@
+{
+  "slug": "faveo-helpdesk",
+  "name": "Faveo Helpdesk",
+  "official_url": "https://www.faveohelpdesk.com/",
+  "image_url": "https://www.faveohelpdesk.com/wp-content/uploads/2024/11/Faveo-logo-1.png",
+  "source_page": "https://www.faveohelpdesk.com/",
+  "kind": "logo-mark",
+  "source_host": "faveohelpdesk.com",
+  "original": {
+    "format": "png",
+    "width": 112,
+    "height": 112
+  },
+  "sha256": "08294f7c35d19a6191274e78d4fbc441a88cfadd7d6c6e1beb9ea99763ee2cc5",
+  "note": "Only usable saved candidate is the Faveo wordmark.",
+  "saved_at": "2026-11-14"
+}

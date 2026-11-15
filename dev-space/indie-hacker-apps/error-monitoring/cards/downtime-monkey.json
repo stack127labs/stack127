@@ -1,0 +1,24 @@
+{
+  "slug": "downtime-monkey",
+  "name": "Downtime Monkey",
+  "url": "https://downtimemonkey.com/",
+  "jobs": ["uptime"],
+  "line": "Checks website uptime and response times, with keyword alerts and history.",
+  "free": { "kind": "free", "text": "60 monitors, 5-minute checks, 90-day uptime stats" },
+  "cells": {
+    "interval": "60 s Pro; 5 min free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$2.16", "plan": "Pro10", "state": "unclear", "math": "Covers 5 endpoints. The full cost of an own-domain status page isn't known." },
+      { "v": "$4.12", "plan": "Pro30", "state": "unclear", "math": "Covers 25 endpoints. The full cost of an own-domain status page isn't known." },
+      { "v": "$8.68", "plan": "Pro100", "state": "unclear", "math": "Covers 100 endpoints. The full cost of an own-domain status page isn't known." }
+    ]
+  }
+}

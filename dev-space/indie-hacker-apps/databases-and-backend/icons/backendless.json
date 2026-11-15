@@ -1,0 +1,17 @@
+{
+  "slug": "backendless",
+  "name": "Backendless",
+  "official_url": "https://backendless.com/",
+  "image_url": "https://backendless.com/wp-content/themes/backendless/assets/images/favicons/android-chrome-512x512.png",
+  "source_page": "https://backendless.com/",
+  "kind": "manifest-icon",
+  "source_host": "backendless.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "23e7bc1f893c2a4f09be35ae3143d99de4354b9812f306efdad0ab5e30495380",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

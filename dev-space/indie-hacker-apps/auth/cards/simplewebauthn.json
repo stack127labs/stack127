@@ -1,0 +1,20 @@
+{
+  "slug": "simplewebauthn",
+  "name": "SimpleWebAuthn",
+  "url": "https://simplewebauthn.dev/",
+  "jobs": ["library"],
+  "line": "TypeScript libraries for adding passkeys to an account system.",
+  "free": { "kind": "selfhost", "text": "Free MIT packages; you run them" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "Does not provide SAML, OIDC, or SCIM connections"
+  },
+  "costs": {
+    "mau": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This library alone does not provide the password or social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This library alone does not provide the password or social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This library alone does not provide the password or social sign-in that a whole account needs, so no cost is shown." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This library alone does not provide the password or social sign-in that a whole account needs, so no cost is shown." }
+    ]
+  }
+}

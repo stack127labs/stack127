@@ -1,0 +1,45 @@
+{
+  "slug": "seaweedfs",
+  "name": "SeaweedFS",
+  "url": "https://seaweedfs.com/",
+  "jobs": ["files"],
+  "line": "Distributed S3-compatible storage that you run on your own servers.",
+  "free": { "kind": "selfhost", "text": "Apache-2.0; no community quota or hosted idle rule; you control disks/retention" },
+  "cells": {
+    "metered": "Community license $0; Enterprise $2/TB/mo",
+    "regions": "You place servers and choose fault domains",
+    "selfhost": "Yes, Apache-2.0 community edition"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "SeaweedFS stores files and objects, not databases"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "SeaweedFS stores files and objects, not databases"
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "Community self-hosted",
+        "state": "unclear",
+        "math": "The Apache-2.0 license costs $0 (a free open-source license). 100 GB of disks, servers, power and network depend on your setup."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "SeaweedFS does not run background jobs"
+      }
+    ]
+  }
+}

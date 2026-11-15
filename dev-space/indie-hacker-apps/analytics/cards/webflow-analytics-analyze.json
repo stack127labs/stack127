@@ -1,0 +1,12 @@
+{
+  "slug": "webflow-analytics-analyze", "name": "Webflow Analyze", "url": "https://webflow.com/analyze",
+  "jobs": ["web"],
+  "line": "Adds traffic, conversion and click-map reports to Webflow sites.",
+  "free": {"kind": "none", "text": "No free Analyze plan; it is a paid site add-on"},
+  "cells": {"cookieless": "Yes (uses local storage identifiers)", "location": "US; global processing may occur", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Analyze is priced by sessions. Pageviews do not decide the session volume."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Analyze is priced by sessions. Pageviews do not decide the session volume."},
+    {"v": "Unknown", "plan": "", "state": "not_published", "math": "Analyze is priced by sessions. Pageviews do not decide the session volume."}
+  ]}
+}

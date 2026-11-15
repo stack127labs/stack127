@@ -1,0 +1,24 @@
+{
+  "slug": "clickstack-using-hyperdx",
+  "name": "ClickStack",
+  "url": "https://clickhouse.com/clickstack",
+  "jobs": ["errors", "logs", "performance"],
+  "line": "Searches logs, traces and metrics to investigate errors and performance.",
+  "free": { "kind": "selfhost", "text": "Free to self-host; managed service has a 30-day $300 trial" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-11-03"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Managed ClickStack", "state": "unclear", "math": "Compute, compressed storage, backups and data sent out (egress) are each metered. The report count doesn't set the total." },
+      { "v": "Unknown", "plan": "Managed ClickStack", "state": "unclear", "math": "Compute, compressed storage, backups and data sent out (egress) are each metered. The report count doesn't set the total." },
+      { "v": "Unknown", "plan": "Managed ClickStack", "state": "unclear", "math": "Compute, compressed storage, backups and data sent out (egress) are each metered. The report count doesn't set the total." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" }
+    ]
+  }
+}

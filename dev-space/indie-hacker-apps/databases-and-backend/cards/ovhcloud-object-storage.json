@@ -1,0 +1,25 @@
+{
+  "slug": "ovhcloud-object-storage",
+  "name": "OVHcloud Object Storage",
+  "url": "https://www.ovhcloud.com/en/public-cloud/object-storage/",
+  "jobs": ["files"],
+  "line": "S3-compatible object storage for application files, backups, and archives.",
+  "free": { "kind": "credits", "text": "US trial: $200/90d; no lasting free tier; no idle bucket pause or deletion" },
+  "cells": {
+    "metered": "£0.00000833/GiB-hour, One Zone Standard",
+    "regions": "Europe, Canada, APAC; no US endpoint listed",
+    "selfhost": "No, OVHcloud hosts the storage service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Object Storage is not a SQL database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Object Storage is not a SQL database" }
+    ],
+    "files": [
+      { "v": "£0.60809", "plan": "One Zone Standard, UK price page", "state": "confirmed", "math": "100 GiB × 730 hours × £0.00000833 per GiB an hour, which is about £0.60809. Standard requests and listed outbound data (egress) are included." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "OVHcloud Object Storage does not run jobs" }
+    ]
+  }
+}

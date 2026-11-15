@@ -1,0 +1,24 @@
+{
+  "slug": "deadbro",
+  "name": "DeadBro",
+  "url": "https://www.deadbro.com/",
+  "jobs": ["errors", "uptime", "status", "logs", "performance"],
+  "line": "Monitors Rails errors, requests, jobs, logs and website availability.",
+  "free": { "kind": "free", "text": "50,000 requests/month, 1 app, 1 URL; no card" },
+  "cells": {
+    "interval": "60 s",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Free", "state": "unclear", "math": "Plans are billed by tracked requests. An error count alone doesn't set how many requests are used." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "Plans are billed by tracked requests. An error count alone doesn't set how many requests are used." },
+      { "v": "Unknown", "plan": "Growth", "state": "unclear", "math": "Plans are billed by tracked requests. An error count alone doesn't set how many requests are used." }
+    ],
+    "uptime": [
+      { "v": "€19", "plan": "Starter", "state": "unclear", "math": "Starter includes 5 uptime URLs. DeadBro doesn't publish the cost of a status page on a custom domain." },
+      { "v": "€79", "plan": "Growth", "state": "unclear", "math": "Growth includes 25 uptime URLs. DeadBro doesn't publish the cost of a status page on a custom domain." },
+      { "v": "Unknown", "plan": "Pro", "state": "not_published", "math": "100 URLs need the Pro plan. Its price and the cost of a custom-domain page aren't published here." }
+    ]
+  }
+}

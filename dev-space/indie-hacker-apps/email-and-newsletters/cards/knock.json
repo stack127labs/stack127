@@ -1,0 +1,74 @@
+{
+  "slug": "knock",
+  "name": "Knock",
+  "url": "https://knock.app/",
+  "jobs": [
+    "multichannel",
+    "newsletter",
+    "marketing",
+    "transactional"
+  ],
+  "line": "Coordinate email campaigns and triggered messages across in-app, SMS and push.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 10,000 messages/month"
+  },
+  "cells": {
+    "newsletters": "Yes",
+    "api": "Yes"
+  },
+  "costs": {
+    "subs": [
+      {
+        "v": "$0",
+        "plan": "Free platform only; sender extra",
+        "state": "confirmed",
+        "math": "4,000 email messages fit inside Free's 10,000-message platform allowance. The external email sender and its fee are extra."
+      },
+      {
+        "v": "$250",
+        "plan": "Starter platform only; sender extra",
+        "state": "confirmed",
+        "math": "20,000 email messages fit inside Starter's 50,000-message platform allowance. The $250 covers Knock only; the external sender is billed separately."
+      },
+      {
+        "v": "$250",
+        "plan": "Starter platform only; sender extra",
+        "state": "confirmed",
+        "math": "40,000 email messages fit inside Starter's 50,000-message platform allowance. The $250 covers Knock only; the external sender is billed separately."
+      },
+      {
+        "v": "$1,000",
+        "plan": "Starter platform only; sender extra",
+        "state": "confirmed",
+        "math": "$250 plus 150,000 messages at $0.005 each = $1,000 Knock fee. The external sender is billed separately, and Enterprise may be quoted differently."
+      }
+    ],
+    "appmail": [
+      {
+        "v": "$0",
+        "plan": "Free platform only; sender extra",
+        "state": "confirmed",
+        "math": "3,000 successful email messages fit inside Free's 10,000-message platform allowance. The sender fee is extra."
+      },
+      {
+        "v": "$0",
+        "plan": "Free platform only; sender extra",
+        "state": "confirmed",
+        "math": "10,000 successful email messages use all of Free's platform allowance. The sender fee is extra."
+      },
+      {
+        "v": "$250",
+        "plan": "Starter platform only; sender extra",
+        "state": "confirmed",
+        "math": "50,000 successful email messages use all of Starter's platform allowance. The sender fee is extra."
+      },
+      {
+        "v": "$500",
+        "plan": "Starter platform only; sender extra",
+        "state": "confirmed",
+        "math": "$250 plus 50,000 messages at $0.005 each = $500 Knock fee. The external sender is billed separately, and Enterprise may be quoted differently."
+      }
+    ]
+  }
+}

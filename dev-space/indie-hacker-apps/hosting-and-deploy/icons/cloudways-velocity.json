@@ -1,0 +1,17 @@
+{
+  "slug": "cloudways-velocity",
+  "name": "Cloudways Velocity",
+  "official_url": "https://www.cloudways.com/en/velocity.php",
+  "image_url": "https://www.cloudways.com/wp-content/themes/cw_multilingual/template/assets/img/favicon.png",
+  "source_page": "https://www.cloudways.com/en/velocity.php",
+  "kind": "favicon",
+  "source_host": "cloudways.com",
+  "original": {
+    "format": "png",
+    "width": 81,
+    "height": 81
+  },
+  "sha256": "9469dd0b24e42f889b428901cc9ea7e6162c64db9c39b86739be2df692df366d",
+  "note": "parent brand: Cloudways",
+  "saved_at": "2026-11-14"
+}

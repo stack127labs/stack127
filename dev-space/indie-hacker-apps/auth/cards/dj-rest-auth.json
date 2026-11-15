@@ -1,0 +1,20 @@
+{
+  "slug": "dj-rest-auth",
+  "name": "dj-rest-auth",
+  "url": "https://dj-rest-auth.readthedocs.io/en/latest/",
+  "jobs": ["library"],
+  "line": "Django REST endpoints for account login and management.",
+  "free": { "kind": "selfhost", "text": "Free MIT package; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No built-in enterprise connection plan"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The MIT software licence costs $0. App hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The MIT software licence costs $0. App hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The MIT software licence costs $0. App hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The MIT software licence costs $0. App hosting, database, delivery and operations cost extra." }
+    ]
+  }
+}

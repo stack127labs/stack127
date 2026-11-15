@@ -1,0 +1,24 @@
+{
+  "slug": "google-cloud-monitoring",
+  "name": "Google Cloud Monitoring",
+  "url": "https://cloud.google.com/monitoring",
+  "jobs": ["uptime", "performance"],
+  "line": "Charts service metrics, alerts on problems and checks endpoint uptime.",
+  "free": { "kind": "free", "text": "First 1 million regional uptime executions/project/month are free" },
+  "cells": {
+    "interval": "60 s",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Error Reporting is a separate Google Cloud product" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Error Reporting is a separate Google Cloud product" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Error Reporting is a separate Google Cloud product" }
+    ],
+    "uptime": [
+      { "v": "$0", "plan": "Cloud Monitoring", "state": "unclear", "math": "648,000 runs across 3 regions fit inside the free allowance of 1-million. No status page is included." },
+      { "v": "$672", "plan": "Cloud Monitoring", "state": "unclear", "math": "3,240,000 runs across 3 regions. Charged runs: 3,240,000 minus the free 1,000,000, at $0.30 per 1,000. No status page is included." },
+      { "v": "$3,588", "plan": "Cloud Monitoring", "state": "unclear", "math": "12,960,000 runs across 3 regions. Charged runs: 12,960,000 minus the free 1,000,000, at $0.30 per 1,000. No status page is included." }
+    ]
+  }
+}

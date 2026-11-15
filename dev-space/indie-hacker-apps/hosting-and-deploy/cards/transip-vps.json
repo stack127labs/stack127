@@ -1,0 +1,20 @@
+{
+  "slug": "transip-vps",
+  "name": "TransIP VPS",
+  "url": "https://www.transip.eu/vps/",
+  "jobs": ["vps"],
+  "line": "Rent a Linux or Windows server and manage its apps yourself.",
+  "free": { "kind": "none", "text": "No ongoing free VPS plan" },
+  "cells": {
+    "type": "VPS/VM",
+    "regions": "Amsterdam and Alblasserdam, Netherlands",
+    "selfhost": "Yes; unmanaged server"
+  },
+  "costs": {
+    "work": [
+      { "v": "€5", "plan": "V1", "state": "confirmed", "math": "€5 a month before VAT, for 1 vCPU, 1 GB and 100 GB of NVMe storage. 100 GB of traffic is under fair use. Builds run on your VM or outside CI. The domain is extra, and performance is unverified." },
+      { "v": "€5", "plan": "V1", "state": "confirmed", "math": "A fixed €5 a month package (not 730 hourly units), before VAT, with 1 vCPU and 1 GB. 100 GB of traffic is under fair use, but request throughput is untested. The domain and CI are extra." },
+      { "v": "€15", "plan": "V2 + automatic backups", "state": "confirmed", "math": "€10 for V2 + €5 a month for backups, before VAT. 2 GB RAM and a 100 GB disk. Backups run every 4 to 6 hours plus weekly, not seven daily restore points. Capacity is untested." }
+    ]
+  }
+}

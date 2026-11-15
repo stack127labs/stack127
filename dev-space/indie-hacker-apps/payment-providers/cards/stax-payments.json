@@ -1,0 +1,21 @@
+{
+  "slug": "stax-payments",
+  "name": "Stax Payments",
+  "url": "https://staxpayments.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "US and Canadian payment platform for cards, invoices, and recurring billing.",
+  "free": { "kind": "none", "text": "Plans start at $99/month; online fee is $0.15/payment plus interchange" },
+  "cells": {
+    "type": "Processor and merchant payment platform",
+    "countries": "United States, Canada",
+    "payout": "Direct Pay next day if approved; Connect 2–5 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "$0.15 + interchange", "plan": "Stax Pay online/keyed", "state": "confirmed", "math": "The provider fee for online card payments, where the card isn't present, is $0.15 per payment, plus interchange (the base card fee). No percentage markup is advertised." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Stax Pay sign-up is offered to US and Canadian merchants, so UK businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Stax Pay sign-up is offered to US and Canadian merchants, so German businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Stax Pay sign-up is offered to US and Canadian merchants, so Indian businesses can't sign up." }
+    ]
+  }
+}

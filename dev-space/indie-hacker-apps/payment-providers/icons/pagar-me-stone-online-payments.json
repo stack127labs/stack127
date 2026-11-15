@@ -1,0 +1,17 @@
+{
+  "slug": "pagar-me-stone-online-payments",
+  "name": "Pagar.me / Stone online payments",
+  "official_url": "https://www.pagar.me/",
+  "image_url": "https://www.pagar.me/favicon.svg",
+  "source_page": "https://www.pagar.me/",
+  "kind": "svg-icon",
+  "source_host": "pagar.me",
+  "original": {
+    "format": "svg",
+    "width": 1227,
+    "height": 1232
+  },
+  "sha256": "bcfee07962d2f32a62351b35e8f3c2994038296faf8b21ceb6e278d9cf32b11a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

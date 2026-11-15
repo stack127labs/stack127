@@ -1,0 +1,21 @@
+{
+  "slug": "stripe-managed-payments",
+  "name": "Stripe Managed Payments",
+  "url": "https://stripe.com/managed-payments",
+  "jobs": ["mor", "billing", "links"],
+  "line": "Merchant of record service for eligible digital sales through Stripe.",
+  "free": { "kind": "none", "text": "No setup fees or monthly minimum; transaction fees apply" },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "US, UK, Germany and other listed markets; India not listed",
+    "payout": "Usually 5–7 business days; first payout 7–14 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "US sellers are supported, but Managed Payments pricing doesn't list a US card rate." },
+      { "v": "5% + GBP 0.20", "plan": "UK standard domestic card", "state": "unclear", "math": "UK processing 1.5% + Managed Payments 3.5% = 5%, plus GBP 0.20 per successful payment." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "German sellers are supported, but no German card rate is published in the Managed Payments pricing." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "India isn't one of the supported seller locations. Its India marketing page doesn't confirm that sellers can sign up." }
+    ]
+  }
+}

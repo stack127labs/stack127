@@ -1,0 +1,17 @@
+{
+  "slug": "vercel-web-analytics",
+  "name": "Vercel Web Analytics",
+  "official_url": "https://vercel.com/analytics",
+  "image_url": "https://py8fhxnkzwtsqdo9.public.blob.vercel-storage.com/front/favicon/vercel/android-chrome-512x512.png",
+  "source_page": "https://vercel.com/products/observability",
+  "kind": "manifest-icon",
+  "source_host": "py8fhxnkzwtsqdo9.public.blob.vercel-storage.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "85bdf0d36e773d8f67fb8a4741a93fb54585a5de605e3fb9786894612e54c64c",
+  "note": "parent brand: Vercel; Web Analytics has no separate product mark",
+  "saved_at": "2026-11-14"
+}

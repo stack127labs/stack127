@@ -1,0 +1,17 @@
+{
+  "slug": "arvancloud-cloud-container",
+  "name": "ArvanCloud Cloud Container",
+  "official_url": "https://www.arvancloud.ir/en/products/cloud-container",
+  "image_url": "https://www.arvancloud.ir/favicons/new/192.png",
+  "source_page": "https://www.arvancloud.ir/en/products/cloud-container",
+  "kind": "favicon",
+  "source_host": "arvancloud.ir",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "3982f83f586d17cdc3d368b21b6c78ef7a4c69d2de0b83bea1c74a75ec295ed6",
+  "note": "parent brand: ArvanCloud",
+  "saved_at": "2026-11-14"
+}

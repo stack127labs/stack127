@@ -1,0 +1,17 @@
+{
+  "slug": "grafana-loki",
+  "name": "Grafana Loki",
+  "official_url": "https://grafana.com/oss/loki/",
+  "image_url": "https://github.com/grafana.png?size=460",
+  "source_page": "https://grafana.com/oss/loki/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "jpeg",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "5b17461f3e167899039a14cabf29e814fc305a40dcfbc31a9fbe7ca4aaff5076",
+  "note": "parent brand: Grafana",
+  "saved_at": "2026-11-14"
+}

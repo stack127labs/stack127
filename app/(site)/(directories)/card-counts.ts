@@ -2,6 +2,7 @@ import type { PageCardCount } from "@/app/ui/cards/page-card";
 import { cardCounts as adNetworks } from "./ad-networks/card-counts";
 import { cardCounts as cliApps } from "./cli-apps/card-counts";
 import { cardCounts as eppStatusCodes } from "./epp-status-codes/card-counts";
+import { cardCounts as indieHackerApps } from "./indie-hacker-apps/card-counts";
 import { cardCounts as keyboardShortcuts } from "./keyboard-shortcuts/card-counts";
 import { cardCounts as launchDirectories } from "./launch-directories/card-counts";
 import { cardCounts as platformFees } from "./platform-fees/card-counts";
@@ -14,6 +15,7 @@ const counts: Record<string, () => Promise<PageCardCount[]>> = {
   "ad-networks": adNetworks,
   "cli-apps": cliApps,
   "epp-status-codes": eppStatusCodes,
+  "indie-hacker-apps": indieHackerApps,
   "keyboard-shortcuts": keyboardShortcuts,
   "launch-directories": launchDirectories,
   "platform-fees": platformFees,

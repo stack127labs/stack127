@@ -1,0 +1,12 @@
+{
+  "slug": "usermaven", "name": "Usermaven", "url": "https://usermaven.com/",
+  "jobs": ["web", "product", "revenue"],
+  "line": "Connects website and product behavior to marketing and revenue.",
+  "free": {"kind": "none", "text": "No free plan or new-customer trial; request a quote"},
+  "cells": {"cookieless": "Optional (strict privacy mode)", "location": "EU-hosted (vendor claim); exact regions unknown", "selfhost": "Yes, Enterprise on-premise"},
+  "costs": {"pv": [
+    {"v": "Quote", "plan": "Business", "state": "not_published", "math": "No public prices or volume bands are listed, so the total needs a custom quote."},
+    {"v": "Quote", "plan": "Business", "state": "not_published", "math": "No public prices or volume bands are listed, so the total needs a custom quote."},
+    {"v": "Quote", "plan": "Business", "state": "not_published", "math": "No public prices or volume bands are listed, so the total needs a custom quote."}
+  ]}
+}

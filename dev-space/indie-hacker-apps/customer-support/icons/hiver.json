@@ -1,0 +1,17 @@
+{
+  "slug": "hiver",
+  "name": "Hiver",
+  "official_url": "https://hiverhq.com/",
+  "image_url": "https://hiverhq.com/wp-content/uploads/2026/07/favicon-300x300.png",
+  "source_page": "https://hiverhq.com/",
+  "kind": "favicon",
+  "source_host": "hiverhq.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "8a08e31c5dc1d2e9abeb6dcd9b7aabf19017c5dd2de65005b5f570e2991956b9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

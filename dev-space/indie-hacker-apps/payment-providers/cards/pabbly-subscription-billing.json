@@ -1,0 +1,21 @@
+{
+  "slug": "pabbly-subscription-billing",
+  "name": "Pabbly Subscription Billing",
+  "url": "https://www.pabbly.com/subscriptions/",
+  "jobs": ["billing", "links"],
+  "line": "Subscription billing software with hosted checkout links and recurring plans.",
+  "free": { "kind": "free", "text": "Free for 50 customers; revenue limit is not stated" },
+  "cells": {
+    "type": "Subscription billing and checkout software",
+    "countries": "Global signup list not published",
+    "payout": "Connected payment gateway pays the seller"
+  },
+  "costs": {
+    "fee": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Pabbly has no processing fee of its own. The payment gateway you connect charges its own fee separately." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Pabbly has no processing fee of its own. The payment gateway you connect charges its own fee separately." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Pabbly has no processing fee of its own. The payment gateway you connect charges its own fee separately." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Pabbly has no processing fee of its own. The payment gateway you connect charges its own fee separately." }
+    ]
+  }
+}

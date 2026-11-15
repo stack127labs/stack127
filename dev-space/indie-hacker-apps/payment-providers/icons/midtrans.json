@@ -1,0 +1,17 @@
+{
+  "slug": "midtrans",
+  "name": "Midtrans",
+  "official_url": "https://midtrans.com/",
+  "image_url": "https://midtrans.com/assets/img/ico.png",
+  "source_page": "https://midtrans.com/",
+  "kind": "favicon",
+  "source_host": "midtrans.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "624597f899d6a34b236f4121d656c10ea0ccc948e65f73712147bfe61aad5bb1",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "appwrite",
+  "name": "Appwrite",
+  "official_url": "https://appwrite.io/",
+  "image_url": "https://appwrite.io/apple-touch-icon.png",
+  "source_page": "https://appwrite.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "appwrite.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "06d9220aa8431713d27932bbe3ae5ee1a1261999a4b608c161f9417f43181af1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

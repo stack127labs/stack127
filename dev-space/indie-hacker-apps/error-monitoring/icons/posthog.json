@@ -1,0 +1,17 @@
+{
+  "slug": "posthog",
+  "name": "PostHog",
+  "official_url": "https://posthog.com/error-tracking",
+  "image_url": "https://posthog.com/favicon.svg?v=b269535480be66be70f82b8086587ec6",
+  "source_page": "https://posthog.com/error-tracking",
+  "kind": "svg-icon",
+  "source_host": "posthog.com",
+  "original": {
+    "format": "svg",
+    "width": 320,
+    "height": 320
+  },
+  "sha256": "613bb828b5d5a756b9c065791a06ce54bc0b40b99dde4c1a3fb320a72ab2e9fd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

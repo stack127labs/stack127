@@ -1,0 +1,21 @@
+{
+  "slug": "senangpay-doku",
+  "name": "senangPay-DOKU",
+  "url": "https://senangpay.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Malaysian gateway for cards, online banking, subscriptions, and payment links.",
+  "free": { "kind": "none", "text": "Starter RM199/year; Advance RM349/year, plus transaction fees" },
+  "cells": {
+    "type": "Payment gateway and facilitator",
+    "countries": "Malaysia",
+    "payout": "New guide FPX T+1/cards T+2; agreement says Wed/Fri"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The Malaysian offer needs a registered local business and an operating Malaysian bank account. US sellers can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The Malaysian offer needs a registered local business and an operating Malaysian bank account. UK sellers can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The Malaysian offer needs a registered local business and an operating Malaysian bank account. German sellers can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The Malaysian offer needs a registered local business and an operating Malaysian bank account. Indian sellers can't sign up." }
+    ]
+  }
+}

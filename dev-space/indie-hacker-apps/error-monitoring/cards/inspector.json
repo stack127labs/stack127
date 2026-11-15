@@ -1,0 +1,24 @@
+{
+  "slug": "inspector",
+  "name": "Inspector",
+  "url": "https://inspector.dev/",
+  "jobs": ["errors", "performance"],
+  "line": "Tracks PHP application errors and performance across requests and jobs.",
+  "free": { "kind": "free", "text": "30,000 transactions/month after first 7 days; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "Billing is by transactions, and the error-report count doesn't show how many transactions are used." },
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "Billing is by transactions, and the error-report count doesn't show how many transactions are used." },
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "Billing is by transactions, and the error-report count doesn't show how many transactions are used." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

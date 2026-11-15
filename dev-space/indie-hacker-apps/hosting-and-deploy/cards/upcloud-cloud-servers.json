@@ -1,0 +1,20 @@
+{
+  "slug": "upcloud-cloud-servers",
+  "name": "UpCloud Cloud Servers",
+  "url": "https://upcloud.com/products/cloud-servers/",
+  "jobs": ["vps"],
+  "line": "Run apps on a virtual server you configure and manage.",
+  "free": { "kind": "trial", "text": "7 days; ID/card; up to 2 cores, 4 GB RAM, 180 GB storage; no Windows" },
+  "cells": {
+    "type": "Cloud VM",
+    "regions": "15 data center locations",
+    "selfhost": "Yes; customer manages the VM"
+  },
+  "costs": {
+    "work": [
+      { "v": "€3", "plan": "Starter 1 CPU/1 GB", "state": "confirmed", "math": "1 server at €3 a month before tax: 1 CPU, 1 GB and 10 GB, with IPv4 included. 100 GB out is within the 0.5 TB fair-transfer allowance. Builds run on this VM, and the domain and HTTPS certificate are extra." },
+      { "v": "€3", "plan": "Starter 1 CPU/1 GB", "state": "confirmed", "math": "1 server at €3 a month before tax. The fixed plan is capped at 672 billable hours. 100 GB out is within the 0.5 TB allowance. App throughput is untested, and the domain and HTTPS certificate are extra." },
+      { "v": "€12", "plan": "Starter 1 CPU/4 GB + seven-day backup", "state": "confirmed", "math": "€10 a month for the VM + €2 a month for weekly backup (20%). The 30 GB total disk includes an assumed 10 GB database. The app and database share one VM, with no high availability (HA). Before tax." }
+    ]
+  }
+}

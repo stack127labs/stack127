@@ -1,0 +1,14 @@
+{
+  "slug": "alwaysdata",
+  "name": "alwaysdata",
+  "url": "https://www.alwaysdata.com/en/",
+  "jobs": ["paas"],
+  "line": "Managed shared hosting for websites, apps, and databases.",
+  "free": { "kind": "free", "text": "Free personal/non-profit plan: 1 GB disk, 256 MB RAM" },
+  "cells": { "type": "Managed hosting", "regions": "Paris, France", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€6", "plan": "Small", "state": "unclear", "math": "€6 a month before VAT (a sales tax). Data transfer terms are not priced for the full 100 GB workload." },
+    { "v": "€22", "plan": "Medium", "state": "unclear", "math": "€22 a month before VAT. The full total is unknown because of the data transfer and resource allocation terms." },
+    { "v": "€22", "plan": "Medium", "state": "unclear", "math": "€22 a month before VAT, including a managed PostgreSQL database and 20 daily backup days. The data transfer total is unknown." }
+  ] }
+}

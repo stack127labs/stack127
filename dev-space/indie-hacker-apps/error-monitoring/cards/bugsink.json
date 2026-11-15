@@ -1,0 +1,59 @@
+{
+  "slug": "bugsink",
+  "name": "Bugsink",
+  "url": "https://www.bugsink.com/",
+  "jobs": [
+    "errors"
+  ],
+  "line": "Error tracker for Sentry SDKs, hosted or on your own server.",
+  "free": {
+    "kind": "free",
+    "text": "15,000 events/month hosted, or free to self-host"
+  },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-11-06"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "$0",
+        "plan": "Free 15K",
+        "state": "unclear",
+        "math": "5,000 events is under the free plan's 15,000 limit. Only 5,000 are kept at a time, and 30-day detail isn't guaranteed."
+      },
+      {
+        "v": "$16",
+        "plan": "75K tier",
+        "state": "unclear",
+        "math": "The 75K tier costs $16 a month and keeps 75,000 events, so 50,000 events fit. 30-day detail isn't guaranteed."
+      },
+      {
+        "v": "$50",
+        "plan": "600K tier",
+        "state": "unclear",
+        "math": "The 600K tier costs $50 a month and keeps 600,000 events, so 500,000 events fit. 30-day detail isn't guaranteed."
+      }
+    ],
+    "uptime": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ]
+  }
+}

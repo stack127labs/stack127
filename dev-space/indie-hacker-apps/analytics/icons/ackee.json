@@ -1,0 +1,17 @@
+{
+  "slug": "ackee",
+  "name": "Ackee",
+  "official_url": "https://ackee.electerious.com/",
+  "image_url": "https://ackee.electerious.com/assets/images/favicon.ico",
+  "source_page": "https://ackee.electerious.com/",
+  "kind": "favicon",
+  "source_host": "ackee.electerious.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "64f959df3e1630d74b738fe11f1bf876c3250cf8182c3f4289bb577be01d29b8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

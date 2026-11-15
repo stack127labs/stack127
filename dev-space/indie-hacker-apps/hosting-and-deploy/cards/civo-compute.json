@@ -1,0 +1,14 @@
+{
+  "slug": "civo-compute",
+  "name": "Civo Compute",
+  "url": "https://www.civo.com/public-cloud/compute",
+  "jobs": ["vps"],
+  "line": "Rent Linux virtual machines on Civo public cloud.",
+  "free": { "kind": "credits", "text": "31-day $250 credit; claim within 3 months; card required" },
+  "cells": { "type": "VPS/VM", "regions": "Civo regions; price table does not specify city", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$5.4312", "plan": "xSmall", "state": "confirmed", "math": "$0.007440 an hour for 730 hours = $5.4312 before VAT. Data transfer is free, subject to fair use. The rate is the same in every region." },
+    { "v": "$10.86313", "plan": "Small", "state": "confirmed", "math": "A Small server with 1 core and 2 GB, for 730 hours at $0.014881 an hour. Data transfer is free, subject to fair use. Throughput is not tested." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$10.86313 for the VM + $43.45252 for a managed database = $54.31565 subtotal. Daily 7-day backups and database traffic are not priced or verified." }
+  ] }
+}

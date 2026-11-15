@@ -1,0 +1,48 @@
+{
+  "slug": "chapa",
+  "name": "Chapa",
+  "url": "https://chapa.co/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Ethiopian gateway for online payments, links and payouts.",
+  "free": {
+    "kind": "none",
+    "text": "No monthly price stated; fees apply per transaction"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Ethiopia only",
+    "payout": "Bank payout advertised within hours; terms vary"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ethiopia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ethiopia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ethiopia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ethiopia."
+      }
+    ]
+  }
+}

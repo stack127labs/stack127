@@ -1,0 +1,17 @@
+{
+  "slug": "openuptime",
+  "name": "OpenUptime",
+  "official_url": "https://openuptime.app/",
+  "image_url": "https://openuptime.app/icons/pwa-512.png",
+  "source_page": "https://openuptime.app/",
+  "kind": "logo-mark",
+  "source_host": "openuptime.app",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "81cb0c897fdb842c72f63f8cc07819ffbcfad768b0ea20f182b2bf8fc6b18c58",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

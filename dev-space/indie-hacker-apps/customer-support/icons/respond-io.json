@@ -1,0 +1,17 @@
+{
+  "slug": "respond-io",
+  "name": "respond.io",
+  "official_url": "https://respond.io/",
+  "image_url": "https://assets.respond.io/favicon/favicon.svg",
+  "source_page": "https://respond.io/",
+  "kind": "svg-icon",
+  "source_host": "assets.respond.io",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "af8cf0643ab0e6c45bf9affa3e0cf94c705a56714e8fc72e11a34471c45399d9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

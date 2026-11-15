@@ -1,0 +1,19 @@
+{
+  "slug": "chatra",
+  "name": "Chatra",
+  "url": "https://chatra.com/",
+  "jobs": ["chat", "inbox", "helpdesk"],
+  "line": "Website chat and email messaging with a shared agent inbox.",
+  "free": { "kind": "free", "text": "Free for 1 agent, limited to 5 chats/month" },
+  "cells": {
+    "channels": "Website chat, email, Messenger, Instagram",
+    "ai": "No generative AI; scripted bots",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$31", "plan": "Essential", "state": "confirmed", "math": "One agent at $31 a month. The free plan is limited to five chats, which is fewer than 100." },
+      { "v": "$93", "plan": "Essential", "state": "confirmed", "math": "Three agents at $31 a month each. 100 conversations fit in the paid chat allowance." }
+    ]
+  }
+}

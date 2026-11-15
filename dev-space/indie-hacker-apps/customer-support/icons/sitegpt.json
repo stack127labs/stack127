@@ -1,0 +1,17 @@
+{
+  "slug": "sitegpt",
+  "name": "SiteGPT",
+  "official_url": "https://sitegpt.ai/",
+  "image_url": "https://b-cdn.sitegpt.ai/images/chat-icon.png",
+  "source_page": "https://sitegpt.ai/",
+  "kind": "logo-mark",
+  "source_host": "b-cdn.sitegpt.ai",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "53029c9edbfa9a056c96e498a1d4a07422b1aa7cd7e55b706ac5078f3eeba198",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

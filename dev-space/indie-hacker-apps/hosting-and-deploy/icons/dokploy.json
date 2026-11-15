@@ -1,0 +1,17 @@
+{
+  "slug": "dokploy",
+  "name": "Dokploy",
+  "official_url": "https://dokploy.com/",
+  "image_url": "https://dokploy.com/apple-touch-icon.png",
+  "source_page": "https://dokploy.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "dokploy.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "8eb7649236e4e2a4acaa1a6647f19d7fad3f3f1a2a006fe52efacb5706f71067",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

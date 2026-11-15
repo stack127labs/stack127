@@ -1,0 +1,17 @@
+{
+  "slug": "prometheus",
+  "name": "Prometheus",
+  "official_url": "https://prometheus.io/",
+  "image_url": "https://prometheus.io/icon.svg?7aa022e51797bcef",
+  "source_page": "https://prometheus.io/",
+  "kind": "svg-icon",
+  "source_host": "prometheus.io",
+  "original": {
+    "format": "svg",
+    "width": 604,
+    "height": 604
+  },
+  "sha256": "aeeb34e26cc05adf5ee559e09b450da59e8ab4efe59c0f9c18bff167d1e80375",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

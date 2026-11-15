@@ -1,0 +1,19 @@
+{
+  "slug": "helpkit",
+  "name": "HelpKit",
+  "url": "https://www.helpkit.so/",
+  "jobs": ["helpdesk", "ai"],
+  "line": "Turns Notion content into a customer help center and knowledge widget.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Help center, knowledge widget, contact form",
+    "ai": "$49/month add-on; usage limit not published",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Contact forms do not provide a staffed email inbox or live chat." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Contact forms do not provide a staffed email inbox or live chat." }
+    ]
+  }
+}

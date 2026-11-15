@@ -1,0 +1,17 @@
+{
+  "slug": "cronitor",
+  "name": "Cronitor",
+  "official_url": "https://cronitor.io/",
+  "image_url": "https://cdn.cronitor.io/static/android-chrome-512x512.png",
+  "source_page": "https://cronitor.io/",
+  "kind": "manifest-icon",
+  "source_host": "cdn.cronitor.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "f2993e80b4cc4c5fd734f22fd81e3435c426c4dfa6accb2c38eda3d46c420bef",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

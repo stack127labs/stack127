@@ -1,0 +1,12 @@
+{
+  "slug": "uxwizz", "name": "UXWizz", "url": "https://www.uxwizz.com/",
+  "jobs": ["web", "replay"],
+  "line": "Self-hosted website analytics with replay, heatmaps and experiments.",
+  "free": {"kind": "trial", "text": "14-day self-hosted trial; no email or payment"},
+  "cells": {"cookieless": "Optional (IP hashing and browser storage settings)", "location": "Your server or WordPress database", "selfhost": "Yes"},
+  "costs": {"pv": [
+    {"v": "$299", "plan": "Solo", "state": "confirmed", "math": "This is a one-time, perpetual software license. Hosting, backups and operations cost extra."},
+    {"v": "$299", "plan": "Solo", "state": "confirmed", "math": "This is a one-time, perpetual software license. Hosting, backups and operations cost extra."},
+    {"v": "$299", "plan": "Solo", "state": "confirmed", "math": "This is a one-time, perpetual software license. Capacity must be sized, and hosting and operations cost extra."}
+  ]}
+}

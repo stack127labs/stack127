@@ -1,0 +1,20 @@
+{
+  "slug": "skycloak",
+  "name": "Skycloak",
+  "url": "https://skycloak.io/",
+  "jobs": ["hosted"],
+  "line": "Managed Keycloak hosting for account login and SSO.",
+  "free": { "kind": "trial", "text": "21-day shared trial; no credit card" },
+  "cells": {
+    "freeUsers": "21-day trial; US-only and no custom domain",
+    "sso": "Native SAML/OIDC; no per-connection fee listed"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$29", "plan": "Developer", "state": "unclear", "math": "The base is $29, plus $0 for user usage, as long as the one included Small cluster has enough capacity. Capacity and the exact total are unknown." },
+      { "v": "$29", "plan": "Developer", "state": "unclear", "math": "The base is $29, plus $0 for user usage, as long as the one included Small cluster has enough capacity. Capacity and the exact total are unknown." },
+      { "v": "$29", "plan": "Developer", "state": "unclear", "math": "The base is $29, plus $0 for user usage, as long as the one included Small cluster has enough capacity. Capacity and the exact total are unknown." },
+      { "v": "$29", "plan": "Developer", "state": "unclear", "math": "The base is $29, plus $0 for user usage, as long as the one included Small cluster has enough capacity. Capacity and the exact total are unknown." }
+    ]
+  }
+}

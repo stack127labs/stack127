@@ -1,0 +1,17 @@
+{
+  "slug": "yandex-metrica",
+  "name": "Yandex Metrica",
+  "official_url": "https://metrica.yandex.com/",
+  "image_url": "https://b2b.yandex.ru/favicon.ico",
+  "source_page": "https://metrica.yandex.com/about",
+  "kind": "favicon",
+  "source_host": "b2b.yandex.ru",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 193
+  },
+  "sha256": "08706d9f53698820c0506c13ccd0cf280f9cc5a3a05b906f7ad4608ca684dfb6",
+  "note": "parent brand: Yandex; the Metrica page (redirects to b2b.yandex.ru) serves the Yandex mark; Metrica's own icon could not be downloaded",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "whos-amung-us", "name": "whos.amung.us", "url": "https://whos.amung.us/",
+  "jobs": ["web"],
+  "line": "Shows live website visitors with counters, heatmaps and traffic reports.",
+  "free": {"kind": "free", "text": "Free visible widget; no pageview or live visitor limit stated"},
+  "cells": {"cookieless": "Unknown (policy allows cookies and unique IDs)", "location": "Unknown", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "$0", "plan": "Free widget", "state": "confirmed", "math": "The service is free. The widget is visible and links to public stats."},
+    {"v": "$0", "plan": "Free widget", "state": "confirmed", "math": "The service is free. The widget is visible and links to public stats."},
+    {"v": "$0", "plan": "Free widget", "state": "confirmed", "math": "The service is free. The widget is visible and links to public stats."}
+  ]}
+}

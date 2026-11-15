@@ -1,0 +1,17 @@
+{
+  "slug": "paypal",
+  "name": "PayPal",
+  "official_url": "https://www.paypal.com/us/business",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/ac/a7/13aca7ff-f40a-0090-e5f2-b25903765866/AppIcon-0-0-1x_U007emarketing-0-6-0-sRGB-0-85-220.jpeg/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/paypal-business/id1053148887?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "79d4da7bfdfcc6bd9bf1c240797e2adab3f99e58d6aa15c475b2e265a351eca3",
+  "note": "PayPal Business merchant app by PayPal, Inc.",
+  "saved_at": "2026-11-14"
+}

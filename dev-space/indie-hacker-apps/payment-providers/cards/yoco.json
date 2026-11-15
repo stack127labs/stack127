@@ -1,0 +1,47 @@
+{
+  "slug": "yoco",
+  "name": "Yoco",
+  "url": "https://www.yoco.com/za/",
+  "jobs": [
+    "gateway",
+    "links"
+  ],
+  "line": "South African online payments, invoices, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "Core is R0/month after a R199 signup fee; payment fees apply"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "South Africa only",
+    "payout": "Next eligible day; bank adds 1–2 business days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in South Africa."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in South Africa."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in South Africa."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in South Africa."
+      }
+    ]
+  }
+}

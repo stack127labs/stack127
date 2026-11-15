@@ -1,0 +1,17 @@
+{
+  "slug": "cloudinary",
+  "name": "Cloudinary",
+  "official_url": "https://cloudinary.com/",
+  "image_url": "https://cloudinary-res.cloudinary.com/image/upload/f_auto,q_auto/c_scale,w_192/v1597183771/website/cloudinary_web_favicon.png",
+  "source_page": "https://cloudinary.com/",
+  "kind": "favicon",
+  "source_host": "cloudinary-res.cloudinary.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "d5843a1e8fd34264509b199cc30f2dcc3a1778da58696e70eeb3fec604aef60f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

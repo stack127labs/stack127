@@ -1,0 +1,14 @@
+{
+  "slug": "hatchbox",
+  "name": "Hatchbox",
+  "url": "https://hatchbox.io/",
+  "jobs": ["panel"],
+  "line": "Deploy apps to Ubuntu servers you own or rent from a provider.",
+  "free": { "kind": "trial", "text": "7-day trial; payment method required; then $15/server/month" },
+  "cells": { "type": "Deployment panel", "regions": "DigitalOcean, Hetzner, AWS, Linode, Vultr and others", "selfhost": "Yes; connect your Ubuntu server" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$21 a month known subtotal ($15 for Hatchbox + $6 for the server). The 100 GB transfer allowance and region cost are not confirmed." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$27 a month known subtotal ($15 for Hatchbox + $12 for the server). The provider's transfer allowance and request capacity are not verified." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$39 a month subtotal ($15 for Hatchbox + $24 for the server). 100 GB fits within the stated 4 TB, but daily 7-day backup storage is not priced." }
+  ] }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "statsig",
+  "name": "Statsig",
+  "official_url": "https://www.statsig.com/",
+  "image_url": "https://www.statsig.com/images/favicons/favicon.svg",
+  "source_page": "https://www.statsig.com/",
+  "kind": "svg-icon",
+  "source_host": "statsig.com",
+  "original": {
+    "format": "svg",
+    "width": 320,
+    "height": 320
+  },
+  "sha256": "6e24b9fbad71db7019dedfd371dec90f092137d2538fe1d5db8c6a27a471053c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

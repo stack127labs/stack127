@@ -1,0 +1,17 @@
+{
+  "slug": "smartsupp",
+  "name": "Smartsupp",
+  "official_url": "https://www.smartsupp.com/",
+  "image_url": "https://www.smartsupp.com/favicons/apple-touch-icon.png",
+  "source_page": "https://www.smartsupp.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "smartsupp.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "368e22ac0ec6baa8142f81dfaab6abc5aadc9c56730bfdc10ff56c9d2b948bd8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

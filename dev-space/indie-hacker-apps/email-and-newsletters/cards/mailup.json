@@ -1,0 +1,26 @@
+{
+  "slug": "mailup",
+  "name": "MailUp",
+  "url": "https://mailup.com/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "line": "Email campaigns, automated journeys and transactional SMTP/API email.",
+  "free": { "kind": "trial", "text": "15-day trial, up to 1,000 sends; trial API capped at 25/month" },
+  "cells": {
+    "newsletters": "Yes, email broadcasts and campaigns",
+    "api": "Yes, API/SMTP+; trial API capped at 25 messages/month"
+  },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "The month-to-month price is unknown. The yearly Starter option is EUR 576 a year, which works out to EUR 48 a month." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "The month-to-month price is unknown. The yearly Starter option is EUR 576 a year, which works out to EUR 48 a month." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "The month-to-month price is unknown. The yearly Starter option is EUR 576 a year, which works out to EUR 48 a month." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "The month-to-month price is unknown. The yearly Starter option is EUR 576 a year, which works out to EUR 48 a month." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "SMTP+ is included. The month-to-month price is unknown. The yearly Starter entry is EUR 576 a year. 3,000 emails take 1.5 queue hours at 2,000 an hour." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "SMTP+ is included. The month-to-month price is unknown. The yearly Starter entry is EUR 576 a year. 10,000 emails take 5 queue hours at 2,000 an hour." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "SMTP+ is included. The month-to-month price is unknown. The yearly Starter entry is EUR 576 a year. 50,000 emails take 25 queue hours at 2,000 an hour." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "SMTP+ is included. The month-to-month price is unknown. The yearly Starter entry is EUR 576 a year. 100,000 emails take 50 queue hours at 2,000 an hour." }
+    ]
+  }
+}

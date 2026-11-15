@@ -1,0 +1,14 @@
+{
+  "slug": "cloudkilat-vps",
+  "name": "CloudKilat VPS",
+  "url": "https://www.cloudkilat.com/id/kilat-vps/",
+  "jobs": ["vps"],
+  "line": "Rent a KVM virtual server with root access and SSD storage.",
+  "free": { "kind": "none", "text": "No recurring free VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Indonesia", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "IDR 90,000", "plan": "XXS", "state": "confirmed", "math": "Known VPS subtotal is IDR 90,000 a month. 100 GB of transfer is not metered, under fair use. Tax and the domain are not included." },
+    { "v": "IDR 90,000", "plan": "XXS", "state": "confirmed", "math": "The XXS plan meets the minimum of 1 vCPU and 1 GB. The known VM subtotal is IDR 90,000 a month. There is no request meter, and transfer is under fair use." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "IDR 720,000 for the VM + IDR 50,000 for 20 GB of Protect storage = IDR 770,000 partial subtotal. Whether daily 7-day backups fit is not verified." }
+  ] }
+}

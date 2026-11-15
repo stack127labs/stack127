@@ -1,0 +1,20 @@
+{
+  "slug": "rails-authentication-generator",
+  "name": "Rails authentication generator",
+  "url": "https://guides.rubyonrails.org/security.html",
+  "jobs": ["library"],
+  "line": "Rails generator for a starting point with login and password recovery.",
+  "free": { "kind": "selfhost", "text": "Free MIT generator; you run the app" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No SSO or SCIM connection product"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rails software licence costs $0. Hosting, database and email delivery for the generated app cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rails software licence costs $0. Hosting, database and email delivery for the generated app cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rails software licence costs $0. Hosting, database and email delivery for the generated app cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Rails software licence costs $0. Hosting, database and email delivery for the generated app cost extra." }
+    ]
+  }
+}

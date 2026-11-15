@@ -1,0 +1,17 @@
+{
+  "slug": "request-metrics",
+  "name": "Request Metrics",
+  "official_url": "https://requestmetrics.com/",
+  "image_url": "https://requestmetrics.com/assets/images/favicon/web-app-manifest-512x512.png",
+  "source_page": "https://requestmetrics.com/",
+  "kind": "manifest-icon",
+  "source_host": "requestmetrics.com",
+  "original": {
+    "format": "webp",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "dfc55153bd8d0d61ff9ee1c8a39ea28c977fbb6b67c30d009972cb1f2b85c7bb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

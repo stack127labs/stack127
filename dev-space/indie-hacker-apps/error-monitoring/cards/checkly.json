@@ -1,0 +1,24 @@
+{
+  "slug": "checkly",
+  "name": "Checkly",
+  "url": "https://www.checklyhq.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Runs API and browser checks to catch failures in live user flows.",
+  "free": { "kind": "free", "text": "Hobby: 10 monitors, 10,000 API runs/month; no card" },
+  "cells": {
+    "interval": "1 s Enterprise; 30 s Team",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$41", "plan": "Detect Starter + Communicate Starter", "state": "confirmed", "math": "Starter is $29 for 5 monitors, plus $12 for the status page. This is a modeled monthly estimate." },
+      { "v": "$41", "plan": "Detect Starter + Communicate Starter", "state": "confirmed", "math": "Starter is $29 for 25 monitors, plus $12 for the status page. This is a modeled monthly estimate." },
+      { "v": "$61", "plan": "Detect Starter + Communicate Starter", "state": "confirmed", "math": "Starter is $29, plus 2 extra blocks at $10 each for 100 monitors, plus $12 for the status page." }
+    ]
+  }
+}

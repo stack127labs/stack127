@@ -1,0 +1,19 @@
+{
+  "slug": "deskpro",
+  "name": "Deskpro",
+  "url": "https://www.deskpro.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Multi-channel ticketing and a help center for customer support teams.",
+  "free": { "kind": "trial", "text": "14-day cloud trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, messaging, voice",
+    "ai": "Provider usage credits or your own AI account",
+    "selfhost": "Yes, paid Private edition"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$195", "plan": "Cloud Team", "state": "unclear", "math": "A five-agent minimum at $39 each. Only one agent works, and four seats go unused." },
+      { "v": "$195", "plan": "Cloud Team", "state": "unclear", "math": "A five-agent minimum at $39 each. Three agents work, and two seats go unused." }
+    ]
+  }
+}

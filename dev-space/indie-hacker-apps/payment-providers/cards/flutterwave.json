@@ -1,0 +1,21 @@
+{
+  "slug": "flutterwave",
+  "name": "Flutterwave",
+  "url": "https://flutterwave.com/ng/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Payment gateway with online checkout, links and subscriptions.",
+  "free": { "kind": "none", "text": "No signup or setup cost; transaction fees apply" },
+  "cells": {
+    "type": "Gateway and payment infrastructure",
+    "countries": "African markets plus US and UK; coverage varies",
+    "payout": "Local T+1; international T+5 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "No US card rate is listed in the regional pricing info that was checked." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "No UK card rate is listed in the regional pricing info that was checked." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "No European card rate is listed in the regional pricing info that was checked." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't confirmed whether Indian sellers can sign up, and no India card rate is listed in the sources checked." }
+    ]
+  }
+}

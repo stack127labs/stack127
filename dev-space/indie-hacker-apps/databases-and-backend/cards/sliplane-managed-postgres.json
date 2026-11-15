@@ -1,0 +1,45 @@
+{
+  "slug": "sliplane-managed-postgres",
+  "name": "Sliplane Managed Postgres",
+  "url": "https://sliplane.io/managed-postgres",
+  "jobs": ["sql", "vector"],
+  "line": "Managed PostgreSQL with TLS, PITR backups, and optional pgvector.",
+  "free": { "kind": "none", "text": "No free tier; pausing keeps billing; nonpayment can lead to deletion" },
+  "cells": {
+    "metered": "Starter €19/mo or €0.03253 per hour",
+    "regions": "Germany, Finland, US East/West, Singapore",
+    "selfhost": "No, Sliplane operates the service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "€19",
+        "plan": "Starter shared, monthly",
+        "state": "confirmed",
+        "math": "The published one-month price includes 1 vCPU, 1 GB of RAM, 10 GB of disk and 100 connections. Query performance is untested."
+      },
+      {
+        "v": "€19",
+        "plan": "Starter shared, monthly",
+        "state": "confirmed",
+        "math": "The kept monthly Starter plan stays at €19 while idle or paused. Pausing does not stop billing."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Sliplane Object Storage is separate from managed PostgreSQL"
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Managed Postgres does not host worker jobs."
+      }
+    ]
+  }
+}

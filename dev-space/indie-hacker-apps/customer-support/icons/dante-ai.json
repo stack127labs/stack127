@@ -1,0 +1,17 @@
+{
+  "slug": "dante-ai",
+  "name": "Dante AI",
+  "official_url": "https://www.dante-ai.com/",
+  "image_url": "https://www.dante-ai.com/dante-ring.svg",
+  "source_page": "https://www.dante-ai.com/",
+  "kind": "svg-icon",
+  "source_host": "dante-ai.com",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "053471bfb8cd8dd76136263dda4ff4de3263796b6eb5eb7ff700b52938a5b1b3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

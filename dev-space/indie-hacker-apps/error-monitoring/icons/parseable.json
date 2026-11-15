@@ -1,0 +1,17 @@
+{
+  "slug": "parseable",
+  "name": "Parseable",
+  "official_url": "https://www.parseable.com/",
+  "image_url": "https://www.parseable.com/favicon-512x512.png",
+  "source_page": "https://www.parseable.com/",
+  "kind": "manifest-icon",
+  "source_host": "parseable.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "497c00adc6d65a969debf3c4defb9f4190d26111621bc5ebf27237eaf916f899",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

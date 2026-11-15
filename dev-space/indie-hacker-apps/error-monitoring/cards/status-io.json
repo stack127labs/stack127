@@ -1,0 +1,21 @@
+{
+  "slug": "status-io",
+  "name": "Status.io",
+  "url": "https://status.io/",
+  "jobs": ["status"],
+  "line": "Hosts public and private status pages for incidents and maintenance.",
+  "free": { "kind": "none", "text": "No free plan or trial terms published" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Status.io hosts status pages. Other monitoring tools supply the checks for customer endpoints." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Status.io hosts status pages. Other monitoring tools supply the checks for customer endpoints." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Status.io hosts status pages. Other monitoring tools supply the checks for customer endpoints." }
+    ]
+  }
+}

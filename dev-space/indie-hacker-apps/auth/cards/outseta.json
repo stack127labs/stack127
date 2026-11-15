@@ -1,0 +1,20 @@
+{
+  "slug": "outseta",
+  "name": "Outseta",
+  "url": "https://www.outseta.com/",
+  "jobs": ["hosted"],
+  "line": "Hosted member login, billing, CRM, email, and support tools.",
+  "free": { "kind": "trial", "text": "14-day trial; no ongoing free production tier" },
+  "cells": {
+    "freeUsers": "14-day trial; paid plans count stored contacts",
+    "sso": "No incoming customer SAML or SCIM fee established"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$47", "plan": "Start", "state": "confirmed", "math": "The Start plan is $47 a month, plus a membership revenue fee of 2% applied to $0, for a total of $47 a month." },
+      { "v": "$127", "plan": "Scale", "state": "confirmed", "math": "The Scale plan is $127 a month, plus a membership revenue fee of 1% applied to $0, for a total of $127 a month." },
+      { "v": "$897", "plan": "Max", "state": "confirmed", "math": "The Max plan is $897 a month, plus a $0 Outseta transaction fee, for a total of $897 a month." },
+      { "v": "$897", "plan": "Max", "state": "confirmed", "math": "The Max plan is $897 a month, plus a $0 Outseta transaction fee, for a total of $897 a month." }
+    ]
+  }
+}

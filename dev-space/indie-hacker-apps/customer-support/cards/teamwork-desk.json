@@ -1,0 +1,19 @@
+{
+  "slug": "teamwork-desk",
+  "name": "Teamwork Desk",
+  "url": "https://www.teamwork.com/desk/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Email help desk with a customer portal, help docs, and optional live chat.",
+  "free": { "kind": "trial", "text": "30-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, customer portal",
+    "ai": "$69/month for 100 AI drafts; extra draft rate unclear",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$9.50", "plan": "Starter", "state": "confirmed", "math": "1 seat at the equivalent of $9.50 a month, paid yearly ($114 upfront)." },
+      { "v": "$28.50", "plan": "Starter", "state": "confirmed", "math": "3 seats at the equivalent of $9.50 a month each, paid yearly ($342 upfront)." }
+    ]
+  }
+}

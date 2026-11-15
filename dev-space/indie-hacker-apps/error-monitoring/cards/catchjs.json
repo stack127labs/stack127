@@ -1,0 +1,24 @@
+{
+  "slug": "catchjs",
+  "name": "CatchJS",
+  "url": "https://catchjs.com/",
+  "jobs": ["errors", "performance"],
+  "line": "Tracks browser JavaScript errors with screenshots and performance details.",
+  "free": { "kind": "trial", "text": "14-day trial; card required" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$499", "plan": "Enterprise", "state": "unclear", "math": "Three separate domains need the Enterprise plan. A shared parent domain fits the Production plan at $89." },
+      { "v": "$499", "plan": "Enterprise", "state": "unclear", "math": "Three separate domains need the Enterprise plan. A shared parent domain fits the Production plan at $89." },
+      { "v": "$499", "plan": "Enterprise", "state": "unclear", "math": "500,000 reports are more than Production's 100,000, so the Enterprise plan is needed, which includes 1,000,000." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime monitoring" }
+    ]
+  }
+}

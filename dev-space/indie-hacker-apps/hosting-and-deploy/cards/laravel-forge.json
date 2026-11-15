@@ -1,0 +1,14 @@
+{
+  "slug": "laravel-forge",
+  "name": "Laravel Forge",
+  "url": "https://laravel.com/forge",
+  "jobs": ["panel"],
+  "line": "Provision and deploy applications to servers you choose.",
+  "free": { "kind": "none", "text": "Paid subscription; server fees are separate" },
+  "cells": { "type": "Deployment panel", "regions": "Provider-dependent; Laravel VPS choices change", "selfhost": "No; Forge's control panel is hosted" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Hobby + server", "state": "unclear", "math": "$12 a month Forge fee, plus the server, transfer, storage and domain, priced by your provider. Server size and region are not selected." },
+    { "v": "Unknown", "plan": "Hobby + server", "state": "unclear", "math": "$12 a month Forge fee, plus a server running 730 hours with at least 1 core, 1 GHz, 1 GB RAM and 10 GB disk. The provider price varies." },
+    { "v": "Unknown", "plan": "Hobby + app server + managed Postgres", "state": "unclear", "math": "$12 a month Forge fee, plus server, database and network costs that change with use, for 1 GiB and 10 GB. Daily backups are included, but point-in-time recovery (PITR) terms conflict." }
+  ] }
+}

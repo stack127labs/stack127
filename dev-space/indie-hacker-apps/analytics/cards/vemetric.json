@@ -1,0 +1,12 @@
+{
+  "slug": "vemetric", "name": "Vemetric", "url": "https://vemetric.com/",
+  "jobs": ["web", "product"],
+  "line": "Combines website and product analytics, events and conversion funnels.",
+  "free": {"kind": "free", "text": "2,500 events/month, 2 projects, 2 seats, 1-month history"},
+  "cells": {"cookieless": "Optional (visitor cookie can be enabled)", "location": "EU; traffic proxied through Cloudflare", "selfhost": "No"},
+  "costs": {"pv": [
+    {"v": "$5", "plan": "Professional 10K", "state": "confirmed", "math": "Assumes 1 pageview counts as 1 event, with no extra events. The 10K band costs $5 a month."},
+    {"v": "$15", "plan": "Professional 100K", "state": "confirmed", "math": "Assumes 1 pageview counts as 1 event, with no extra events. The 100K band costs $15 a month."},
+    {"v": "$80", "plan": "Professional 1M", "state": "confirmed", "math": "Assumes 1 pageview counts as 1 event, with no extra events. The 1M band costs $80 a month."}
+  ]}
+}

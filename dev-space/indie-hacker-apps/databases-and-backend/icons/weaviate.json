@@ -1,0 +1,17 @@
+{
+  "slug": "weaviate",
+  "name": "Weaviate",
+  "official_url": "https://weaviate.io/",
+  "image_url": "https://weaviate.io/img/favicon.ico",
+  "source_page": "https://weaviate.io/",
+  "kind": "favicon",
+  "source_host": "weaviate.io",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "31025aae640a672238dba3bc0e4aa08328a0b4281c18cabdae693fc4289405df",
+  "note": "square mark; largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

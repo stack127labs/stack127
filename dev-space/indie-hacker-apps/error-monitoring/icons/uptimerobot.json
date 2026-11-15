@@ -1,0 +1,17 @@
+{
+  "slug": "uptimerobot",
+  "name": "UptimeRobot",
+  "official_url": "https://uptimerobot.com/",
+  "image_url": "https://uptimerobot.com/apple-touch-icon.png",
+  "source_page": "https://uptimerobot.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "uptimerobot.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "596a4d44d18ba11975352467c55a69b15124ba3952ba011a2fb8133ce5e2ce6d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

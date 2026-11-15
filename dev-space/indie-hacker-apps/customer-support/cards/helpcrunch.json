@@ -1,0 +1,19 @@
+{
+  "slug": "helpcrunch",
+  "name": "HelpCrunch",
+  "url": "https://helpcrunch.com/",
+  "jobs": ["chat", "inbox", "helpdesk", "ai"],
+  "line": "Live chat, shared support inbox, help center, and email campaigns.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Website chat, email, WhatsApp, social",
+    "ai": "Plan includes 50 AI conversations; add-ons available",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$15", "plan": "Basic", "state": "confirmed", "math": "One member at $15 a month for human website chat." },
+      { "v": "$45", "plan": "Basic", "state": "confirmed", "math": "Three members at $15 a month each for human website chat." }
+    ]
+  }
+}

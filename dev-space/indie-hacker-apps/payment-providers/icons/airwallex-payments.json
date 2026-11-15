@@ -1,0 +1,17 @@
+{
+  "slug": "airwallex-payments",
+  "name": "Airwallex Payments",
+  "official_url": "https://www.airwallex.com/global/payments",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/b5/18/90b5186a-c2cc-d29d-9511-832e2292175a/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/airwallex/id1537521807?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "ed159e8ced228f69f9d82dc9bd207c6f0f3e18e2aacadc4119649da04f7135f5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

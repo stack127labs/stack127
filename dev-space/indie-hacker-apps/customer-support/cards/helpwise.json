@@ -1,0 +1,19 @@
+{
+  "slug": "helpwise",
+  "name": "Helpwise",
+  "url": "https://helpwise.io/",
+  "jobs": ["inbox", "helpdesk", "chat", "ai"],
+  "line": "Shared customer inbox for email, website chat, social, and phone.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, social, phone",
+    "ai": "Credit-based; AI reply draft costs 3 credits",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$30", "plan": "Standard", "state": "confirmed", "math": "A two-seat minimum at $15 per user a month. One person works, and one seat goes unused." },
+      { "v": "$45", "plan": "Standard", "state": "confirmed", "math": "3 seats at $15 per user a month, covering 100 conversations a month." }
+    ]
+  }
+}

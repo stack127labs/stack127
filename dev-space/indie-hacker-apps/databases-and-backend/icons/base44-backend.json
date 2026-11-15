@@ -1,0 +1,17 @@
+{
+  "slug": "base44-backend",
+  "name": "Base44 Backend",
+  "official_url": "https://base44.com/developers",
+  "image_url": "https://media.base44.com/images/public/marketing-site-assets/branded/favicon-branded-v2.png",
+  "source_page": "https://base44.com/solutions/developers",
+  "kind": "favicon",
+  "source_host": "media.base44.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "28db0fde96c76e9cd18274165e07385797e39d2c73132c76956d62ff62ce48ec",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

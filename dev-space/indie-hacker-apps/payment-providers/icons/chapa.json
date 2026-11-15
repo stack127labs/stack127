@@ -1,0 +1,17 @@
+{
+  "slug": "chapa",
+  "name": "Chapa",
+  "official_url": "https://chapa.co/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/35/9f/30/359f30c2-482d-ad35-98f2-65b49e15ff2e/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/chapa-merchant/id6444194045?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "0a7bf74575342b6232a5904151ccd53f893cc5cd4660bd472f4f24dd57dad89a",
+  "note": "official App Store icon for Chapa Merchant by Chapa Financial Technologies",
+  "saved_at": "2026-11-14"
+}

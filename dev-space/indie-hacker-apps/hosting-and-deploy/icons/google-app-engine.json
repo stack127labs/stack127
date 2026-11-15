@@ -1,0 +1,17 @@
+{
+  "slug": "google-app-engine",
+  "name": "Google App Engine",
+  "official_url": "https://cloud.google.com/appengine",
+  "image_url": "https://services.google.com/fh/files/misc/legacy-cloud-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "2c4d5e8b941dc94a4aa78a0b18e34dfb035d98a49339c5f2ea60dc804a615106",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

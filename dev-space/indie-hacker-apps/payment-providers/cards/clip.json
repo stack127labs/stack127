@@ -1,0 +1,21 @@
+{
+  "slug": "clip",
+  "name": "Clip",
+  "url": "https://www.clip.mx/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Mexican online gateway with payment links and recurring payments.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; per-transaction commission" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Mexico; Mexican bank account required",
+    "payout": "Next business day; separate Clip account can be immediate"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The public offer for merchants is for Mexico only and needs a Mexican national bank account." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The public offer for merchants is for Mexico only and needs a Mexican national bank account." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The public offer for merchants is for Mexico only and needs a Mexican national bank account." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The public offer for merchants is for Mexico only and needs a Mexican national bank account." }
+    ]
+  }
+}

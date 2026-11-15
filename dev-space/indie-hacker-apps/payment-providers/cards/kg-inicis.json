@@ -1,0 +1,21 @@
+{
+  "slug": "kg-inicis",
+  "name": "KG Inicis",
+  "url": "https://www.inicis.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "South Korean gateway for online cards, subscriptions and payment links.",
+  "free": { "kind": "none", "text": "General application lists KRW 200,000 setup plus VAT" },
+  "cells": {
+    "type": "Payment gateway",
+    "countries": "South Korea; Japan export route also described",
+    "payout": "Ordinary settlements about seven days after transaction"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no US card pricing is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no UK card pricing is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no German card pricing is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, and no India card pricing is published." }
+    ]
+  }
+}

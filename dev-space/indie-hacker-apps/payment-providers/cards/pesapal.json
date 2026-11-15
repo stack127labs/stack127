@@ -1,0 +1,21 @@
+{
+  "slug": "pesapal",
+  "name": "Pesapal",
+  "url": "https://www.pesapal.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Online gateway for cards, mobile money, invoices, and recurring payments.",
+  "free": { "kind": "none", "text": "Per-transaction fees; no monthly price published" },
+  "cells": {
+    "type": "Payment gateway and collection service",
+    "countries": "Kenya, Uganda, Tanzania, Rwanda, Malawi, Zambia, Zimbabwe",
+    "payout": "Up to 3 workdays; generic guide says 48h (conflict)"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether US sellers can sign up, and no current US card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether UK sellers can sign up, and no current UK card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether German sellers can sign up, and no current German card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether Indian sellers can sign up, and no current India card rate is published." }
+    ]
+  }
+}

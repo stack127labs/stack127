@@ -1,0 +1,21 @@
+{
+  "slug": "aws-amplify",
+  "name": "AWS Amplify",
+  "url": "https://aws.amazon.com/amplify/",
+  "jobs": ["backend", "sql", "files", "jobs"],
+  "line": "Builds app backends from AWS database, login, storage and function services.",
+  "free": { "kind": "credits", "text": "$100 credits; free plan closes at 6 months, data deleted after 90 days" },
+  "cells": {
+    "metered": "Underlying AWS services bill separately",
+    "regions": "AWS Region-dependent",
+    "selfhost": "No, cloud resources run on AWS"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0.505", "plan": "AppSync + DynamoDB", "state": "unclear", "math": "$0.48 for AppSync, plus $0.0125 for reads and $0.0125 for writes. This assumes the free storage and transfer allowances still left apply. The total is $0.505." },
+      { "v": "Unknown", "plan": "AppSync + DynamoDB", "state": "unclear", "math": "Stored table data and selected API resources still count while idle. No full idle total is given." }
+    ],
+    "files": [{ "v": "$3.20", "plan": "S3 Standard", "state": "unclear", "math": "100 GB of storage at $0.023 a GB, plus 100,000 requests at $0.005 per 1,000, plus 1,000,000 requests at $0.0004 per 1,000. The total is $3.20. Data transfer is not included." }],
+    "jobs": [{ "v": "$0", "plan": "Lambda", "state": "unclear", "math": "10,000 runs, each one second at 512 MB, use 5,000 GB-seconds (memory multiplied by time). That fits within 400,000 free GB-seconds a month, if that allowance is still available." }]
+  }
+}

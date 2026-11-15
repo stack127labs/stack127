@@ -1,0 +1,24 @@
+{
+  "slug": "kuvasz-uptime",
+  "name": "Kuvasz Uptime",
+  "url": "https://kuvasz-uptime.dev/",
+  "jobs": ["uptime", "status", "performance", "cron"],
+  "line": "Self-hosted website and SSL checks, heartbeats and public status pages.",
+  "free": { "kind": "selfhost", "text": "Free AGPL software with unlimited monitors" },
+  "cells": {
+    "interval": "5 s HTTP/TCP/DNS; 10 s push",
+    "maintained": "Last release 2026-10-25"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" }
+    ],
+    "uptime": [
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "The chosen server and weekly backups are priced here. Email, domain and other costs aren't known." },
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "The chosen server and weekly backups are priced here. Email, domain and other costs aren't known." },
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "The chosen server and weekly backups are priced here. Email, domain and other costs aren't known." }
+    ]
+  }
+}

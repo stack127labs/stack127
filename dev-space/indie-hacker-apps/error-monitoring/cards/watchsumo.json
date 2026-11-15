@@ -1,0 +1,21 @@
+{
+  "slug": "watchsumo",
+  "name": "WatchSumo",
+  "url": "https://www.watchsumo.com/",
+  "jobs": ["uptime"],
+  "line": "Checks website availability and response time, with SSL alerts.",
+  "free": { "kind": "trial", "text": "30-day trial, no card; no ongoing free plan" },
+  "cells": { "interval": "300 s Startup, 60 s Business/Agency", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Business", "state": "unclear", "math": "The monitoring part costs $21 a month. A fixed probe location and an included own-domain status page aren't verified." },
+      { "v": "Unknown", "plan": "Business", "state": "unclear", "math": "The monitoring part costs $21 a month. A fixed probe location and an included own-domain status page aren't verified." },
+      { "v": "Unknown", "plan": "Agency", "state": "unclear", "math": "The monitoring part costs $75 a month. A fixed probe location and an included own-domain status page aren't verified." }
+    ]
+  }
+}

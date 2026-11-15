@@ -1,0 +1,17 @@
+{
+  "slug": "wix-analytics",
+  "name": "Wix Analytics",
+  "official_url": "https://www.wix.com/",
+  "image_url": "https://www.wix.com/favicon.ico",
+  "source_page": "https://www.wix.com/",
+  "kind": "favicon",
+  "source_host": "wix.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "c1234f4ea86e66a742b18e81009558a9cd1273f272e973678d46cf54db54244e",
+  "note": "parent brand: Wix; Analytics has no separate product mark, so this uses the official Wix wordmark",
+  "saved_at": "2026-11-14"
+}

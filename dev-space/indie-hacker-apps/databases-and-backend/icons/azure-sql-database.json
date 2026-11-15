@@ -1,0 +1,17 @@
+{
+  "slug": "azure-sql-database",
+  "name": "Azure SQL Database",
+  "official_url": "https://azure.microsoft.com/en-us/products/azure-sql/database",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "d2487b6309a0d79193fd9023a1a8fc571e531274bd2bac7d9c2636efb0ebaac4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,59 @@
+{
+  "slug": "rollbar",
+  "name": "Rollbar",
+  "url": "https://rollbar.com/",
+  "jobs": [
+    "errors"
+  ],
+  "line": "Hosted error tracking with release context and replay.",
+  "free": {
+    "kind": "free",
+    "text": "5,000 occurrences and 1,000 replays/month free"
+  },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "5,000 reports use up the free 5,000 allowance, and further reports stop."
+      },
+      {
+        "v": "$29",
+        "plan": "Essentials 50K",
+        "state": "confirmed",
+        "math": "50,000 reports fit the Essentials 50,000 tier, which has a $29 base price."
+      },
+      {
+        "v": "$119",
+        "plan": "Essentials 500K",
+        "state": "confirmed",
+        "math": "500,000 reports fit the Essentials 500,000 tier, which has a $119 base price."
+      }
+    ],
+    "uptime": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ]
+  }
+}

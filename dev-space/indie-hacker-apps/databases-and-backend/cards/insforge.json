@@ -1,0 +1,25 @@
+{
+  "slug": "insforge",
+  "name": "InsForge",
+  "url": "https://insforge.dev/",
+  "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "line": "Backend with PostgreSQL, authentication, file storage, functions, and realtime.",
+  "free": { "kind": "free", "text": "500MB DB, 1GB files, 5GB bw, 100K calls; pauses at 7 idle days; archives at 30d" },
+  "cells": {
+    "metered": "Pro $25/month; compute separate with $10 monthly credit",
+    "regions": "US, Frankfurt, Singapore; US location labels conflict",
+    "selfhost": "Yes, Apache-2.0 software with Docker deployment"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "$25 is the known monthly subtotal. Request fees, connection limits and enough compute are not yet confirmed." },
+      { "v": "$25/month", "plan": "Pro", "state": "unclear", "math": "The Pro plan stays at $25 a month while idle. One Micro's $9.782 of compute is offset by the $10 credit, subject to billing details." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "$25 is the known project subtotal. Upload and read billing, CDN charges and file storage setup are not yet confirmed." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Cloud Free", "state": "unclear", "math": "10,000 calls fit within the 100,000 included. Whether the runtime capacity and execution cost fit is not verified." }
+    ]
+  }
+}

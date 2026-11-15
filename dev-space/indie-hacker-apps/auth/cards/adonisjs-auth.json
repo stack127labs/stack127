@@ -1,0 +1,20 @@
+{
+  "slug": "adonisjs-auth",
+  "name": "AdonisJS Auth",
+  "url": "https://github.com/adonisjs/auth",
+  "jobs": ["library"],
+  "line": "Authentication guards and sessions for AdonisJS apps.",
+  "free": { "kind": "selfhost", "text": "Free MIT package; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No hosted SSO fee; custom integration"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core licence costs $0, and the charge per user for this library is $0. Hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core licence costs $0, and the charge per user for this library is $0. Hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core licence costs $0, and the charge per user for this library is $0. Hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core licence costs $0, and the charge per user for this library is $0. Hosting, database, delivery and operations cost extra." }
+    ]
+  }
+}

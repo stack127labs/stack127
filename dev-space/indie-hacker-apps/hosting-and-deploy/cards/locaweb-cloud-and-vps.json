@@ -1,0 +1,14 @@
+{
+  "slug": "locaweb-cloud-and-vps",
+  "name": "Locaweb Cloud and VPS",
+  "url": "https://www.locaweb.com.br/cloud/",
+  "jobs": ["vps"],
+  "line": "Rent Linux virtual servers or cloud VMs and manage their software.",
+  "free": { "kind": "none", "text": "No free plan; new customers may get up to R$100 off first invoice" },
+  "cells": { "type": "IaaS and VPS", "regions": "2 Brazil Cloud zones; VPS in Brazil; no cities listed", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "R$55", "plan": "Cloud Micro + NAT + public IP", "state": "confirmed", "math": "R$20 for the VM + R$30 for NAT + R$5 for an IP address = R$55 a month before tax. 100 GB of transfer is listed as free. The 100 build minutes are run by you. The domain is extra." },
+    { "v": "R$75", "plan": "Cloud Small + NAT + public IP", "state": "confirmed", "math": "R$40 for the VM + R$30 for NAT + R$5 for an IP address = R$75 a month before tax, for 730 hours. 1 vCPU and 2 GB, but transfer overage terms and request performance are unclear." },
+    { "v": "Unknown", "plan": "2 Cloud Small VMs + NAT + public IP", "state": "not_published", "math": "R$115 a month before tax, as a subtotal (2 × R$40 + R$30 + R$5). 10 GB of private traffic and seven daily snapshot copies are not priced." }
+  ] }
+}

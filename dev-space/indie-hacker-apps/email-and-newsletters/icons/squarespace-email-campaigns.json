@@ -1,0 +1,17 @@
+{
+  "slug": "squarespace-email-campaigns",
+  "name": "Squarespace Email Campaigns",
+  "official_url": "https://www.squarespace.com/email-marketing",
+  "image_url": "https://media-www.sqspcdn.com/logos/apple-touch-icon-1024.png",
+  "source_page": "https://www.squarespace.com/email-marketing",
+  "kind": "apple-touch-icon",
+  "source_host": "media-www.sqspcdn.com",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "acea8fb84be0d639746b0632cf097fe1b4523d33bbb8b8b22d97bd742815dc62",
+  "note": "parent brand: Squarespace; Email Campaigns has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

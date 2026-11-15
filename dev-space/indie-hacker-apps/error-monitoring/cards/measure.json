@@ -1,0 +1,24 @@
+{
+  "slug": "measure",
+  "name": "Measure",
+  "url": "https://measure.sh/",
+  "jobs": ["errors", "logs", "performance"],
+  "line": "Tracks mobile crashes, ANRs, logs and performance with session context.",
+  "free": { "kind": "free", "text": "5 GB/month and 30-day retention; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-09-03"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "The estimate counts only report data (the payload), at 50 × 1,024 bytes per report. Other data and app limits aren't known." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "The estimate counts only report data (the payload), at 50 × 1,024 bytes per report. Other data and app limits aren't known." },
+      { "v": "$51.20", "plan": "Pro", "state": "unclear", "math": "$50 for the Pro plan, plus $2 per GB over 25, with 25.6 GB used. Other data and app limits aren't known." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

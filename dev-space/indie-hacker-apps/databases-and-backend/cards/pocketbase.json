@@ -1,0 +1,25 @@
+{
+  "slug": "pocketbase",
+  "name": "PocketBase",
+  "url": "https://pocketbase.io/",
+  "jobs": ["backend", "sql", "files", "jobs"],
+  "line": "Self-hosted backend with SQLite, auth, file uploads, and realtime APIs.",
+  "free": { "kind": "selfhost", "text": "Free MIT software; you supply hosting and storage" },
+  "cells": {
+    "metered": "Software $0; server, data, and network costs are yours",
+    "regions": "Choose your own server location",
+    "selfhost": "Yes, MIT server or Go library"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Self-hosted PocketBase", "state": "unclear", "math": "$0 software fee. The server, disk, backups and 5 GB of transfer depend on the infrastructure provider you choose." },
+      { "v": "Unknown", "plan": "Self-hosted PocketBase", "state": "unclear", "math": "The license stays $0. Kept host, database, files, backups and provider minimums are not priced." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Local disk or S3 adapter", "state": "unclear", "math": "$0 software fee. 100 GB of files, requests, delivery and backups depend on the host or S3 provider you choose." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Self-hosted handlers", "state": "unclear", "math": "Handlers and cron have no job fee, but they share server resources that are not priced. They do not provide durable queue delivery." }
+    ]
+  }
+}

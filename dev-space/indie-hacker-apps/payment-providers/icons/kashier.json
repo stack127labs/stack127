@@ -1,0 +1,17 @@
+{
+  "slug": "kashier",
+  "name": "Kashier",
+  "official_url": "https://www.kashier.io/",
+  "image_url": "https://www.kashier.io/icon.png",
+  "source_page": "https://www.kashier.io/",
+  "kind": "manifest-icon",
+  "source_host": "kashier.io",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "b7a33e8e068a2191a81f15a3cd96b2203bcc219a12d4a2fedf6fffb11b1644d2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

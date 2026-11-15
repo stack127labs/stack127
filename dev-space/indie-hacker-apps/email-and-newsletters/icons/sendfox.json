@@ -1,0 +1,17 @@
+{
+  "slug": "sendfox",
+  "name": "SendFox",
+  "official_url": "https://sendfox.com/",
+  "image_url": "https://sendfox.com/android-chrome-512x512.png",
+  "source_page": "https://sendfox.com/",
+  "kind": "manifest-icon",
+  "source_host": "sendfox.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "17c2e5f617be0e00db259ff0f83c121a822b7ee6bbca8aa0cc0ee26d3b639621",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

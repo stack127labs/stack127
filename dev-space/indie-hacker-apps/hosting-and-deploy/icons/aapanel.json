@@ -1,0 +1,17 @@
+{
+  "slug": "aapanel",
+  "name": "aaPanel",
+  "official_url": "https://www.aapanel.com/",
+  "image_url": "https://www.aapanel.com/favicon.ico",
+  "source_page": "https://www.aapanel.com/",
+  "kind": "favicon",
+  "source_host": "aapanel.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "bd6de3658b4372420d9aac7e7839c91f1f4150da65eaf35ad3a1bf68e6f3d258",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

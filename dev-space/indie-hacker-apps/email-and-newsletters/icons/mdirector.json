@@ -1,0 +1,17 @@
+{
+  "slug": "mdirector",
+  "name": "MDirector",
+  "official_url": "https://www.mdirector.com/en/",
+  "image_url": "https://www.mdirector.com/wp-content/uploads/2023/01/mdirectorbimi-ok23-tiny-ps.svg",
+  "source_page": "https://www.mdirector.com/en/",
+  "kind": "logo-mark",
+  "source_host": "mdirector.com",
+  "original": {
+    "format": "svg",
+    "width": 2139,
+    "height": 2139
+  },
+  "sha256": "6de9cdb26bf754c2049a1f701bb6adece07ac398f77cffde86e78bec4ae2dc66",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

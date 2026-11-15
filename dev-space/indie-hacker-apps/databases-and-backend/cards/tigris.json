@@ -1,0 +1,50 @@
+{
+  "slug": "tigris",
+  "name": "Tigris",
+  "url": "https://www.tigrisdata.com/",
+  "jobs": [
+    "files"
+  ],
+  "line": "Globally distributed S3-compatible object storage.",
+  "free": {
+    "kind": "free",
+    "text": "5GB, 10K writes, 100K reads/mo; no idle delete; 30d retrieval after termination"
+  },
+  "cells": {
+    "metered": "$0.02/GB-month storage",
+    "regions": "Global default",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide a SQL database."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide a SQL database."
+      }
+    ],
+    "files": [
+      {
+        "v": "$2.80",
+        "plan": "Standard",
+        "state": "unclear",
+        "math": "(100 GB − 5 GB) × $0.02 a GB, plus 90 × $0.005 and 900 × $0.0005 for other usage, with units not stated. Outbound data (egress) is $0. This is a calculation, not a published price."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not run jobs."
+      }
+    ]
+  }
+}

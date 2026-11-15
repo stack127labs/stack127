@@ -1,0 +1,17 @@
+{
+  "slug": "elavon-online-payments",
+  "name": "Elavon online payments",
+  "official_url": "https://www.elavon.co.uk/",
+  "image_url": "https://www.elavon.co.uk/content/dam/elavon/global/icons/favicons/Elavon_favicon_32x32.svg",
+  "source_page": "https://www.elavon.com/",
+  "kind": "svg-icon",
+  "source_host": "elavon.co.uk",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "197ec1441a6c89e512e6f11819e190fe6c87eef34eb7d1ec44fd03799ae0fefd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

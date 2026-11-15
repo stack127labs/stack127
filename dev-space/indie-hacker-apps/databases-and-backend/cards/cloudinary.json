@@ -1,0 +1,25 @@
+{
+  "slug": "cloudinary",
+  "name": "Cloudinary",
+  "url": "https://cloudinary.com/",
+  "jobs": ["files"],
+  "line": "Upload, store, transform, and deliver images and video.",
+  "free": { "kind": "free", "text": "25 shared credits/month; 1 GB storage per credit" },
+  "cells": {
+    "metered": "Plus $99/month includes 225 shared credits",
+    "regions": "US, EU, and Asia Pacific datacenter APIs",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No database service" }
+    ],
+    "files": [
+      { "v": "$99", "plan": "Plus monthly", "state": "unclear", "math": "100 GB of storage, plus about 50 to 100 GB of image and video delivery, uses 150 to 200 credits. The Plus plan includes 225 credits. No transformations are assumed." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No queue or workflow runner" }
+    ]
+  }
+}

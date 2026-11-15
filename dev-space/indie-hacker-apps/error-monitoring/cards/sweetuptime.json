@@ -1,0 +1,21 @@
+{
+  "slug": "sweetuptime",
+  "name": "SweetUptime",
+  "url": "https://dicloud.net/sweetuptime-server-uptime-monitoring/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Monitors uptime, servers, domains, and cron jobs, with status pages.",
+  "free": { "kind": "free", "text": "Free, no card; app lists 10 checks, product page says 20" },
+  "cells": { "interval": "60 s uptime minimum", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "$9", "plan": "Mini", "state": "confirmed", "math": "An estimated $9 a month bundle covers 5 one-minute checks and one included custom-domain status page." },
+      { "v": "$9", "plan": "Mini", "state": "confirmed", "math": "An estimated $9 a month bundle covers 25 one-minute checks and one included custom-domain status page." },
+      { "v": "$19", "plan": "Advanced", "state": "confirmed", "math": "An estimated $19 a month bundle covers 100 one-minute checks and one included custom-domain status page." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "userlist",
+  "name": "Userlist",
+  "official_url": "https://userlist.com/",
+  "image_url": "https://userlist.com/images/icon-1024.png",
+  "source_page": "https://userlist.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "userlist.com",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "b5de13629a27025aafb8b0df1584e6ccd452fc8a377ad14a6e4037cb9b726e0c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

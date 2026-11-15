@@ -1,0 +1,17 @@
+{
+  "slug": "comgate",
+  "name": "Comgate",
+  "official_url": "https://www.comgate.eu/cs",
+  "image_url": "https://www.comgate.eu/files/favicon.png",
+  "source_page": "https://www.comgate.eu/cs",
+  "kind": "favicon",
+  "source_host": "comgate.eu",
+  "original": {
+    "format": "png",
+    "width": 118,
+    "height": 119
+  },
+  "sha256": "0566e058ed92b97ee05a7c405b95869979841d78439a463b987726920100a585",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

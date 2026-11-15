@@ -1,0 +1,17 @@
+{
+  "slug": "cryptapi",
+  "name": "CryptAPI",
+  "official_url": "https://cryptapi.io/",
+  "image_url": "https://cryptapi.io/static/assets/images/android-icon-192x192.png",
+  "source_page": "https://cryptapi.io/",
+  "kind": "logo-mark",
+  "source_host": "cryptapi.io",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "9ce8af736aed9e483aef11d433bbf34d955b666d2420082d5c0347fc0978cc84",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

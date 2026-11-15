@@ -1,0 +1,20 @@
+{
+  "slug": "vps-net",
+  "name": "VPS.NET SSD VPS",
+  "url": "https://www.vps.net/",
+  "jobs": ["vps"],
+  "line": "Rent a Linux VPS and manage the operating system and apps.",
+  "free": { "kind": "credits", "text": "Advertised $20 credit; V2+ purchase; current offer terms unverified" },
+  "cells": {
+    "type": "VPS/VM",
+    "regions": "London UK, Salt Lake City US; Atlanta unclear",
+    "selfhost": "Yes; customer manages the VM"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "V1-19", "state": "unclear", "math": "$5.50–$6.05 a month is a V1 server subtotal. 100 GB fits 2 TB only if data out uses the same unit. A 25 GB disk fits files. Builds, domain, HTTPS certificate and tax are extra or not priced." },
+      { "v": "Unknown", "plan": "V2-19", "state": "unclear", "math": "$11–$12.10 a month V2 subtotal, but the pages disagree. 1 GB and 2 cores may not meet 1 GiB and 1 vCPU. The 3 TB transfer direction, throughput, builds, domain and tax are not verified." },
+      { "v": "Unknown", "plan": "V4-19 + Backup Protection", "state": "unclear", "math": "$32–$34.70 a month lower-bound example: V4 at $27–$29.70 + backup from $5. The backup schedule and retention do not confirm 7 daily restore points. Capacity, extra backup, traffic and tax are not priced." }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "paddle",
+  "name": "Paddle",
+  "url": "https://www.paddle.com/",
+  "jobs": [
+    "mor",
+    "billing"
+  ],
+  "line": "Merchant of record that handles tax and billing for software.",
+  "free": {
+    "kind": "none",
+    "text": "No monthly fee; 5% + $0.50 per sale"
+  },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "Worldwide except sanctioned",
+    "payout": "Monthly; sent 2nd to 15th"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "5% + $0.50",
+        "plan": "Checkout",
+        "state": "confirmed",
+        "math": "Paddle uses one global rate in USD for every country. It applies to the total including tax."
+      },
+      {
+        "v": "5% + $0.50",
+        "plan": "Checkout",
+        "state": "unclear",
+        "math": "Paddle uses one global rate for every country, so this price applies here too."
+      },
+      {
+        "v": "5% + $0.50",
+        "plan": "Checkout",
+        "state": "unclear",
+        "math": "Paddle uses one global rate for every country, so this price applies here too."
+      },
+      {
+        "v": "5% + $0.50",
+        "plan": "Checkout",
+        "state": "unclear",
+        "math": "Paddle uses one global rate in USD for every country. India isn't excluded, but there's no India-specific page to check."
+      }
+    ]
+  }
+}

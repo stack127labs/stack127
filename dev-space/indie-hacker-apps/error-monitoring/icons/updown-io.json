@@ -1,0 +1,17 @@
+{
+  "slug": "updown-io",
+  "name": "updown.io",
+  "official_url": "https://updown.io/",
+  "image_url": "https://updown.io/apple-touch-icon.png",
+  "source_page": "https://updown.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "updown.io",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "a25f5be949c6777e6f274f065a8441cb91cce053e1f8d8a012c6d3c7a1142770",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

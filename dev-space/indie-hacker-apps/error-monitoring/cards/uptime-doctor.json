@@ -1,0 +1,21 @@
+{
+  "slug": "uptime-doctor",
+  "name": "Uptime Doctor",
+  "url": "https://www.uptimedoctor.com/en/",
+  "jobs": ["uptime"],
+  "line": "Checks sites and ports every minute and publishes uptime reports.",
+  "free": { "kind": "free", "text": "Free: 5 tests, 60-second checks, 1-year reports" },
+  "cells": { "interval": "60 s all plans", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Free", "state": "unclear", "math": "The monitoring part costs $0 for 5 tests. The full cost isn't known, because own-domain hosting and a one-location setup aren't verified." },
+      { "v": "Unknown", "plan": "Value", "state": "unclear", "math": "The monitoring part costs $19.95 for 25 tests. The full cost isn't known, because own-domain hosting and a one-location setup aren't verified." },
+      { "v": "Unknown", "plan": "Power", "state": "unclear", "math": "The monitoring part costs $79.95 for 100 tests. The full cost isn't known, because own-domain hosting and a one-location setup aren't verified." }
+    ]
+  }
+}

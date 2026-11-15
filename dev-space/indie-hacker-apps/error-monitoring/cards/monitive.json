@@ -1,0 +1,24 @@
+{
+  "slug": "monitive",
+  "name": "Monitive",
+  "url": "https://monitive.com/",
+  "jobs": ["uptime", "status"],
+  "line": "Checks websites and APIs for downtime, response problems and incidents.",
+  "free": { "kind": "free", "text": "1 HTTP monitor with 10-minute checks; free forever" },
+  "cells": {
+    "interval": "60 s Pro; 10 min free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$7", "plan": "Pro 5", "state": "unclear", "math": "This is the published price for the monitors. Whether one-location checks and an own-domain page apply isn't confirmed." },
+      { "v": "$30.60", "plan": "Pro 30", "state": "unclear", "math": "This is the published price for the monitors. Whether one-location checks and an own-domain page apply isn't confirmed." },
+      { "v": "$72", "plan": "Pro 100", "state": "unclear", "math": "This is the published price for the monitors. Whether one-location checks and an own-domain page apply isn't confirmed." }
+    ]
+  }
+}

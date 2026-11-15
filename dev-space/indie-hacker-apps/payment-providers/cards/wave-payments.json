@@ -1,0 +1,48 @@
+{
+  "slug": "wave-payments",
+  "name": "Wave Payments",
+  "url": "https://www.waveapps.com/payments",
+  "jobs": [
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "line": "Online invoice payments, recurring invoices, and hosted checkout.",
+  "free": {
+    "kind": "free",
+    "text": "Starter has no subscription fee; transaction fees apply"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "United States, Canada",
+    "payout": "US cards 2 days; Canada cards 1 day"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "2.9% + $0.60",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "The Starter rate for a US Visa, Mastercard or Discover card payment."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Payments are only available to businesses in the US and Canada. UK businesses can't sign up."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Payments are only available to businesses in the US and Canada. German businesses can't sign up."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Payments are only available to businesses in the US and Canada. Indian businesses can't sign up."
+      }
+    ]
+  }
+}

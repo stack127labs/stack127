@@ -1,0 +1,17 @@
+{
+  "slug": "pabbly-email-marketing",
+  "name": "Pabbly Email Marketing",
+  "official_url": "https://www.pabbly.com/email-marketing/",
+  "image_url": "https://www.pabbly.com/assets/pabbly_icon.svg",
+  "source_page": "https://www.pabbly.com/email-marketing/",
+  "kind": "svg-icon",
+  "source_host": "pabbly.com",
+  "original": {
+    "format": "svg",
+    "width": 10741,
+    "height": 10715
+  },
+  "sha256": "acd70873899ac4069776582c7c1f7e7451b4ff5cfd1d45e0d95bfce79c4b2130",
+  "note": "parent brand: Pabbly; Email Marketing has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "hestia-control-panel",
+  "name": "Hestia Control Panel",
+  "official_url": "https://hestiacp.com/",
+  "image_url": "https://hestiacp.com/logo.svg",
+  "source_page": "https://hestiacp.com/",
+  "kind": "svg-icon",
+  "source_host": "hestiacp.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "cc4c9c88e46480bd330f978f7ab9f4f65eb7764c70a98c8b22c4257356a0dd12",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

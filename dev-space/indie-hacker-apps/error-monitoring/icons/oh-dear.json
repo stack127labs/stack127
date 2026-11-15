@@ -1,0 +1,17 @@
+{
+  "slug": "oh-dear",
+  "name": "Oh Dear",
+  "official_url": "https://ohdear.app/",
+  "image_url": "https://ohdear.app/img/favicons/android-chrome-512x512.png",
+  "source_page": "https://ohdear.app/",
+  "kind": "manifest-icon",
+  "source_host": "ohdear.app",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "83d78dfa80c147eb892fcad349f65872e15bd3fd9be758e70a73d1aaf4e28451",
+  "note": "The official square icon contains the wordmark only.",
+  "saved_at": "2026-11-14"
+}

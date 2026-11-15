@@ -1,0 +1,20 @@
+{
+  "slug": "nhost-auth",
+  "name": "Nhost Auth",
+  "url": "https://nhost.io/product/auth",
+  "jobs": ["hosted", "server"],
+  "line": "Managed backend authentication with a self-hosted option.",
+  "free": { "kind": "free", "text": "Unlimited Auth users; free resources have usage limits" },
+  "cells": {
+    "freeUsers": "Unlimited users; 1 GB database and storage",
+    "sso": "WorkOS SSO is $125/month per connection"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Starter", "state": "unclear", "math": "The base is $0, and the Auth user price is $0, as long as the database stays within 1 GB, storage within 1 GB and data sent out within 5 GB. The exact total for a working app is unknown." },
+      { "v": "$0", "plan": "Starter", "state": "unclear", "math": "The base is $0, and the Auth user price is $0, as long as the database stays within 1 GB, storage within 1 GB and data sent out within 5 GB. The exact total for a working app is unknown." },
+      { "v": "$0", "plan": "Starter", "state": "unclear", "math": "The base is $0, and the Auth user price is $0, as long as the database stays within 1 GB, storage within 1 GB and data sent out within 5 GB. The exact total for a working app is unknown." },
+      { "v": "$0", "plan": "Starter", "state": "unclear", "math": "The base is $0, and the Auth user price is $0, as long as the database stays within 1 GB, storage within 1 GB and data sent out within 5 GB. The exact total for a working app is unknown." }
+    ]
+  }
+}

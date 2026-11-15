@@ -1,0 +1,17 @@
+{
+  "slug": "sendx",
+  "name": "SendX",
+  "official_url": "https://www.sendx.io/",
+  "image_url": "https://www.sendx.io/assets/apple-touch-icon.png",
+  "source_page": "https://www.sendx.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "sendx.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "e83987b8a678255d8b21b213fe05a89c6c935165b4deca74608487b6b2e19d7f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

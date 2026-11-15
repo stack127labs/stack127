@@ -1,0 +1,14 @@
+{
+  "slug": "naver-cloud-server",
+  "name": "NAVER Cloud Server",
+  "url": "https://www.ncloud.com/product/compute/server",
+  "jobs": ["vps"],
+  "line": "Run virtual servers on NAVER Cloud and manage their operating systems.",
+  "free": { "kind": "trial", "text": "1 Micro Server for Korea residents; 1 year, IP/traffic extra; then paid" },
+  "cells": { "type": "Cloud servers", "regions": "KR/US West/SG/JP/DE; g3 VPC only KR/SG/JP", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "₩38032", "plan": "Classic Compact-g1", "state": "confirmed", "math": "₩26,000 for the server + ₩4,032 for the IP address + (100 minus 20) GB × ₩100 = ₩38,032 a month before VAT. The 50 GB boot disk is included." },
+    { "v": "₩38032", "plan": "Classic Compact-g1", "state": "confirmed", "math": "₩26,000 for the server + ₩4,032 for the IP address + 80 GB × ₩100 = ₩38,032 a month before VAT. 1 vCPU and 2 GB meets the minimum, but throughput is not verified." },
+    { "v": "Unknown", "plan": "Standard-g2 + 100 GB Backup", "state": "unclear", "math": "₩85,120 + ₩4,032 for the IP address + ₩8,000 for data sent out + ₩30,000 minimum for backup = ₩127,152 a month subtotal. Stored backup may exceed 100 GB." }
+  ] }
+}

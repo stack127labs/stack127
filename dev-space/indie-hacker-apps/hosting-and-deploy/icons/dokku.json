@@ -1,0 +1,17 @@
+{
+  "slug": "dokku",
+  "name": "Dokku",
+  "official_url": "https://dokku.com/",
+  "image_url": "https://cdn.jsdelivr.net/gh/dokku/dokku@v0.38.34/docs/assets/favicons/apple-touch-icon-180x180.png",
+  "source_page": "https://dokku.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "cdn.jsdelivr.net",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "e9cc8575ff4e8e539f787b816351f0613218fc44e491a3acbbb703e24712f699",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

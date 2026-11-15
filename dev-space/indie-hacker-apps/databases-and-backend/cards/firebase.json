@@ -1,0 +1,53 @@
+{
+  "slug": "firebase",
+  "name": "Firebase",
+  "url": "https://firebase.google.com/",
+  "jobs": [
+    "backend",
+    "sql",
+    "files",
+    "jobs"
+  ],
+  "line": "Google backend: Firestore, auth, storage, functions and hosting.",
+  "free": {
+    "kind": "free",
+    "text": "1 GiB database; Spark trial DB archives at 90 days, deletes 90 days later"
+  },
+  "cells": {
+    "metered": "$0.03/100K reads, $0.09/100K writes beyond free quotas",
+    "regions": "Choose per product",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$0",
+        "plan": "Spark or Blaze",
+        "state": "unclear",
+        "math": "This is Firestore pricing, not SQL. The estimate shows $0 inside the daily limits, and $0.74457795 at paid rates."
+      },
+      {
+        "v": "$0",
+        "plan": "Spark or Blaze",
+        "state": "unclear",
+        "math": "This is Firestore pricing, not SQL. 1 GB of kept data fits the estimated free allowance."
+      }
+    ],
+    "files": [
+      {
+        "v": "$2.59",
+        "plan": "Blaze",
+        "state": "unclear",
+        "math": "The estimate is USD $2.593482809525 with US free allowances, and $13.912983 with none."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$0",
+        "plan": "Blaze",
+        "state": "unclear",
+        "math": "The estimate is USD $0 with the free allowances, and USD $0.1445 once those allowances are used."
+      }
+    ]
+  }
+}

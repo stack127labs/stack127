@@ -1,0 +1,17 @@
+{
+  "slug": "heap-by-contentsquare",
+  "name": "Heap",
+  "official_url": "https://www.heap.io/",
+  "image_url": "https://www.heap.io/favicon/icon-512.png",
+  "source_page": "https://www.heap.io/",
+  "kind": "manifest-icon",
+  "source_host": "heap.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "b3bbd7e2edbd8b76c18aaf37c4d4f8a22e275b77af3491946568d79c4b0c2e29",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

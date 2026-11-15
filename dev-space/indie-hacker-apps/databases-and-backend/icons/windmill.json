@@ -1,0 +1,17 @@
+{
+  "slug": "windmill",
+  "name": "Windmill",
+  "official_url": "https://www.windmill.dev/",
+  "image_url": "https://www.windmill.dev/img/logo.svg",
+  "source_page": "https://www.windmill.dev/",
+  "kind": "svg-icon",
+  "source_host": "windmill.dev",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "0af19dc09561352fbf202d87e01b8c0315d41fd8afdffedf9b879e85aad245ed",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

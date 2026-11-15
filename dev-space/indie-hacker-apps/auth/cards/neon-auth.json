@@ -1,0 +1,20 @@
+{
+  "slug": "neon-auth",
+  "name": "Neon Auth",
+  "url": "https://neon.com/auth",
+  "jobs": ["hosted", "server"],
+  "line": "Managed Better Auth linked to Neon Postgres, with self-hosted code.",
+  "free": { "kind": "free", "text": "Free up to 60,000 MAU per project" },
+  "cells": {
+    "freeUsers": "60,000 MAU; database, compute, and transfer limits apply",
+    "sso": "No managed SAML or SCIM connection price found"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The Free base is $0, Auth is $0, and compute, storage and data sent out are $0, for the resource use assumed here." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The Free base is $0, Auth is $0, and compute, storage and data sent out are $0, for the resource use assumed here." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The Free base is $0, Auth is $0, and compute, storage and data sent out are $0, for the resource use assumed here." },
+      { "v": "$5.85", "plan": "Launch", "state": "confirmed", "math": "Launch plan costs for the stated compute and storage: 50 at $0.106 each, plus 1 at $0.35, plus 1 at $0.20, which totals $5.85." }
+    ]
+  }
+}

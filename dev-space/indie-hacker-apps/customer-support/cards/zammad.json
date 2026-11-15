@@ -1,0 +1,35 @@
+{
+  "slug": "zammad",
+  "name": "Zammad",
+  "url": "https://zammad.com/en/",
+  "jobs": [
+    "helpdesk",
+    "inbox"
+  ],
+  "line": "Open source helpdesk, hosted in Germany or self-hosted.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free to self-host; hosted has a 30-day trial"
+  },
+  "cells": {
+    "channels": "Email, chat, WhatsApp, SMS, web forms",
+    "ai": "€0.03 per AI request",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "€9",
+        "plan": "Starter v2",
+        "state": "confirmed",
+        "math": "Hosted Starter v2 costs €9 a month, or €84 a year paid upfront. Email only."
+      },
+      {
+        "v": "€27",
+        "plan": "Starter v2",
+        "state": "confirmed",
+        "math": "3 agents at €9 a month each = €27 a month. Paid upfront for 12 months: 3 agents at €7 a month each = €252."
+      }
+    ]
+  }
+}

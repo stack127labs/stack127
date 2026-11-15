@@ -1,0 +1,23 @@
+{
+  "slug": "azure-communication-services-email",
+  "name": "Azure Communication Services Email",
+  "url": "https://azure.microsoft.com/en-us/products/communication-services",
+  "jobs": ["transactional", "newsletter"],
+  "line": "Azure email delivery for app messages and bulk marketing sends.",
+  "free": {"kind": "none", "text": "No ongoing free sending allowance"},
+  "cells": {"newsletters": "Yes, bulk email; no native editor", "api": "Yes, REST, SDKs and SMTP"},
+  "costs": {
+    "subs": [
+      {"v": "$1.096", "plan": "Pay as you go", "state": "confirmed", "math": "4,000 recipients at $0.00025 each, plus 800 MB of data at $0.00012 per MB = $1.096 a month. Assumes one recipient per email and 0.2 MB per email, before tax."},
+      {"v": "$5.480", "plan": "Pay as you go", "state": "confirmed", "math": "20,000 recipients at $0.00025 each, plus 4,000 MB of data at $0.00012 per MB = $5.480 a month. Assumes one recipient per email and 0.2 MB per email, before tax."},
+      {"v": "$10.960", "plan": "Pay as you go", "state": "confirmed", "math": "40,000 recipients at $0.00025 each, plus 8,000 MB of data at $0.00012 per MB = $10.960 a month. Assumes one recipient per email and 0.2 MB per email, before tax."},
+      {"v": "$54.800", "plan": "Pay as you go", "state": "confirmed", "math": "200,000 recipients at $0.00025 each, plus 40,000 MB of data at $0.00012 per MB = $54.800 a month. Assumes one recipient per email and 0.2 MB per email, before tax."}
+    ],
+    "appmail": [
+      {"v": "$0.822", "plan": "Pay as you go", "state": "confirmed", "math": "3,000 recipients at $0.00025 each, plus 600 MB of data at $0.00012 per MB = $0.822 a month. Assumes one recipient and 0.2 MB per email, with volume spread over 30 days, before tax."},
+      {"v": "$2.740", "plan": "Pay as you go", "state": "confirmed", "math": "10,000 recipients at $0.00025 each, plus 2,000 MB of data at $0.00012 per MB = $2.740 a month. Assumes one recipient and 0.2 MB per email, with volume spread over 30 days, before tax."},
+      {"v": "$13.700", "plan": "Pay as you go", "state": "confirmed", "math": "50,000 recipients at $0.00025 each, plus 10,000 MB of data at $0.00012 per MB = $13.700 a month. Assumes one recipient and 0.2 MB per email, with volume spread over 30 days, before tax."},
+      {"v": "$27.400", "plan": "Pay as you go", "state": "confirmed", "math": "100,000 recipients at $0.00025 each, plus 20,000 MB of data at $0.00012 per MB = $27.400 a month. Assumes one recipient and 0.2 MB per email, with volume spread over 30 days, before tax."}
+    ]
+  }
+}

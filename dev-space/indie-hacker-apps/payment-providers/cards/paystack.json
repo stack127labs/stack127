@@ -1,0 +1,21 @@
+{
+  "slug": "paystack",
+  "name": "Paystack",
+  "url": "https://paystack.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "African payment gateway with checkout, payment pages and recurring charges.",
+  "free": { "kind": "none", "text": "No setup or monthly fees in named active markets" },
+  "cells": {
+    "type": "Payment gateway and processor",
+    "countries": "Nigeria, Ghana, Kenya and South Africa",
+    "payout": "Next day to 2 days locally; international 7 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Paystack sign-up is available only in Nigeria, Ghana, Kenya and South Africa." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Paystack sign-up is available only in Nigeria, Ghana, Kenya and South Africa." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Paystack sign-up is available only in Nigeria, Ghana, Kenya and South Africa." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Paystack sign-up is available only in Nigeria, Ghana, Kenya and South Africa." }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "alibaba-cloud-apsaradb-rds",
+  "name": "Alibaba Cloud ApsaraDB RDS",
+  "url": "https://www.alibabacloud.com/product/apsaradb",
+  "jobs": ["sql", "vector"],
+  "line": "Managed MySQL, PostgreSQL, SQL Server, and MariaDB databases.",
+  "free": { "kind": "trial", "text": "MySQL Basic trial for 30 days; no lasting free tier" },
+  "cells": {
+    "metered": "MySQL Serverless compute and storage by usage",
+    "regions": "Multiple regions; price and engine vary",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "US$33.05075", "plan": "MySQL Serverless Basic", "state": "unclear", "math": "Compute: 730 hours × 0.5 RCUs × US$0.07455 an hour. Storage: 730 hours × 20 × US$0.0004 an hour. The 0.5 RCU figure is an assumption that isn't confirmed." },
+      { "v": "US$5.84", "plan": "Paused MySQL Serverless", "state": "unclear", "math": "Storage only: 730 hours × 20 × US$0.0004 an hour. The database is paused the whole month. Backup and linked service fees are not included." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is a database service, and this use has no app file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide app job execution" }
+    ]
+  }
+}

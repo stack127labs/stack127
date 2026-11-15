@@ -1,0 +1,20 @@
+{
+  "slug": "vultr-cloud-compute",
+  "name": "Vultr Cloud Compute",
+  "url": "https://www.vultr.com/products/cloud-compute/",
+  "jobs": ["vps"],
+  "line": "Run websites, APIs and databases on a virtual server you manage.",
+  "free": { "kind": "free", "text": "Free VM: 1 vCPU/512 MB/10 GB, 0 GB plan bandwidth; access terms unclear" },
+  "cells": {
+    "type": "VPS/VM",
+    "regions": "33 locations; plan availability varies",
+    "selfhost": "Yes; customer manages the VM"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "vc2-1c-0.5gb + backups", "state": "unclear", "math": "$3.50 plan + $0.70 default backups = $4.20 a month subtotal before tax. 100 GB fits the 512 GB allowance, but the plan's single location is not named, so availability at EWR is not verified." },
+      { "v": "Unknown", "plan": "vc2-1c-1gb + backups", "state": "unclear", "math": "$5 plan + $1 default backups = $6 a month subtotal before tax. 100 GB fits 1 TB, but the plan's 31 locations are not named, so availability at EWR is not verified." },
+      { "v": "Unknown", "plan": "vc2-2c-4gb + backups", "state": "unclear", "math": "$20 plan + $4 default backups = $24 a month subtotal before tax. 100 GB fits 3 TB. Daily database dumps need setup. Snapshots cost $0.05 per GB a month (size unknown), and availability at EWR is not verified." }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "godaddy-payments",
+  "name": "GoDaddy Payments",
+  "url": "https://www.godaddy.com/payments",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "US and Canadian payment processing with links, invoices and checkout.",
+  "free": { "kind": "none", "text": "US Free Pay Links; 2.9% + $0.30 per card payment" },
+  "cells": {
+    "type": "Payment facilitator",
+    "countries": "United States and Canada",
+    "payout": "US next business day; Canada as soon as next business day"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2.9% + $0.30", "plan": "Free Pay Links/invoices", "state": "confirmed", "math": "The published US card rate for Free Pay Links and invoices." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Listed sellers are businesses in the United States and Canada." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Listed sellers are businesses in the United States and Canada." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Listed sellers are businesses in the United States and Canada." }
+    ]
+  }
+}

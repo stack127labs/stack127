@@ -1,0 +1,24 @@
+{
+  "slug": "realuptime",
+  "name": "RealUptime Errors",
+  "url": "https://realuptime.io/errors",
+    "jobs": ["errors"],
+  "line": "Captures exceptions, groups issues, and tracks releases across web and server apps.",
+  "free": { "kind": "free", "text": "Free: 10,000 events/month; 14-day retention; 2 projects" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$23.99", "plan": "Errors Pro", "state": "confirmed", "math": "Errors Pro includes 100,000 events a month, 90-day detail and 10 projects, which cover 5,000 reports across 3 apps." },
+      { "v": "$23.99", "plan": "Errors Pro", "state": "confirmed", "math": "Errors Pro includes 100,000 events a month, 90-day detail and 10 projects, which cover 50,000 reports across 3 apps." },
+      { "v": "$58.99", "plan": "Errors Business", "state": "confirmed", "math": "Errors Business includes 750,000 events a month, 180-day detail and 50 projects, which cover 500,000 reports across 3 apps." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Uptime checks belong to a separate RealUptime product" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Uptime checks belong to a separate RealUptime product" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Uptime checks belong to a separate RealUptime product" }
+    ]
+  }
+}

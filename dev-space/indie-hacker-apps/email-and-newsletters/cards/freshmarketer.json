@@ -1,0 +1,23 @@
+{
+  "slug": "freshmarketer",
+  "name": "Freshmarketer",
+  "url": "https://www.freshworks.com/crm/marketing/",
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "line": "Send marketing campaigns and automated journeys across email and other channels.",
+  "free": { "kind": "free", "text": "100 contacts; email limit listed as 200 or 500/month" },
+  "cells": { "newsletters": "Yes", "api": "Yes, transactional API on Enterprise" },
+  "costs": {
+    "subs": [
+      { "v": "USD 118", "plan": "Enterprise modeled rate", "state": "unclear", "math": "1,000 contacts and 4,000 sends a month. USD 18 base, plus one 5,000-contact block at USD 100. This is a vendor starting-rate model, and the eligible total is not settled." },
+      { "v": "USD 118", "plan": "Enterprise modeled rate", "state": "unclear", "math": "5,000 contacts and 20,000 sends a month. USD 18 base, plus one 5,000-contact block at USD 100. This is a vendor starting-rate model, and the eligible total is not settled." },
+      { "v": "USD 218", "plan": "Enterprise modeled rate", "state": "unclear", "math": "10,000 contacts and 40,000 sends a month. USD 18 base, plus two 5,000-contact blocks at USD 100 each. This is a vendor starting-rate model, and the eligible total is not settled." },
+      { "v": "USD 1,018", "plan": "Enterprise modeled rate", "state": "unclear", "math": "50,000 contacts and 200,000 sends a month. USD 18 base, plus ten 5,000-contact blocks at USD 100 each. This is a vendor starting-rate model, and the eligible total is not settled." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "Enterprise", "state": "unclear", "math": "3,000 messages to 500 contacts, with 0 automated journey runs. USD 18 base. The monthly send allowance and the price of extra capacity are not verified." },
+      { "v": "Unknown", "plan": "Enterprise", "state": "unclear", "math": "10,000 messages to 500 contacts, with 0 automated journey runs. USD 18 base. The monthly send allowance and the price of extra capacity are not verified." },
+      { "v": "Unknown", "plan": "Enterprise", "state": "unclear", "math": "50,000 messages to 500 contacts, with 0 automated journey runs. USD 18 base. The monthly send allowance and the price of extra capacity are not verified." },
+      { "v": "Unknown", "plan": "Enterprise", "state": "unclear", "math": "100,000 messages to 500 contacts, with 0 automated journey runs. USD 18 base. The monthly send allowance and the price of extra capacity are not verified." }
+    ]
+  }
+}

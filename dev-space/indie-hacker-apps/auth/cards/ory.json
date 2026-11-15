@@ -1,0 +1,46 @@
+{
+  "slug": "ory",
+  "name": "Ory",
+  "url": "https://www.ory.com/",
+  "jobs": [
+    "hosted",
+    "server"
+  ],
+  "line": "Identity services with Ory Network and self-hosted components.",
+  "free": {
+    "kind": "none",
+    "text": "Free Developer has no production environments"
+  },
+  "cells": {
+    "freeUsers": "No free live production environment",
+    "sso": "SAML and SCIM are Enterprise; price by quote"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$70",
+        "plan": "Production",
+        "state": "unclear",
+        "math": "The base is $70 for 1,000 users with two active days. Other usage, and the exact bill from users alone, are unknown."
+      },
+      {
+        "v": "$142.33",
+        "plan": "Production",
+        "state": "unclear",
+        "math": "Assumes each of the 10,000 users is active on 2 days of a 30-day month. $70 base, plus $0.14 per average daily active user, minus a $21 credit. That totals $142.33 a month."
+      },
+      {
+        "v": "$515.67",
+        "plan": "Production",
+        "state": "unclear",
+        "math": "Assumes each of the 50,000 users is active on 2 days of a 30-day month. $70 base, plus $0.14 per average daily active user, minus a $21 credit. That totals $515.67 a month."
+      },
+      {
+        "v": "$982.33",
+        "plan": "Production",
+        "state": "unclear",
+        "math": "Assumes each of the 100,000 users is active on 2 days of a 30-day month. $70 base, plus $0.14 per average daily active user, minus a $21 credit. That totals $982.33 a month."
+      }
+    ]
+  }
+}

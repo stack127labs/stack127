@@ -1,0 +1,17 @@
+{
+  "slug": "laravel-authentication",
+  "name": "Laravel authentication",
+  "official_url": "https://laravel.com/framework/docs/authentication",
+  "image_url": "https://laravel.com/img/favicon/android-chrome-512x512.png",
+  "source_page": "https://laravel.com/framework/docs/authentication",
+  "kind": "manifest-icon",
+  "source_host": "laravel.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "c62ed1e262928d3e62eb4a9f27cae2c17f7f01e5e738232c666ecb80c5cad906",
+  "note": "parent brand: Laravel; authentication is a Laravel framework component",
+  "saved_at": "2026-11-14"
+}

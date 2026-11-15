@@ -1,0 +1,17 @@
+{
+  "slug": "uptimetoolbox",
+  "name": "UptimeToolbox",
+  "official_url": "https://www.uptimetoolbox.com/",
+  "image_url": "https://www.uptimetoolbox.com/wp-content/uploads/2021/04/cropped-Image-08-192x192.png",
+  "source_page": "https://www.uptimetoolbox.com/",
+  "kind": "favicon",
+  "source_host": "uptimetoolbox.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "4241155194b7dfa10b811ef548c0b89c98767127ef17e409e9d913232b151a94",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

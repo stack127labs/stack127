@@ -1,0 +1,17 @@
+{
+  "slug": "hitsteps",
+  "name": "Hitsteps",
+  "official_url": "https://www.hitsteps.com/",
+  "image_url": "https://www.hitsteps.com/responsive/apple.png",
+  "source_page": "https://www.hitsteps.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "hitsteps.com",
+  "original": {
+    "format": "png",
+    "width": 600,
+    "height": 600
+  },
+  "sha256": "8518be842d9b981eb6b5632715fd563f5b07bc335a98d10d95fe426d7fdecaa3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

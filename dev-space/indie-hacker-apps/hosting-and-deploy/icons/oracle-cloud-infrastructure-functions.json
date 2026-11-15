@@ -1,0 +1,17 @@
+{
+  "slug": "oracle-cloud-infrastructure-functions",
+  "name": "Oracle Cloud Infrastructure Functions",
+  "official_url": "https://www.oracle.com/cloud/cloud-native/functions/",
+  "image_url": "https://www.oracle.com/asset/web/favicons/favicon-180.png",
+  "source_page": "https://www.oracle.com/cloud/functions/",
+  "kind": "apple-touch-icon",
+  "source_host": "oracle.com",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "3b41c0ff302dad172cb912038f4eeacbd1879afdf01591d6c46a6f0a1fee119f",
+  "note": "parent brand: Oracle Cloud; no distinct Functions mark found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

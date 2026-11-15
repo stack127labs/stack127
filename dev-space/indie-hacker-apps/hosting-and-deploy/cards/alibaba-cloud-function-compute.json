@@ -1,0 +1,14 @@
+{
+  "slug": "alibaba-cloud-function-compute",
+  "name": "Alibaba Cloud Function Compute",
+  "url": "https://www.alibabacloud.com/en/product/function-compute",
+  "jobs": ["paas"],
+  "line": "Run HTTP apps and event functions on managed serverless compute.",
+  "free": { "kind": "credits", "text": "Three-month compute trial for eligible new users" },
+  "cells": { "type": "Serverless functions", "regions": "Asia, Europe, US, Middle East", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Function Compute usage, data transfer, logs and the HTTPS certificate depend on activity and options. The full total is not verified." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Compute for traffic spread evenly across all hours is $7.30, plus logs and the HTTPS certificate. The full total is not verified." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$71.248 is the modeled compute and database subtotal, before backups, logs and the HTTPS certificate. The full total is not verified." }
+  ] }
+}

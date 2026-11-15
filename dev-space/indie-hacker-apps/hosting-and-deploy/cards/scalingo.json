@@ -1,0 +1,14 @@
+{
+  "slug": "scalingo",
+  "name": "Scalingo",
+  "url": "https://scalingo.com/",
+  "jobs": ["paas"],
+  "line": "Deploy and run managed app containers and databases.",
+  "free": { "kind": "trial", "text": "30-day trial; payment method; 1 app/5 S-M containers; delete before expiry" },
+  "cells": { "type": "Managed app platform", "regions": "Paris; secure zone needs EU org + legitimate need", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Standard S", "state": "unclear", "math": "The S plan costs €7.30 for 730 hours. 100 GB of transfer and a custom-domain HTTPS certificate are included. Add the unknown build cost for 100 build minutes, so the full total is unknown." },
+    { "v": "Unknown", "plan": "Illustrative XL (2048 MB)", "state": "unclear", "math": "The XL plan is €58.40 for 730 hours, plus the unknown build cost for 100 minutes. 2048 MB is more than 1 GiB, but no container has a verified 1 vCPU allocation." },
+    { "v": "Unknown", "plan": "XL + Shared Postgres Starter 2G", "state": "unclear", "math": "€87.60 for 730 hours includes the XL plan and a 2G database (2 GB RAM, 40 GB storage, 7 daily backups). Same-region 10 GB database traffic is €0. Add the unknown build cost. The small app API's 1 vCPU fit is unverified." }
+  ] }
+}

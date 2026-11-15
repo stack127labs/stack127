@@ -1,0 +1,20 @@
+{
+  "slug": "lemon-squeezy-analytics",
+  "name": "Lemon Squeezy Analytics",
+  "url": "https://www.lemonsqueezy.com/",
+  "jobs": ["revenue"],
+  "line": "Built-in revenue reports for digital product and subscription sales.",
+  "free": { "kind": "free", "text": "No monthly fee; transaction fees apply" },
+  "cells": {
+    "cookieless": "Unknown; reports use store and customer records",
+    "location": "US or company and partner locations",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Revenue analytics; no pageview-based charge is listed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Revenue analytics; no pageview-based charge is listed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Revenue analytics; no pageview-based charge is listed." }
+    ]
+  }
+}

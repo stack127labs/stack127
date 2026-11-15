@@ -1,0 +1,20 @@
+{
+  "slug": "phase-two",
+  "name": "Phase Two",
+  "url": "https://phasetwo.io/",
+  "jobs": ["hosted", "server"],
+  "line": "Managed Keycloak hosting with extensions for app accounts and SSO.",
+  "free": { "kind": "trial", "text": "30-day Starter trial" },
+  "cells": {
+    "freeUsers": "No ongoing free production tier published",
+    "sso": "Unlimited SAML/OIDC connections; no per-connection fee"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$149", "plan": "Starter", "state": "confirmed", "math": "The cluster base is $149, plus $0 for user count and $0 for optional add-ons, so $149 a month." },
+      { "v": "$999", "plan": "Premium", "state": "confirmed", "math": "The cluster base is $999, plus $0 for user count and $0 for optional add-ons, so $999 a month." },
+      { "v": "$999", "plan": "Premium", "state": "confirmed", "math": "The cluster base is $999, plus $0 for user count and $0 for optional add-ons, so $999 a month." },
+      { "v": "$999", "plan": "Premium", "state": "confirmed", "math": "The cluster base is $999, plus $0 for user count and $0 for optional add-ons, so $999 a month." }
+    ]
+  }
+}

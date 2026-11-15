@@ -1,0 +1,20 @@
+{
+  "slug": "authress",
+  "name": "Authress",
+  "url": "https://authress.io/",
+  "jobs": ["hosted"],
+  "line": "Hosted login and access control for app users.",
+  "free": { "kind": "credits", "text": "First 1,000 billable calls are free once" },
+  "cells": {
+    "freeUsers": "1,000 one-time free calls per account",
+    "sso": "Unlimited SSO connections; no extra fee listed"
+  },
+  "costs": {
+    "mau": [
+      { "v": "Unknown", "plan": "Usage-based", "state": "unclear", "math": "Example: 20 calls per user (2 for login and sessions, 18 for access checks). That is $24 using the homepage price, or €22 using the monthly terms as a backup. Rate and billing cycle are not settled." },
+      { "v": "Unknown", "plan": "Usage-based", "state": "unclear", "math": "Same example: 20 calls per user (2 for login and sessions, 18 for access checks). That is $240 using the homepage price, or €220 using the monthly terms as a backup. Rate and billing cycle are not settled." },
+      { "v": "Unknown", "plan": "Usage-based", "state": "unclear", "math": "Same example: 20 calls per user (2 for login and sessions, 18 for access checks). That is $1,200 using the homepage price, or €1,100 using the monthly terms as a backup. Rate and billing cycle are not settled." },
+      { "v": "Unknown", "plan": "Usage-based", "state": "unclear", "math": "Same example: 20 calls per user (2 for login and sessions, 18 for access checks). That is $2,400 using the homepage price, or €2,200 using the monthly terms as a backup. Rate and billing cycle are not settled." }
+    ]
+  }
+}

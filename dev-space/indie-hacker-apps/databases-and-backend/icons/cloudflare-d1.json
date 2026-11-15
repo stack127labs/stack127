@@ -1,0 +1,17 @@
+{
+  "slug": "cloudflare-d1",
+  "name": "Cloudflare D1",
+  "official_url": "https://developers.cloudflare.com/d1/",
+  "image_url": "https://developers.cloudflare.com/favicon.png",
+  "source_page": "https://developers.cloudflare.com/d1/",
+  "kind": "favicon",
+  "source_host": "developers.cloudflare.com",
+  "original": {
+    "format": "png",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "26536c85f191ecf1988ff785f9acf0667137e147b91ea5243df36b9d12e7094b",
+  "note": "Cloudflare brand favicon from the official D1 documentation.",
+  "saved_at": "2026-11-14"
+}

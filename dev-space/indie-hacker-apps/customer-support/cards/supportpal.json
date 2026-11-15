@@ -1,0 +1,19 @@
+{
+  "slug": "supportpal",
+  "name": "SupportPal",
+  "url": "https://www.supportpal.com/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Self-hosted support inbox with email tickets and website messaging.",
+  "free": { "kind": "trial", "text": "30-day evaluation, no card" },
+  "cells": {
+    "channels": "Email, website chat, optional messaging add-ons",
+    "ai": "No plugin fee; model and hosting costs are extra",
+    "selfhost": "Yes, paid proprietary licence"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29.95", "plan": "Monthly licence", "state": "confirmed", "math": "One installation includes one brand and unlimited operators." },
+      { "v": "$29.95", "plan": "Monthly licence", "state": "confirmed", "math": "The same installation supports three operators. The license is not charged per seat." }
+    ]
+  }
+}

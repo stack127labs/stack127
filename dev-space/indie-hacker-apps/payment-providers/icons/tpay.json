@@ -1,0 +1,17 @@
+{
+  "slug": "tpay",
+  "name": "Tpay",
+  "official_url": "https://tpay.com/",
+  "image_url": "https://tpay.com/favicon.png",
+  "source_page": "https://tpay.com/",
+  "kind": "favicon",
+  "source_host": "tpay.com",
+  "original": {
+    "format": "png",
+    "width": 118,
+    "height": 118
+  },
+  "sha256": "570b5c5013389f364c92dc56371e3175562c060e254aefa490644fe1e25c0738",
+  "note": "official app icon contains the Tpay wordmark",
+  "saved_at": "2026-11-14"
+}

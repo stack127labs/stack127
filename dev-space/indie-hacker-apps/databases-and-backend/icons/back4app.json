@@ -1,0 +1,17 @@
+{
+  "slug": "back4app",
+  "name": "Back4App",
+  "official_url": "https://www.back4app.com/",
+  "image_url": "https://www.back4app.com/favicon.ico",
+  "source_page": "https://www.back4app.com/",
+  "kind": "favicon",
+  "source_host": "back4app.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "7ee599102d4a0f2c3753556c575a7f54db6751babcceaba5f5a37ae7aeb4249f",
+  "note": "Official favicon is a b4a wordmark; no square product mark among downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

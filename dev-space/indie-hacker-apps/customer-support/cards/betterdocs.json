@@ -1,0 +1,19 @@
+{
+  "slug": "betterdocs",
+  "name": "BetterDocs",
+  "url": "https://betterdocs.co/",
+  "jobs": ["helpdesk", "ai"],
+  "line": "Builds a searchable customer help center for WordPress and Shopify.",
+  "free": { "kind": "free", "text": "Free WordPress plugin; Shopify free plan has 12 docs" },
+  "cells": {
+    "channels": "Help center, Shopify chat, WhatsApp, Messenger",
+    "ai": "Own provider key; chatbot add-on is $69/year per site",
+    "selfhost": "Yes, WordPress plugin"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a full email support inbox." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a full email support inbox." }
+    ]
+  }
+}

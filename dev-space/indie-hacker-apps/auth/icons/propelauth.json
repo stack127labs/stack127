@@ -1,0 +1,17 @@
+{
+  "slug": "propelauth",
+  "name": "PropelAuth",
+  "official_url": "https://www.propelauth.com/",
+  "image_url": "https://github.com/PropelAuth.png?size=460",
+  "source_page": "https://github.com/PropelAuth",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "76197c4a20e23a9470190dbe9ce1a0939cdf2466c5a90bdd91a493508f95cf34",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

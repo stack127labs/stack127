@@ -1,0 +1,40 @@
+{
+  "slug": "netlify",
+  "name": "Netlify",
+  "url": "https://www.netlify.com/",
+  "jobs": [
+    "static"
+  ],
+  "line": "Static and frontend hosting with functions, forms and a managed Postgres.",
+  "free": {
+    "kind": "free",
+    "text": "300 shared credits/month; no top-ups; team projects pause at zero"
+  },
+  "cells": {
+    "type": "Static, Functions and managed Postgres",
+    "regions": "Functions: 12 regions; CDN edge is global",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "$20 or $25",
+        "plan": "Pro 3,000 credits",
+        "state": "unclear",
+        "math": "Assuming 20 successful production deploys: 300 + 2,000 (for 100 GB) + 200 (for 1 million requests) = 2,500 credits, within Pro's 3,000. The base is $20 or $25."
+      },
+      {
+        "v": "$30 or $35",
+        "plan": "Pro + one 1,500-credit pack",
+        "state": "unclear",
+        "math": "Assuming 20 successful deploys and 250 ms at 1,024 MB: 2,500 + 694.444 = 3,194.444 credits. That is one $10 pack over Pro's 3,000 credits, plus the $20 or $25 base."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Pro + 10 packs + Database",
+        "state": "unclear",
+        "math": "Assuming the small app API + 2 database units for 730 hours, and all 10 GB of database traffic going out: 17,994.444 credits. Pro ($20 or $25) + 10 packs ($100) leaves 5.56 credits. Storage and backup rates are unknown."
+      }
+    ]
+  }
+}

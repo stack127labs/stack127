@@ -1,0 +1,17 @@
+{
+  "slug": "upcloud-cloud-servers",
+  "name": "UpCloud Cloud Servers",
+  "official_url": "https://upcloud.com/products/cloud-servers/",
+  "image_url": "https://upcloud.com/media/android-chrome-512x512-2-300x300.png",
+  "source_page": "https://upcloud.com/products/cloud-servers/",
+  "kind": "manifest-icon",
+  "source_host": "upcloud.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "45e7b46568f8b3636bf4ddd847cc48eb823601a0245958abec3e659e8a2530b8",
+  "note": "parent brand: UpCloud; no distinct Cloud Servers mark found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

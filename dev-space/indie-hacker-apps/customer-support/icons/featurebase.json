@@ -1,0 +1,17 @@
+{
+  "slug": "featurebase",
+  "name": "Featurebase",
+  "official_url": "https://www.featurebase.app/",
+  "image_url": "https://www.featurebase.app/icons/icon-512.png",
+  "source_page": "https://www.featurebase.app/",
+  "kind": "manifest-icon",
+  "source_host": "featurebase.app",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "d9c97ded58d31abd163a732c76a5207191ec976d60550456fe9f45930497d948",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

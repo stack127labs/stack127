@@ -1,0 +1,26 @@
+{
+  "slug": "memberful",
+  "name": "Memberful",
+  "url": "https://memberful.com/product",
+  "jobs": ["newsletter"],
+  "line": "Paid membership with newsletters and member lifecycle emails.",
+  "free": { "kind": "none", "text": "Free unlimited test mode; production email needs Stripe" },
+  "cells": {
+    "newsletters": "Yes, scheduled and member-only newsletters",
+    "api": "Yes, GraphQL API for member data"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 49/month", "plan": "Standard", "state": "confirmed", "math": "4,000 emails a month. The USD 49 platform price assumes one publication, four free issues on separate days, and no paid-reader revenue. It excludes the 4.9% transaction fee." },
+      { "v": "USD 49/month", "plan": "Standard", "state": "confirmed", "math": "20,000 emails a month. The USD 49 platform price assumes one publication, four free issues on separate days, and no paid-reader revenue. It excludes the 4.9% transaction fee." },
+      { "v": "USD 49/month", "plan": "Standard", "state": "confirmed", "math": "40,000 emails a month. The USD 49 platform price assumes one publication, four free issues on separate days, and no paid-reader revenue. It excludes the 4.9% transaction fee." },
+      { "v": "USD 49/month", "plan": "Standard", "state": "confirmed", "math": "200,000 emails a month. The USD 49 platform price assumes one publication, four free issues on separate days, and no paid-reader revenue. It excludes the 4.9% transaction fee." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Memberful does not offer general app-email sending through an API." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Memberful does not offer general app-email sending through an API." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Memberful does not offer general app-email sending through an API." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Memberful does not offer general app-email sending through an API." }
+    ]
+  }
+}

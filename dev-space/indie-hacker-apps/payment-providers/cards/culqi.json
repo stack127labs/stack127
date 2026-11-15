@@ -1,0 +1,21 @@
+{
+  "slug": "culqi",
+  "name": "Culqi",
+  "url": "https://culqi.com/",
+  "jobs": ["gateway", "links"],
+  "line": "Peruvian payment gateway with online checkout and payment links.",
+  "free": { "kind": "none", "text": "No setup or monthly fee" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Peru only",
+    "payout": "Two business days after sale"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Peru." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Peru." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Peru." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Peru." }
+    ]
+  }
+}

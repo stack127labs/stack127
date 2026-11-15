@@ -1,0 +1,14 @@
+{
+  "slug": "replit-publishing",
+  "name": "Replit Publishing",
+  "url": "https://replit.com/deployments",
+  "jobs": ["paas"],
+  "line": "Publish and run apps on Replit's managed cloud infrastructure.",
+  "free": { "kind": "free", "text": "Starter: 1 published app, monthly credits; link expires after 30 days" },
+  "cells": { "type": "Managed app hosting", "regions": "Free defaults US; paid regions list 5 areas (guide conflict)", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$20", "plan": "Core + Static", "state": "confirmed", "math": "$20 Core plan. Static sites and 100 GB of data sent out fit the 100 GiB allowance. Assumes normal builds and no other paid usage uses up the single $20 credit pool." },
+    { "v": "Unknown", "plan": "Core + Reserved VM (1 vCPU/4 GiB)", "state": "conflicting", "math": "The VM costs $35 a month fixed, or 730 hours × $0.0486 an hour = $35.478. Core's $20 credit applies once, and 100 GB fits within 100 GiB. Tax is not included." },
+    { "v": "Unknown", "plan": "Core + VM + production Postgres", "state": "unclear", "math": "Subtotal is $155.30 or $155.778, plus $0.09 per backup unit and $0.05 per network unit (counts unknown). Assumes 10 GiB billed storage, 730 active database hours, and PITR off. Whether database RAM fits is unknown." }
+  ] }
+}

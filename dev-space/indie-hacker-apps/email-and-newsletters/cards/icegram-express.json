@@ -1,0 +1,26 @@
+{
+  "slug": "icegram-express",
+  "name": "Icegram Express",
+  "url": "https://www.icegram.com/express/",
+  "jobs": ["newsletter", "marketing"],
+  "line": "WordPress plugin for newsletters, with paid email automation and subscriber lists.",
+  "free": { "kind": "free", "text": "Free on 1 site; you provide the email sender" },
+  "cells": {
+    "newsletters": "Yes, broadcasts to subscribers",
+    "api": "Yes, subscriber API on Pro/Max"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 15.89/month", "plan": "Max + Lightsail + SES", "state": "confirmed", "math": "An illustrative example: USD 99 a year for the Max plan, plus USD 7 hosting (Lightsail) and USD 0.64 of Amazon SES for 4,000 emails." },
+      { "v": "USD 18.45/month", "plan": "Max + Lightsail + SES", "state": "confirmed", "math": "An illustrative example: USD 99 a year for the Max plan, plus USD 7 hosting (Lightsail) and USD 3.20 of Amazon SES for 20,000 emails." },
+      { "v": "USD 21.65/month", "plan": "Max + Lightsail + SES", "state": "confirmed", "math": "An illustrative example: USD 99 a year for the Max plan, plus USD 7 hosting (Lightsail) and USD 6.40 of Amazon SES for 40,000 emails." },
+      { "v": "USD 47.25/month", "plan": "Max + Lightsail + SES", "state": "confirmed", "math": "An illustrative example: USD 99 a year for the Max plan, plus USD 7 hosting (Lightsail) and USD 32 of Amazon SES for 200,000 emails." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API for sending app emails. This cost example is for WordPress lifecycle workflows." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API for sending app emails. This cost example is for WordPress lifecycle workflows." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API for sending app emails. This cost example is for WordPress lifecycle workflows." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API for sending app emails. This cost example is for WordPress lifecycle workflows." }
+    ]
+  }
+}

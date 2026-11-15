@@ -1,0 +1,25 @@
+{
+  "slug": "layerbase",
+  "name": "Layerbase",
+  "url": "https://layerbase.com/",
+  "jobs": ["sql", "kv", "vector", "jobs"],
+  "line": "Managed databases for SQL, key-value, vector search, and webhook queues.",
+  "free": { "kind": "free", "text": "2 DBs, 5GB, 20 conns; sleep 15m idle/30m MySQL; archive 14d asleep, 7d unused" },
+  "cells": {
+    "metered": "$5/mo Solo; $15/mo Pro; $10/mo per pool block",
+    "regions": "US East or EU West; region choice unclear",
+    "selfhost": "Yes, local CLI; paid license needed for commercial use"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$5", "plan": "Solo", "state": "unclear", "math": "$5 a month subscription, with no query meter. Whether the workload fits depends on conditions, and tax is extra." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "An eligible Free project costs $0 a month within its rules. It goes to sleep (hibernates) and is not always available." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Layerbase does not provide file or object storage for apps." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "VQueue plus receiver", "state": "unclear", "math": "The queue adds $0 on an eligible Free Valkey plan. But 10,000 jobs reach its history limit, and hosting for the receiver is extra." }
+    ]
+  }
+}

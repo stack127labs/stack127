@@ -1,0 +1,24 @@
+{
+  "slug": "incidenthub",
+  "name": "IncidentHub",
+  "url": "https://incidenthub.cloud/",
+  "jobs": ["status"],
+  "line": "Aggregates third-party service incidents into alerts and status pages.",
+  "free": { "kind": "free", "text": "5 monitored services; no customer status page; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IncidentHub collects status feeds from providers. It doesn't check endpoints." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IncidentHub collects status feeds from providers. It doesn't check endpoints." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "IncidentHub collects status feeds from providers. It doesn't check endpoints." }
+    ]
+  }
+}

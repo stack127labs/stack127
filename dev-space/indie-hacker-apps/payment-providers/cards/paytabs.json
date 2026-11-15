@@ -1,0 +1,48 @@
+{
+  "slug": "paytabs",
+  "name": "PayTabs",
+  "url": "https://paytabs.com/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Regional payment gateway with hosted checkout, links and recurring cards.",
+  "free": {
+    "kind": "none",
+    "text": "KSA: SAR 999 setup and SAR 199/month; other markets vary"
+  },
+  "cells": {
+    "type": "Payment gateway and payment platform",
+    "countries": "the UAE and nearby markets only",
+    "payout": "Monday default; bank receipt typically 24–48 hours"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      }
+    ]
+  }
+}

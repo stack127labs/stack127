@@ -1,0 +1,26 @@
+{
+  "slug": "mailchimp-transactional",
+  "name": "Mailchimp Transactional",
+  "url": "https://mailchimp.com/features/transactional-email/",
+  "jobs": ["transactional"],
+  "line": "API and SMTP delivery for one-to-one app and commerce emails.",
+  "free": { "kind": "credits", "text": "One-time demo for up to 500 emails" },
+  "cells": {
+    "newsletters": "No, bulk marketing and newsletters are prohibited",
+    "api": "Yes, transactional API and SMTP relay"
+  },
+  "costs": {
+    "subs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Bulk newsletters and marketing campaigns are not allowed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Bulk newsletters and marketing campaigns are not allowed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Bulk newsletters and marketing campaigns are not allowed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Bulk newsletters and marketing campaigns are not allowed." }
+    ],
+    "appmail": [
+      { "v": "$40/month", "plan": "Standard + 1 block", "state": "confirmed", "math": "$20 Standard plan, plus 1 block at $20 for up to 25,000 emails. This is the 3,000-email scenario." },
+      { "v": "$40/month", "plan": "Standard + 1 block", "state": "confirmed", "math": "$20 Standard plan, plus 1 block at $20 for up to 25,000 emails. This is the 10,000-email scenario." },
+      { "v": "$60/month", "plan": "Standard + 2 blocks", "state": "confirmed", "math": "$20 Standard plan, plus 2 blocks at $20 each for 50,000 emails." },
+      { "v": "$100/month", "plan": "Standard + 4 blocks", "state": "confirmed", "math": "$20 Standard plan, plus 4 blocks at $20 each for 100,000 emails." }
+    ]
+  }
+}

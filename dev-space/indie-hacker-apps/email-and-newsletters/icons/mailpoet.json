@@ -1,0 +1,17 @@
+{
+  "slug": "mailpoet",
+  "name": "MailPoet",
+  "official_url": "https://www.mailpoet.com/",
+  "image_url": "https://www.mailpoet.com/wp-content/uploads/2020/05/mailpoet-symbol.png",
+  "source_page": "https://www.mailpoet.com/",
+  "kind": "logo-mark",
+  "source_host": "mailpoet.com",
+  "original": {
+    "format": "png",
+    "width": 600,
+    "height": 600
+  },
+  "sha256": "38baca9f74f6ec65753351f3b532f561835bf2f774d8a06294e44b5fee8d107d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

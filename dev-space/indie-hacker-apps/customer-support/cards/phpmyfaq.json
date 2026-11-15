@@ -1,0 +1,19 @@
+{
+  "slug": "phpmyfaq",
+  "name": "phpMyFAQ",
+  "url": "https://www.phpmyfaq.de/",
+  "jobs": ["helpdesk"],
+  "line": "Self-hosted open-source FAQ and knowledge base for customer questions.",
+  "free": { "kind": "selfhost", "text": "Free MPL-2.0 software; you provide hosting" },
+  "cells": {
+    "channels": "Searchable FAQ, moderated questions, article submissions",
+    "ai": "No native AI answer tariff established",
+    "selfhost": "Yes, MPL-2.0"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "FAQ software only. It has no support inbox or staffed chat." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "FAQ software only. It has no support inbox or staffed chat." }
+    ]
+  }
+}

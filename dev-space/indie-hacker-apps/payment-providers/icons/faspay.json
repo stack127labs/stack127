@@ -1,0 +1,17 @@
+{
+  "slug": "faspay",
+  "name": "Faspay",
+  "official_url": "https://faspay.co.id/id/",
+  "image_url": "https://faspay.co.id/wp-content/uploads/2024/06/cropped-icon-192x192.webp",
+  "source_page": "https://faspay.co.id/id/",
+  "kind": "favicon",
+  "source_host": "faspay.co.id",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "713ad026abad9dccffdaa0a527c064e90065344d8d3051ac5a779b98e999e1bd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

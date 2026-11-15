@@ -1,0 +1,20 @@
+{
+  "slug": "appmetrica",
+  "name": "AppMetrica",
+  "url": "https://appmetrica.yandex.com/about",
+  "jobs": ["product", "revenue"],
+  "line": "Mobile app analytics for usage, retention and purchase revenue.",
+  "free": {"kind": "free", "text": "Free up to 100 million custom events/month"},
+  "cells": {
+    "cookieless": "Yes (native SDK uses device IDs)",
+    "location": "EU and Russia (Yandex servers)",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Native app analytics is not priced by website pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Native app analytics is not priced by website pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Native app analytics is not priced by website pageviews."}
+    ]
+  }
+}

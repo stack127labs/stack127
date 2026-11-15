@@ -1,0 +1,21 @@
+{
+  "slug": "montonio",
+  "name": "Montonio",
+  "url": "https://www.montonio.com/",
+  "jobs": ["gateway", "links"],
+  "line": "European checkout for online card, bank payments and payment links.",
+  "free": { "kind": "none", "text": "Baltic and Finnish plans start at €11.99/month" },
+  "cells": {
+    "type": "Payment service and checkout technology",
+    "countries": "Baltics, Poland and Finland; wider seller list unpublished",
+    "payout": "Card payments reach seller on T+2 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published pricing covers Baltic, Polish and Finnish merchants. No US seller rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published pricing covers Baltic, Polish and Finnish merchants. No UK seller rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published pricing covers Baltic, Polish and Finnish merchants. No German seller rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published pricing covers Baltic, Polish and Finnish merchants. No Indian seller rate is published." }
+    ]
+  }
+}

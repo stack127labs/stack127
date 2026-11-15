@@ -1,0 +1,17 @@
+{
+  "slug": "newsman",
+  "name": "NewsMAN",
+  "official_url": "https://www.newsman.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c8/83/4e/c8834e61-fd55-03a3-638f-9051f3290643/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/newsman/id906273825?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "cfed931480705dd2ac5a024d2469787c8643f1cd1e78e07637a4c2a4cd9f9471",
+  "note": "App Store: NewsMAN by Dazoot Software SRL",
+  "saved_at": "2026-11-14"
+}

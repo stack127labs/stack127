@@ -1,0 +1,14 @@
+{
+  "slug": "cyberpanel",
+  "name": "CyberPanel",
+  "url": "https://cyberpanel.net/",
+  "jobs": ["panel"],
+  "line": "Run websites, databases, and containers from a free server panel.",
+  "free": { "kind": "selfhost", "text": "Free Core; unlimited OpenLiteSpeed sites, needs your own Linux server" },
+  "cells": { "type": "Self-hosted panel", "regions": "Your server's region", "selfhost": "Yes; install CyberPanel Core yourself" },
+  "costs": { "work": [
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" }
+  ] }
+}

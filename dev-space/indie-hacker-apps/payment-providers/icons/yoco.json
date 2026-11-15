@@ -1,0 +1,17 @@
+{
+  "slug": "yoco",
+  "name": "Yoco",
+  "official_url": "https://www.yoco.com/za/",
+  "image_url": "https://www.yoco.com/icons/icon-512x512.png?v=dbf952510fd25cdd51080a06cb2d96b6",
+  "source_page": "https://www.yoco.com/za/",
+  "kind": "manifest-icon",
+  "source_host": "yoco.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "83a702b94c00aee8cc2e8c5cb664bf871190e8441771027c80f4b89d6527bbc3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

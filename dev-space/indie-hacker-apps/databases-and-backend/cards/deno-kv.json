@@ -1,0 +1,25 @@
+{
+  "slug": "deno-kv",
+  "name": "Deno KV",
+  "url": "https://docs.deno.com/deploy/reference/deno_kv/",
+  "jobs": ["kv", "jobs"],
+  "line": "Transactional key-value storage with hosted and SQLite-backed options.",
+  "free": { "kind": "free", "text": "1 GiB; 1M reads, 500K writes/mo; no idle deletion; Deploy is shutting down" },
+  "cells": {
+    "metered": "Pro $20/month per organization; KV overages apply",
+    "regions": "US primary (us-east4); Europe and Asia replicas",
+    "selfhost": "Yes, MIT denokv server or local SQLite"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0/month", "plan": "Free", "state": "unclear", "math": "Assumes a verified Free organization. 0.931 GiB, 100,000 reads and 20,000 writes fit within the monthly allowances." },
+      { "v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Keeping 0.931 GiB stays within the Free plan's 1 GiB allowance. There are no requests or jobs." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Deno KV has no separate file storage." }
+    ],
+    "jobs": [
+      { "v": "$0", "plan": "Free Cron", "state": "unclear", "math": "10K scheduled Cron runs, each taking 1 CPU-second, use 2.78 CPU hours and an assumed 10 GiB-hours. This fits the Free plan if other app usage leaves room in those limits." }
+    ]
+  }
+}

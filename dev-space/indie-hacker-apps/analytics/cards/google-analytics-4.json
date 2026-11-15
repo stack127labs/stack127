@@ -1,0 +1,41 @@
+{
+  "slug": "google-analytics-4",
+  "name": "Google Analytics",
+  "url": "https://marketingplatform.google.com/about/analytics/",
+  "jobs": [
+    "web",
+    "product"
+  ],
+  "line": "Free Google web and app analytics, tied to the ad tools.",
+  "free": {
+    "kind": "free",
+    "text": "Free; export sandbox: 10 GiB storage, 1 TiB queries/month"
+  },
+  "cells": {
+    "cookieless": "No",
+    "location": "Not stated",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "0",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "The standard fee is zero, and that covers only the Analytics service."
+      },
+      {
+        "v": "0",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "The standard fee is zero, and that covers only the Analytics service."
+      },
+      {
+        "v": "0",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "The standard fee is zero, and that covers only the Analytics service."
+      }
+    ]
+  }
+}

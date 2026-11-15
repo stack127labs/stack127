@@ -1,0 +1,21 @@
+{
+  "slug": "paguelofacil",
+  "name": "PagueloFacil",
+  "url": "https://www.paguelofacil.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Panama gateway for online checkout, payment links and recurring cards.",
+  "free": { "kind": "none", "text": "Transaction pricing; separate monthly amount is not stated" },
+  "cells": {
+    "type": "Online payment gateway and payment provider",
+    "countries": "Panama only",
+    "payout": "Withdrawal processed in 48–72 business hours"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Panama." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Panama." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Panama." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Panama." }
+    ]
+  }
+}

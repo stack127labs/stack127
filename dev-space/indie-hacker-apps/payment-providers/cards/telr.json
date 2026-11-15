@@ -1,0 +1,48 @@
+{
+  "slug": "telr",
+  "name": "Telr",
+  "url": "https://telr.com/",
+  "jobs": [
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "line": "Regional gateway with hosted checkout, recurring billing, invoices, and links.",
+  "free": {
+    "kind": "none",
+    "text": "UAE and Saudi plans include monthly fees; other prices vary by market"
+  },
+  "cells": {
+    "type": "Payment gateway and service provider",
+    "countries": "the UAE, Jordan, Bahrain and Saudi Arabia only",
+    "payout": "Standard timing is account-specific; no public day count"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      }
+    ]
+  }
+}

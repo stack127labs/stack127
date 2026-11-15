@@ -1,0 +1,24 @@
+{
+  "slug": "montastic",
+  "name": "Montastic",
+  "url": "https://www.montastic.com/",
+  "jobs": ["uptime", "status"],
+  "line": "Checks websites for downtime and publishes status pages with incidents.",
+  "free": { "kind": "free", "text": "50 checkpoints at 5-minute intervals; 1 page, 20 subscribers" },
+  "cells": {
+    "interval": "60 s paid; free 5 min (homepage says 1 min)",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$5", "plan": "Team", "state": "unclear", "math": "The Team plan fits 5 endpoints. Whether an own-domain page and one check location (probe) are included isn't confirmed." },
+      { "v": "$10", "plan": "Business", "state": "unclear", "math": "The Business plan fits 25 endpoints. Whether an own-domain page and one check location (probe) are included isn't confirmed." },
+      { "v": "$19", "plan": "Enterprise", "state": "unclear", "math": "The Enterprise plan fits 100 endpoints. Whether an own-domain page and one check location (probe) are included isn't confirmed." }
+    ]
+  }
+}

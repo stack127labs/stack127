@@ -1,0 +1,24 @@
+{
+  "slug": "pingzo",
+  "name": "Pingzo",
+  "url": "https://www.pingzoapp.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Checks sites, domains and cron jobs, with hosted status pages and alerts.",
+  "free": { "kind": "free", "text": "Free: 1 monitor, 15-minute checks, 7-day history" },
+  "cells": {
+    "interval": "15 min free; 1 min paid",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" }
+    ],
+    "uptime": [
+      { "v": "$29", "plan": "Agency", "state": "unclear", "math": "The Agency plan is the minimum subscription. 5 endpoints fit, but the exact terms for one-location checks and status pages aren't settled." },
+      { "v": "$29", "plan": "Agency", "state": "unclear", "math": "The Agency plan is the minimum subscription. 25 endpoints fit, but the exact terms for one-location checks and status pages aren't settled." },
+      { "v": "$29", "plan": "Agency", "state": "unclear", "math": "The Agency plan is the minimum subscription. 100 endpoints fit, but the exact terms for one-location checks and status pages aren't settled." }
+    ]
+  }
+}

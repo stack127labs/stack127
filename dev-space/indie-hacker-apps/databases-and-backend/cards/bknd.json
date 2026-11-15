@@ -1,0 +1,25 @@
+{
+  "slug": "bknd",
+  "name": "bknd",
+  "url": "https://github.com/bknd-io/bknd",
+  "jobs": ["backend", "sql", "files", "jobs"],
+  "line": "Self-hostable backend software for data, auth, files, and workflows.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you provide hosting" },
+  "cells": {
+    "metered": "No software fee; hosting and storage billed separately",
+    "regions": "Choose the region from your hosting provider",
+    "selfhost": "Yes, self-host or embed in an app"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Zero software fee. Host, persistent database, transfer and backup costs depend on how it is deployed." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Zero software fee. Kept host, storage and backup costs depend on how it is deployed." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Storage, requests, outbound transfer (egress) and backups are billed by the host and storage provider you choose." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "There is no bknd worker price. Host and orchestration costs depend on how it is deployed." }
+    ]
+  }
+}

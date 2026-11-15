@@ -1,0 +1,17 @@
+{
+  "slug": "warnly",
+  "name": "Warnly",
+  "official_url": "https://warnly.io/",
+  "image_url": "https://warnly.io/icon.jpg?0a8df9e13aacc112",
+  "source_page": "https://warnly.io/",
+  "kind": "favicon",
+  "source_host": "warnly.io",
+  "original": {
+    "format": "svg",
+    "width": 85,
+    "height": 85
+  },
+  "sha256": "b3a61655fdeec8586e676112638e3cf48961ee94a949917ea17e360f8a2f546b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

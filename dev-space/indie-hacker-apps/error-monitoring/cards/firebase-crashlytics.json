@@ -1,0 +1,24 @@
+{
+  "slug": "firebase-crashlytics",
+  "name": "Firebase Crashlytics",
+  "url": "https://firebase.google.com/products/crashlytics",
+  "jobs": ["errors"],
+  "line": "Reports mobile app crashes and non-fatal errors with release stability data.",
+  "free": { "kind": "free", "text": "No-cost native Crashlytics for production apps; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$0.00", "plan": "Spark", "state": "confirmed", "math": "Native error reports have no monitoring charge at this volume." },
+      { "v": "$0.00", "plan": "Spark", "state": "confirmed", "math": "Native error reports have no monitoring charge at this volume." },
+      { "v": "$0.00", "plan": "Spark", "state": "confirmed", "math": "Native error reports have no monitoring charge at this volume." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

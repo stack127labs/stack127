@@ -1,0 +1,19 @@
+{
+  "slug": "wati",
+  "name": "Wati",
+  "url": "https://www.wati.io/",
+  "jobs": ["inbox", "ai"],
+  "line": "WhatsApp shared inbox with campaigns, commerce workflows, and AI agents.",
+  "free": { "kind": "trial", "text": "7-day trial; no card advertised" },
+  "cells": {
+    "channels": "WhatsApp",
+    "ai": "2,000 monthly credits on Growth; usage varies",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "₹2,999", "plan": "Growth", "state": "unclear", "math": "Monthly subscription, with three users included. WhatsApp message charges and taxes are extra." },
+      { "v": "₹2,999", "plan": "Growth", "state": "unclear", "math": "The same plan covers three working agents. WhatsApp delivery charges are extra." }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "xano",
+  "name": "Xano",
+  "url": "https://www.xano.com/",
+  "jobs": ["hosted"],
+  "line": "Hosted backend with user signup, login APIs, and PostgreSQL.",
+  "free": { "kind": "none", "text": "Free is for development; production starts at $99/month" },
+  "cells": {
+    "freeUsers": "Free has 100,000 records; production starts at $99",
+    "sso": "No app-user SSO or SCIM connection price found"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$99", "plan": "Essential", "state": "unclear", "math": "The Essential base is $99, plus a $0 per-user fee. The total depends on the actual workload and whether capacity is enough." },
+      { "v": "$99", "plan": "Essential", "state": "unclear", "math": "The Essential base is $99, plus a $0 per-user fee. The total depends on the actual workload and whether capacity is enough." },
+      { "v": "$99", "plan": "Essential", "state": "unclear", "math": "The Essential base is $99, plus a $0 per-user fee. The total depends on the actual workload and whether capacity is enough." },
+      { "v": "$99", "plan": "Essential", "state": "unclear", "math": "The Essential base is $99, plus a $0 per-user fee. The total depends on the actual workload and whether capacity is enough." }
+    ]
+  }
+}

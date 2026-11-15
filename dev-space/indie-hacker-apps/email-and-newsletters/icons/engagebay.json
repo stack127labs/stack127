@@ -1,0 +1,17 @@
+{
+  "slug": "engagebay",
+  "name": "EngageBay",
+  "official_url": "https://www.engagebay.com/",
+  "image_url": "https://d2p078bqz5urf7.cloudfront.net/cloud/assets/img/logo/fav/ab-16x16.ico",
+  "source_page": "https://www.engagebay.com/",
+  "kind": "favicon",
+  "source_host": "d2p078bqz5urf7.cloudfront.net",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "9a5b391744d782f91f80fb6a2a183cfff6677d3b82a18fcbc11729b63575ad45",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

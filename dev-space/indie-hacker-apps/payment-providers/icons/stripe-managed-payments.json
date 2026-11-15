@@ -1,0 +1,17 @@
+{
+  "slug": "stripe-managed-payments",
+  "name": "Stripe Managed Payments",
+  "official_url": "https://stripe.com/managed-payments",
+  "image_url": "https://images.stripeassets.com/fzn2n1nzq965/1hgcBNd12BfT9VLgbId7By/01d91920114b124fb4cf6d448f9f06eb/favicon.svg",
+  "source_page": "https://stripe.com/in/managed-payments",
+  "kind": "svg-icon",
+  "source_host": "images.stripeassets.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "b410942e4a55ea60d2fe8bcd3328554a1c445b622557816de32a79274902350c",
+  "note": "parent brand: Stripe",
+  "saved_at": "2026-11-14"
+}

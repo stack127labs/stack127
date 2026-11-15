@@ -1,0 +1,46 @@
+{
+  "slug": "zoho-billing",
+  "name": "Zoho Billing",
+  "url": "https://www.zoho.com/billing/",
+  "jobs": [
+    "billing"
+  ],
+  "line": "Subscriptions, invoices, and customer billing with connected gateways.",
+  "free": {
+    "kind": "trial",
+    "text": "14-day trial; no permanent free license"
+  },
+  "cells": {
+    "type": "Billing software",
+    "countries": "Global; country availability list unpublished",
+    "payout": "Gateway pays seller; timing varies by gateway"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zoho Billing adds no processing fee. The payment gateway you connect charges its own fee separately."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zoho Billing adds no processing fee. The payment gateway you connect charges its own fee separately."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zoho Billing adds no processing fee. The payment gateway you connect charges its own fee separately."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zoho Billing adds no processing fee. The payment gateway you connect charges its own fee separately."
+      }
+    ]
+  }
+}

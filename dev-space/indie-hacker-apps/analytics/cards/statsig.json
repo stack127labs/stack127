@@ -1,0 +1,12 @@
+{
+  "slug": "statsig", "name": "Statsig", "url": "https://www.statsig.com/",
+  "jobs": ["product", "replay", "web"],
+  "line": "Product analytics, experiments and replay with event based pricing.",
+  "free": {"kind": "free", "text": "Developer: 2,000,000 metered events/month"},
+  "cells": {"cookieless": "Optional (cookies can be enabled)", "location": "US", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "$0", "plan": "Developer", "state": "confirmed", "math": "This scenario counts one metered event per pageview. 10,000 is within 2M a month."},
+    {"v": "$0", "plan": "Developer", "state": "confirmed", "math": "This scenario counts one metered event per pageview. 100,000 is within 2M a month."},
+    {"v": "$0", "plan": "Developer", "state": "confirmed", "math": "This scenario counts one metered event per pageview. 1,000,000 is within 2M a month."}
+  ]}
+}

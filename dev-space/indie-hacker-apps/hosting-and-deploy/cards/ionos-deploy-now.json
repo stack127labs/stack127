@@ -1,0 +1,14 @@
+{
+  "slug": "ionos-deploy-now",
+  "name": "IONOS Deploy Now",
+  "url": "https://www.ionos.com/hosting/deploy-now",
+  "jobs": ["static", "paas"],
+  "line": "Build and deploy GitHub websites to managed hosting.",
+  "free": { "kind": "trial", "text": "One-month $0 offer; ongoing free plan unclear" },
+  "cells": { "type": "Git-based managed hosting", "regions": "Germany/US by customer market; UK unclear", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Membership + Static project", "state": "unclear", "math": "$4 Membership + $2 Static = $6 a month. Not counted: 100 GB of traffic, the domain and GitHub extras. Builds fit only within the $12 allowance." },
+    { "v": "Unknown", "plan": "Membership + PHP project", "state": "unclear", "math": "$4 + $7 = $11 a month hosting subtotal. The 100 GB traffic, domain and GitHub extras are not confirmed. Whether PHP can handle 1 million requests with 256 MiB is not verified." },
+    { "v": "Unknown", "plan": "PHP + external PostgreSQL", "state": "unclear", "math": "$11 a month PHP subtotal. The PostgreSQL price, 1 GiB RAM and 10 GB storage, 7-day backups and 10 GB transfer costs are not confirmed." }
+  ] }
+}

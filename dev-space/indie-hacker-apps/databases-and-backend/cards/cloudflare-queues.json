@@ -1,0 +1,25 @@
+{
+  "slug": "cloudflare-queues",
+  "name": "Cloudflare Queues",
+  "url": "https://developers.cloudflare.com/queues/",
+  "jobs": ["jobs"],
+  "line": "Buffer and deliver messages between applications and Workers.",
+  "free": { "kind": "free", "text": "10,000 standard operations per day; 24-hour retention" },
+  "cells": {
+    "metered": "$0.40/million operations after the paid allowance",
+    "regions": "EU, US, or FedRAMP jurisdiction options",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No SQL database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No SQL database service" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No object-storage service" }
+    ],
+    "jobs": [
+      { "v": "$5", "plan": "Workers Paid account minimum", "state": "unclear", "math": "10,000 jobs, each with 3 queue operations, make 30,000 operations. These are included in Paid usage, plus the $5 plan minimum. Whether the worker's CPU fits is not guaranteed." }
+    ]
+  }
+}

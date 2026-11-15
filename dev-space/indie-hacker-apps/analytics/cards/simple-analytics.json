@@ -1,0 +1,40 @@
+{
+  "slug": "simple-analytics",
+  "name": "Simple Analytics",
+  "url": "https://www.simpleanalytics.com/",
+  "jobs": [
+    "web"
+  ],
+  "line": "Privacy-first, EU-hosted web analytics with a free hobby tier.",
+  "free": {
+    "kind": "free",
+    "text": "Free hobby (eligibility unclear): 1 user, 5 sites, 30-day history; badge"
+  },
+  "cells": {
+    "cookieless": "Yes",
+    "location": "EU (Netherlands)",
+    "selfhost": "No"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$20",
+        "plan": "Simple",
+        "state": "confirmed",
+        "math": "10,000 pageviews: the smallest listed option is 100k, at USD 20 a month."
+      },
+      {
+        "v": "$20",
+        "plan": "Simple",
+        "state": "confirmed",
+        "math": "100,000 pageviews fall in the 100k option, at USD 20 a month."
+      },
+      {
+        "v": "$60",
+        "plan": "Simple",
+        "state": "confirmed",
+        "math": "1,000,000 pageviews fall in the 1m option, at USD 60 a month."
+      }
+    ]
+  }
+}

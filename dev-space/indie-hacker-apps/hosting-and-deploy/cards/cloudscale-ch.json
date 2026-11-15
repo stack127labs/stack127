@@ -1,0 +1,14 @@
+{
+  "slug": "cloudscale-ch",
+  "name": "cloudscale.ch",
+  "url": "https://www.cloudscale.ch/en",
+  "jobs": ["vps"],
+  "line": "Run root-access virtual servers on Swiss cloud infrastructure.",
+  "free": { "kind": "none", "text": "No recurring free VM plan" },
+  "cells": { "type": "VPS/VM", "regions": "Switzerland", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "CHF 50.19", "plan": "Flex-4-2", "state": "confirmed", "math": "CHF 1.65 a day, times 730 hours divided by 24 hours a day = CHF 50.1875 a month. 100 GB a month assumes total traffic stays below 100 GB a day. Before VAT." },
+    { "v": "CHF 33.46", "plan": "Flex-4-1", "state": "confirmed", "math": "CHF 1.10 a day, times 730 hours divided by 24 hours a day = CHF 33.4583 a month. 100 GB a month assumes total traffic stays below 100 GB a day. No request fee is listed." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "CHF 50.1875 for the server + CHF 3.0417 for a 10 GB data volume = CHF 53.2292 subtotal. The price for daily 7-day offsite backups is missing." }
+  ] }
+}

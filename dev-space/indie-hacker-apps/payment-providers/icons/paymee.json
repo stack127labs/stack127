@@ -1,0 +1,17 @@
+{
+  "slug": "paymee",
+  "name": "Paymee",
+  "official_url": "https://www.paymee.tn/",
+  "image_url": "https://www.paymee.tn/wp-content/uploads/2022/02/cropped-icon-192x192.png",
+  "source_page": "https://www.paymee.tn/",
+  "kind": "favicon",
+  "source_host": "paymee.tn",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "e521bcd78445fb60f030ef833f5b08c110e92a14aa8b69fe806d26eac485f515",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "logto",
+  "name": "Logto",
+  "official_url": "https://logto.io/",
+  "image_url": "https://logto.io/assets/apple-touch-icon-BEsXynRc.png",
+  "source_page": "https://logto.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "logto.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "031ba36ad3eb5fe72d887194d45171c213348d4fbf92c6d5455189687ca7ab37",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "amazon-dynamodb",
+  "name": "Amazon DynamoDB",
+  "url": "https://aws.amazon.com/dynamodb/",
+  "jobs": ["kv"],
+  "line": "Managed key-value and document database with item APIs and indexes.",
+  "free": { "kind": "free", "text": "25 GB, 25 RCUs/WCUs per Region; free account closes at 6 months" },
+  "cells": {
+    "metered": "$0.125/million read units; $0.625/million write units",
+    "regions": "Region-dependent; US East examples",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0.025", "plan": "Standard on-demand", "state": "unclear", "math": "100,000 reads plus 20,000 writes come to $0.025. This assumes each operation reads or writes one item at a time, and that storage and transfer stay within the remaining free allowances." },
+      { "v": "$0", "plan": "Standard provisioned", "state": "unclear", "math": "Fits within the unused free allowances: 25 read units (RCU), 25 write units (WCU) and a 25 GB storage allowance that renews each month. Whether the app's workload fits these limits is not confirmed." }
+    ],
+    "files": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "DynamoDB stores data items, not files, so it is not a file store." }],
+    "jobs": [{ "v": "$0.00625", "plan": "Standard", "state": "unclear", "math": "10,000 coordination writes at $0.625 per million. The workers that run the jobs are billed separately and not included." }]
+  }
+}

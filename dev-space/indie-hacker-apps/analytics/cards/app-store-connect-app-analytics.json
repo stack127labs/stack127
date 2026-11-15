@@ -1,0 +1,20 @@
+{
+  "slug": "app-store-connect-app-analytics",
+  "name": "App Store Connect App Analytics",
+  "url": "https://developer.apple.com/app-store-connect/analytics/",
+  "jobs": ["product", "revenue"],
+  "line": "Store reports for app downloads, usage and acquisition sources.",
+  "free": {"kind": "free", "text": "Included with an eligible Apple Developer membership"},
+  "cells": {
+    "cookieless": "Yes",
+    "location": "US storage; worldwide processing",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "App Store reports are included with membership, not priced by pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "App Store reports are included with membership, not priced by pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "App Store reports are included with membership, not priced by pageviews."}
+    ]
+  }
+}

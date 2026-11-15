@@ -1,0 +1,20 @@
+{
+  "slug": "authgear",
+  "name": "Authgear",
+  "url": "https://www.authgear.com/",
+  "jobs": ["hosted", "server"],
+  "line": "Account login and SSO in Authgear Cloud or your server.",
+  "free": { "kind": "free", "text": "Unlimited MAUs; 2 apps and 100 OTP messages/month" },
+  "cells": {
+    "freeUsers": "Unlimited MAUs; 2 apps and 2 admin seats",
+    "sso": "SAML SSO included; no separate connection price shown"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Cloud Free", "state": "confirmed", "math": "For the social-login setup, the subscription ($0), monthly user charge ($0), extra apps and seats ($0) and messages ($0) together cost nothing." },
+      { "v": "$0", "plan": "Cloud Free", "state": "confirmed", "math": "For the social-login setup, the subscription ($0), monthly user charge ($0), extra apps and seats ($0) and messages ($0) together cost nothing." },
+      { "v": "$0", "plan": "Cloud Free", "state": "confirmed", "math": "For the social-login setup, the subscription ($0), monthly user charge ($0), extra apps and seats ($0) and messages ($0) together cost nothing." },
+      { "v": "$0", "plan": "Cloud Free", "state": "confirmed", "math": "For the social-login setup, the subscription ($0), monthly user charge ($0), extra apps and seats ($0) and messages ($0) together cost nothing." }
+    ]
+  }
+}

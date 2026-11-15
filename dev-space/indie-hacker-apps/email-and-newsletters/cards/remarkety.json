@@ -1,0 +1,26 @@
+{
+  "slug": "remarkety",
+  "name": "Remarkety",
+  "url": "https://www.remarkety.com/",
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "line": "Commerce email campaigns, lifecycle automation and SMS marketing.",
+  "free": { "kind": "trial", "text": "14-day trial; CSV import limit differs by page" },
+  "cells": {
+    "newsletters": "Yes, newsletters and promotional campaigns",
+    "api": "Yes, store API; no email-send API or SMTP relay listed"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$50/month", "plan": "Basic", "state": "confirmed", "math": "The Basic price for 1,000 subscribers and 4,000 emails a month." },
+      { "v": "$140/month", "plan": "Starter", "state": "confirmed", "math": "Starter: $100 + $20 × (5,000 − 3,000) ÷ 1,000 steps, rounded up = $140 a month." },
+      { "v": "$240/month", "plan": "Starter", "state": "confirmed", "math": "Starter: $100 + $20 × (10,000 − 3,000) ÷ 1,000 steps, rounded up = $240 a month." },
+      { "v": "$540/month", "plan": "Advanced", "state": "confirmed", "math": "Advanced: $300 + $40 × (50,000 − 20,000) ÷ 5,000 steps, rounded up = $540 a month." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "Starter base", "state": "not_published", "math": "5,000 contacts and 3,000 one-email workflow runs. The Starter base is $140 a month, but the sending or API cost is unknown." },
+      { "v": "Unknown", "plan": "Starter base", "state": "not_published", "math": "5,000 contacts and 10,000 one-email workflow runs. The Starter base is $140 a month, but the sending or API cost is unknown." },
+      { "v": "Unknown", "plan": "Starter base", "state": "not_published", "math": "5,000 contacts and 50,000 one-email workflow runs. The Starter base is $140 a month, but the sending or API cost is unknown." },
+      { "v": "Unknown", "plan": "Starter base", "state": "not_published", "math": "5,000 contacts and 100,000 one-email workflow runs. The Starter base is $140 a month, but the sending or API cost is unknown." }
+    ]
+  }
+}

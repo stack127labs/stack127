@@ -1,0 +1,17 @@
+{
+  "slug": "univapay",
+  "name": "UnivaPay",
+  "official_url": "https://univapay.com/",
+  "image_url": "https://univapay.com/wp-content/uploads/2020/08/UNIVAPAY.png",
+  "source_page": "https://univapay.com/",
+  "kind": "logo-mark",
+  "source_host": "univapay.com",
+  "original": {
+    "format": "png",
+    "width": 129,
+    "height": 129
+  },
+  "sha256": "950a1954df4aa8974710ff811f022d31750d47a6b034c6b35e2c71168fef722e",
+  "note": "official square logo includes the UnivaPay wordmark",
+  "saved_at": "2026-11-14"
+}

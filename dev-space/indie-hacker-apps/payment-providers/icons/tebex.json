@@ -1,0 +1,17 @@
+{
+  "slug": "tebex",
+  "name": "Tebex",
+  "official_url": "https://www.tebex.io/",
+  "image_url": "https://www.tebex.io/favicon.png",
+  "source_page": "https://www.tebex.io/",
+  "kind": "favicon",
+  "source_host": "tebex.io",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "0ab0ae8413b37e0920a32b45005974a95bf3c2f9f76f48c5800ef79be6216868",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

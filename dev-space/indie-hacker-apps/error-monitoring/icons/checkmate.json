@@ -1,0 +1,17 @@
+{
+  "slug": "checkmate",
+  "name": "Checkmate",
+  "official_url": "https://checkmate.so/",
+  "image_url": "https://checkmate.so/icon.svg?icon.78859642.svg",
+  "source_page": "https://checkmate.so/",
+  "kind": "svg-icon",
+  "source_host": "checkmate.so",
+  "original": {
+    "format": "svg",
+    "width": 240,
+    "height": 240
+  },
+  "sha256": "e83ba0cc2b0157fc7cd2b41143a2e05f7a2e1725bd24cc7c00baf88894c8836a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

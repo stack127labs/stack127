@@ -1,0 +1,17 @@
+{
+  "slug": "coinbase-business",
+  "name": "Coinbase Business",
+  "official_url": "https://www.coinbase.com/business",
+  "image_url": "https://www.coinbase.com/apple-touch-icon.png",
+  "source_page": "https://www.coinbase.com/business",
+  "kind": "apple-touch-icon",
+  "source_host": "coinbase.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "2181cadda05c0098fd69c7aa5d6e2892d78301263ec577bcc99eb886409cb027",
+  "note": "parent brand: Coinbase",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "ionos-vps",
+  "name": "IONOS VPS",
+  "official_url": "https://www.ionos.com/servers/vps",
+  "image_url": "https://www.ionos.com/icon-512x512.png",
+  "source_page": "https://www.ionos.com/servers/vps",
+  "kind": "manifest-icon",
+  "source_host": "ionos.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "a6d42c60803f89474f00a65ef8c99eab9cfea4c21ef9c37f4b43353a5b007231",
+  "note": "Official square IONOS mark is a wordmark; no distinct VPS icon found.",
+  "saved_at": "2026-11-14"
+}

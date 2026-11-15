@@ -1,0 +1,17 @@
+{
+  "slug": "docsie",
+  "name": "Docsie",
+  "official_url": "https://www.docsie.io/",
+  "image_url": "https://d1iq6qzgppjlud.cloudfront.net/images/favicon/favicon-196x196.png",
+  "source_page": "https://www.docsie.io/",
+  "kind": "favicon",
+  "source_host": "d1iq6qzgppjlud.cloudfront.net",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "9cf9576aa49500693c9c498c7ec46a04690cededbc802bd1346580dc099722e1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

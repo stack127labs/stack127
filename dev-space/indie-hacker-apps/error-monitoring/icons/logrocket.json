@@ -1,0 +1,17 @@
+{
+  "slug": "logrocket",
+  "name": "LogRocket",
+  "official_url": "https://logrocket.com/",
+  "image_url": "https://logrocket.com/favicon/apple-touch-icon.png",
+  "source_page": "https://logrocket.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "logrocket.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "181dc6a25ce4a0f37297d332a7578dc7ef85678fe395a71f35d2c86f0e0120b5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

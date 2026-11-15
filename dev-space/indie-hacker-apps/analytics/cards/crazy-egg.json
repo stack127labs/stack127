@@ -1,0 +1,14 @@
+{
+  "slug": "crazy-egg",
+  "name": "Crazy Egg",
+  "url": "https://www.crazyegg.com/",
+  "jobs": ["web", "replay"],
+  "line": "Website analytics, heatmaps, recordings, and conversion tests.",
+  "free": { "kind": "free", "text": "Free; no numeric traffic cap published" },
+  "cells": { "cookieless": "No", "location": "US (AWS)", "selfhost": "No (none found)" },
+  "costs": { "pv": [
+    { "v": "$0", "plan": "Free Web Analytics", "state": "confirmed", "math": "That is $0 a month, times 12 months. Plain reports only, with no replay or full heatmap." },
+    { "v": "$0", "plan": "Free Web Analytics", "state": "confirmed", "math": "That is $0 a month, times 12 months. Plain reports only, with no replay or full heatmap." },
+    { "v": "$0", "plan": "Free Web Analytics", "state": "confirmed", "math": "That is $0 a month, times 12 months. Plain reports only, with no replay or full heatmap." }
+  ] }
+}

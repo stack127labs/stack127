@@ -1,0 +1,21 @@
+{
+  "slug": "binarycanary",
+  "name": "BinaryCanary",
+  "url": "https://www.binarycanary.com/",
+  "jobs": ["uptime", "performance"],
+  "line": "Checks websites, email, ports, DNS, and certificate or domain expiry.",
+  "free": { "kind": "trial", "text": "14-day trial" },
+  "cells": { "interval": "1 min", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "$5", "plan": "Standard", "state": "unclear", "math": "The Standard plan includes 10 locations. The monitoring part for 5 endpoints is $5 per 30-day billing cycle." },
+      { "v": "$10", "plan": "Power", "state": "unclear", "math": "The Power plan includes 30 locations. The monitoring part for 25 endpoints is $10 per 30-day billing cycle." },
+      { "v": "$20", "plan": "Hyper", "state": "unclear", "math": "The Hyper plan includes 100 locations. The monitoring part for 100 endpoints is $20 per 30-day billing cycle." }
+    ]
+  }
+}

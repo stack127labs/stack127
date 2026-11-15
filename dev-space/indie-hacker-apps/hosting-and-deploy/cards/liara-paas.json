@@ -1,0 +1,40 @@
+{
+  "slug": "liara-paas",
+  "name": "Liara PaaS",
+  "url": "https://liara.ir/",
+  "jobs": [
+    "paas"
+  ],
+  "line": "Build and deploy applications with managed hosting and databases.",
+  "free": {
+    "kind": "free",
+    "text": "Free plan advertised; ongoing limits unclear"
+  },
+  "cells": {
+    "type": "Managed app platform",
+    "regions": "Iran",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+      "v": "Unknown",
+        "plan": "Earth/Base",
+        "state": "unclear",
+      "math": "Earth Base plan: 750,000 toman a month listed; 759,930 for 730 hours. Up to 20 builds a day, 5 minutes each. 100 GB of traffic is subject to fair use. Tax and the full total are not confirmed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Jupiter/Base",
+        "state": "unclear",
+      "math": "Jupiter Base with 1 vCPU and 2 GB: 2,300,000 toman a month listed; 2,331,620 for 730 hours. API capacity is untested. The 5-minute build cap, fair-use traffic and tax still need checking."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Jupiter + Silver PostgreSQL",
+        "state": "unclear",
+      "math": "5,250,000 toman a month listed; 5,322,430 for 730 hours. 7 copies of 10 GB = 70 GB, while the price data says backup capacity is 180 GB and the docs say 45 GB. Tax and traffic are not confirmed."
+      }
+    ]
+  }
+}

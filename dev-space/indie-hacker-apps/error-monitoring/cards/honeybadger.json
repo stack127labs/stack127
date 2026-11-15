@@ -1,0 +1,64 @@
+{
+  "slug": "honeybadger",
+  "name": "Honeybadger",
+  "url": "https://www.honeybadger.io/",
+  "jobs": [
+    "errors",
+    "uptime",
+    "status",
+    "logs",
+    "performance",
+    "cron"
+  ],
+  "line": "Errors, uptime, check-ins and status pages for small teams.",
+  "free": {
+    "kind": "free",
+    "text": "5,000 errors/month, 1 user, 1 monitor free"
+  },
+  "cells": {
+    "interval": "300 s free, 120 s Team, 60 s Business",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "$26",
+        "plan": "Team",
+        "state": "confirmed",
+        "math": "5,000 errors fit inside the Team plan's 50,000 included, at $26 a month."
+      },
+      {
+        "v": "$26",
+        "plan": "Team",
+        "state": "confirmed",
+        "math": "50,000 errors fit inside the Team plan's 50,000 included, at $26 a month."
+      },
+      {
+        "v": "$161",
+        "plan": "Team + overage",
+        "state": "confirmed",
+        "math": "$26 for the Team plan, plus $135 for 450,000 extra reports. Total: $161 a month."
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$80",
+        "plan": "Business base",
+        "state": "unclear",
+        "math": "5 sites need the Business plan as the base. Faster checks come with it."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "20 more monitors beyond five. Honeybadger doesn't publish the upgrade price."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "95 more monitors beyond five. Honeybadger doesn't publish the upgrade price."
+      }
+    ]
+  }
+}

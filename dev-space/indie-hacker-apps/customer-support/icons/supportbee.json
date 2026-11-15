@@ -1,0 +1,17 @@
+{
+  "slug": "supportbee",
+  "name": "SupportBee",
+  "official_url": "https://supportbee.com/",
+  "image_url": "https://sbeecdn.com/img/apple-touch-icon.png",
+  "source_page": "https://supportbee.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "sbeecdn.com",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "cf348519925a8c65eccfa6c0f52d4040ce78725f88752fc432ba71476ef23aba",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

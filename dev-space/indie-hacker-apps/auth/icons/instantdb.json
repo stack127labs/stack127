@@ -1,0 +1,17 @@
+{
+  "slug": "instantdb",
+  "name": "InstantDB",
+  "official_url": "https://www.instantdb.com/docs/auth",
+  "image_url": "https://www.instantdb.com/img/icon/favicon-196x196.png",
+  "source_page": "https://www.instantdb.com/docs/auth",
+  "kind": "favicon",
+  "source_host": "instantdb.com",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "96873b5c4ed6b2db9cc3db4dd26850779654520b1534ed0362f16fbbda6ab9d9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

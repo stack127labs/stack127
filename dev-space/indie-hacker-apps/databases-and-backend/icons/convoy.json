@@ -1,0 +1,17 @@
+{
+  "slug": "convoy",
+  "name": "Convoy",
+  "official_url": "https://www.getconvoy.io/",
+  "image_url": "https://www.getconvoy.io/icon.svg?b1acde142b3054ef",
+  "source_page": "https://www.getconvoy.io/",
+  "kind": "svg-icon",
+  "source_host": "getconvoy.io",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "efee373b73e2df5990c68459b00960b1e0d9f84bd7a72ef5448d1706c682e2b4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

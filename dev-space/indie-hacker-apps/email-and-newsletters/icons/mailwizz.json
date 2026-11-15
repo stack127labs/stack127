@@ -1,0 +1,17 @@
+{
+  "slug": "mailwizz",
+  "name": "MailWizz",
+  "official_url": "https://www.mailwizz.com/",
+  "image_url": "https://mailwizz-12f97.kxcdn.com/images/logo.svg",
+  "source_page": "https://www.mailwizz.com/",
+  "kind": "logo-mark",
+  "source_host": "mailwizz-12f97.kxcdn.com",
+  "original": {
+    "format": "png",
+    "width": 621,
+    "height": 675
+  },
+  "sha256": "a2d5682ef37d3dfcf309686943435fae2b156b3b7d72ddb6b5970ef00eb4ea36",
+  "note": "cube mark cropped from the official MailWizz logo SVG; site favicon is 28×32 px",
+  "saved_at": "2026-11-14"
+}

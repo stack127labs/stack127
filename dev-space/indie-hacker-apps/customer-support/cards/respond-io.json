@@ -1,0 +1,19 @@
+{
+  "slug": "respond-io",
+  "name": "respond.io",
+  "url": "https://respond.io/",
+  "jobs": ["inbox", "helpdesk", "chat", "ai"],
+  "line": "Omnichannel customer inbox for messaging, calling, and support automation.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, WhatsApp, social, calls",
+    "ai": "10,000 credits on Growth; $15 per 1,000 extra",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$99", "plan": "Starter", "state": "confirmed", "math": "One Starter workspace includes five users and unlimited active contacts." },
+      { "v": "$99", "plan": "Starter", "state": "confirmed", "math": "The same Starter workspace includes five users, and three people work. Contacts are unlimited." }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "shopify-payments",
+  "name": "Shopify Payments",
+  "url": "https://www.shopify.com/payments",
+  "jobs": ["gateway", "links"],
+  "line": "Integrated card and local payment processing for Shopify stores.",
+  "free": { "kind": "none", "text": "Requires a paid Shopify plan; no free Payments plan" },
+  "cells": {
+    "type": "Integrated payment gateway",
+    "countries": "US, UK, Germany; India not supported",
+    "payout": "3 business days to payout; bank arrival adds 1–3 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2.9% + USD 0.30", "plan": "US Basic online standard card", "state": "confirmed", "math": "The standard online card rate for the US Basic plan. The Shopify plan subscription is paid separately." },
+      { "v": "2% + GBP 0.25", "plan": "UK Basic online standard card", "state": "confirmed", "math": "The standard online card rate for the UK Basic plan. The Shopify plan subscription is paid separately." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Germany is supported, but the card-rate table doesn't list a price for German cards." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Shopify Payments only works in the countries on its published seller list. India isn't on it." }
+    ]
+  }
+}

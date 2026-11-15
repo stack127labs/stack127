@@ -1,0 +1,20 @@
+{
+  "slug": "zeabur",
+  "name": "Zeabur",
+  "url": "https://zeabur.com/",
+  "jobs": ["paas", "static"],
+  "line": "Deploys container apps on hosted servers; the platform is winding down.",
+  "free": { "kind": "free", "text": "Free, no card; bind 1 own server, 2C/4G CI; ends Dec 31, 2026" },
+  "cells": {
+    "type": "App platform",
+    "regions": "Own host; shared-region deploys are legacy only",
+    "selfhost": "Yes; separate OSS install"
+  },
+  "costs": {
+    "work": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No new rented servers are sold. Hosted infrastructure shuts down by Dec 31, 2026." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No new rented servers are sold. Hosted infrastructure shuts down by Dec 31, 2026." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No new rented servers are sold. Hosted infrastructure shuts down by Dec 31, 2026." }
+    ]
+  }
+}

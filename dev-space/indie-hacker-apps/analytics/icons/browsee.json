@@ -1,0 +1,17 @@
+{
+  "slug": "browsee",
+  "name": "Browsee",
+  "official_url": "https://browsee.io/",
+  "image_url": "https://browsee.io/favicon.ico",
+  "source_page": "https://browsee.io/",
+  "kind": "favicon",
+  "source_host": "browsee.io",
+  "original": {
+    "format": "png",
+    "width": 40,
+    "height": 40
+  },
+  "sha256": "31c096be92eaed99f9c0d5acb48a02a22d76b15677e7c9e18d60a56bf0a43051",
+  "note": "largest official icon is 40 px",
+  "saved_at": "2026-11-14"
+}

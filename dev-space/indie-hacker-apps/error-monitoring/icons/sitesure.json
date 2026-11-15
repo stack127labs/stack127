@@ -1,0 +1,17 @@
+{
+  "slug": "sitesure",
+  "name": "Sitesure",
+  "official_url": "https://sitesure.net/",
+  "image_url": "https://sitesure.net/icon-512.png",
+  "source_page": "https://sitesure.net/",
+  "kind": "manifest-icon",
+  "source_host": "sitesure.net",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "eb87f103a20a63a5ca74b507cf7dc2bbc22729408116cbeeeaf05eb59dd1be42",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "pingdom",
+  "name": "Pingdom",
+  "url": "https://www.pingdom.com/",
+  "jobs": [
+    "uptime",
+    "performance",
+    "status"
+  ],
+  "line": "SolarWinds uptime, browser and page-speed checks.",
+  "free": {
+    "kind": "none",
+    "text": "No ongoing free monitoring plan found"
+  },
+  "cells": {
+    "interval": "5 min browser; 1 min HTTP",
+    "maintained": "Hosted; migrated accounts go read-only after notice"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$18",
+        "plan": "10 Uptime bundle",
+        "state": "confirmed",
+        "math": "5 endpoints. The bundle includes 10 Uptime, 1 Advanced and 50 SMS, at $18 a month."
+      },
+      {
+        "v": "$40",
+        "plan": "25 Uptime bundle",
+        "state": "confirmed",
+        "math": "25 endpoints. The bundle includes 25 Uptime, 4 Advanced and 100 SMS, at $40 a month."
+      },
+      {
+        "v": "$149",
+        "plan": "100 Uptime bundle",
+        "state": "confirmed",
+        "math": "100 endpoints. The bundle includes 100 Uptime, 20 Advanced and 350 SMS, at $149 a month."
+      }
+    ]
+  }
+}

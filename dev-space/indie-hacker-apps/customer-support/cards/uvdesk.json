@@ -1,0 +1,35 @@
+{
+  "slug": "uvdesk",
+  "name": "UVdesk",
+  "url": "https://www.uvdesk.com/",
+  "jobs": [
+    "helpdesk",
+    "inbox"
+  ],
+  "line": "Open-source help desk with shared tickets, email, and knowledge base.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free Community Edition; you provide hosting"
+  },
+  "cells": {
+    "channels": "Email, ticket portal, knowledge base",
+    "ai": "No public AI rate or unit established",
+    "selfhost": "Yes, OSL-3.0 Community Edition"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Community Edition",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Community Edition",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

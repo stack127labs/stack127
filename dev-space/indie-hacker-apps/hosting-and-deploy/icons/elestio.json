@@ -1,0 +1,17 @@
+{
+  "slug": "elestio",
+  "name": "Elestio",
+  "official_url": "https://elest.io/",
+  "image_url": "https://elest.io/images/favicon.ico",
+  "source_page": "https://elest.io/",
+  "kind": "favicon",
+  "source_host": "elest.io",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "5d817e5c836c86e8b837635876ab59d64a5b840a5e36ed10447aac8a51982fa9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

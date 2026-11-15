@@ -1,0 +1,17 @@
+{
+  "slug": "temporal",
+  "name": "Temporal",
+  "official_url": "https://temporal.io/",
+  "image_url": "https://temporal.io/favicon.svg",
+  "source_page": "https://temporal.io/",
+  "kind": "svg-icon",
+  "source_host": "temporal.io",
+  "original": {
+    "format": "svg",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "8190842957bc035a2d91e717ee17807d8e7629f0d1cce7c8af83eaac4bee82b4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

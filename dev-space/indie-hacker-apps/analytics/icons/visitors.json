@@ -1,0 +1,17 @@
+{
+  "slug": "visitors",
+  "name": "Visitors",
+  "official_url": "https://visitors.now/",
+  "image_url": "https://visitors.now/favicon-black.png",
+  "source_page": "https://visitors.now/",
+  "kind": "favicon",
+  "source_host": "visitors.now",
+  "original": {
+    "format": "png",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "dc4f35e3c9216c98fb04ab2a271e2492aeb5e7a2c3deefc4aa9caafe66dc241a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

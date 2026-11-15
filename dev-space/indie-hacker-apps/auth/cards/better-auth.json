@@ -1,0 +1,45 @@
+{
+  "slug": "better-auth",
+  "name": "Better Auth",
+  "url": "https://www.better-auth.com/",
+  "jobs": [
+    "library"
+  ],
+  "line": "TypeScript auth library you run in your own app.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free MIT library; you run it"
+  },
+  "cells": {
+    "freeUsers": "No limit; you host",
+    "sso": "MIT plugin; Pro includes 1 connection, then $50/month each"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The base licence is $0, plus $0 for user licences. Hosting and email are not included."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The base licence is $0, plus $0 for user licences. Hosting and email are not included."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The base licence is $0, plus $0 for user licences. Hosting and email are not included."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The base licence is $0, plus $0 for user licences. Hosting and email are not included."
+      }
+    ]
+  }
+}

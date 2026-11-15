@@ -1,0 +1,24 @@
+{
+  "slug": "middleware",
+  "name": "Middleware",
+  "url": "https://middleware.io/",
+  "jobs": ["errors", "logs", "uptime", "status", "performance"],
+  "line": "Monitors application errors, logs and uptime, with public status pages.",
+  "free": { "kind": "free", "text": "100 GB/month telemetry, 14-day retention; card required" },
+  "cells": {
+    "interval": "30 s recommended; minimum unclear",
+    "maintained": "Last release 2026-11-04"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Free or PAYG", "state": "unclear", "math": "Error events aren't what gets billed. The cost depends on telemetry data in GB and other usage." },
+      { "v": "Unknown", "plan": "Free or PAYG", "state": "unclear", "math": "Error events aren't what gets billed. The cost depends on telemetry data in GB and other usage." },
+      { "v": "Unknown", "plan": "Free or PAYG", "state": "unclear", "math": "Error events aren't what gets billed. The cost depends on telemetry data in GB and other usage." }
+    ],
+    "uptime": [
+      { "v": "$39.20", "plan": "Free + overage", "state": "unclear", "math": "An estimate for checks from one location. The own-domain status-page cost and the paid requirements aren't known." },
+      { "v": "$212.00", "plan": "Free + overage", "state": "unclear", "math": "An estimate for checks from one location. The own-domain status-page cost and the paid requirements aren't known." },
+      { "v": "$860.00", "plan": "Free + overage", "state": "unclear", "math": "An estimate for checks from one location. The own-domain status-page cost and the paid requirements aren't known." }
+    ]
+  }
+}

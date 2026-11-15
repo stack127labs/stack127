@@ -1,0 +1,40 @@
+{
+  "slug": "fathom-analytics",
+  "name": "Fathom Analytics",
+  "url": "https://usefathom.com/",
+  "jobs": [
+    "web"
+  ],
+  "line": "Cookie-free website analytics that anonymizes EU visitors before US storage.",
+  "free": {
+    "kind": "trial",
+    "text": "7-day trial, card required"
+  },
+  "cells": {
+    "cookieless": "Yes",
+    "location": "EU anonymization; anonymous analytics stored in US",
+    "selfhost": "No; historical Fathom Lite only"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$15",
+        "plan": "100,000 tier",
+        "state": "confirmed",
+        "math": "10,000 pageviews fit the 100,000 tier, which costs USD 15 a month. This assumes zero API requests."
+      },
+      {
+        "v": "$15",
+        "plan": "100,000 tier",
+        "state": "confirmed",
+        "math": "100,000 pageviews fit the 100,000 tier, which costs USD 15 a month. This assumes zero API requests."
+      },
+      {
+        "v": "$60",
+        "plan": "1,000,000 tier",
+        "state": "confirmed",
+        "math": "1,000,000 pageviews fit the 1,000,000 tier, which costs USD 60 a month. This assumes zero API requests."
+      }
+    ]
+  }
+}

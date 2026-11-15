@@ -1,0 +1,17 @@
+{
+  "slug": "mailrelay",
+  "name": "Mailrelay",
+  "official_url": "https://mailrelay.com/en/",
+  "image_url": "https://mailrelay.com//wp-content//uploads//2019//05//mailrelay-logo.jpg",
+  "source_page": "https://mailrelay.com/en/",
+  "kind": "logo-mark",
+  "source_host": "mailrelay.com",
+  "original": {
+    "format": "jpeg",
+    "width": 613,
+    "height": 291
+  },
+  "sha256": "a92a564833fb370d1ed35e052c1c212f21fa2c051489c220def410c139f1738a",
+  "note": "Official wordmark; no square icon found",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "grafana-cloud",
+  "name": "Grafana Cloud",
+  "url": "https://grafana.com/products/cloud/",
+  "jobs": ["errors", "logs", "uptime", "performance"],
+  "line": "Collects logs, metrics and traces, with application and synthetic monitoring.",
+  "free": { "kind": "free", "text": "50 GB each of logs, traces and profiles/month; no card" },
+  "cells": {
+    "interval": "10 s HTTP/DNS/ping; 60 s browser",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "The issue-report total depends on how many events are sent and how long data is kept, so the total for three apps isn't known." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "The issue-report total depends on how many events are sent and how long data is kept, so the total for three apps isn't known." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "The issue-report total depends on how many events are sent and how long data is kept, so the total for three apps isn't known." }
+    ],
+    "uptime": [
+      { "v": "$77", "plan": "Pro", "state": "unclear", "math": "A base-rate estimate for one check location (probe). Generated telemetry and an own-domain status page add costs that aren't known." },
+      { "v": "$509", "plan": "Pro", "state": "unclear", "math": "A base-rate estimate for one check location (probe). Generated telemetry and an own-domain status page add costs that aren't known." },
+      { "v": "$2,129", "plan": "Pro", "state": "unclear", "math": "A base-rate estimate for one check location (probe). Generated telemetry and an own-domain status page add costs that aren't known." }
+    ]
+  }
+}

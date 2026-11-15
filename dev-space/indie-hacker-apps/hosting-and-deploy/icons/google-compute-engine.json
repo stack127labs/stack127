@@ -1,0 +1,17 @@
+{
+  "slug": "google-compute-engine",
+  "name": "Google Compute Engine",
+  "official_url": "https://cloud.google.com/products/compute",
+  "image_url": "https://services.google.com/fh/files/misc/core-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "41b83e8925a3257f343345c6fcd28a8a4c3bcd387840b261982a891392a1bbc2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

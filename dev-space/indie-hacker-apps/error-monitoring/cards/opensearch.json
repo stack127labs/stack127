@@ -1,0 +1,24 @@
+{
+  "slug": "opensearch",
+  "name": "OpenSearch",
+  "url": "https://opensearch.org/",
+  "jobs": ["logs"],
+  "line": "Searches and analyzes logs, with dashboards and scheduled data alerts.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; hosting and storage extra" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-09-29"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Log search isn't dedicated application error tracking." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Log search isn't dedicated application error tracking." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Log search isn't dedicated application error tracking." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" }
+    ]
+  }
+}

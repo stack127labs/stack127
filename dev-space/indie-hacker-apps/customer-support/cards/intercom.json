@@ -1,0 +1,37 @@
+{
+  "slug": "intercom",
+  "name": "Intercom",
+  "url": "https://www.intercom.com/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "ai",
+    "inbox"
+  ],
+  "line": "Helpdesk, Messenger chat and the Fin AI agent.",
+  "free": {
+    "kind": "trial",
+    "text": "14-day trial, no card; no ongoing free plan"
+  },
+  "cells": {
+    "channels": "Email, chat, WhatsApp, SMS, voice, Instagram",
+    "ai": "$0.99 per resolution",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$39",
+        "plan": "Essential",
+        "state": "confirmed",
+        "math": "1 Full seat at $39 a month when paid monthly, or the equivalent of $29 a month when paid yearly."
+      },
+      {
+        "v": "$117",
+        "plan": "Essential",
+        "state": "confirmed",
+        "math": "3 Full seats at $39 a month each = $117 a month. Paid yearly, it is $1,044 a year."
+      }
+    ]
+  }
+}

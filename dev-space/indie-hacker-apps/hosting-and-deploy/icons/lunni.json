@@ -1,0 +1,17 @@
+{
+  "slug": "lunni",
+  "name": "Lunni",
+  "official_url": "https://lunni.dev/",
+  "image_url": "https://github.com/lunni.png?size=460",
+  "source_page": "https://github.com/lunni",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 420,
+    "height": 420
+  },
+  "sha256": "c91f8c4bdcd3ddf60835e1668edfdf5b79fcdb434bc52b392127b2924305f5d1",
+  "note": "official GitHub organization avatar (github.com/lunni, linked in the research file); the site's own mark is white on transparent and vanishes on a white tile",
+  "saved_at": "2026-11-14"
+}

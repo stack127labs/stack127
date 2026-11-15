@@ -1,0 +1,25 @@
+{
+  "slug": "neo4j-auradb-neo4j",
+  "name": "Neo4j AuraDB",
+  "url": "https://neo4j.com/product/auradb/",
+  "jobs": ["vector"],
+  "line": "Graph database for connected app data, with vector and full-text search.",
+  "free": { "kind": "free", "text": "1GB; 200K nodes/400K rels; pauses at 72h idle; deletes after 30d paused" },
+  "cells": {
+    "metered": "Professional from $0.09/GB-RAM-hour",
+    "regions": "AWS, Azure, GCP; tier and SKU availability varies",
+    "selfhost": "Yes, GPLv3 Community Edition"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$131.40", "plan": "Professional, GCP us-central1", "state": "unclear", "math": "2 GB × 730 hours × $0.09 per GB an hour. Whether the vector data and index fit, and whether compute speed is enough, are not proven." },
+      { "v": "$131.40", "plan": "Professional, GCP us-central1", "state": "confirmed", "math": "A running 2 GB primary costs $0.18 an hour, so 730 hours comes to $131.40. A 30-day pause plus 10 hours resumed is $27.72." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Neo4j does not provide general file or object storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "AuraDB does not provide a general job runner." }
+    ]
+  }
+}

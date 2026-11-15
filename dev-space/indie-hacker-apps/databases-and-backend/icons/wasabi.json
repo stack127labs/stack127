@@ -1,0 +1,17 @@
+{
+  "slug": "wasabi",
+  "name": "Wasabi Hot Cloud Storage",
+  "official_url": "https://wasabi.com/",
+  "image_url": "https://wasabi.com/favicon.ico",
+  "source_page": "https://wasabi.com/",
+  "kind": "favicon",
+  "source_host": "wasabi.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "8589654f034b485d5fd8d2a6d637392d5eb7104af10d8cb72244e447bf84ee12",
+  "note": "square mark; largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

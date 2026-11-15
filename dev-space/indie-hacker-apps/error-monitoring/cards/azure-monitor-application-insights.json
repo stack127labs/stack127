@@ -1,0 +1,21 @@
+{
+  "slug": "azure-monitor-application-insights",
+  "name": "Azure Monitor Application Insights",
+  "url": "https://azure.microsoft.com/products/monitoring/",
+  "jobs": ["errors", "uptime", "logs", "performance"],
+  "line": "Collects application failures, performance data, logs, and availability checks.",
+  "free": { "kind": "free", "text": "5 GB/month shared Log Analytics ingestion allowance" },
+  "cells": { "interval": "5 min default/location; minimum unknown", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Azure has no price per error. It bills by how much data comes in, not by error count." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Azure has no price per error. It bills by how much data comes in, not by error count." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Azure has no price per error. It bills by how much data comes in, not by error count." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "The standard test price didn't load from Azure's pricing page, so the cost for 5 endpoints can't be worked out." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "The standard test price didn't load from Azure's pricing page, so the cost for 25 endpoints can't be worked out." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "The standard test price didn't load from Azure's pricing page, so the cost for 100 endpoints can't be worked out." }
+    ]
+  }
+}

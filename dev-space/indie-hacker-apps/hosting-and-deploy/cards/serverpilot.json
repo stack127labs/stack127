@@ -1,0 +1,14 @@
+{
+  "slug": "serverpilot",
+  "name": "ServerPilot",
+  "url": "https://serverpilot.io/",
+  "jobs": ["panel"],
+  "line": "Manage PHP websites on Linux servers from a hosted dashboard.",
+  "free": { "kind": "trial", "text": "14-day trial, no card; adding payment starts paid features" },
+  "cells": { "type": "Server management panel", "regions": "App uses server region; dashboard region unlisted", "selfhost": "No; hosted panel, agent runs on your server" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Economy (1 server + 1 app in panel)", "state": "unclear", "math": "ServerPilot's $5 per server + $0.50 per app = $5.50 a month panel fee. The provider's VM, network, domain and any outside CI are separate and not priced." },
+    { "v": "Unknown", "plan": "Economy (1 server + 1 app in panel)", "state": "unclear", "math": "$5 + $0.50 = $5.50 a month equivalent panel fee. The VM with 1 vCPU and 1 GiB, IP address, disk and transfer are priced by the provider, and hourly proration is unknown." },
+    { "v": "Unknown", "plan": "Economy + external PostgreSQL + server", "state": "unclear", "math": "$5 + $0.50 = $5.50 a month equivalent panel fee. ServerPilot has no managed PostgreSQL. The VM, database, storage, network and seven-day backups are not priced." }
+  ] }
+}

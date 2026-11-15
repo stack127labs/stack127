@@ -1,0 +1,17 @@
+{
+  "slug": "ziina",
+  "name": "Ziina",
+  "official_url": "https://ziina.com/",
+  "image_url": "https://ziina.com/images/icons/apple-touch-icon-precomposed.png",
+  "source_page": "https://ziina.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "ziina.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "881a4ba543749ddfcff799cdf48401f4d33d7cf758d2e2db4e405cdb13d41930",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

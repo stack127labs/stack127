@@ -1,0 +1,17 @@
+{
+  "slug": "azure-database-for-mysql",
+  "name": "Azure Database for MySQL",
+  "official_url": "https://azure.microsoft.com/en-us/products/mysql",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "d0976ace644a173ea65839bc29272798009803cc9b898985040a39939dcda5ee",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

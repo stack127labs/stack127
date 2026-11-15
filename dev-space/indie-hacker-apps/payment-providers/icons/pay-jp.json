@@ -1,0 +1,17 @@
+{
+  "slug": "pay-jp",
+  "name": "PAY.JP",
+  "official_url": "https://pay.jp/",
+  "image_url": "https://pay.jp/favicon@512.png",
+  "source_page": "https://pay.jp/",
+  "kind": "favicon",
+  "source_host": "pay.jp",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "730b97ca30d28f09c00cc2bb5c29d8791a729cbb781a10385d01e5f572384d51",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-storage",
+  "name": "Google Cloud Storage",
+  "official_url": "https://cloud.google.com/storage",
+  "image_url": "https://services.google.com/fh/files/misc/core-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "aeff4a640fc28d1040d6aa92a734b7f108dd0f74d40020d9c40e82f899fce0cb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

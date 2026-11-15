@@ -1,0 +1,17 @@
+{
+  "slug": "umami",
+  "name": "Umami",
+  "official_url": "https://umami.is/",
+  "image_url": "https://umami.is/android-chrome-512x512.png",
+  "source_page": "https://umami.is/",
+  "kind": "manifest-icon",
+  "source_host": "umami.is",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "1b907f1c43516c40d5d8d99b9d8ab06f0f6f97e56073294086c368c27faf7334",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

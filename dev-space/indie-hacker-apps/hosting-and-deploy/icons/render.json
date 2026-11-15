@@ -1,0 +1,17 @@
+{
+  "slug": "render",
+  "name": "Render",
+  "official_url": "https://render.com/",
+  "image_url": "https://render.com/icon.svg?icon.00d01gt742wgb.svg?dpl=784c22898254",
+  "source_page": "https://render.com/",
+  "kind": "svg-icon",
+  "source_host": "render.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "12d9b4effa41bb86de45223892a55581321c1cc0f16d36f236e7b7accf86e406",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

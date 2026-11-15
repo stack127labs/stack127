@@ -1,0 +1,17 @@
+{
+  "slug": "novalnet",
+  "name": "Novalnet",
+  "official_url": "https://www.novalnet.com/",
+  "image_url": "https://www.novalnet.com/wp-content/uploads/2025/07/favicon-300x300.png",
+  "source_page": "https://www.novalnet.com/",
+  "kind": "favicon",
+  "source_host": "novalnet.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "745a0876894c4127e595d0be19c18610ce053b8006cfc6e2db68d04f4d43411f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

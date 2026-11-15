@@ -1,0 +1,48 @@
+{
+  "slug": "univapay",
+  "name": "UnivaPay",
+  "url": "https://univapay.com/",
+  "jobs": [
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "line": "Japanese gateway for cards, local methods, subscriptions, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "Standard setup and monthly fees are by individual quote"
+  },
+  "cells": {
+    "type": "Payment gateway and collection agent",
+    "countries": "Japan only",
+    "payout": "Month-end close; paid by end of following month"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Japan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Japan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Japan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Japan."
+      }
+    ]
+  }
+}

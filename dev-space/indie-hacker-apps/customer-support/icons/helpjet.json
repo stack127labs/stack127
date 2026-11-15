@@ -1,0 +1,17 @@
+{
+  "slug": "helpjet",
+  "name": "HelpJet",
+  "official_url": "https://helpjet.com/",
+  "image_url": "https://helpjet.com/favicon.svg",
+  "source_page": "https://helpjet.com/",
+  "kind": "svg-icon",
+  "source_host": "helpjet.com",
+  "original": {
+    "format": "svg",
+    "width": 432,
+    "height": 317
+  },
+  "sha256": "41dc513e0cc70dea51cae22368be769159a57c4a4946ec42fcfbc2809501e4b5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

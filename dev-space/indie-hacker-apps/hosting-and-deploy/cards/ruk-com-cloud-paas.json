@@ -1,0 +1,14 @@
+{
+  "slug": "ruk-com-cloud-paas",
+  "name": "Ruk-Com Cloud PaaS",
+  "url": "https://ruk-com.cloud/cloud-paas/",
+  "jobs": ["paas"],
+  "line": "Deploy managed container apps and databases on Virtuozzo PaaS.",
+  "free": { "kind": "trial", "text": "Trial account; length/credit not stated; upgrade to continue" },
+  "cells": { "type": "Managed container PaaS", "regions": "Thailand, Singapore, Japan, France; privacy lists TH/SG", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "2-cloudlet web node + IPv4", "state": "unclear", "math": "THB253.31 is 2 cloudlets plus one IP address for 730 hours, at THB0.0685 per cloudlet hour and THB0.21 per IP hour. 100 build minutes and builder resources are not priced." },
+    { "v": "Unknown", "plan": "8-cloudlet app node + IPv4", "state": "unclear", "math": "THB553.34 is 8 cloudlets plus one IP address for 730 hours, before 7% VAT. 8 cloudlets give 1 GiB of RAM, but do not guarantee 1 vCPU. Build use is extra." },
+    { "v": "Unknown", "plan": "8-cloudlet app + database nodes", "state": "unclear", "math": "THB953.38 is the subtotal for 8 + 8 cloudlets and one IP address, before 7% VAT. Layers are billed separately. Daily 7-copy backups need an extra storage node that is not priced." }
+  ] }
+}

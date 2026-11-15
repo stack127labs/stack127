@@ -1,0 +1,14 @@
+{
+  "slug": "google-compute-engine",
+  "name": "Google Compute Engine",
+  "url": "https://cloud.google.com/products/compute",
+  "jobs": ["vps"],
+  "line": "Create virtual machines and manage their operating systems and apps.",
+  "free": { "kind": "free", "text": "One e2-micro VM, 30 GB disk and 1 GB outbound monthly in eligible US regions" },
+  "cells": { "type": "Virtual machines", "regions": "Iowa example; selectable Google Cloud regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$22.820658935", "plan": "e2-micro + disk + IPv4", "state": "confirmed", "math": "A VM for 730 hours, plus a 20 GiB disk, plus an IPv4 address, plus 100 GB of data sent out to North America (NA). Assumes the account's 1 GiB of free data sent out remains. Before tax and domain costs." },
+    { "v": "$41.165034795", "plan": "e2-medium + disk + IPv4", "state": "confirmed", "math": "An e2-medium VM for 730 hours, plus a 20 GiB disk, plus an IPv4 address, plus 100 GB of North America (NA) data sent out. Assumes the account's 1 GiB allowance is unused. Before tax." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The known VM, disk, IP address and data sent out subtotal is $42.165032595. The daily 7-day backup snapshot and storage cost is not included and is unknown." }
+  ] }
+}

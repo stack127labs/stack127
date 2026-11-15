@@ -1,0 +1,17 @@
+{
+  "slug": "easebuzz",
+  "name": "Easebuzz",
+  "official_url": "https://easebuzz.in/",
+  "image_url": "https://easebuzz.in/static/base/assets_aug_2021/img/easebuzz/home/android-chrome-512x512.png",
+  "source_page": "https://easebuzz.in/",
+  "kind": "favicon",
+  "source_host": "easebuzz.in",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "bb6ab0962a35daacd61d4d0e1d81b269cc66dd6a2a1726d21c270de21eaa1d1a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

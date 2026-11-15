@@ -1,0 +1,17 @@
+{
+  "slug": "google-memorystore",
+  "name": "Google Memorystore",
+  "official_url": "https://cloud.google.com/memorystore",
+  "image_url": "https://cloud.google.com/icons",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "cloud.google.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "9a906bd6873f9678f419d569f95c6dba36c3eb0641d8879ece55c88797a75d70",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

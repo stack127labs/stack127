@@ -1,0 +1,17 @@
+{
+  "slug": "plausible",
+  "name": "Plausible Analytics",
+  "official_url": "https://plausible.io/",
+  "image_url": "https://plausible.io/assets/images/icon/favicon.svg",
+  "source_page": "https://plausible.io/",
+  "kind": "svg-icon",
+  "source_host": "plausible.io",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "b0bf17c83981efcea65a7b383447221a558342e8a69d56945ce19715c8bcdefd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

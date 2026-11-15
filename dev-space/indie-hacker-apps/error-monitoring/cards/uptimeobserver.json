@@ -1,0 +1,21 @@
+{
+  "slug": "uptimeobserver",
+  "name": "UptimeObserver",
+  "url": "https://uptimeobserver.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Checks websites and networks, tracks heartbeats, and hosts status pages.",
+  "free": { "kind": "free", "text": "Free: 20 monitors, 5-min checks, 1 page, 1 email contact" },
+  "cells": { "interval": "300 s free, 60 s Indie, 30 s Pro", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "€6", "plan": "Indie", "state": "unclear", "math": "The Indie base is €6 a month for 5 one-minute endpoints, one location, one builder and an own-domain page." },
+      { "v": "€6", "plan": "Indie", "state": "unclear", "math": "The Indie base is €6 a month for 25 one-minute endpoints, one location, one builder and an own-domain page." },
+      { "v": "€24", "plan": "Pro", "state": "unclear", "math": "The Pro base is €24 a month for 100 one-minute endpoints, one location, one builder and an own-domain page." }
+    ]
+  }
+}

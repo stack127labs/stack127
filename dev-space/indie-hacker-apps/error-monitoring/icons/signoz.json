@@ -1,0 +1,17 @@
+{
+  "slug": "signoz",
+  "name": "SigNoz",
+  "official_url": "https://signoz.io/",
+  "image_url": "https://signoz.io/static/favicons/web-app-manifest-512x512.png",
+  "source_page": "https://signoz.io/",
+  "kind": "manifest-icon",
+  "source_host": "signoz.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "ae7b482bb4e1f029b136d34952d67f22ca411be4cf37e58b6f7bdaf500229709",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

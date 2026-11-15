@@ -1,0 +1,17 @@
+{
+  "slug": "dragonfly",
+  "name": "Dragonfly",
+  "official_url": "https://www.dragonflydb.io/",
+  "image_url": "https://www.dragonflydb.io/favicon.svg",
+  "source_page": "https://www.dragonflydb.io/",
+  "kind": "svg-icon",
+  "source_host": "dragonflydb.io",
+  "original": {
+    "format": "svg",
+    "width": 267,
+    "height": 267
+  },
+  "sha256": "b422a667c3e0320589cd10ae3011dbe721633d976eed87bb7d1c30aa4f065ad8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

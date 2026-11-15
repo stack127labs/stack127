@@ -1,0 +1,20 @@
+{
+  "slug": "ueberauth",
+  "name": "Ueberauth",
+  "url": "https://github.com/ueberauth/ueberauth",
+  "jobs": ["library"],
+  "line": "Elixir login framework with community provider strategies.",
+  "free": { "kind": "selfhost", "text": "Free MIT framework; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "OIDC plugin is MIT; no SAML/SCIM tariff found"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Ueberauth and GitHub plugin licence fees cost $0. App accounts, sessions and hosting cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Ueberauth and GitHub plugin licence fees cost $0. App accounts, sessions and hosting cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Ueberauth and GitHub plugin licence fees cost $0. App accounts, sessions and hosting cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Ueberauth and GitHub plugin licence fees cost $0. App accounts, sessions and hosting cost extra." }
+    ]
+  }
+}

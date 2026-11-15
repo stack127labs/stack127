@@ -1,0 +1,25 @@
+{
+  "slug": "azure-database-for-mysql",
+  "name": "Azure Database for MySQL",
+  "url": "https://azure.microsoft.com/en-us/products/mysql",
+  "jobs": ["sql"],
+  "line": "Run managed MySQL databases on Azure Flexible Server.",
+  "free": { "kind": "trial", "text": "750 B1ms hours/month, 32 GB; upgrade within 30 days to continue" },
+  "cells": {
+    "metered": "From $0.017/server-hour, plus storage and I/O",
+    "regions": "Azure regions; availability varies by option",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$128.51", "plan": "General Purpose D2ds_v4, East US", "state": "unclear", "math": "$124.83 for compute, plus $3.68 for storage as an example figure. Not included: I/O, backup, transfer, optional resources and tax." },
+      { "v": "Unknown", "plan": "", "state": "conflicting", "math": "Stopped compute is free, but the pricing for kept backups is conflicting. The total depends on backup use and when the server is stopped." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Has no separate object-storage service." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "SQL event scheduling is not a queue or workflow service" }
+    ]
+  }
+}

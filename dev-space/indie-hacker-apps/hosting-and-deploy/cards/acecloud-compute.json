@@ -1,0 +1,20 @@
+{
+  "slug": "acecloud-compute",
+  "name": "AceCloud Compute",
+  "url": "https://acecloud.ai/cloud/compute/",
+  "jobs": ["vps"],
+  "line": "Run websites, APIs, and databases on virtual machines you manage.",
+  "free": { "kind": "credits", "text": "Temporary signup credits; no recurring free compute" },
+  "cells": {
+    "type": "Virtual machines",
+    "regions": "Noida, Mumbai, Atlanta; list unclear",
+    "selfhost": "Yes; you manage the guest OS and app"
+  },
+  "costs": {
+    "work": [
+      { "v": "₹1,349", "plan": "S3a.medium, Noida", "state": "confirmed", "math": "Compute is ₹1,349 a month before tax. The startup disk, domain and HTTPS certificate costs are unknown." },
+      { "v": "₹1,349", "plan": "S3a.medium, Noida", "state": "confirmed", "math": "Compute is a fixed ₹1,349 a month before tax. Storage and the domain cost extra." },
+      { "v": "Unknown", "plan": "S3a.medium + DBaaS", "state": "conflicting", "math": "₹1,349 for the app, plus ₹5,704 for a managed database service, plus $1 for storage. Two currencies are used and the backup cost is unknown, so no total is given." }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "rauthy",
+  "name": "Rauthy",
+  "url": "https://github.com/sebadob/rauthy",
+  "jobs": ["server"],
+  "line": "Self-hosted Rust identity server with OIDC, sessions, and passkeys.",
+  "free": { "kind": "selfhost", "text": "Free software; you run the server" },
+  "cells": {
+    "freeUsers": "No published software user cap; you host",
+    "sso": "OIDC and SCIM included; no SAML tariff found"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-hosted", "state": "confirmed", "math": "The core software licence costs $0. Server, database, email, backups and operations cost extra." },
+      { "v": "$0", "plan": "Self-hosted", "state": "confirmed", "math": "The core software licence costs $0. Server, database, email, backups and operations cost extra." },
+      { "v": "$0", "plan": "Self-hosted", "state": "confirmed", "math": "The core software licence costs $0. Server, database, email, backups and operations cost extra." },
+      { "v": "$0", "plan": "Self-hosted", "state": "confirmed", "math": "The core software licence costs $0. Server, database, email, backups and operations cost extra." }
+    ]
+  }
+}

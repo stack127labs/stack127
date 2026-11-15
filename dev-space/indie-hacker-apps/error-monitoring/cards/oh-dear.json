@@ -1,0 +1,24 @@
+{
+  "slug": "oh-dear",
+  "name": "Oh Dear",
+  "url": "https://ohdear.app/",
+  "jobs": ["uptime", "status", "performance", "cron"],
+  "line": "Monitors websites, APIs and cron jobs, with hosted status pages.",
+  "free": { "kind": "trial", "text": "10-day trial; no card" },
+  "cells": {
+    "interval": "60 s paid",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "€29", "plan": "Solo Plus", "state": "confirmed", "math": "5 HTTP endpoints use 5 site slots. Solo Plus costs €29 a month and includes email and an own-domain status page." },
+      { "v": "€99", "plan": "Studio", "state": "confirmed", "math": "25 HTTP endpoints use 25 site slots. Studio costs €99 a month and includes email and an own-domain status page." },
+      { "v": "€249", "plan": "Portfolio", "state": "confirmed", "math": "100 HTTP endpoints use 100 site slots. Portfolio costs €249 a month and includes email and an own-domain status page." }
+    ]
+  }
+}

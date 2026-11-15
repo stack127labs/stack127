@@ -1,0 +1,17 @@
+{
+  "slug": "bitpay",
+  "name": "BitPay",
+  "official_url": "https://www.bitpay.com/business",
+  "image_url": "https://www.bitpay.com/favicon.ico",
+  "source_page": "https://www.bitpay.com/business",
+  "kind": "favicon",
+  "source_host": "bitpay.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "60ec7f01ddaba356e50d0e46055ff8507a24e9f1fa3840cc296056c47495161c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

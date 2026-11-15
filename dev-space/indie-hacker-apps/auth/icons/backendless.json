@@ -1,0 +1,17 @@
+{
+  "slug": "backendless",
+  "name": "Backendless",
+  "official_url": "https://backendless.com/",
+  "image_url": "https://backendless.com/wp-content/themes/backendless/assets/images/favicons/apple-touch-icon.png",
+  "source_page": "https://backendless.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "backendless.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "81d3a8506915bcd72f95800da3cfa07259415434b9cea24261215b1021bad591",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

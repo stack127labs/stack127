@@ -1,0 +1,37 @@
+{
+  "slug": "libredesk",
+  "name": "Libredesk",
+  "url": "https://libredesk.io/",
+  "jobs": [
+    "inbox",
+    "helpdesk",
+    "chat",
+    "ai"
+  ],
+  "line": "Self-hosted support inbox with email, website chat, and WhatsApp.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free AGPL software; you provide hosting"
+  },
+  "cells": {
+    "channels": "Email, website chat, WhatsApp",
+    "ai": "Bring your own AI provider or local model",
+    "selfhost": "Yes, AGPL-3.0"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

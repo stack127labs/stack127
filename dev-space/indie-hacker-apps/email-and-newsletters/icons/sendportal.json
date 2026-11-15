@@ -1,0 +1,17 @@
+{
+  "slug": "sendportal",
+  "name": "SendPortal",
+  "official_url": "https://sendportal.io/",
+  "image_url": "https://sendportal.io/img/favicons/android-icon-192x192.png",
+  "source_page": "https://sendportal.io/",
+  "kind": "favicon",
+  "source_host": "sendportal.io",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "2a45a68afbc8b6d94b3914a65ecbba6c518448ca25cf2817111d847aa0910309",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

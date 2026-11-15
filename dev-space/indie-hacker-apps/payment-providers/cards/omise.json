@@ -1,0 +1,21 @@
+{
+  "slug": "omise",
+  "name": "Omise",
+  "url": "https://www.omise.co/en",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Asian payment gateway for online checkout, payment links and recurring cards.",
+  "free": { "kind": "none", "text": "No fixed or monthly minimum fees in standard service" },
+  "cells": {
+    "type": "Payment gateway and processor",
+    "countries": "Thailand, Singapore, Malaysia and Japan",
+    "payout": "TH 7d; MY 3d; SG cards 1d; JP default 21d"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Sales handles countries outside the four published markets. No US card rate is published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Sales handles countries outside the four published markets. No UK card rate is published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Sales handles countries outside the four published markets. No German card rate is published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "Sales handles countries outside the four published markets. No India card rate is published." }
+    ]
+  }
+}

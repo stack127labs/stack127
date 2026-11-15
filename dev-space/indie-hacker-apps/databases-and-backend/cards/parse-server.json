@@ -1,0 +1,25 @@
+{
+  "slug": "parse-server",
+  "name": "Parse Server",
+  "url": "https://github.com/parse-community/parse-server",
+  "jobs": ["backend", "files", "jobs"],
+  "line": "Self-hosted backend framework with auth, files, Cloud Code, and jobs.",
+  "free": { "kind": "selfhost", "text": "Apache-2.0; no hosted quota or idle rule; you run the server and database" },
+  "cells": {
+    "metered": "Software $0; infrastructure is yours to run",
+    "regions": "Choose your host region",
+    "selfhost": "Yes, Apache-2.0 Parse Server"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Self-hosted Parse", "state": "unclear", "math": "$0 software fee. App server, database, storage, traffic and backups depend on the provider you pick." },
+      { "v": "Unknown", "plan": "Self-hosted Parse", "state": "unclear", "math": "The software stays $0. Kept server, database, file and backup costs depend on the host." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "GridFS or external object storage", "state": "not_published", "math": "Parse has a file API. File capacity, requests, delivery and provider rates are separate and not priced." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Parse Cloud Jobs plus host", "state": "not_published", "math": "Jobs have no software fee. Server capacity and worker size are not priced until a host is chosen." }
+    ]
+  }
+}

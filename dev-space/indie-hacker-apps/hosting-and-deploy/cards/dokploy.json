@@ -1,0 +1,40 @@
+{
+  "slug": "dokploy",
+  "name": "Dokploy",
+  "url": "https://dokploy.com/",
+  "jobs": [
+    "panel"
+  ],
+  "line": "Open-source deploy panel for your own servers, with a paid Cloud option.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Core is free to self-host; Cloud from $4.50/month/server"
+  },
+  "cells": {
+    "type": "Deploy panel",
+    "regions": "Your servers",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "$24",
+        "plan": "Free core + DigitalOcean NYC1",
+        "state": "confirmed",
+        "math": "$0 for the software, plus a capped server charge: 730 hours at $0.03571 an hour, never more than $24. $0 for extra data transfer."
+      },
+      {
+        "v": "$24",
+        "plan": "Free core + DigitalOcean NYC1",
+        "state": "confirmed",
+        "math": "$0 for the software + a $24 capped VM + $0 for extra data transfer. The app and the controller share the same VM."
+      },
+      {
+        "v": "$31.20",
+        "plan": "Free core + Droplet backups",
+        "state": "confirmed",
+      "math": "$0 for the software + $24 for the VM + $7.20 for a daily whole-disk image backup (0.30 times the $24 VM price) + $0 for traffic. It is not a Postgres dump."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "qdrant",
+  "name": "Qdrant",
+  "official_url": "https://qdrant.tech/",
+  "image_url": "https://qdrant.tech/images/android-chrome-512x512.png",
+  "source_page": "https://qdrant.tech/",
+  "kind": "manifest-icon",
+  "source_host": "qdrant.tech",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "2acb1d190c6e5065a5d943793896044569ccaa8f34e0b56eab97034ed805534b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

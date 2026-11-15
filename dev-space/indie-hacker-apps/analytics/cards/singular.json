@@ -1,0 +1,12 @@
+{
+  "slug": "singular", "name": "Singular", "url": "https://www.singular.net/",
+  "jobs": ["product", "revenue"],
+  "line": "Measures mobile ad attribution, campaign results and conversion costs.",
+  "free": {"kind": "credits", "text": "Free: first 15,000 attributed conversions"},
+  "cells": {"cookieless": "No (web ID stored in localStorage)", "location": "US (AWS storage)", "selfhost": "No"},
+  "costs": {"pv": [
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Priced by conversions it can credit to a source, not pageviews."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Priced by conversions it can credit to a source, not pageviews."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Priced by conversions it can credit to a source, not pageviews."}
+  ]}
+}

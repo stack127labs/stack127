@@ -1,0 +1,17 @@
+{
+  "slug": "flare",
+  "name": "Flare",
+  "official_url": "https://flareapp.io/",
+  "image_url": "https://assets.flareapp.io/production/apple-touch-icon.png",
+  "source_page": "https://flareapp.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "assets.flareapp.io",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "8b86850921c4135ae58ba253a967d0c6a28971cdcd86c7407b284a8030186e6e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

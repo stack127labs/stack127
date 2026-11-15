@@ -1,0 +1,17 @@
+{
+  "slug": "peekaping",
+  "name": "Peekaping",
+  "official_url": "https://peekaping.com/",
+  "image_url": "https://peekaping.com/fav/favicon.ico",
+  "source_page": "https://peekaping.com/",
+  "kind": "favicon",
+  "source_host": "peekaping.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "d565484f79c099f2ec04b463ba5d6408e99f991c6e1450499b730b0b104a5fe9",
+  "note": "site favicon.svg is the Astro framework default; this is the real mark; largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

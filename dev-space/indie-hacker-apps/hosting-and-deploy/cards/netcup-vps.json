@@ -1,0 +1,14 @@
+{
+  "slug": "netcup-vps",
+  "name": "netcup VPS",
+  "url": "https://www.netcup.com/en/server/vps",
+  "jobs": ["vps"],
+  "line": "Run root-access virtual servers with optional Docker app deployment.",
+  "free": { "kind": "none", "text": "No ongoing free VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Europe, US (Manassas), Singapore", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€8.07", "plan": "VPS 500 + Nuremberg, 24 months", "state": "confirmed", "math": "€193.68 including VAT, divided by 24 months = €8.07 a month on average." },
+    { "v": "€8.07", "plan": "VPS 500 + Nuremberg, 24 months", "state": "confirmed", "math": "€193.68 including VAT, divided by 24 months = €8.07 a month on average." },
+    { "v": "Unknown", "plan": "VPS 500 + backup", "state": "unclear", "math": "Known €193.68 for 24 months. The daily seven-day backup price and coverage are unknown." }
+  ] }
+}

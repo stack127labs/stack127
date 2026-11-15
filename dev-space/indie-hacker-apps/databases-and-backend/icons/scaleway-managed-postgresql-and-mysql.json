@@ -1,0 +1,17 @@
+{
+  "slug": "scaleway-managed-postgresql-and-mysql",
+  "name": "Scaleway Managed Databases",
+  "official_url": "https://www.scaleway.com/en/managed-postgresql-mysql/",
+  "image_url": "https://www.scaleway.com/favicon/website/512.png",
+  "source_page": "https://www.scaleway.com/en/managed-postgresql-mysql/",
+  "kind": "manifest-icon",
+  "source_host": "scaleway.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "0c247d104eab9bceaa4d1bb4da220c87a1791ce4d4d49e59fefcb83506b143e0",
+  "note": "Scaleway brand icon; no separate managed database icon in official candidates.",
+  "saved_at": "2026-11-14"
+}

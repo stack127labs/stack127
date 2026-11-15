@@ -1,0 +1,57 @@
+{
+  "slug": "webgazer",
+  "name": "WebGazer",
+  "url": "https://www.webgazer.io/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Uptime and API checks, job heartbeats, and hosted status pages.",
+  "free": {
+    "kind": "free",
+    "text": "50 monitors, 5-minute checks, one user, basic status pages"
+  },
+  "cells": {
+    "interval": "300 s free, 60 s Basic/Pro, 30 s Business",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$69",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "5 one-minute endpoints fit the Pro plan's 300-monitor cap. $69 a month includes an own-domain status page. The location policy isn't confirmed."
+      },
+      {
+        "v": "$69",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "25 one-minute endpoints fit the Pro plan's 300-monitor cap. $69 a month includes an own-domain status page. The location policy isn't confirmed."
+      },
+      {
+        "v": "$69",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "100 one-minute endpoints fit the Pro plan's 300-monitor cap. $69 a month includes an own-domain status page. The location policy isn't confirmed."
+      }
+    ]
+  }
+}

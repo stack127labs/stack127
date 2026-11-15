@@ -1,0 +1,20 @@
+{
+  "slug": "aapanel",
+  "name": "aaPanel",
+  "url": "https://www.aapanel.com/",
+  "jobs": ["panel", "vps"],
+  "line": "Manage websites, databases, and app deployments on your Linux server.",
+  "free": { "kind": "free", "text": "Free software; you supply the Linux server" },
+  "cells": {
+    "type": "Self-hosted panel",
+    "regions": "Your server",
+    "selfhost": "Yes; install on your Linux server"
+  },
+  "costs": {
+    "work": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" }
+    ]
+  }
+}

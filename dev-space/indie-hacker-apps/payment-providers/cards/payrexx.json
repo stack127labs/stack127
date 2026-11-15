@@ -1,0 +1,48 @@
+{
+  "slug": "payrexx",
+  "name": "Payrexx",
+  "url": "https://www.payrexx.com/en/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "European payment gateway with hosted pages, links and recurring cards.",
+  "free": {
+    "kind": "free",
+    "text": "Free plan CHF 0/EUR 0 monthly; per-payment fees apply"
+  },
+  "cells": {
+    "type": "Payment gateway and online processing platform",
+    "countries": "Switzerland only",
+    "payout": "Weekly Monday; new online merchants have a 4-day delay"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      }
+    ]
+  }
+}

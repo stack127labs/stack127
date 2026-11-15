@@ -1,0 +1,24 @@
+{
+  "slug": "pingmeter",
+  "name": "Pingmeter",
+  "url": "https://pingmeter.com/",
+  "jobs": ["uptime", "status"],
+  "line": "Checks websites and services, with recovery actions and public status pages.",
+  "free": { "kind": "free", "text": "Free: 10-minute checks; 14-day history" },
+  "cells": {
+    "interval": "10 min free; 1 min paid",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Basic", "state": "unclear", "math": "Detection costs $12.99 a month. Whether an own-domain status page is included, and how one-location checks are charged, isn't settled." },
+      { "v": "Unknown", "plan": "Basic", "state": "unclear", "math": "Detection costs $12.99 a month. Whether an own-domain status page is included, and how one-location checks are charged, isn't settled." },
+      { "v": "Unknown", "plan": "Standard", "state": "unclear", "math": "Detection costs $36.95 a month. Whether an own-domain status page is included, and how one-location checks are charged, isn't settled." }
+    ]
+  }
+}

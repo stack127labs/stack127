@@ -1,0 +1,17 @@
+{
+  "slug": "open-web-analytics",
+  "name": "Open Web Analytics",
+  "official_url": "https://www.openwebanalytics.com/",
+  "image_url": "https://github.com/Open-Web-Analytics.png?size=460",
+  "source_page": "https://github.com/Open-Web-Analytics",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 100,
+    "height": 100
+  },
+  "sha256": "3e82752d2ff565a61255110443add05900fdb15cd777b59659d8d9b770aa27c2",
+  "note": "official GitHub organization avatar (Open-Web-Analytics); square mark without the cropped wordmark",
+  "saved_at": "2026-11-14"
+}

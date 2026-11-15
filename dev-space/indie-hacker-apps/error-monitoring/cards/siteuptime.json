@@ -1,0 +1,21 @@
+{
+  "slug": "siteuptime",
+  "name": "SiteUptime",
+  "url": "https://www.siteuptime.com/",
+  "jobs": ["uptime", "status"],
+  "line": "Checks websites and network services, with public uptime reports.",
+  "free": { "kind": "free", "text": "1 monitor, 30/60-min checks, email and public statistics" },
+  "cells": { "interval": "30 min free, 2 min paid", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "60-second checks aren't covered, since the paid minimum is 120 seconds. The $14 is a separate price for monitors checked every 2 minutes." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "60-second checks aren't covered, since the paid minimum is 120 seconds. The $54 is a separate price for monitors checked every 2 minutes." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "60-second checks aren't covered, since the paid minimum is 120 seconds. The $204 is a separate price for monitors checked every 2 minutes." }
+    ]
+  }
+}

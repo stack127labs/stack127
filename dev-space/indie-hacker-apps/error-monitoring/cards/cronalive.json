@@ -1,0 +1,24 @@
+{
+  "slug": "cronalive",
+  "name": "CronAlive",
+  "url": "https://cronalive.com/",
+  "jobs": ["uptime", "cron"],
+  "line": "Monitors scheduled jobs with heartbeats and checks websites from three regions.",
+  "free": { "kind": "free", "text": "10 checks and 50,000 pings/month; no card" },
+  "cells": {
+    "interval": "30 s Business; 60 s Pro; 3 regions",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$7", "plan": "Pro", "state": "unclear", "math": "5 checks fit the Pro plan. The one-location and own-domain status-page needs aren't supported." },
+      { "v": "$7", "plan": "Pro", "state": "unclear", "math": "25 checks fit the Pro plan. The one-location and own-domain status-page needs aren't supported." },
+      { "v": "$7", "plan": "Pro", "state": "unclear", "math": "100 checks reach the Pro plan's limit. The one-location and own-domain status-page needs aren't supported." }
+    ]
+  }
+}

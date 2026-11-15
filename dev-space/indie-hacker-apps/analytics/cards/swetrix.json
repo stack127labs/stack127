@@ -1,0 +1,12 @@
+{
+  "slug": "swetrix", "name": "Swetrix", "url": "https://swetrix.com/",
+  "jobs": ["web", "product", "replay"],
+  "line": "Privacy-focused web and product analytics with replay and errors.",
+  "free": {"kind": "selfhost", "text": "No new Cloud free plan; free Community Edition to self-host"},
+  "cells": {"cookieless": "Yes by default", "location": "Germany (Cloud); operator chooses for CE", "selfhost": "Yes"},
+  "costs": {"pv": [
+    {"v": "$19", "plan": "Standard 100k", "state": "confirmed", "math": "10,000 pageviews only fit the smallest, 100,000-event Standard band."},
+    {"v": "$19", "plan": "Standard 100k", "state": "confirmed", "math": "100,000 pageviews only fit the 100,000-event Standard band."},
+    {"v": "$79", "plan": "Standard 1m", "state": "confirmed", "math": "1,000,000 pageviews only fit the 1,000,000-event Standard band."}
+  ]}
+}

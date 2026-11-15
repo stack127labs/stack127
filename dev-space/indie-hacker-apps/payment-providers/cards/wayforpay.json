@@ -1,0 +1,48 @@
+{
+  "slug": "wayforpay",
+  "name": "WayForPay",
+  "url": "https://wayforpay.com/uk",
+  "jobs": [
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "line": "Ukraine payment gateway for cards, wallets, recurring billing, and links.",
+  "free": {
+    "kind": "none",
+    "text": "No setup fee; 2% per successful Ukrainian payment"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Ukraine only",
+    "payout": "Ukraine next bank day; contracts up to 3 (unclear)"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ukraine."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ukraine."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ukraine."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Ukraine."
+      }
+    ]
+  }
+}

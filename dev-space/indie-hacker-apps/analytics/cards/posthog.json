@@ -1,0 +1,42 @@
+{
+  "slug": "posthog",
+  "name": "PostHog",
+  "url": "https://posthog.com/",
+  "jobs": [
+    "product",
+    "replay",
+    "web"
+  ],
+  "line": "Product analytics with session replay, funnels and cohort reports.",
+  "free": {
+    "kind": "free",
+    "text": "1,000,000 events/month free, no card"
+  },
+  "cells": {
+    "cookieless": "Optional",
+    "location": "US or EU (you pick)",
+    "selfhost": "Yes, free-plan features only"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$0/month",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Assumes only the stated pageview events are captured, with no click, pageleave, custom, identity, replay or other billable events."
+      },
+      {
+        "v": "$0/month",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Assumes only the stated pageview events are captured, with no click, pageleave, custom, identity, replay or other billable events."
+      },
+      {
+        "v": "$0/month",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Assumes only the stated pageview events are captured, with no click, pageleave, custom, identity, replay or other billable events. This is exactly the free allowance."
+      }
+    ]
+  }
+}

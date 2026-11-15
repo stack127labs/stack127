@@ -1,0 +1,17 @@
+{
+  "slug": "mysql-community-server",
+  "name": "MySQL Community Server",
+  "official_url": "https://www.mysql.com/products/community/",
+  "image_url": "https://www.mysql.com/favicon-48x48.png",
+  "source_page": "https://www.mysql.com/products/community/",
+  "kind": "favicon",
+  "source_host": "mysql.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "3379b8d041f1e85069c35ccf06df742653711f3a690988db73f64598c09e359c",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

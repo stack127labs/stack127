@@ -1,0 +1,17 @@
+{
+  "slug": "nats-jetstream",
+  "name": "NATS / JetStream",
+  "official_url": "https://nats.io/",
+  "image_url": "https://nats.io/img/logos/nats-horizontal-color.png",
+  "source_page": "https://nats.io/",
+  "kind": "logo-mark",
+  "source_host": "nats.io",
+  "original": {
+    "format": "png",
+    "width": 1789,
+    "height": 460
+  },
+  "sha256": "52c92db075c7adbef6950f76f6165ae1848a9f1ab0bcb14fd09c68405fb94499",
+  "note": "Official NATS logo is a horizontal wordmark; no square icon candidate at 64 px or larger was available.",
+  "saved_at": "2026-11-14"
+}

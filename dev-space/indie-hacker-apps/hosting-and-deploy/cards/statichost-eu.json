@@ -1,0 +1,14 @@
+{
+  "slug": "statichost-eu",
+  "name": "statichost.eu",
+  "url": "https://www.statichost.eu/",
+  "jobs": ["static"],
+  "line": "Build and host static sites with Git deployments and HTTPS.",
+  "free": { "kind": "free", "text": "Hobby free for one site, 10 GB bandwidth and 100 build minutes" },
+  "cells": { "type": "Static hosting", "regions": "Europe-wide CDN; exact nodes/redundancy unclear", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "€9 a month for Starter. 100 GB is below 500 GB, and 100 build minutes are below 5,000. The storage limit, capacity for 1 million requests and tax are unknown, so the full total is unclear." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Standard plans do not provide an application API runtime." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Requires an external application host and PostgreSQL/backup service." }
+  ] }
+}

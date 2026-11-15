@@ -1,0 +1,19 @@
+{
+  "slug": "livehelpnow",
+  "name": "LiveHelpNow",
+  "url": "https://livehelpnow.net/",
+  "jobs": ["helpdesk", "chat", "ai", "inbox"],
+  "line": "Live chat and help desk with tickets, customer portal, and AI tools.",
+  "free": { "kind": "trial", "text": "Customized trial after demo; duration not published" },
+  "cells": {
+    "channels": "Website chat, email, SMS, phone, social",
+    "ai": "Knowledge AI starts at $99/month; usage details vary",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$59", "plan": "Professional", "state": "unclear", "math": "The starting rate assumes one licensed agent. The actual seat minimum and quote are not published." },
+      { "v": "$177", "plan": "Professional", "state": "unclear", "math": "3 seats at $59 each, but only under conditions. What counts as a seat and the actual quote are not confirmed." }
+    ]
+  }
+}

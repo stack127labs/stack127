@@ -1,0 +1,17 @@
+{
+  "slug": "railway-databases",
+  "name": "Railway",
+  "official_url": "https://railway.com/",
+  "image_url": "https://railway.com/android-chrome-512x512.png",
+  "source_page": "https://railway.com/",
+  "kind": "manifest-icon",
+  "source_host": "railway.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "36fefcbcfabf77ad0534fa81cf025284bb1f1c78f794987d632a857c1a0e5729",
+  "note": "Railway brand icon used for its database service.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "netopia-payments",
+  "name": "NETOPIA Payments",
+  "official_url": "https://netopia-payments.com/",
+  "image_url": "https://netopia-payments.com/wp-content/uploads/2019/09/cropped-np-favicon-1-192x192.png",
+  "source_page": "https://netopia-payments.com/",
+  "kind": "favicon",
+  "source_host": "netopia-payments.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "737a76d57ba9138205369584b744d5ae2f648f91939bd501c96aeef0da8414e1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

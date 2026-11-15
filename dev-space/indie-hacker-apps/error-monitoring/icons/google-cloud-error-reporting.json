@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-error-reporting",
+  "name": "Google Cloud Error Reporting",
+  "official_url": "https://cloud.google.com/products/error-reporting",
+  "image_url": "https://services.google.com/fh/files/misc/core-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "b5a32490194a13df059c230a7b94d02787dbb4e55f2bb211e4663bd98b960f95",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

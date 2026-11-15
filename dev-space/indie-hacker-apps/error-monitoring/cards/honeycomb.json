@@ -1,0 +1,24 @@
+{
+  "slug": "honeycomb",
+  "name": "Honeycomb",
+  "url": "https://www.honeycomb.io/",
+  "jobs": ["errors", "logs", "performance"],
+  "line": "Explores traces, logs and metrics to investigate application problems.",
+  "free": { "kind": "free", "text": "20 million events/month; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "5,000 reports fit the Free plan, if each report is one event and no other data uses the allowance." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "50,000 reports fit the Free plan, if each report is one event and no other data uses the allowance." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "500,000 reports fit the Free plan, if each report is one event and no other data uses the allowance." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

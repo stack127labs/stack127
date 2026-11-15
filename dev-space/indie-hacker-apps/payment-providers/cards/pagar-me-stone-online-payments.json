@@ -1,0 +1,48 @@
+{
+  "slug": "pagar-me-stone-online-payments",
+  "name": "Pagar.me / Stone online payments",
+  "url": "https://www.pagar.me/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Brazilian gateway for online checkout, payment links and recurring sales.",
+  "free": {
+    "kind": "free",
+    "text": "Essencial has no monthly price; transaction fees apply"
+  },
+  "cells": {
+    "type": "Payment service provider and gateway",
+    "countries": "Brazil only",
+    "payout": "From next day; new-seller review may hold funds 30 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      }
+    ]
+  }
+}

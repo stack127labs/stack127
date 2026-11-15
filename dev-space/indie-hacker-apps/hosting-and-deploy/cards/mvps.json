@@ -1,0 +1,40 @@
+{
+  "slug": "mvps",
+  "name": "MVPS",
+  "url": "https://www.mvps.net/",
+  "jobs": [
+    "vps"
+  ],
+  "line": "Rent NVMe virtual servers with root or administrator access.",
+  "free": {
+    "kind": "none",
+    "text": "No free or trial VPS service"
+  },
+  "cells": {
+    "type": "VPS/VM",
+    "regions": "10 countries: NL, DE, UK, FR, CY, IT, ES, GR, SE, IE",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "\u20ac4",
+        "plan": "VPS One",
+        "state": "confirmed",
+        "math": "\u20ac4 a month before VAT. 100 GB of data sent out fits the 2 TB allowance."
+      },
+      {
+        "v": "\u20ac4",
+        "plan": "VPS One",
+        "state": "confirmed",
+        "math": "\u20ac4 a month before VAT. 1 core and 2 GB meets the minimum of 1 vCPU and 1 GiB. 100 GB fits within 2 TB, but request performance is untested."
+      },
+      {
+        "v": "Unknown",
+        "plan": "VPS One + daily external backups",
+        "state": "unclear",
+        "math": "\u20ac4 a month before VAT. 1 core, 2 GB, 25 GB and 2 TB fit the workload. But provider backups run twice a week, not daily for seven days. The outside cost is unknown."
+      }
+    ]
+  }
+}

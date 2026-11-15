@@ -1,0 +1,19 @@
+{
+  "slug": "chatbase",
+  "name": "Chatbase",
+  "url": "https://www.chatbase.co/",
+  "jobs": ["helpdesk", "ai", "chat", "inbox"],
+  "line": "AI support agents with a human help desk, chat, email, and voice.",
+  "free": { "kind": "trial", "text": "7-day trial; payment method required" },
+  "cells": {
+    "channels": "Email, website chat, voice, messaging integrations",
+    "ai": "Credit-based; model changes credit use",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$150", "plan": "Basic", "state": "confirmed", "math": "Basic is the lowest plan that includes Helpdesk. One workspace covers one person and 100 conversations." },
+      { "v": "$150", "plan": "Basic", "state": "confirmed", "math": "One Basic workspace includes three members and 100 conversations, with AI use off." }
+    ]
+  }
+}

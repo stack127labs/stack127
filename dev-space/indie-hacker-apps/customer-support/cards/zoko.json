@@ -1,0 +1,19 @@
+{
+  "slug": "zoko",
+  "name": "Zoko",
+  "url": "https://www.zoko.io/",
+  "jobs": ["inbox", "ai"],
+  "line": "WhatsApp inbox for Shopify sellers with campaigns and order support.",
+  "free": { "kind": "trial", "text": "7-day trial; card requirement unclear" },
+  "cells": {
+    "channels": "WhatsApp, Instagram, Messenger",
+    "ai": "$24.99/month + $0.09 per resolution; API key extra",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "USD 49.99 + usage", "plan": "Starter", "state": "unclear", "math": "USD 49.99 base + USD 0.015 per Zoko conversation. Customer conversations may not match Zoko conversations one for one." },
+      { "v": "USD 49.99 + usage", "plan": "Starter", "state": "unclear", "math": "Three agents fit within unlimited seats. USD 49.99 base + USD 0.015 per Zoko conversation. How customer conversations map to Zoko conversations is unclear." }
+    ]
+  }
+}

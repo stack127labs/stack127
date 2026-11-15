@@ -1,0 +1,14 @@
+{
+  "slug": "cloudpanel",
+  "name": "CloudPanel",
+  "url": "https://www.cloudpanel.io/",
+  "jobs": ["panel"],
+  "line": "Manage websites and apps on a server you provide.",
+  "free": { "kind": "selfhost", "text": "Free Community Edition; bring your own server" },
+  "cells": { "type": "Self-hosted panel", "regions": "Your server's region", "selfhost": "Yes; install Community Edition on your VM" },
+  "costs": { "work": [
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" }
+  ] }
+}

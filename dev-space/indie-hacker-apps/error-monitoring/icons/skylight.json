@@ -1,0 +1,17 @@
+{
+  "slug": "skylight",
+  "name": "Skylight",
+  "official_url": "https://www.skylight.io/",
+  "image_url": "https://d2ryfneqiwuan6.cloudfront.net/assets/favicon-3ea120f0fce064ca0417a3c8d0281bbc92cab5bbab6b47fea13014c3d1baf9c4.ico",
+  "source_page": "https://www.skylight.io/",
+  "kind": "favicon",
+  "source_host": "d2ryfneqiwuan6.cloudfront.net",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "eaa6103b75e2ae84dbf510a9dcbd91f16bd6502c547bd7fca1aad82b8fc3faf4",
+  "note": "64 px favicon, the largest official icon candidate available.",
+  "saved_at": "2026-11-14"
+}

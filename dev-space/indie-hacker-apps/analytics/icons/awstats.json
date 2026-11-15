@@ -1,0 +1,17 @@
+{
+  "slug": "awstats",
+  "name": "AWStats",
+  "official_url": "https://www.awstats.org/",
+  "image_url": "https://www.awstats.org/favicon.ico",
+  "source_page": "https://www.awstats.org/",
+  "kind": "favicon",
+  "source_host": "awstats.org",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "482b78b46caab98034c9e08de59c0ee4db9a50594e526ca57cc1761950cea25b",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

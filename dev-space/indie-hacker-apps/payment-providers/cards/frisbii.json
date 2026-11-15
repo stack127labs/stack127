@@ -1,0 +1,21 @@
+{
+  "slug": "frisbii",
+  "name": "Frisbii",
+  "url": "https://frisbii.com/",
+  "jobs": ["billing", "gateway"],
+  "line": "Subscription billing software with gateway and checkout options.",
+  "free": { "kind": "none", "text": "Free test account; live Starter plan is €49/month" },
+  "cells": {
+    "type": "Subscription billing and gateway",
+    "countries": "EU27/EEA acquiring; other seller countries unclear",
+    "payout": "Set by the contracted acquirer or payment provider"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't confirmed whether sellers outside the EU or the European Economic Area (EEA) can sign up, and no US card fee is confirmed." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't confirmed whether UK sellers can sign up, and no UK card fee is confirmed." },
+      { "v": "1.25%, min €0.081", "plan": "Consumer domestic card", "state": "confirmed", "math": "The published rate for consumer cards from the seller's own country. Corporate cards are 2.75%, minimum €0.081." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't confirmed whether sellers outside the EU or the European Economic Area (EEA) can sign up, and no India card fee is confirmed." }
+    ]
+  }
+}

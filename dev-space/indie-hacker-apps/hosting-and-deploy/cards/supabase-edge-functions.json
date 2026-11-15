@@ -1,0 +1,14 @@
+{
+  "slug": "supabase-edge-functions",
+  "name": "Supabase Edge Functions",
+  "url": "https://supabase.com/edge-functions",
+  "jobs": ["paas"],
+  "line": "Deploy Deno-compatible serverless functions close to users.",
+  "free": { "kind": "free", "text": "Free: 2 projects, 500k calls/5 GB egress; pause after 7d low DB activity" },
+  "cells": { "type": "Serverless functions", "regions": "15 invocation regions; 3 status-only sites unverified", "selfhost": "Yes; use the open-source Edge Runtime" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Pro + function/storage adaptation", "state": "unclear", "math": "$35.001 subtotal: Pro, Micro and domain. The $10 credit applies only to Postgres compute. If both 100 GB delivery legs are billed, 200 GB fits 250 GB. Builds are outside. Memory, logs, tax, static-host fit: unconfirmed." },
+    { "v": "Unknown", "plan": "Pro/Micro/custom domain", "state": "unclear", "math": "$35.001 subtotal: Pro $25 + Micro compute after the $10 credit + custom domain. 1 million calls and 100 GB fit the quotas. Whether 256 MiB fits the 256 MB limit is not confirmed. CI, logs and tax: extra or unknown." },
+    { "v": "Unknown", "plan": "Pro + Postgres Small", "state": "unclear", "math": "$41.03764 subtotal: Pro $25, Postgres Small (730 hours × $0.0206, less $10 credit) + domain (730 hours × $0.0137) + 8 GB more disk. Assumes 16 GB disk, 110 GB transfer, daily 7-day backups. Memory, CI, logs, tax unknown." }
+  ] }
+}

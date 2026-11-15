@@ -1,0 +1,17 @@
+{
+  "slug": "inngest",
+  "name": "Inngest",
+  "official_url": "https://www.inngest.com/",
+  "image_url": "https://www.inngest.com/logo-structured-data.png",
+  "source_page": "https://www.inngest.com/",
+  "kind": "logo-mark",
+  "source_host": "inngest.com",
+  "original": {
+    "format": "png",
+    "width": 1240,
+    "height": 250
+  },
+  "sha256": "d38f79e8fc578b0eedf34b5db241efd61ed3fd11fa0502d33ff45ed2dd6a3837",
+  "note": "Official logo is a wordmark with the product mark; the standalone favicon is monochrome and not checker-safe.",
+  "saved_at": "2026-11-14"
+}

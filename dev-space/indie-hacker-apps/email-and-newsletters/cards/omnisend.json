@@ -1,0 +1,26 @@
+{
+  "slug": "omnisend",
+  "name": "Omnisend",
+  "url": "https://www.omnisend.com/",
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "line": "Ecommerce email campaigns and customer journeys across channels.",
+  "free": { "kind": "free", "text": "Free for 250 contacts and 500 emails/month; also 500 web pushes" },
+  "cells": {
+    "newsletters": "Yes, newsletters and marketing campaigns",
+    "api": "Yes, API can trigger workflows; features vary by plan"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 20/month", "plan": "Standard", "state": "confirmed", "math": "4,000 newsletter emails. The Standard reference allows 12,000 sends." },
+      { "v": "USD 81/month", "plan": "Standard", "state": "confirmed", "math": "20,000 emails to 5,000 subscribers. The reference allowance is 60,000 sends." },
+      { "v": "USD 132/month", "plan": "Standard", "state": "confirmed", "math": "40,000 emails to 10,000 subscribers. The reference allowance is 120,000 sends." },
+      { "v": "USD 413 or USD 450/month", "plan": "Standard", "state": "conflicting", "math": "Official references for 50,000 subscribers disagree. The 600,000-send allowance covers the 200,000-email workload." }
+    ],
+    "appmail": [
+      { "v": "USD 16/cycle", "plan": "Standard", "state": "confirmed", "math": "500 billable profiles × 6 single-email runs = 3,000 emails. The quota is 6,000, spread at 100 a day over a 30-day cycle." },
+      { "v": "USD 20/cycle", "plan": "Standard", "state": "confirmed", "math": "1,000 billable profiles × 10 single-email runs = 10,000 emails. The quota is 12,000, spread at 334 a day over a 30-day cycle." },
+      { "v": "USD 81/cycle", "plan": "Standard", "state": "confirmed", "math": "5,000 billable profiles × 10 single-email runs = 50,000 emails. The quota is 60,000, spread at 1,667 a day over a 30-day cycle." },
+      { "v": "USD 132/cycle", "plan": "Standard", "state": "confirmed", "math": "10,000 billable profiles × 10 single-email runs = 100,000 emails. The quota is 120,000, spread at 3,334 a day over a 30-day cycle." }
+    ]
+  }
+}

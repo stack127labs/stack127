@@ -1,0 +1,24 @@
+{
+  "slug": "onlineornot",
+  "name": "OnlineOrNot",
+  "url": "https://onlineornot.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "line": "Checks websites, APIs and cron jobs, and publishes status pages.",
+  "free": { "kind": "free", "text": "Hobby: 3 checks at 180 s; 1 page, 100 subscribers" },
+  "cells": {
+    "interval": "180 s free, 30 s paid",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No application error tracking" }
+    ],
+    "uptime": [
+      { "v": "$25", "plan": "Pro", "state": "confirmed", "math": "5 endpoints use the $25 a month Pro bundle, which has 35 monitor slots. 60-second checks and one own-domain public page are included." },
+      { "v": "$25", "plan": "Pro", "state": "confirmed", "math": "25 endpoints fit the $25 a month Pro bundle's 35 monitor slots. 60-second checks and one own-domain public page are included." },
+      { "v": "$55", "plan": "Pro + 3 monitor packs", "state": "confirmed", "math": "The $25 Pro bundle, plus 3 monitor packs at $10 each, comes to $55 a month. The 110 slots cover 100 endpoints at 60-second checks, with one own-domain page." }
+    ]
+  }
+}

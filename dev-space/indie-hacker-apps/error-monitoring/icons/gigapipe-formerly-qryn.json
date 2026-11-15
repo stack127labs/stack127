@@ -1,0 +1,17 @@
+{
+  "slug": "gigapipe-formerly-qryn",
+  "name": "Gigapipe",
+  "official_url": "https://gigapipe.com/",
+  "image_url": "https://gigapipe.com/favicon.svg",
+  "source_page": "https://gigapipe.com/",
+  "kind": "svg-icon",
+  "source_host": "gigapipe.com",
+  "original": {
+    "format": "svg",
+    "width": 5333,
+    "height": 5333
+  },
+  "sha256": "bff680cc7cdb0003431b0074f70aff0a012f4dfc250d31ab230a410cde34a5c2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

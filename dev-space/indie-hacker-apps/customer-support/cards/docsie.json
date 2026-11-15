@@ -1,0 +1,35 @@
+{
+  "slug": "docsie",
+  "name": "Docsie",
+  "url": "https://www.docsie.io/",
+  "jobs": [
+    "helpdesk",
+    "ai"
+  ],
+  "line": "Customer knowledge bases with AI answers and in-app support tickets.",
+  "free": {
+    "kind": "free",
+    "text": "Free hosted plan: 1 seat, 1 workspace, 2 portals"
+  },
+  "cells": {
+    "channels": "Knowledge portal, website chat, in-app tickets",
+    "ai": "Credit-based; chatbot starts at 50 credits/message",
+    "selfhost": "Yes, paid licence or within free limits"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "The support email total cannot be worked out from the published prices."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "The support email total cannot be worked out from the published prices."
+      }
+    ]
+  }
+}

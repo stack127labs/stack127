@@ -1,0 +1,17 @@
+{
+  "slug": "elastic-email",
+  "name": "Elastic Email",
+  "official_url": "https://elasticemail.com/",
+  "image_url": "https://elasticemail.com/favicon.ico",
+  "source_page": "https://elasticemail.com/",
+  "kind": "favicon",
+  "source_host": "elasticemail.com",
+  "original": {
+    "format": "png",
+    "width": 270,
+    "height": 270
+  },
+  "sha256": "69c87dfbcb72c6fe29f689618d6ea38f8c47ea11f8681b1a28490dd091f339cf",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

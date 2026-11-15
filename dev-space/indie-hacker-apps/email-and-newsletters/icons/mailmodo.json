@@ -1,0 +1,17 @@
+{
+  "slug": "mailmodo",
+  "name": "Mailmodo",
+  "official_url": "https://www.mailmodo.com/",
+  "image_url": "https://www.mailmodo.com/favicon.ico",
+  "source_page": "https://www.mailmodo.com/",
+  "kind": "favicon",
+  "source_host": "mailmodo.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "33eaedd9d0ae32b2944a76a008863b97dc1233b82cc698bc2d26432e830ed89f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

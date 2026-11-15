@@ -1,0 +1,14 @@
+{
+  "slug": "appliku",
+  "name": "Appliku",
+  "url": "https://appliku.com/",
+  "jobs": ["panel"],
+  "line": "Deploy and manage apps on servers you choose and pay for.",
+  "free": { "kind": "free", "text": "$0 panel plan; server billed separately" },
+  "cells": { "type": "Deployment panel", "regions": "Your server's region", "selfhost": "Yes; use a connected server" },
+  "costs": { "work": [
+    { "v": "$10", "plan": "Hobby + server", "state": "unclear", "math": "$10 a month for the panel. The server, bandwidth, domain, and outside DNS (domain lookup) and CDN (content delivery) costs are unknown." },
+    { "v": "$10", "plan": "Hobby + server", "state": "unclear", "math": "$10 a month for the panel, plus a server with 1 vCPU and 1 GiB, billed separately, and network use. The total is unknown." },
+    { "v": "$18", "plan": "Growth + server", "state": "unclear", "math": "$18 a month for the panel. Server resources, extra disk and optional S3 storage are billed separately." }
+  ] }
+}

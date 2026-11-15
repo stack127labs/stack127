@@ -1,0 +1,19 @@
+{
+  "slug": "formilla",
+  "name": "Formilla",
+  "url": "https://www.formilla.com/",
+  "jobs": ["chat", "ai"],
+  "line": "Website live chat with human agents, chatbots, and customer messaging.",
+  "free": { "kind": "free", "text": "Free for 1 agent with unlimited live chats" },
+  "cells": {
+    "channels": "Website chat",
+    "ai": "$29.99/month for 100 bot chats",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Standard", "state": "confirmed", "math": "The free Standard plan includes one agent and unlimited live chats, so 100 fits." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Prices for extra agents are not published, so the total for three agents is unknown." }
+    ]
+  }
+}

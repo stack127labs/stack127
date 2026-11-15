@@ -1,0 +1,17 @@
+{
+  "slug": "bleemeo",
+  "name": "Bleemeo",
+  "official_url": "https://bleemeo.com/",
+  "image_url": "https://bleemeo.com/favicon.svg",
+  "source_page": "https://bleemeo.com/",
+  "kind": "svg-icon",
+  "source_host": "bleemeo.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "2c80ce1baeed400f54f21ec12fee268bb3c95636387b7d0216c2c10ef70c9024",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "azure-cosmos-db",
+  "name": "Azure Cosmos DB",
+  "url": "https://azure.microsoft.com/en-us/products/cosmos-db",
+  "jobs": ["sql", "vector"],
+  "line": "Run managed NoSQL databases with vector search and multiple APIs.",
+  "free": { "kind": "free", "text": "1,000 RU/s and 25 GB/account; empty accounts may be deleted" },
+  "cells": {
+    "metered": "From $0.008 per 100 RU/s-hour, plus storage",
+    "regions": "Multiple Azure regions; serverless is single-region",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Request units (RUs) depend on item size, indexing, query work and consistency. The workload does not give these, so no total can be set." },
+      { "v": "$23.61", "plan": "Manual provisioned, East US", "state": "unclear", "math": "730 hours × $0.032 an hour for the minimum of 400 RU/s (request units per second), plus 1 GB of storage at $0.25 per GB a month. Extras and tax are not included." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No general-purpose file storage plan" }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Database operations are not a queue or workflow service" }
+    ]
+  }
+}

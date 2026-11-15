@@ -1,0 +1,61 @@
+{
+  "slug": "uptimerobot",
+  "name": "UptimeRobot",
+  "url": "https://uptimerobot.com/",
+  "jobs": [
+    "uptime",
+    "status",
+    "cron"
+  ],
+  "line": "Website uptime checks with a free plan and status pages.",
+  "free": {
+    "kind": "free",
+    "text": "50 monitors, 5-minute checks, one status page"
+  },
+  "cells": {
+    "interval": "15 s Scale; Team 30/60 s (conflict); 60 s Solo; 300 s free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$10",
+        "plan": "Solo 10",
+        "state": "confirmed",
+        "math": "5 endpoints fit the Solo 10 plan at $10 a month, with 60-second checks."
+      },
+      {
+        "v": "$22",
+        "plan": "Solo 50",
+        "state": "confirmed",
+        "math": "25 endpoints fit the Solo 50 plan at $22 a month."
+      },
+      {
+        "v": "$35",
+        "plan": "Team 100",
+        "state": "confirmed",
+        "math": "100 endpoints fit the Team 100 plan at $35 a month."
+      }
+    ]
+  }
+}

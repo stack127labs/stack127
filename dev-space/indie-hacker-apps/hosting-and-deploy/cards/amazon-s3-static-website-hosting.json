@@ -1,0 +1,14 @@
+{
+  "slug": "amazon-s3-static-website-hosting",
+  "name": "Amazon S3 static website hosting",
+  "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html",
+  "jobs": ["static"],
+  "line": "Host static website files from an Amazon S3 bucket.",
+  "free": { "kind": "credits", "text": "AWS credits; recurring transfer allowance is shared across services" },
+  "cells": { "type": "Object storage hosting", "regions": "AWS Regions; CloudFront adds global edges", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$0.4122420419216156", "plan": "S3 + CloudFront example", "state": "unclear", "math": "An example subtotal with one million reads and 2,020 writes. The exact number of requests, including origin requests, changes the cost." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "S3 website mode does not execute API code." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "S3 website mode does not run an API or managed PostgreSQL." }
+  ] }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "logrocket",
+  "name": "LogRocket",
+  "url": "https://logrocket.com/",
+  "jobs": ["replay", "product"],
+  "line": "Records app sessions and connects user behavior to frontend problems.",
+  "free": { "kind": "free", "text": "Free up to 1,000 sessions a month" },
+  "cells": {
+    "cookieless": "No, web sessions use first-party cookies",
+    "location": "US for SaaS; self-hosted location is customer-selected",
+    "selfhost": "Yes, commercial Enterprise deployment"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 1,000 a month. Core starts at $83 a month, billed yearly, for 10,000 sessions." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 1,000 a month. Core starts at $83 a month, billed yearly, for 10,000 sessions." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 1,000 a month. Core starts at $83 a month, billed yearly, for 10,000 sessions." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "tencent-cloud-cos",
+  "name": "Tencent Cloud COS",
+  "official_url": "https://www.tencentcloud.com/products/cos",
+  "image_url": "https://www.tencentcloud.com/favicon.ico",
+  "source_page": "https://www.tencentcloud.com/products/cos",
+  "kind": "favicon",
+  "source_host": "tencentcloud.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "d8d5a3bc946ab7cc1248eb2559743357b21edd6599e3b8625b74a72390fb4904",
+  "note": "parent brand: Tencent Cloud; largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

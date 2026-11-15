@@ -1,0 +1,20 @@
+{
+  "slug": "vng-cloud-vserver",
+  "name": "VNG Cloud vServer",
+  "url": "https://www.vngcloud.vn/vi/web/guest/product/vserver",
+  "jobs": ["vps"],
+  "line": "Virtual servers from VNG Cloud, now under the GreenNode brand.",
+  "free": { "kind": "credits", "text": "Signup free usage may be offered within 3 days; amount unknown" },
+  "cells": {
+    "type": "Cloud VM",
+    "regions": "Six zones in Vietnam and Thailand",
+    "selfhost": "Yes; customer manages the VM"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "CPU Instance", "state": "unclear", "math": "238,392 VND for 30 days is only the CPU minimum. Add disk, a floating IP, pay-as-you-go data sent out, add-ons and tax. The price for 100 GB of traffic a month is unavailable. Builds use your own tools." },
+      { "v": "Unknown", "plan": "CPU Instance", "state": "unclear", "math": "There is no public price for a VM running 730 hours with 1 vCPU and 1 GiB. Add disk, a floating IP, 100 GB of traffic, add-ons and tax. The VM size's capacity and price are unverified." },
+      { "v": "Unknown", "plan": "CPU Instance + Managed PostgreSQL", "state": "unclear", "math": "658,392 VND for 30 days is only the starting price for CPU and Postgres added together. Required capacity, 10 GB of traffic, daily seven-day backups, VM, disk, network and tax are not priced." }
+    ]
+  }
+}

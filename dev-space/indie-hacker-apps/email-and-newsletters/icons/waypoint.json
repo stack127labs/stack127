@@ -1,0 +1,17 @@
+{
+  "slug": "waypoint",
+  "name": "Waypoint",
+  "official_url": "https://www.usewaypoint.com/",
+  "image_url": "https://framerusercontent.com/images/52EBlO9nrjaPmzSSUN0OdMCylM0.png",
+  "source_page": "https://www.usewaypoint.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "framerusercontent.com",
+  "original": {
+    "format": "heif",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "9e68e4c8a0cf896df7a4e3d6b8e0e1aa0a5705088eba357e3e97cd2509ec0eb5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

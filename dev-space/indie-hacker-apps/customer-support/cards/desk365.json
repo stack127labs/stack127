@@ -1,0 +1,19 @@
+{
+  "slug": "desk365",
+  "name": "Desk365",
+  "url": "https://www.desk365.io/",
+  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "line": "Email ticketing and customer support with a portal and Teams app.",
+  "free": { "kind": "free", "text": "Free for up to 3 agents and 50 tickets/month" },
+  "cells": {
+    "channels": "Email, Teams, web forms, customer portal",
+    "ai": "100 monthly credits on Plus; extra 1,000 cost $50",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$16", "plan": "Standard", "state": "confirmed", "math": "1 agent at $16 a month. 100 tickets is more than the free plan's 50-ticket limit." },
+      { "v": "$48", "plan": "Standard", "state": "confirmed", "math": "3 agents at $16 a month each. One account handles 100 tickets." }
+    ]
+  }
+}

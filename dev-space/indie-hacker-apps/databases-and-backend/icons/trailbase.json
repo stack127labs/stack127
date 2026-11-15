@@ -1,0 +1,17 @@
+{
+  "slug": "trailbase",
+  "name": "TrailBase",
+  "official_url": "https://trailbase.io/",
+  "image_url": "https://trailbase.io/favicon.svg",
+  "source_page": "https://trailbase.io/",
+  "kind": "svg-icon",
+  "source_host": "trailbase.io",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "95edfefff6eb08437b3401b6a629d9f08cb44791fa70453e9ee5987c3427dad3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

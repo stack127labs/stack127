@@ -1,0 +1,24 @@
+{
+  "slug": "openstatus",
+  "name": "OpenStatus",
+  "url": "https://www.openstatus.dev/",
+  "jobs": ["uptime", "status"],
+  "line": "Runs multi-region uptime checks and status pages with incident updates.",
+  "free": { "kind": "free", "text": "Hobby: 1 monitor, 1 page, 10-minute checks" },
+  "cells": {
+    "interval": "30 s Pro/Scale; 60 s Starter; 10 min free",
+    "maintained": "Last update 2026-11-07"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" }
+    ],
+    "uptime": [
+      { "v": "$30", "plan": "Starter", "state": "confirmed", "math": "5 endpoints use the Starter plan's 20 monitors, 20 components and one page. The plan costs $30 a month for 60-second checks." },
+      { "v": "$100", "plan": "Pro", "state": "confirmed", "math": "25 endpoints use the Pro plan's 50 monitors, 50 components and page allowance. The plan costs $100 a month for 60-second checks." },
+      { "v": "$575", "plan": "Scale + 5 monitor packs", "state": "confirmed", "math": "The $500 Scale plan plus 5 monitor packs at $15 each comes to $575 a month. 100 monitors and 500 components cover the 60-second checks." }
+    ]
+  }
+}

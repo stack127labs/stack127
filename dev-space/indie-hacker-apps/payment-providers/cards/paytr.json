@@ -1,0 +1,21 @@
+{
+  "slug": "paytr",
+  "name": "PayTR",
+  "url": "https://www.paytr.com/",
+  "jobs": ["gateway", "links", "billing"],
+  "line": "Turkish payment gateway with links, subscriptions and online checkout.",
+  "free": { "kind": "none", "text": "No setup, activation, integration, monthly or annual fixed fee" },
+  "cells": {
+    "type": "Payment institution and payment gateway",
+    "countries": "Türkiye and Northern Cyprus only",
+    "payout": "Starting 2.19% rate has 7-day settlement"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so US sellers are excluded." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so UK sellers are excluded." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so German sellers are excluded." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so Indian sellers are excluded." }
+    ]
+  }
+}

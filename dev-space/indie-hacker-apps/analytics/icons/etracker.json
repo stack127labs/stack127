@@ -1,0 +1,17 @@
+{
+  "slug": "etracker",
+  "name": "etracker",
+  "official_url": "https://www.etracker.com/",
+  "image_url": "https://www.etracker.com/app/uploads/2024/05/cropped-android-chrome-512x512-1-300x300.png",
+  "source_page": "https://www.etracker.com/",
+  "kind": "favicon",
+  "source_host": "etracker.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "9555e791428c6462125172df24354516b5edd5b1adaca1f7c694079bda36ec7f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

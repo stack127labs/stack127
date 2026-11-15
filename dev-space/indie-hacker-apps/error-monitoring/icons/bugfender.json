@@ -1,0 +1,17 @@
+{
+  "slug": "bugfender",
+  "name": "Bugfender",
+  "official_url": "https://bugfender.com/",
+  "image_url": "https://bugfender.com/wp-content/themes/bugfender2024/images/favicons/apple-touch-icon.png",
+  "source_page": "https://bugfender.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "bugfender.com",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "dc38edd7fb32e761e45ac540c4b092b5d9b50f1b2b3c4545f3c81413e22b80fd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

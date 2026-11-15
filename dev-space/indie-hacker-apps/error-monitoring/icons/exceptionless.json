@@ -1,0 +1,17 @@
+{
+  "slug": "exceptionless",
+  "name": "Exceptionless",
+  "official_url": "https://exceptionless.com/",
+  "image_url": "https://exceptionless.com/favicon.ico",
+  "source_page": "https://exceptionless.com/",
+  "kind": "favicon",
+  "source_host": "exceptionless.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "b435919208c76475721bad156c712203569c5a235ba31fc6055b16dfbaa466b3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

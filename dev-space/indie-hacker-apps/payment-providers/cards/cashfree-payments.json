@@ -1,0 +1,48 @@
+{
+  "slug": "cashfree-payments",
+  "name": "Cashfree Payments",
+  "url": "https://www.cashfree.com/payment-links/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Indian payment gateway with links, hosted pages and subscriptions.",
+  "free": {
+    "kind": "none",
+    "text": "No monthly price stated; payment fees apply"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "India only",
+    "payout": "Usually T+2; T+1 and instant options have conditions"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "1.95%",
+        "plan": "Domestic Visa/Mastercard/RuPay/Maestro",
+        "state": "conflicting",
+        "math": "The FAQ says 1.95%, but the Payment Pages say 1.90%. GST, India's goods and services tax, also applies to the fee."
+      }
+    ]
+  }
+}

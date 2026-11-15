@@ -1,0 +1,24 @@
+{
+  "slug": "hawk",
+  "name": "Hawk",
+  "url": "https://hawk.so/",
+  "jobs": ["errors", "performance"],
+  "line": "Groups application errors and shows debugging context, releases and alerts.",
+  "free": { "kind": "free", "text": "1,000 events/workspace/month; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-10-31"
+  },
+  "costs": {
+    "errors": [
+      { "v": "RUB 99", "plan": "Basic", "state": "confirmed", "math": "5,000 events a month fit the Basic plan's 5,000-event allowance." },
+      { "v": "RUB 950", "plan": "Startup", "state": "confirmed", "math": "50,000 events a month fit the Startup plan's 50,000-event allowance." },
+      { "v": "RUB 7,500", "plan": "Corporate", "state": "confirmed", "math": "500,000 events a month fit the Corporate plan's 500,000-event allowance." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

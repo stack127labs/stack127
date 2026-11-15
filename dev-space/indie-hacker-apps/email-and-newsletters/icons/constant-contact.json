@@ -1,0 +1,17 @@
+{
+  "slug": "constant-contact",
+  "name": "Constant Contact",
+  "official_url": "https://www.constantcontact.com/",
+  "image_url": "https://www.constantcontact.com/favicon.ico",
+  "source_page": "https://www.constantcontact.com/",
+  "kind": "favicon",
+  "source_host": "constantcontact.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "ded5b1166e6147a3c3239e1bb6cc384ec3c6a859d28548302127418aae6bce84",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

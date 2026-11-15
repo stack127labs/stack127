@@ -1,0 +1,21 @@
+{
+  "slug": "opennode",
+  "name": "OpenNode",
+  "url": "https://opennode.com/",
+  "jobs": ["crypto"],
+  "line": "Bitcoin and Lightning checkout with wallet, conversion and payout tools.",
+  "free": { "kind": "none", "text": "No setup, minimum, monthly or annual fee" },
+  "cells": {
+    "type": "Bitcoin payment processor and settlement service",
+    "countries": "120+ served; complete seller-country list unpublished",
+    "payout": "Lightning in seconds; on-chain often under 10 minutes"
+  },
+  "costs": {
+    "fee": [
+      { "v": "1%", "plan": "Bitcoin payment processing", "state": "unclear", "math": "One typical Bitcoin payment rate is published and used in every country. The full list of seller countries isn't published." },
+      { "v": "1%", "plan": "Bitcoin payment processing", "state": "unclear", "math": "One typical Bitcoin payment rate is published and used in every country. The full list of seller countries isn't published." },
+      { "v": "1%", "plan": "Bitcoin payment processing", "state": "unclear", "math": "One typical Bitcoin payment rate is published and used in every country. The full list of seller countries isn't published." },
+      { "v": "1%", "plan": "Bitcoin payment processing", "state": "unclear", "math": "One typical Bitcoin payment rate is published and used in every country. The full list of seller countries isn't published." }
+    ]
+  }
+}

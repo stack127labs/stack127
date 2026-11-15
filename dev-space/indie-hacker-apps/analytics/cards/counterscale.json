@@ -1,0 +1,14 @@
+{
+  "slug": "counterscale",
+  "name": "Counterscale",
+  "url": "https://counterscale.dev/",
+  "jobs": ["web"],
+  "line": "Self-hosted website analytics built on Cloudflare services.",
+  "free": { "kind": "selfhost", "text": "Free software; runs in your Cloudflare account" },
+  "cells": { "cookieless": "Yes", "location": "Your Cloudflare account", "selfhost": "Yes (Cloudflare deployment)" },
+  "costs": { "pv": [
+    { "v": "$0", "plan": "Cloudflare Free", "state": "unclear", "math": "The modeled server cost is $0, within free limits. CPU, queries and archive use can add cost." },
+    { "v": "$0", "plan": "Cloudflare Free", "state": "unclear", "math": "The modeled server cost is $0, within free limits. CPU, queries and archive use can add cost." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Exact cost depends on CPU, daily request limits, query count and archive resources." }
+  ] }
+}

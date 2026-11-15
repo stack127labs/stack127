@@ -1,0 +1,25 @@
+{
+  "slug": "heroku-postgres",
+  "name": "Heroku Postgres",
+  "url": "https://www.heroku.com/postgres/",
+  "jobs": ["sql", "vector"],
+  "line": "Managed PostgreSQL with vector search and several database plan tiers.",
+  "free": { "kind": "none", "text": "No free plan; student credit $13/mo; billed idle; deprovision removes DB" },
+  "cells": {
+    "metered": "Essential-0 $5/month; 1 GB storage and 20 connections",
+    "regions": "Essential in US East or EU West; Private Space adds regions",
+    "selfhost": "No, Heroku-managed database service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Essential-1", "state": "unclear", "math": "Essential-1 is $9 a month. The exact total also depends on egress (outbound data), which is not priced, and on compute capacity that has not been verified." },
+      { "v": "$9/month", "plan": "Essential-1", "state": "confirmed", "math": "The idle database keeps its Essential-1 plan at $9 a month. How 730 hours are billed for part of a month depends on billing dates." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Heroku Postgres is a database, not file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Postgres stores app data, but does not run the app worker." }
+    ]
+  }
+}

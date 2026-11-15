@@ -1,0 +1,17 @@
+{
+  "slug": "appwrite-sites",
+  "name": "Appwrite Sites",
+  "official_url": "https://appwrite.io/products/sites",
+  "image_url": "https://appwrite.io/logo.svg",
+  "source_page": "https://appwrite.io/products/sites",
+  "kind": "svg-icon",
+  "source_host": "appwrite.io",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "7454f143c85d057709faa24ca7cfe2864fcd502c2c8a78be3771280f4206fca3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

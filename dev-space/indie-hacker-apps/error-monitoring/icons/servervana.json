@@ -1,0 +1,17 @@
+{
+  "slug": "servervana",
+  "name": "Servervana",
+  "official_url": "https://servervana.com/",
+  "image_url": "https://servervana.com/favicon.ico",
+  "source_page": "https://servervana.com/",
+  "kind": "favicon",
+  "source_host": "servervana.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "d16f6875dfe57758a0d9f78cf3445ca843dbbe6182ad33aae8458a0f77666b56",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

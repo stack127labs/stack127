@@ -1,0 +1,17 @@
+{
+  "slug": "authorize-net",
+  "name": "Authorize.net",
+  "official_url": "https://www.authorize.net/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bb/60/b8/bb60b843-a633-055e-f4a4-7a6bdf8be5e7/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/authorize-net-2-0/id6575351995?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "7557d885c2c18477a59c647b753b726f7b82cdf0f08730ca38a7445dea2d0561",
+  "note": "Authorize.net 2.0 merchant app by parent company Visa Inc.",
+  "saved_at": "2026-11-14"
+}

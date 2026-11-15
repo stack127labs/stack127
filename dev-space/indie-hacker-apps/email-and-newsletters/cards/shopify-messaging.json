@@ -1,0 +1,26 @@
+{
+  "slug": "shopify-messaging",
+  "name": "Shopify Messaging",
+  "url": "https://www.shopify.com/email-marketing",
+  "jobs": ["newsletter", "marketing", "multichannel"],
+  "line": "Shopify store email and SMS campaigns with lifecycle automation.",
+  "free": { "kind": "none", "text": "10k emails/month included; paid store needed; trial/Pause & Build can't send" },
+  "cells": {
+    "newsletters": "Yes; consented store campaigns (paid Shopify plan needed)",
+    "api": "Yes, GraphQL API; no general email-send endpoint"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 0/month incremental", "plan": "Shopify Messaging", "state": "confirmed", "math": "1,000 subscribers × 4 = 4,000 emails, within the 10,000 included. A Basic store adds USD 39 a month; the total is USD 39 before tax." },
+      { "v": "USD 10/month incremental", "plan": "Shopify Messaging", "state": "confirmed", "math": "5,000 subscribers × 4 = 20,000 emails. (20,000 − 10,000) emails × USD 0.001 each = USD 10. A Basic store adds USD 39; the total is USD 49 before tax." },
+      { "v": "USD 30/month incremental", "plan": "Shopify Messaging", "state": "confirmed", "math": "10,000 subscribers × 4 = 40,000 emails. (40,000 − 10,000) emails × USD 0.001 each = USD 30. A Basic store adds USD 39; the total is USD 69 before tax." },
+      { "v": "USD 190/month incremental", "plan": "Shopify Messaging", "state": "confirmed", "math": "50,000 subscribers × 4 = 200,000 emails. (200,000 − 10,000) emails × USD 0.001 each = USD 190. A Basic store adds USD 39; the total is USD 229 before tax. Warm-up or caps may apply." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." }
+    ]
+  }
+}

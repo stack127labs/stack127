@@ -1,0 +1,17 @@
+{
+  "slug": "aws-step-functions",
+  "name": "AWS Step Functions",
+  "official_url": "https://aws.amazon.com/step-functions/",
+  "image_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+  "source_page": "https://aws.amazon.com/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "d1.awsstatic.com",
+  "original": {
+    "format": "svg",
+    "width": 427,
+    "height": 427
+  },
+  "sha256": "87f74b067cbbc96901895d7b63f86754d4e8522ddec45ee23c4cc1956fc23ad7",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

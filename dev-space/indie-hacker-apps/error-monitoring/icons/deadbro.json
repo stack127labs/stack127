@@ -1,0 +1,17 @@
+{
+  "slug": "deadbro",
+  "name": "DeadBro",
+  "official_url": "https://www.deadbro.com/",
+  "image_url": "https://www.deadbro.com/favicon.png",
+  "source_page": "https://www.deadbro.com/",
+  "kind": "favicon",
+  "source_host": "deadbro.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "89a6d0b30ba4239c562bd97fb40038cf5cdf6933d76809f4a678b850593185bd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

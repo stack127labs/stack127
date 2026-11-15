@@ -1,0 +1,14 @@
+{
+  "slug": "heroku",
+  "name": "Heroku",
+  "url": "https://www.heroku.com/",
+  "jobs": ["paas"],
+  "line": "Deploy and run apps on managed dynos with add-on services.",
+  "free": { "kind": "none", "text": "No ongoing free dyno, Postgres or key-value plan" },
+  "cells": { "type": "Managed app platform", "regions": "US and Europe", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$5", "plan": "Eco", "state": "unclear", "math": "$5 a month for the account. The full total for the static workload is unknown." },
+    { "v": "Unknown", "plan": "Standard-2X", "state": "unclear", "math": "$50 a month at most per dyno (Heroku's name for an app container). It does not confirm the minimum of 1 vCPU and 1 GiB." },
+    { "v": "Up to $100", "plan": "Standard-2X + Standard-0 Postgres", "state": "unclear", "math": "Up to $50 for compute + up to $50 for the database = up to $100 a month. Both are maximums, and daily backups are included." }
+  ] }
+}

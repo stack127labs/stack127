@@ -1,0 +1,23 @@
+{
+  "slug": "curated",
+  "name": "Curated",
+  "url": "https://www.curated.co/",
+  "jobs": ["newsletter"],
+  "line": "Build editorial newsletters from selected links and original commentary.",
+  "free": {"kind": "free", "text": "Free up to 1,500 subscribers"},
+  "cells": {"newsletters": "Yes", "api": "Yes, subscriber API"},
+  "costs": {
+    "subs": [
+      {"v": "$0", "plan": "Free", "state": "confirmed", "math": "4,000 emails a month fit inside the free plan, which covers up to 1,500 subscribers."},
+      {"v": "$69", "plan": "5,000 subscribers", "state": "confirmed", "math": "20,000 emails a month. The plan costs $69 a month, and its monthly allowance is 155,000 emails (5,000 × 31)."},
+      {"v": "$129", "plan": "10,000 subscribers", "state": "confirmed", "math": "40,000 emails a month. The plan costs $129 a month, and its monthly allowance is 310,000 emails (10,000 × 31)."},
+      {"v": "$399", "plan": "50,000 subscribers", "state": "confirmed", "math": "200,000 emails a month. The plan costs $399 a month, and its monthly allowance is 1,550,000 emails (50,000 × 31)."}
+    ],
+    "appmail": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."}
+    ]
+  }
+}

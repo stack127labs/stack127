@@ -1,0 +1,26 @@
+{
+  "slug": "sendportal",
+  "name": "SendPortal",
+  "url": "https://sendportal.io/",
+  "jobs": ["newsletter", "marketing"],
+  "line": "Self-hosted newsletters and marketing campaigns using your email provider.",
+  "free": { "kind": "selfhost", "text": "Free MIT software; supply a server, database and sender" },
+  "cells": {
+    "newsletters": "Yes, broadcasts to tagged subscriber audiences",
+    "api": "Yes, REST API can manage and send campaigns"
+  },
+  "costs": {
+    "subs": [
+      { "v": "US$12.65536/month known subtotal", "plan": "Self-host + SES", "state": "confirmed", "math": "1,000 subscribers × 4 campaigns. $12 server + $0.64 Amazon SES + $0.01536 data at 32 KB per email. Amazon SNS, tax, backup and operations are extra." },
+      { "v": "US$15.2768/month known subtotal", "plan": "Self-host + SES", "state": "confirmed", "math": "5,000 subscribers × 4 campaigns. $12 server + $3.20 Amazon SES + $0.0768 data at 32 KB per email. Amazon SNS, tax, backup and operations are extra." },
+      { "v": "US$18.5536/month known subtotal", "plan": "Self-host + SES", "state": "confirmed", "math": "10,000 subscribers × 4 campaigns. $12 server + $6.40 Amazon SES + $0.1536 data at 32 KB per email. Amazon SNS, tax, backup and operations are extra." },
+      { "v": "US$44.768/month known subtotal", "plan": "Self-host + SES", "state": "confirmed", "math": "50,000 subscribers × 4 campaigns. $12 server + $32 Amazon SES + $0.768 data at 32 KB per email. Amazon SNS, tax, backup and operations are extra." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "We could not confirm a general app-email sending service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "We could not confirm a general app-email sending service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "We could not confirm a general app-email sending service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "We could not confirm a general app-email sending service." }
+    ]
+  }
+}

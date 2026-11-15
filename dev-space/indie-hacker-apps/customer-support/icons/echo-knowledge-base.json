@@ -1,0 +1,17 @@
+{
+  "slug": "echo-knowledge-base",
+  "name": "Echo Knowledge Base",
+  "official_url": "https://www.echoknowledgebase.com/",
+  "image_url": "https://www.echoknowledgebase.com//wp-content//uploads//2021//11//cropped-Logo-KB-Favicon.png",
+  "source_page": "https://www.echoknowledgebase.com/",
+  "kind": "logo-mark",
+  "source_host": "echoknowledgebase.com",
+  "original": {
+    "format": "webp",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "f7f833abb343cba07c2bd7a590bf704957bd39dd91c99505efebbf5c771c262c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

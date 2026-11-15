@@ -1,0 +1,14 @@
+{
+  "slug": "lunni",
+  "name": "Lunni",
+  "url": "https://lunni.dev/",
+  "jobs": ["panel"],
+  "line": "Deploy and manage Docker apps on a server you operate.",
+  "free": { "kind": "selfhost", "text": "Free self-hosted software; provide the server and services" },
+  "cells": { "type": "Self-hosted Docker PaaS", "regions": "Your server's region", "selfhost": "Yes; install on your Linux server" },
+  "costs": { "work": [
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" }
+  ] }
+}

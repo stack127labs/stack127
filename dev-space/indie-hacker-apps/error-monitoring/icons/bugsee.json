@@ -1,0 +1,17 @@
+{
+  "slug": "bugsee",
+  "name": "Bugsee",
+  "official_url": "https://www.bugsee.com/",
+  "image_url": "https://www.bugsee.com/icon.svg",
+  "source_page": "https://www.bugsee.com/",
+  "kind": "svg-icon",
+  "source_host": "bugsee.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "073540f89c57bc96620cda9690044b2c243781bffbb9bbf7e52a237794a38858",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

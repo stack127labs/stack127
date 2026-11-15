@@ -1,0 +1,21 @@
+{
+  "slug": "pin-payments",
+  "name": "Pin Payments",
+  "url": "https://pinpayments.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Australian and New Zealand gateway for cards, subscriptions, and payment links.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; processing fees apply" },
+  "cells": {
+    "type": "Payment gateway and processor",
+    "countries": "Australia and New Zealand only",
+    "payout": "Daily transfers; default settlement T+2 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia and New Zealand." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia and New Zealand." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia and New Zealand." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia and New Zealand." }
+    ]
+  }
+}

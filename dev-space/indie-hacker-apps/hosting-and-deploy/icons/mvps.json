@@ -1,0 +1,17 @@
+{
+  "slug": "mvps",
+  "name": "MVPS",
+  "official_url": "https://www.mvps.net/",
+  "image_url": "https://www.mvps.net/favicon.ico",
+  "source_page": "https://www.mvps.net/",
+  "kind": "favicon",
+  "source_host": "mvps.net",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "96668748c93ef340678fb2b87d9e5206d03ccb43c5fada838d85fe946291f35d",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

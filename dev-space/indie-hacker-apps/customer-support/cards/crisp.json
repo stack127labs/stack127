@@ -1,0 +1,37 @@
+{
+  "slug": "crisp",
+  "name": "Crisp",
+  "url": "https://crisp.chat/en/",
+  "jobs": [
+    "chat",
+    "inbox",
+    "helpdesk",
+    "ai"
+  ],
+  "line": "Website chat, shared inbox, help center and AI.",
+  "free": {
+    "kind": "free",
+    "text": "Free forever: 2 seats, 100 customer profiles"
+  },
+  "cells": {
+    "channels": "Chat, email, Messenger, Telegram, WhatsApp",
+    "ai": "Vendor estimate about $0.05\u2013$0.10 per chat",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Uses 1 of the 2 free seats for website chat. Support email needs the Mini plan at $45 a month."
+      },
+      {
+        "v": "$45",
+        "plan": "Mini",
+        "state": "confirmed",
+        "math": "The Mini plan at $45 a month per workspace covers 3 of its 4 seats. The free plan has only 2 seats."
+      }
+    ]
+  }
+}

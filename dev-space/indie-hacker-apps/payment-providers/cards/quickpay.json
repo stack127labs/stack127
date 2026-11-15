@@ -1,0 +1,21 @@
+{
+  "slug": "quickpay",
+  "name": "Quickpay",
+  "url": "https://quickpay.net/",
+  "jobs": ["gateway", "links"],
+  "line": "European gateway for card, bank, wallet, and payment-link checkout.",
+  "free": { "kind": "none", "text": "Free to create and test; live plans have monthly and transaction fees" },
+  "cells": {
+    "type": "Online payment gateway",
+    "countries": "Listed European countries, including UK and Germany",
+    "payout": "Next day via Nets/banks; Clearhaus says 1–3 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Quickpay has no payment processor that offers agreements to merchants outside Europe. The US is outside Europe." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The UK is eligible, but no UK card rate in pounds (GBP) is published. Public European card pricing is in euros (EUR)." },
+      { "v": "From 1.35% (min EUR 0.10) + EUR 0.13", "plan": "Europe/EUR Merchant", "state": "unclear", "math": "The payment processor's rate starts at 1.35% (with a EUR 0.10 minimum) plus EUR 0.03. Quickpay adds EUR 0.10 per transaction. The processor's rate may be higher." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Quickpay has no payment processor that offers agreements to merchants outside Europe. India is outside Europe." }
+    ]
+  }
+}

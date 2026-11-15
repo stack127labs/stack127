@@ -1,0 +1,19 @@
+{
+  "slug": "supportcandy",
+  "name": "SupportCandy",
+  "url": "https://supportcandy.net/",
+  "jobs": ["helpdesk", "inbox", "ai"],
+  "line": "WordPress ticketing and customer portal with optional email piping.",
+  "free": { "kind": "free", "text": "Free core; email piping requires a paid bundle" },
+  "cells": {
+    "channels": "Web portal and email piping",
+    "ai": "Bring your own provider API key",
+    "selfhost": "Yes, WordPress plugin"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$63.20/year", "plan": "Personal", "state": "confirmed", "math": "The one-site annual offer includes email piping (tickets made from incoming email) and unlimited agents." },
+      { "v": "$63.20/year", "plan": "Personal", "state": "confirmed", "math": "The same one-site bundle covers three agents. The price is not per user." }
+    ]
+  }
+}

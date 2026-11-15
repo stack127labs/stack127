@@ -1,0 +1,25 @@
+{
+  "slug": "memcachier",
+  "name": "MemCachier",
+  "url": "https://www.memcachier.com/",
+  "jobs": ["kv"],
+  "line": "Managed Memcached-compatible cache for sessions, counters, and query results.",
+  "free": { "kind": "free", "text": "25MB; 10 connections; disabled after 30 idle days; data retention unclear" },
+  "cells": {
+    "metered": "Basic from about $14/mo; Heroku 1 GB cap is $70/mo",
+    "regions": "AWS and DigitalOcean clusters; availability unclear",
+    "selfhost": "No, managed cache service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Heroku 1 GB add-on", "state": "unclear", "math": "$70 is the cap for a full billing cycle on the cache plan. The 5 GB of transfer, and whether the data fits after key overhead, are unknown." },
+      { "v": "$70", "plan": "Heroku 1 GB add-on", "state": "unclear", "math": "The $70 cap for a full billing cycle continues while the cache is provisioned, even with zero traffic. Whether 1 GB of data fits is not verified." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "MemCachier is a cache, not durable file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "MemCachier does not run background jobs" }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "zammad",
+  "name": "Zammad",
+  "official_url": "https://zammad.com/en/",
+  "image_url": "https://zammad.com/media/site/1ef14402d2-1698589017/favicon-32x32.svg",
+  "source_page": "https://zammad.com/en/",
+  "kind": "svg-icon",
+  "source_host": "zammad.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "66eaa2da9a6b27c31e3712c3973f36c05587f871c4c263db737188b74b2e3ca3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "hetzner-object-storage",
+  "name": "Hetzner Object Storage",
+  "url": "https://www.hetzner.com/storage/object-storage/",
+  "jobs": ["files"],
+  "line": "S3-compatible object storage with shared storage and egress allowances.",
+  "free": { "kind": "none", "text": "No free tier; €7.72/month while any bucket is active, even if empty" },
+  "cells": {
+    "metered": "€7.72/month account base includes 1 TB storage and egress",
+    "regions": "Falkenstein, Nuremberg, or Helsinki; one site per bucket",
+    "selfhost": "No, Hetzner-managed object storage"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hetzner Object Storage is not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hetzner Object Storage is not a database" }
+    ],
+    "files": [
+      { "v": "€7.72/month", "plan": "Base", "state": "confirmed", "math": "100 GB is 0.1 TB, which is 72 TB-hours of storage and 0.1 TB of outbound data (egress). Both fit within the included amounts for 30 days, and upload and download requests (PUT and GET) are free." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hetzner Object Storage stores files; it does not run background jobs" }
+    ]
+  }
+}

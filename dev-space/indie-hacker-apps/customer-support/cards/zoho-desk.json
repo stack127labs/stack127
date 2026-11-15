@@ -1,0 +1,37 @@
+{
+  "slug": "zoho-desk",
+  "name": "Zoho Desk",
+  "url": "https://www.zoho.com/desk/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "inbox",
+    "ai"
+  ],
+  "line": "Help desk for email, messaging, support articles, and ticket automation.",
+  "free": {
+    "kind": "free",
+    "text": "Free forever: 3 agents, 1 support email"
+  },
+  "cells": {
+    "channels": "Email, web chat, WhatsApp, social, voice",
+    "ai": "Zia features vary by plan; some need your API key",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "USD 0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Free email and ticket support for one agent."
+      },
+      {
+        "v": "USD 0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Free email and ticket support for three agents sharing one address."
+      }
+    ]
+  }
+}

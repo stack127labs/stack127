@@ -1,0 +1,17 @@
+{
+  "slug": "doppler",
+  "name": "Doppler",
+  "official_url": "https://www.fromdoppler.com/es/",
+  "image_url": "https://www.fromdoppler.com/android-chrome-512x512.png",
+  "source_page": "https://www.fromdoppler.com/es/",
+  "kind": "manifest-icon",
+  "source_host": "fromdoppler.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "dd92b5e2d2cc673bb9a65563844d7d277cac033ffcb4256ab0962ac61913c5c8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

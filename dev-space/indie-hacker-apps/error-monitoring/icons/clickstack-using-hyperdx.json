@@ -1,0 +1,17 @@
+{
+  "slug": "clickstack-using-hyperdx",
+  "name": "ClickStack",
+  "official_url": "https://clickhouse.com/clickstack",
+  "image_url": "https://clickhouse.com/icon0.svg?icon0.14ll1zwu0qk95.svg",
+  "source_page": "https://clickhouse.com/clickstack",
+  "kind": "svg-icon",
+  "source_host": "clickhouse.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "989c437d63627a572f31b0c044592b1d605e433679e2a18ecfe18b394ed2e439",
+  "note": "parent brand: ClickHouse; no ClickStack-specific icon was among the downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

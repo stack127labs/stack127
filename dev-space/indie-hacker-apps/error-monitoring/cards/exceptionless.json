@@ -1,0 +1,24 @@
+{
+  "slug": "exceptionless",
+  "name": "Exceptionless",
+  "url": "https://exceptionless.com/",
+  "jobs": ["errors", "logs"],
+  "line": "Tracks application errors, logs and custom events with issue grouping.",
+  "free": { "kind": "free", "text": "3,000 events/month; 1 project/user; 3-day detail" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-09-29"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$15", "plan": "Small", "state": "confirmed", "math": "5,000 reports fit the Small plan, which includes 15,000 events, 5 projects and data kept for 30 days." },
+      { "v": "$49", "plan": "Medium", "state": "confirmed", "math": "50,000 reports fit the Medium plan, which includes 75,000 events, 15 projects and data kept for 90 days." },
+      { "v": "$199", "plan": "Extra Large", "state": "confirmed", "math": "500,000 reports need the Extra Large plan. The Large plan includes only 250,000 events." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

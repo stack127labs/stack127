@@ -1,0 +1,17 @@
+{
+  "slug": "auth0",
+  "name": "Auth0",
+  "official_url": "https://auth0.com/",
+  "image_url": "https://cdn.auth0.com/website/website/favicons/auth0-favicon.svg",
+  "source_page": "https://auth0.com/",
+  "kind": "svg-icon",
+  "source_host": "cdn.auth0.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "74f769f98f5a15c12f09f01554814d43daf240d3f53362df16fd3d9d375bbe1c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

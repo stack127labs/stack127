@@ -1,0 +1,47 @@
+{
+  "slug": "ecpay",
+  "name": "ECPay",
+  "url": "https://www.ecpay.com.tw/",
+  "jobs": [
+    "gateway",
+    "links"
+  ],
+  "line": "Taiwan payment collection with online checkout and merchant tools.",
+  "free": {
+    "kind": "none",
+    "text": "General registration is free; transaction fees apply"
+  },
+  "cells": {
+    "type": "Payment gateway",
+    "countries": "Taiwan only",
+    "payout": "Within 10 days to ECPay; bank withdrawal takes 2–3 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      }
+    ]
+  }
+}

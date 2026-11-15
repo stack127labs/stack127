@@ -1,0 +1,17 @@
+{
+  "slug": "passport-js",
+  "name": "Passport.js",
+  "official_url": "https://www.passportjs.org/",
+  "image_url": "https://www.passportjs.org/images/favicon/android-icon-192x192.png",
+  "source_page": "https://www.passportjs.org/",
+  "kind": "manifest-icon",
+  "source_host": "passportjs.org",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "0d6b3ae5c7e32ce8639e9304702111fbfe1b295059735c1610d9e0d93bb7f2fa",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

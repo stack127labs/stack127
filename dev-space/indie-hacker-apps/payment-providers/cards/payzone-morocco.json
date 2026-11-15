@@ -1,0 +1,21 @@
+{
+  "slug": "payzone-morocco",
+  "name": "Payzone Morocco",
+  "url": "https://payzone.ma/",
+  "jobs": ["gateway", "billing", "links"],
+  "line": "Moroccan gateway for card checkout, subscriptions, and payment links.",
+  "free": { "kind": "none", "text": "Custom quote; no public monthly fee" },
+  "cells": {
+    "type": "Payment gateway",
+    "countries": "Moroccan businesses; foreign seller access unpublished",
+    "payout": "Older guide says 48 hours; current timing unclear"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, or what card fee would apply." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, or what card fee would apply." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether foreign sellers can sign up, or what card fee would apply." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "It isn't published whether Indian sellers can sign up, and no India card pricing is published. Morocco merchant pricing is only given as a quote." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "deno-kv",
+  "name": "Deno KV",
+  "official_url": "https://docs.deno.com/deploy/reference/deno_kv/",
+  "image_url": "https://docs.deno.com/apple-touch-icon-precomposed.png",
+  "source_page": "https://docs.deno.com/deploy/reference/deno_kv/",
+  "kind": "apple-touch-icon",
+  "source_host": "docs.deno.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "8c87ffc23399f812c5ec117d8cc5488ceda1067f3cbb4b7a85567159256c6c4a",
+  "note": "Parent brand: Deno; Deno KV has no separate icon in the official documentation.",
+  "saved_at": "2026-11-14"
+}

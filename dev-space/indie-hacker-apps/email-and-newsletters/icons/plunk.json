@@ -1,0 +1,17 @@
+{
+  "slug": "plunk",
+  "name": "Plunk",
+  "official_url": "https://www.useplunk.com/",
+  "image_url": "https://www.useplunk.com/favicon/apple-touch-icon.png",
+  "source_page": "https://www.useplunk.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "useplunk.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "27cb2fe04dd55a9349528072a93a63c466f33748688d559eb1aca69e986ae90d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

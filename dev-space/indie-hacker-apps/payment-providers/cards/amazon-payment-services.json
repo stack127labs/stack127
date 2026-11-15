@@ -1,0 +1,15 @@
+{
+  "slug": "amazon-payment-services",
+  "name": "Amazon Payment Services",
+  "url": "https://paymentservices.amazon.com/",
+  "jobs": ["gateway", "links"],
+  "line": "Accept online card and local payment methods across the Middle East.",
+  "free": { "kind": "none", "text": "Monthly account fees vary by market" },
+  "cells": { "type": "Online payment gateway", "countries": "9 Middle East markets", "payout": "Not published" },
+  "costs": { "fee": [
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "There is no rate here. Sign-up needs a legal and trade presence in one of nine Middle East markets." },
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "There is no rate here. Sign-up needs a legal and trade presence in one of nine Middle East markets." },
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "There is no rate here. Sign-up needs a legal and trade presence in one of nine Middle East markets." },
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "There is no rate here. Sign-up needs a legal and trade presence in one of nine Middle East markets." }
+  ] }
+}

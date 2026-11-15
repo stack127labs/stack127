@@ -1,0 +1,20 @@
+{
+  "slug": "open-web-analytics",
+  "name": "Open Web Analytics",
+  "url": "https://www.openwebanalytics.com/",
+  "jobs": ["web", "product"],
+  "line": "Self-hosted web analytics for sites and applications.",
+  "free": { "kind": "selfhost", "text": "Free software with no published pageview limit" },
+  "cells": {
+    "cookieless": "No, uses visitor and session cookies",
+    "location": "Your server and database",
+    "selfhost": "Yes, PHP server and database"
+  },
+  "costs": {
+    "pv": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The software license costs zero. Hosting, storage, backups and maintenance are not priced." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The software license costs zero. Hosting, storage, backups and maintenance are not priced." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The software license costs zero. Hosting, storage, backups and maintenance are not priced." }
+    ]
+  }
+}

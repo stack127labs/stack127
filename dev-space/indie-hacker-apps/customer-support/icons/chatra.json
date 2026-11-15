@@ -1,0 +1,17 @@
+{
+  "slug": "chatra",
+  "name": "Chatra",
+  "official_url": "https://chatra.com/",
+  "image_url": "https://chatra.com/_i/icons/icon.svg",
+  "source_page": "https://chatra.com/",
+  "kind": "svg-icon",
+  "source_host": "chatra.com",
+  "original": {
+    "format": "svg",
+    "width": 85,
+    "height": 85
+  },
+  "sha256": "5d8a432d6db72281c85e837959af98b2e0f63b72422ec16ac0adf41337696907",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

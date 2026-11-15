@@ -1,0 +1,21 @@
+{
+  "slug": "chargeover",
+  "name": "ChargeOver",
+  "url": "https://chargeover.com/",
+  "jobs": ["billing"],
+  "line": "Subscription billing and invoicing software that connects to your gateway.",
+  "free": { "kind": "trial", "text": "Free trial; length not published" },
+  "cells": {
+    "type": "Subscription billing",
+    "countries": "Any country; gateway availability varies",
+    "payout": "Set by the connected gateway"
+  },
+  "costs": {
+    "fee": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "ChargeOver isn't the card processor. Card fees come from the payment gateway you connect." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "ChargeOver isn't the card processor. Card fees come from the payment gateway you connect." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "ChargeOver isn't the card processor. Card fees come from the payment gateway you connect." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "ChargeOver isn't the card processor. Card fees come from the payment gateway you connect." }
+    ]
+  }
+}

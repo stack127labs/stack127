@@ -1,0 +1,72 @@
+{
+  "slug": "drip",
+  "name": "Drip",
+  "url": "https://www.drip.com/",
+  "jobs": [
+    "marketing",
+    "transactional"
+  ],
+  "line": "Send email campaigns and automated messages for ecommerce and other businesses.",
+  "free": {
+    "kind": "trial",
+    "text": "14 days, no card; 100 live emails; 2 campaign sends/day"
+  },
+  "cells": {
+    "newsletters": "Yes",
+    "api": "Yes, request Support access"
+  },
+  "costs": {
+    "subs": [
+      {
+        "v": "$39",
+        "plan": "Entry tier",
+        "state": "confirmed",
+        "math": "1,000 subscribers × 4 campaigns = 4,000 emails a month. The $39 a month entry tier covers up to 2,500 people."
+      },
+      {
+        "v": "$89",
+        "plan": "Older reference",
+        "state": "unclear",
+        "math": "5,000 subscribers × 4 campaigns = 20,000 emails a month. The $89 a month price is from a 2023 article, so the current price is not verified."
+      },
+      {
+        "v": "$154",
+        "plan": "Vendor comparison",
+        "state": "confirmed",
+        "math": "10,000 subscribers × 4 campaigns = 40,000 emails a month. The $154 a month price comes from a vendor comparison, and the send limit still needs checking."
+      },
+      {
+        "v": "$699",
+        "plan": "Sept 2026 reference",
+        "state": "unclear",
+        "math": "50,000 subscribers × 4 campaigns = 200,000 emails a month. The $699 a month price is from a reference page, and the send allowance is unclear."
+      }
+    ],
+    "appmail": [
+      {
+        "v": "$39",
+        "plan": "Entry tier",
+        "state": "confirmed",
+        "math": "500 Active people × 6 runs with one email each = 3,000 event emails a month. Drip's documentation covers app emails for Active people."
+      },
+      {
+        "v": "$39",
+        "plan": "Entry tier",
+        "state": "confirmed",
+        "math": "1,000 Active people × 10 runs with one email each = 10,000 event emails a month. Drip's documentation covers app emails for Active people."
+      },
+      {
+        "v": "$89",
+        "plan": "Older reference",
+        "state": "unclear",
+        "math": "5,000 Active people × 10 runs = 50,000 emails a month. The $89 price is from an older reference, so the current price is unknown."
+      },
+      {
+        "v": "$154",
+        "plan": "Vendor comparison",
+        "state": "unclear",
+        "math": "10,000 Active people × 10 runs = 100,000 emails a month. The included send allowance still needs confirming."
+      }
+    ]
+  }
+}

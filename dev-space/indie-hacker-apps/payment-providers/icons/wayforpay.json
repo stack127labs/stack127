@@ -1,0 +1,17 @@
+{
+  "slug": "wayforpay",
+  "name": "WayForPay",
+  "official_url": "https://wayforpay.com/uk",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/35/44/cd/3544cd85-c4df-c00f-6cfe-74b6901f4a5a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/wayforpay/id1296164809?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "3aa2f9acca3d7a7d0e2c7dcf4261f674f0af537a39f127f121a8b37f54e36349",
+  "note": "WayForPay product app by WayForPay LLC.",
+  "saved_at": "2026-11-14"
+}

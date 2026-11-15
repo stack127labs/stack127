@@ -1,0 +1,35 @@
+{
+  "slug": "osticket",
+  "name": "osTicket",
+  "url": "https://osticket.com/",
+  "jobs": [
+    "helpdesk",
+    "inbox"
+  ],
+  "line": "Open-source email ticketing and customer portal with a knowledge base.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free GPL software; you provide hosting"
+  },
+  "cells": {
+    "channels": "Email, web forms, customer portal",
+    "ai": "No native AI billing offer established",
+    "selfhost": "Yes, GPL-2.0"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

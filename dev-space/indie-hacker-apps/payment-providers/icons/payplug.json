@@ -1,0 +1,17 @@
+{
+  "slug": "payplug",
+  "name": "Payplug",
+  "official_url": "https://www.payplug.com/",
+  "image_url": "https://www.payplug.com/favicon.ico",
+  "source_page": "https://www.payplug.com/",
+  "kind": "favicon",
+  "source_host": "payplug.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "c372ddcca7f1e8f1130587a4f00740d6c6233fad7b24b63e7f0d8d1fa0e5cdb4",
+  "note": "largest square official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

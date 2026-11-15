@@ -1,0 +1,21 @@
+{
+  "slug": "amazon-elasticache",
+  "name": "Amazon ElastiCache",
+  "url": "https://aws.amazon.com/elasticache/",
+  "jobs": ["kv"],
+  "line": "Managed in-memory cache for Valkey, Redis OSS and Memcached.",
+  "free": { "kind": "credits", "text": "$100 credits; Free Plan ends by 6 months, 90-day recovery window" },
+  "cells": {
+    "metered": "$0.0256/node-hour for Valkey t4g.small",
+    "regions": "Region-dependent; US East rates shown",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$18.688", "plan": "Valkey node-based", "state": "unclear", "math": "730 hours × $0.0256 an hour for one t4g.small node. This assumes the data fits in 1 GB. Network and other charges are not included." },
+      { "v": "$18.688", "plan": "Valkey node-based", "state": "unclear", "math": "730 hours × $0.0256 an hour for a node that runs all month. Idle traffic doesn't stop this hourly charge." }
+    ],
+    "files": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "This is a cache, not file storage." }],
+    "jobs": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Does not execute general background jobs" }]
+  }
+}

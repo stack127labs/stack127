@@ -1,0 +1,57 @@
+{
+  "slug": "zabbix",
+  "name": "Zabbix",
+  "url": "https://www.zabbix.com/",
+  "jobs": ["uptime", "logs", "performance"],
+  "line": "Self-hosted monitoring for infrastructure, logs, and web availability.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free to self-host under AGPLv3; no license quota"
+  },
+  "cells": {
+    "interval": "First web check within 60 s; minimum unknown",
+    "maintained": "Last release 2026-11-05"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Metrics and log alerts aren't error tracking that groups errors into issues."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Metrics and log alerts aren't error tracking that groups errors into issues."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Metrics and log alerts aren't error tracking that groups errors into issues."
+      }
+    ],
+    "uptime": [
+      {
+        "v": "Unknown",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "There's no license fee. Hosting cost depends on how much capacity you need. The 10,000-metric example doesn't size a 5-endpoint workload."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "There's no license fee. Hosting cost depends on how much capacity you need. The 10,000-metric example doesn't size a 25-endpoint workload."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "There's no license fee. Hosting cost depends on how much capacity you need. The 10,000-metric example doesn't size a 100-endpoint workload."
+      }
+    ]
+  }
+}

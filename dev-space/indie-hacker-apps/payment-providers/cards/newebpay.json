@@ -1,0 +1,48 @@
+{
+  "slug": "newebpay",
+  "name": "NewebPay",
+  "url": "https://www.newebpay.com/",
+  "jobs": [
+    "gateway",
+    "links",
+    "billing"
+  ],
+  "line": "Taiwan payment gateway with hosted checkout, payment links and recurring cards.",
+  "free": {
+    "kind": "none",
+    "text": "No setup or annual membership fee"
+  },
+  "cells": {
+    "type": "Payment gateway and merchant collection service",
+    "countries": "Taiwan only",
+    "payout": "Card balance credited at claim date plus 10 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      }
+    ]
+  }
+}

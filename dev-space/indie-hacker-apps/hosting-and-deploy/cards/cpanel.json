@@ -1,0 +1,14 @@
+{
+  "slug": "cpanel",
+  "name": "cPanel",
+  "url": "https://www.cpanel.net/",
+  "jobs": ["panel"],
+  "line": "Install a web hosting control panel on your own server.",
+  "free": { "kind": "trial", "text": "15-day trial, up to 30 accounts; one per static public IP" },
+  "cells": { "type": "Hosting control panel", "regions": "Your server's region", "selfhost": "Yes; install on a VPS or dedicated server" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Solo license + server", "state": "unclear", "math": "$29.99 a month for the Solo Cloud license, plus the server, domain, data sent out and backups." },
+    { "v": "Unknown", "plan": "Solo license + server", "state": "unclear", "math": "The license and a server running for 730 hours are separate costs. The full server cost is unknown." },
+    { "v": "Unknown", "plan": "Solo license + server", "state": "unclear", "math": "The license, server resources, PostgreSQL and outside backups each need their own pricing." }
+  ] }
+}

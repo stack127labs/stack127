@@ -1,0 +1,17 @@
+{
+  "slug": "neon",
+  "name": "Neon",
+  "official_url": "https://neon.com/",
+  "image_url": "https://neon.com/favicon/favicon.svg",
+  "source_page": "https://neon.com/",
+  "kind": "manifest-icon",
+  "source_host": "neon.com",
+  "original": {
+    "format": "svg",
+    "width": 960,
+    "height": 960
+  },
+  "sha256": "18c50e0548a99ef0dd86a4c41ed302d59f3fd4f4d9ff5ae5ef4b5e2ab3eb731a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

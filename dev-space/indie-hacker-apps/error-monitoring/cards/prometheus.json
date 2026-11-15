@@ -1,0 +1,21 @@
+{
+  "slug": "prometheus",
+  "name": "Prometheus",
+  "url": "https://prometheus.io/",
+  "jobs": ["performance"],
+  "line": "Stores application and system metrics, evaluates rules, and raises alerts.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you run and host it" },
+  "cells": { "interval": "—", "maintained": "Last release 2026-11-04" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No exception capture or error-report tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No exception capture or error-report tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No exception capture or error-report tracking" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The core server doesn't run outside checks as a hosted service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The core server doesn't run outside checks as a hosted service." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The core server doesn't run outside checks as a hosted service." }
+    ]
+  }
+}

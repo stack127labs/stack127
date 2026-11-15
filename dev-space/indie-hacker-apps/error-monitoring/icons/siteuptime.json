@@ -1,0 +1,17 @@
+{
+  "slug": "siteuptime",
+  "name": "SiteUptime",
+  "official_url": "https://www.siteuptime.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ca/ed/aa/caedaa07-0923-3371-52b2-4633ef8d3d25/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/siteuptime/id6759545640?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "ed2d243501bc950aa17cd8aac484cca0f1dc7bc72f67b4e95e9a0a091f63ef3d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "apache-couchdb",
+  "name": "Apache CouchDB",
+  "official_url": "https://couchdb.apache.org/",
+  "image_url": "https://couchdb.apache.org/android-chrome-512x512.png?v=rM3dEe7aPK",
+  "source_page": "https://couchdb.apache.org/",
+  "kind": "manifest-icon",
+  "source_host": "couchdb.apache.org",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "fb275bd3af5bc6483e7fc788eb46162a0d2d3e1d92c8e77f38948cb336eeec6c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

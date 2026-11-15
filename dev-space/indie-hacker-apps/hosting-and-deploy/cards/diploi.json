@@ -1,0 +1,14 @@
+{
+  "slug": "diploi",
+  "name": "Diploi",
+  "url": "https://diploi.com/",
+  "jobs": ["paas"],
+  "line": "Deploy apps and databases in managed single-node clusters.",
+  "free": { "kind": "credits", "text": "€50 credit for 14 days; usage then needs funded balance" },
+  "cells": { "type": "Managed app platform", "regions": "Ireland (AWS); multi-region planned", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€11.1325", "plan": "XS cluster + 5GB disk", "state": "confirmed", "math": "730 hours at €0.014 an hour, plus 5 GB of disk for 730 hours at €0.00025 per GB an hour = €11.1325 before tax. Outside CI overage or setup may add cost." },
+    { "v": "€11.1325", "plan": "XS cluster + 5GB disk", "state": "confirmed", "math": "An XS server with 2 vCPU and 2 GB, for 730 hours, plus 5 GB of persistent disk = €11.1325 before tax. CI overage and setup are not included. Capacity is untested." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "S cluster + 15 GB disk subtotal €21.7175. The required daily 7-day backup service and storage are not priced." }
+  ] }
+}

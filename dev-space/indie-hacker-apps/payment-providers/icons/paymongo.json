@@ -1,0 +1,17 @@
+{
+  "slug": "paymongo",
+  "name": "PayMongo",
+  "official_url": "https://www.paymongo.com/en",
+  "image_url": "https://www.paymongo.com/apple-icon.png?62bb1b201cd0ad5f",
+  "source_page": "https://www.paymongo.com/en",
+  "kind": "apple-touch-icon",
+  "source_host": "paymongo.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "a7dc073c854d1d7a0459f8f266e76233927efff8169af36468626cdb709ec994",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

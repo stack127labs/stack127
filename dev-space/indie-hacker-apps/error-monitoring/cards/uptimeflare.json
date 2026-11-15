@@ -1,0 +1,21 @@
+{
+  "slug": "uptimeflare",
+  "name": "UptimeFlare",
+  "url": "https://github.com/lyc8503/UptimeFlare",
+  "jobs": ["uptime", "status"],
+  "line": "Runs checks on Cloudflare and hosts a customizable status page.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0; 50 checks advertised, provider limits apply" },
+  "cells": { "interval": "60 s checks", "maintained": "Last update 2026-10-21" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Cloudflare Free", "state": "unclear", "math": "A $0 platform base may apply. The full cost depends on shared limits, the domain and an outside email service." },
+      { "v": "Unknown", "plan": "Cloudflare Free", "state": "unclear", "math": "A $0 platform base may apply. The full cost depends on shared limits, the domain and an outside email service." },
+      { "v": "Unknown", "plan": "Cloudflare Paid", "state": "unclear", "math": "The account minimum is $5. 100 checks are more than the published scope of 50 checks, so the full cost isn't known." }
+    ]
+  }
+}

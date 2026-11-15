@@ -1,0 +1,17 @@
+{
+  "slug": "aptabase",
+  "name": "Aptabase",
+  "official_url": "https://aptabase.com/",
+  "image_url": "https://aptabase.com/logo-email.png",
+  "source_page": "https://aptabase.com/",
+  "kind": "logo-mark",
+  "source_host": "aptabase.com",
+  "original": {
+    "format": "png",
+    "width": 400,
+    "height": 304
+  },
+  "sha256": "eaef4e82437718138f0466fa1e6423382b1d043e426d6a1b151b652cf9ee70ed",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

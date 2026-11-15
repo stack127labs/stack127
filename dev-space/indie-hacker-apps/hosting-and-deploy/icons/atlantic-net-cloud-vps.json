@@ -1,0 +1,17 @@
+{
+  "slug": "atlantic-net-cloud-vps",
+  "name": "Atlantic.Net Cloud VPS",
+  "official_url": "https://www.atlantic.net/vps-hosting/",
+  "image_url": "https://www.atlantic.net/wp-content/themes/anet/img/site/icons/icon-512-any.png",
+  "source_page": "https://www.atlantic.net/vps-hosting/",
+  "kind": "manifest-icon",
+  "source_host": "atlantic.net",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "f8739c2543b8d5fa01d20c24ea0fd14d71125faac92a372573d6276716d45cdd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

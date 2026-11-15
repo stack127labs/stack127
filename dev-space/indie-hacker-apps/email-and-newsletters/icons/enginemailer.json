@@ -1,0 +1,17 @@
+{
+  "slug": "enginemailer",
+  "name": "Enginemailer",
+  "official_url": "https://www.enginemailer.com/",
+  "image_url": "https://www.enginemailer.com/Content/favicon/apple-touch-icon.png",
+  "source_page": "https://www.enginemailer.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "enginemailer.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "699b863a7964783178f6f6f7d2f9021c64e5c055ad4012579cf89c70a4cecb58",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

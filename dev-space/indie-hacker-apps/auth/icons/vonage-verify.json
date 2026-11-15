@@ -1,0 +1,17 @@
+{
+  "slug": "vonage-verify",
+  "name": "Vonage Verify",
+  "official_url": "https://www.vonage.com/communications-apis/verify/",
+  "image_url": "https://www.vonage.com/favicon.ico",
+  "source_page": "https://www.vonage.com/communications-apis/verify/",
+  "kind": "favicon",
+  "source_host": "vonage.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "49e0b743cacfbb4f604a589221012af794e65446b1099773231e0d784738738b",
+  "note": "parent brand: Vonage; Verify is a Vonage product; product page returned 403",
+  "saved_at": "2026-11-14"
+}

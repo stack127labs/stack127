@@ -1,0 +1,61 @@
+{
+  "slug": "uptime-kuma",
+  "name": "Uptime Kuma",
+  "url": "https://uptime.kuma.pet/",
+  "jobs": [
+    "uptime",
+    "status",
+    "cron"
+  ],
+  "line": "Self-hosted uptime monitor with status pages.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free to self-host (MIT); no hosted plan found"
+  },
+  "cells": {
+    "interval": "1 s (UI warns below 20 s)",
+    "maintained": "Last release 2026-10-31"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ],
+    "uptime": [
+      {
+        "v": "Unknown",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "216,000 checks a month. The software fee is $0, but the hosting cost isn't confirmed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "1,080,000 checks a month. The software fee is $0, but the hosting cost isn't confirmed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "4,320,000 checks a month. The software fee is $0, but the hosting cost isn't confirmed."
+      }
+    ]
+  }
+}

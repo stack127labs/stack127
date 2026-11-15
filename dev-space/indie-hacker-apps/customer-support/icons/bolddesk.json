@@ -1,0 +1,17 @@
+{
+  "slug": "bolddesk",
+  "name": "BoldDesk",
+  "official_url": "https://www.bolddesk.com/",
+  "image_url": "https://www.bolddesk.com/wp-content/uploads/2026/03/cropped-BoldDesk-1-192x192.png",
+  "source_page": "https://www.bolddesk.com/",
+  "kind": "manifest-icon",
+  "source_host": "bolddesk.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "d75ccd2c1a73ffe2d0a08d78101b91691d39f0291b421e5808bae609c8f395ae",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

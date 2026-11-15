@@ -1,0 +1,17 @@
+{
+  "slug": "frappe-helpdesk",
+  "name": "Frappe Helpdesk",
+  "official_url": "https://frappe.io/helpdesk",
+  "image_url": "https://frappe.io/files/frappeio82a788.ico",
+  "source_page": "https://frappe.io/",
+  "kind": "favicon",
+  "source_host": "frappe.io",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "7138c31ea106fdada959c4f3ab0345e967163b8737db741d53b5e2a2e82f84ed",
+  "note": "parent brand: Frappe",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "railway-databases",
+  "name": "Railway",
+  "url": "https://railway.com/",
+  "jobs": ["sql", "kv", "files", "jobs", "vector"],
+  "line": "Hosted database services for PostgreSQL, MySQL, Redis and MongoDB.",
+  "free": { "kind": "none", "text": "Trial $5/30d; new deploys suspended; Free $1/mo; volumes delete 30d after expiry" },
+  "cells": {
+    "metered": "Hobby $5/mo minimum; Pro $20/mo",
+    "regions": "US, Europe and Singapore; volumes follow services",
+    "selfhost": "No, hosted Railway platform"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$6.53",
+        "plan": "Hobby",
+        "state": "unclear",
+        "math": "Assumes 0.5 GB of RAM, 0.05 vCPU, a 1.2 GB volume and 5 GB of egress. Per-second rates give $6.525664. Per-minute rates differ."
+      },
+      {
+        "v": "$6.28",
+        "plan": "Hobby",
+        "state": "unclear",
+        "math": "An always-on idle example assumes 0.5 GB of RAM, 0.05 vCPU and a 1.2 GB volume. The per-second total is $6.275664."
+      }
+    ],
+    "files": [
+      {
+        "v": "$5",
+        "plan": "Hobby",
+        "state": "unclear",
+        "math": "100 GB a month of storage costs $1.50. Direct S3 operations and transfer are free. The Hobby workspace has a $5 minimum."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$5",
+        "plan": "Hobby",
+        "state": "unclear",
+        "math": "Active job compute is $0.0579. The $5 applies only if workers stop between jobs. Minimum worker, queue and transfer costs are incomplete."
+      }
+    ]
+  }
+}

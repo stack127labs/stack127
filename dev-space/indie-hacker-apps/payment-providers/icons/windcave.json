@@ -1,0 +1,17 @@
+{
+  "slug": "windcave",
+  "name": "Windcave",
+  "official_url": "https://windcave.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/25/09/20/250920fa-f726-271c-5f61-112c41ae8fbf/AppIcon-1x_U007epad-0-85-220-0.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/windcave-proxy/id6471383472?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "60a6cf6faa80cae316d2ea668f65b160799ffce1321354b7fd859a5a72a5963a",
+  "note": "App Store app by Windcave Limited; same mark as the site favicon",
+  "saved_at": "2026-11-14"
+}
