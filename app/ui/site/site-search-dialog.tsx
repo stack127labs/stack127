@@ -83,7 +83,9 @@ export default function SiteSearchDialog({ onClose }: { onClose: () => void }) {
         return;
       }
       if (event.key !== "Tab" || !panel) return;
-      const focusable = [...panel.querySelectorAll<HTMLElement>(focusableSelector)].filter(item => item.getClientRects().length > 0);
+      const focusable = [...panel.querySelectorAll<HTMLElement>(focusableSelector)]
+        // Only real tab stops: result links use tabIndex -1 and are reached with the arrow keys.
+        .filter(item => item.tabIndex >= 0 && item.getClientRects().length > 0);
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
       if (!first || !last) return;

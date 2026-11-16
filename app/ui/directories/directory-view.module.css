@@ -49,7 +49,8 @@
 .switch button:focus-visible { outline: none; box-shadow: inset var(--focus-ring); }
 
 /* ---------- List ---------- */
-.frame { min-width: 0; border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
+/* Columns that do not fit scroll sideways inside the frame, so every value and action stays reachable. */
+.frame { position: relative; min-width: 0; border: 1px solid var(--color-border); border-radius: var(--radius); overflow-x: auto; overscroll-behavior-x: contain; }
 
 .table { width: 100%; border-collapse: collapse; font-size: var(--text-small); }
 
