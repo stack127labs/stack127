@@ -1,6 +1,6 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import { Network } from "lucide-react";
+import { Network } from "@/app/ui/icons";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { IpAsnLookupFromUrl } from "./ip-asn-lookup-from-url";

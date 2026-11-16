@@ -1,6 +1,6 @@
 import { readdirSync } from "node:fs";
 import path from "node:path";
-import { ScanSearch } from "lucide-react";
+import { ScanSearch } from "@/app/ui/icons";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import type { SectionNav } from "@/app/ui/site/section-bar";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";

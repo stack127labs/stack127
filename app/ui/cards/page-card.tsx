@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
+import type { SketchIcon } from "@/app/ui/icons";
 import type { ReactNode } from "react";
 import { Doodle } from "@/app/ui/site/doodle";
 import { intentPrefetch } from "@/app/ui/site/intent-prefetch";
@@ -13,7 +13,7 @@ export type PageCardProps = {
   description: string;
   /** Approved marker art SVG. Without it, the icon shows large in its place. */
   art: string | null;
-  icon?: LucideIcon;
+  icon?: SketchIcon;
   /** Footer below the description, such as a tool count or a stats list. */
   count?: ReactNode;
   /** `feature` leads the homepage. `tool` fills a catalog grid and ends with an arrow. */

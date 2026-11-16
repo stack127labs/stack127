@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Shapes } from "lucide-react";
+import { Shapes } from "@/app/ui/icons";
 import type { Breadcrumb } from "@/lib/breadcrumbs";
 import type { AdNetworkNichesPageData } from "@/lib/ad-networks-types";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";

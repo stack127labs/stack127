@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, RotateCcw } from "lucide-react";
+import { BookOpen, RotateCcw } from "@/app/ui/icons";
 import { useRef, useState, type FormEvent } from "react";
 import { UiButton, UiChoiceGroup, UiDisclosure, UiNumberField, UiSelect, uiOption } from "@/app/ui/controls";
 import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";

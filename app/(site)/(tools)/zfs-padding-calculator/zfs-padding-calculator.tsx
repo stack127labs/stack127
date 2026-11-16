@@ -20,7 +20,7 @@ import {
   type ZfsPaddingValues,
   type ZfsPaddingWorkload,
 } from "@/lib/storage/index.ts";
-import { RotateCcw, Share2 } from "lucide-react";
+import { RotateCcw, Share2 } from "@/app/ui/icons";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import styles from "./zfs-padding-calculator.module.css";
 

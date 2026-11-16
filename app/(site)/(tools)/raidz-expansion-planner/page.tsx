@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { ChevronsRight } from "lucide-react";
+import { ChevronsRight } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { RaidzExpansionPlannerFromUrl } from "./raidz-expansion-planner-from-url";
 import Article from "./content/article.mdx";

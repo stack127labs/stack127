@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Search } from "@/app/ui/icons";
 import type { ReactNode } from "react";
 import { Pagination } from "@/app/ui/pagination";
 import { StatePanel } from "@/app/ui/state-panel";
@@ -17,6 +17,13 @@ import { pageParamHref, removeParamHref, type DirectoryParams } from "@/app/ui/d
 import { hasDirectoryParams, useDirectoryQuery } from "@/app/ui/directories/directory-query";
 import { useDirectoryIndex } from "@/app/ui/directories/directory-index";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";
+import {
+  DirectoryResultsBar,
+  DirectoryViewInput,
+  DirectoryViewSwitch,
+  directoryView,
+  directoryViewRoute,
+} from "@/app/ui/directories/directory-view";
 import type { TerminalApp } from "@/lib/terminal-apps";
 import { terminalAppTypeLabels } from "@/lib/terminal-app-taxonomy";
 import { CliAppBrowser } from "./cli-app-browser";
@@ -80,9 +87,10 @@ export function CliAppFilters({ category, heading, options, route }: {
       <TagSelectGroup name="pricing" options={pricingOptions} selected={getValues(params, "pricing")} title="Pricing" />
       <TagSelectGroup name="source" options={sourceModelOptions} selected={getValues(params, "source")} title="Source model" />
       <RadioGroup name="maintenance" options={maintenanceOptions} selected={getString(params, "maintenance")} title="Health" />
+      <DirectoryViewInput view={directoryView(params)} />
 
       <div className="filter-actions">
-        <Link href={route}>reset</Link>
+        <Link href={directoryViewRoute(route, directoryView(params))}>reset</Link>
       </div>
       <DirectoryFilterController />
     </form>
@@ -137,7 +145,7 @@ function ActiveFilters({ categoryLabels, params, route }: { categoryLabels: Reco
           <span>×</span>
         </Link>
       ))}
-      <Link className="clear-filters" href={route}>
+      <Link className="clear-filters" href={directoryViewRoute(route, directoryView(params))}>
         clear all
       </Link>
     </div>
@@ -157,6 +165,8 @@ export function CliAppResults({ category, firstPage, total, categoryLabels, empt
 }) {
   const { params: urlParams } = useDirectoryQuery();
   const params = viewParams(urlParams, category);
+  const view = directoryView(params);
+  const showAll = <Link href={directoryViewRoute(route, view)}>show all apps</Link>;
   const filtering = hasDirectoryParams(params, paramKeys);
   const { failed, records } = useDirectoryIndex<TerminalApp>({ url: "/api/cli-apps/index" }, filtering);
 
@@ -164,7 +174,7 @@ export function CliAppResults({ category, firstPage, total, categoryLabels, empt
     return <>
       <ActiveFilters categoryLabels={categoryLabels} params={params} route={route} />
       {failed
-        ? <StatePanel action={<Link href={route}>show all apps</Link>} state="error" title="Filters could not be loaded"><p>Reload the page to try again.</p></StatePanel>
+        ? <StatePanel action={showAll} state="error" title="Filters could not be loaded"><p>Reload the page to try again.</p></StatePanel>
         : <StatePanel state="loading" title="Loading apps" />}
     </>;
   }
@@ -178,19 +188,25 @@ export function CliAppResults({ category, firstPage, total, categoryLabels, empt
   const currentPage = Math.min(getPage(params), totalPages);
   const startIndex = (currentPage - 1) * cliAppPageSize;
   const paginatedApps = filteredApps ? filteredApps.slice(startIndex, startIndex + cliAppPageSize) : firstPage;
+  const countText = paginatedApps.length > 0
+    ? <>showing <b>{startIndex + 1}</b>–<b>{startIndex + paginatedApps.length}</b> of <b>{count.toLocaleString("en")}</b> apps</>
+    : null;
 
   return (
     <>
       <ActiveFilters categoryLabels={categoryLabels} params={params} route={route} />
+      <DirectoryResultsBar count={countText}>
+        <DirectoryViewSwitch route={route} />
+      </DirectoryResultsBar>
       {paginatedApps.length > 0 ? (
         <>
-          <CliAppBrowser apps={paginatedApps} />
+          <CliAppBrowser apps={paginatedApps} view={view} />
           {totalPages > 1 ? (
             <Pagination ariaLabel="Terminal app pages" currentPage={currentPage} hrefForPage={(page) => pageParamHref(route, params, page)} totalPages={totalPages} />
           ) : null}
         </>
       ) : (
-        <StatePanel action={<Link href={route}>show all apps</Link>} title="No terminal apps match those filters" visual={emptyVisual}>
+        <StatePanel action={showAll} title="No terminal apps match those filters" visual={emptyVisual}>
           <p>Try clearing one filter first.</p>
         </StatePanel>
       )}

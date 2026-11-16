@@ -1,6 +1,6 @@
 "use client";
 
-import { Download } from "lucide-react";
+import { Download } from "@/app/ui/icons";
 import {
   useCallback,
   useEffect,

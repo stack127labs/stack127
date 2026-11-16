@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CalendarDays, ExternalLink, RotateCcw } from "lucide-react";
+import { CalendarDays, ExternalLink, RotateCcw } from "@/app/ui/icons";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent, type ReactNode, type RefObject } from "react";
 import { AdSection, SectionNote } from "@/app/ui/ad-networks/section";
 import { NetworkLogo } from "@/app/ui/ad-networks/network-logo";

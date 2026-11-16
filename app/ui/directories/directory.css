@@ -234,7 +234,7 @@
   border: 0;
   color: var(--color-accent-text);
   display: inline-flex;
-  font-size: 1rem;
+  font-size: 0.82rem;
   font-weight: var(--weight-semibold);
   height: 18px;
   justify-content: center;
@@ -469,7 +469,7 @@
 }
 
 .directory-results > header {
-  margin-bottom: 18px;
+  margin-bottom: var(--space-8);
 }
 
 .active-filter-row {
@@ -496,7 +496,7 @@
 
 .active-filter-row a span {
   color: var(--color-accent-text);
-  font-size: 1rem;
+  font-size: 0.82rem;
 }
 
 .active-filter-row .clear-filters {
@@ -506,7 +506,7 @@
 .directory-card-grid {
   display: grid;
   gap: var(--space-6);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .directory-card {
@@ -519,7 +519,7 @@
   font: inherit;
   gap: var(--space-6);
   grid-template-rows: auto auto 1fr auto;
-  min-height: 286px;
+  min-height: 210px;
   padding: var(--space-8);
   text-align: left;
   transition: border-color var(--motion-base);
@@ -540,7 +540,7 @@
   align-items: start;
   display: grid;
   gap: var(--space-5);
-  grid-template-columns: 54px minmax(0, 1fr);
+  grid-template-columns: 40px minmax(0, 1fr);
 }
 
 .directory-card-icon {
@@ -552,11 +552,11 @@
   display: flex;
   font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
-  height: 54px;
+  height: 40px;
   justify-content: center;
   overflow: hidden;
-  padding: 10px;
-  width: 54px;
+  padding: 7px;
+  width: 40px;
 }
 
 .directory-card-icon img {
@@ -775,7 +775,7 @@
   color: var(--color-text) !important;
   font-size: var(--text-small) !important;
   margin-top: 0 !important;
-  padding: 10px 12px;
+  padding: 6px 10px;
 }
 
 .app-detail-heading {
@@ -794,12 +794,12 @@
   display: flex;
   font-family: var(--font-mono);
   font-size: var(--text-h3);
-  height: 52px;
+  height: 44px;
   justify-content: center;
   overflow: hidden;
-  padding: 10px;
+  padding: 8px;
   text-transform: lowercase;
-  width: 52px;
+  width: 44px;
 }
 
 .app-detail-icon img {
@@ -870,8 +870,8 @@
   font-family: var(--font-mono);
   font-size: var(--text-small);
   justify-content: space-between;
-  min-height: 40px;
-  padding: 0 11px;
+  min-height: var(--control-height-md);
+  padding: 0 10px;
   text-transform: lowercase;
 }
 
@@ -913,8 +913,8 @@
   color: var(--color-text);
   display: flex;
   justify-content: space-between;
-  min-height: 44px;
-  padding: 6px 11px;
+  min-height: 36px;
+  padding: 4px 10px;
 }
 
 .app-detail-install-option:hover {
@@ -987,13 +987,19 @@
   gap: 6px;
 }
 
-@container (max-width: 900px) {
+@container (max-width: 1100px) {
+  .directory-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 820px) {
   .directory-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@container (max-width: 650px) {
+@container (max-width: 480px) {
   .directory-card-grid {
     grid-template-columns: 1fr;
   }

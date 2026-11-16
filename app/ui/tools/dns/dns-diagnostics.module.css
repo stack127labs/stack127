@@ -75,7 +75,7 @@
   font: inherit;
   font-size: var(--text-small);
   gap: var(--space-2);
-  padding: 8px 12px;
+  padding: 5px 10px;
 }
 
 .downloadButton:hover { border-color: var(--color-border-strong); }

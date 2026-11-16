@@ -1,5 +1,5 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
-import { BookOpenText } from "lucide-react";
+import { BookOpenText } from "@/app/ui/icons";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
 import { PageCanvas } from "../../../ui/site/page-canvas";

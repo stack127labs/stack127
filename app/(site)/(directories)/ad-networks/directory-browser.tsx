@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Search } from "@/app/ui/icons";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { UiButton } from "@/app/ui/controls";

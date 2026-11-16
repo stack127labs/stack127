@@ -5,7 +5,7 @@ import {
   Copy,
   RotateCcw,
   Share2,
-} from "lucide-react";
+} from "@/app/ui/icons";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { UiButton, UiCheckbox, UiChoiceGroup, UiDisclosure, UiQuantityInput, UiTextField, uiOption } from "@/app/ui/controls";
 import { UiActionRow, UiAllocationBar, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";

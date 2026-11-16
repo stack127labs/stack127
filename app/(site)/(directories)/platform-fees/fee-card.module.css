@@ -29,9 +29,9 @@
 .rates { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-5) var(--space-10); }
 .rates > div { display: grid; gap: var(--space-2); min-width: 0; max-width: 100%; }
 .rates strong { font-family: var(--font-display); font-weight: var(--weight-bold); line-height: 1; letter-spacing: -0.03em; }
-.rates > :first-child strong { font-size: 2.6rem; }
+.rates > :first-child strong { font-size: 2.13rem; }
 .rates > :first-child strong.reason { font-size: var(--text-h2); line-height: 1.1; overflow-wrap: anywhere; }
-.rates > :nth-child(2) strong { font-size: 1.45rem; line-height: 1.15; overflow-wrap: anywhere; color: var(--color-text-muted); }
+.rates > :nth-child(2) strong { font-size: 1.19rem; line-height: 1.15; overflow-wrap: anywhere; color: var(--color-text-muted); }
 .rates strong small { font-size: 0.45em; letter-spacing: 0; color: var(--color-text-muted); }
 .rates span { color: var(--color-text-muted); font-size: var(--text-small); line-height: var(--line-ui); }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
+import { Check, Copy } from "@/app/ui/icons";
 import { useId, useState } from "react";
 import styles from "./code-block.module.css";
 

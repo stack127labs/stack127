@@ -1,4 +1,4 @@
-import { ArrowRight, Columns3 } from "lucide-react";
+import { ArrowRight, Columns3 } from "@/app/ui/icons";
 import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 import { NewTabContentLink } from "@/app/ui/content-elements";

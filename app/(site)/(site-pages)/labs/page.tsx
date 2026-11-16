@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "@/app/ui/icons";
 import { labProjects as projects } from "./projects";
 import { FaGithub } from "react-icons/fa6";
 import { InfoPage } from "@/app/ui/site/info-page";

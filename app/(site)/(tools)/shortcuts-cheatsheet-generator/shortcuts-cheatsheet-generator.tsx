@@ -1,6 +1,6 @@
 "use client";
 
-import { Printer } from "lucide-react";
+import { Printer } from "@/app/ui/icons";
 import { useEffect, useState } from "react";
 import { UiButton, UiCheckbox, UiChoiceGroup, UiSearchField, uiOption } from "@/app/ui/controls";
 import { UiStatus } from "@/app/ui/display";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { Search } from "@/app/ui/icons";
 import { useEffect, useRef, type ReactNode } from "react";
 import { Button, ListBox, ListBoxItem, Popover, Select, SelectValue } from "react-aria-components";
 import styles from "./table-toolbar.module.css";

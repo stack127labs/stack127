@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { LayoutGrid, PanelLeft, PanelRight, Square } from "lucide-react";
+import { LayoutGrid, PanelLeft, PanelRight, Square } from "@/app/ui/icons";
 import { AppShell, SidebarLabel, type SidebarPosition } from "@/app/ui/site/app-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from "@/app/ui/icons";
 import { useId, useState } from "react";
 import { getAdNetworkNiche } from "@/lib/ad-network-niches";
 import type { BarFact, GrowthTarget, Lane, Recommendation } from "@/lib/ad-network-requirements/types";

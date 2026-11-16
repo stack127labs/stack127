@@ -3,7 +3,7 @@ import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { UserSearch } from "lucide-react";
+import { UserSearch } from "@/app/ui/icons";
 import { DomainOwnerFromUrl } from "./domain-owner-from-url";
 import Article from "./content/article.mdx";
 import Intro from "./content/intro.mdx";

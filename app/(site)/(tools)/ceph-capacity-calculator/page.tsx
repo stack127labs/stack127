@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { ServerCog } from "lucide-react";
+import { ServerCog } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { CephCapacityCalculatorFromUrl } from "./ceph-capacity-calculator-from-url";
 import Article from "./content/article.mdx";

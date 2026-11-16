@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { LayoutGrid } from "lucide-react";
+import { LayoutGrid } from "@/app/ui/icons";
 import { AppShell, SidebarLabel } from "@/app/ui/site/app-shell";
 import { PathnameSidebarList } from "@/app/ui/site/pathname-sidebar-list";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";

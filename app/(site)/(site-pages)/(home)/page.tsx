@@ -1,22 +1,16 @@
 import { PageCanvas } from "@/app/ui/site/page-canvas";
-import type { ReactNode } from "react";
-import Link from "next/link";
 import "@/app/(site)/home.css";
-import { labProjects } from "../labs/projects";
 import { directoryCardCounts } from "@/app/(site)/(directories)/card-counts";
 import { getCardSnapshot as getLaunchDirectorySnapshot } from "@/app/(site)/(directories)/launch-directories/card-counts";
-import { getPublishedToolCatalogs } from "@/lib/tool-catalogs";
-import { cardArt } from "@/lib/card-art";
-import { cardIcon } from "@/lib/card-icons";
+import { getPublishedToolCatalog, getPublishedToolCatalogs } from "@/lib/tool-catalogs";
 import { CatalogCard } from "@/app/ui/cards/catalog-card";
+import { CourseCard } from "@/app/ui/cards/course-card";
 import { DirectoryCard } from "@/app/ui/cards/directory-card";
-import { PageCard, PageCardCounts, type PageCardCount } from "@/app/ui/cards/page-card";
 import {
   getMainPublishedPages,
   getRequiredPublishedPage,
   isHomeFeaturePage,
   isHomeVisiblePage,
-  pathFromSlug,
   type Stack127Page,
 } from "@/lib/page-registry";
 import { getRequiredCourse } from "@/lib/course-pages";
@@ -31,58 +25,12 @@ type HomePageCardRecord = Stack127Page & {
   card_art_key: string | null;
 };
 
-/** Labs keeps its card assets and counts in code. */
-const codeCards: Record<string, { iconKey: string; artKey: string; counts: () => PageCardCount[] }> = {
-  labs: {
-    iconKey: "labs",
-    artKey: "labs",
-    counts: () => [{ label: "projects", value: labProjects.length }],
-  },
-};
+/** Pages the home page leaves out, though they stay published and in the menus. */
+const hiddenOnHome = new Set(["labs"]);
 
-async function cardCounts(page: Stack127Page) {
-  if (page.page_family === "course") {
-    const course = await getRequiredCourse(page.slug);
-    return [{ label: "lessons", value: course.lessons.filter(lesson => lesson.published).length }];
-  }
-  return codeCards[page.slug]?.counts() ?? directoryCardCounts(page.slug);
-}
-
-function HomeFeatureCard({ page, counts }: { page: HomePageCardRecord; counts: PageCardCount[] }) {
-  const code = codeCards[page.slug];
-  if (!code) return <DirectoryCard counts={counts} page={page} />;
-  return (
-    <PageCard
-      art={cardArt(code.artKey)}
-      count={<PageCardCounts counts={counts} label={`${page.card_name} stats`} />}
-      description={page.card_description}
-      href={pathFromSlug(page.slug)}
-      icon={cardIcon(code.iconKey)}
-      name={page.card_name}
-    />
-  );
-}
-
-const startHereLinks = [
-  { slug: "platform-fees", question: "Choosing where to sell?", action: "Compare platform fees" },
-  { slug: "ad-networks", question: "Putting ads on your site?", action: "Compare ad networks" },
-  { slug: "launch-directories", question: "Launching a product?", action: "Find places to list it" },
-  { slug: "kdp-tools", question: "Publishing on Amazon KDP?", action: "Work out your royalties" },
-  { slug: "saas-tools", question: "Running a SaaS?", action: "Check your MRR and churn" },
-  { slug: "domain-tools", question: "Working on a website?", action: "Check its domain" },
-];
-
-function startHereItems(featureSlugs: Set<string>): { key: string; node: ReactNode }[] {
-  return startHereLinks
-    .filter((item) => featureSlugs.has(item.slug))
-    .map((item) => ({
-      key: item.slug,
-      node: (
-        <>
-          {item.question} <Link href={`/${item.slug}`}>{item.action}</Link>.
-        </>
-      ),
-    }));
+async function publishedLessonCount(page: Stack127Page) {
+  const course = await getRequiredCourse(page.slug);
+  return course.lessons.filter((lesson) => lesson.published).length;
 }
 
 export default async function Home() {
@@ -91,11 +39,18 @@ export default async function Home() {
     getMainPublishedPages(),
     getPublishedToolCatalogs(),
   ]);
-  const featurePages = mainPages.filter((page) => isHomeVisiblePage(page) && isHomeFeaturePage(page));
+  const featurePages = mainPages.filter((page) =>
+    isHomeVisiblePage(page) && isHomeFeaturePage(page) && !hiddenOnHome.has(page.slug)) as HomePageCardRecord[];
+  const directoryPages = featurePages.filter((page) => page.page_family !== "course");
+  const coursePages = featurePages.filter((page) => page.page_family === "course");
   // One snapshot feeds both the card counts and the freshness marker, so they can't straddle a refresh.
-  const launchSnapshot = featurePages.some((page) => page.slug === "launch-directories") ? await getLaunchDirectorySnapshot() : null;
-  const featureCounts = await Promise.all(featurePages.map(cardCounts));
-  const startItems = startHereItems(new Set([...featurePages.map((page) => page.slug), ...toolCatalogs.map((catalog) => catalog.page.slug)]));
+  const launchSnapshot = directoryPages.some((page) => page.slug === "launch-directories") ? await getLaunchDirectorySnapshot() : null;
+  const [directoryCounts, lessonCounts, catalogTools] = await Promise.all([
+    Promise.all(directoryPages.map((page) => directoryCardCounts(page.slug))),
+    Promise.all(coursePages.map(publishedLessonCount)),
+    // Each catalog's tools come from its cached, tagged entry, so a membership or tool card change refreshes the home cards.
+    Promise.all(toolCatalogs.map((catalog) => getPublishedToolCatalog(catalog.page.slug))),
+  ]);
 
   return (
     <AppShell mainLabel="Home" sidebarPosition="none">
@@ -111,12 +66,12 @@ export default async function Home() {
       </EntryHero>
       {launchSnapshot ? <span data-launch-directories-revision={launchSnapshot.revision} hidden /> : null}
       <PageCanvas as="section" flow className="home-main" aria-labelledby="home-title">
-        {featurePages.length > 0 ? (
+        {directoryPages.length > 0 ? (
           <section className="home-resources" aria-labelledby="home-resources-title">
             <h2 id="home-resources-title">Directories and references</h2>
             <div className="home-page-grid">
-              {featurePages.map((page, index) => (
-                <HomeFeatureCard counts={featureCounts[index]} key={page.slug} page={page} />
+              {directoryPages.map((page, index) => (
+                <DirectoryCard counts={directoryCounts[index]} key={page.slug} page={page} />
               ))}
             </div>
           </section>
@@ -125,20 +80,22 @@ export default async function Home() {
         {toolCatalogs.length > 0 ? (
           <section className="home-catalogs" aria-labelledby="home-catalogs-title">
             <h2 id="home-catalogs-title">Tool catalogs</h2>
-            <div className="home-page-grid">
-              {toolCatalogs.map((catalog) => <CatalogCard key={catalog.page.slug} catalog={catalog} />)}
+            <div className="home-catalog-grid">
+              {toolCatalogs.map((catalog, index) => (
+                <CatalogCard catalog={catalog} key={catalog.page.slug} tools={catalogTools[index]?.tools ?? []} />
+              ))}
             </div>
           </section>
         ) : null}
 
-        {startItems.length > 0 ? (
-          <section className="home-start" aria-labelledby="home-start-title">
-            <h2 id="home-start-title">Start here</h2>
-            <ul>
-              {startItems.map((item) => (
-                <li key={item.key}>{item.node}</li>
+        {coursePages.length > 0 ? (
+          <section className="home-courses" aria-labelledby="home-courses-title">
+            <h2 id="home-courses-title">Courses</h2>
+            <div className="home-course-list">
+              {coursePages.map((page, index) => (
+                <CourseCard key={page.slug} lessons={lessonCounts[index]} page={page} />
               ))}
-            </ul>
+            </div>
           </section>
         ) : null}
       </PageCanvas>

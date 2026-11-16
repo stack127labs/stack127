@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Plus, Search, X } from "lucide-react";
+import { ArrowRight, Plus, Search, X } from "@/app/ui/icons";
 import Link from "next/link";
 import { createContext, useContext, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { UiCopyAction, UiSwitch } from "@/app/ui/controls";

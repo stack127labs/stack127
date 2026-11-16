@@ -8,11 +8,13 @@ import {
   Scale,
   Star,
   WalletCards,
-} from "lucide-react";
+} from "@/app/ui/icons";
 import { useEffect, useRef, useState } from "react";
 import type { TerminalApp } from "@/lib/terminal-apps";
 import { terminalAppCategoryBySlug } from "@/lib/terminal-app-taxonomy";
 import { AppFactCardContent, appFactCardClassName } from "../../../ui/directories/app-fact-card";
+import { DirectoryList, DirectoryListUnknown, type DirectoryListColumn, type DirectoryView } from "@/app/ui/directories/directory-view";
+import { CategoryIcon } from "@/app/ui/site/category-icon";
 import { formatDate, formatList, formatStars, labelForPricing } from "./cli-app-format";
 import { hiddenDetailsHtml } from "@/app/ui/directories/hidden-details";
 import { CliAppDetailsBody } from "./cli-app-details";
@@ -135,21 +137,80 @@ function TerminalAppCard({ app, onSelect }: { app: TerminalApp; onSelect: () => 
   );
 }
 
+const listColumns: DirectoryListColumn[] = [
+  { label: "category", hideOnPhone: true },
+  { label: "stars", mono: true },
+  { label: "pricing", mono: true },
+  { label: "license", mono: true },
+  { label: "platforms", mono: true, hideOnPhone: true },
+  { label: "last commit", mono: true },
+];
+
+function Category({ app }: { app: TerminalApp }) {
+  const [primary, ...more] = app.categories;
+  if (!primary) return <DirectoryListUnknown>uncategorized</DirectoryListUnknown>;
+  const category = terminalAppCategoryBySlug.get(primary);
+  return <>
+    <CategoryIcon iconKey={category?.icon_key} />{" "}{(category?.name ?? primary).toLowerCase()}
+    {more.length > 0 ? <DirectoryListUnknown> +{more.length}</DirectoryListUnknown> : null}
+  </>;
+}
+
+function Fact({ value }: { value: string }) {
+  return value === "unknown" ? <DirectoryListUnknown>{value}</DirectoryListUnknown> : <>{value}</>;
+}
+
 // The default page's panel bodies are server-rendered into hidden HTML, so search
 // engines can read them. Opening a card shows that HTML in the side panel. Apps
 // that only appear after filtering render the same panel in the browser.
-export function CliAppBrowser({ apps }: { apps: TerminalApp[] }) {
+export function CliAppBrowser({ apps, view }: { apps: TerminalApp[]; view: DirectoryView }) {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const selectedApp = apps.find((app) => app.slug === selectedSlug);
   const close = () => setSelectedSlug(null);
 
   return (
     <>
-      <div className="directory-card-grid cli-card-grid">
-        {apps.map((app) => (
-          <TerminalAppCard app={app} key={app.slug} onSelect={() => setSelectedSlug(app.slug)} />
-        ))}
-      </div>
+      {view === "cards" ? (
+        <div className="directory-card-grid cli-card-grid">
+          {apps.map((app) => (
+            <TerminalAppCard app={app} key={app.slug} onSelect={() => setSelectedSlug(app.slug)} />
+          ))}
+        </div>
+      ) : (
+        <DirectoryList
+          columns={listColumns}
+          firstLabel="app"
+          label="Terminal apps"
+          rows={apps.map((app) => ({
+            key: app.slug,
+            icon: <AppIcon app={app} />,
+            name: (
+              <button
+                aria-haspopup="dialog"
+                aria-label={`View details for ${app.name}`}
+                onClick={() => setSelectedSlug(app.slug)}
+                type="button"
+              >
+                {app.name}
+              </button>
+            ),
+            badge: app.maintenance_status !== "unknown" && app.maintenance_status !== "active" ? (
+              <span className={`status-pill ${app.maintenance_status}`}>{app.maintenance_status}</span>
+            ) : null,
+            summary: app.summary,
+            cells: [
+              <Category app={app} key="category" />,
+              <Fact key="stars" value={formatStars(app.stars)} />,
+              <Fact key="pricing" value={labelForPricing(app.pricing_model)} />,
+              <Fact key="license" value={app.license ?? "unknown"} />,
+              <Fact key="platforms" value={formatList(app.platforms)} />,
+              <Fact key="commit" value={formatDate(app.last_commit_at)} />,
+            ],
+            selected: app.slug === selectedSlug,
+            onSelect: () => setSelectedSlug(app.slug),
+          }))}
+        />
+      )}
       {selectedApp ? (
         <DetailDialog ariaLabel={`${selectedApp.name} details`} onClose={close}>
           <div className="app-detail-heading">

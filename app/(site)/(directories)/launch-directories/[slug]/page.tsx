@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "@/app/ui/icons";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";

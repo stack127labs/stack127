@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from "@/app/ui/icons";
 import type { ReactNode } from "react";
 import { NetworkLogo } from "./network-logo";
 import type { NetworkLogoFile } from "./network-logo-src";

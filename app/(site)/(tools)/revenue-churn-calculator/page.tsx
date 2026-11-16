@@ -1,4 +1,4 @@
-import { TrendingDown } from "lucide-react";
+import { TrendingDown } from "@/app/ui/icons";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";

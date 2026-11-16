@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { Database } from "lucide-react";
+import { Database } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { ZfsCapacityCalculatorFromUrl } from "./zfs-capacity-calculator-from-url";
 import Article from "./content/article.mdx";

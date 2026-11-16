@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { HardDrive } from "lucide-react";
+import { HardDrive } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { SnapraidMergerfsPlanner } from "./snapraid-mergerfs-planner";
 import Article from "./content/article.mdx";

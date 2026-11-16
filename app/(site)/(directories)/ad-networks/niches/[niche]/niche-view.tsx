@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { MDXContent } from "mdx/types";
-import { Shapes } from "lucide-react";
+import { Shapes } from "@/app/ui/icons";
 import type { Breadcrumb } from "@/lib/breadcrumbs";
 import type { AdNetworkNichePageData } from "@/lib/ad-networks-types";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";

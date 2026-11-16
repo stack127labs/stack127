@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
+import { Check, Copy } from "@/app/ui/icons";
 import { useRef, useState, type FormEvent } from "react";
 import { UiButton, UiCheckbox, UiTextArea, UiTextField } from "@/app/ui/controls";
 import { UiActionRow, UiCodeOutput, UiDataTable, UiResultLead, UiStatus } from "@/app/ui/display";

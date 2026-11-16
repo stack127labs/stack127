@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { Columns3 } from "lucide-react";
+import { Columns3 } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { ZfsPaddingCalculatorFromUrl } from "./zfs-padding-calculator-from-url";
 import Article from "./content/article.mdx";

@@ -6,7 +6,7 @@
   display: flex;
   gap: var(--space-12);
   min-width: 0;
-  padding-inline: clamp(20px, 2vw, 28px);
+  padding-inline: clamp(16px, 1.4vw, 20px);
 }
 
 .bar .identity {

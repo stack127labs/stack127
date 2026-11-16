@@ -1,4 +1,4 @@
-import { Layers } from "lucide-react";
+import { Layers } from "@/app/ui/icons";
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
