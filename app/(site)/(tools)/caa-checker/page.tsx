@@ -2,7 +2,7 @@ import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { FileKey } from "lucide-react";
+import { FileKey } from "@/app/ui/icons";
 import { CaaCheckerFromUrl } from "./caa-checker-from-url";
 import styles from "@/app/ui/tools/dns/dns-diagnostics.module.css";
 import Article from "./content/article.mdx";

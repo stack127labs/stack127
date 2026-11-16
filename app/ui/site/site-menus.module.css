@@ -1,0 +1,194 @@
+/* Top bar menus. The buttons fill the bar's height so the active underline sits
+   on its bottom edge, like the section bar and tabs. */
+.root {
+  align-items: stretch;
+  align-self: stretch;
+  display: flex;
+  justify-self: start;
+  min-width: 0;
+}
+
+.group {
+  align-items: stretch;
+  display: flex;
+  gap: var(--space-6);
+}
+
+.menu {
+  display: flex;
+  position: relative;
+}
+
+.trigger {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
+  transition: color var(--motion-fast);
+  white-space: nowrap;
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  color: var(--color-text);
+}
+
+.trigger[data-active],
+.trigger[data-active]:hover {
+  border-bottom-color: var(--color-accent-text);
+  color: var(--color-accent-text);
+}
+
+.trigger:focus-visible {
+  border-radius: var(--radius);
+  outline: var(--focus-outline);
+  outline-offset: -2px;
+}
+
+.chevron {
+  flex: none;
+  transition: transform var(--motion-fast);
+}
+
+.trigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+/* Only phones use the single menu button and the list headings. */
+.allTrigger,
+.heading {
+  display: none;
+}
+
+.panel {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  left: calc(-1 * var(--space-4));
+  max-height: calc(100dvh - var(--top-bar-height) - var(--space-8));
+  max-width: min(340px, calc(100vw - 32px));
+  min-width: 248px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-3);
+  position: absolute;
+  top: 100%;
+  width: max-content;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: -2px;
+  text-decoration: none;
+}
+
+/* The course and Labs follow a divider in smaller, quieter rows. */
+.more {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+}
+
+.more li a {
+  color: var(--color-text-muted);
+  padding-block: var(--space-2);
+}
+
+.more li a:hover,
+.more li a[aria-current="page"] {
+  color: var(--color-text);
+}
+
+@media (max-width: 680px) {
+  .root {
+    justify-self: end;
+  }
+
+  .allTrigger {
+    display: inline-flex;
+  }
+
+  /* The header is the containing block, so the panel spans the full width below the bar. */
+  .menu {
+    display: block;
+    position: static;
+  }
+
+  .menu > .trigger {
+    display: none;
+  }
+
+  .group {
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    display: none;
+    gap: var(--space-8);
+    /* Full screen below the bar, like the drawers. */
+    align-content: start;
+    height: calc(100dvh - var(--top-bar-height));
+    left: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--space-6) var(--container-gutter) var(--space-10);
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .root[data-menus-open="all"] .group {
+    display: grid;
+  }
+
+  .panel {
+    border: 0;
+    max-height: none;
+    max-width: none;
+    min-width: 0;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    width: auto;
+  }
+
+  .heading {
+    color: var(--color-text-muted);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    margin: 0;
+    padding: 0 var(--space-4) var(--space-2);
+  }
+
+  .heading[data-active] {
+    color: var(--color-accent-text);
+  }
+}
+
+.status {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  padding: var(--space-3) var(--space-4);
+}
+
+.status button {
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-decoration: underline;
+}

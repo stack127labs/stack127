@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ChartColumn } from "lucide-react";
+import { ChartColumn } from "@/app/ui/icons";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { getAdNetworkStatsPageData } from "@/lib/ad-networks";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Download } from "lucide-react";
+import { Download } from "@/app/ui/icons";
 import { useState, type ReactNode } from "react";
 import { websiteFaviconUrl } from "@/lib/dns/favicon.ts";
 import styles from "./dns-diagnostics.module.css";

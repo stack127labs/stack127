@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from "@/app/ui/icons";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";

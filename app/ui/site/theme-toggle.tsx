@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "@/app/ui/icons";
 import { useEffect, useState } from "react";
 import styles from "./theme-toggle.module.css";
 

@@ -5,7 +5,7 @@
   box-shadow: none;
   display: grid;
   gap: var(--space-9);
-  padding: var(--space-11) clamp(20px, 2vw, 28px) 34px;
+  padding: var(--space-11) clamp(16px, 1.4vw, 20px) 26px;
 }
 
 .heading {
@@ -43,13 +43,13 @@
 
 @media (max-width: 960px) {
   .panel {
-    gap: 18px;
-    padding: 24px 22px;
+    gap: var(--space-9);
+    padding: var(--space-10) 16px;
   }
 }
 
 @media (max-width: 560px) {
   .panel {
-    padding: 18px;
+    padding: var(--space-8) 16px;
   }
 }

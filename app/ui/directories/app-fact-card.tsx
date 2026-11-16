@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
-import type { LucideIcon } from "lucide-react";
+import type { SketchIcon } from "@/app/ui/icons";
 import { CategoryIcon } from "@/app/ui/site/category-icon";
 import styles from "./app-fact-card.module.css";
 
 export const appFactCardClassName = styles.card;
 
 type CardCategory = { name: string; icon_key?: string | null };
-type CardFact = { label: string; value: string; icon: LucideIcon };
+type CardFact = { label: string; value: string; icon: SketchIcon };
 
 export function AppFactCardContent({
   name, image, categories, summary, facts, status, headingLevel = 2, hideCategory = false, headline,

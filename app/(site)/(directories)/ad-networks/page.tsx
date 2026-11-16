@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Network } from "lucide-react";
+import { Network } from "@/app/ui/icons";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
 import { getAdNetworkDirectoryData } from "@/lib/ad-networks";

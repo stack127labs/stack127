@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarClock, RotateCcw } from "lucide-react";
+import { CalendarClock, RotateCcw } from "@/app/ui/icons";
 import { useRef, useState, type FormEvent } from "react";
 import { UiButton, UiChoiceGroup, UiTextField, uiOption } from "@/app/ui/controls";
 import { UiActionRow, UiDataTable, UiPrimaryResult, UiStatus } from "@/app/ui/display";

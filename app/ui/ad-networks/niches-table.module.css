@@ -5,14 +5,14 @@
 
 .table {
   border-collapse: collapse;
-  font-size: 0.97rem;
+  font-size: var(--text-body);
   width: 100%;
 }
 
 .table thead th {
   border-bottom: 1px solid var(--color-border-strong);
   color: var(--color-text-muted);
-  font: 500 0.8rem var(--font-mono);
+  font: 500 var(--text-small) var(--font-mono);
   padding: 0 var(--space-5) var(--space-4);
   text-align: left;
   text-transform: lowercase;
@@ -42,7 +42,7 @@
 }
 
 .mono {
-  font: 0.86rem var(--font-mono);
+  font: var(--text-small) var(--font-mono);
 }
 
 .muted {
@@ -86,7 +86,7 @@
 
 .pct {
   color: var(--color-text-muted);
-  font: 0.86rem var(--font-mono);
+  font: var(--text-small) var(--font-mono);
 }
 
 .tops ul {
@@ -104,7 +104,7 @@
 
 .tops span {
   color: var(--color-text-muted);
-  font: 0.82rem var(--font-mono);
+  font: var(--text-small) var(--font-mono);
 }
 
 .easy span {

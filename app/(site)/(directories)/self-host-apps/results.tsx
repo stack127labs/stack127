@@ -5,6 +5,14 @@ import type { ReactNode } from "react";
 import { Pagination } from "@/app/ui/pagination";
 import { StatePanel } from "@/app/ui/state-panel";
 import { pageParamHref } from "@/app/ui/directories/directory-params";
+import { useDirectoryQuery } from "@/app/ui/directories/directory-query";
+import {
+  DirectoryResultsBar,
+  DirectoryViewSwitch,
+  directoryView,
+  directoryViewRoute,
+  withDirectoryView,
+} from "@/app/ui/directories/directory-view";
 import { DirectoryAppBrowser } from "./directory-app-browser";
 import { ActiveFilters } from "./filters";
 import { useSelfHostAppsSearch } from "./search";
@@ -12,7 +20,13 @@ import styles from "./results.module.css";
 
 export function SelfHostAppResults({ emptyVisual }: { emptyVisual: ReactNode }) {
   const { params, results, retry, route, status } = useSelfHostAppsSearch();
-  const showAll = <Link href={route}>show all apps</Link>;
+  const view = directoryView(useDirectoryQuery().params);
+  const showAll = <Link href={directoryViewRoute(route, view)}>show all apps</Link>;
+  const start = (results.currentPage - 1) * results.pageSize + 1;
+  const end = start + results.apps.length - 1;
+  const count = results.apps.length > 0 && status !== "invalid" && status !== "error"
+    ? <>showing <b>{start.toLocaleString("en")}</b>–<b>{end.toLocaleString("en")}</b> of <b>{results.total.toLocaleString("en")}</b> apps</>
+    : null;
 
   let content;
   if (status === "invalid") {
@@ -36,12 +50,12 @@ export function SelfHostAppResults({ emptyVisual }: { emptyVisual: ReactNode }) 
   } else {
     content = (
       <>
-        <DirectoryAppBrowser apps={results.apps} details={results.detailApps} />
+        <DirectoryAppBrowser apps={results.apps} details={results.detailApps} view={view} />
         {results.totalPages > 1 ? (
           <Pagination
             ariaLabel="Self-hosted app pages"
             currentPage={results.currentPage}
-            hrefForPage={(page) => pageParamHref(route, params, page)}
+            hrefForPage={(page) => pageParamHref(route, withDirectoryView(params, view), page)}
             totalPages={results.totalPages}
           />
         ) : null}
@@ -52,6 +66,9 @@ export function SelfHostAppResults({ emptyVisual }: { emptyVisual: ReactNode }) 
   return (
     <>
       <ActiveFilters />
+      <DirectoryResultsBar count={count}>
+        <DirectoryViewSwitch route={route} />
+      </DirectoryResultsBar>
       <div aria-busy={status === "loading" || undefined} className={styles.results}>
         {content}
       </div>

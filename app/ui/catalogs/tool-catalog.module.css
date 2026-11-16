@@ -16,16 +16,23 @@
 .grid {
   display: grid;
   gap: var(--space-6);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-@media (max-width: 900px) {
+/* Steps follow the content column, so a sidebar never squeezes four cards. */
+@container (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 700px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 620px) {
+@container (max-width: 440px) {
   .grid {
     grid-template-columns: 1fr;
   }

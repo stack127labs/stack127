@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertTriangle, Check, File, FileText, Image as ImageIcon, RefreshCw, Trash2, Upload } from "lucide-react";
+import { AlertTriangle, Check, File, FileText, Image as ImageIcon, RefreshCw, Trash2, Upload } from "@/app/ui/icons";
 import type { Ref } from "react";
 import { DropZone, FileTrigger } from "react-aria-components";
 import { UiButton } from "./controls";

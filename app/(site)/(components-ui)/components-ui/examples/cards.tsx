@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { HardDrive } from "lucide-react";
+import { HardDrive } from "@/app/ui/icons";
+import { CatalogCard } from "@/app/ui/cards/catalog-card";
 import { DirectoryCard } from "@/app/ui/cards/directory-card";
 import { PageCard, PageCardCounts } from "@/app/ui/cards/page-card";
 import { ToolCard } from "@/app/ui/cards/tool-card";
@@ -49,7 +50,7 @@ export function CardsExamples() {
         </div>
       </Example>
 
-      <Example components={["DirectoryCard", "CatalogCard", "PageCard", "PageCardCounts"]} note="The large size for homepage collections. DirectoryCard shows counts. CatalogCard is the same card with a tool count. Without approved art, the icon shows large." source="app/ui/cards/" title="Feature card">
+      <Example components={["DirectoryCard", "PageCard", "PageCardCounts"]} note="The large size for homepage collections. DirectoryCard shows counts. Without approved art, the icon shows large." source="app/ui/cards/" title="Feature card">
         <div className={styles.cardGrid}>
           <DirectoryCard
             counts={[{ label: "apps", value: 1240 }, { label: "categories", value: 34 }]}
@@ -62,6 +63,18 @@ export function CardsExamples() {
             href="/storage-tools"
             icon={HardDrive}
             name="Card without art"
+          />
+        </div>
+      </Example>
+
+      <Example components={["CatalogCard"]} note="A tool catalog on the homepage: icon, name, and tool count, then the first five tools in catalog order. Past five, a last row links to the catalog with the rest. No art or description." source="app/ui/cards/catalog-card.tsx" title="Catalog card">
+        <div className={styles.cardGrid}>
+          <CatalogCard
+            catalog={{ page: { slug: "dns-tools" }, card_name: "DNS tools", card_icon_key: "network" }}
+            tools={["DNS lookup", "DNS trace", "DNS change checker", "Nameserver checker", "DNSSEC checker", "MX lookup", "SPF checker"].map((name) => ({
+              slug: "dns-tools",
+              card_name: name,
+            }))}
           />
         </div>
       </Example>

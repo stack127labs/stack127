@@ -35,10 +35,10 @@ import {
   Users,
   Video,
   WalletCards,
-  type LucideIcon,
-} from "lucide-react";
+  type SketchIcon,
+} from "@/app/ui/icons";
 
-const categoryIcons: Record<string, LucideIcon> = {
+const categoryIcons: Record<string, SketchIcon> = {
   activity: Activity,
   "book-open": BookOpen,
   bookmark: Bookmark,

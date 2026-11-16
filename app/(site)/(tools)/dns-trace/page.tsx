@@ -2,7 +2,7 @@ import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { Route } from "lucide-react";
+import { Route } from "@/app/ui/icons";
 import { DnsTraceFromUrl } from "./dns-trace-from-url";
 import styles from "./dns-trace.module.css";
 import Article from "./content/article.mdx";

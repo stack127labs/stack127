@@ -13,14 +13,14 @@ import {
   Rocket,
   Scale,
   Server,
-  type LucideIcon,
-} from "lucide-react";
+  type SketchIcon,
+} from "@/app/ui/icons";
 import { FaGithub } from "react-icons/fa6";
 import type { DirectoryApp } from "@/lib/apps";
 import { CategoryIcon } from "@/app/ui/site/category-icon";
 import { formatDatabaseRequirement, sourceModelLabel } from "@/app/ui/directories/directory-app-card";
 
-type AppFact = [label: string, value: string, Icon: LucideIcon];
+type AppFact = [label: string, value: string, Icon: SketchIcon];
 
 function formatDate(value: Date | string | null) {
   if (!value) {

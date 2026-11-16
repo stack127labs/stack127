@@ -15,14 +15,14 @@ import {
   Table2,
   TextCursorInput,
   Upload,
-  type LucideIcon,
-} from "lucide-react";
+  type SketchIcon,
+} from "@/app/ui/icons";
 
 export type GallerySection = {
   slug: string;
   label: string;
   description: string;
-  icon: LucideIcon;
+  icon: SketchIcon;
   /** Shared components shown on the section page, in page order. */
   components: string[];
 };

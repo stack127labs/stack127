@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search } from "@/app/ui/icons";
 import { DirectoryFilterController } from "@/app/ui/directories/directory-filter-controller";
 import { DirectoryCheckboxGroup, DirectoryRadioGroup, DirectoryTagSelectGroup } from "@/app/ui/directories/directory-filters";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";

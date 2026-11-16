@@ -1,4 +1,4 @@
-import { Globe, HardDrive, Keyboard } from "lucide-react";
+import { Globe, HardDrive, Keyboard } from "@/app/ui/icons";
 import { Pagination } from "@/app/ui/pagination";
 import { Breadcrumbs } from "@/app/ui/site/breadcrumbs";
 import { SidebarList } from "@/app/ui/site/sidebar-list";

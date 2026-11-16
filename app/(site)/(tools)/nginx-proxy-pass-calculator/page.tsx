@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { Route } from "lucide-react";
+import { Route } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { NginxProxyPassCalculator } from "./nginx-proxy-pass-calculator";
 import Article from "./content/article.mdx";

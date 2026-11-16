@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw } from "lucide-react";
+import { RotateCcw } from "@/app/ui/icons";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode, type RefObject } from "react";
 import { adNetworkNiches } from "@/lib/ad-network-niches";
 import { recommendAdNetworks, recommendationShareParams, validateRecommendationInput } from "@/lib/ad-network-requirements/engine";

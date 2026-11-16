@@ -6,7 +6,7 @@ An indie hacker, solo developer, or digital creator has landed without a specifi
 
 ## The job
 
-They should identify a useful resource for their current task and reach it in one click. The opening uses the line, "A toolbox and reference hub for indie hackers," followed by a short description of the site's free tools, calculators, directories, and reference data. Start here offers short questions that link to KDP tools, SaaS tools, platform fees, domain tools, and CLI apps. Each item shows only when its page is on the homepage.
+They should identify a useful resource for their current task and reach it in one click. The opening uses the line, "A toolbox and reference hub for indie hackers," followed by a short description of the site's free tools, calculators, directories, and reference data.
 
 ## Show vs say
 
@@ -16,4 +16,4 @@ List every published tool catalog first, then the selected directories. Keep sel
 
 Every card has a meaningful count from the same data used by its destination. Count apps, tools, licenses, status codes, domain extensions, lessons, or projects as appropriate. Domain tools and references have separate counts. Keep the existing card layout. Every featured page needs its own generated marker spot. A missing spot is an error, never a reason to enlarge the title's interface icon.
 
-The sidebar and linked card sections are the product map. Catalog cards come from the catalog table and use a shared component. The other resource cards follow in their own section. Each card uses one marker drawing to signal the subject, a short description to set scope, and a live count only when the repository or database can provide it. The dotted opening uses two stacked app windows with one chartreuse terminal prompt, matching the site's software and tools. This corner drawing has no labels, branching connectors, or extra symbols and stays hidden on narrow screens. The opening needs only one sentence to define the territory. The small Start here list carries the few recommendations that require words rather than another card.
+The sidebar and linked card sections are the product map. Catalog cards come from the catalog table and use a shared component. The other resource cards follow in their own section. Each card uses one marker drawing to signal the subject, a short description to set scope, and a live count only when the repository or database can provide it. The dotted opening uses two stacked app windows with one chartreuse terminal prompt, matching the site's software and tools. This corner drawing has no labels, branching connectors, or extra symbols and stays hidden on narrow screens. The opening needs only one sentence to define the territory.

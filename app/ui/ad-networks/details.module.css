@@ -36,7 +36,7 @@
 }
 
 .prose h3 {
-  font: var(--weight-semibold) 1.12rem / 1.3 var(--font-display);
+  font: var(--weight-semibold) 0.92rem / 1.3 var(--font-display);
   letter-spacing: -0.01em;
   margin: 0;
 }
@@ -102,7 +102,7 @@
 }
 
 .keyNumbers dd {
-  font: var(--weight-semibold) 1.6rem / 1.1 var(--font-mono);
+  font: var(--weight-semibold) 1.31rem / 1.1 var(--font-mono);
   letter-spacing: -0.02em;
   margin: 0;
   overflow-wrap: anywhere;
@@ -175,7 +175,7 @@
   }
 
   .keyNumbers dd {
-    font-size: 1.25rem;
+    font-size: 1.02rem;
   }
 
   .facts > div {

@@ -12,15 +12,15 @@ import {
   Star,
   Tag,
   Terminal,
-  type LucideIcon,
-} from "lucide-react";
+  type SketchIcon,
+} from "@/app/ui/icons";
 import { FaGithub } from "react-icons/fa6";
 import type { TerminalApp } from "@/lib/terminal-apps";
 import { terminalAppCategories, terminalAppCategoryBySlug } from "@/lib/terminal-app-taxonomy";
 import { CategoryIcon } from "@/app/ui/site/category-icon";
 import { formatDate, formatList, formatStars, labelForPricing, labelForSource, labelForType } from "./cli-app-format";
 
-type Fact = [label: string, value: string, Icon: LucideIcon];
+type Fact = [label: string, value: string, Icon: SketchIcon];
 
 // The server renders this for the default page, so those details are in the page HTML.
 // The browser renders it for apps that only appear after filtering.

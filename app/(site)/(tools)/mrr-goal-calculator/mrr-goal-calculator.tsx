@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw } from "lucide-react";
+import { RotateCcw } from "@/app/ui/icons";
 import { useMemo, useRef, useState, type FormEvent, type ReactNode, type RefObject } from "react";
 import { UiLiveChart } from "@/app/ui/charts/chart-client";
 import type { UiChartSpec } from "@/app/ui/charts/chart-option";

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { FlaskConical, Sigma } from "lucide-react";
+import { FlaskConical, Sigma } from "@/app/ui/icons";
 import styles from "./content-block.module.css";
 
 const kinds = {

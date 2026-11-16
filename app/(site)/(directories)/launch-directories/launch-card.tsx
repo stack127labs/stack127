@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/app/ui/icons";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CategoryIcon } from "@/app/ui/site/category-icon";

@@ -8,7 +8,7 @@ stack127 is simple, minimal, and playful. The pieces:
 - One loud chartreuse accent, used sparingly.
 - Space Grotesk headings over Inter body text.
 - Exactly two body text sizes.
-- Monochrome icons.
+- Monochrome sketched icons.
 - Hand-drawn marker art.
 
 Playfulness lives in the type, the art, and the one accent. Never add it through extra boxes, tints, or decoration.
@@ -26,7 +26,7 @@ Use these semantic names for new UI:
 | Status | `--color-success-text`, `--color-warning-text`, `--color-danger-text`. Text colors only, never backgrounds. |
 | Data | `--color-data-chartreuse`, `--color-data-cyan`, `--color-data-blue`, `--color-data-yellow`, `--color-data-red`, `--color-data-violet`, `--color-data-green`. Chart and allocation fills only. |
 | Type | `--font-display`, `--font-sans`, `--font-mono`, `--text-body`, `--text-small`, `--line-body`, `--line-heading`, `--tracking-display`, `--weight-regular`, `--weight-semibold`, `--weight-bold` |
-| Headings | `--text-h1` + `--line-h1`, `--text-h2`, `--text-h3` |
+| Headings | `--text-h1` + `--line-h1`, `--text-h1-home` (home page only), `--text-h2`, `--text-h3` |
 | Space | `--space-1` to `--space-14`, `--measure-prose` |
 | Radius | `--radius` (2px for every bounded UI shape) |
 | Effects | `--focus-ring`, `--focus-outline`, `--motion-fast`, `--motion-base` |
@@ -57,8 +57,8 @@ Body text has exactly two sizes on the whole site:
 
 | Purpose | Token | Value |
 | --- | --- | --- |
-| Base, for everything | `--text-body` | `1.0625rem` |
-| Small, for compact annotations only | `--text-small` | `0.875rem` |
+| Base, for everything | `--text-body` | `1rem` (16px) |
+| Small, for compact annotations only | `--text-small` | `0.78125rem` (12.5px) |
 
 Base is for prose, navigation, buttons, inputs, table cells, and tool results. If you're unsure, use base.
 
@@ -68,9 +68,10 @@ Headings scale by level. All use `--font-display` at `--weight-bold` with `--tra
 
 | Purpose | Token | Value |
 | --- | --- | --- |
-| H1 | `--text-h1` + `--line-h1` | `clamp(2.6rem, 5vw, 3.6rem)` |
-| H2 | `--text-h2` | `1.7rem` |
-| H3 | `--text-h3` | `1.15rem` |
+| H1 | `--text-h1` + `--line-h1` | `clamp(1.375rem, 4vw, 1.625rem)` (26px on desktop), line height 1.12 |
+| Home page H1 only | `--text-h1-home` | `clamp(1.75rem, 4.5vw, 2rem)` (32px on desktop) |
+| H2 | `--text-h2` | `1.375rem` (22px) |
+| H3 | `--text-h3` | `1.125rem` (18px) |
 
 Every page h1 highlights one chosen phrase with a `<mark>`. The mark is an accent fill with `--color-accent-contrast` text.
 
@@ -89,10 +90,10 @@ Prose gaps are totals. Page layouts must not add another gap on top.
 
 | Gap | Size |
 | --- | --- |
-| Between reading elements | 16px |
-| Before a later `h2` in one prose flow | 32px |
-| Before a later `h3` or `h4` in one prose flow | 24px |
-| Between separate prose sections | 40px |
+| Between reading elements | 12px |
+| Before a later `h2` in one prose flow | 24px |
+| Before a later `h3` or `h4` in one prose flow | 18px |
+| Between separate prose sections | 30px |
 
 ### Links
 
@@ -113,7 +114,8 @@ Component styles must keep this shared link treatment.
 - Direct the eye by size, then weight, then accent, in that order. Color is the last resort.
 - Use borders before shadows. The site has no decorative shadows and no gradients.
 - Cards, panels, controls, tags, title marks, tables, and media frames use `--radius`. True circles may use `50%` when the shape carries meaning, such as a timeline node or numbered step. Avoid nested cards.
-- Use the 4px and 8px spacing rhythm through `--space-*`.
+- Use the compact spacing scale through `--space-*`: 3, 4, 6, 7, 9, 10, 12, 14, 15, 18, 21, 24, 30, and 36px. Don't hard-code a pixel gap.
+- Controls are 30px (`--control-height-sm`), 34px (`--control-height-md`), and 36px (`--control-height-lg`). A single-line field is `--control-height-field`, one body line plus 11px of padding and border, about 36px, so it lines up with a large button.
 - Use `--font-mono` for facts, slugs, versions, stats, and metadata. Never set it in uppercase with positive letter spacing.
 - Sections start with a display heading and an optional lede.
 - Use `--focus-ring` for focus states. It is a `box-shadow` value. Where the element's shadow is already in use, use `outline: var(--focus-outline)` instead. Never put `--focus-ring` in `outline`; the browser ignores it and the focus disappears.
@@ -126,10 +128,12 @@ Every page uses `PageCanvas` with the self-host apps directory spacing:
 
 | Viewport | Horizontal | Top | Bottom |
 | --- | --- | --- | --- |
-| Wider than 900px | `clamp(24px, 2.5vw, 36px)` | 30px | 44px |
-| 900px or less | 22px | 24px | 36px |
+| Wider than 900px | `clamp(18px, 1.7vw, 24px)` | 20px | 30px |
+| 900px or less | 16px | 16px | 26px |
 
-- Text-led pages use the 760px reading canvas.
+- The left sidebar is 224px (`--sidebar-width`).
+- Text-led pages use the 700px reading canvas (`--measure-prose`).
+- Entry hero art is 92px wide. Corner doodles are 84px.
 - Directories, tool workbenches, primary comparison tables, and card grids use the wide canvas.
 - Explanatory tables follow the reading width.
 - Both canvases start at the same left edge.
@@ -153,16 +157,18 @@ For components across all page types, use [shared-ui.md](shared-ui.md) and the C
 
 ### Cards
 
-Tool, catalog, directory, course, and Labs cards all use `PageCard` in `app/ui/cards/page-card.tsx`. It has marker art, an icon, a name, a description, and an optional count footer. When a card has no drawing, its icon shows large in the art spot.
+Tool, directory, course, and Labs cards all use `PageCard` in `app/ui/cards/page-card.tsx`. It has marker art, an icon, a name, a description, and an optional count footer. When a card has no drawing, its icon shows large in the art spot.
 
 Cards use `--color-surface` on a 1px `--color-border`, with `--radius`. Titles use `--font-display`. Descriptions use `--text-small` with `--color-text`.
 
 | Size | Used for | Look |
 | --- | --- | --- |
-| `feature` | Homepage catalogs, directories, the course, and Labs | Lowercase title with a small icon. A dashed `--color-border` divider sits above the mono count row. On hover, the border turns `--color-accent`. |
-| `tool` | Tool cards in a catalog | Plain title and an arrow. On hover, the background turns `--color-surface-2`. |
+| `feature` | Homepage directories, the course, and Labs | Lowercase title with a small icon. A 78px art area with a 96px drawing. A dashed `--color-border` divider sits above the mono count row. On hover, the border turns `--color-accent`. |
+| `tool` | Tool cards in a catalog | Plain title and an arrow. A 78px art area with a drawing up to 96px, and a 210px minimum card height. On hover, the background turns `--color-surface-2`. |
 
-The thin `ToolCard`, `CatalogCard`, and `DirectoryCard` wrappers turn a database row's `card_icon_key` and `card_art_key` into a card. Tool catalogs use the shared three-column `ToolCatalog` grid. It drops to two columns, then one. Each card has one simple tool name, one sentence, and one semantic marker spot.
+The thin `ToolCard` and `DirectoryCard` wrappers turn a database row's `card_icon_key` and `card_art_key` into a card. The homepage grid fits cards of at least 228px, which is five per row at 1440px.
+
+Homepage tool catalogs use `CatalogCard` in `app/ui/cards/catalog-card.tsx`, not `PageCard`. It has no art or description. The head row links to the catalog: icon, lowercase name, and the tool count in small muted mono, with a dashed divider below. Then come the first five published tools in catalog order, each a small link after a muted mono arrow. A catalog with more tools ends with a muted mono `+ N more` row that links to the catalog. On hover, the border turns `--color-accent` and the icon `--color-accent-text`; tool rows turn `--color-link`. The grid shows three per row, two at tablet width, and one on phones. Tool catalogs use the shared four-column `ToolCatalog` grid. It follows the content column's width and drops to three, two, then one. Each card has one simple tool name, one sentence, and one semantic marker spot.
 
 ### Tables
 
@@ -177,7 +183,7 @@ App directory cards use the approved Fact rows variant in `app-fact-card.tsx`:
 - Use neutral solid row dividers and a stronger neutral hover border.
 - Keep full values, estimates, and unknowns visible.
 - The whole card opens the existing app details drawer.
-- The desktop grid has three columns. It drops to two, then one, as the main column narrows.
+- The desktop grid has four columns. It drops to three, two, then one, as the results column narrows.
 
 ### Tool workbench
 
@@ -245,6 +251,10 @@ Development previews: `/components-ui/section-bar/left/checker`, `/components-ui
 The homepage lists published tool catalogs, selected directories, the self-hosting course, and Labs. The homepage uses `none` and doesn't list individual tools or directory child pages. Card names and descriptions come from each family's page table.
 
 Each card shows a meaningful count from its destination's data. A new homepage collection needs an identity icon, a metric, and a marker spot.
+
+### Icons
+
+Icons are sketched lucide: the lucide shapes redrawn with rough.js, the same library behind the marker art, so they look hand drawn. They use `currentColor` and no fill, like lucide. Import them by their lucide name from `@/app/ui/icons`, never from `lucide-react`. [shared-ui.md](shared-ui.md#icons) says how to add one.
 
 ### Identity icons
 

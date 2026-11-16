@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AdSection, SectionNote } from "@/app/ui/ad-networks/section";
-import { HardDrive } from "lucide-react";
+import { HardDrive } from "@/app/ui/icons";
 import { siteHeroStack127Art } from "@/app/(site)/art/site--hero-stack127";
 import { BrandWordmark } from "@/app/ui/site/brand-wordmark";
 import { CategoryIcon } from "@/app/ui/site/category-icon";

@@ -2,7 +2,7 @@ import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "@/app/ui/icons";
 import { DnssecCheckerFromUrl } from "./dnssec-checker-from-url";
 import styles from "./dnssec-checker.module.css";
 import Article from "./content/article.mdx";

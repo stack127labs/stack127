@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { Backup321CalculatorFromUrl } from "./backup-321-calculator-from-url";
 import Article from "./content/article.mdx";

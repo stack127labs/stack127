@@ -22,7 +22,7 @@ import {
   type RaidCalculatorInput,
   type RaidLevel,
 } from "@/lib/storage/raid.ts";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw } from "@/app/ui/icons";
 import { useEffect, useRef, useState } from "react";
 import styles from "./raid-calculator.module.css";
 

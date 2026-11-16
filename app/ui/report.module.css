@@ -32,7 +32,7 @@
 }
 
 .groupTitle {
-  font: var(--weight-bold) 1.35rem / 1.25 var(--font-display);
+  font: var(--weight-bold) 1.11rem / 1.25 var(--font-display);
   letter-spacing: -0.015em;
   margin: 0;
 }
@@ -176,7 +176,7 @@
 }
 
 .numbers dd {
-  font: var(--weight-semibold) 2rem / 1 var(--font-mono);
+  font: var(--weight-semibold) 1.64rem / 1 var(--font-mono);
   letter-spacing: -0.03em;
   margin: 0;
 }
@@ -230,7 +230,7 @@
   }
 
   .numbers dd {
-    font-size: 1.45rem;
+    font-size: 1.19rem;
   }
 }
 
@@ -243,7 +243,7 @@
 }
 
 .figureValue {
-  font: var(--weight-semibold) 2rem / 1 var(--font-mono);
+  font: var(--weight-semibold) 1.64rem / 1 var(--font-mono);
   letter-spacing: -0.03em;
 }
 

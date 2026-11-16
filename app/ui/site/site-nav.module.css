@@ -6,15 +6,20 @@
   z-index: 100;
 }
 
+/* An open menu sits above the cookie banner. Drawers and dialogs stay above it. */
+.header:has([data-menus-open]) {
+  z-index: 145;
+}
+
 /* The inner nav shares the sidebar rail's horizontal padding so the wordmark
    and the sidebar titles sit on one left edge. */
 .nav {
   align-items: center;
   display: grid;
-  gap: var(--space-8);
-  grid-template-columns: auto 1fr auto;
+  gap: var(--space-12);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   min-height: var(--top-bar-height);
-  padding: 0 clamp(20px, 2vw, 28px);
+  padding: 0 clamp(16px, 1.4vw, 20px);
   width: 100%;
 }
 
@@ -24,34 +29,10 @@
   height: 28px;
 }
 
-.links {
-  align-items: center;
-  display: flex;
-  gap: clamp(10px, 1.6vw, 18px);
-  justify-content: flex-end;
-}
-
-/* Top navigation keeps neutral text, separated by dots. */
-.links a {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-  font-weight: var(--weight-regular);
-}
-
-.links a:hover {
-  color: var(--color-text);
-}
-
-.dot {
-  color: var(--color-text-muted);
-  user-select: none;
-}
-
 .actions {
   align-items: center;
   display: flex;
-  gap: 8px;
+  gap: var(--space-3);
   justify-content: flex-end;
 }
 
@@ -61,22 +42,9 @@
   }
 }
 
-/* On narrow screens the top bar keeps the general discovery link. */
 @media (max-width: 680px) {
-  .secondaryLink {
-    display: none;
-  }
-}
-
-/* At the 320px minimum width, enlarged text leaves room for the wordmark and
-   theme action only. The sidebar drawer still exposes the full navigation. */
-@media (max-width: 420px) {
   .nav {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .links {
-    display: none;
+    gap: var(--space-4);
   }
 }
 
@@ -84,9 +52,4 @@
   .header {
     position: static;
   }
-}
-
-.links a[href]:hover,
-.links a[href]:focus-visible {
-  text-decoration: none;
 }

@@ -2,7 +2,7 @@
 
 import { UiButton, UiChoiceGroup, UiDisclosure, UiQuantityInput, UiRepeatableList, UiTextField, uiOption } from "@/app/ui/controls";
 import { UiActionRow, UiAllocationBar, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw } from "@/app/ui/icons";
 import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
   calculateUnraidCapacity,

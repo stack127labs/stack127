@@ -130,7 +130,7 @@
 .textarea {
   font-family: var(--font-mono);
   font-size: var(--text-body);
-  padding: 9px 12px;
+  padding: 5px 10px;
   width: 100%;
 }
 
@@ -242,7 +242,7 @@
   flex: 1 1 auto;
   font-family: var(--font-mono);
   min-width: 0;
-  padding: 9px 12px;
+  padding: 5px 10px;
 }
 
 .dateSegment {
@@ -311,13 +311,13 @@
   align-items: center;
   display: grid;
   gap: var(--space-3);
-  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  grid-template-columns: 32px minmax(0, 1fr) 32px;
   margin-bottom: var(--space-3);
 }
 
 .calendarButton {
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
 }
 
 .calendarHeading {
@@ -384,7 +384,7 @@
   font-weight: var(--weight-bold);
   gap: var(--space-2);
   justify-self: start;
-  min-height: 40px;
+  min-height: 32px;
   outline: none;
   padding: 0 var(--space-3) 0 var(--space-1);
 }
@@ -438,7 +438,7 @@
   cursor: pointer;
   font-family: var(--font-mono);
   outline: none;
-  padding: 8px 12px;
+  padding: 5px 10px;
   text-align: center;
 }
 
@@ -482,7 +482,7 @@
   font-size: var(--text-body);
   min-width: 0;
   outline: 0;
-  padding: 9px 12px;
+  padding: 5px 10px;
   width: 100%;
 }
 
@@ -542,7 +542,7 @@
   display: flex;
   font: inherit;
   justify-content: space-between;
-  padding: 9px 12px;
+  padding: 5px 10px;
   text-align: left;
   width: 100%;
 }
@@ -588,7 +588,7 @@
   gap: 2px;
   line-height: var(--line-ui);
   outline: none;
-  padding: 10px 12px;
+  padding: 6px 10px;
 }
 
 .option[data-focused],
@@ -627,7 +627,7 @@
   min-height: var(--control-height-lg);
   min-width: 0;
   outline: 0;
-  padding: 9px 12px;
+  padding: 5px 10px;
   width: 100%;
 }
 
@@ -662,7 +662,7 @@
   color: var(--color-text);
   cursor: pointer;
   min-height: var(--control-height-field);
-  padding: 7px 12px;
+  padding: 4px 10px;
 }
 
 .choice[data-selected] {
@@ -890,7 +890,7 @@
   gap: var(--space-3);
   justify-content: center;
   min-height: var(--control-height-lg);
-  padding: 9px 16px;
+  padding: 5px 12px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -976,7 +976,7 @@
   grid-template-columns: auto minmax(0, 1fr);
   grid-template-rows: auto auto;
   max-width: 100%;
-  min-height: 44px;
+  min-height: 36px;
   min-width: 0;
   overflow-wrap: anywhere;
   padding: 0;
@@ -1752,7 +1752,7 @@
 .table th,
 .table td {
   border-bottom: 1px solid var(--color-border);
-  padding: 10px 12px;
+  padding: 6px 10px;
   text-align: left;
   vertical-align: top;
 }
