@@ -147,7 +147,7 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
             tone: index === ageMedian ? "ac" as const : "ac2" as const,
           }))}
         />
-        <p className={styles.detail}>{pct(shareOf(ageCounts[0], agedSites))} of sites are under 3 years old.</p>
+        <p className={styles.detail}>{pct(shareOf(ageCounts[0], Math.max(stats.listed, agedSites)))} of sites are under 3 years old.</p>
       </ReportBlock>
     ) : null,
     dr ? (
@@ -164,7 +164,7 @@ export function NetworkStats({ network, stats }: { network: AdNetworkListRow; st
           }))}
         />
         <p className={styles.detail}>
-          {pct(shareOf(underTwenty, ratedSites))} of sites are under DR 20. · <AhrefsCredit />, {formatNumber(dr.rated)} of {formatNumber(dr.listed)} sites rated
+          {pct(shareOf(underTwenty, Math.max(dr.listed, ratedSites)))} of sites are under DR 20. · <AhrefsCredit />, {formatNumber(dr.rated)} of {formatNumber(dr.listed)} sites rated
         </p>
       </ReportBlock>
     ) : null,
