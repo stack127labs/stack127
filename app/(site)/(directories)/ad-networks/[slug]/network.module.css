@@ -49,29 +49,56 @@
   margin-top: calc(var(--page-padding-top) + var(--page-padding-bottom));
 }
 
-/* The Q&A beside the details: flat MDX, spaced like the mockup's question sections */
+/* What it requires and pays: two short label and value lists side by side, kept at reading width */
 
-.article {
+.details {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-8);
 }
 
-.article h3 {
-  margin-top: calc(var(--space-8) - var(--space-3));
+.details > h2 {
+  font: var(--weight-bold) var(--text-h2) / var(--line-heading) var(--font-display);
+  letter-spacing: var(--tracking-display);
+  margin: 0;
 }
 
-.article > h3:first-child {
-  margin-top: 0;
+.lists {
+  display: grid;
+  gap: var(--space-12) var(--space-13);
+  grid-template-columns: repeat(2, minmax(0, 380px));
 }
 
-/* Words under a tab's fact rows */
-
-.tabWords {
-  font-size: var(--text-body);
+.listLabel {
+  color: var(--color-text-muted);
+  font: var(--text-small) / 1.4 var(--font-mono);
+  margin: 0 0 var(--space-3);
 }
 
-dl + .tabWords {
+.list {
+  margin: 0;
+}
+
+.list > div {
   border-top: 1px solid var(--color-border);
-  margin-top: var(--space-5);
-  padding-top: var(--space-7);
+  display: flex;
+  gap: var(--space-9);
+  justify-content: space-between;
+  padding: var(--space-5) 0;
+}
+
+.list dt {
+  color: var(--color-text-muted);
+  flex: none;
+}
+
+.list dd {
+  font-weight: var(--weight-semibold);
+  margin: 0;
+  text-align: right;
+}
+
+@media (max-width: 820px) {
+  .lists {
+    grid-template-columns: minmax(0, 380px);
+  }
 }

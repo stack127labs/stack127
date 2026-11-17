@@ -1,3 +1,4 @@
+import { resolvePageText } from "./current-text.mjs";
 import { TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG } from "./cache-tags";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
@@ -57,7 +58,7 @@ function ids(values: Array<number | string>) {
   return `in.(${values.join(",")})`;
 }
 
-export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<ToolCatalogSummary[]> => {
+const getRawPublishedToolCatalogs = cache(unstable_cache(async (): Promise<ToolCatalogSummary[]> => {
   return readPublicData({
     dataApiRead: async () => {
       const contents = await selectCardRows<CatalogContent>("stack127_catalog_pages", {
@@ -111,8 +112,8 @@ export const getPublishedToolCatalogs = cache(unstable_cache(async (): Promise<T
   tags: [TOOL_CATALOGS_TAG],
 }));
 
-export const getPublishedToolCatalog = cache(async (slug: string) => unstable_cache(async (): Promise<PublishedToolCatalog | null> => {
-  const summary = (await getPublishedToolCatalogs()).find((catalog) => catalog.page.slug === slug);
+const getRawPublishedToolCatalog = cache(async (slug: string) => unstable_cache(async (): Promise<PublishedToolCatalog | null> => {
+  const summary = (await getRawPublishedToolCatalogs()).find((catalog) => catalog.page.slug === slug);
   if (!summary) return null;
   const tools = await readPublicData<ToolCatalogCard[]>({
     dataApiRead: async () => {
@@ -192,3 +193,6 @@ export const getPrimaryToolCatalog = cache(async (toolPageId: number | string) =
   const catalog = (await getPublishedToolCatalogs()).find((item) => String(item.page_id) === String(catalogPageId));
   return catalog ? getPublishedToolCatalog(catalog.page.slug) : null;
 });
+
+export const getPublishedToolCatalogs = cache(async () => resolvePageText(await getRawPublishedToolCatalogs()));
+export const getPublishedToolCatalog = cache(async (slug: string) => resolvePageText(await getRawPublishedToolCatalog(slug)));

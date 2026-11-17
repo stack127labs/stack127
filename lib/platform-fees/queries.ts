@@ -1,3 +1,4 @@
+import { resolvePageText } from "../current-text.mjs";
 import { PLATFORM_FEES_TAG } from "@/lib/cache-tags";
 import 'server-only';
 import { unstable_cache } from 'next/cache';
@@ -6,7 +7,7 @@ import { validateDirectory, type FeeDirectory, type FeeEntry, type FeeSection } 
 
 // Cached across requests so a visit does not reload all 543 entries. Next skips
 // caching entries over 2 MB, so keep the directory data below that size.
-export const getFeeDirectory = unstable_cache(async (): Promise<FeeDirectory> => {
+const readRawFeeDirectory = unstable_cache(async (): Promise<FeeDirectory> => {
   const pool = getPool();
   const [sections, entries] = await Promise.all([
     pool.query<FeeSection>('select * from public.platform_fee_sections order by sort_order'),
@@ -19,3 +20,5 @@ export const getFeeDirectory = unstable_cache(async (): Promise<FeeDirectory> =>
   validateDirectory(data);
   return data;
 }, [PLATFORM_FEES_TAG], { revalidate: false, tags: [PLATFORM_FEES_TAG] });
+
+export const getFeeDirectory = async () => resolvePageText(await readRawFeeDirectory());

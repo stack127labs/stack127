@@ -137,3 +137,21 @@ Ship this cleanup in two releases because the release workflow migrates the data
 2. After Release 1 is live, Release 2 ships `20261010063116_retire_page_content_columns.sql` only. It verifies the archive, then drops the columns. This file has an earlier version because development applied it before the rollout split. The production release workflow already uses `supabase db push --include-all`, which applies the missing version.
 
 Do not include the archive-and-drop file in Release 1. Keep courses on their current content tables. Keep each database's archive during a development rebuild.
+
+## How to use current year and month
+
+Write `[year]` for the four-digit UTC year and `[month]` for the full English month name. For example, `[month] [year]` shows `November 2026` in November 2026. These are the only two tokens.
+
+Use them in database titles, search titles, descriptions, card text, and navigation labels. Keep the tokens in the stored fields. The shared readers resolve them after reading the data cache, including text inside `<mark>`.
+
+In MDX, write them in paragraphs, headings, lists, table cells, and link text. Code blocks, inline code, and link URLs stay unchanged. A Markdown link such as `[year](/x)` stays a link named "year".
+
+In server JSX, import the helper and wrap the text:
+
+```tsx
+import { currentText } from "@/lib/current-text.mjs";
+
+<p>{currentText("Compare ad networks in [year].")}</p>
+```
+
+Values change when a page is built or revalidated. The Cloudflare export needs a new build. The current automation rebuilds for queued data changes and releases; it does not guarantee a build when a month or year changes. A token does not mean the page's facts were checked again.

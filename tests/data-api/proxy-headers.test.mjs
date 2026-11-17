@@ -101,6 +101,7 @@ test('installed Next logger omits canonical private namespaces and still logs pu
     compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true},
   }).outputText;
   vm.runInNewContext(configCode,{exports:configExports,process,URL,require:name=>{
+    if(name==='node:path')return require('node:path');
     if(name==='@next/mdx')return ()=>config=>config;
     if(name==='./lib/allowed-dev-origins')return {collectAllowedDevOrigins:()=>[]};
     if(name==='./lib/legacy-shortcut-redirects')return {legacyShortcutRedirects:[]};

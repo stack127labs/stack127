@@ -1,3 +1,4 @@
+import { resolvePageText } from "../../../lib/current-text.mjs";
 import { setTimeout as sleep } from 'node:timers/promises';
 import { desiredStates } from './model.mjs';
 
@@ -42,6 +43,7 @@ export function inspectSitemap(sitemap, pages, site) {
 }
 
 export function inspectPublishedHtml(html, state, revision, site) {
+  state = resolvePageText(state);
   const meta = [...html.matchAll(/<meta\b[^>]*>/gi)].map(match => attributes(match[0]));
   const value = name => meta.find(item => item.name === name)?.content;
   const title = htmlText(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? '');

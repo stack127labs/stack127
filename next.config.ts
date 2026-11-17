@@ -1,3 +1,4 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import { collectAllowedDevOrigins } from "./lib/allowed-dev-origins";
@@ -73,7 +74,7 @@ const nextConfig: NextConfig = {
 };
 
 const withMDX = createMDX({
-  options: { remarkPlugins: ["remark-gfm"] },
+  options: { remarkPlugins: ["remark-gfm", path.resolve("lib/remark-current-text.mjs")] },
 });
 
 export default withMDX(nextConfig);
