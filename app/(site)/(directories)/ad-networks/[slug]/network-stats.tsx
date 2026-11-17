@@ -1,261 +1,200 @@
 import type { ReactNode } from "react";
 import type { AdNetworkListRow, AdNetworkStatsReport } from "@/lib/ad-networks-types";
 import { trafficLabel } from "@/lib/ad-networks-report";
-import { Report, ReportBlock, ReportFigure, ReportGroup, ReportNumbers, ReportRow, type ReportNumber } from "@/app/ui/report";
-import { AgeStrip } from "@/app/ui/ad-networks/viz/age-strip";
-import { AreaLine } from "@/app/ui/ad-networks/viz/area-line";
-import { RankedBars, StackBar, type RankedBar } from "@/app/ui/ad-networks/viz/bars";
+import { Report, ReportBlock, ReportFigure, ReportGroup } from "@/app/ui/report";
+import { RankedBars, type RankedBar } from "@/app/ui/ad-networks/viz/bars";
 import { ColumnChart } from "@/app/ui/ad-networks/viz/columns";
-import { Donut } from "@/app/ui/ad-networks/viz/donut";
-import { formatNumber, formatSigned } from "@/app/ui/ad-networks/viz/format";
-import { JoinedLeftBars } from "@/app/ui/ad-networks/viz/joined-left";
-import { SwitchFlow } from "@/app/ui/ad-networks/viz/switch-flow";
-import { TypeScale } from "@/app/ui/ad-networks/viz/type-scale";
+import { formatNumber } from "@/app/ui/ad-networks/viz/format";
+import viz from "@/app/ui/ad-networks/viz/viz.module.css";
 import { nicheName } from "@/app/ui/ad-networks/site-format";
 import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
-import { ordinal, percent } from "../ad-networks-shared";
+import { percent } from "../ad-networks-shared";
 import styles from "./network-stats.module.css";
 
 // Loader shares are 0 to 100. Never round a share that isn't 100% up to 100%.
 const pct = (share: number | undefined) => percent(share ?? 0);
+const shareOf = (count: number, total: number) => (total ? (count / total) * 100 : 0);
+const sum = (rows: readonly { count: number }[]) => rows.reduce((total, row) => total + row.count, 0);
+const joined = (parts: readonly string[]) => parts.join(" · ");
 
-const monthShort = new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" });
-const monthLong = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
-const day = (iso: string) => Date.parse(`${iso}T00:00:00Z`);
+/** The loader's domain age buckets, in the order of `domainAgeOrder` in lib/ad-networks-report.ts. */
+const ageBuckets = ["0–2 years", "3–5 years", "6–10 years", "11–15 years", "16+ years"];
 
-const dayMs = 86_400_000;
-const monday = (time: number) => time - ((new Date(time).getUTCDay() + 6) % 7) * dayMs;
+/** The column that holds the median: the first where the running count reaches half. */
+const medianIndex = (counts: readonly number[]) => {
+  const half = counts.reduce((total, count) => total + count, 0) / 2;
+  let running = 0;
+  return counts.findIndex((count) => (running += count) >= half);
+};
 
-/**
- * The loader's joined and left periods hold only days or weeks with changes. Place each on the
- * period's timeline, ending today in UTC like the loader's windows, so gaps read as gaps.
- */
-function timeline(periods: NonNullable<AdNetworkStatsReport["movement_periods"]>, now = Date.now()) {
-  const today = Date.parse(`${new Date(now).toISOString().slice(0, 10)}T00:00:00Z`);
-  return periods.map((period) => {
-    const weekly = period.interval === "week";
-    const first = weekly ? monday(today - (period.days - 1) * dayMs) : today - (period.days - 1) * dayMs;
-    const step = weekly ? 7 * dayMs : dayMs;
-    const slots = Math.round(((weekly ? monday(today) : today) - first) / step) + 1;
-    return {
-      ...period,
-      slots,
-      startLabel: `${period.days} days ago`,
-      endLabel: "today",
-      points: period.points.map((point) => ({ ...point, slot: Math.round((day(point.date) - first) / step) })),
-    };
-  });
+/** One number: a label, the big share with plain words beside it, one thin bar, and one detail line. */
+function SharePanel({ detail, label, value, words }: { detail?: ReactNode; label: string; value: number; words: ReactNode }) {
+  return (
+    <ReportBlock level={3} label={label}>
+      <ReportFigure note={words} value={pct(value)} />
+      <div aria-hidden="true" className={`${styles.bar} ${viz.tokens}`}><i style={{ width: `${Math.min(100, Math.max(0, value))}%` }} /></div>
+      {detail ? <p className={styles.detail}>{detail}</p> : null}
+    </ReportBlock>
+  );
 }
 
-/** Shorter names for tight chart labels on phones. */
-const shortName = (name: string) => name.replace(/^Google /, "").replace(/ by Mediavine$/, "");
-
-/** A row of blocks with only the blocks that have data. Nothing renders when none do. */
-function Row({ blocks, layout }: { blocks: readonly ReactNode[]; layout: "1-1" | "2-1" | "1-1-1" | "2-1-1" }) {
-  const shown = blocks.filter(Boolean);
-  // A lone block takes the full width instead of leaving an empty column beside it.
-  if (shown.length === 1) return <>{shown}</>;
-  return shown.length ? <ReportRow layout={layout}>{shown}</ReportRow> : null;
+/** Panels side by side, each capped so bars never stretch. Nothing renders when no panel has data. */
+function Columns({ children }: { children: readonly ReactNode[] }) {
+  const shown = children.filter(Boolean);
+  return shown.length ? <div className={styles.columns}>{shown}</div> : null;
 }
 
 /**
- * "<Network> stats" (mockup `.stats`): question-led groups in the mockup's order. Every block hides
- * when its loader field is empty or null, and a group with no blocks left hides. The gates live in
+ * A network's stats, with no section title: question-led groups, each an h2. Every panel hides when
+ * its loader field is empty or null, and a group with no panels left hides. The gates live in
  * lib/ad-networks*.ts; each field's data run is in dev-space/ad-networks-data-contract.md.
  */
 export function NetworkStats({ network, stats }: { network: AdNetworkListRow; stats: AdNetworkStatsReport }) {
   const { name } = network;
   if (!stats.listed) return null;
 
-  // How many sites use it?
-  const summary: ReportNumber[] = [
-    { label: "sites listed", value: formatNumber(stats.listed) },
-    { label: "confirmed live", value: formatNumber(stats.confirmed), accent: true },
-    ...(stats.rank ? [{ label: `of ${stats.networks_tracked} networks`, value: ordinal(stats.rank) }] : []),
-    ...(stats.change_year !== null ? [{ label: "sites in a year", value: formatSigned(stats.change_year), accent: stats.change_year > 0 }] : []),
-  ];
-  const history = stats.history.map((row) => ({ label: monthShort.format(day(row.date)), fullLabel: monthLong.format(day(row.date)), value: row.listed }));
-
   // What kind of sites?
   const topNiches = stats.niches.slice(0, 6);
-  const otherNiches = stats.niches.slice(6).reduce((sum, row) => sum + (row.share ?? 0), 0);
+  const otherNiches = stats.niches.slice(6).reduce((total, row) => total + (row.share ?? 0), 0);
   const nicheRows: RankedBar[] = [
     ...topNiches.map((row) => ({ label: nicheName(row.key) ?? row.label, value: row.share ?? 0, display: pct(row.share), href: `/ad-networks/niches/${row.key}` })),
     ...(otherNiches > 0 ? [{ label: "Other", value: otherNiches, display: pct(otherNiches) }] : []),
   ];
-  const traffic = stats.traffic.map((row) => ({
-    label: trafficLabel(row.key),
-    value: row.count,
-    tone: row.key.startsWith("not") ? "n2" as const : "ac" as const,
+
+  // Traffic: every ranked group together, out of every listed site, so sites with no traffic data
+  // never inflate the share.
+  const trafficTotal = sum(stats.traffic);
+  const ranked = stats.traffic.filter((row) => row.key.toLowerCase().startsWith("top-"));
+  const rankedLine = joined(ranked.filter((row) => row.count > 0).map((row) => {
+    const label = trafficLabel(row.key);
+    return `${label.charAt(0).toUpperCase()}${label.slice(1)}: ${formatNumber(row.count)}`;
   }));
 
-  // Joined, left, and switches.
-  const periods = timeline(stats.movement_periods ?? []);
-  const flow = stats.switch_flow;
-
-  // How are the sites built?
-  const age = stats.domain_age_strip;
+  // Built with: the most used platform, on the same base as the old donut (unknown included).
   const platforms = stats.platform_mix ?? [];
-  const measuredPlatforms = platforms.filter((row) => row.key !== "unknown");
-  // A short legend: the four most used platforms, the rest as Other, then Unknown.
-  const topPlatforms = [...measuredPlatforms].sort((a, b) => b.count - a.count).slice(0, 4);
-  const otherPlatforms = measuredPlatforms.filter((row) => !topPlatforms.includes(row)).reduce((sum, row) => sum + row.count, 0);
-  const unknownPlatforms = platforms.find((row) => row.key === "unknown")?.count ?? 0;
-  const platformParts = [
-    ...topPlatforms.map((row) => ({ label: row.label, value: row.count })),
-    ...(otherPlatforms > 0 ? [{ label: "Other", value: otherPlatforms }] : []),
-    ...(unknownPlatforms > 0 ? [{ label: "Unknown", value: unknownPlatforms, tone: "track" as const }] : []),
-  ];
+  const measured = platforms.filter((row) => row.key !== "unknown").sort((a, b) => b.count - a.count);
+  const [topPlatform, ...restPlatforms] = measured;
+  const otherPlatforms = restPlatforms.slice(3).reduce((total, row) => total + (row.share ?? 0), 0);
+  const unknownPlatforms = platforms.find((row) => row.key === "unknown")?.share ?? 0;
+  const platformLine = joined([
+    ...restPlatforms.slice(0, 3).map((row) => `${row.label} ${pct(row.share)}`),
+    ...(otherPlatforms > 0 ? [`Other ${pct(otherPlatforms)}`] : []),
+    ...(unknownPlatforms > 0 ? [`Unknown ${pct(unknownPlatforms)}`] : []),
+  ]);
+
+  // Domain endings: the top ending, then the next three and the rest.
+  const [topEnding, ...restEndings] = stats.domain_endings;
+  const otherEndings = restEndings.slice(3).reduce((total, row) => total + (row.share ?? 0), 0);
+  const endingLine = joined([
+    ...restEndings.slice(0, 3).map((row) => `${row.label} ${pct(row.share)}`),
+    ...(otherEndings > 0 ? [`other ${pct(otherEndings)}`] : []),
+  ]);
+
+  // Domain age: each bucket as a share of sites with a known age.
+  const ageCounts = ageBuckets.map((key) => stats.domain_age.find((row) => row.key === key)?.count ?? 0);
+  const agedSites = ageCounts.reduce((total, count) => total + count, 0);
+  const ageMedian = medianIndex(ageCounts);
+  const medianAge = stats.median_domain_age === null ? null : Math.round(stats.median_domain_age);
+
+  // Domain rating: hidden until enough of this network's sites are rated (AD_NETWORK_DR_GATE in
+  // lib/ad-networks-report.ts). Ahrefs' license needs the linked credit wherever DR shows.
   const dr = stats.domain_rating;
-  const topEndings = stats.domain_endings.slice(0, 5);
-  const otherEndings = stats.domain_endings.slice(5).reduce((sum, row) => sum + (row.share ?? 0), 0);
-  const endings = [
-    ...topEndings.map((row) => ({ label: row.label, share: (row.share ?? 0) / 100 })),
-    ...(otherEndings > 0 ? [{ label: "other", share: otherEndings / 100 }] : []),
-  ];
+  const ratedSites = dr ? sum(dr.bands) || dr.rated : 0;
+  const underTwenty = dr ? sum(dr.bands.filter((band) => band.min < 20)) : 0;
 
   // What else is in their ads.txt?
   const manager = (key: string) => stats.managers.find((row) => row.key === key);
-  const alsoRows: RankedBar[] = stats.also_runs.filter((row) => row.count > 0).slice(0, 5)
+  const managerLine = joined(["another-network", "not-listed"].map(manager)
+    .filter((row) => row && (row.share ?? 0) >= 1)
+    .map((row) => `${row!.label} ${pct(row!.share)}`));
+  const alsoRuns = stats.also_runs.filter((row) => row.count > 0);
+  // Per-network shares overlap, so they are never summed into one "runs another network" share.
+  const alsoRows: RankedBar[] = alsoRuns.slice(0, 5)
     .map((row) => ({ label: row.name, value: row.share, display: pct(row.share), href: `/ad-networks/${row.slug}` }));
+  const alsoAsList = alsoRuns.some((row) => row.share >= 1);
 
-  const kindBlocks = [
+  const kindRight = [
+    trafficTotal > 0 ? (
+      <SharePanel detail={rankedLine} key="traffic" label="Traffic" value={shareOf(sum(ranked), Math.max(stats.listed, trafficTotal))} words="are in Chrome's top 1 million sites" />
+    ) : null,
+    topPlatform ? (
+      <SharePanel detail={platformLine} key="platforms" label="Built with" value={topPlatform.share ?? 0} words={`run on ${topPlatform.label}`} />
+    ) : null,
+    topEnding ? (
+      <SharePanel detail={endingLine} key="endings" label="Domain endings" value={topEnding.share ?? 0} words={`use a ${topEnding.label}`} />
+    ) : null,
+  ].filter(Boolean);
+  const kindPanels = [
     nicheRows.length ? (
-      <ReportBlock description={`Share of ${stats.niches.reduce((sum, row) => sum + row.count, 0).toLocaleString("en-US")} sorted sites.`} key="niches" label="Top niches">
+      <ReportBlock key="niches" label="Top niches" level={3}>
         <RankedBars ariaLabel={`Top niches on ${name}`} rows={nicheRows} />
       </ReportBlock>
     ) : null,
-    traffic.length ? (
-      <ReportBlock description="Sites grouped by their place in Chrome's list of the most visited sites." key="traffic" label="Traffic">
-        <ColumnChart caption={`${name} sites per Chrome rank group`} items={traffic} />
-      </ReportBlock>
-    ) : null,
+    kindRight.length ? <div className={styles.stack} key="right">{kindRight}</div> : null,
   ];
-  const moveBlocks = [
-    periods.length ? (
-      <ReportBlock description={`Sites that started or stopped running ${name}, per day or per week.`} key="moves" label="Joined and left">
-        <JoinedLeftBars caption={`${name} sites joined and left`} periods={periods} />
-      </ReportBlock>
-    ) : null,
-    flow && (flow.came_from.length || flow.went_to.length) ? (
-      <ReportBlock description={`Sites that moved to or from ${name}, and the network on the other side.`} key="switches" label="Switches, last 90 days">
-        <SwitchFlow
-          cameFrom={flow.came_from.map((row) => ({ label: row.label, shortLabel: shortName(row.label), count: row.count }))}
-          caption={`Where sites came from and went to in the last 90 days`}
-          center={flow.center.name}
-          wentTo={flow.went_to.map((row) => ({ label: row.label, shortLabel: shortName(row.label), count: row.count }))}
+
+  const strengthPanels = [
+    agedSites > 0 ? (
+      <ReportBlock key="age" label="Domain age" level={3}>
+        {medianAge !== null ? <ReportFigure note="median" value={`${medianAge} ${medianAge === 1 ? "yr" : "yrs"}`} /> : null}
+        <ColumnChart
+          caption={`${name} sites by domain age`}
+          height={150}
+          items={ageBuckets.map((key, index) => ({
+            label: index === ageBuckets.length - 1 ? key.replace(" years", " yrs") : key.replace(" years", ""),
+            value: ageCounts[index],
+            display: pct(shareOf(ageCounts[index], agedSites)),
+            tone: index === ageMedian ? "ac" as const : "ac2" as const,
+          }))}
         />
+        <p className={styles.detail}>{pct(shareOf(ageCounts[0], Math.max(stats.listed, agedSites)))} of sites are under 3 years old.</p>
       </ReportBlock>
     ) : null,
-  ];
-  // Domain age is a wide timeline, so it gets its own row; platforms and endings share the next.
-  const ageBlock = age ? (
-    <ReportBlock description="When each site's domain was first registered. A domain can be older than the site on it." key="age" label="Domain age">
-      {stats.median_domain_age !== null ? (
-        <ReportFigure note={`median, registered ${Math.round(age.median_year)}`} value={`${Math.round(stats.median_domain_age)} ${Math.round(stats.median_domain_age) === 1 ? "yr" : "yrs"}`} />
-      ) : null}
-      <AgeStrip
-        binYears={age.bin_years}
-        bins={age.bins}
-        caption={`Domain registration years of ${name} sites`}
-        median={age.median_year}
-        middleHalf={age.middle_half}
-        newest={{ year: age.newest.year, domain: age.newest.domain }}
-        oldest={{ year: age.oldest.year, domain: age.oldest.domain }}
-      />
-    </ReportBlock>
-  ) : null;
-  // Hidden until enough of this network's sites are rated (AD_NETWORK_DR_GATE in lib/ad-networks-report.ts).
-  // Ahrefs' license needs the linked credit wherever DR shows, so it sits in the block's last line.
-  const drBlock = dr ? (
-    <ReportBlock description="How strong each site's backlinks are, on Ahrefs' 0 to 100 scale. Higher means more and better sites link to it." key="dr" label="Domain rating">
-      <ReportNumbers
-        items={[
-          { label: "median DR", value: Math.round(dr.median), accent: true },
-          { label: "average DR", value: Math.round(dr.average) },
-          { label: `of ${formatNumber(dr.listed)} sites rated`, value: formatNumber(dr.rated) },
-        ]}
-        variant="plain"
-      />
-      <ColumnChart
-        caption={`${name} sites by Domain Rating`}
-        items={dr.bands.map((band) => ({ label: band.label, value: band.count, tone: band.key === dr.median_band ? "ac" as const : "ac2" as const }))}
-      />
-      {dr.comparison.length ? (
-        <div className={styles.drCompare}>
-          <p>Average DR of rated sites only: {shortName(name)} vs other big networks</p>
-          <RankedBars
-            ariaLabel={`Average Domain Rating of ${name} and other big networks`}
-            rows={dr.comparison.map((row) => ({
-              label: shortName(row.name), value: row.average, display: <>{Math.round(row.average)}<br />{formatNumber(row.rated)} of {formatNumber(row.listed)} rated</>,
-              highlight: row.current, href: row.current ? undefined : `/ad-networks/${row.slug}`,
-            }))}
-            tone="highlight"
-          />
-        </div>
-      ) : null}
-      <p className={styles.drNote}><span>{name} sites by Domain Rating. The highlighted bar holds the median.</span><AhrefsCredit /></p>
-    </ReportBlock>
-  ) : null;
-  const buildBlocks = [
-    measuredPlatforms.length ? (
-      <ReportBlock description="What the sites are built with, from clues in their page code." key="platforms" label="Platforms">
-        <Donut
-          caption={`Platforms ${name} sites are built with`}
-          parts={platformParts}
+    dr ? (
+      <ReportBlock key="dr" label="Domain rating" level={3}>
+        <ReportFigure note="average" value={Math.round(dr.average)} />
+        <ColumnChart
+          caption={`${name} sites by Domain Rating`}
+          height={150}
+          items={dr.bands.map((band) => ({
+            label: band.label,
+            value: band.count,
+            display: pct(shareOf(band.count, ratedSites)),
+            tone: band.key === dr.median_band ? "ac" as const : "ac2" as const,
+          }))}
         />
-      </ReportBlock>
-    ) : null,
-    endings.length ? (
-      <ReportBlock description="The share of sites on each domain ending, such as .com or .co.uk." key="endings" label="Domain endings">
-        <TypeScale items={endings} />
-      </ReportBlock>
-    ) : null,
-  ];
-  const adsTxtBlocks = [
-    stats.managers.length ? (
-      <ReportBlock description="Which company each site names as its main ad manager in its ads.txt file." key="manager" label="Ad manager">
-        <ReportFigure note={`name ${name}`} value={pct(manager("this-network")?.share)} />
-        <StackBar parts={[
-          { label: name, value: manager("this-network")?.count ?? 0, tone: "ac", display: pct(manager("this-network")?.share) },
-          { label: "another network", value: manager("another-network")?.count ?? 0, tone: "ac3", display: pct(manager("another-network")?.share) },
-          { label: "not listed", value: manager("not-listed")?.count ?? 0, tone: "n2", display: pct(manager("not-listed")?.share) },
-        ]} />
-      </ReportBlock>
-    ) : null,
-    alsoRows.length ? (
-      <ReportBlock description="Other networks from our list that these sites run at the same time." key="also" label="Also runs">
-        <RankedBars ariaLabel={`Networks ${name} sites also run`} max={100} rows={alsoRows} />
+        <p className={styles.detail}>
+          {pct(shareOf(underTwenty, Math.max(dr.listed, ratedSites)))} of sites are under DR 20. · <AhrefsCredit />, {formatNumber(dr.rated)} of {formatNumber(dr.listed)} sites rated
+        </p>
       </ReportBlock>
     ) : null,
   ];
 
-  const groups: { title: string; content: ReactNode; has: boolean }[] = [
-    {
-      title: `How many sites use ${name}?`,
-      has: true,
-      content: (
-        <>
-          <ReportNumbers items={summary} />
-          <Row layout="2-1" blocks={[
-            history.length ? (
-              <ReportBlock description={`How many sites ran ${name} at the end of each month.`} key="history" label="Sites over time">
-                <AreaLine caption={`${name} sites at the end of each month`} points={history} />
-              </ReportBlock>
-            ) : null,
-          ]} />
-        </>
-      ),
-    },
-    { title: `What kind of sites use ${name}?`, has: kindBlocks.some(Boolean), content: <Row blocks={kindBlocks} layout="1-1" /> },
-    { title: `Which sites joined or left ${name}?`, has: moveBlocks.some(Boolean), content: <Row blocks={moveBlocks} layout="1-1" /> },
-    { title: `How are ${name} sites built?`, has: Boolean(ageBlock || drBlock) || buildBlocks.some(Boolean), content: <>{ageBlock}{drBlock}<Row blocks={buildBlocks} layout="1-1" /></> },
-    { title: "What else is in their ads.txt?", has: adsTxtBlocks.some(Boolean), content: <Row blocks={adsTxtBlocks} layout="1-1" /> },
+  const topOther = alsoRuns[0];
+  const adsTxtPanels = [
+    stats.managers.length ? (
+      <SharePanel detail={managerLine} key="manager" label="Ad manager" value={manager("this-network")?.share ?? 0} words={`name ${name} as their ad manager`} />
+    ) : null,
+    alsoAsList ? (
+      <ReportBlock key="also" label="Also runs" level={3}>
+        <RankedBars ariaLabel={`Networks ${name} sites also run`} max={100} rows={alsoRows} />
+      </ReportBlock>
+    ) : topOther ? (
+      <SharePanel key="also" label="Also runs" value={topOther.share} words={`also run ${topOther.name}, the most common other network`} />
+    ) : null,
+  ];
+
+  const groups: { title: string; panels: ReactNode[] }[] = [
+    { title: `What kind of sites use ${name}?`, panels: kindPanels },
+    { title: `How old and how strong are ${name} sites?`, panels: strengthPanels },
+    { title: "What else is in their ads.txt?", panels: adsTxtPanels },
   ];
 
   return (
-    <Report note={`From our checks of ${formatNumber(stats.listed)} ${stats.listed === 1 ? "site" : "sites"}`} title={`${name} stats`} titleId="stats">
-      {groups.filter((group) => group.has).map((group) => <ReportGroup key={group.title} title={group.title}>{group.content}</ReportGroup>)}
+    <Report ariaLabel={`${name} stats`}>
+      {groups.filter((group) => group.panels.some(Boolean)).map((group) => (
+        <ReportGroup key={group.title} level={2} title={group.title}><Columns>{group.panels}</Columns></ReportGroup>
+      ))}
     </Report>
   );
 }

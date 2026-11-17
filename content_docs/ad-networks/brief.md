@@ -21,11 +21,7 @@ The problem: network pages said "Not public" over and over instead of telling a 
 | Part | Job | Leave out |
 | --- | --- | --- |
 | Intro | What this product is and who it's for, in two sentences. Distinct per network. | Numbers the header and fact rows show. |
-| Joining | How to apply, with the official link, and what the review weighs: program, audience, platform, setup, dated or conflicting rules. | Lists of unpublished fields. |
-| Pay | Only what the rows can't say: which program a rate covers, dated terms, conflicts between sources. | Repeating the rows. |
-| Rules | Exclusivity in plain terms (site-wide, per page, or per slot), contract length, notice. | "Not public" lists. |
-| Service | What the network actually does for you. | Filler when nothing is known. |
-| Article | Fit, alternatives, and the few questions a reader brings, with dated first-hand reports where they help. | The generic ads.txt checker answer on every page. |
+| To join, Pay | Two short lists in `app/(site)/(directories)/ad-networks/network-short-facts.ts`: a label and a few words per row, about 36 characters at most. The full facts and sources stay in `network-facts.ts`. | Paragraphs, notes, and "Not public" rows. |
 
 Evidence rules:
 

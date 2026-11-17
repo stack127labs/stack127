@@ -74,6 +74,8 @@ Site icons are sketched lucide: each lucide shape redrawn with rough.js so it ma
 - To add an icon, import it by its lucide name from `@/app/ui/icons`, then run `npm run stack127:icons`. The script finds every icon the site imports, reads its shape from the installed `lucide-react` package, and redraws it with fixed seeds, so other icons don't change.
 - `npm run stack127:icons -- --check` fails when the generated file is out of date.
 
+Each ad network niche has one fixed icon. The map lives in `app/ui/ad-networks/niche-icon.tsx`, typed by `AdNetworkNicheSlug`, so a new niche fails type checks until it gets one. Show a niche's icon with `NicheIcon` and its slug; never pick an icon for a niche on the page.
+
 ## Tool inputs and results
 
 These pieces carry the rules in [tool-interface.md](tool-interface.md): simple Basic inputs, optional Advanced inputs, no text under fields, and personal visual results.
@@ -127,11 +129,11 @@ The top bar has two menus, `tools` and `directories`, from `SiteMenus` in `app/u
 
 ## Tabs
 
-`UiTabs` takes an accessible `label` and `tabs`, each with an `id`, a `title`, and server-rendered `content`. Every panel is in the page HTML under its own heading (`headingLevel`, h3 by default), so search engines read every panel and the page works without scripts. After hydration the tab row appears, the panel headings hide visually, and inactive panels get `hidden="until-found"`. Find-in-page still reaches hidden text and opens its tab through `beforematch`. Arrow keys, Home, and End move between tabs. Use tabs only for parallel sets of facts a reader picks between, such as Joining, Pay, Rules, and Service. Long reading content stays as prose.
+`UiTabs` takes an accessible `label` and `tabs`, each with an `id`, a `title`, and server-rendered `content`. Every panel is in the page HTML under its own heading (`headingLevel`, h3 by default), so search engines read every panel and the page works without scripts. After hydration the tab row appears, the panel headings hide visually, and inactive panels get `hidden="until-found"`. Find-in-page still reaches hidden text and opens its tab through `beforematch`. Arrow keys, Home, and End move between tabs. Use tabs only for parallel sets of facts a reader picks between, such as the plans or options of one product. Long reading content stays as prose.
 
 ## Reports
 
-`app/ui/report.tsx` lays out stats pages: a `Report` with an optional h2 title and a mono note, then `ReportGroup`s headed by the question each answers, split by hairlines. A `ReportRow` puts related `ReportBlock`s side by side and stacks them on phones: `1-1`, `2-1`, `1-1-1` (two columns on tablets, third block below), or `2-1-1` (a wide block, then two narrow ones). A row left with one block takes the full width. Each block has a short mono `label` and a one-line `description`, then a visual from [Data visuals](#data-visuals). `ReportNumbers` shows up to four headline numbers between hairlines (`ruled`, label above) or up to three loose inside a block (`plain`, value above). `ReportFigure` is one big number with a note. `ReportBars` is `RankedBars` with the report's names; `tone="current"` highlights one row.
+`app/ui/report.tsx` lays out stats pages: a `Report` with an optional h2 title and a mono note, then `ReportGroup`s headed by the question each answers, split by space with no rules. A `ReportRow` puts related `ReportBlock`s side by side and stacks them on phones: `1-1`, `2-1`, `1-1-1` (two columns on tablets, third block below), or `2-1-1` (a wide block, then two narrow ones). A row left with one block takes the full width. Each block has a `label` and an optional one-line `description`, then a visual. An h4 label (the default) is short lowercase mono; `level={3}` gives it the site's h3 style, as on the ad network pages from [Data visuals](#data-visuals). `ReportNumbers` shows up to four headline numbers between hairlines (`ruled`, label above) or up to three loose inside a block (`plain`, value above). `ReportFigure` is one big number with a few plain words beside it. `ReportBars` is `RankedBars` with the report's names; `tone="current"` highlights one row.
 
 Where data isn't collected yet, hide the block, row, or group. Don't print a "not collected yet" line and never fill a block with sample numbers.
 
@@ -171,9 +173,9 @@ Each one renders on the server, so it shows without scripts and search engines r
 `app/ui/ad-networks/` holds the other parts of the ad networks pages and the checker:
 
 - `NetworkLogo` (`network-logo.tsx`): the square icon on a white tile, `card` (32px) or `title` (in an h1). Pass `networkLogo(slug)` from `network-logo-src.ts`, which finds `public/ad-networks/logos/<slug>.png` on the server. Without a file it shows the first letter.
-- `NetworkCard`, `NetworkGrid`, `SortNote` (`network-card.tsx`): the directory card with the confirmed-share ring and its bubble, the four-across grid, and the line saying how cards are sorted. Leave `join` out to hide the card footer.
+- `NetworkCard`, `NetworkGrid`, `SortNote` (`network-card.tsx`): the directory card with the average Domain Rating, the site count on one line, and the top three niches under a divider, the grid (five across from 1240px, then four, three, two, and one), and the line saying how cards are sorted. Leave `averageDr` out to hide the rating and `topNiches` empty to hide the footer. Render `AhrefsCredit` once under the grid wherever DR shows.
 - `AdSection`, `SectionHead`, `SectionNote` (`section.tsx`): a section asked as a question, with optional controls and a one-line description. Sections in a row are split by a hairline.
-- `DetailsLayout`, `KeyNumbers`, `FactsList`, `NotPublic`, `SourcesLine` (`details.tsx`): the network details area, used with `UiTabs`.
+- `NotPublic`, `SourcesLine` (`details.tsx`): a fact the network doesn't publish, and the sources line under a network's facts.
 - `SitesTable` (`sites-table.tsx`): see [Tables](#tables).
 - `NichesTable` (`niches-table.tsx`) and `NetworkLadder` (`network-ladder.tsx`): the niches list with search, network filter, and sort, and the networks on one niche with a most used / easiest to join switch.
 - `SiteFacts`, `SiteNetworksTable`, `AdsTxtNumbers`, `AdsTxtPreview`, `SimilarSites`, `BlockSubheading` (`site-view.tsx`): the site view in the checker.

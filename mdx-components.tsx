@@ -1,3 +1,4 @@
+import { currentText } from "./lib/current-text.mjs";
 import type { ReactNode } from "react";
 import type { MDXComponents } from "mdx/types";
 import { UiStaticChart } from "@/app/ui/charts/chart-static";
@@ -18,6 +19,7 @@ type BlockProps = { children: ReactNode; title?: string };
 // Every component page content may use. Keep scripts/stack127/content/allowed-components.mjs aligned.
 // UiChart loads the chart script, so it never goes here: a route that needs it passes it in.
 const contentComponents: MDXComponents = {
+  CurrentDateText: ({ text }: { text: string }) => currentText(text),
   p: ContentParagraph,
   a: ContentLink,
   table: ContentTable,

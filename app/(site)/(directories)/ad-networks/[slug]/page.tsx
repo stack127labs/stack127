@@ -13,7 +13,7 @@ import { EntryHero } from "@/app/ui/site/entry-hero";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { PageMeta } from "@/app/ui/site/page-meta";
-import { Figure, adNetworksSectionNav, joinRule, joinSentence } from "../ad-networks-shared";
+import { Figure, adNetworksSectionNav } from "../ad-networks-shared";
 import { adNetworkContent } from "./content";
 import { NetworkDetails } from "./network-details";
 import { NetworkStats } from "./network-stats";
@@ -24,8 +24,8 @@ export async function generateStaticParams() {
   return (await listAdNetworks()).map((network) => ({ slug: network.slug }));
 }
 
-/** The intro is one MDX paragraph; it joins the live sentences after it in one lede, like the mockup. */
-const inline = { p: ({ children }: { children?: ReactNode }) => <>{children}</> };
+/** The intro is short MDX paragraphs in the header's own lede style; the live count line follows as its own paragraph. */
+const paragraphs = { p: ({ children }: { children?: ReactNode }) => <p>{children}</p> };
 
 export default async function AdNetworkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -39,7 +39,6 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
   if (!data) notFound();
   const { network, sites, stats } = data;
   const { Intro } = content;
-  const rule = joinRule(slug);
   const legacy = slug === "pubnation" || slug === "pubgalaxy";
   const officialHost = network.official_url ? new URL(network.official_url).hostname.replace(/^www\./, "") : null;
 
@@ -54,18 +53,17 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
               <a className={styles.official} href={network.official_url} rel="noopener noreferrer" target="_blank"><ExternalLink aria-hidden="true" />{officialHost}</a>
             ) : null}
           </div>
-          <p>
-            <Intro components={inline} />
-            {rule && !legacy ? <> {joinSentence(rule)}</> : null}
-            {/* data-gate: the sync fills the listed and confirmed counts. */}
-            {network.listed_count ? (
-              legacy
-                ? <> We track <Figure>{network.listed_count}</Figure> {network.listed_count === 1 ? "site" : "sites"} with legacy {network.name} identifiers.</>
+          <Intro components={paragraphs} />
+          {/* data-gate: the sync fills the listed and confirmed counts. */}
+          {network.listed_count ? (
+            <p>
+              {legacy
+                ? <>We track <Figure>{network.listed_count}</Figure> {network.listed_count === 1 ? "site" : "sites"} with old {network.name} identifiers.</>
                 : network.listed_count === 1
-                ? <> We list <Figure>{1}</Figure> site that uses {network.name}, and it {network.verified_count ? "is" : "isn't"} confirmed live from its own ads.txt file or ad code.</>
-                : <> We list <Figure>{network.listed_count}</Figure> sites that use {network.name}, and <Figure live>{network.verified_count}</Figure> {network.verified_count === 1 ? "is" : "are"} confirmed live from their own ads.txt files or ad code.</>
-            ) : null}
-          </p>
+                ? <>We track <Figure>{1}</Figure> site on {network.name}. It {network.verified_count ? "is" : "isn't"} confirmed live through its own ads.txt file or ad code.</>
+                : <>We track <Figure>{network.listed_count}</Figure> sites on {network.name}. Of those, <Figure live>{network.verified_count}</Figure> {network.verified_count === 1 ? "is" : "are"} confirmed live through their own ads.txt files or ad code.</>}
+            </p>
+          ) : null}
         </PageHeader>
       </EntryHero>
       <PageCanvas flow className={styles.body}>
@@ -84,7 +82,7 @@ export default async function AdNetworkPage({ params }: { params: Promise<{ slug
             sorts={["traffic", "highest-dr", "lowest-dr", "oldest", "newest", "domain"]}
           />
         ) : null}
-        <NetworkDetails content={content} name={network.name} slug={slug} />
+        <NetworkDetails name={network.name} slug={slug} />
         <NetworkStats network={network} stats={stats} />
       </PageCanvas>
     </AppShell>

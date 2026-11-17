@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { UiButton, UiCopyAction, UiRawOutput } from "@/app/ui/controls";
 import { Report, ReportBars, ReportBlock, ReportFigure, ReportGroup, ReportNumbers, ReportRow } from "@/app/ui/report";
-import { UiTabs } from "@/app/ui/tabs";
-import { DetailsLayout, FactsList, KeyNumbers, NotPublic, SourcesLine } from "@/app/ui/ad-networks/details";
+import { NotPublic, SourcesLine } from "@/app/ui/ad-networks/details";
 import { AdsTxtNumbers, AdsTxtPreview, BlockSubheading, FactMuted, SiteFacts, SimilarSites } from "@/app/ui/ad-networks/site-view";
 import { TrafficMeter } from "@/app/ui/ad-networks/traffic-meter";
 import { RankedBars, StackBar } from "@/app/ui/ad-networks/viz/bars";
@@ -180,7 +179,7 @@ export function ResultsExamples() {
       </Example>
       <Example
         components={["Report", "ReportGroup", "ReportRow", "ReportBlock", "ReportNumbers", "ReportFigure", "ReportBars"]}
-        note="A stats report like the ad network mockups: groups headed by the question they answer, split by hairlines, blocks side by side (1-1, 2-1, 1-1-1, or 2-1-1) that stack on phones. No boxes. ReportNumbers ruled is the summary row; plain is three loose numbers. Hide any block, row, or group with no data; a row left with one block takes the full width. Charts for blocks are in Data visuals."
+        note="A stats report like the ad network mockups: groups headed by the question they answer, split by space, blocks side by side (1-1, 2-1, 1-1-1, or 2-1-1) that stack on phones. No boxes. ReportNumbers ruled is the summary row; plain is three loose numbers. Hide any block, row, or group with no data; a row left with one block takes the full width. Charts for blocks are in Data visuals."
         source="app/ui/report.tsx"
         title="Data report"
       >
@@ -225,39 +224,13 @@ export function ResultsExamples() {
         </Report>
       </Example>
       <Example
-        components={["DetailsLayout", "KeyNumbers", "FactsList", "NotPublic", "SourcesLine"]}
-        note="A network's details: key numbers in one bordered row, facts in tabs, sources, and the guide prose beside them. From 1200px the prose sits on the left behind a hairline. Use NotPublic for a fact the network doesn't publish."
-        source="app/ui/ad-networks/details.tsx, app/ui/tabs.tsx"
-        title="Network details"
+        components={["NotPublic", "SourcesLine"]}
+        note="A network's sources line, under its facts. Use NotPublic for a fact the network doesn't publish."
+        source="app/ui/ad-networks/details.tsx"
+        title="Network sources"
       >
-        <DetailsLayout
-          prose={(
-            <>
-              <section><h3>How do you join Mediavine?</h3><p>You apply with your site and give Mediavine read access to your Google Analytics. They check your traffic and content against the rules here.</p></section>
-              <section><h3>What does the pay day mean?</h3><p>Mediavine pays each month's earnings a set number of days after the month ends.</p></section>
-            </>
-          )}
-          title="What does Mediavine require and pay?"
-          titleId="details-demo"
-        >
-          <KeyNumbers items={[
-            { label: "sessions a month to join", value: "50,000" },
-            { label: "revenue share", value: "75%" },
-            { label: "pay day", value: "Net 65" },
-          ]} />
-          <UiTabs label="Mediavine details" tabs={[
-            { id: "joining", title: "Joining", content: <FactsList items={[
-              { label: "Traffic", value: "50,000 sessions a month", note: "Measured in Google Analytics" },
-              { label: "Content", value: "Original, long-form content" },
-              { label: "Approval time", value: <NotPublic /> },
-            ]} /> },
-            { id: "pay", title: "Pay", content: <FactsList items={[
-              { label: "Revenue share", value: "75%", note: "More at higher traffic" },
-              { label: "Minimum payout", value: "$25" },
-            ]} /> },
-          ]} />
-          <SourcesLine checked="Oct 12, 2026" sources={[{ label: "mediavine.com/requirements", href: "https://www.mediavine.com/requirements" }]} />
-        </DetailsLayout>
+        <p>Approval time: <NotPublic /></p>
+        <SourcesLine checked="Oct 12, 2026" sources={[{ label: "mediavine.com/requirements", href: "https://www.mediavine.com/requirements" }]} />
       </Example>
       <Example
         components={["SiteFacts", "AdsTxtNumbers", "AdsTxtPreview", "SimilarSites", "TrafficMeter", "BlockSubheading"]}

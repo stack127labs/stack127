@@ -6,6 +6,8 @@ import type {
 import { adNetworkNiches } from "./ad-network-niches.ts";
 
 export const AD_NETWORK_SITES_PAGE_SIZE = 10;
+/** A network page lists more of its sites at once than the other site tables. */
+export const AD_NETWORK_PAGE_SITES_PAGE_SIZE = 20;
 export const AD_NETWORK_NICHE_MIN_SITES = 100;
 
 /** A niche comparison needs a useful sample. Sites still waiting for the weekly sort don't hide published niche pages. */

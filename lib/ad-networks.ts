@@ -12,7 +12,7 @@ import type {
 } from "./ad-networks-types";
 import { deriveManagedBy, buildAdsTxtPreview, aggregateAdNetworkManagers, aggregateAdNetworkTrafficShares } from "./ad-network-site-facts.mjs";
 
-import { AD_NETWORK_SITES_PAGE_SIZE, AD_NETWORK_DR_FILTER_STEPS, adNetworkSiteAvailability, adNetworkNicheShares, hasAdNetworkNicheCoverage, adNetworkMonthEnds, adNetworkYearChange,
+import { AD_NETWORK_SITES_PAGE_SIZE, AD_NETWORK_PAGE_SITES_PAGE_SIZE, AD_NETWORK_DR_FILTER_STEPS, adNetworkSiteAvailability, adNetworkNicheShares, hasAdNetworkNicheCoverage, adNetworkMonthEnds, adNetworkYearChange,
   adNetworkMovementTotals, adNetworkManagerBreakdown, trafficOrder, domainAgeOrder,
   adNetworkSwitchFlow, adNetworkMovementPeriods, adNetworkPlatformMix,
   adNetworkCheckerEvents, adNetworkObservedDomainAge, adNetworkUtcWindow,
@@ -528,7 +528,7 @@ export async function getAdNetworkPageData(slug: string): Promise<AdNetworkPageD
   const network = await getAdNetwork(slug);
   if (!network) return null;
   const [sites,breakdowns,history,ranking,movements,switches,metadata,domain_age_strip,ratings] = await Promise.all([
-    getAdNetworkSites(defaultAdNetworkSitesQuery(slug)),loadBreakdowns(slug),loadHistory(slug),networkShares(null),loadMovements(slug,asOf),loadSwitches(slug,null,asOf),loadReportMetadata(slug),getAdNetworkDomainAgeStrip(slug,null),
+    getAdNetworkSites(defaultAdNetworkSitesQuery(slug,null,AD_NETWORK_PAGE_SITES_PAGE_SIZE)),loadBreakdowns(slug),loadHistory(slug),networkShares(null),loadMovements(slug,asOf),loadSwitches(slug,null,asOf),loadReportMetadata(slug),getAdNetworkDomainAgeStrip(slug,null),
     getAdNetworkDomainRatings(),
   ]);
   const domain_rating=adNetworkDomainRatingReport(slug,domainRatingSummaries(ratings),ratings.find(row=>row.slug===slug)?.bands??[]);
@@ -839,4 +839,38 @@ export const getAdNetworkDirectoryData=cached("ad-network-directory-data",async 
     networks_tracked:networks.length,confirmed_share:niches.listed ? share(niches.confirmed,niches.listed) : null,
     updated_at:niches.updated_at,availableSorts:["most-sites",...(easiest_to_join.length ? ["easiest-to-join" as const] : []),
       ...(by_niche.length ? ["by-niche" as const] : [])],availableFilters:by_niche.length ? ["niche"] : []};
+});
+
+export type AdNetworkDirectoryCardFacts = {
+  /** Mean Domain Rating over the network's listed sites that have one; null when none are rated. */
+  average_dr: number | null;
+  /** Up to three niches with the most listed sites. Share is of all listed sites, unsorted ones included. */
+  top_niches: { slug: AdNetworkNicheSlug; name: string; share: number }[];
+};
+
+/** Each directory card's average DR and top niches, in one query for every network. */
+export const getAdNetworkDirectoryCardFacts=cached("ad-network-directory-card-facts",async (): Promise<Record<string,AdNetworkDirectoryCardFacts>> => {
+  const [rows,niches]=await Promise.all([
+    queryAdNetworkReport<{slug:string;listed:number;rated:number;average:number|null;niches:{niche:AdNetworkNicheSlug;count:number}[]}>(`
+      with records as materialized (
+        select r.ad_network_id as id,p.niche,p.domain_rating from public.ad_network_publisher_relationships r
+        join public.ad_network_publishers p on p.id=r.publisher_id where r.status in ('confirmed','stale')
+      ), niche_counts as (
+        select id,niche,count(*)::int as count,row_number() over(partition by id order by count(*) desc,niche) as place
+        from records where niche is not null group by id,niche
+      ) select n.slug,count(r.id)::int as listed,count(r.domain_rating)::int as rated,avg(r.domain_rating)::float8 as average,
+        coalesce((select jsonb_agg(jsonb_build_object('niche',c.niche,'count',c.count) order by c.place)
+          from niche_counts c where c.id=n.id and c.place<=3),'[]'::jsonb) as niches
+      from public.ad_networks n left join records r on r.id=n.id group by n.id,n.slug`),
+    getAdNetworkNichesPageData(),
+  ]);
+  // data-gate: niche rows wait for the same classification coverage as the niche pages.
+  const nichesReady=niches.niches.length>0;
+  return Object.fromEntries(rows.rows.map(row=>[row.slug,{
+    average_dr:row.rated && row.average!==null ? Math.round(row.average) : null,
+    top_niches:nichesReady ? row.niches.flatMap(({niche,count})=>{
+      const known=getAdNetworkNiche(niche);
+      return known && row.listed ? [{slug:niche,name:known.name,share:share(count,row.listed)}] : [];
+    }) : [],
+  }]));
 });

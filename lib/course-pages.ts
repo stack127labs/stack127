@@ -1,3 +1,4 @@
+import { resolvePageText } from "./current-text.mjs";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
@@ -30,7 +31,7 @@ type LessonContent = {
 type CourseRows = { content: CourseContent; lessons: LessonContent[]; pages: Stack127Page[] };
 
 // Every lesson uses the course's copy and full navigation. One tag refreshes that snapshot.
-export const getCourse = cache(async (slug: string) => unstable_cache(async (): Promise<CourseDefinition | null> => {
+const getRawCourse = cache(async (slug: string) => unstable_cache(async (): Promise<CourseDefinition | null> => {
   const page = await getPublishedPage(slug);
   if (!page || page.page_family !== "course") return null;
   const rows = await readPublicData<CourseRows | null>({
@@ -83,3 +84,5 @@ export async function getRequiredCourse(slug: string) {
   if (!course) notFound();
   return course;
 }
+
+export const getCourse = cache(async (slug: string) => resolvePageText(await getRawCourse(slug)));

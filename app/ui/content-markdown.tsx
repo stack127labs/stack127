@@ -1,3 +1,4 @@
+import remarkCurrentText from "@/lib/remark-current-text.mjs";
 import type { ReactNode } from "react";
 import ReactMarkdown, { defaultUrlTransform, type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -171,5 +172,5 @@ function transformUrl(url: string) {
 
 /** Only courses render database Markdown. Other page families import MDX content. */
 export function ContentMarkdown({ markdown, components: overrides }: { markdown: string; components?: Components }): ReactNode {
-  return <ReactMarkdown components={overrides ? { ...components, ...overrides } : components} remarkPlugins={[remarkGfm, remarkContentBlocks, remarkDefinitionLists]} urlTransform={transformUrl}>{markdown}</ReactMarkdown>;
+  return <ReactMarkdown components={overrides ? { ...components, ...overrides } : components} remarkPlugins={[[remarkCurrentText, { markdown: true }], remarkGfm, remarkContentBlocks, remarkDefinitionLists]} urlTransform={transformUrl}>{markdown}</ReactMarkdown>;
 }

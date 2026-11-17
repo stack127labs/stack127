@@ -1,3 +1,4 @@
+import { resolvePageText } from "./current-text.mjs";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
@@ -22,7 +23,7 @@ export type Stack127DirectoryPage = {
 
 const columns = "page_id,title,card_name,card_description,card_icon_key,card_art_key,row_updated_at";
 
-export const getPublishedDirectoryPage = cache(async (slug: string) => unstable_cache(async () => {
+const getRawPublishedDirectoryPage = cache(async (slug: string) => unstable_cache(async () => {
   return readPublicData<Stack127DirectoryPage | null>({
     dataApiRead: async () => {
       const page = await getPublishedPage(slug);
@@ -55,3 +56,5 @@ export const getRequiredDirectoryPage = cache(async (slug: string) => {
   if (!page) notFound();
   return page;
 });
+
+export const getPublishedDirectoryPage = cache(async (slug: string) => resolvePageText(await getRawPublishedDirectoryPage(slug)));

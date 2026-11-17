@@ -1,3 +1,4 @@
+import { resolvePageText } from "./current-text.mjs";
 import { unstable_cache } from "next/cache";
 import { getPool } from "./db";
 import { COURSE_PAGES_TAG, HOME_PAGES_TAG, SITEMAP_TAG } from "./cache-tags";
@@ -14,7 +15,7 @@ const columns = "id,slug,page_family,label,meta_title,meta_description,is_publis
  * The site search index. Every page event refreshes the sitemap and homepage
  * tags, so publishing, unpublishing, or a card edit refreshes this too.
  */
-export const getSiteSearchIndex = unstable_cache(async () => {
+const getRawSiteSearchIndex = unstable_cache(async () => {
   const pages = await readPublicData<Stack127Page[]>({
     // Indexable pages plus noindex top-level pages; noindex children stay out.
     dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
@@ -40,3 +41,5 @@ export const getSiteSearchIndex = unstable_cache(async () => {
   }) : []]);
   return buildSiteSearchEntries(pages, cards, new Map(lessons.map(lesson => [String(lesson.page_id), lesson.title])));
 }, ["stack127-site-search-index"], { revalidate: false, tags: [SITEMAP_TAG, HOME_PAGES_TAG, COURSE_PAGES_TAG] });
+
+export const getSiteSearchIndex = async () => resolvePageText(await getRawSiteSearchIndex());

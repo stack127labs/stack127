@@ -73,7 +73,7 @@ export const gallerySections: GallerySection[] = [
     label: "Results",
     description: "The main answer, supporting numbers, status words, progress, steps, timelines, and generated output.",
     icon: Gauge,
-    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiRangeMarker", "UiUnitGrid", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput", "Report", "ReportGroup", "ReportRow", "ReportBlock", "ReportNumbers", "ReportFigure", "ReportBars", "KeyNumbers", "FactsList", "NotPublic", "DetailsLayout", "SourcesLine", "SiteFacts", "AdsTxtNumbers", "AdsTxtPreview", "SimilarSites", "TrafficMeter"],
+    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiRangeMarker", "UiUnitGrid", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput", "Report", "ReportGroup", "ReportRow", "ReportBlock", "ReportNumbers", "ReportFigure", "ReportBars", "NotPublic", "SourcesLine", "SiteFacts", "AdsTxtNumbers", "AdsTxtPreview", "SimilarSites", "TrafficMeter"],
   },
   {
     slug: "tables",

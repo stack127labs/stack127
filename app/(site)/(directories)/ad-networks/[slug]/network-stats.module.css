@@ -1,28 +1,47 @@
-/* Domain rating block: the comparison under the histogram, then the caption and Ahrefs credit. */
-.drCompare {
-  border-top: 1px dashed var(--color-border);
+/* Panels sit in up to two columns. Each is capped so bars and charts never stretch across the page. */
+.columns {
+  align-items: start;
   display: grid;
-  gap: var(--space-4);
-  margin-top: var(--space-8);
-  padding-top: var(--space-7);
+  gap: var(--space-13) var(--space-14);
+  grid-template-columns: minmax(0, 520px);
+  min-width: 0;
 }
 
-/* Bars this short read better at reading width than across a wide canvas. */
-.drCompare > dl {
-  max-width: 640px;
+@media (min-width: 1100px) {
+  .columns {
+    grid-template-columns: repeat(2, minmax(0, 520px));
+  }
 }
 
-.drCompare > p,
-.drNote {
+/* The second column of the first group: three one-number panels, stacked. */
+.stack {
+  display: grid;
+  gap: var(--space-13);
+  min-width: 0;
+}
+
+/* One-number panels: a thin bar showing the share. */
+.bar {
+  background: var(--color-surface-2);
+  border-radius: 1px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.bar i {
+  background: var(--viz-ac);
+  display: block;
+  height: 100%;
+}
+
+/* At most one small line under a panel. The Ahrefs credit inside it reads in the same font. */
+.detail {
   color: var(--color-text-muted);
-  font: var(--text-small) / 1.4 var(--font-mono);
+  font-size: var(--text-small);
+  line-height: 1.45;
   margin: 0;
 }
 
-.drNote {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-6);
-  justify-content: space-between;
-  margin-top: var(--space-7);
+.detail > span {
+  font: inherit;
 }

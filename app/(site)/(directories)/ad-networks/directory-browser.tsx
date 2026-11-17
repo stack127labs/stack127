@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Search } from "@/app/ui/icons";
 import { useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { UiButton } from "@/app/ui/controls";
 import { StatePanel } from "@/app/ui/state-panel";
 import { TableToolbar, ToolbarSelect } from "@/app/ui/table-toolbar";
@@ -20,7 +20,6 @@ type View = { q: string; sort: AdNetworkDirectorySort; niche: string };
 
 const ViewContext = createContext<{ view: View; set: (patch: Partial<View>) => void } | null>(null);
 
-const visibleAtFirst = 12;
 const domainLike = /^(?:https?:\/\/)?(?:[a-z0-9-]+\.)+[a-z]{2,}(?:[/?#].*)?$/i;
 const sortLabels: Record<AdNetworkDirectorySort, string> = {
   "most-sites": "Most sites",
@@ -156,13 +155,14 @@ export function HeroSearch({ examples, networks, niches, placeholder }: {
 }
 
 /**
- * "All ad networks": the sort controls, the sort note, and the cards. Every card is in the server
- * HTML in the Most sites order. Cards past the first twelve are `hidden="until-found"`, so search
- * engines and find-in-page still reach them, until "Show all" opens them.
+ * "All ad networks": the sort controls, the sort note, and every card. The server HTML holds them
+ * all in the Most sites order.
  */
-export function NetworkBrowser({ cards, easiest, easiestNote, networks, niches, sorts }: {
+export function NetworkBrowser({ cards, credit, easiest, easiestNote, networks, niches, sorts }: {
   /** One rendered card per network slug. */
   cards: Record<string, ReactNode>;
+  /** One line under the grid, such as the Domain Rating credit. */
+  credit?: ReactNode;
   /** Network slugs with a known traffic minimum, lowest first. */
   easiest: readonly string[];
   easiestNote: ReactNode;
@@ -172,9 +172,6 @@ export function NetworkBrowser({ cards, easiest, easiestNote, networks, niches, 
   sorts: readonly AdNetworkDirectorySort[];
 }) {
   const { view, set } = useView();
-  const [expanded, setExpanded] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
-  const grid = useRef<HTMLDivElement>(null);
   const needle = cleanQuery(view.q).toLowerCase();
   const niche = view.sort === "by-niche" ? niches.find((item) => item.slug === view.niche) ?? niches[0] : undefined;
 
@@ -187,28 +184,6 @@ export function NetworkBrowser({ cards, easiest, easiestNote, networks, niches, 
     const ordered = view.sort === "easiest-to-join" ? ranked(easiest) : niche ? ranked(niche.order) : networks;
     return needle ? ordered.filter((network) => matches(network, needle)) : ordered;
   }, [easiest, needle, networks, niche, view.sort]);
-
-  const collapsed = !expanded && !needle && list.length > visibleAtFirst;
-
-  // Find-in-page on a hidden card opens the whole list.
-  useEffect(() => {
-    const root = grid.current;
-    if (!root || !collapsed) return;
-    const open = () => setExpanded(true);
-    root.addEventListener("beforematch", open);
-    return () => root.removeEventListener("beforematch", open);
-  }, [collapsed]);
-
-  // React can't render `hidden="until-found"`, so the server HTML hides the extra cards with CSS
-  // and the browser swaps that for the attribute before the first paint.
-  useLayoutEffect(() => setHydrated(true), []);
-  useLayoutEffect(() => {
-    if (!hydrated) return;
-    grid.current?.querySelectorAll<HTMLElement>("[data-card]").forEach((card, index) => {
-      if (collapsed && index >= visibleAtFirst) card.setAttribute("hidden", "until-found");
-      else card.removeAttribute("hidden");
-    });
-  }, [collapsed, hydrated, list]);
 
   return (
     <section aria-labelledby="all-networks" className={styles.directory}>
@@ -232,21 +207,17 @@ export function NetworkBrowser({ cards, easiest, easiestNote, networks, niches, 
       {view.sort === "easiest-to-join" ? <SortNote>{easiestNote}</SortNote> : null}
       {niche ? <SortNote>Sorted by how many <b>{niche.name}</b> sites use each network.</SortNote> : null}
       {list.length ? (
-        <div className={styles.cards} data-collapsed={(collapsed && !hydrated) || undefined} ref={grid}>
+        <>
           <NetworkGrid>
-            {list.map((network) => <div className={styles.cell} data-card key={network.slug}>{cards[network.slug]}</div>)}
+            {list.map((network) => <div className={styles.cell} key={network.slug}>{cards[network.slug]}</div>)}
           </NetworkGrid>
-        </div>
+          {credit ? <p className={styles.credit}>{credit}</p> : null}
+        </>
       ) : (
         <StatePanel action={<UiButton onPress={() => set({ q: "" })}>Show all networks</UiButton>} title="No networks match that search">
           <p>Try a shorter name, or press Search to check a site's domain.</p>
         </StatePanel>
       )}
-      {collapsed ? (
-        <div className={styles.more}>
-          <button className={styles.secondaryButton} onClick={() => setExpanded(true)} type="button">Show all {list.length}</button>
-        </div>
-      ) : null}
     </section>
   );
 }
