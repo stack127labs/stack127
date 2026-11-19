@@ -13,8 +13,8 @@ const recommend = extra => recommendAdNetworks(input(extra),null);
 const names = cards => cards.map(c=>c.slug);
 const scenarios = [
   { title:'tiny food blog', input:{niche:'food',pageviews:3000,siteAge:'3to6m',tier1Share:60,current:'none'},
-    rows:[['google-adsense',89.96,89.96,'no_minimum'],['journey-by-mediavine',54.10,57.10,'estimate']],
-    add:[['infolinks',77.28],['revcontent',73.42]],growth:['monumetric'],suggest:null },
+    rows:[['google-adsense',89.96,89.96,'no_minimum']],
+    add:[['infolinks',77.28],['revcontent',73.42]],growth:['monumetric','journey-by-mediavine'],suggest:null },
   { title:'default 40k food blog', input:{niche:'food',pageviews:40000,visits:22000,siteAge:'gt12m',tier1Share:65,current:'google-adsense',adRevenueMonth:350},
     rows:[['monumetric',96.67,99.67,'estimate'],['raptive',88.72,91.72,'estimate'],['journey-by-mediavine',87,90,'estimate'],['newor-media',80.04,80.04,'no_minimum'],['she-media',69.81,63.81,'review_led']],
     add:[['infolinks',77.28],['revcontent',74.70]],growth:['mediavine','clickio'],suggest:null },
@@ -103,9 +103,9 @@ test('R9: niche alone produces a short useful list without revenue or traffic in
 test('R11: real revenue opens premium routes at small traffic; pin and family removal both apply',()=>{
   const x={niche:'personal-finance',pageviews:8000,siteAge:'gt12m',tier1Share:70,current:'none',adRevenueMonth:6000};const r=recommend(x);
   assert.deepEqual(r.main.map(c=>[c.slug,c.debug.score,c.debug.rank]),[['mediavine',94.44,97.44],['publift',89.96,95.96],['clickio',86.89,92.89],['monetizemore-pubguru',80.96,86.96],['google-adsense',80.76,80.76]]);
-  assert.deepEqual(r.more.setup.map(c=>[c.slug,c.debug.score]),[['adpushup',64.40],['adapex',61.77]]);assert.deepEqual(names(r.more.growth),['monumetric','raptive']);
+  assert.deepEqual(r.more.setup.map(c=>[c.slug,c.debug.score]),[['adpushup',64.40],['adapex',61.77]]);assert.deepEqual(names(r.more.growth),['journey-by-mediavine','monumetric']);
   const adsense=recommend({...x,current:'google-adsense'});assert.deepEqual(names(adsense.main),['mediavine','publift','clickio','monetizemore-pubguru','adpushup']);assert.deepEqual(names(adsense.more.setup),['adapex','anymind-anymanager']);
-  const journey=only('journey-by-mediavine',{...x,current:'google-adsense'});assert.equal(journey.debug.score,77.70);assert.equal(journey.debug.rank,80.70);
+  const journey=get('journey-by-mediavine',{...x,current:'google-adsense'});assert.deepEqual(names(journey.main),[]);assert.deepEqual(names(journey.more.growth),['journey-by-mediavine']);
 });
 
 test('known traffic conversions retain measure identity and exactness',()=>{
@@ -242,7 +242,7 @@ test('conditional and program-level bars explain which threshold applies',()=>{
     }
   }
   const journey=only('journey-by-mediavine',{...base,pageviews:120000});
-  assert.deepEqual(journey.detail.alsoNeeds.filter(key=>['domain_age_4_months','domain_history_4_months_guidance'].includes(key)),['domain_history_4_months_guidance']);
+  assert.deepEqual(journey.detail.alsoNeeds.filter(key=>['domain_age_4_months','domain_history_4_months_guidance'].includes(key)),['domain_age_4_months']);
 });
 test('Setupad Self-Serve entry is 10 million visits; 50 million describes the Enterprise plan',()=>{
   const card=only('setupad',{niche:'food',visits:10000000,visitsUnit:'visits',siteAge:'gt12m',tier1Share:60});

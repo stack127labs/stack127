@@ -39,6 +39,7 @@ const ALSO_NEEDS: Record<string, string> = {
   https: "HTTPS",
   incubator_limited: "Under 250,000 users, only the small Incubator program",
   invitation_only: "An invitation",
+  not_blogspot: "A site not built on Blogspot",
   not_jimdo: "A site not built on Jimdo",
   not_wix: "A site not built on Wix",
   organic_audience_50: "At least half your traffic from organic sources",
@@ -84,7 +85,7 @@ export function barText(bar: BarFact): string {
     case "us_share":
       return `${lead} ${amount}% of traffic from the US`;
     case "tier1_sessions_30d":
-      return `${lead} ${count(amount)} sessions from Tier 1 countries${period}`;
+      return `${lead} ${count(amount)} sessions from ${scope && scope.includes("/") ? countries(scope) : "Tier 1 countries"}${period}`;
     case "us_pageviews":
       return `${lead} ${count(amount)} US pageviews${period}`;
     case "monthly_active_users":

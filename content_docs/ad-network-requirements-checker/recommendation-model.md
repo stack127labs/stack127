@@ -331,7 +331,7 @@ Lifestyle niches (`L`): food, travel, lifestyle, parenting, personal-finance, ho
 | Network | Lane | Tier | Access | E | Scale routes: unit F → C (kind) | Requirements | Strong niches | Weak niches | Geography | Detail notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Google AdSense | main | 0 | open | high | pageviews 0 (none) | | all neutral | | none | Starter decay, pin rule |
-| Journey by Mediavine | main | 1 | form | medium | Tier 1 sessions 1,000 → 5,000 (hard) | | L | news | Tier 1 leaning | Age 4 months from dated 2024 guidance. Grow for 30 days. |
+| Journey by Mediavine | main | 1 | form | medium | Tier 1 sessions 5,000 → 10,000 (hard) | | L | news | Tier 1 leaning | Sessions count from US, UK, CA, AU, DE, FR, NL. Domain at least 4 months. GA4 connected. Not Wix or Blogspot. Changed 2026-11-18. |
 | Monumetric | main | 1 | form | high | pageviews 10,000 → 20,000 (hard) | Monumetric share ≥ 50 | personal-finance, food, travel, lifestyle, home-diy, parenting, crafts, health-fitness | | requirement | Age 3 months (history). Also needs: English, WordPress or Blogger for Propel, $99 setup. |
 | Newor Media | main | by program | form | medium | Elevate: pageviews 10,000 → 40,000 (editorial). Catapult: US pageviews 60,000 → 420,000 (hard). Premier: US pageviews 420,000 → 420,000 (hard). | | | | none | Also needs: English, exclusive, Elevate own GAM |
 | Carbon Ads | main | 1 | form (0.9) | medium | pageviews 20,000 → 100,000 (editorial) | Niche tech | tech | | Tier 1 leaning | Invite review. Runs alone site-wide. Also needs: English. |
