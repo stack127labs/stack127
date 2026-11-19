@@ -61,7 +61,9 @@ Hostinger is still the registrar and delegates authoritative DNS to Cloudflare. 
 | Brotli | On |
 | 0-RTT | Off |
 
-The OVH origin presents a Cloudflare Origin CA certificate for `stack127.com` and `www.stack127.com`. It's valid for the Full (strict) connection from Cloudflare to the origin.
+The OVH origin presents a Cloudflare Origin CA certificate for `stack127.com` and `www.stack127.com`. It's valid for the Full (strict) connection from Cloudflare to the origin, until November 15, 2041. The certificate and its key are `/etc/dokploy/traefik/dynamic/certs/stack127-origin.pem` and `.key`, loaded by `stack127-tls.yml` in the same folder. The key was made on the server and never leaves it.
+
+Don't rely on Let's Encrypt for these hosts. Its HTTP check fetches `/.well-known/acme-challenge/`, which Cloudflare answers with 404 in Cloudflare hosting mode, so renewals fail. That is what happened on November 18, 2026: the old Let's Encrypt certificate expired, and every `/api` route, MCP included, returned HTTP 526 for about 23 hours. Traefik still logs a daily failed renewal for `stack127.com`; it's harmless while the origin certificate is in place.
 
 ## Private Dokploy administration
 
