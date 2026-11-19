@@ -30,7 +30,8 @@ export function estimateMeasures(input: RecommendationInput): Measures {
   // Journey counts the US, UK, Canada, Australia, Germany, France and the Netherlands. The form asks
   // only about the US, UK, Canada, Australia and New Zealand, so the three European countries can be
   // anywhere in the traffic outside those five. That keeps the share a range, never an exact number.
-  const journey = interval(monumetric.lo, Math.min(100, monumetric.hi + Math.max(0, 100 - tier1.lo)));
+  // Entered New Zealand traffic can never count, so it caps the top of the range.
+  const journey = interval(monumetric.lo, Math.min(100 - (shares.NZ ?? 0), monumetric.hi + Math.max(0, 100 - tier1.lo)));
   const result: Measures = { noCountryInput, tier1Share: tier1, usShare: us, monumetricShare: monumetric, moneytizerShare: moneytizer, journeyShare: journey };
   if (input.visits !== undefined) {
     result.sessions = input.visitsUnit === "users" ? interval(input.visits / 0.9, input.visits / 0.6) : point(input.visits);

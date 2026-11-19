@@ -235,6 +235,9 @@ test('Journey counts only its seven countries: New Zealand traffic fails, German
   assert.deepEqual(estimateMeasures(input({niche:'food',visits:50000,tier1Share:100,shares:{NZ:100}})).journeySessions30d,{lo:0,hi:0,exact:false});
   const german=only('journey-by-mediavine',{niche:'food',visits:50000,siteAge:'gt12m',tier1Share:0,current:'none'});
   assert.equal(german.status,'worth_a_try');assert.equal(german.debug.basis,'estimate');
+  // Entered New Zealand traffic is never counted twice: 60% New Zealand leaves at most 40% that can qualify.
+  assert.deepEqual(estimateMeasures(input({niche:'food',visits:10000,shares:{NZ:60}})).journeySessions30d,{lo:0,hi:4000,exact:false});
+  assert.deepEqual(names(get('journey-by-mediavine',{niche:'food',visits:10000,siteAge:'gt12m',shares:{NZ:60},current:'none'}).main),[]);
 });
 
 test('conditional and program-level bars explain which threshold applies',()=>{
