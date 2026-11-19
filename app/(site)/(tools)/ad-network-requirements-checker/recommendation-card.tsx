@@ -39,6 +39,7 @@ const ALSO_NEEDS: Record<string, string> = {
   https: "HTTPS",
   incubator_limited: "Under 250,000 users, only the small Incubator program",
   invitation_only: "An invitation",
+  not_blogspot: "A site not built on Blogspot",
   not_jimdo: "A site not built on Jimdo",
   not_wix: "A site not built on Wix",
   organic_audience_50: "At least half your traffic from organic sources",
@@ -84,7 +85,7 @@ export function barText(bar: BarFact): string {
     case "us_share":
       return `${lead} ${amount}% of traffic from the US`;
     case "tier1_sessions_30d":
-      return `${lead} ${count(amount)} sessions from Tier 1 countries${period}`;
+      return `${lead} ${count(amount)} sessions from ${scope && scope.includes("/") ? countries(scope) : "Tier 1 countries"}${period}`;
     case "us_pageviews":
       return `${lead} ${count(amount)} US pageviews${period}`;
     case "monthly_active_users":
@@ -105,7 +106,7 @@ function shortBar(values: Recommendation["reason"]["values"]): string | null {
   switch (values.metric) {
     case "ad_revenue_month": return `${money(bar, "USD")} ad revenue a month`;
     case "ad_revenue_previous_calendar_year": return `${money(bar, "USD")} ad revenue a year`;
-    case "tier1_sessions_30d": return `${count(bar)} Tier 1 sessions a month`;
+    case "tier1_sessions_30d": return `${count(bar)} qualifying sessions a month`;
     case "us_pageviews": return `${count(bar)} US pageviews`;
     case "visits": return `${count(bar)} visits a month`;
     case "visitors": return `${count(bar)} visitors a month`;

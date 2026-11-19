@@ -66,8 +66,8 @@ export function TablesExamples() {
           id="niches-demo"
           networks={[{ value: "mediavine", label: "Mediavine" }, { value: "raptive", label: "Raptive" }, { value: "ezoic", label: "Ezoic" }]}
           rows={[
-            { slug: "food", name: "Food", href: "/components-ui/tables", sites: 6320, live: 5878, share: 0.18, top: [{ name: "Mediavine", share: 0.41 }, { name: "Raptive", share: 0.22 }, { name: "Journey", share: 0.18 }], easiest: { name: "Journey", rule: "1,000 sessions a month" }, networkShares: { mediavine: 0.41, raptive: 0.22, ezoic: 0.09 } },
-            { slug: "home-diy", name: "Home & DIY", sites: 3410, live: 3205, share: 0.097, top: [{ name: "Mediavine", share: 0.33 }, { name: "Raptive", share: 0.21 }, { name: "Journey", share: 0.19 }], easiest: { name: "Journey", rule: "1,000 sessions a month" }, networkShares: { mediavine: 0.33, raptive: 0.21, ezoic: 0.11 } },
+            { slug: "food", name: "Food", href: "/components-ui/tables", sites: 6320, live: 5878, share: 0.18, top: [{ name: "Mediavine", share: 0.41 }, { name: "Raptive", share: 0.22 }, { name: "Journey", share: 0.18 }], easiest: { name: "Journey", rule: "5,000 sessions a month" }, networkShares: { mediavine: 0.41, raptive: 0.22, ezoic: 0.09 } },
+            { slug: "home-diy", name: "Home & DIY", sites: 3410, live: 3205, share: 0.097, top: [{ name: "Mediavine", share: 0.33 }, { name: "Raptive", share: 0.21 }, { name: "Journey", share: 0.19 }], easiest: { name: "Journey", rule: "5,000 sessions a month" }, networkShares: { mediavine: 0.33, raptive: 0.21, ezoic: 0.11 } },
             { slug: "gaming", name: "Gaming", sites: 1840, live: 1702, share: 0.052, top: [{ name: "Playwire", share: 0.21 }, { name: "NitroPay", share: 0.18 }, { name: "Ezoic", share: 0.15 }], easiest: { name: "NitroPay", rule: "No traffic minimum" }, networkShares: { mediavine: 0.03, raptive: 0.04, ezoic: 0.15 } },
           ]}
           title="Which ad networks does each niche use?"
@@ -86,7 +86,7 @@ export function TablesExamples() {
           rows={[
             { name: "Mediavine", href: "/components-ui/tables", sites: 2591, rule: "50,000 sessions a month", ruleRank: 50000 },
             { name: "Raptive", sites: 1390, rule: "100,000 pageviews a month", ruleRank: 100000 },
-            { name: "Journey", sites: 1138, rule: "1,000 sessions a month", ruleRank: 1000 },
+            { name: "Journey", sites: 1138, rule: "5,000 sessions a month", ruleRank: 5000 },
             { name: "Ezoic", sites: 569, rule: "No traffic minimum", ruleRank: 0 },
             { name: "SHE Media", sites: 126, rule: null, ruleRank: null },
             { name: "AdPushup", sites: 25, rule: "$2,000 ad revenue a month", ruleRank: 200000 },

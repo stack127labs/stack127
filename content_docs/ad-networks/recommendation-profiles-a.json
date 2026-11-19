@@ -3287,17 +3287,17 @@
   },
   {
     "slug": "journey-by-mediavine",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-11-19",
     "productType": "Lower-volume managed ad program and Mediavine growth path",
-    "applicationUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
+    "applicationUrl": "https://publishers.mediavine.com/join",
     "directoryPatch": {
-      "checkedAt": "2026-10-22",
+      "checkedAt": "2026-11-19",
       "keyNumbers": [
         {
           "label": "Sessions to apply",
-          "value": "1,000 Tier 1 sessions in 30 days",
-          "note": "Current Mediavine application requirement for Journey.",
-          "sourceUrl": "https://www.mediavine.com/application-requirements/"
+          "value": "5,000 sessions in 30 days",
+          "note": "From the U.S., U.K., Canada, Australia, Germany, France or the Netherlands. Raised from 1,000 on 2026-11-18.",
+          "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements"
         },
         {
           "label": "Share",
@@ -3315,24 +3315,23 @@
       "joining": [
         {
           "label": "Traffic",
-          "value": "At least 1k Tier 1 sessions in 30 days.",
-          "sourceUrl": "https://www.mediavine.com/application-requirements/"
+          "value": "At least 5,000 sessions in 30 days from the U.S., U.K., Canada, Australia, Germany, France or the Netherlands.",
+          "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements"
         },
         {
           "label": "Setup",
-          "value": "Run Grow for at least 30 days; GA4 is optional.",
-          "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/"
+          "value": "Connect GA4 when applying. Grow is recommended, not required.",
+          "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements"
         },
         {
           "label": "Site age",
-          "value": "The 2024 getting-started guide describes four months of domain history",
-          "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
-          "note": "Dated ad-partner guidance; confirm whether the current application still applies this condition."
+          "value": "Domain at least 4 months old; younger domains are disqualified.",
+          "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements"
         },
         {
           "label": "Review",
-          "value": "Original, human, brand-safe audience; Google account in good standing.",
-          "sourceUrl": "https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/"
+          "value": "Original, brand-safe, regularly updated content; engaged audience; no Wix or Blogspot; no excessive AI; Google account in good standing.",
+          "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements"
         }
       ],
       "revenueShare": "70%",
@@ -3340,6 +3339,10 @@
       "paymentThreshold": null,
       "paymentMethods": [],
       "sources": [
+        {
+          "label": "Journey minimum requirements",
+          "url": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements"
+        },
         {
           "label": "Journey setup and terms",
           "url": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/"
@@ -3357,7 +3360,7 @@
           "url": "https://www.journeymv.com/affiliates-faq/"
         }
       ],
-      "joinSummary": "1,000 Tier 1 sessions in 30 days"
+      "joinSummary": "5,000 sessions in 30 days"
     },
     "fit": {
       "publisherTypes": [
@@ -3370,13 +3373,13 @@
         "education and evergreen content"
       ],
       "nichesWeak": [
-        "low-quality or non-human traffic; sites unable to run Grow"
+        "low-quality or non-human traffic; Wix or Blogspot sites; heavy AI content"
       ],
       "geographies": [
-        "No fixed Tier1 share; quality and audience composition reviewed"
+        "Only sessions from the U.S., U.K., Canada, Australia, Germany, France and the Netherlands count toward the minimum"
       ],
       "role": "primary",
-      "entryPositioning": "1,000 Tier1 sessions in 30 days, 30 days on Grow and at least four months domain history.",
+      "entryPositioning": "5,000 sessions in 30 days from seven listed countries, a domain at least four months old, and GA4 connected.",
       "compatibilityNotes": [
         "Journey is a growth-stage Mediavine program; exact ad-stack overlap and migration conditions depend on onboarding.",
         "A Journey acceptance does not establish Official eligibility."
@@ -3386,24 +3389,24 @@
       {
         "metric": "Sessions",
         "comparator": "minimum",
-        "amount": 1000,
-        "unit": "Tier1 sessions",
+        "amount": 5000,
+        "unit": "sessions from US/UK/CA/AU/DE/FR/NL",
         "period": "30 days",
         "scope": "site",
         "program": "Journey",
-        "sourceUrl": "https://www.mediavine.com/application-requirements/",
-        "note": null
+        "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements",
+        "note": "Raised from 1,000 on 2026-11-18."
       },
       {
-        "metric": "Grow",
-        "comparator": "must run",
-        "amount": 30,
-        "unit": "days",
-        "period": "before review",
+        "metric": "Google Analytics",
+        "comparator": "must connect",
+        "amount": null,
+        "unit": "GA4",
+        "period": "at application",
         "scope": "site",
         "program": "Journey",
-        "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
-        "note": null
+        "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements",
+        "note": "Replaces the earlier 30 days on Grow route."
       },
       {
         "metric": "Domain age",
@@ -3413,9 +3416,19 @@
         "period": "at application",
         "scope": "domain",
         "program": "Journey",
-        "sourceUrl": "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
-        "note": "Getting-started guide dated 2024-04-15 describes four months of domain history and expects the partner condition to continue. Confirm current application; do not encode as a verified 2026 hard gate.",
-        "evidenceStatus": "dated_guidance"
+        "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements",
+        "note": "Listed as an automatic disqualifier."
+      },
+      {
+        "metric": "Platform",
+        "comparator": "not",
+        "amount": null,
+        "unit": "Wix or Blogspot",
+        "period": "at application",
+        "scope": "site",
+        "program": "Journey",
+        "sourceUrl": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements",
+        "note": "Automatic disqualifier."
       },
       {
         "metric": "Google standing",
@@ -3501,26 +3514,27 @@
     ],
     "inference": {
       "trafficRange": {
-        "low": 1000,
-        "high": 1000,
-        "metric": "Tier1 sessions",
+        "low": 5000,
+        "high": 5000,
+        "metric": "sessions from US/UK/CA/AU/DE/FR/NL",
         "period": "30 days",
         "basisSourceUrls": [
-          "https://www.mediavine.com/application-requirements/"
+          "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements"
         ],
         "confidence": "high",
         "note": "Published minimum; not a general expected entry range."
       },
       "revenueRange": null,
-      "practicalFit": "A clear shortlist for small-to-mid content publishers at 1k Tier1 sessions, but review still weighs quality and composition. Sites above this gate can still be rejected.",
+      "practicalFit": "A clear shortlist for small-to-mid content publishers at 5,000 qualifying sessions, but review still weighs quality and composition. Sites above this gate can still be rejected.",
       "currentNetworkSignals": [
         "Current network membership is only a soft comparable signal; Official and Journey criteria differ."
       ],
       "geographyPreference": "No fixed Tier1 share; reported acceptance at 35% Tier1 and rejection at 77% show composition is contextual, not a numeric share rule.",
-      "agePreference": "Four months domain history and 30 days Grow required.",
+      "agePreference": "Domain at least four months old (automatic disqualifier). GA4 connected at application.",
       "confidence": "medium",
       "rationale": "Official gates are clear. First-person accounts show acceptance above threshold at low US mix, a contradictory rejection despite high Tier1 share, and one earnings snapshot.",
       "supportingSourceUrls": [
+        "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements",
         "https://www.mediavine.com/application-requirements/",
         "https://www.journeymv.com/getting-started-with-journey-by-mediavine/",
         "https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/",
@@ -3529,19 +3543,32 @@
       ],
       "gaps": [
         "A recent applicant report cites changing unified-form routing; official page remains eligibility authority.",
-        "No accepted publisher case exactly at 1,000 sessions found.",
-        "Earnings example is not a stable forecast and lacks niche/geography."
+        "Earnings example is not a stable forecast and lacks niche/geography.",
+        "No accepted publisher case near the new 5,000-session minimum found yet."
       ]
     },
     "sources": [
+      {
+        "url": "https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements",
+        "title": "Journey minimum requirements",
+        "kind": "official",
+        "publishedAt": "2026-11-18",
+        "checkedAt": "2026-11-19",
+        "claims": [
+          "5,000 sessions in 30 days from US/UK/CA/AU/DE/FR/NL",
+          "Domain at least 4 months old",
+          "GA4 connected",
+          "Wix and Blogspot disqualified"
+        ]
+      },
       {
         "url": "https://www.mediavine.com/application-requirements/",
         "title": "Mediavine application requirements",
         "kind": "official",
         "publishedAt": null,
-        "checkedAt": "2026-10-22",
+        "checkedAt": "2026-11-19",
         "claims": [
-          "1k Tier1 sessions for Journey"
+          "5,000 sessions a month for Journey"
         ]
       },
       {
@@ -3549,10 +3576,9 @@
         "title": "Journey setup and getting started",
         "kind": "official",
         "publishedAt": null,
-        "checkedAt": "2026-10-22",
+        "checkedAt": "2026-11-19",
         "claims": [
-          "Grow 30 days",
-          "4-month domain history",
+          "2026-11-18 notice of new requirements",
           "70% share and Net65"
         ]
       },

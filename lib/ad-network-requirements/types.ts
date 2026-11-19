@@ -13,7 +13,7 @@ export type RecommendationInput = {
 };
 export type InputErrorCode = "required" | "not_a_number" | "negative" | "not_whole" | "too_many_decimals" | "too_large" | "over_100" | "shares_over_100" | "shares_over_tier1" | "split_mismatch" | "invalid_choice";
 export type Interval = { lo: number; hi: number; exact: boolean };
-export type MeasureKey = "pageviews" | "sessions" | "visits" | "visitors" | "monthlyActiveUsers" | "tier1Sessions30d" | "tier1Share" | "usShare" | "monumetricShare" | "moneytizerShare" | "usPageviews" | "adRevenueMonth" | "moneytizerUniques30d";
+export type MeasureKey = "pageviews" | "sessions" | "visits" | "visitors" | "monthlyActiveUsers" | "journeySessions30d" | "journeyShare" | "tier1Share" | "usShare" | "monumetricShare" | "moneytizerShare" | "usPageviews" | "adRevenueMonth" | "moneytizerUniques30d";
 export type Measures = Partial<Record<MeasureKey, Interval>> & { noCountryInput: boolean };
 export type Lane = "main" | "add" | "setup";
 export type Status = "good_fit" | "worth_a_try" | "growth_target";
@@ -39,7 +39,7 @@ export type RecommendationSource = { label: string; url: string; checkedAt: stri
 export type AdNetworkProfile = {
   slug: string; lane: Lane | "legacy"; tier: number; access: "open" | "form" | "contact" | "invite";
   accessScore?: number; evidence: "high" | "medium" | "low";
-  strong: NicheSlug[]; weak: NicheSlug[]; geography: "none" | "tier1" | "region";
+  strong: NicheSlug[]; weak: NicheSlug[]; geography: "none" | "tier1" | "journey" | "region";
   ageMonths?: number; family?: string; nicheGate?: NicheSlug[]; specialist?: boolean;
   programs: ProgramProfile[]; bars: BarFact[]; alsoNeeds: string[]; applyUrl: string;
   sources: RecommendationSource[];
