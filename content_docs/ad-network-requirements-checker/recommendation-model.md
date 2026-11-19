@@ -90,7 +90,7 @@ Examples:
 | Sessions | `visits` when the unit is `sessions` or `visits`. From `users`: users ÷ [0.9, 0.6]. Else pageviews ÷ [2.0, 1.2]. | Entered as sessions or visits |
 | Visits (Sovrn) | Equal to sessions | Entered with unit `visits` |
 | Visitors and monthly active users | `visits` when the unit is `users`, else sessions × [0.6, 0.9] | Never: an analytics user count isn't the network's visitor or MAU count |
-| Tier 1 sessions in 30 days (Journey) | Sessions × Tier 1 | Never |
+| Journey sessions in 30 days | Sessions × Journey share. The low end counts US, UK, Canada and Australia. The high end adds all traffic outside the five Tier 1 inputs, since Germany, France and the Netherlands have no input. New Zealand never counts. | Never |
 | US pageviews (Newor) | Pageviews × US share | Pageviews entered and US share exact |
 | Organic US/UK/CA uniques in 30 days (Moneytizer) | Visitors × Moneytizer share × [0.5, 1.0] | Never |
 | Ad revenue a month | Entered only | Entered |
@@ -189,7 +189,8 @@ Leaning networks have no requirement:
 
 | Leaning | `G` |
 | --- | --- |
-| Tier 1 (Journey, Mediavine, Carbon, EthicalAds, Playwire, Publift, Media.net) | clamp(Tier 1 lo ÷ 60, 0.3, 1.0). `noCountryInput`: 0.8. |
+| Tier 1 (Mediavine, Carbon, EthicalAds, Playwire, Publift, Media.net) | clamp(Tier 1 lo ÷ 60, 0.3, 1.0). `noCountryInput`: 0.8. |
+| Journey | clamp(Journey share lo ÷ 60, 0.3, 1.0). `noCountryInput`: 0.8. |
 | Region (AnyMind, Geniee, Refinery89, Opti Digital) | 0.75, because the tool doesn't ask region |
 | None | 1.0 |
 

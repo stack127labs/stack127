@@ -84,7 +84,7 @@ function routesFor(profile: AdNetworkProfile, program: ProgramProfile, m: Measur
   if (profile.slug === "clickio" && (m.tier1Share?.lo ?? 0) < 50) return program.routes.map(r => r.metric === "pageviews" ? { ...r, floor: 1_000_000, comfortable: 2_000_000 } : r);
   return program.routes;
 }
-const barMetrics: Partial<Record<MeasureKey, BarFact["metric"]>> = { pageviews: "pageviews", visits: "visits", visitors: "visitors", monthlyActiveUsers: "monthly_active_users", tier1Sessions30d: "tier1_sessions_30d", usPageviews: "us_pageviews", adRevenueMonth: "ad_revenue_month", tier1Share: "tier1_share", usShare: "us_share", monumetricShare: "tier1_share", moneytizerUniques30d: "organic_unique_visitors_30d" };
+const barMetrics: Partial<Record<MeasureKey, BarFact["metric"]>> = { pageviews: "pageviews", visits: "visits", visitors: "visitors", monthlyActiveUsers: "monthly_active_users", journeySessions30d: "tier1_sessions_30d", usPageviews: "us_pageviews", adRevenueMonth: "ad_revenue_month", tier1Share: "tier1_share", usShare: "us_share", monumetricShare: "tier1_share", moneytizerUniques30d: "organic_unique_visitors_30d" };
 function routeBar(profile: AdNetworkProfile, route: ScaleRoute, program: ProgramProfile): BarFact | undefined {
   if (route.bar) return route.bar;
   if (profile.slug === "mediavine") return profile.bars.find(b => b.metric === "ad_revenue_previous_calendar_year");
@@ -163,7 +163,7 @@ export function recommendAdNetworks(input: RecommendationInput, peers: Partial<R
       failed.push(failing[0]);
     }
     const requirements = requirementsFor(profile, measures, input);
-    let G = profile.geography === "region" ? 0.75 : profile.geography === "tier1" ? measures.noCountryInput ? 0.8 : clamp(measures.tier1Share!.lo / 60, 0.3, 1) : 1;
+    let G = profile.geography === "region" ? 0.75 : profile.geography === "tier1" ? measures.noCountryInput ? 0.8 : clamp(measures.tier1Share!.lo / 60, 0.3, 1) : profile.geography === "journey" ? measures.noCountryInput ? 0.8 : clamp(measures.journeyShare!.lo / 60, 0.3, 1) : 1;
     for (const req of requirements) {
       const value = measures[req.metric];
       if (req.metric !== "pageviews" && measures.noCountryInput) { G = Math.min(G, 0.6); continue; }
@@ -210,7 +210,7 @@ export function recommendAdNetworks(input: RecommendationInput, peers: Partial<R
     const bar = routeBar(profile, route, program);
     const reason = reasonFor(profile, route, basis, deciding.value, { upgrade, checkContract, caseByCase }, bar, input);
     const estimated = new Set<keyof Measures>();
-    for (const metric of [route.metric, ...requirements.map(req => req.metric), ...(profile.geography === "tier1" ? ["tier1Share" as const] : [])]) if (measures[metric] && !measures[metric]!.exact) estimated.add(metric);
+    for (const metric of [route.metric, ...requirements.map(req => req.metric), ...(profile.geography === "tier1" ? ["tier1Share" as const] : profile.geography === "journey" ? ["journeyShare" as const] : [])]) if (measures[metric] && !measures[metric]!.exact) estimated.add(metric);
     const detailBars = profile.bars.filter(b => !["newor-media", "setupad"].includes(slug) || b.program === null || b.program === program.name);
     // Public details cite the joining pages, while profile.sources retains the
     // wider research evidence. Put the pages behind the displayed bars first.

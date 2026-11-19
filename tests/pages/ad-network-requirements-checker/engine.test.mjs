@@ -14,12 +14,12 @@ const names = cards => cards.map(c=>c.slug);
 const scenarios = [
   { title:'tiny food blog', input:{niche:'food',pageviews:3000,siteAge:'3to6m',tier1Share:60,current:'none'},
     rows:[['google-adsense',89.96,89.96,'no_minimum']],
-    add:[['infolinks',77.28],['revcontent',73.42]],growth:['monumetric','journey-by-mediavine'],suggest:null },
+    add:[['infolinks',77.28],['revcontent',73.42]],growth:['journey-by-mediavine','monumetric'],suggest:null },
   { title:'default 40k food blog', input:{niche:'food',pageviews:40000,visits:22000,siteAge:'gt12m',tier1Share:65,current:'google-adsense',adRevenueMonth:350},
     rows:[['monumetric',96.67,99.67,'estimate'],['raptive',88.72,91.72,'estimate'],['journey-by-mediavine',87,90,'estimate'],['newor-media',80.04,80.04,'no_minimum'],['she-media',69.81,63.81,'review_led']],
     add:[['infolinks',77.28],['revcontent',74.70]],growth:['mediavine','clickio'],suggest:null },
   { title:'developer site', input:{niche:'tech',pageviews:60000,visits:35000,siteAge:'gt12m',tier1Share:55,current:'none'},
-    rows:[['raptive',88.46,91.46,'estimate'],['monumetric',85.44,88.44,'estimate'],['journey-by-mediavine',75.39,78.39,'estimate'],['newor-media',76.90,76.90,'no_minimum'],['buysellads-carbon-ads',77.66,71.66,'review_led']],
+    rows:[['raptive',88.46,91.46,'estimate'],['monumetric',85.44,88.44,'estimate'],['journey-by-mediavine',74.48,77.48,'estimate'],['newor-media',76.90,76.90,'no_minimum'],['buysellads-carbon-ads',77.66,71.66,'review_led']],
     add:[['ethicalads',76.24],['infolinks',77.28]],growth:['pubfuture','pubpower'],suggest:'adRevenueMonth' },
   { title:'gaming site', input:{niche:'gaming',pageviews:300000,visits:150000,siteAge:'gt12m',tier1Share:45,current:'google-adsense',adRevenueMonth:900},
     rows:[['clickio',87.71,93.71,'published_number'],['raptive',88.93,91.93,'estimate'],['publisher-collective',93.33,87.33,'review_led'],['pubfuture',81,87,'published_number'],['mediavine',83.82,86.82,'estimate']],
@@ -37,7 +37,7 @@ const scenarios = [
     rows:[['mediavine',98.33,109.33,'estimate'],['raptive',98.33,101.33,'estimate'],['she-media',98.33,101.33,'estimate'],['monumetric',91.78,94.78,'estimate'],['clickio',85.87,91.87,'published_number']],
     add:[['infolinks',77.28],['revcontent',75.99]],growth:['publift','ezoic'],suggest:null },
   { title:'developer already on Carbon', input:{niche:'tech',pageviews:150000,visits:90000,siteAge:'gt12m',tier1Share:50,current:'buysellads-carbon-ads'},
-    rows:[['raptive',90.47,93.47,'estimate'],['clickio',83,86,'estimate'],['monumetric',78.40,81.40,'estimate'],['newor-media',75.99,75.99,'no_minimum'],['journey-by-mediavine',72.98,75.98,'estimate']],
+    rows:[['raptive',90.47,93.47,'estimate'],['clickio',83,86,'estimate'],['monumetric',78.40,81.40,'estimate'],['newor-media',75.99,75.99,'no_minimum'],['journey-by-mediavine',72.07,75.07,'estimate']],
     add:[],growth:['ezoic','publift'],suggest:'adRevenueMonth' },
 ];
 for (const scenario of scenarios) test(`expected ranking: ${scenario.title}`,()=>{
@@ -60,7 +60,7 @@ test('R1: partial country split keeps feasible US bounds, and ranks the geograph
   const x={niche:'lifestyle',pageviews:80000,siteAge:'gt12m',tier1Share:60,shares:{GB:50},current:'none'};
   assert.deepEqual(estimateMeasures(input(x)).usShare,{lo:0,hi:10,exact:false});
   const r=recommend(x);
-  assert.deepEqual(r.main.map(c=>[c.slug,c.debug.score]),[['raptive',96.15],['monumetric',92.87],['journey-by-mediavine',83.58],['newor-media',76.90],['google-adsense',70.53]]);
+  assert.deepEqual(r.main.map(c=>[c.slug,c.debug.score]),[['raptive',96.15],['monumetric',92.87],['journey-by-mediavine',82.60],['newor-media',76.90],['google-adsense',70.53]]);
   assert.deepEqual(names(r.more.growth),['pubfuture','she-media']);assert.equal(r.more.growth[1].bar.metric,'us_share');
 });
 test('R2: entered zero shares remain zero, including Moneytizer uniques',()=>{
@@ -103,9 +103,9 @@ test('R9: niche alone produces a short useful list without revenue or traffic in
 test('R11: real revenue opens premium routes at small traffic; pin and family removal both apply',()=>{
   const x={niche:'personal-finance',pageviews:8000,siteAge:'gt12m',tier1Share:70,current:'none',adRevenueMonth:6000};const r=recommend(x);
   assert.deepEqual(r.main.map(c=>[c.slug,c.debug.score,c.debug.rank]),[['mediavine',94.44,97.44],['publift',89.96,95.96],['clickio',86.89,92.89],['monetizemore-pubguru',80.96,86.96],['google-adsense',80.76,80.76]]);
-  assert.deepEqual(r.more.setup.map(c=>[c.slug,c.debug.score]),[['adpushup',64.40],['adapex',61.77]]);assert.deepEqual(names(r.more.growth),['journey-by-mediavine','monumetric']);
+  assert.deepEqual(r.more.setup.map(c=>[c.slug,c.debug.score]),[['adpushup',64.40],['adapex',61.77]]);assert.deepEqual(names(r.more.growth),['monumetric','raptive']);
   const adsense=recommend({...x,current:'google-adsense'});assert.deepEqual(names(adsense.main),['mediavine','publift','clickio','monetizemore-pubguru','adpushup']);assert.deepEqual(names(adsense.more.setup),['adapex','anymind-anymanager']);
-  const journey=get('journey-by-mediavine',{...x,current:'google-adsense'});assert.deepEqual(names(journey.main),[]);assert.deepEqual(names(journey.more.growth),['journey-by-mediavine']);
+  const journey=only('journey-by-mediavine',{...x,current:'google-adsense'});assert.equal(journey.debug.score,65);assert.equal(journey.status,'worth_a_try');
 });
 
 test('known traffic conversions retain measure identity and exactness',()=>{
@@ -229,6 +229,14 @@ test('every recommendation has readable, dated sources even when no published ba
     assert.ok(card.detail.sources.every(source=>adNetworkProfiles.find(profile=>profile.slug===slug).joiningSourceUrls.includes(source.url)));
   }
 });
+test('Journey counts only its seven countries: New Zealand traffic fails, German traffic may pass',()=>{
+  const nz=get('journey-by-mediavine',{niche:'food',visits:50000,siteAge:'gt12m',tier1Share:100,shares:{NZ:100},current:'none'});
+  assert.deepEqual(names(nz.main),[]);
+  assert.deepEqual(estimateMeasures(input({niche:'food',visits:50000,tier1Share:100,shares:{NZ:100}})).journeySessions30d,{lo:0,hi:0,exact:false});
+  const german=only('journey-by-mediavine',{niche:'food',visits:50000,siteAge:'gt12m',tier1Share:0,current:'none'});
+  assert.equal(german.status,'worth_a_try');assert.equal(german.debug.basis,'estimate');
+});
+
 test('conditional and program-level bars explain which threshold applies',()=>{
   const raptive=only('raptive',{...base,pageviews:120000});
   const shares=raptive.detail.bars.filter(bar=>bar.metric==='tier1_share');

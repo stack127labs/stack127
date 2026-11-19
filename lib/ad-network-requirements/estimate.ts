@@ -27,7 +27,11 @@ export function estimateMeasures(input: RecommendationInput): Measures {
   const us = aggregate(["US"], interval(tier1.lo * 0.55, tier1.hi * 0.9));
   const monumetric = aggregate(["US", "GB", "CA", "AU"], interval(Math.max(0, tier1.lo - 3), tier1.hi));
   const moneytizer = aggregate(["US", "GB", "CA"], interval(tier1.lo * 0.85, tier1.hi * 0.98));
-  const result: Measures = { noCountryInput, tier1Share: tier1, usShare: us, monumetricShare: monumetric, moneytizerShare: moneytizer };
+  // Journey counts the US, UK, Canada, Australia, Germany, France and the Netherlands. The form asks
+  // only about the US, UK, Canada, Australia and New Zealand, so the three European countries can be
+  // anywhere in the traffic outside those five. That keeps the share a range, never an exact number.
+  const journey = interval(monumetric.lo, Math.min(100, monumetric.hi + Math.max(0, 100 - tier1.lo)));
+  const result: Measures = { noCountryInput, tier1Share: tier1, usShare: us, monumetricShare: monumetric, moneytizerShare: moneytizer, journeyShare: journey };
   if (input.visits !== undefined) {
     result.sessions = input.visitsUnit === "users" ? interval(input.visits / 0.9, input.visits / 0.6) : point(input.visits);
   } else if (input.pageviews !== undefined) result.sessions = interval(input.pageviews / 2, input.pageviews / 1.2);
@@ -37,7 +41,7 @@ export function estimateMeasures(input: RecommendationInput): Measures {
     result.visits = { ...result.sessions, exact: input.visits !== undefined && input.visitsUnit === "visits" };
     result.visitors = input.visits !== undefined && input.visitsUnit === "users" ? interval(input.visits, input.visits) : multiply(result.sessions, interval(0.6, 0.9));
     result.monthlyActiveUsers = { ...result.visitors };
-    result.tier1Sessions30d = multiply(result.sessions, tier1, 100);
+    result.journeySessions30d = multiply(result.sessions, journey, 100);
     result.moneytizerUniques30d = multiply(multiply(result.visitors, moneytizer, 100), interval(0.5, 1));
   }
   if (result.pageviews) result.usPageviews = { ...multiply(result.pageviews, us, 100), exact: input.pageviews !== undefined && us.exact };

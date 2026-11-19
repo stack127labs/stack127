@@ -19,7 +19,7 @@ const neworPrograms: ProgramProfile[] = [
 ];
 export const adNetworkProfiles: AdNetworkProfile[] = [
   profile("google-adsense", "main", 0, "open", "high", [pv(0, 0, "none")]),
-  profile("journey-by-mediavine", "main", 1, "form", "medium", [route("tier1Sessions30d", 5000, 10_000, "hard")], { strong: lifestyle, weak: ["news"], geography: "tier1", ageMonths: 4, family: "mediavine" }),
+  profile("journey-by-mediavine", "main", 1, "form", "medium", [route("journeySessions30d", 5000, 10_000, "hard")], { strong: lifestyle, weak: ["news"], geography: "journey", ageMonths: 4, family: "mediavine" }),
   profile("monumetric", "main", 1, "form", "high", [pv(10_000, 20_000, "hard")], { strong: ["personal-finance", "food", "travel", "lifestyle", "home-diy", "parenting", "crafts", "health-fitness"], ageMonths: 3 }),
   profile("newor-media", "main", 1, "form", "medium", [], { programs: neworPrograms }),
   profile("buysellads-carbon-ads", "main", 1, "form", "medium", [pv(20_000, 100_000)], { accessScore: 0.9, strong: ["tech"], nicheGate: ["tech"], geography: "tier1" }),

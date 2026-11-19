@@ -106,7 +106,7 @@ function shortBar(values: Recommendation["reason"]["values"]): string | null {
   switch (values.metric) {
     case "ad_revenue_month": return `${money(bar, "USD")} ad revenue a month`;
     case "ad_revenue_previous_calendar_year": return `${money(bar, "USD")} ad revenue a year`;
-    case "tier1_sessions_30d": return `${count(bar)} Tier 1 sessions a month`;
+    case "tier1_sessions_30d": return `${count(bar)} qualifying sessions a month`;
     case "us_pageviews": return `${count(bar)} US pageviews`;
     case "visits": return `${count(bar)} visits a month`;
     case "visitors": return `${count(bar)} visitors a month`;
