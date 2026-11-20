@@ -60,9 +60,10 @@ test('checker accepts URLs and international domains and rejects local or malfor
 
 const { loadTypeScript } = await import('../../helpers/load-typescript.mjs');
 const input = {parseAdNetworkSitesParams,parseAdNetworkSiteParams,AdNetworkInputError};
+const {adNetworkSiteResponse}=(await import('./loader-harness.mjs')).adNetworksLibrary(()=>{throw Error('Response building must not query the database');});
 function route(kind, {published=true,fail=false,rating=null}={}) {
   let calls=0;
-  const lib={
+  const lib={adNetworkSiteResponse,
     getAdNetworkSites: async query=>{calls++;if(fail)throw Error('database unavailable');return {rows:[{domain:"known.com",domain_rating:rating}],total:1,page:query.page,pageSize:query.pageSize,totalPages:1,...ahrefs.ahrefsAttribution([rating])};},
     getAdNetworkCheckerSite: async domain=>{calls++;if(fail)throw Error('database unavailable');return domain==='known.com'?{site:{domain,domain_rating:rating},similar_sites:[]}:null;},
   };

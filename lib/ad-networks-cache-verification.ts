@@ -1,6 +1,6 @@
 import { getPool } from "./db";
 import { getAdNetworkNiche } from "./ad-network-niches";
-import { defaultAdNetworkSitesQuery, loadAdNetworkSites, loadAdNetworkCheckerSite } from "./ad-networks";
+import { adNetworkSiteResponse, defaultAdNetworkSitesQuery, loadAdNetworkSites, loadAdNetworkCheckerSite } from "./ad-networks";
 
 /** Reports have their own sources; they are never network identity slugs. */
 export function adNetworkPageKind(path: string) {
@@ -35,8 +35,7 @@ export async function getAdNetworkApiVerification(path: string): Promise<{ reque
   if (checker) {
     const domain=sample?.domain??"stack127.com";
     const requestPath=`${path}?${new URLSearchParams({domain})}`;
-    const site=await loadAdNetworkCheckerSite(domain);
-    return {requestPath,expected:{domain,found:site!==null,site}};
+    return {requestPath,expected:adNetworkSiteResponse(domain,await loadAdNetworkCheckerSite(domain))};
   }
   const query=defaultAdNetworkSitesQuery(sample?.network??null);
   const params=new URLSearchParams();

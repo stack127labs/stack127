@@ -8,7 +8,7 @@ import type {
   AdNetworkStatsPageData, AdNetworkShare, AdNetworkCount, AdNetworkDailyCount,
   AdNetworkMovement, AdNetworkSwitch, AdNetworkTrafficShare, AdNetworkCheckerSiteView,
   AdNetworkSiteRelationship, AdNetworkAdsTxtSummary, AdNetworkSitesAvailability, AdNetworkDirectoryData, AdNetworkJoiningRule, AdNetworkDomainAgeStrip,
-  AdNetworkDomainRatingSummary,
+  AdNetworkDomainRatingSummary, AdNetworkSiteResponse,
 } from "./ad-networks-types";
 import { deriveManagedBy, buildAdsTxtPreview, aggregateAdNetworkManagers, aggregateAdNetworkTrafficShares } from "./ad-network-site-facts.mjs";
 
@@ -688,6 +688,12 @@ export async function loadAdNetworkCheckerSite(domain: string): Promise<AdNetwor
     domain_age_years,similar_available_columns,site,relationships:relationships.map(r=>({...r,verification_method:r.verification_method??null,ad_system_domains:identities.find(n=>n.slug===r.slug)?.ad_system_domains??[],first_confirmed_at:iso(r.first_confirmed_at),last_confirmed_at:iso(r.last_confirmed_at),ended_at:iso(r.ended_at)})),ads_txt_summary:summary,ads_txt_preview,similar_sites,basis,history_source:"observed"};
 }
 export const getAdNetworkCheckerSite=cached("ad-network-checker-site-v2",loadAdNetworkCheckerSite);
+
+/** The checker API body. The route and the signed origin check both build it here,
+ * so a new response field cannot make every cache refresh fail as "stale". */
+export function adNetworkSiteResponse(domain: string, site: AdNetworkCheckerSiteView | null): AdNetworkSiteResponse {
+  return { domain, found: site !== null, site, ...ahrefsAttribution([site?.site.domain_rating, ...(site?.similar_sites ?? []).map(row => row.domain_rating)]) };
+}
 
 /** Scan each partial source-ID index once instead of fetching JSON or probing per site.
  * The events publisher foreign key guarantees that every first discovery has a publisher.
