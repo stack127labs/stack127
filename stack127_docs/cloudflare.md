@@ -206,6 +206,11 @@ In Cloudflare mode, allow several minutes. Then check the latest `stack127-front
 
 Browser copies saved under the old policy have to expire before they start checking every time.
 
+If the run fails with `Backend cache refresh failed: HTTP 503 /api/cache/refresh`, read the real reason in the OVH app logs: `sudo -n docker service logs --since 2h --raw <app service>` and look for `Origin cache refresh failed <path>: <reason>`. One failing path fails the whole batch, so nothing is acknowledged and every queued edit waits.
+
+- `stale API content` means the API body the app served differs from the value the signed check built from the database. Compare the live body's keys with the expected value before suspecting a cache.
+- Nov 19–20, 2026: every refresh failed on `/api/ad-networks/site`. The route had added a top-level Ahrefs `attribution` field on Nov 14, but the check still expected only `domain`, `found`, and `site`. It passed while the sampled site had no Domain Rating and failed for good once Domain Ratings filled in. Both now build the body with `adNetworkSiteResponse` in `lib/ad-networks.ts`. When an API gets a new field, build its body in one shared function that the route and `lib/ad-networks-cache-verification.ts` both call.
+
 ## Security and crawlers
 
 | Setting | Value |
