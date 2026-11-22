@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "@/app/ui/icons";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { intentPrefetch } from "./intent-prefetch";

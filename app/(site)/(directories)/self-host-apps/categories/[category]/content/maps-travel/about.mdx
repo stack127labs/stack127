@@ -1,0 +1,12 @@
+## How do you choose a maps or location app?
+
+Decide whether you want to track where you go, plan routes, or serve your own maps.
+
+- **Phone tracking.** A location tracker needs an app on your phone sending your position. Check which phone apps the server accepts.
+- **Map data.** Routing engines and tile servers use OpenStreetMap data. One region fits on a modest server, but the whole planet needs a lot of disk and memory.
+- **Import.** If you're leaving Google Maps, check for import of your Google Takeout location history.
+- **Resources.** Preparing routing data takes far more memory than serving it. Treat the RAM estimate as a minimum.
+
+## What should you plan for when you run one?
+
+Location history is sensitive. Keep the app behind HTTPS and a login, and back up its database. Map data can be downloaded again, so it matters less in your backups.

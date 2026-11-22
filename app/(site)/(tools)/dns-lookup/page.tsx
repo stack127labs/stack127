@@ -3,7 +3,7 @@ import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { Search } from "lucide-react";
+import { Search } from "@/app/ui/icons";
 import { DnsLookupFromUrl } from "./dns-lookup-from-url";
 import styles from "./dns-lookup-content.module.css";
 import Article from "./content/article.mdx";

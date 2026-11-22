@@ -73,7 +73,7 @@ Body text has exactly two sizes on the whole site:
 
 Don't add another body size in a page or component stylesheet.
 
-Every page-level `h1` uses the shared `--text-h1` and `--line-h1` tokens. That's a responsive 2.6rem to 3.6rem size with a tight line height, set in `--font-display`. Title text may wrap within a readable measure. `PageCanvas` owns its outer position and padding. Route styles must not invent another page-title size.
+Every page-level `h1` uses the shared `--text-h1` and `--line-h1` tokens. That's a responsive 1.375rem to 1.625rem size (26px on desktop). Only the home page H1 uses `--text-h1-home`, 32px on desktop with a tight line height, set in `--font-display`. Title text may wrap within a readable measure. `PageCanvas` owns its outer position and padding. Route styles must not invent another page-title size.
 
 Tool interfaces still read at `--text-body`. Only their metadata, counts, and captions drop to `--text-small`. A tool page may contain prose. Apply the prose class only to the explanatory region, never to the whole tool.
 

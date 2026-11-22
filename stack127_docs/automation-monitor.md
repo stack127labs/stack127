@@ -8,6 +8,8 @@ For each job it shows what the job does, when it runs, its last result, 90 days 
 
 The dashboard takes each stack127 job's name and description from [`monitoring.json`](monitoring.json), read from the homelab main checkout. When a change adds, moves, renames or removes a scheduled job, a GitHub workflow, an Edge Function schedule or a server timer, update its entry in the same pull request.
 
+BaseBuddy is its own project on the dashboard. Its jobs (the `stack127labs/basebuddy` and `stack127labs/basebuddy-website` workflows, and the demo and GitHub traffic jobs on the Bloxodes VPS) are described in `implementation_docs/monitoring.json` in `stack127labs/basebuddy-website`, not here.
+
 One entry per job:
 
 ```json
@@ -29,8 +31,9 @@ A job with no entry still shows up, marked "No description yet".
 ## What the dashboard can't see
 
 - On OVH, the `ubuntu` account can't read Docker or the system journal. So containers aren't listed, and timer logs are empty.
-- Ad network jobs report through `/srv/stack127-data/logs/<job>.log`. The dashboard reads the `== <time> start <job>` and `== <time> end <job> exit <code>` lines that `run-job.sh` writes.
-- Exit 76 means the previous run was still going. It shows as skipped.
+- Ad network and self-host app jobs report through `/srv/stack127-data/logs/<job>.log`. The dashboard reads the `== <time> start <job>` and `== <time> end <job> exit <code>` lines that `run-job.sh` writes.
+- Self-host data jobs keep their nominal cron schedules. Completed-period checks do not write run markers. The separate `self-host-catch-up` entry records hourly update, drift and retry results.
+- Exit 76 means a job lock or checkout lock is busy. It shows as skipped when logged; self-host data jobs that have not started work stay silent.
 - Exit 75 means another job held the database lock. It shows as skipped when the run gave up within an hour, as verification does. It shows as failed when a job gave up after hours of retries.
 - Database backups can't be read from the journal either. Instead, a failed backup opens a GitHub issue in `stack127labs/stack127` named `Database backup failed: <job>`, and the next good run closes it. `stack127-db-backup-alert.service` on OVH and `stack127-db-backup-pull-alert.service` on homelab send these. The logs are in `journalctl -u stack127-db-backup.service` on OVH and `journalctl -u stack127-db-backup-pull.service` on homelab.
 - GitHub often starts scheduled workflows late. The dashboard only calls a workflow "behind schedule" after three missed gaps plus an hour.

@@ -4,10 +4,10 @@ import {
   FileKey, FileSearch, GitBranch, Globe, HardDrive, HouseWifi, Image, Keyboard,
   FlaskConical, ListChecks, Receipt, Rocket, Scale, Languages, Layers3, LayoutGrid, Network, RefreshCw, Route, Search,
   Server, ServerCog, ShieldCheck, SquareTerminal, TrendingDown, TrendingUp, UserSearch,
-  Users, Wrench, type LucideIcon,
-} from "lucide-react";
+  Users, Wrench, type SketchIcon,
+} from "@/app/ui/icons";
 
-const icons: Record<string, LucideIcon> = {
+const icons: Record<string, SketchIcon> = {
   "ad-networks": Network,
   "cli-apps": SquareTerminal,
   "epp-status-codes": ListChecks,

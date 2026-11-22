@@ -52,7 +52,7 @@ The tools publisher creates and publishes catalogs. Add a new catalog to the sam
    - Write one `title`, with `<mark>` around the accent phrase, like directory titles.
    - Add the MDX content folder and map entry, `display_order`, and approved card icon and art keys. Use `card_icon_key` and `card_art_key` in publisher manifests too. Supported keys are in `lib/card-icons.ts` and `lib/card-art.ts`.
    - The writers reject keys that aren't registered. A card with no drawing shows its icon large instead.
-   - The homepage lists every published catalog first, in `display_order`, then other resource cards. The catalog sidebar uses the same order. The homepage's mixed resource sidebar uses the registry's `sitemap_priority`.
+   - The homepage lists directories, references, and courses first, ordered by the registry's `sitemap_priority`, then every published catalog in `display_order`. The catalog sidebar uses the same catalog order.
 3. Add at least one `stack127_tool_catalog_memberships` row. Pick the tool's `page_id` from `stack127_tool_pages`, set its next catalog rank, and choose its display order. To move a tool, edit its membership rows. Don't add tool cards to the route code.
 4. Review the tool's `card_name`, `card_description`, `card_icon_key`, and `card_art_key` in `stack127_tool_pages`.
    - New tool rows use the registry label and search description until someone edits the card.

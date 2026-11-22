@@ -20,7 +20,7 @@ Shared links prefetch a page only when a reader shows intent, such as hovering o
 ## Indexing
 
 - A URL with a query string (`?…`) is never indexed. This includes search, filters, sort, tool state, and `?page=`. The proxy sends `X-Robots-Tag: noindex, follow` for these, and the canonical link points to the clean URL. On the static frontend, a Cloudflare response header rule sends the same header. The one exception is a query made only of tracking parameters, such as `utm_*`, `gclid`, or `ref`. It gets no noindex and relies on the canonical. `lib/seo/query-indexing.mjs` holds the list.
-- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities` or later `/self-host-apps/categories/<name>`. Its registry row must have both `is_published` and `is_indexable` set to `true`.
+- A page we want indexed gets its own path, such as `/platform-fees/creators-and-communities`, `/self-host-apps/categories/<name>`, or `/cli-apps/categories/<name>`. Its registry row must have both `is_published` and `is_indexable` set to `true`.
 - A published row with `is_indexable = false` stays public, sends noindex metadata, omits JSON-LD, and stays out of the sitemap. Use this for thin child pages and pages still being improved.
 - See [seo.md](seo.md) for the registry and sitemap rules.
 
@@ -49,6 +49,11 @@ Filters, search, sort, and pagination are a client component:
 
 Without JavaScript, visitors and crawlers see the default static page.
 
+Self-host and CLI category pages have their own exact registry paths at `/self-host-apps/categories/<category>` and `/cli-apps/categories/<category>`. They use the hub's layout, cards, details, filters, sort, and pagination, locked to one category. The static HTML holds the first page of that category in the hub's default popularity order, with those apps' details. Filtered views and later pages load in the browser and stay on the category path, with `noindex` query URLs like the hub. Self-host category pages send `category=<slug>` with every `/api/self-host-apps/search` request; the response's license and install options then cover only that category. The edge cache already keys that route by its full query, so no rule change is needed. CLI category pages filter the cached `/api/cli-apps/index` in the browser. Only categories with at least 15 published apps can publish. `generateStaticParams` uses exact published registry children and current counts, including public noindex previews, so the static export contains the same pages as hub links.
+
+Category data uses the existing self-host and CLI source tags. The directory record trigger touches affected category children, including old memberships, and their hub. A category that drops below 15 apps is unpublished; growth does not republish it. Parent and child responses share `self-host-catalog` or `cli-apps-catalog` edge tags. A category page event also refreshes its hub links and purges the family, because sibling links show counts and publication. MDX intros and about sections ship with the release.
+
+
 ## Cache layers
 
 1. **Cloudflare edge.** Caches successful HTML and RSC responses. The proxy adds a `Cache-Tag` header: `stack127-public`, `page:<slug>`, and family tags such as `home`, `sitemap`, `self-host-catalog`, and `self-host-detail`. API indexes share their directory's purge tags. Errors are never cached.
@@ -60,7 +65,7 @@ Without JavaScript, visitors and crawlers see the default static page.
 1. A source-table trigger calls `stack127_touch_page(slug, reason)` for a meaningful public change, then queues its dataset event with `stack127_enqueue_revalidation(entity_type, slug, source)`. This adds a row to `public.stack127_revalidation_events`.
 2. The Supabase `cache-worker` function claims events. It uses `scripts/stack127/cache/targets.mjs` to map them to Next.js tags, paths, Cloudflare tags, and pages to warm.
 3. It calls `POST /api/cache/revalidate`, which runs `revalidateTag` and `revalidatePath`.
-4. It verifies origin pages and the self-host search, CLI index, and hardware index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
+4. It verifies origin pages and the self-host search and CLI index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
 
 A release purges `stack127-public` and `stack127-assets`, then warms the main pages.
 
@@ -87,11 +92,10 @@ The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs
 
 Keyboard-shortcut and ad-network child headings can inherit their parent directory icon. A parent `page` event also purges `keyboard-shortcuts-catalog` or `ad-networks-catalog`, shared by the parent and child responses. A child-only edit keeps its page-specific purge.
 
-Hardware data ships from repository files. Releases refresh it. Each hardware JSON response also carries `page:<directory>` so publication changes purge its index and details.
 
 ## Cloudflare cache times
 
-`configure-cloudflare.mjs --long-ttl` sets seven-day edge TTLs for successful HTML and RSC, including directory and query views. Browsers still revalidate each time. JSON routes use their origin TTLs. The rule covers self-host search, the CLI index, and hardware indexes and details. Errors keep `no-store`.
+`configure-cloudflare.mjs --long-ttl` sets seven-day edge TTLs for successful HTML and RSC, including directory and query views. Browsers still revalidate each time. JSON routes use their origin TTLs. The rule covers self-host search and the CLI index. Errors keep `no-store`.
 
 The existing seven-day worker health gate still applies. Apply this only after the migration, app, and cache worker are live:
 

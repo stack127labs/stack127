@@ -1,12 +1,13 @@
 "use client";
 
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import Link from "next/link";
-import { HardDrive } from "lucide-react";
+import { HardDrive } from "@/app/ui/icons";
+import { CatalogCard } from "@/app/ui/cards/catalog-card";
 import { DirectoryCard } from "@/app/ui/cards/directory-card";
 import { PageCard, PageCardCounts } from "@/app/ui/cards/page-card";
 import { ToolCard } from "@/app/ui/cards/tool-card";
 import { DirectoryAppCard } from "@/app/ui/directories/directory-app-card";
-import { HardwareFactCardContent, hardwareFactCardClassName } from "@/app/ui/directories/hardware-fact-card";
 import type { DirectoryAppCardData } from "@/lib/apps-card";
 import { NetworkCard, NetworkGrid, SortNote } from "@/app/ui/ad-networks/network-card";
 import { NetworkLogo } from "@/app/ui/ad-networks/network-logo";
@@ -50,7 +51,7 @@ export function CardsExamples() {
         </div>
       </Example>
 
-      <Example components={["DirectoryCard", "CatalogCard", "PageCard", "PageCardCounts"]} note="The large size for homepage collections. DirectoryCard shows counts. CatalogCard is the same card with a tool count. Without approved art, the icon shows large." source="app/ui/cards/" title="Feature card">
+      <Example components={["DirectoryCard", "PageCard", "PageCardCounts"]} note="The large size for homepage collections. DirectoryCard shows counts. Without approved art, the icon shows large." source="app/ui/cards/" title="Feature card">
         <div className={styles.cardGrid}>
           <DirectoryCard
             counts={[{ label: "apps", value: 1240 }, { label: "categories", value: 34 }]}
@@ -67,19 +68,24 @@ export function CardsExamples() {
         </div>
       </Example>
 
+      <Example components={["CatalogCard"]} note="A tool catalog on the homepage: icon, name, and tool count, then the first five tools in catalog order. Past five, a last row links to the catalog with the rest. No art or description." source="app/ui/cards/catalog-card.tsx" title="Catalog card">
+        <div className={styles.cardGrid}>
+          <CatalogCard
+            catalog={{ page: { slug: "dns-tools" }, card_name: "DNS tools", card_icon_key: "network" }}
+            tools={["DNS lookup", "DNS trace", "DNS change checker", "Nameserver checker", "DNSSEC checker", "MX lookup", "SPF checker"].map((name) => ({
+              slug: "dns-tools",
+              card_name: name,
+            }))}
+          />
+        </div>
+      </Example>
+
       <Example components={["DirectoryAppCard", "AppFactCardContent"]} note="A record card with an image, categories, a summary, and labeled facts. DirectoryAppCard fills AppFactCardContent from one app record." source="app/ui/directories/directory-app-card.tsx, app/ui/directories/app-fact-card.tsx" title="Record card">
         <div className={styles.cardGrid}>
           <DirectoryAppCard app={exampleApp} href="/self-host-apps" />
         </div>
       </Example>
 
-      <Example components={["HardwareFactCardContent"]} note="A product card with a photo and short facts. A missing photo shows a placeholder." source="app/ui/directories/hardware-fact-card.tsx" title="Product card">
-        <div className={styles.cardGrid}>
-          <Link className={hardwareFactCardClassName} href="/zigbee-devices">
-            <HardwareFactCardContent facts={[{ label: "Connection", value: "Zigbee" }, { label: "Power", value: "battery" }]} image={null} name="Example Zigbee sensor" />
-          </Link>
-        </div>
-      </Example>
       <Example
         components={["NetworkLogo", "networkLogo"]}
         note="An ad network's square icon on a white tile, so any icon reads in both themes. card is the 32px tile for cards and table rows; title sits in an h1 in place of the title icon. Without a logo file the tile shows the name's first letter. networkLogo(slug) finds public/ad-networks/logos/<slug>.png on the server."
@@ -98,18 +104,19 @@ export function CardsExamples() {
       </Example>
       <Example
         components={["NetworkCard", "NetworkGrid", "SortNote"]}
-        note="One ad network in the directory: logo, name, the confirmed-share ring, the site count, and what it takes to join. The whole card links to the network. Hover or focus the ring for its bubble; on touch screens a tap opens it. Leave join out to hide the footer. The grid goes four, three, two, then one across."
-        source="app/ui/ad-networks/network-card.tsx, app/ui/ad-networks/confirmed-ring.tsx"
+        note="One ad network in the directory: logo, name, average Domain Rating, the site count on one line, and its top three niches. The whole card links to the network. Leave averageDr out to hide the rating, and topNiches empty to hide the footer. Show the Ahrefs credit once under the grid wherever DR shows. The grid goes five, four, three, two, then one across. Each niche row shows its NicheIcon."
+        source="app/ui/ad-networks/network-card.tsx"
         title="Network card"
       >
         <SortNote>Sorted by how many <b>Food</b> sites use each network.</SortNote>
         <NetworkGrid>
-          <NetworkCard confirmed={7492} href="/components-ui/cards" join="No traffic minimum" logo={{ src: "/ad-networks/logos/ezoic.png" }} name="Ezoic" sites={8144} />
-          <NetworkCard confirmed={7459} href="/components-ui/cards" join="50,000 sessions a month" logo={{ src: "/ad-networks/logos/mediavine.png" }} name="Mediavine" sites={7852} />
-          <NetworkCard confirmed={6437} href="/components-ui/cards" join="100,000 pageviews a month" logo={{ src: "/ad-networks/logos/raptive.png" }} name="Raptive" sites={7152} />
-          <NetworkCard confirmed={6119} href="/components-ui/cards" join="1,000 sessions a month" logo={{ src: "/ad-networks/logos/journey-by-mediavine.png" }} name="Journey by Mediavine" sites={6953} />
-          <NetworkCard confirmed={1} href="/components-ui/cards" logo={null} name="Publir" sites={1} />
+          <NetworkCard averageDr={33} href="/components-ui/cards" logo={{ src: "/ad-networks/logos/ezoic.png" }} name="Ezoic" sites={8144} topNiches={[{ slug: "food", name: "Food", share: 19 }, { slug: "tech", name: "Tech", share: 10 }, { slug: "education", name: "Education", share: 8 }]} />
+          <NetworkCard averageDr={33} href="/components-ui/cards" logo={{ src: "/ad-networks/logos/mediavine.png" }} name="Mediavine" sites={7852} topNiches={[{ slug: "food", name: "Food", share: 22 }, { slug: "travel", name: "Travel", share: 13 }, { slug: "lifestyle", name: "Lifestyle", share: 8 }]} />
+          <NetworkCard averageDr={47} href="/components-ui/cards" logo={{ src: "/ad-networks/logos/raptive.png" }} name="Raptive" sites={7152} topNiches={[{ slug: "food", name: "Food", share: 32 }, { slug: "travel", name: "Travel", share: 5 }, { slug: "lifestyle", name: "Lifestyle", share: 5 }]} />
+          <NetworkCard averageDr={28} href="/components-ui/cards" logo={{ src: "/ad-networks/logos/journey-by-mediavine.png" }} name="Journey by Mediavine" sites={6953} topNiches={[{ slug: "personal-finance", name: "Personal finance", share: 14 }, { slug: "beauty-fashion", name: "Beauty & fashion", share: 9 }, { slug: "home-diy", name: "Home & DIY", share: 0.3 }]} />
+          <NetworkCard href="/components-ui/cards" logo={null} name="Publir" sites={1} />
         </NetworkGrid>
+        <AhrefsCredit />
       </Example>
     </>
   );

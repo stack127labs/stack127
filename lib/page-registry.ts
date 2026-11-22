@@ -1,3 +1,4 @@
+import { resolvePageText } from "./current-text.mjs";
 import { readPageCards } from "./page-cards";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -125,7 +126,7 @@ export function pathFromSlug(slug: string) {
   return slug ? `/${slug}` : "/";
 }
 
-const getRegistryPage = cache(cachedRegistryPage);
+const getRegistryPage = cache(async (slug: string) => resolvePageText(await cachedRegistryPage(slug)));
 export const getExactPublishedPage = cache(async (slug: string) => {
   const page = await getRegistryPage(slug);
   return page?.is_published ? page : null;
@@ -147,7 +148,7 @@ export const getPagePublicationState = cache(
   (pathname: string): Promise<PagePublicationState> => resolvePagePublicationState(pathname, getRegistryPage),
 );
 
-export const getPublishedSitemapPages = cache(unstable_cache(async () => {
+const getRawPublishedSitemapPages = cache(unstable_cache(async () => {
   const rows = await readPublicData<Stack127Page[]>({
     dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
       is_published: "eq.true",
@@ -170,7 +171,7 @@ export const getPublishedSitemapPages = cache(unstable_cache(async () => {
  * Curated published pages for site-wide home navigation. URL depth is not
  * navigation metadata because tool pages intentionally use flat routes.
  */
-export const getMainPublishedPages = cache(unstable_cache(async () => {
+const getRawMainPublishedPages = cache(unstable_cache(async () => {
   const pages = await readPublicData<Stack127Page[]>({
     dataApiRead: () => selectPublicRows<Stack127Page>("stack127_pages", {
       is_published: "eq.true",
@@ -322,3 +323,7 @@ export async function getRegistryPageStructuredData(state: PagePublicationState)
     name: crumb.name, path: crumb.href,
   })))] : [])];
 }
+
+export const getPublishedSitemapPages = cache(async () => resolvePageText(await getRawPublishedSitemapPages()));
+
+export const getMainPublishedPages = cache(async () => resolvePageText(await getRawMainPublishedPages()));

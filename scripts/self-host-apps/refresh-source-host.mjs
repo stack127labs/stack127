@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { boundedSummary } from "./lib/report-output.mjs";
 
 import { parseArgs, numberArg } from "./lib/args.mjs";
 import { withClient } from "./lib/db.mjs";
@@ -240,7 +241,7 @@ export async function refreshSourceHost(client, args) {
   }
 
   const report = { host, dry_run: Boolean(args["dry-run"]), selected: rows.length, refreshed, failed: failures.length, failures };
-  console.log(JSON.stringify(report, null, 2));
+  console.log(boundedSummary(report));
   jobSummary(`${host} facts`, { Selected: rows.length, Refreshed: refreshed, Failed: failures.length, "Allowed failure percentage": 20, "Dry run": Boolean(args["dry-run"]) }, failures);
   return report;
 }

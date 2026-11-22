@@ -1,4 +1,4 @@
-import { Database, FilePenLine, Network } from "lucide-react";
+import { Database, FilePenLine, Network } from "@/app/ui/icons";
 
 /** Shared with the homepage so its count follows the displayed project list. */
 export const labProjects = [

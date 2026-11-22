@@ -1,0 +1,12 @@
+## How do you choose a networking tool?
+
+Name the problem first: an API call, a DNS answer, a slow route, or a service you need to reach.
+
+- **HTTP clients.** Some are for quick requests while you explore. Others run request files you can keep in Git as tests. Pick by which you do more.
+- **DNS tools.** Check the output format and whether it supports DNS over HTTPS, if you need it.
+- **Permissions.** Packet capture and some tracing tools need root.
+- **Platform.** Check the Platform filter. Some network tools only run on Linux and macOS.
+
+## What should you keep in mind?
+
+Only scan or capture traffic on networks you own or have permission to test. A tunnel exposes a local port to the internet, so close it when you're done.

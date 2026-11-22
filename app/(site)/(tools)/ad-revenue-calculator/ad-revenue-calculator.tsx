@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw } from "lucide-react";
+import { RotateCcw } from "@/app/ui/icons";
 import { useEffect, useId, useRef, useState, type FormEvent, type RefObject } from "react";
 import { UiButton, UiQuantityInput, UiShareAction, UiTextField, uiOption } from "@/app/ui/controls";
 import { UiActionRow, UiMetricGroup, UiPrimaryResult, UiStatus, UiStatusWord } from "@/app/ui/display";

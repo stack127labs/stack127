@@ -17,15 +17,6 @@ test("a page change invalidates its document, homepage, and sitemap", () => {
   assert.ok(targets.warmPaths.includes("/sitemap.xml"));
 });
 
-test("hardware directory publication changes invalidate the static index in Next.js and at the edge", () => {
-  for (const slug of ["nut-compatible-ups", "local-security-cameras", "matter-devices", "z-wave-devices", "zigbee-devices"]) {
-    const targets = targetsForEvents([{ entity_type: "page", slug }]);
-    assert.ok(targets.paths.includes(`/api/hardware-directory/${slug}`));
-    assert.ok(targets.edgeTags.includes(`page:api:hardware-directory:${slug}`));
-    assert.ok(targets.verifyPaths.includes(`/api/hardware-directory/${slug}`));
-    assert.ok(!targets.warmPaths.includes(`/api/hardware-directory/${slug}`));
-  }
-});
 
 test("CLI app data and publication changes invalidate the static index and purge its edge cache", () => {
   for (const event of [

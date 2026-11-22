@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw, Share2 } from "lucide-react";
+import { RotateCcw, Share2 } from "@/app/ui/icons";
 import {
   type CSSProperties,
   type KeyboardEvent,

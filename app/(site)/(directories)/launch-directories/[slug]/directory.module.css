@@ -30,7 +30,7 @@
   justify-content: center;
   gap: var(--space-3);
   min-height: var(--control-height-lg);
-  padding: 9px 16px;
+  padding: 5px 12px;
   border-radius: var(--radius);
   font-weight: var(--weight-semibold);
   text-decoration: none;
@@ -62,7 +62,7 @@
 .tiles > div { display: grid; align-content: start; gap: var(--space-2); min-width: 0; padding: var(--space-8) var(--space-9); }
 .tiles > div + div { border-left: 1px solid var(--color-border); }
 .tiles dt { color: var(--color-text-muted); font: var(--text-small) var(--font-mono); }
-.tiles dd { margin: 0; display: flex; align-items: center; gap: var(--space-4); font: var(--weight-semibold) 1.25rem / 1.25 var(--font-mono); overflow-wrap: anywhere; }
+.tiles dd { margin: 0; display: flex; align-items: center; gap: var(--space-4); font: var(--weight-semibold) 1.02rem / 1.25 var(--font-mono); overflow-wrap: anywhere; }
 .tiles dd.tileNote { color: var(--color-text-muted); font: var(--weight-regular) var(--text-small) / 1.4 var(--font-mono); }
 
 .meter { display: inline-flex; gap: 3px; }
@@ -75,7 +75,7 @@
 .tableFrame { min-width: 0; overflow-x: auto; border: 1px solid var(--color-border); border-radius: var(--radius); }
 .table { width: 100%; border-collapse: collapse; font-size: var(--text-small); }
 .table th, .table td { padding: var(--space-6) var(--space-8); border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top; }
-.table thead th { color: var(--color-text-muted); font: var(--weight-regular) 0.78rem var(--font-mono); background: var(--color-surface); }
+.table thead th { color: var(--color-text-muted); font: var(--weight-regular) var(--text-small) var(--font-mono); background: var(--color-surface); }
 .table tbody th { font-weight: var(--weight-semibold); white-space: nowrap; }
 .table tbody tr:last-child > * { border-bottom: 0; }
 
@@ -90,7 +90,7 @@
 }
 
 .ruleLabel { margin: 0; color: var(--color-text-muted); font: var(--text-small) var(--font-mono); }
-.ruleText { margin: 0; font-size: 1.05rem; line-height: 1.45; }
+.ruleText { margin: 0; font-size: 0.86rem; line-height: 1.45; }
 .ruleNote { margin: 0; color: var(--color-text-muted); font-size: var(--text-small); }
 .needs ul { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
 .needs li { display: flex; gap: var(--space-4); align-items: baseline; }
@@ -109,14 +109,14 @@
 
 .steps li { counter-increment: step; display: grid; align-content: start; gap: var(--space-3); padding-top: var(--space-7); border-top: 1px solid var(--color-border-strong); min-width: 0; }
 .steps li::before { content: counter(step, decimal-leading-zero); color: var(--color-text-muted); font: var(--text-small) var(--font-mono); }
-.steps b { font: var(--weight-bold) 1.05rem / 1.25 var(--font-display); }
+.steps b { font: var(--weight-bold) 0.86rem / 1.25 var(--font-display); }
 .steps p { margin: 0; color: var(--color-text-muted); font-size: var(--text-small); overflow-wrap: anywhere; }
 .steps p b { color: var(--color-text); font: inherit; font-weight: var(--weight-semibold); }
 
 /* ---------- Link check ---------- */
 .linkCheck { display: grid; gap: var(--space-3); max-width: var(--measure-prose); }
 .linkCheck p { margin: 0; }
-.linkKind { font: var(--weight-bold) 1.4rem / 1.2 var(--font-mono); }
+.linkKind { font: var(--weight-bold) 1.15rem / 1.2 var(--font-mono); }
 .linkCheck a, .dated a, .fix a, .sideMore a { color: var(--color-link); text-underline-offset: 3px; }
 
 /* ---------- Dated lists ---------- */
@@ -129,7 +129,7 @@
 /* ---------- Sidebar ---------- */
 .sideLabel { margin: 0 0 var(--space-3); color: var(--color-text-muted); font: var(--text-small) var(--font-mono); }
 .sideMore { margin: var(--space-3) 0 0; font: var(--text-small) var(--font-mono); }
-.sideCredit { margin: var(--space-3) 0 0; color: var(--color-text-muted); font: 0.78rem / 1.4 var(--font-mono); }
+.sideCredit { margin: var(--space-3) 0 0; color: var(--color-text-muted); font: var(--text-small) / 1.4 var(--font-mono); }
 
 .fix { margin: var(--space-14) 0 0; padding-top: var(--space-10); border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: var(--text-small); }
 
@@ -140,6 +140,6 @@
   .tiles > div:nth-child(n + 3) { border-top: 1px solid var(--color-border); }
   .tiles > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .tiles > div { padding: var(--space-6) var(--space-7); }
-  .tiles dd { font-size: 1.05rem; }
+  .tiles dd { font-size: 0.86rem; }
   .dated li { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
 }

@@ -4,11 +4,6 @@ import { NextResponse } from "next/server";
 import { cacheAuthorized } from "@/lib/cache-auth";
 import { loadDirectoryAppsBySlugs } from "@/lib/apps";
 import { loadTerminalApps } from "@/lib/terminal-apps";
-import { getHardwareDirectorySnapshot, isHardwareDirectorySlug } from "@/lib/hardware-directories";
-import { hardwareIndexRecord } from "@/lib/hardware-directories/search-index";
-import { getZigbeeDevices, zigbeeCategoryLabels } from "@/lib/zigbee-devices";
-import { zigbeeIndexRecord } from "@/lib/zigbee-devices/search-index";
-import { addAmazonMatches } from "@/lib/amazon-affiliate/server";
 import { loadSelfHostAppsSearch } from "@/lib/self-host-apps-search-data";
 import { parseSelfHostAppsSearchParams } from "@/lib/self-host-apps-search";
 import { loadSelfHostedAppResourcePlannerEntry } from "@/lib/self-hosted-app-resource-planner/data";
@@ -55,17 +50,11 @@ export async function POST(request: Request) {
           if (adNetworkVerification) expected=adNetworkVerification.expected;
           else {
             const slug = path.split("/").at(-1)!;
-            const hardwareDirectory = path.startsWith("/api/hardware-directory/") ? slug : null;
-            const parent = hardwareDirectory ?? (path === "/api/cli-apps/index" ? "cli-apps"
+            const parent = (path === "/api/cli-apps/index" ? "cli-apps"
               : path.startsWith("/api/self-host-apps/") ? "self-host-apps" : "self-hosted-app-resource-planner");
             const visible = (await getPool().query("select is_published from public.stack127_pages where slug=$1", [parent])).rows[0]?.is_published;
             if (!visible) expected = null;
-            else if (hardwareDirectory === "zigbee-devices") {
-              expected = (await addAmazonMatches(hardwareDirectory, getZigbeeDevices()))
-                .map(device => zigbeeIndexRecord(device, zigbeeCategoryLabels));
-            } else if (hardwareDirectory && isHardwareDirectorySlug(hardwareDirectory)) {
-              expected = (await getHardwareDirectorySnapshot(hardwareDirectory)).records.map(hardwareIndexRecord);
-            } else if (path === "/api/cli-apps/index") expected = await loadTerminalApps();
+            else if (path === "/api/cli-apps/index") expected = await loadTerminalApps();
             else if (path === "/api/self-host-apps/search") {
               expected = await loadSelfHostAppsSearch(parseSelfHostAppsSearchParams(new URLSearchParams()));
             } else if (path.startsWith("/api/self-host-apps/")) expected = (await loadDirectoryAppsBySlugs([slug]))[0] ?? null;

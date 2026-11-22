@@ -5,8 +5,8 @@ import styles from "./report.module.css";
 type HeadingLevel = 2 | 3 | 4;
 
 /**
- * A data report (mockup `.stats`): question-led groups split by hairlines, with related blocks side
- * by side. No boxes. Use it for stats sections where each group answers one question people ask.
+ * A data report (mockup `.stats`): question-led groups split by space, with related blocks side
+ * by side. No boxes and no rules. Use it for stats sections where each group answers one question people ask.
  * Hide a block, row, or group that has no data; never fill it with a placeholder.
  */
 export function Report({ ariaLabel, children, title, note, titleId }: {
@@ -43,7 +43,7 @@ export function ReportGroup({ children, level = 3, title }: { children: ReactNod
 }
 
 /**
- * Blocks side by side, split by hairlines, stacked on phones. `1-1` (mockup `.row.r-11`) and `2-1`
+ * Blocks side by side, split by space, stacked on phones. `1-1` (mockup `.row.r-11`) and `2-1`
  * (`.r-21`, first block twice as wide) sit side by side from 1100px. `1-1-1` (`.r-3`) goes to two
  * columns on tablets with the third block full width below. `2-1-1` (`.trio`) puts a wide block
  * first, such as domain age, then two narrow ones; on tablets the wide block takes its own row.
@@ -53,7 +53,10 @@ export function ReportRow({ children, layout = "1-1" }: { children: ReactNode; l
   return <div className={styles.row} data-layout={layout}>{children}</div>;
 }
 
-/** One block (mockup `.blk`): a short mono label, one line saying what it shows, then the chart, bars, or numbers. */
+/**
+ * One block (mockup `.blk`): a label, an optional line saying what it shows, then the chart, bars, or
+ * numbers. An h4 label (the default) is short lowercase mono; an h3 label takes the site's h3 style.
+ */
 export function ReportBlock({ children, description, label, level = 4 }: {
   children: ReactNode;
   description?: ReactNode;
@@ -89,7 +92,7 @@ export function ReportNumbers({ items, variant = "ruled" }: { items: readonly Re
   );
 }
 
-/** One big number with a short note beside it, such as `13 yrs` and `median` (mockup `.head`). */
+/** One big number with a few plain words beside it, such as `13 yrs` and `median` (mockup `.head`). */
 export function ReportFigure({ note, value }: { note?: ReactNode; value: ReactNode }) {
   return (
     <p className={styles.figure}>
@@ -103,7 +106,7 @@ export type ReportBar = {
   label: string;
   value: number;
   /** The number as shown at the end of the row, such as `31%` or `7,852`. */
-  display: string;
+  display: ReactNode;
   href?: string;
   /** Marks the row the page is about, such as this network in a ranking. */
   current?: boolean;

@@ -92,15 +92,13 @@ test("robots rules honor explicit seller-file exceptions and broad bans", () => 
 
 test("scheduled source selection excludes feeds with unresolved robots access", () => {
   assert.equal(sources.filter((source) => source.kind === "sellers-json").length, 39);
-  assert.equal(selectSources().length, 30);
+  assert.equal(selectSources().length, 29);
   assert.throws(() => selectSources(["adapex"]), /paused/);
   assert.throws(() => selectSources(["amazon-publisher-services"]), /paused/);
   assert.equal(selectSources(["concert"])[0].key, "sellers-json:concert");
   assert.equal(selectSources(["google-adsense"])[0].verificationPriority, 95);
   assert.equal(selectSources(["taboola"])[0].transport, "curl-file");
-  assert.deepEqual(selectSources(["teads"]).map((source) => source.key).sort(), [
-    "sellers-json:teads",
-    "sellers-json:teads-outbrain",
-  ]);
+  assert.deepEqual(selectSources(["teads"]).map((source) => source.key), ["sellers-json:teads"]);
+  assert.throws(() => selectSources(["sellers-json:teads-outbrain"]), /paused/);
   assert.equal(selectSources(["ethicalads"])[0].kind, "publisher-list-html");
 });

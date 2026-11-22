@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarDays, Code2, HardDrive, MemoryStick, WalletCards } from "lucide-react";
+import { CalendarDays, Code2, HardDrive, MemoryStick, WalletCards } from "@/app/ui/icons";
 import type { DirectoryApp, DirectoryAppIndex } from "@/lib/apps";
 import type { DirectoryAppCardData } from "@/lib/apps-card";
 import { findDirectoryLicenseId } from "@/lib/software-licenses";
@@ -66,7 +66,7 @@ function formatEstimateRange(minimum: number, maximum: number, resource: "ram" |
     : `${formattedMinimum} to ${formattedMaximum}`;
 }
 
-function formatRamEstimate(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
+export function formatRamEstimate(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
   if ("ram_estimate_min_mb" in app) {
     const minimum = app.ram_estimate_min_mb;
     if (minimum === null) return "estimate unavailable";
@@ -83,7 +83,7 @@ function formatRamEstimate(app: DirectoryApp | DirectoryAppIndex | DirectoryAppC
   );
 }
 
-function formatStorageEstimate(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
+export function formatStorageEstimate(app: DirectoryApp | DirectoryAppIndex | DirectoryAppCardData) {
   if ("storage_estimate_min_gb" in app) {
     const minimum = app.storage_estimate_min_gb;
     if (minimum === null) return "estimate unavailable";
@@ -126,7 +126,7 @@ export function sourceModelLabel(app: Pick<DirectoryApp, "source_model">) {
   return labels[app.source_model];
 }
 
-function priceLabel(app: Pick<DirectoryApp, "pricing_model">) {
+export function priceLabel(app: Pick<DirectoryApp, "pricing_model">) {
   if (app.pricing_model === "free") return "free to self-host";
   if (app.pricing_model === "unknown") return "pricing under review";
   return app.pricing_model.replaceAll("_", " ");
@@ -157,7 +157,7 @@ export function formatDatabaseRequirement(app: DirectoryApp) {
   return app.requires_database ? "yes" : "no";
 }
 
-function maintenanceLabel(app: Pick<DirectoryApp, "maintenance_status">) {
+export function maintenanceLabel(app: Pick<DirectoryApp, "maintenance_status">) {
   if (app.maintenance_status === "unknown") return "not verified";
   return app.maintenance_status.replaceAll("_", " ");
 }

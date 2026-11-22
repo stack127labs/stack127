@@ -16,22 +16,10 @@ test("the cli-apps card icon key is registered", async () => {
   assert.match(icons, /"cli-apps": SquareTerminal/);
 });
 
-test("the site navigation leads to home, where Start here links to cli-apps", async () => {
-  const nav = await read("app/ui/site/site-nav.tsx");
-  const home = await read("app/(site)/(site-pages)/(home)/page.tsx");
-  assert.match(nav, /href="\/"[^>]*>\s*explore/);
-  assert.match(home, /slug: "cli-apps"[^\n]+action: "Browse CLI apps"/);
-  assert.match(home, /href=\{`\/\$\{item.slug\}`\}/);
-  assert.match(home, /Browse CLI apps/);
-});
-
 test("the cli-apps page exposes language and license filters", async () => {
-  const page = await read("app/(site)/(directories)/cli-apps/page.tsx");
   const view = await read("app/(site)/(directories)/cli-apps/cli-app-view.tsx");
   assert.match(view, /name="language"/);
   assert.match(view, /name="license"/);
-  assert.match(page, /languageOptions/);
-  assert.match(page, /licenseOptions/);
 });
 
 test("the directory filter logic supports license filtering", async () => {

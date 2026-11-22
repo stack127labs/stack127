@@ -1,0 +1,111 @@
+/* Homepage tool catalog card: a head row linking to the catalog,
+   then the catalog's first tools as a plain list. */
+.card {
+  align-content: start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-7) var(--space-8);
+  transition: border-color var(--motion-base);
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--color-accent);
+}
+
+.head {
+  align-items: center;
+  border-bottom: 1px dashed var(--color-border);
+  display: flex;
+  gap: var(--space-5);
+  min-width: 0;
+  padding-bottom: var(--space-5);
+  text-decoration: none;
+}
+
+.head[href]:hover,
+.head[href]:focus-visible {
+  text-decoration: none;
+}
+
+.head:focus-visible,
+.tool:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+.icon {
+  color: var(--color-text-muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+  transition: color var(--motion-base);
+}
+
+.card:hover .icon,
+.card:focus-within .icon {
+  color: var(--color-accent-text);
+}
+
+.name {
+  color: var(--color-link);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-heading);
+  margin: 0;
+  min-width: 0;
+  text-transform: lowercase;
+}
+
+.head[href]:hover .name,
+.head[href]:focus-visible .name {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.count {
+  color: var(--color-text-muted);
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tool {
+  color: var(--color-text);
+  display: flex;
+  font-size: var(--text-small);
+  gap: var(--space-5);
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.tool[href]:hover,
+.tool[href]:focus-visible {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.arrow {
+  color: var(--color-text-muted);
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+}
+
+.more {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}

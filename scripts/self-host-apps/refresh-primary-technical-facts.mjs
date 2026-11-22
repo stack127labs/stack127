@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import { writeFile } from "node:fs/promises";
+import { technicalReportOutput } from "./lib/report-output.mjs";
+import { readPrimarySource as fetchText } from "./lib/primary-source.mjs";
 import { parseArgs } from "./lib/args.mjs";
 import { parseComposeFacts } from "./lib/catalog-facts.mjs";
 import { withClient } from "./lib/db.mjs";
@@ -41,46 +42,26 @@ function githubRepository(value) {
   }
 }
 
-async function fetchText(url) {
-  const response = await fetch(url, {
-    headers: { "User-Agent": "stack127-self-host-primary-facts/1.0" },
-    redirect: "follow",
-    signal: AbortSignal.timeout(45_000),
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return { text: (await response.text()).slice(0, 500_000), url: response.url };
-}
-
-function rawGithubUrl(value) {
-  try {
-    const url = new URL(value);
-    const parts = url.pathname.split("/").filter(Boolean);
-    const blobIndex = parts.indexOf("blob");
-    if (url.hostname !== "github.com" || blobIndex !== 2 || parts.length < 5) return value;
-    return `https://raw.githubusercontent.com/${parts[0]}/${parts[1]}/${parts.slice(blobIndex + 1).join("/")}`;
-  } catch {
-    return value;
-  }
-}
-
-async function firstGithubFile(repository, paths) {
+async function firstGithubFile(repository, paths, errors) {
   for (const file of paths) {
     const url = `https://raw.githubusercontent.com/${repository.owner}/${repository.repo}/HEAD/${file}`;
     try {
       const result = await fetchText(url);
       return { ...result, file };
-    } catch {
+    } catch (error) {
+      errors.push({ url, error: error.message });
       // Conventional official paths are checked in order.
     }
   }
   return null;
 }
 
-async function firstOfficialUrl(urls) {
+async function firstOfficialUrl(urls, errors) {
   for (const url of unique(urls)) {
     try {
       return await fetchText(url);
-    } catch {
+    } catch (error) {
+      errors.push({ url, error: error.message });
       // Try the next official URL before reporting an unreviewable row.
     }
   }
@@ -89,6 +70,7 @@ async function firstOfficialUrl(urls) {
 
 async function collect(app) {
   const repository = githubRepository(app.source_code_url);
+  const errors = [];
   let readme = null;
   let compose = null;
   let dockerPage = null;
@@ -96,15 +78,20 @@ async function collect(app) {
   let checkedUrl = app.install_docs_url ?? app.docs_url ?? app.docker_url ?? app.source_code_url ?? app.website_url;
 
   if (repository) {
-    [readme, compose, dockerPage] = await Promise.all([
-      firstGithubFile(repository, readmePaths),
+    [readme, compose] = await Promise.all([
+      firstGithubFile(repository, readmePaths, errors),
       app.compose_url
-        ? fetchText(rawGithubUrl(app.compose_url)).catch(() => firstGithubFile(repository, composePaths))
-        : firstGithubFile(repository, composePaths),
-      app.docker_url && app.docker_url !== app.compose_url
-          ? fetchText(rawGithubUrl(app.docker_url)).catch(() => null)
-          : null,
+        ? fetchText(app.compose_url).catch(() => firstGithubFile(repository, composePaths, errors))
+        : firstGithubFile(repository, composePaths, errors),
     ]);
+    // A readable README/Compose is already primary evidence. Avoid thousands of
+    // redundant registry-page requests that throttle Docker-only apps later.
+    if (!readme && !compose && app.docker_url && app.docker_url !== app.compose_url) {
+      dockerPage = await fetchText(app.docker_url).catch(error => {
+        errors.push({ url: app.docker_url, error: error.message });
+        return null;
+      });
+    }
     if (!readme && !compose && !dockerPage) {
       fallback = await firstOfficialUrl([
         app.install_docs_url,
@@ -112,7 +99,7 @@ async function collect(app) {
         app.docker_url,
         app.website_url,
         app.source_code_url,
-      ]);
+      ], errors);
     }
     checkedUrl = readme?.url ?? compose?.url ?? dockerPage?.url ?? fallback?.url ?? checkedUrl;
   } else {
@@ -123,12 +110,12 @@ async function collect(app) {
       app.compose_url,
       app.website_url,
       app.source_code_url,
-    ]);
+    ], errors);
     readme = fallback;
     checkedUrl = fallback?.url ?? checkedUrl;
   }
 
-  if (!readme && !compose && !dockerPage && !fallback) throw new Error("No official primary source could be read");
+  if (!readme && !compose && !dockerPage && !fallback) throw Object.assign(new Error("No official primary source could be read"), { sources: errors });
   const primaryText = [readme?.text, dockerPage?.text, fallback?.text].filter(Boolean).join("\n");
   const requirements = parsePublishedRequirements(primaryText);
   const readmeContainers = readmeContainerSupport(primaryText);
@@ -199,11 +186,11 @@ async function main() {
     try {
       return { ok: true, ...(await collect(app)) };
     } catch (error) {
-      return { ok: false, app, error: error.message };
+      return { ok: false, app, error: error.message, sources: error.sources ?? [] };
     }
   });
   const passed = collected.filter((record) => record.ok);
-  const failed = collected.filter((record) => !record.ok).map((record) => ({ slug: record.app.slug, error: record.error }));
+  const failed = collected.filter((record) => !record.ok).map((record) => ({ slug: record.app.slug, error: record.error, sources: record.sources }));
 
   const factCounts = {};
   for (const record of passed) {
@@ -227,8 +214,7 @@ async function main() {
       .map((record) => ({ slug: record.app.slug, source_url: record.composeUrl ?? record.checkedUrl, image: record.facts.dockerImage })),
     records: passed.map((record) => ({ slug: record.app.slug, review_status: "pending", checked_url: record.checkedUrl, readme_url: record.readmeUrl, compose_url: record.composeUrl, candidate_facts: record.facts })),
   };
-  if (args.out) await writeFile(args.out, `${JSON.stringify(report, null, 2)}\n`);
-  console.log(JSON.stringify(report, null, 2));
+  technicalReportOutput(report, args.out);
   jobSummary("Technical evidence (review required; no facts written)", { Selected: rows.length, Readable: passed.length, Unreadable: failed.length, "Allowed unreadable percentage": maxFailurePercent }, failed);
   if (failed.length) console.warn(`Unreadable primary sources: ${failed.length}/${rows.length}; see the report and job summary.`);
   if (failed.length && (passed.length === 0 || failed.length / rows.length * 100 > maxFailurePercent)) process.exitCode = 1;

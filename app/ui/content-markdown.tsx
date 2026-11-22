@@ -1,3 +1,4 @@
+import remarkCurrentText from "@/lib/remark-current-text.mjs";
 import type { ReactNode } from "react";
 import ReactMarkdown, { defaultUrlTransform, type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -8,6 +9,7 @@ import type { UiChartSpec } from "./charts/chart-option";
 type MarkdownNode = {
   type: string;
   value?: string;
+  align?: null[];
   data?: { hName?: string; hProperties?: Record<string, string> };
   children?: MarkdownNode[];
 };
@@ -32,13 +34,15 @@ function remarkDefinitionLists() {
           index += 1;
         }
         if (entries.length) {
+          // Terms show as a two-column table, the same as terms in MDX pages.
+          const row = (cells: string[]): MarkdownNode => ({
+            type: "tableRow",
+            children: cells.map((value) => ({ type: "tableCell", children: [{ type: "text", value }] })),
+          });
           children.push({
-            type: "paragraph",
-            data: { hName: "dl" },
-            children: entries.flatMap((entry) => [
-              { type: "paragraph", data: { hName: "dt" }, children: [{ type: "text", value: entry.term }] },
-              { type: "paragraph", data: { hName: "dd" }, children: [{ type: "text", value: entry.description }] },
-            ]),
+            type: "table",
+            align: [null, null],
+            children: [row(["Term", "Meaning"]), ...entries.map((entry) => row([entry.term, entry.description]))],
           });
           continue;
         }
@@ -168,5 +172,5 @@ function transformUrl(url: string) {
 
 /** Only courses render database Markdown. Other page families import MDX content. */
 export function ContentMarkdown({ markdown, components: overrides }: { markdown: string; components?: Components }): ReactNode {
-  return <ReactMarkdown components={overrides ? { ...components, ...overrides } : components} remarkPlugins={[remarkGfm, remarkContentBlocks, remarkDefinitionLists]} urlTransform={transformUrl}>{markdown}</ReactMarkdown>;
+  return <ReactMarkdown components={overrides ? { ...components, ...overrides } : components} remarkPlugins={[[remarkCurrentText, { markdown: true }], remarkGfm, remarkContentBlocks, remarkDefinitionLists]} urlTransform={transformUrl}>{markdown}</ReactMarkdown>;
 }

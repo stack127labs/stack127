@@ -190,3 +190,20 @@ test('sync contention preserves collected checkpoints and retries skip the colle
   assert.equal((await refresh({ ...options, 'sync-only': true }, deps)).skipped, true);
   assert.deepEqual(calls, ['sync']);
 });
+
+
+test('DR job forwards a safe pace and publishes partial checkpoints once after a collector failure', async t => {
+  const state = await mkdtemp(join(tmpdir(), 's127-dr-refresh-'));
+  t.after(()=>rm(state,{recursive:true,force:true}));
+  const options=refreshArgs(['--job','domain-rating','--pace-ms','5000','--state-directory',state,'--apply']);
+  const command=refreshCommand(options);
+  assert.equal(command.script,'domain-rating');
+  const production=refreshCommand({...options,environment:'production'});
+  assert.equal(production.args[production.args.indexOf('--ahrefs-state-file')+1],'/srv/stack127-data/state/ahrefs.sqlite');
+  assert.notEqual(command.args[command.args.indexOf('--ahrefs-state-file')+1],'/srv/stack127-data/state/ahrefs.sqlite');
+  assert.deepEqual(command.args.slice(command.args.indexOf('--pace-ms'),command.args.indexOf('--pace-ms')+2),['--pace-ms','5000']);
+  assert.throws(()=>refreshArgs(['--job','domain-rating','--pace-ms','2999']),/pace-ms/);
+  const calls=[];
+  await assert.rejects(refresh(options,{run:async script=>{calls.push(script);if(script==='domain-rating')throw Error('authentication_failed');},alert:async()=>{}}),/authentication_failed/);
+  assert.deepEqual(calls,['domain-rating','sync','revalidate']);
+});

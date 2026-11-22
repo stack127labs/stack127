@@ -2,7 +2,8 @@
 import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { parseEnv } from "node:util";
-import { setTimeout as sleep } from "node:timers/promises";
+import { ahrefsRequester, ahrefsStateFile } from "../stack127/ahrefs-dr.mjs";
+export { ahrefsRequester, parseDomainRating, retryDelay } from "../stack127/ahrefs-dr.mjs";
 import pg from "pg";
 import { getDomain } from "tldts";
 import { factsArgs } from "./import-facts.mjs";
@@ -64,59 +65,9 @@ export async function latestTranco(wantedDomains, { fetchImplementation = fetch 
   return { list_id: list.list_id, ranks: parseTrancoCsv(await boundedText(response, 40 * 1024 * 1024), wantedDomains) };
 }
 
-export function parseDomainRating(body) {
-  const value = body?.domain_rating?.domain_rating;
-  if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 100) throw new Error("Invalid Ahrefs Domain Rating response");
-  // The existing schema and UI use whole-number DR. Ahrefs returns a float.
-  return Math.round(value);
-}
-
-export function retryDelay(header, attempt, now = Date.now()) {
-  const seconds = header && /^\d+(?:\.\d+)?$/.test(header.trim()) ? Number(header) * 1000 : null;
-  const date = header && seconds === null ? Date.parse(header) - now : null;
-  return Math.max(30000 * 2 ** attempt, seconds ?? (Number.isFinite(date) ? date : 0));
-}
-
-/** One requester per run. All domains and retries share its pacing clock. */
-export function ahrefsRequester({ apiKey, fetchImplementation = fetch, sleepImplementation = sleep,
-  now = Date.now, paceMs = 3000, maxRetries = 2, maxBackoffMs = 60000 } = {}) {
-  if (!apiKey?.trim()) throw new Error("AHREFS_API_KEY is required");
-  let nextRequestAt = 0;
-  let stopped = null;
-  return async domain => {
-    if (stopped) return { stopped };
-    for (let attempt = 0; ; attempt++) {
-      const wait = Math.max(0, nextRequestAt - now());
-      if (wait) await sleepImplementation(wait);
-      const url = new URL("https://api.ahrefs.com/v3/public/domain-rating-free");
-      url.search = new URLSearchParams({ target: domain, version: "dr3", output: "json" });
-      let response;
-      try {
-        response = await fetchImplementation(url, { headers: { Authorization: `Bearer ${apiKey}`, Accept: "application/json" }, signal: AbortSignal.timeout(30000), redirect: "error" });
-      } catch { nextRequestAt = now() + paceMs; return { error: "Ahrefs request failed" }; }
-      nextRequestAt = now() + paceMs;
-      if (response.status === 429) {
-        const delay = retryDelay(response.headers.get("retry-after"), attempt, now());
-        await response.body?.cancel().catch(() => {});
-        if (attempt >= maxRetries || delay > maxBackoffMs) { stopped = "rate_limited"; return { stopped }; }
-        nextRequestAt = now() + Math.max(paceMs, delay);
-        continue;
-      }
-      if (response.status === 401 || response.status === 403) {
-        await response.body?.cancel().catch(() => {});
-        stopped = "authentication_failed";
-        return { stopped };
-      }
-      if (!response.ok) { await response.body?.cancel().catch(() => {}); return { error: `Ahrefs HTTP ${response.status}` }; }
-      try { return { value: parseDomainRating(JSON.parse(await boundedText(response, 64000))) }; }
-      catch { return { error: "Invalid Ahrefs response" }; }
-    }
-  };
-}
-
 const metricKeys = ["domain_rating", "domain_rating_checked_on", "traffic_bucket", "traffic_checked_on"];
 export async function collectMetrics(records, { apiKey, checkedOn = new Date().toISOString().slice(0, 10),
-  loadTranco = latestTranco, requestRating = ahrefsRequester({ apiKey }) } = {}) {
+  loadTranco = latestTranco, stateFile, requestRating = ahrefsRequester({ apiKey, stateFile }) } = {}) {
   const domains = new Map();
   let tranco;
   const failures = [];
@@ -194,7 +145,7 @@ async function main() {
       where is_published order by slug limit $1`, [Number(args.limit ?? 2147483647)])).rows.map(row => row.record);
   } finally { await pool.end(); }
   // No database connection or transaction is held during external lookups.
-  const { patches, ...summary } = await collectMetrics(records, { apiKey });
+  const { patches, ...summary } = await collectMetrics(records, { apiKey, stateFile: ahrefsStateFile(args.environment) });
   let result = { changed: 0, conflicts: [] };
   if (args.apply && patches.length) {
     const writer = new pg.Pool(poolOptions);

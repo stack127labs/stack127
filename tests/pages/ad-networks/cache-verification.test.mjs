@@ -10,7 +10,7 @@ import {refreshApiRecords} from '../../../scripts/stack127/frontend/content-queu
 import {parseAdNetworkSitesParams} from '../../../app/api/ad-networks/input.ts';
 import {adNetworksLibrary} from './loader-harness.mjs';
 
-const {defaultAdNetworkSitesQuery}=adNetworksLibrary(()=>{throw Error('Defaults must not query the database');});
+const {defaultAdNetworkSitesQuery,adNetworkSiteResponse}=adNetworksLibrary(()=>{throw Error('Defaults must not query the database');});
 
 function load(file,imports,globals={}) {
   const exports={};
@@ -21,7 +21,7 @@ function load(file,imports,globals={}) {
     require(name){if(Object.hasOwn(imports,name))return imports[name];throw Error(`Unexpected import: ${name}`);},...globals});
   return exports;
 }
-function sourceProbe({published=true}={}) {
+function sourceProbe({published=true,domainRating=null}={}) {
   const calls=[];
   const api=load('../../../lib/ad-networks-cache-verification.ts',{
     './db':{getPool:()=>({query:async sql=>{
@@ -31,17 +31,16 @@ function sourceProbe({published=true}={}) {
     }})},
     './ad-network-niches':niches,
     './ad-networks':{
-      defaultAdNetworkSitesQuery,
+      defaultAdNetworkSitesQuery,adNetworkSiteResponse,
       loadAdNetworkSites:async query=>{calls.push(['sites',query]);return {rows:[{domain:query.q}],total:1};},
-      loadAdNetworkCheckerSite:async domain=>{calls.push(['site',domain]);return {site:{domain,managed_by:{slug:'mediavine'}}};},
+      loadAdNetworkCheckerSite:async domain=>{calls.push(['site',domain]);return {site:{domain,domain_rating:domainRating,managed_by:{slug:'mediavine'}},similar_sites:[]};},
       getAdNetworkSites:()=>{throw Error('Cached getter used as source');},getAdNetworkCheckerSite:()=>{throw Error('Cached getter used as source');},
     },
   });
   return {...api,calls};
 }
 function refreshRoute({probe,fetch,query=async()=>({rows:[]})}) {
-  const ignored=['apps','terminal-apps','hardware-directories','hardware-directories/search-index','zigbee-devices',
-    'zigbee-devices/search-index','amazon-affiliate/server','self-host-apps-search-data','self-host-apps-search',
+  const ignored=['apps','terminal-apps','self-host-apps-search-data','self-host-apps-search',
     'self-hosted-app-resource-planner/data','platform-fees/groups','launch-directories-data'];
   return load('../../../app/api/cache/refresh/route.ts',{
     ...Object.fromEntries(ignored.map(name=>[`@/lib/${name}`,{}])),
@@ -134,4 +133,14 @@ test('unpublishing either ad-network API source requires a 404 at its representa
     removed=true;const response=await POST(request(path));assert.equal(response.status,200);
     assert.equal((await response.json()).verified[0].status,404);
   }
+});
+
+test('checker verification expects the Ahrefs attribution the public API adds for rated sites',async()=>{
+  const probe=sourceProbe({domainRating:42});
+  const {expected}=await probe.getAdNetworkApiVerification('/api/ad-networks/site');
+  assert.deepEqual(expected.attribution,{text:'Domain Rating by Ahrefs',url:'https://ahrefs.com'});
+  const {attribution,...withoutAttribution}=expected;let body=expected;
+  const {POST}=refreshRoute({probe,fetch:async()=>Response.json(body)});
+  assert.equal((await POST(request('/api/ad-networks/site'))).status,200);
+  body=withoutAttribution;assert.equal((await POST(request('/api/ad-networks/site'))).status,503);
 });

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Plus, Search, X } from "lucide-react";
+import { ArrowRight, Plus, Search, X } from "@/app/ui/icons";
 import Link from "next/link";
 import { createContext, useContext, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { UiCopyAction, UiSwitch } from "@/app/ui/controls";
@@ -9,7 +9,7 @@ import type { LaunchDirectory } from "@/lib/launch-directories";
 import { LaunchCard, LaunchGrid, launchHref, type LaunchCategory } from "../launch-card";
 import { costShort, formatDate, formatPrice, isSubmitReady, linkShort, shortUrl, submitStatusText, trafficLabels, trafficSteps, waitShort } from "../launch-format";
 import { LaunchLogo } from "../launch-logo";
-import { AhrefsCredit } from "../ahrefs-credit";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import styles from "./compare.module.css";
 
 export type CompareRecord = Pick<LaunchDirectory,

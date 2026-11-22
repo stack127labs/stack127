@@ -30,7 +30,7 @@ PR CI can read production before the new columns exist. The fact projection uses
 
    Use the run ID printed for this exact commit, and require the workflow's deployed-image check to pass too. Stop if main advances or the release fails. Confirm both migrations `20261021120000` and `20261021120100` were applied. No local build.
 
-2. **Check production schema access and update the OVH job checkout.** This query is read-only. The existing table-wide app grants cover added columns, and `stack127_backend_access` covers their rows. No new table is added, so rerunning `app-role.sql` is unnecessary.
+2. **Check production schema access and the automatic OVH checkout update.** This query is read-only. The existing table-wide app grants cover added columns, and `stack127_backend_access` covers their rows. No new table is added, so rerunning `app-role.sql` is unnecessary.
 
    ```sh
    node --input-type=module <<'NODE'
@@ -51,10 +51,10 @@ PR CI can read production before the new columns exist. The fact projection uses
      console.log('App role, RLS, new columns, triggers and 155 source records pass');
    } finally {await pool.end();}
    NODE
-   ssh ovh 'cd /srv/stack127 && git pull --ff-only origin main && git rev-parse HEAD && node --input-type=module -e '\''await Promise.all([import("pg"),import("tldts")]); console.log("Dependencies present")'\'''
+   ssh ovh '/bin/bash /srv/stack127-data/checkout/run-job.sh stack127-checkout-update && git -C /srv/stack127 rev-parse HEAD'
    ```
 
-   OVH's checkout must report the same released main SHA. Both dependencies are already production dependencies; no package install is added by this feature. Stop if its checkout is dirty or cannot fast-forward. The Node cache worker now reads the released cache map. Its systemd timer remains as configured.
+   Install the [shared checkout updater](../../scripts/stack127/checkout/README.md#install-after-review-and-merge) first if needed. It runs hourly at minute 25 and installs dependencies only when the lockfile changes or dependencies are missing. Manual runs, including the first install run, must start at UTC minutes 15–28. This leaves the ten-minute timeout and 30-second kill period clear of verification at :40 and the monthly 06:00 launch-directory start. Exit 76 means outside that window or a hold or job is active; wait for the next safe window and retry. Require the same released main SHA. Before the manual OVH work below, set the hold and wait for an active update using that guide. Remove your hold only after the work and public acceptance are complete. A dirty or diverged tree fails without resetting local edits. The cache worker keeps its existing timer and lock.
 
 3. **Publish the 155 child pages and compare through the directory publisher.** Use the reviewed child manifest already in `tmp/page-publishing/launch-directories/manifest.json`. The identical `manifest-final.json` is a second frozen copy. New plans need unused filenames.
 

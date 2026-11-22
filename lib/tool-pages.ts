@@ -1,3 +1,4 @@
+import { resolvePageText } from "./current-text.mjs";
 import { TOOL_PAGES_TAG } from "./cache-tags";
 import { notFound } from "next/navigation";
 import { cache } from "react";
@@ -37,7 +38,7 @@ const toolContentColumns = [
   "stack127_repo_synced_at",
 ].join(",");
 
-export const getPublishedToolPage = cache(async (slug: string) => unstable_cache(async () => {
+const getRawPublishedToolPage = cache(async (slug: string) => unstable_cache(async () => {
   return readPublicData<Stack127ToolPage | null>({
     dataApiRead: async () => {
       const page = await getPublishedPage(slug);
@@ -91,3 +92,5 @@ export const getRequiredToolPage = cache(async (slug: string) => {
   if (!page) notFound();
   return page;
 });
+
+export const getPublishedToolPage = cache(async (slug: string) => resolvePageText(await getRawPublishedToolPage(slug)));

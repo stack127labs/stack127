@@ -310,3 +310,16 @@ test('compact attribution preserves the real weekly chart, and cleanup bounds pr
   progress=await clean();
   assert.equal(Number(progress[0].publishers_scanned),0);assert.equal(Number(progress[1].relationships_scanned),0);
 });
+
+
+test('DR sync preserves zero/date, sends only changed rows, and old snapshots omit DR', async t => {
+  const f=syncFixture(t);
+  await f.run();f.payloads.publishers.length=0;
+  f.db.prepare("update publishers set domain_rating=0,domain_rating_checked_on='2026-11-14' where id=1").run();
+  let result=await f.run();assert.equal(result.publishers_sent,1);
+  assert.equal(f.payloads.publishers[0].domain_rating,0);
+  assert.equal(f.payloads.publishers[0].domain_rating_checked_on,'2026-11-14');
+  result=await f.run();assert.equal(result.publishers_sent,0);
+  assert.ok(!Object.hasOwn(mapSyncPublisher({normalized_domain:'old.example'}),'domain_rating'));
+  assert.ok(!Object.hasOwn(mapSyncPublisher({normalized_domain:'old.example'}),'domain_rating_checked_on'));
+});

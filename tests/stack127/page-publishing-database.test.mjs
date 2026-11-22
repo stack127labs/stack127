@@ -943,3 +943,14 @@ test("prepare rejects invalid directory registry keys without writing pages", as
     assert.equal(db.store.pages.length, 0);
   }
 });
+
+test('app category children require their hub, without a synthetic categories landing page', async () => {
+  for (const directory of ['self-host-apps', 'cli-apps']) {
+    const hub = state(directory, 'directory', true);
+    const child = state(`${directory}/categories/example`, 'directory', true);
+    const db = database([hub]);
+    await executeBatch(db.pool, [create(child)], { apply: true });
+    const missing = database([]);
+    await assert.rejects(executeBatch(missing.pool, [create(child)], { apply: true }), /requires published parent/);
+  }
+});

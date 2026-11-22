@@ -76,7 +76,7 @@ test('newest niche arrivals name the network actually joined while preserving le
   const coverage={listed:125,classified:100,traffic:0,age:0,platform:0,publisher:0,checked:0,manager:0,niches:['food']};
   const pageSizes=[];
   const lib=adNetworksLibrary(async(sql,args)=>{
-    if(sql.includes('limit $4 offset $5'))pageSizes.push(args[3]);
+    if(sql.includes('limit $5 offset $6'))pageSizes.push(args[4]);
     if(sql.includes('arrived_network.name'))return {rows:[{...site,first_confirmed_at:'2026-10-15T12:30:00Z',arrived_network:{slug:'b',name:'Network B'}}]};
     if(sql.includes('count(p.niche)'))return {rows:[coverage]};
     if(sql.includes('as classified'))return {rows:[{listed:125,confirmed:100,classified:100}]};

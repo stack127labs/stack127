@@ -1,0 +1,166 @@
+/* Directory results: the list or cards switch, the bar above results, and the list view.
+   Results sit inside `.directory-results`, which is an inline-size container. */
+
+/* ---------- Results bar ---------- */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.count {
+  margin: 0;
+  color: var(--color-text-muted);
+  font: var(--text-small) / var(--line-ui) var(--font-mono);
+}
+
+.count b { color: var(--color-text); font-weight: var(--weight-semibold); }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+
+/* ---------- View switch ---------- */
+.switch {
+  display: inline-flex;
+  flex: none;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.switch button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 32px;
+  padding: 0 var(--space-6);
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--color-text-muted);
+  font: var(--text-small) / 1 var(--font-mono);
+  cursor: pointer;
+}
+
+.switch button + button { border-left: 1px solid var(--color-border-strong); }
+.switch button:hover { color: var(--color-text); }
+.switch button[aria-pressed="true"] { background: var(--color-surface-2); border-bottom-color: var(--color-accent); color: var(--color-text); cursor: default; }
+.switch button:focus-visible { outline: none; box-shadow: inset var(--focus-ring); }
+
+/* ---------- List ---------- */
+/* Columns that do not fit scroll sideways inside the frame, so every value and action stays reachable. */
+.frame { position: relative; min-width: 0; border: 1px solid var(--color-border); border-radius: var(--radius); overflow-x: auto; overscroll-behavior-x: contain; }
+
+.table { width: 100%; border-collapse: collapse; font-size: var(--text-small); }
+
+.table th,
+.table td {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  font: var(--weight-regular) var(--text-small) / var(--line-ui) var(--font-mono);
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child > * { border-bottom: 0; }
+.table tbody tr:hover > * { background: var(--color-surface-2); }
+.table tbody tr[data-clickable] { cursor: pointer; }
+.table tbody tr[data-selected] > * { background: var(--color-surface-2); }
+.table tbody th { font-weight: var(--weight-regular); width: 100%; min-width: 220px; max-width: 0; }
+.table td { color: var(--color-text); white-space: nowrap; }
+.table td[data-mono] { font-family: var(--font-mono); }
+
+.item { display: flex; align-items: center; gap: var(--space-6); min-width: 0; }
+.copy { display: grid; min-width: 0; }
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  font: var(--weight-bold) var(--text-small) / 1.35 var(--font-display);
+}
+
+.name > a,
+.name > button,
+.name > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.name > span:first-child { cursor: inherit; }
+.table tbody tr:hover .name > a,
+.table tbody tr:hover .name > button,
+.name > a:focus-visible,
+.name > button:focus-visible { color: var(--color-link); }
+.name > a:focus-visible,
+.name > button:focus-visible { outline: none; text-decoration: underline; }
+.name :global(.status-pill) { min-height: 16px; padding: 0 var(--space-2); font-size: 0.69rem; }
+
+.summary {
+  overflow: hidden;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The shared app and place icons, at row size. */
+.icon { display: grid; flex: none; place-items: center; width: 26px; height: 26px; }
+.icon > :global(.directory-card-icon) { width: 26px; height: 26px; padding: 3px; font-size: 0.69rem; }
+
+.unknown { color: var(--color-text-muted); }
+
+/* Category cells: a small icon, then the name. */
+.table td :global(svg) { flex: none; width: 13px; height: 13px; vertical-align: -2px; }
+
+/* Phones and narrow columns: each row stacks. Name and summary on top,
+   then the facts as short "label value" pairs that wrap. */
+@container (max-width: 640px) {
+  .table,
+  .table tbody { display: block; }
+  .table thead { display: none; }
+
+  .table tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-7);
+    padding: var(--space-6) var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .table tbody tr:last-child { border-bottom: 0; }
+  .table tbody tr:hover,
+  .table tbody tr[data-selected] { background: var(--color-surface-2); }
+
+  .table tbody th,
+  .table tbody td { padding: 0; border: 0; }
+  .table tbody tr > *,
+  .table tbody tr:hover > *,
+  .table tbody tr[data-selected] > * { background: transparent; }
+  .table tbody th { flex: 1 0 100%; width: auto; min-width: 0; max-width: none; margin-bottom: var(--space-2); }
+  .table tbody td { display: inline-flex; align-items: center; gap: var(--space-3); min-width: 0; white-space: normal; }
+  .table tbody td::before { content: attr(data-label); color: var(--color-text-muted); font-family: var(--font-mono); }
+  .table tbody td[data-bare]::before { display: none; }
+  .table [data-phone="hide"] { display: none; }
+  .summary { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+}

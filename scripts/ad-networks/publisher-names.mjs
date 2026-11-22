@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { sources } from './sources.mjs';
 import { checkRobots, normalizeDomain, sellerDomainsStream } from './lib.mjs';
-import { safeFetch } from './fetch-policy.mjs';
+import { safeFetch, SELLERS_ACCEPT } from './fetch-policy.mjs';
 import { businessName } from './enrichment-parsers.mjs';
 import { enrichmentArgs,enrichmentDatabase,confirmedSites,progressFile,saveState } from './enrichment-store.mjs';
 const startedAt=new Date().toISOString();
@@ -18,7 +18,7 @@ try {
     if(previous?.value===cohort && !args.refresh){results.push({source:source.key,status:'cached'});continue;}
     let rows=[];
     try {
-      const request=await safeFetch(source.url,{timeoutMs:180000,beforeRequest:async url=>{if(!source.skipRobotsCheck)await checkRobots(url.href);}});
+      const request=await safeFetch(source.url,{headers:{Accept:SELLERS_ACCEPT},timeoutMs:180000,beforeRequest:async url=>{if(!source.skipRobotsCheck)await checkRobots(url.href);}});
       if(!request.response.ok){await request.response.body?.cancel();throw new Error(`HTTP ${request.response.status}`);}
       // Stream even the large Google feed. Retain business names only for confirmed domains.
       for await(const row of sellerDomainsStream(request.response.body,seller=>{

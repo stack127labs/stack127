@@ -58,11 +58,11 @@ Catalog routes live under `app/(site)/(catalogs)/`.
 - Catalog titles and cards live in `stack127_catalog_pages`. Each catalog's intro and article live in `content/<slug>/` under the shared catalog route. See [page-content.md](page-content.md). `display_order` controls catalog ordering. Public dates come from the registry. See [tool-catalogs.md](tool-catalogs.md).
 - Link to the canonical flat route for every included page.
 - When several pages share navigation and active states, the catalog owns them.
-- Don't put third-party software, hardware records, courses, or stable fact tables here.
+- Don't put third-party software, courses, or stable fact tables here.
 
 ## Directories
 
-Directories help someone find, compare, or look up things: third-party software and hardware, platforms, and stable facts such as codes, licenses, TLDs, and keyboard shortcuts. The self-host apps, CLI apps, TLD directory, and EPP status codes all belong here. There is no separate reference family.
+Directories help someone find, compare, or look up things: third-party software, platforms, and stable facts such as codes, licenses, TLDs, and keyboard shortcuts. The self-host apps, CLI apps, TLD directory, and EPP status codes all belong here. There is no separate reference family.
 
 A directory page's introduction and sections live in `content/*.mdx` beside its route. Its title and card text live in `stack127_directory_pages`, the same way a tool's live in `stack127_tool_pages`. See [directory-pages.md](directory-pages.md). Published, indexable child pages, such as `/ad-networks/<slug>`, get their own row.
 
@@ -73,7 +73,6 @@ Directory records live in one of two places. Decide which in the directory's bri
 | Small, edited by hand, rarely change | Code, next to the route or in `lib/` |
 | Large, or updated by a script | A database table for that directory |
 
-The hardware and smart home directories, such as cameras, coordinators, UPS models, and smart home devices, are also directories. They're still published but get no new work. See [product-direction.md](product-direction.md).
 
 Directory routes live under `app/(site)/(directories)/`. Shared directory controls live in `app/ui/directories/`.
 

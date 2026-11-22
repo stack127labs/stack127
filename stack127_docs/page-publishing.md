@@ -322,3 +322,48 @@ These commands each write one kind of database field:
 | `node scripts/stack127/directory-pages/update-fields.mjs` | A directory's title, search metadata, and card fields |
 
 Use them in development and for a small fix to one live page. Use the publisher for a new page, a page going public, and any change that touches several tables at once. Page content changes go through a code release instead.
+
+## App category publication
+
+For `self-host-apps` and `cli-apps`, create missing development drafts with the shared category sync. It only inserts eligible categories with at least 15 apps and reports missing MDX intros. It never overwrites copy or publication. Run once per directory:
+
+```bash
+node --experimental-strip-types scripts/stack127/app-categories/sync-pages.mjs --directory self-host-apps --environment development --apply
+```
+
+Replace the starting intro in `app/(site)/(directories)/self-host-apps/categories/[category]/content/<category>/intro.mdx` (or the equivalent `cli-apps` path). Save reviewed fields with:
+
+```bash
+node scripts/stack127/directory-pages/update-fields.mjs --environment development \
+  --slug self-host-apps/categories/ai-ml \
+  --title '<mark>Reviewed title</mark>' --meta-title 'Reviewed search title' \
+  --meta-description 'Reviewed search description' \
+  --card-name 'Reviewed category name' --card-description 'Reviewed card description' --apply
+```
+
+Prepare a manifest from development. `--indexable false` is required for unreviewed preview copy; use `true` only after copy review. The command includes all eligible categories, or one with `--category <slug>`. It takes titles and search fields from development, includes each intro as a required asset, and checks the target database has at least 15 apps per page.
+
+```bash
+node --experimental-strip-types scripts/stack127/app-categories/prepare-manifest.mjs \
+  --directory self-host-apps --indexable false --out tmp/page-publishing/app-categories/self-preview.json
+npm run stack127:directories:publish -- prepare --environment development \
+  --manifest tmp/page-publishing/app-categories/self-preview.json --out tmp/page-publishing/app-categories/self-plan-dev.json
+npm run stack127:directories:publish -- preview --environment development --plan tmp/page-publishing/app-categories/self-plan-dev.json
+npm run stack127:directories:publish -- apply --environment development --plan tmp/page-publishing/app-categories/self-plan-dev.json --site http://127.0.0.1:3333
+```
+
+Repeat with `--directory cli-apps` and different manifest and plan filenames. The development server and cache watcher must use the same port as `--site`. To publish reviewed copy as indexable in development, generate a new manifest with `--indexable true`, then prepare, preview, and apply a new plan.
+
+After the code and migration are released, the coordinator prepares the production batch from the exact released checkout. Use a reviewed indexable manifest and new output filenames:
+
+```bash
+node --experimental-strip-types scripts/stack127/app-categories/prepare-manifest.mjs \
+  --directory self-host-apps --indexable true --out tmp/page-publishing/app-categories/self-reviewed.json
+npm run stack127:directories:publish -- prepare --environment production \
+  --manifest tmp/page-publishing/app-categories/self-reviewed.json --out tmp/page-publishing/app-categories/self-plan-prod.json
+npm run stack127:directories:publish -- preview --environment production --plan tmp/page-publishing/app-categories/self-plan-prod.json
+npm run stack127:directories:publish -- dispatch --environment production \
+  --plan tmp/page-publishing/app-categories/self-plan-prod.json --confirm stack127-production --release-sha <full-origin-main-SHA>
+```
+
+Repeat for CLI categories. Check canonical, sitemap inclusion, breadcrumbs, complete server rows, and both hubs after publication. The production readiness check stops if a category lacks 15 published apps. An unpublished category must return 404. Never create a synthetic `/categories` registry page.

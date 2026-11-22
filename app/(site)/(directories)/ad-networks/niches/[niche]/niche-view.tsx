@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { MDXContent } from "mdx/types";
-import { Shapes } from "lucide-react";
+import { Shapes } from "@/app/ui/icons";
 import type { Breadcrumb } from "@/lib/breadcrumbs";
 import type { AdNetworkNichePageData } from "@/lib/ad-networks-types";
 import { DirectoryPageTitle } from "@/app/ui/directories/directory-page-content";
@@ -97,8 +97,9 @@ export function NicheView({ breadcrumbs, data, Intro, title, updatedAt }: {
       </EntryHero>
       <PageCanvas className={styles.sections} flow>
         <SitesTable
-          columns={["networks", "traffic", "age", "platform", "checked"]}
+          columns={["networks", "traffic", "dr", "age", "platform", "checked"]}
           defaultSort={sites.effectiveSort}
+          drFilter
           heading={`Which ${noun} run ads?`}
           headingId="sites"
           initial={sites}
@@ -106,7 +107,7 @@ export function NicheView({ breadcrumbs, data, Intro, title, updatedAt }: {
           noun={noun}
           route={`/ad-networks/niches/${niche.slug}`}
           scope={{ niche: niche.slug }}
-          sorts={["traffic", "oldest", "newest", "domain"]}
+          sorts={["traffic", "highest-dr", "lowest-dr", "oldest", "newest", "domain"]}
         />
 
         {niche.networks.length ? (

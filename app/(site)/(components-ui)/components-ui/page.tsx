@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { LayoutGrid } from "lucide-react";
+import { LayoutGrid } from "@/app/ui/icons";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { PageTitleIcon } from "@/app/ui/site/page-title-icon";

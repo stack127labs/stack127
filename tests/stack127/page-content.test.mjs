@@ -29,18 +29,16 @@ test('converts all callout tones, optional titles, and nested Markdown', () => {
   valid(nested);
 });
 
-test('converts definition lists into Terms and Term components', () => {
-  const result = convertMarkdown('Churn\n: Customers who leave.\n\nGross margin\n: Revenue less costs.');
-  assert.match(result, /^<Terms>/);
-  assert.equal((result.match(/<Terms>/g) ?? []).length, 1);
-  assert.match(result, /<Term name="Churn">\n\nCustomers who leave\./);
-  assert.match(result, /<Term name="Gross margin">\n\nRevenue less costs\./);
+test('converts definition lists into one two-column table', () => {
+  const result = convertMarkdown('Churn\n: Customers who leave.\n\nGross margin\n: Revenue less costs\n  over time.');
+  assert.equal(result, '| Term | Meaning |\n| --- | --- |\n| Churn | Customers who leave. |\n| Gross margin | Revenue less costs over time. |\n');
   valid(result);
+  assert.throws(() => convertMarkdown('Term\n: One\n: Two'), /manual MDX conversion/);
 });
 
 test('preserves escaped text in terms and converts nested callouts without breaking lists or quotes', () => {
-  const terms = convertMarkdown('Term\n: A \\*literal\\* and {value}.');
-  assert.ok(terms.includes('A \\*literal\\* and &#123;value&#125;.'));
+  const terms = convertMarkdown('A \\*b\\* | c\n: A \\*literal\\* and {value} | \\| pipe.');
+  assert.ok(terms.includes('| A \\*b\\* \\| c | A \\*literal\\* and &#123;value&#125; \\| \\| pipe. |'));
   valid(terms);
   const quote = convertMarkdown('> Quote\n>\n> > [!NOTE] Nested\n> > Body');
   assert.match(quote, /> <Note title="Nested">/);

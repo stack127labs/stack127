@@ -1,4 +1,4 @@
-import { CalendarDays, Tag } from "lucide-react";
+import { CalendarDays, Tag } from "@/app/ui/icons";
 import { FaGithub } from "react-icons/fa6";
 import styles from "./page-meta.module.css";
 

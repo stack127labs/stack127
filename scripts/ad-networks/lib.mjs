@@ -4,6 +4,7 @@ import { domainToASCII } from "node:url";
 import { createInterface } from "node:readline";
 import { Readable } from "node:stream";
 import { assertPublicUrl, readLimitedText, safeFetch } from "./fetch-policy.mjs";
+import { isStorageError } from './storage-errors.mjs';
 
 const userAgent = "stack127bot/1.0 (+https://stack127.com/ad-networks)";
 dns.setDefaultResultOrder("ipv4first");
@@ -258,7 +259,7 @@ export async function fetchWithRetry(url, options = {}) {
         signal: AbortSignal.timeout(options.timeoutMs ?? 45_000),
       });
     } catch (error) {
-      if (attempt === 2) throw new Error(`${url}: ${error.cause?.code ?? error.message}`, { cause: error });
+      if (isStorageError(error) || attempt === 2) throw new Error(`${url}: ${error.cause?.code ?? error.message}`, { cause: error });
       await sleep(1000 * (2 ** attempt));
       continue;
     }
@@ -275,7 +276,7 @@ export async function fetchWithRetry(url, options = {}) {
 export async function checkRobots(url, dependencies = {}) {
   const target = await assertPublicUrl(url, dependencies.lookup);
   const robotsUrl = `${target.origin}/robots.txt`;
-  const { response } = await safeFetch(robotsUrl, { timeoutMs: 20_000, headers: { Accept: "text/plain" } }, dependencies);
+  const { response } = await safeFetch(robotsUrl, { timeoutMs: 20_000, failOnStorageError: true, headers: { Accept: "text/plain" } }, dependencies);
   if (response.status === 404) { await response.body?.cancel(); return; }
   if (!response.ok) {
     await response.body?.cancel();

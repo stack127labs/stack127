@@ -131,3 +131,19 @@ test("parent layouts using page mode do not leak JSON-LD into child HTML", async
   assert.ok(rendered.props.children[0]);
   assert.equal(rendered.props.children[1], children);
 });
+
+
+test("category depth skips the non-page categories segment in visible and structured breadcrumbs", async () => {
+  for (const directory of ["self-host-apps", "cli-apps"]) {
+    const hub = page(directory, "directory", "Apps");
+    const child = page(`${directory}/categories/example`, "directory", "Example");
+    pages.set(hub.slug, hub); pages.set(child.slug, child);
+    const crumbs = breadcrumbs();
+    assert.deepEqual(plain(await crumbs.getBreadcrumbs(child.slug)).map(crumb => crumb.href), ["/", `/${directory}`, `/${child.slug}`]);
+    const { getRegistryPageStructuredData } = registry(crumbs);
+    const data = await getRegistryPageStructuredData({ kind: "exact", index: true, page: child });
+    const trail = data.find(item => item["@type"] === "BreadcrumbList");
+    assert.deepEqual(plain(trail.itemListElement).map(item => item.name), ["stack127", "Apps", "Example"]);
+    pages.delete(hub.slug); pages.delete(child.slug);
+  }
+});

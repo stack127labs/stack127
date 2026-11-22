@@ -15,29 +15,30 @@
   margin: var(--space-3) 0 0;
 }
 
-/* Groups split by one hairline. The first group under no header has no rule. */
+/* Groups split by space alone, no rules. The first group under no header starts flush. */
 .group {
-  border-top: 1px solid var(--color-border);
   display: grid;
-  gap: 34px;
-  margin-top: var(--space-13);
+  gap: var(--space-12);
+  margin-top: calc(var(--space-14) * 2);
   min-width: 0;
-  padding-top: 34px;
 }
 
 .report > .group:first-child {
-  border-top: 0;
   margin-top: 0;
-  padding-top: 0;
 }
 
+/* A group title uses the site's own heading size for its level, never a size of its own. */
 .groupTitle {
-  font: var(--weight-bold) 1.35rem / 1.25 var(--font-display);
-  letter-spacing: -0.015em;
+  font: var(--weight-bold) var(--text-h3) / var(--line-heading) var(--font-display);
+  letter-spacing: var(--tracking-display);
   margin: 0;
 }
 
-/* Rows: related blocks side by side, split by a vertical hairline. */
+h2.groupTitle {
+  font-size: var(--text-h2);
+}
+
+/* Rows: related blocks side by side, split by space. */
 .row {
   display: grid;
   gap: 34px;
@@ -61,7 +62,6 @@
   }
 
   .row > .block:not(:first-child) {
-    border-left: 1px solid var(--color-border);
     padding-left: var(--space-12);
   }
 
@@ -86,7 +86,6 @@
   }
 
   .row[data-layout="2-1-1"] > .block:nth-child(3) {
-    border-left: 1px solid var(--color-border);
     padding-left: var(--space-12);
   }
 }
@@ -102,14 +101,12 @@
   }
 
   .row[data-layout="2-1-1"] > .block:nth-child(2) {
-    border-left: 1px solid var(--color-border);
     padding-left: var(--space-12);
   }
 }
 
 /* A row left with one block takes the full width. */
 .row > .block:only-child {
-  border-left: 0 !important;
   grid-column: 1 / -1;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -126,7 +123,6 @@
   }
 
   .row[data-layout="1-1-1"] > .block:nth-child(2) {
-    border-left: 1px solid var(--color-border);
     padding-left: var(--space-12);
   }
 
@@ -147,6 +143,14 @@
   font: var(--weight-semibold) var(--text-small) var(--font-mono);
   margin: 0;
   text-transform: lowercase;
+}
+
+/* An h3 label is a real section heading: it takes the site's own h3 style. */
+h3.label {
+  color: var(--color-text);
+  font: var(--weight-bold) var(--text-h3) / var(--line-heading) var(--font-display);
+  letter-spacing: var(--tracking-display);
+  text-transform: none;
 }
 
 .description {
@@ -176,7 +180,7 @@
 }
 
 .numbers dd {
-  font: var(--weight-semibold) 2rem / 1 var(--font-mono);
+  font: var(--weight-semibold) 1.64rem / 1 var(--font-mono);
   letter-spacing: -0.03em;
   margin: 0;
 }
@@ -230,7 +234,7 @@
   }
 
   .numbers dd {
-    font-size: 1.45rem;
+    font-size: 1.19rem;
   }
 }
 
@@ -243,11 +247,11 @@
 }
 
 .figureValue {
-  font: var(--weight-semibold) 2rem / 1 var(--font-mono);
+  font: var(--weight-semibold) 1.64rem / 1 var(--font-mono);
   letter-spacing: -0.03em;
 }
 
 .figureNote {
-  color: var(--color-text-muted);
-  font: var(--text-small) var(--font-mono);
+  color: var(--color-text);
+  font: var(--text-body) var(--font-sans);
 }

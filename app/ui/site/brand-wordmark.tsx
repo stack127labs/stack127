@@ -15,19 +15,19 @@ export function BrandWordmark({ className }: BrandWordmarkProps) {
         className={`${styles.image} ${styles.onDark}`}
         decoding="async"
         fetchPriority="high"
-        height="282"
+        height="790"
         loading="eager"
-        src="/logos/stack127-wordmark-on-dark.png"
-        width="1451"
+        src="/logos/stack127-wordmark-on-dark.svg"
+        width="3438"
       />
       <img
         alt=""
         className={`${styles.image} ${styles.onLight}`}
         decoding="async"
-        height="282"
+        height="790"
         loading="lazy"
-        src="/logos/stack127-wordmark-on-light.png"
-        width="1451"
+        src="/logos/stack127-wordmark-on-light.svg"
+        width="3438"
       />
     </span>
   );

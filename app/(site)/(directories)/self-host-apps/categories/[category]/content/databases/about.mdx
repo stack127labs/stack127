@@ -1,0 +1,11 @@
+## How do you choose a database or backend?
+
+Usually the app you're building or running decides. Most apps only work with one or two databases, such as Postgres or MySQL. When you do have a choice, match the type to your data: relational, key-value, document, graph, or search.
+
+- **License.** Some database projects have changed to source-available licenses over the years. Check the Source model filter, especially if you plan to offer the database as a service.
+- **RAM.** Databases use spare memory for caching and get faster with more. Treat the RAM estimate as a minimum.
+- **Backend platforms** bundle a database with logins, file storage, and APIs. They save setup, but they run several services at once.
+
+## What should you plan for when you run one?
+
+Backups are most of the job. Use the database's own dump or snapshot tool instead of copying files while it runs, and test a restore. Keep its port off the public internet, and let apps connect over a private network.

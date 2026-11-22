@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Circle } from "lucide-react";
+import { ArrowRight, Check, Circle } from "@/app/ui/icons";
 import type { ReactNode, Ref } from "react";
 import { UiHint } from "./controls";
 import { TableFrame } from "./table-frame";

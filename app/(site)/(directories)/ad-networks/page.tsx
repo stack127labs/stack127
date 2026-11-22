@@ -1,10 +1,11 @@
-import Link from "next/link";
-import { Network } from "lucide-react";
+import { currentText } from "@/lib/current-text.mjs";
+import { Network } from "@/app/ui/icons";
 import { getBreadcrumbs } from "@/lib/breadcrumbs";
 import { getRequiredDirectoryPage } from "@/lib/directory-pages";
-import { getAdNetworkDirectoryData } from "@/lib/ad-networks";
+import { getAdNetworkDirectoryCardFacts, getAdNetworkDirectoryData } from "@/lib/ad-networks";
 import { getExactPublishedPage } from "@/lib/page-registry";
 import { RegistryStructuredData } from "@/lib/registry-layout";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import { NetworkCard } from "@/app/ui/ad-networks/network-card";
 import { networkLogo } from "@/app/ui/ad-networks/network-logo-src";
 import { checkerHref } from "@/app/ui/ad-networks/site-format";
@@ -16,7 +17,7 @@ import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { PageHeader } from "@/app/ui/site/page-header";
 import { PageMeta } from "@/app/ui/site/page-meta";
 import Article from "./content/article.mdx";
-import { Figure, adNetworksSectionNav, joinLabel } from "./ad-networks-shared";
+import { Figure, adNetworksSectionNav } from "./ad-networks-shared";
 import { DirectoryView, HeroSearch, NetworkBrowser, type DirectoryNiche } from "./directory-browser";
 import styles from "./directory.module.css";
 
@@ -25,8 +26,9 @@ const exampleDomain = "collegefashion.net";
 
 export default async function AdNetworksPage() {
   const directoryPage = await getRequiredDirectoryPage("ad-networks");
-  const [data, breadcrumbs] = await Promise.all([
+  const [data, cardFacts, breadcrumbs] = await Promise.all([
     getAdNetworkDirectoryData(),
+    getAdNetworkDirectoryCardFacts(),
     getBreadcrumbs("ad-networks"),
   ]);
 
@@ -44,12 +46,12 @@ export default async function AdNetworksPage() {
   const networks = data.most_sites.map(({ name, slug }) => ({ name, slug }));
   const cards = Object.fromEntries(data.most_sites.map((network) => [network.slug, (
     <NetworkCard
-      confirmed={network.verified_count}
+      averageDr={cardFacts[network.slug]?.average_dr}
       href={`/ad-networks/${network.slug}`}
-      join={joinLabel(network.slug).value}
       logo={networkLogo(network.slug)}
       name={network.name}
       sites={network.listed_count}
+      topNiches={cardFacts[network.slug]?.top_niches}
     />
   )]));
   const easiest = data.easiest_to_join.map((network) => network.slug);
@@ -71,11 +73,13 @@ export default async function AdNetworksPage() {
               <h1><DirectoryTitleIcon fallback={<Network strokeWidth={2.2} />} iconKey={directoryPage.card_icon_key} /> <DirectoryPageTitle title={directoryPage.title} /></h1>
               <PageMeta updatedAt={directoryPage.updated_at} />
               <p>
-                A directory of <Figure>{data.networks_tracked}</Figure> ad networks for publishers, from Ezoic and Mediavine to Google AdSense. See what each one takes to join and how many sites run it.
-                {/* data-gate: the sync fills the listed and confirmed counts. */}
-                {data.listed ? <> We list <Figure>{data.listed}</Figure> sites, and <Figure live>{data.confirmed}</Figure> {data.confirmed === 1 ? "is" : "are"} confirmed live from their own ads.txt files or ad code.</> : null}
+                Trying to pick an ad network for your site?{" "}
+                {/* data-gate: the sync fills the listed count. */}
+                {data.listed
+                  ? <>We found ads on <Figure>{data.listed}</Figure> websites so far, and here are the top <Figure>{data.networks_tracked}</Figure> ad networks in {currentText("[year]")}.</>
+                  : <>Here are the top <Figure>{data.networks_tracked}</Figure> ad networks in {currentText("[year]")}.</>}
+                {" "}You can open each network to find the list of all the sites it works with, its rules to join, and stats and insights that will help you make a better judgement.
               </p>
-              <p>Use the <Link href="/ad-network-requirements-checker">free ad network requirements checker</Link> to see which published joining rules your numbers meet.</p>
               <HeroSearch
                 examples={examples}
                 networks={networks}
@@ -92,6 +96,7 @@ export default async function AdNetworksPage() {
                 ? "Networks with no traffic minimum first, then the lowest minimums. Networks that don't publish one come last."
                 : "The lowest traffic minimums first. Networks that don't publish one come last."}
               networks={networks}
+              credit={Object.values(cardFacts).some((facts) => facts.average_dr !== null) ? <AhrefsCredit /> : null}
               niches={niches}
               sorts={data.availableSorts}
             />

@@ -14,6 +14,7 @@ Discovery writes staging evidence only. Official app sources and the enrichment 
 1. Read `content_docs/self-host-apps/data-workflow.md` and `schema.md`.
 2. Run the relevant `self-host-apps:discover-*` command with `--write`.
    Use `self-host-apps:discover-app-catalogs` for the official TrueNAS and Umbrel catalogs; these sources include commercial and closed-source apps that open-source lists omit.
+   Scheduled discovery runs on OVH through `scripts/self-host-apps/ovh/run-job.sh`; see its `README.md` for schedules, catch-up, credentials, logs and dated reports.
 3. Confirm the command report and candidate count. Run history is kept in the job log, not a database import-run table.
 4. Dry-run, then apply dedupe:
    `npm run self-host-apps:dedupe-candidates -- --dry-run`

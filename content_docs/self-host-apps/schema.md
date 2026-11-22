@@ -25,7 +25,7 @@ Categories come from `self_host_app_categories` through `self_host_app_category_
 - `github_projects`: shared mutable GitHub facts. `self_host_apps.github_project_id` links an app when it has a GitHub repository.
 - `self_host_app_candidates`: the durable discovery and review queue. Candidate rows are never public.
 
-Discovery and refresh logs live in GitHub Actions or VPS job logs. The old import-run, raw-source, field-source, and curated-override tables are removed by the streamline migration.
+Discovery and refresh logs live in OVH job logs. The old import-run, raw-source, field-source, and curated-override tables are removed by the streamline migration.
 
 ## Self-hosting classification
 
@@ -66,3 +66,5 @@ Exact canonical source-code and homepage matches can be deduped automatically. N
 ## Rendering
 
 There are no per-app routes. The server loads the compact filter index in bounded batches, then fetches complete records only for the 30 apps on the current results page. This keeps the cards server-rendered without making one large database read or transferring every detail field for thousands of apps on each request.
+
+Scheduled discovery and refresh run on OVH. See [the cron runner guide](../../scripts/self-host-apps/ovh/README.md) for schedules, catch-up, credentials, logs, reports, and installation.

@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutGrid, List, Search } from "lucide-react";
+import { Search } from "@/app/ui/icons";
 import Link from "next/link";
 import { useEffect, useRef, type ReactNode } from "react";
 import { DirectoryFilterController } from "@/app/ui/directories/directory-filter-controller";
@@ -13,15 +13,25 @@ import {
 import { pageParamHref, paramString, paramValues, removeParamHref, type DirectoryParams } from "@/app/ui/directories/directory-params";
 import { useDirectoryQuery } from "@/app/ui/directories/directory-query";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";
+import {
+  DirectoryList,
+  DirectoryListUnknown,
+  DirectoryViewInput,
+  DirectoryViewSwitch,
+  directoryView,
+  directoryViewRoute,
+  type DirectoryListColumn,
+} from "@/app/ui/directories/directory-view";
+import { CategoryIcon } from "@/app/ui/site/category-icon";
 import { Pagination } from "@/app/ui/pagination";
 import { sidebarPanelClassName, sidebarPanelHeadingClassName } from "@/app/ui/site/sidebar-panel";
 import { StatePanel } from "@/app/ui/state-panel";
 import type { LaunchDirectory } from "@/lib/launch-directories";
 import { queryLaunchDirectories } from "@/lib/launch-directories-query";
 import { LaunchCard, LaunchGrid, launchHref, type LaunchCategory } from "./launch-card";
-import { costShort, isSubmitReady, linkShort, submitStatusText, waitShort } from "./launch-format";
+import { cardDescription, costShort, isSubmitReady, linkShort, submitStatusText, waitShort } from "./launch-format";
 import { LaunchLogo } from "./launch-logo";
-import { AhrefsCredit } from "./ahrefs-credit";
+import { AhrefsCredit } from "@/app/ui/ahrefs-credit";
 import { backlinkOptions, costOptions, drOptions, linkOptions, quickPicks, sortOptions, submissionOptions } from "./launch-directory-options";
 import styles from "./launch-directories.module.css";
 
@@ -39,22 +49,10 @@ function activePick(params: DirectoryParams) {
 
 function pickHref(params: DirectoryParams, pick: (typeof quickPicks)[number]) {
   const next = new URLSearchParams(pick.params.map(([key, value]) => [key, value]));
-  for (const key of ["sort", "view"]) {
-    const value = paramString(params, key);
-    if (value) next.set(key, value);
-  }
+  const sort = paramString(params, "sort");
+  if (sort) next.set("sort", sort);
+  if (directoryView(params) === "cards") next.set("view", "cards");
   return `${route}?${next}`;
-}
-
-function hrefWith(params: DirectoryParams, key: string, value: string | null) {
-  const next = new URLSearchParams();
-  for (const [paramKey, paramValue] of Object.entries(params)) {
-    if (paramKey === key || paramKey === "page") continue;
-    for (const current of Array.isArray(paramValue) ? paramValue : paramValue ? [paramValue] : []) next.append(paramKey, current);
-  }
-  if (value) next.set(key, value);
-  const query = next.toString();
-  return query ? `${route}?${query}` : route;
 }
 
 export function LaunchDirectoryFilters({ categoryOptions, costOptions, drAvailable, heading, linkOptions, pickCounts }: {
@@ -68,7 +66,7 @@ export function LaunchDirectoryFilters({ categoryOptions, costOptions, drAvailab
 }) {
   const { formKey, params } = useDirectoryQuery();
   const current = activePick(params);
-  const view = paramString(params, "view");
+  const view = directoryView(params);
   return <form action={route} className={sidebarPanelClassName} data-default-sort="recommended" data-live-filter-form id={formId} key={formKey}>
     <div className={sidebarPanelHeadingClassName}>{heading}</div>
     <nav aria-label="Quick picks" className={styles.picks}>
@@ -96,8 +94,8 @@ export function LaunchDirectoryFilters({ categoryOptions, costOptions, drAvailab
     {drAvailable ? <DirectoryRadioGroup name="dr" options={drOptions} selected={paramString(params, "dr")} title="Domain rating" /> : null}
     <DirectoryRadioGroup name="submission" options={submissionOptions} selected={paramString(params, "submission")} title="Submit page" />
     <DirectoryRadioGroup name="backlink" options={backlinkOptions} selected={paramString(params, "backlink")} title="Free-plan backlink" />
-    {view === "table" ? <input name="view" type="hidden" value="table" /> : null}
-    <div className="filter-actions"><Link href={view === "table" ? `${route}?view=table` : route}>clear filters</Link></div>
+    <DirectoryViewInput view={view} />
+    <div className="filter-actions"><Link href={directoryViewRoute(route, view)}>clear filters</Link></div>
     <DirectoryFilterController />
   </form>;
 }
@@ -121,21 +119,20 @@ function ActiveFilters({ categoryMap, params }: { categoryMap: Record<string, La
     }
   }
   if (chips.length === 0) return null;
-  const view = paramString(params, "view");
+  const view = directoryView(params);
 
   return <div aria-label="Active filters" className="active-filter-row" role="group">
     {chips.map((chip) => <Link aria-label={`Remove ${chip.label}`} href={chip.href} key={chip.label} prefetch={false}>
       {chip.label}
       <span aria-hidden="true">×</span>
     </Link>)}
-    <Link className="clear-filters" href={view === "table" ? `${route}?view=table` : route} prefetch={false}>clear all</Link>
+    <Link className="clear-filters" href={directoryViewRoute(route, view)} prefetch={false}>clear all</Link>
   </div>;
 }
 
-/** Sort and the cards or table switch. Sort writes into the sidebar form through its `form` id. */
-function Toolbar({ count, credit, params, sort }: { count: ReactNode; credit: boolean; params: DirectoryParams; sort: string }) {
+/** Sort and the list or cards switch. Sort writes into the sidebar form through its `form` id. */
+function Toolbar({ count, credit, sort }: { count: ReactNode; credit: boolean; sort: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const view = paramString(params, "view") === "table" ? "table" : "cards";
 
   // The filter controller closes its own selects; this one sits outside the form.
   useEffect(() => {
@@ -169,43 +166,54 @@ function Toolbar({ count, credit, params, sort }: { count: ReactNode; credit: bo
     </div>
     <div className={styles.toolbarControls}>
       <SortDropdown form={formId} name="sort" options={sortOptions} value={sort} />
-      <div aria-label="View" className={styles.viewToggle} role="group">
-        <Link aria-current={view === "cards" ? "true" : undefined} href={hrefWith(params, "view", null)} prefetch={false}>
-          <LayoutGrid aria-hidden="true" size={15} strokeWidth={2.2} />Cards
-        </Link>
-        <Link aria-current={view === "table" ? "true" : undefined} href={hrefWith(params, "view", "table")} prefetch={false}>
-          <List aria-hidden="true" size={15} strokeWidth={2.2} />Table
-        </Link>
-      </div>
+      <DirectoryViewSwitch route={route} />
     </div>
   </div>;
 }
 
 function Cell({ value }: { value: string | null }) {
-  return value ? <>{value}</> : <span className={styles.unknown}>Not stated</span>;
+  return value ? <>{value}</> : <DirectoryListUnknown>not stated</DirectoryListUnknown>;
 }
 
-function ResultsTable({ categoryMap, directories, paged }: { categoryMap: Record<string, LaunchCategory>; directories: LaunchDirectory[]; paged: Set<string> }) {
-  return <div className={styles.tableFrame}>
-    <table className={styles.table}>
-      <thead><tr><th scope="col">Place</th><th scope="col">Category</th><th scope="col">Cost</th><th scope="col">Link</th><th scope="col">Review</th><th scope="col"><AhrefsCredit /></th><th scope="col"><span className={styles.srOnly}>Submit</span></th></tr></thead>
-      <tbody>
-        {directories.map((directory) => <tr key={directory.slug}>
-          <th scope="row">{paged.has(directory.slug)
-            ? <Link href={launchHref(directory.slug)} prefetch={false}><LaunchLogo iconUrl={directory.icon_url} name={directory.name} size="row" />{directory.name}</Link>
-            : <span className={styles.tableName}><LaunchLogo iconUrl={directory.icon_url} name={directory.name} size="row" />{directory.name}</span>}</th>
-          <td>{categoryMap[directory.categories[0] ?? ""]?.label ?? ""}</td>
-          <td className={styles.mono}><Cell value={costShort(directory)} /></td>
-          <td className={styles.mono}><Cell value={linkShort(directory)} /></td>
-          <td className={styles.mono}><Cell value={waitShort(directory)} /></td>
-          <td className={styles.mono}>{directory.domain_rating ?? "—"}</td>
-          <td className={styles.mono}>{isSubmitReady(directory)
-            ? <a className={styles.cardSubmit} href={directory.submit_url ?? undefined} rel="noopener noreferrer" target="_blank">Submit<span className={styles.srOnly}> to {directory.name}</span></a>
-            : <span className={styles.unknown}>{submitStatusText(directory)}</span>}</td>
-        </tr>)}
-      </tbody>
-    </table>
-  </div>;
+const listColumns: DirectoryListColumn[] = [
+  { label: "category" },
+  { label: "cost", mono: true },
+  { label: "link", mono: true },
+  { label: "review", mono: true, hideOnPhone: true },
+  { label: "dr", header: <AhrefsCredit />, mono: true },
+  { label: "submit", bare: true, mono: true },
+];
+
+function ResultsList({ categoryMap, directories, paged }: { categoryMap: Record<string, LaunchCategory>; directories: LaunchDirectory[]; paged: Set<string> }) {
+  return <DirectoryList
+    columns={listColumns}
+    firstLabel="place"
+    label="Launch directories"
+    rows={directories.map((directory) => {
+      const category = categoryMap[directory.categories[0] ?? ""];
+      const extra = directory.categories.length - 1;
+      return {
+        key: directory.slug,
+        icon: <LaunchLogo iconUrl={directory.icon_url} name={directory.name} size="row" />,
+        name: paged.has(directory.slug)
+          ? <Link href={launchHref(directory.slug)} prefetch={false}>{directory.name}</Link>
+          : <span>{directory.name}</span>,
+        summary: cardDescription(directory),
+        cells: [
+          category
+            ? <><CategoryIcon iconKey={category.iconKey} />{" "}{category.label.toLowerCase()}{extra > 0 ? <DirectoryListUnknown> +{extra}</DirectoryListUnknown> : null}</>
+            : <DirectoryListUnknown>not stated</DirectoryListUnknown>,
+          <Cell key="cost" value={costShort(directory)} />,
+          <Cell key="link" value={linkShort(directory)} />,
+          <Cell key="review" value={waitShort(directory)} />,
+          directory.domain_rating ?? <DirectoryListUnknown>—</DirectoryListUnknown>,
+          isSubmitReady(directory)
+            ? <a className={styles.cardSubmit} href={directory.submit_url ?? undefined} rel="noopener noreferrer" target="_blank">submit<span className={styles.srOnly}> to {directory.name}</span></a>
+            : <DirectoryListUnknown>{submitStatusText(directory)}</DirectoryListUnknown>,
+        ],
+      };
+    })}
+  />;
 }
 
 function countText(start: number, end: number, total: number, filtered: boolean) {
@@ -242,15 +250,15 @@ export function LaunchDirectoryResults({ categories, directories, pagedSlugs }: 
     page: paramString(params, "page") || 1,
   }, categoryLabels);
   const filtered = result.total !== directories.length;
-  const view = paramString(params, "view") === "table" ? "table" : "cards";
-  const clearHref = view === "table" ? `${route}?view=table` : route;
+  const view = directoryView(params);
+  const clearHref = directoryViewRoute(route, view);
 
   return <div className={styles.results} id="places">
-    <Toolbar count={countText(result.start, result.end, result.total, filtered)} credit={result.items.some((directory) => directory.domain_rating !== null)} key={formKey} params={params} sort={sort} />
+    <Toolbar count={countText(result.start, result.end, result.total, filtered)} credit={result.items.some((directory) => directory.domain_rating !== null)} key={formKey} sort={sort} />
     <ActiveFilters categoryMap={categoryMap} params={params} />
     {result.items.length > 0 ? <>
-      {view === "table"
-        ? <ResultsTable categoryMap={categoryMap} directories={result.items} paged={paged} />
+      {view === "list"
+        ? <ResultsList categoryMap={categoryMap} directories={result.items} paged={paged} />
         : <LaunchGrid>
           {result.items.map((directory, index) => <LaunchCard
             category={categoryMap[directory.categories[0] ?? ""]}

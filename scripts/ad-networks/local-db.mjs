@@ -216,6 +216,8 @@ export function openLocalDatabase(path = defaultLocalDatabasePath, options = {})
   for (const name of ['niche','publisher_name','platform','domain_created_on','traffic_group','ads_txt_summary','favicon']) {
     if (!columns.has(name)) database.exec(`alter table publishers add column ${name} text`);
   }
+  if (!columns.has('domain_rating')) database.exec('alter table publishers add column domain_rating integer check(domain_rating is null or (domain_rating between 0 and 100 and typeof(domain_rating)=\'integer\'))');
+  if (!columns.has('domain_rating_checked_on')) database.exec('alter table publishers add column domain_rating_checked_on text');
   database.exec(`create table if not exists enrichment_state (
     publisher_id integer not null references publishers(id), kind text not null,
     status text not null, checked_at text not null, retry_at text, data text not null default '{}',

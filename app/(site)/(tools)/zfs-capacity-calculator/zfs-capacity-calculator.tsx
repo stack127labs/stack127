@@ -8,7 +8,7 @@ import {
   RotateCcw,
   Share2,
   Trash2,
-} from "lucide-react";
+} from "@/app/ui/icons";
 import { useEffect, useRef, useState } from "react";
 import { UiButton, UiCheckbox, UiChoiceGroup, UiCopyAction, UiDisclosure, UiNumberField, UiQuantityInput, UiSelect } from "@/app/ui/controls";
 import { UiAllocationBar, UiCodeOutput, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";

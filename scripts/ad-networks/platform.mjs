@@ -31,7 +31,8 @@ try {
     const links=selectedLinks(p.id),key=cohort(links);
     let page,reason;
     try {page=await fetchHomepage(p.normalized_domain);} catch(error){reason=error.message;}
-    const facts=page ? homepageFacts(page.html,page.finalUrl):null;
+    const facts=page?.outcome === "fetched" ? homepageFacts(page.html,page.finalUrl):null;
+    reason ??= page?.reason;
     let fetched,parsed;
     if(links.length) {
       // Unconditional fresh body: a 304 without retained parsed rows cannot establish this rule.

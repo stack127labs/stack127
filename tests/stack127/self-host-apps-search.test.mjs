@@ -82,6 +82,16 @@ test("sidebar counts use the complete index and preserve the existing option sha
   ]);
 });
 
+test("a category scope limits sidebar options to that category's apps", () => {
+  const backup = [{ slug: "backup", name: "Backups", icon_key: null }];
+  const apps = [app("one"), app("two", { categories: backup, license: "GPL-3.0", license_spdx_id: "GPL-3.0", install_methods: ["native"] })];
+  const scoped = selfHostAppsFacets(apps, ["backup"]);
+  assert.deepEqual(scoped.licenses.map(option => [option.value, option.count]), [["gpl-3-0", 1]]);
+  assert.deepEqual(scoped.installMethods.map(option => option.value), ["native"]);
+  assert.deepEqual(selfHostAppsFacets(apps, []), selfHostAppsFacets(apps));
+  assert.deepEqual(slugs(select(apps, params("category=backup&q=photo"))), ["two"]);
+});
+
 async function loadWithImports(path, imports, globals = {}) {
   const { readFileSync } = await import("node:fs");
   const { default: ts } = await import("typescript");
@@ -107,12 +117,13 @@ test("the search API caches successful results and never caches bad input, unpub
   let published = true;
   let fail = false;
   let calls = 0;
+  let complete = true;
   const body = { ...select([app("one")], params("")), detailApps: [app("one")], facets: selfHostAppsFacets([app("one")]) };
   const { GET } = await loadWithImports("../../app/api/self-host-apps/search/route.ts", {
     "next/server": nextServer,
     "@/lib/self-host-apps-search": searchModule,
     "@/lib/page-registry": { getPublishedPage: async () => published ? {} : null },
-    "@/lib/self-host-apps-search-data": { getSelfHostAppsSearch: async () => { calls++; if (fail) throw new Error("database unavailable"); return body; } },
+    "@/lib/self-host-apps-search-data": { getSelfHostAppsSearchForApi: async () => { calls++; if (fail) throw new Error("database unavailable"); return { response: body, complete }; } },
   });
   const request = query => new Request(`https://stack127.com/api/self-host-apps/search${query}`);
   const ok = await GET(request("?sort=name"));
@@ -121,22 +132,28 @@ test("the search API caches successful results and never caches bad input, unpub
   assert.ok(ok.headers.get("Cache-Tag").includes("page:api:self-host-apps:search"));
   assert.ok(ok.headers.get("Cache-Tag").includes("self-host-catalog"));
   assert.deepEqual(await ok.json(), body);
+  complete = false;
+  const partial = await GET(request("?sort=name"));
+  assert.equal(partial.status, 200);
+  assert.equal(partial.headers.get("Cache-Control"), "no-store");
+  assert.equal(partial.headers.get("Cache-Tag"), null);
+  complete = true;
   const invalid = await GET(request("?page=-1"));
   assert.equal(invalid.status, 400);
   assert.equal(invalid.headers.get("Cache-Control"), "no-store");
-  assert.equal(calls, 1);
+  assert.equal(calls, 2);
   published = false;
   const hidden = await GET(request(""));
   assert.equal(hidden.status, 404);
   assert.equal(hidden.headers.get("Cache-Control"), "no-store");
-  assert.equal(calls, 1);
+  assert.equal(calls, 2);
   published = true; fail = true;
   const unavailable = await GET(request(""));
   assert.equal(unavailable.status, 503);
   assert.equal(unavailable.headers.get("Cache-Control"), "no-store");
 });
 
-test("search cards and details stay in the same order, and missing details fail instead of returning an incomplete result", async () => {
+test("search cards and details stay in the same order; a missing detail fails for pages and is left out for the API", async () => {
   const searchModule = await import("../../lib/self-host-apps-search.ts");
   let details = [app("z"), app("a")];
   const loaders = {
@@ -154,6 +171,14 @@ test("search cards and details stay in the same order, and missing details fail 
   assert.equal((await data.loadSelfHostAppsSearch(params(""))).apps[0].slug, "fresh");
   details = [app("a")];
   await assert.rejects(data.getSelfHostAppsSearch(params("")), /Missing search detail/);
+  const partial = await data.getSelfHostAppsSearchForApi(params("sort=name"));
+  assert.equal(partial.complete, false);
+  assert.deepEqual(partial.response.apps.map(app => app.slug), ["a"]);
+  assert.deepEqual(Array.from(partial.response.detailApps, app => app.slug), ["a"]);
+  details = [];
+  await assert.rejects(data.getSelfHostAppsSearchForApi(params("")), /Missing search details for every app/);
+  details = [app("z"), app("a")];
+  assert.equal((await data.getSelfHostAppsSearchForApi(params(""))).complete, true);
 });
 
 test("origin verification checks search against the source and rejects a stale response before the edge purge", async () => {
@@ -168,11 +193,6 @@ test("origin verification checks search against the source and rejects a stale r
     "@/lib/cache-auth": { cacheAuthorized: async () => true },
     "@/lib/apps": { loadDirectoryAppsBySlugs: async () => { throw new Error("Search cannot be treated as an app slug"); } },
     "@/lib/terminal-apps": {},
-    "@/lib/hardware-directories": {},
-    "@/lib/hardware-directories/search-index": {},
-    "@/lib/zigbee-devices": {},
-    "@/lib/zigbee-devices/search-index": {},
-    "@/lib/amazon-affiliate/server": {},
     "@/lib/self-host-apps-search-data": { loadSelfHostAppsSearch: async () => expected },
     "@/lib/self-host-apps-search": searchModule,
     "@/lib/self-hosted-app-resource-planner/data": {},
@@ -196,11 +216,9 @@ test("origin verification checks search against the source and rejects a stale r
   assert.equal((await removed.json()).verified[0].status, 404);
 });
 
-test("origin verification rejects stale CLI and hardware indexes and verifies unpublished 404s", async () => {
+test("origin verification rejects stale CLI indexes and verifies unpublished 404s", async () => {
   for (const [path, parent] of [
     ["/api/cli-apps/index", "cli-apps"],
-    ["/api/hardware-directory/matter-devices", "matter-devices"],
-    ["/api/hardware-directory/zigbee-devices", "zigbee-devices"],
   ]) {
     const expected = [{ slug: "fresh" }];
     let served = expected;
@@ -213,14 +231,6 @@ test("origin verification rejects stale CLI and hardware indexes and verifies un
       "@/lib/cache-auth": { cacheAuthorized: async () => true },
       "@/lib/apps": {},
       "@/lib/terminal-apps": { loadTerminalApps: async () => expected },
-      "@/lib/hardware-directories": {
-        isHardwareDirectorySlug: slug => slug === "matter-devices",
-        getHardwareDirectorySnapshot: async () => ({ records: expected }),
-      },
-      "@/lib/hardware-directories/search-index": { hardwareIndexRecord: record => record },
-      "@/lib/zigbee-devices": { getZigbeeDevices: () => expected, zigbeeCategoryLabels: new Map() },
-      "@/lib/zigbee-devices/search-index": { zigbeeIndexRecord: record => record },
-      "@/lib/amazon-affiliate/server": { addAmazonMatches: async (_directory, records) => records },
       "@/lib/self-host-apps-search-data": {},
       "@/lib/self-host-apps-search": {},
       "@/lib/self-hosted-app-resource-planner/data": {},
@@ -262,9 +272,7 @@ test("deleted directory detail sources accept only 404s even when their registry
       "@/scripts/stack127/cache/verify-origin-indexing.mjs": {inspectOriginIndexing:()=>{}},
       "@/scripts/stack127/cache/refresh.mjs": {},
       "@/lib/cache-auth": { cacheAuthorized: async () => true },
-      "@/lib/apps": {}, "@/lib/terminal-apps": {}, "@/lib/hardware-directories": {},
-      "@/lib/hardware-directories/search-index": {}, "@/lib/zigbee-devices": {},
-      "@/lib/zigbee-devices/search-index": {}, "@/lib/amazon-affiliate/server": {},
+      "@/lib/apps": {}, "@/lib/terminal-apps": {},
       "@/lib/self-host-apps-search-data": {}, "@/lib/self-host-apps-search": {},
       "@/lib/self-hosted-app-resource-planner/data": {},
       "@/lib/page-source": { sitePageAvailable: () => true },

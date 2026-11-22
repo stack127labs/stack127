@@ -1,13 +1,11 @@
 import { readFile, writeFile } from "node:fs/promises";
 
+import { request } from "./request.mjs";
+
 export async function readSource({ file, url }) {
   if (file) return readFile(file, "utf8");
   if (url) {
-    const response = await fetch(url, {
-      headers: { "User-Agent": "stack127-self-host-apps" },
-    });
-    if (!response.ok) throw new Error(`Source fetch failed ${response.status}: ${url}`);
-    return response.text();
+    return request(url, { headers: { "User-Agent": "stack127-self-host-apps" } });
   }
   throw new Error("Pass --file or --url.");
 }

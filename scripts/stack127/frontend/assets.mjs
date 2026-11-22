@@ -67,5 +67,5 @@ export function routeParameters(template, pages, staticRoutes = new Set()) {
 export function staticHeaders(sha) {
   if (!/^[a-f0-9]{40}$/.test(sha)) throw new Error("Static hosting requires an exact release SHA.");
   // Stable paths revalidate. Only content-addressed Next files are immutable.
-  return `/*\n  X-Stack127-Frontend-SHA: ${sha}\n  X-Content-Type-Options: nosniff\n/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n/*.txt\n  X-Robots-Tag: noindex\n/404\n  Cache-Control: no-store\n  X-Robots-Tag: noindex\n/frontend-release.json\n  X-Robots-Tag: noindex\nhttps://:subdomain.workers.dev/*\n  X-Robots-Tag: noindex\nhttps://:version.:subdomain.workers.dev/*\n  X-Robots-Tag: noindex\n`;
+  return `/*\n  X-Stack127-Frontend-SHA: ${sha}\n  X-Content-Type-Options: nosniff\n/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n/*.txt\n  X-Robots-Tag: noindex\n/404\n  Cache-Control: no-store\n  X-Robots-Tag: noindex\n/frontend-release.json\n  X-Robots-Tag: noindex\n/search-index.json\n  X-Robots-Tag: noindex\n/site-menus.json\n  X-Robots-Tag: noindex\nhttps://:subdomain.workers.dev/*\n  X-Robots-Tag: noindex\nhttps://:version.:subdomain.workers.dev/*\n  X-Robots-Tag: noindex\n`;
 }

@@ -1,4 +1,4 @@
-import { HandCoins } from "lucide-react";
+import { HandCoins } from "@/app/ui/icons";
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { PageCanvas } from "@/app/ui/site/page-canvas";

@@ -21,6 +21,11 @@ function escapeText(value) {
     .replace(/^(import|export)(?=\s)/gm, word => `&#${word.charCodeAt(0)};${word.slice(1)}`);
 }
 
+// A table cell is one line, and an unescaped pipe would end it.
+function tableCell(value) {
+  return value.replace(/[ \t]*\n[ \t]*/g, ' ').replace(/\\[\s\S]|\|/g, match => match === '|' ? '\\|' : match);
+}
+
 function linkLabel(value) {
   return value.replace(/[\\`*_~[\]{}<&|]/g, character => `&#${character.charCodeAt(0)};`);
 }
@@ -131,12 +136,19 @@ export function convertMarkdown(markdown, { source = 'Markdown', lineOffset = 0 
         if (entries.length) {
           const start = node.children[first];
           const end = node.children[index - 1];
-          const items = entries.map(entry => {
-            const description = raw(entry.node).replace(/^[^\n]+\n[ \t]*:\s+/, '');
-            return `<Term name="${attribute(entry.term)}">\n\n${nested(description, entry.node, 1)}\n\n</Term>`;
+          // Terms become a two-column table. Rename the headers to fit the page.
+          const rows = entries.map(entry => {
+            const [term, ...rest] = raw(entry.node).split('\n');
+            const description = rest.join('\n').replace(/^[ \t]*:\s+/, '');
+            const meaning = nested(description, entry.node, 1).trim();
+            // A table cell holds one paragraph; more would show as raw Markdown.
+            if (/\n[ \t]*\n/.test(meaning) || /^[ \t]*(?:\||[-*+][ \t]|>|#{1,6}[ \t]|\d+[.)][ \t]|```|~~~|<[A-Z])/m.test(meaning)) {
+              fail(source, entry.node, 'A term meaning with more than one paragraph or block needs a manual MDX conversion', lineOffset);
+            }
+            return `| ${tableCell(escapeText(term.trim()))} | ${tableCell(meaning)} |`;
           });
           edits.push({ start: start.position.start.offset, end: end.position.end.offset,
-            value: indent(`<Terms>\n\n${items.join('\n\n')}\n\n</Terms>`, start) });
+            value: indent(['| Term | Meaning |', '| --- | --- |', ...rows].join('\n'), start) });
           index--;
         } else visit(node.children[index]);
       }

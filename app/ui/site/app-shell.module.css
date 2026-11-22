@@ -168,6 +168,13 @@
   white-space: normal;
 }
 
+/* A person's name keeps its own capitals inside the lowercase footer. */
+.footerTop .footerName {
+  text-decoration: underline;
+  text-transform: none;
+  text-underline-offset: 3px;
+}
+
 .footerTop a:hover,
 .footerTop button:hover {
   color: var(--color-text);

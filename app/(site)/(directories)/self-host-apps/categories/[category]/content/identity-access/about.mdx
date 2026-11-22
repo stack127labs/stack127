@@ -1,0 +1,12 @@
+## How do you choose a login or SSO server?
+
+List the apps you want behind one login, then check:
+
+- **Protocols.** Most apps support OIDC. Some only support SAML or LDAP. Make sure the server speaks what your apps need.
+- **Proxy login.** Apps with no login of their own can sit behind forward auth, where your reverse proxy asks the login server first. Check it works with your proxy.
+- **Two-factor.** Check for passkeys and authenticator app codes.
+- **Resources.** Some login servers are small, single-file apps. Others need a database and a cache beside them. Compare with the RAM filter and the Needs database signal.
+
+## What should you plan for when you run one?
+
+This becomes the front door to everything else. If it goes down, so do your logins, so keep a way back in, such as a local admin account. Back up its database and keys, and update it quickly when security fixes come out.

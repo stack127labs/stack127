@@ -8,11 +8,11 @@
 }
 
 .art svg {
-  width: 130px;
+  width: 92px;
 }
 
 @media (min-width: 1100px) {
   .inner {
-    margin-inline-end: calc(130px + var(--space-7));
+    margin-inline-end: calc(92px + var(--space-7));
   }
 }

@@ -3,7 +3,7 @@ import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { CalendarClock } from "lucide-react";
+import { CalendarClock } from "@/app/ui/icons";
 import { DomainAgeFromUrl } from "./domain-age-from-url";
 import styles from "./domain-age-content.module.css";
 import Article from "./content/article.mdx";

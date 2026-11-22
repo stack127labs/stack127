@@ -1,9 +1,13 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import { collectAllowedDevOrigins } from "./lib/allowed-dev-origins";
 import { legacyShortcutRedirects } from "./lib/legacy-shortcut-redirects";
 
 const nextConfig: NextConfig = {
+  // Keep normal development request logs, except the canonical private APIs.
+  // Next tests these expressions against the raw request URL.
+  logging: { incomingRequests: { ignore: [/^\/api\/(?:mcp|v1)(?:[/?]|$)/] } },
   allowedDevOrigins: collectAllowedDevOrigins(),
   distDir: process.env.STACK127_TEST_DIST_DIR ?? ".next",
   images: {
@@ -27,14 +31,6 @@ const nextConfig: NextConfig = {
   },
   output: process.env.STACK127_BUILD_TARGET === "frontend" ? "export" : "standalone",
   experimental: { staleTimes: { dynamic: 0, static: process.env.STACK127_BUILD_TARGET === "frontend" ? 300 : 30 } },
-  outputFileTracingIncludes: {
-    "/api/hardware-directory/[directory]/[record]": ["./lib/hardware-directories/data/*.json"],
-    "/local-security-cameras": ["./lib/hardware-directories/data/local-security-cameras.json"],
-    "/matter-devices": ["./lib/hardware-directories/data/matter-devices.json"],
-    "/nut-compatible-ups": ["./lib/hardware-directories/data/nut-compatible-ups.json"],
-    "/z-wave-devices": ["./lib/hardware-directories/data/z-wave-devices.json"],
-    "/zigbee-coordinators": ["./lib/hardware-directories/data/zigbee-coordinators.json"],
-  },
   async headers() {
     if (process.env.STACK127_BUILD_TARGET === "frontend") return [];
     const assets = ["/app-icons/:path*", "/logos/:path*", "/favicon.ico", "/favicon-:size.png", "/apple-touch-icon.png", "/android-chrome-:size.png"];
@@ -78,7 +74,7 @@ const nextConfig: NextConfig = {
 };
 
 const withMDX = createMDX({
-  options: { remarkPlugins: ["remark-gfm"] },
+  options: { remarkPlugins: ["remark-gfm", path.resolve("lib/remark-current-text.mjs")] },
 });
 
 export default withMDX(nextConfig);

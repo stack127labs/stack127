@@ -1,0 +1,12 @@
+## How do you choose a monitoring app?
+
+Decide what you need to know: whether a site is up, how a server is doing, or what went wrong in the logs.
+
+- **Uptime checks** should run somewhere other than the servers they watch. Otherwise they go down together and nobody tells you.
+- **Alerts.** Check that it can reach you where you'll see it, such as email, chat, or push notifications.
+- **Metrics and logs** grow fast. Check how long it keeps data, and use the Storage filter.
+- **Agents.** Many tools need a small agent on each server. Check it supports your systems.
+
+## What should you plan for when you run one?
+
+A metrics setup is often several apps together, such as a collector, a database, and a dashboard, so add up their RAM. A public status page faces the internet, so keep the admin side private.

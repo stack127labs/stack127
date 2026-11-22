@@ -1,3 +1,4 @@
+import { request } from "./request.mjs";
 import { execFileSync } from "node:child_process";
 
 const githubApiBase = "https://api.github.com";
@@ -14,6 +15,7 @@ function githubToken() {
     cachedToken = execFileSync("gh", ["auth", "token"], {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
+      timeout: 10_000,
     }).trim();
   } catch {
     cachedToken = "";
@@ -50,9 +52,7 @@ export async function githubJson(pathName, searchParams) {
   const token = githubToken();
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const response = await fetch(url, { headers });
-  if (!response.ok) throw new Error(`GitHub ${response.status}: ${url}`);
-  return response.json();
+  return request(url, { headers, redirectOrigin: githubApiBase }, response => response.json());
 }
 
 export async function searchTopic(topic, { limit = 30 } = {}) {

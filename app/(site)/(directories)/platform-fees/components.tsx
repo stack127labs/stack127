@@ -9,7 +9,7 @@ import {
   Monitor, Watch, Gamepad2, Headset, Puzzle, Cloud, Database, Download,
   Palette, Type, LayoutTemplate, Code, Box, Camera, Video, Music, BookOpen,
   GraduationCap, Calendar, Users, Heart, Mail, Mic, Coffee, Briefcase, Shirt,
-} from 'lucide-react';
+} from "@/app/ui/icons";
 import { AppShell, SidebarLabel } from '@/app/ui/site/app-shell';
 import { PageCanvas } from '@/app/ui/site/page-canvas';
 import { proseClassName, proseFlowClassName } from '@/app/ui/site/prose';

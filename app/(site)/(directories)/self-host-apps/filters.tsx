@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Search } from "@/app/ui/icons";
 import type { CSSProperties, ReactNode } from "react";
 import {
   DirectoryCheckboxGroup as CheckboxGroup,
@@ -13,13 +13,13 @@ import { DirectoryFilterController } from "@/app/ui/directories/directory-filter
 import { paramString, paramValues, removeParamHref } from "@/app/ui/directories/directory-params";
 import { useDirectoryQuery } from "@/app/ui/directories/directory-query";
 import { SortDropdown } from "@/app/ui/directories/directory-sort-dropdown";
+import { DirectoryViewInput, directoryView, directoryViewRoute, withDirectoryView } from "@/app/ui/directories/directory-view";
 import { sidebarPanelClassName } from "@/app/ui/site/sidebar-panel";
 import {
   defaultSort,
   dockerOptions,
   maintenanceOptions,
   ramOptions,
-  route,
   signalOptions,
   sortOptions,
   sourceOptions,
@@ -107,9 +107,9 @@ function StorageSlider({
 // The sidebar form. The filter controller turns each change into a URL update,
 // and the search provider loads the matching apps.
 export function SelfHostAppFilters({ heading }: { heading: ReactNode }) {
-  const { formKey } = useDirectoryQuery();
-  const { params, results } = useSelfHostAppsSearch();
-  const { facets } = results;
+  const { formKey, params: urlParams } = useDirectoryQuery();
+  const { category, facets, params, route } = useSelfHostAppsSearch();
+  const view = directoryView(urlParams);
 
   return (
     <form
@@ -136,12 +136,14 @@ export function SelfHostAppFilters({ heading }: { heading: ReactNode }) {
 
       <SortDropdown name="sort" options={sortOptions} value={paramString(params, "sort") || defaultSort} />
 
-      <TagSelectGroup
-        name="category"
-        options={facets.categories}
-        selected={paramValues(params, "category")}
-        title="Category"
-      />
+      {category ? null : (
+        <TagSelectGroup
+          name="category"
+          options={facets.categories}
+          selected={paramValues(params, "category")}
+          title="Category"
+        />
+      )}
       <TagSelectGroup
         name="license"
         options={facets.licenses}
@@ -175,7 +177,7 @@ export function SelfHostAppFilters({ heading }: { heading: ReactNode }) {
         title="RAM"
       />
       <StorageSlider
-        clearHref={removeParamHref(route, params, "storage")}
+        clearHref={removeParamHref(route, withDirectoryView(params, view), "storage")}
         options={storageOptions}
         selected={paramString(params, "storage")}
       />
@@ -192,8 +194,9 @@ export function SelfHostAppFilters({ heading }: { heading: ReactNode }) {
         title="Signals"
       />
 
+      <DirectoryViewInput view={view} />
       <div className="filter-actions">
-        <Link href={route}>reset</Link>
+        <Link href={directoryViewRoute(route, view)}>reset</Link>
       </div>
       <DirectoryFilterController />
     </form>
@@ -213,7 +216,9 @@ const filterLabels: Array<[key: string, label: string]> = [
 ];
 
 export function ActiveFilters() {
-  const { params, results: { facets } } = useSelfHostAppsSearch();
+  const { facets, params: searchParams, route } = useSelfHostAppsSearch();
+  const view = directoryView(useDirectoryQuery().params);
+  const params = withDirectoryView(searchParams, view);
   const optionLabels = (options: FilterOption[]) => new Map(options.map((option) => [option.value, option.label]));
   const valueLabels = new Map([
     ["category", optionLabels(facets.categories)],
@@ -252,7 +257,7 @@ export function ActiveFilters() {
           <span>×</span>
         </Link>
       ))}
-      <Link className="clear-filters" href={route}>
+      <Link className="clear-filters" href={directoryViewRoute(route, view)}>
         clear all
       </Link>
     </div>

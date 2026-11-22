@@ -115,7 +115,16 @@ function compareTier(order: string[], left: string, right: string) {
   return a < 0 ? b < 0 ? 0 : 1 : b < 0 ? -1 : b - a;
 }
 
-export function selfHostAppsFacets(apps: DirectoryAppIndex[]): SelfHostAppsSearchFacets {
+/**
+ * Sidebar options for the apps in scope: the whole directory, or the selected
+ * categories. A category page always sends its own category, so its license and
+ * install options list only what that category has. The hub merges these with
+ * its full default options, so its sidebar does not shrink.
+ */
+export function selfHostAppsFacets(index: DirectoryAppIndex[], categoryScope: readonly string[] = []): SelfHostAppsSearchFacets {
+  const apps = categoryScope.length
+    ? index.filter(app => app.categories.some(category => categoryScope.includes(category.slug)))
+    : index;
   const categories = new Map<string, SelfHostAppsFacetOption>();
   const licenseCounts = new Map<string, number>();
   const installCounts = new Map<string, number>();

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw } from "@/app/ui/icons";
 import { UiButton, UiDisclosure, UiDownloadAction, UiRawOutput, UiTextField } from "@/app/ui/controls";
 import { UiActionRow, UiDataTable, UiKeyValueList, UiPrimaryResult, UiStatus } from "@/app/ui/display";
 import type { NetworkLookupResult } from "@/lib/ip-asn/types";

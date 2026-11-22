@@ -61,7 +61,11 @@ Hostinger is still the registrar and delegates authoritative DNS to Cloudflare. 
 | Brotli | On |
 | 0-RTT | Off |
 
-The OVH origin presents a Cloudflare Origin CA certificate for `stack127.com` and `www.stack127.com`. It's valid for the Full (strict) connection from Cloudflare to the origin.
+The OVH origin presents a Cloudflare Origin CA certificate for `stack127.com` and `www.stack127.com`. It's valid for the Full (strict) connection from Cloudflare to the origin, until November 15, 2041. The certificate and its key are `/etc/dokploy/traefik/dynamic/certs/stack127-origin.pem` and `.key`, loaded by `stack127-tls.yml` in the same folder. The key was made on the server and never leaves it.
+
+Don't rely on Let's Encrypt for these hosts. Its HTTP check fetches `/.well-known/acme-challenge/`, which Cloudflare answers with 404 in Cloudflare hosting mode, so renewals fail. That is what happened on November 18, 2026: the old Let's Encrypt certificate expired, and every `/api` route, MCP included, returned HTTP 526 for about 23 hours.
+
+Keep no Let's Encrypt certificate for `stack127.com` or `www.stack127.com` in `acme.json`. When two certificates cover the same name, Traefik picks one at random after each config reload. On November 19, 2026 it went back to the expired Let's Encrypt certificate a few hours after the origin certificate was added, and the API returned 526 again. Browser tools showed `Unexpected token '<', "<!DOCTYPE "... is not valid JSON`, because Cloudflare sends an HTML error page. The fix was to stop Traefik, remove both entries from `acme.json` (backup in `/root/acme.json.bak-20261119-122932`), and start it again. To check which certificate the origin serves, run this on the server: `echo | openssl s_client -connect 127.0.0.1:443 -servername stack127.com 2>/dev/null | openssl x509 -noout -issuer -enddate`. The issuer must be CloudFlare Origin SSL.
 
 ## Private Dokploy administration
 
@@ -201,6 +205,11 @@ In legacy mode, if an edit isn't live within two minutes, inspect the queue, wor
 In Cloudflare mode, allow several minutes. Then check the latest `stack127-frontend-refresh.yml` run, the queue's `last_error`, and the function logs. Run that workflow by hand with `force` to rebuild current main and retry delayed events, or with `dry_run` to check without changing anything.
 
 Browser copies saved under the old policy have to expire before they start checking every time.
+
+If the run fails with `Backend cache refresh failed: HTTP 503 /api/cache/refresh`, read the real reason in the OVH app logs: `sudo -n docker service logs --since 2h --raw <app service>` and look for `Origin cache refresh failed <path>: <reason>`. One failing path fails the whole batch, so nothing is acknowledged and every queued edit waits.
+
+- `stale API content` means the API body the app served differs from the value the signed check built from the database. Compare the live body's keys with the expected value before suspecting a cache.
+- Nov 19–20, 2026: every refresh failed on `/api/ad-networks/site`. The route had added a top-level Ahrefs `attribution` field on Nov 14, but the check still expected only `domain`, `found`, and `site`. It passed while the sampled site had no Domain Rating and failed for good once Domain Ratings filled in. Both now build the body with `adNetworkSiteResponse` in `lib/ad-networks.ts`. When an API gets a new field, build its body in one shared function that the route and `lib/ad-networks-cache-verification.ts` both call.
 
 ## Security and crawlers
 
@@ -404,7 +413,7 @@ A database edit still queues an event. The `cache-worker` doesn't refresh pages.
 
 The workflow joins the `stack127-production` concurrency group, then:
 
-1. Checks out current `main` and checks that the live backend health SHA matches it.
+1. Checks out current `main` and checks that the live backend runs the same code. The health SHA must match `main`, or be behind it only by files the release ignores (the `paths-ignore` list in `stack127-release-e2e.yml`).
 2. Captures the queued event versions and their source fingerprints in one database snapshot.
 3. Builds the full static export, previews it, checks `main` and the backend again, and deploys it.
 4. Checks the public pages byte for byte against the export. Removed pages must return 404.

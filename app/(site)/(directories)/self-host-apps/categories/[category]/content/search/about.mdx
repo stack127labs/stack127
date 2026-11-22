@@ -1,0 +1,12 @@
+## How do you choose a search app?
+
+Decide what you're searching: the web, your site's content, or your own files.
+
+- **Metasearch engines** send your query to other search engines and strip the tracking. If many people share one, those engines may start blocking it.
+- **Search servers** index your data for an app or site. Check for client libraries in your language and for typo tolerance.
+- **RAM.** Many search engines keep their index in memory, so RAM grows with your data. Treat the RAM estimate as a minimum.
+- **AI search** over your files needs a model, which adds GPU or API costs.
+
+## What should you plan for when you run one?
+
+An index can be rebuilt from your data, so back up the data first. Keep search servers off the public internet, and require API keys for every app that queries them.

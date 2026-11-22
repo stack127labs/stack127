@@ -23,7 +23,7 @@ import {
   type StorageCalculationResult,
 } from "@/lib/storage/index.ts";
 import { parseZfsPaddingBlockSize, type ZfsPaddingUnit } from "@/lib/storage/zfs-padding.ts";
-import { Copy, RotateCcw, Share2 } from "lucide-react";
+import { Copy, RotateCcw, Share2 } from "@/app/ui/icons";
 import { useEffect, useRef, useState } from "react";
 import styles from "./raidz-expansion-planner.module.css";
 

@@ -63,7 +63,7 @@ Page content in MDX went live with the merge. The publisher writes the database 
 3. Run `dispatch` with `--environment production`, `--confirm stack127-production`, and the full current `origin/main` SHA as `--release-sha`.
 4. Watch `.github/workflows/stack127-publish-pages.yml` until it finishes. It waits up to 10 minutes for the live SHA, joins the production concurrency group, applies the plan in one transaction, checks the public pages and sitemap, and records the result on the GitHub deployment. In Cloudflare mode it also rebuilds and deploys the static frontend between the commit and the public check, which adds several minutes.
 5. If it reports that the batch committed but the public check failed, the data is saved. Run `verify` with the same plan and `--release-sha`. `apply` is safe to repeat.
-6. If `main` moves before the workflow runs, it refuses the stale SHA. Dispatch again with the new `origin/main` SHA once that release is live.
+6. If `main` moves before the workflow runs, it refuses the stale SHA. Dispatch again with the new `origin/main` SHA once that release is live. A docs-only commit moves `main` without a release, so run `stack127-release-e2e.yml` by hand first; publication still needs the exact live SHA.
 7. Keep each plan file until the pages are checked. It holds the before values `restore` needs.
 
 Use the single-purpose tool-page commands in production only for a small fix to one live page.

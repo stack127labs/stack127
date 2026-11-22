@@ -125,7 +125,8 @@ jobs:
         if: steps.migrations.outputs.run == 'true' || (steps.migrations.outputs.functions == 'true' && vars.STACK127_CACHE_WORKER_RUNTIME != 'node')
         uses: supabase/setup-cli@v1
         with:
-          version: latest
+          # Version 3 rejects [inbucket] in supabase/config.toml. Change the two together.
+          version: 2.122.1
 
       - name: Apply database migrations
         if: steps.migrations.outputs.run == 'true'

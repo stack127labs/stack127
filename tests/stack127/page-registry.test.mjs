@@ -135,27 +135,3 @@ test("isHomeVisiblePage excludes retired Immich page entries", () => {
     true,
   );
 });
-
-test("hardware directories stay off homepage navigation and cards", () => {
-  for (const slug of [
-    "local-security-cameras",
-    "matter-devices",
-    "nut-compatible-ups",
-    "z-wave-devices",
-    "zigbee-coordinators",
-    "zigbee-devices",
-  ]) {
-    assert.equal(isHomeVisiblePage({ slug }), false, slug);
-    assert.equal(isHomeFeaturePage({ slug, page_type: "CollectionPage" }), false, slug);
-  }
-
-  for (const [slug, page_type] of [
-    ["self-host-apps", "CollectionPage"],
-    ["cli-apps", "CollectionPage"],
-    ["platform-fees", "CollectionPage"],
-    ["self-hosting-for-beginners", "Course"],
-  ]) {
-    assert.equal(isHomeVisiblePage({ slug }), true, slug);
-    assert.equal(isHomeFeaturePage({ slug, page_type }), true, slug);
-  }
-});

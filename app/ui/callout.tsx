@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-import { Info, Lightbulb, TriangleAlert, type LucideIcon } from "lucide-react";
+import { Info, Lightbulb, TriangleAlert, type SketchIcon } from "@/app/ui/icons";
 import styles from "./callout.module.css";
 
 export type CalloutTone = "note" | "warning" | "recommend";
 
-const toneIcons: Record<CalloutTone, LucideIcon> = {
+const toneIcons: Record<CalloutTone, SketchIcon> = {
   note: Info,
   recommend: Lightbulb,
   warning: TriangleAlert,

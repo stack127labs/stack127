@@ -1,0 +1,12 @@
+## How do you choose a server management tool?
+
+Start with how many servers you run and how you deploy apps.
+
+- **Container managers or app platforms.** A container manager gives you a web UI for Docker. An app platform builds and deploys your apps from Git.
+- **Install method.** Check the Install method filter for Docker, Kubernetes, or native installs that match your setup.
+- **Automatic updates.** Update tools can pull in a breaking change and restart an app. Check for a notify-only mode or rules for each app.
+- **Paid features.** Some tools keep features in a paid plan. Check the Source model filter.
+
+## What should you plan for when you run one?
+
+These tools often control the Docker socket or have root access, so whoever gets in controls the server. Keep them behind a login and a VPN. Back up their settings, and keep your app configs, such as Compose files, in Git.

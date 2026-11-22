@@ -2,7 +2,7 @@ import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { PageCanvas } from "@/app/ui/site/page-canvas";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw } from "@/app/ui/icons";
 import { DnsChangeCheckerFromUrl } from "./dns-change-checker-from-url";
 import styles from "./dns-change-checker.module.css";
 import Article from "./content/article.mdx";

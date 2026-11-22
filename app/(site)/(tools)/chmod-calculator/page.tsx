@@ -1,7 +1,7 @@
 import { ToolPageShell } from "@/app/ui/tools/tool-page-shell";
 import { ToolPageArticle, ToolPageHeader } from "@/app/ui/site/tool-page-content";
 import { getRequiredToolPage } from "@/lib/tool-pages";
-import { Terminal } from "lucide-react";
+import { Terminal } from "@/app/ui/icons";
 import { PageCanvas } from "../../../ui/site/page-canvas";
 import { ChmodCalculator } from "./chmod-calculator";
 import Article from "./content/article.mdx";

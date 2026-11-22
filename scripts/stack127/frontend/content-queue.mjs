@@ -11,6 +11,13 @@ const activeStatuses = ["queued", "in_progress", "waiting", "requested", "pendin
 const eventKey = event => `${event.entity_type}:${event.slug}`;
 const shaPattern = /^[a-f0-9]{40}$/;
 const pathPattern = /^\/[a-z0-9/_-]*(?:\.(?:xml|txt|json))?$/;
+// Keep equal to paths-ignore in stack127-release-e2e.yml. A commit touching only
+// these never deploys, so the backend stays on an older SHA with the same code.
+export const releaseIgnoredPaths = ["**/*.md", "content_docs/**", "skills/**", "stack127_docs/**", "stack127_records/**", "tests/**"];
+const releaseIgnoredDirectories = releaseIgnoredPaths.filter(path => !path.startsWith("**")).map(path => path.slice(0, -2));
+const releaseIgnores = path => path.endsWith(".md") || releaseIgnoredDirectories.some(directory => path.startsWith(directory));
+// GitHub lists at most this many files, so a list this long may be incomplete.
+const compareFileLimit = 300;
 
 async function githubRequest(repo, token, pathname, init = {}, fetchImplementation = fetch) {
   if (!/^[a-z0-9_.-]+\/[a-z0-9_.-]+$/i.test(repo) || !token) throw new Error("A repository and a scoped GitHub token are required.");
@@ -52,12 +59,23 @@ export async function checkCurrentMain({ sha, repo = "stack127labs/stack127", to
   if (main.object?.sha !== sha) throw new Error("The frontend checkout is no longer current main.");
 }
 
+async function backendRunsSameCode({ liveSha, sha, repo, token, fetchImplementation }) {
+  if (liveSha === sha) return true;
+  if (!shaPattern.test(liveSha ?? "")) return false;
+  const compare = await (await githubRequest(repo, token, `/compare/${liveSha}...${sha}`, {}, fetchImplementation)).json();
+  const files = compare.files;
+  if (compare.status !== "ahead" || !Array.isArray(files) || files.length === 0 || files.length >= compareFileLimit) return false;
+  return files.every(({ filename, previous_filename: previous }) => releaseIgnores(filename) && (previous === undefined || releaseIgnores(previous)));
+}
+
 export async function checkCurrentRelease({ sha, site = "https://stack127.com", repo = "stack127labs/stack127", token, fetchImplementation = fetch }) {
   await checkCurrentMain({ sha, repo, token, fetchImplementation });
   const response = await siteRequest(site, "/api/health?scope=deploy", {}, fetchImplementation);
   if (response.status !== 200) throw new Error(`Backend health failed: HTTP ${response.status}`);
   const health = await response.json();
-  if (health.ok !== true || health.build?.sha !== sha) throw new Error("The live backend SHA does not match current main.");
+  if (health.ok !== true || !await backendRunsSameCode({ liveSha: health.build?.sha, sha, repo, token, fetchImplementation })) {
+    throw new Error("The live backend SHA does not match current main.");
+  }
 }
 
 // Dispatch checks are observations, not successful content deployments. The

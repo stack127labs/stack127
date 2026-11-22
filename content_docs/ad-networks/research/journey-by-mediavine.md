@@ -1,20 +1,21 @@
 # journey-by-mediavine: recommendation research
 
-Checked: 2026-10-22
+Checked: 2026-11-19 (requirements changed on 2026-11-18)
 
 ## Product and application
 
 - Product: Lower-volume managed ad program and Mediavine growth path.
-- Application or contact route: [https://www.journeymv.com/getting-started-with-journey-by-mediavine/](https://www.journeymv.com/getting-started-with-journey-by-mediavine/).
-- Recommendation role: **primary**. 1,000 Tier1 sessions in 30 days, 30 days on Grow and at least four months domain history.
+- Application or contact route: [https://publishers.mediavine.com/join](https://publishers.mediavine.com/join).
+- Recommendation role: **primary**. 5,000 sessions in 30 days from seven listed countries, a domain at least four months old, and GA4 connected.
 
 ## Official facts
 
 Facts below apply to the named program. Missing numeric amounts mean the source did not publish a number.
 
-- **Sessions — minimum**: 1,000 Tier1 sessions; period: 30 days; scope: site; program: Journey. Source: [https://www.mediavine.com/application-requirements/](https://www.mediavine.com/application-requirements/).
-- **Grow — must run**: 30 days; period: before review; scope: site; program: Journey. Source: [https://www.journeymv.com/getting-started-with-journey-by-mediavine/](https://www.journeymv.com/getting-started-with-journey-by-mediavine/).
-- **Domain age — minimum**: 4 months; period: at application; scope: domain; program: Journey. Source: [https://www.journeymv.com/getting-started-with-journey-by-mediavine/](https://www.journeymv.com/getting-started-with-journey-by-mediavine/).
+- **Sessions — minimum**: 5,000 sessions from the U.S., U.K., Canada, Australia, Germany, France or the Netherlands; period: 30 days; scope: site; program: Journey. Raised from 1,000 on 2026-11-18. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
+- **Google Analytics — must connect**: GA4; period: at application; scope: site; program: Journey. Replaces the earlier 30 days on Grow. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
+- **Domain age — minimum**: 4 months; period: at application; scope: domain; program: Journey. Automatic disqualifier. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
+- **Platform — not**: Wix or Blogspot; automatic disqualifier, as is extreme brand-safety risk or excessive AI. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
 - **Google standing — must be in good standing**; period: ongoing; scope: publisher account; program: Journey. Source: [https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/](https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/).
 
 ## Publisher-reported observations
@@ -55,15 +56,15 @@ Proposed complete AdNetworkFacts record, excluding minTraffic. Keep published va
 
 ### Key numbers
 
-- **Sessions to apply:** 1,000 Tier 1 sessions in 30 days — Current Mediavine application requirement for Journey. Source: [https://www.mediavine.com/application-requirements/](https://www.mediavine.com/application-requirements/).
+- **Sessions to apply:** 5,000 sessions in 30 days from the seven listed countries. Raised from 1,000 on 2026-11-18. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
 - **Share:** 70% — Journey publisher share. Source: [https://www.journeymv.com/getting-started-with-journey-by-mediavine/](https://www.journeymv.com/getting-started-with-journey-by-mediavine/).
 - **Pay day:** Net 65 — Journey schedule. Source: [https://www.journeymv.com/getting-started-with-journey-by-mediavine/](https://www.journeymv.com/getting-started-with-journey-by-mediavine/).
 
 ### Joining and payment
 
-- **Traffic:** At least 1k Tier 1 sessions in 30 days. Source: [https://www.mediavine.com/application-requirements/](https://www.mediavine.com/application-requirements/).
-- **Setup:** Run Grow for at least 30 days; GA4 is optional. Source: [https://www.journeymv.com/getting-started-with-journey-by-mediavine/](https://www.journeymv.com/getting-started-with-journey-by-mediavine/).
-- **Site age:** The April 2024 getting-started guide describes four months of domain history for ad partners; confirm current application. This is dated guidance, not a newly established 2026 hard rule. Source: [https://www.journeymv.com/getting-started-with-journey-by-mediavine/](https://www.journeymv.com/getting-started-with-journey-by-mediavine/).
+- **Traffic:** At least 5,000 sessions in 30 days from the U.S., U.K., Canada, Australia, Germany, France or the Netherlands. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
+- **Setup:** Connect GA4 when applying. Grow is recommended, not required. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
+- **Site age:** Domain at least 4 months old; younger domains are disqualified. Source: [https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements](https://journeymv.zendesk.com/hc/en-us/articles/24633185741723-Journey-Minimum-Requirements).
 - **Review:** Original, human, brand-safe audience; Google account in good standing. Source: [https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/](https://help.mediavine.com/what-does-it-take-to-get-approved-by-mediavine/).
 - Revenue share: 70%.
 - Payment terms: Net 65.

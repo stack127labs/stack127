@@ -134,6 +134,16 @@ if (process.argv.includes("--apply")) {
     let changed = 0;
     let recordChanges = 0;
     for (const app of apps) {
+      // New app references start as drafts and stay out of search when published.
+      // Existing publication and copy are owned by the publisher.
+      await client.query(`insert into public.stack127_pages
+        (slug,page_family,label,meta_title,meta_description,is_indexable)
+        values($1,'directory',$2,$3,$4,false) on conflict(slug) do nothing`,
+        [`keyboard-shortcuts/${app.slug}`, app.name,
+          `${app.name} keyboard shortcuts | stack127`,
+          `Look up ${app.name} keyboard shortcuts and make a printable cheat sheet.`]);
+      await client.query(`update public.stack127_pages set is_indexable=false
+        where slug=$1 and page_family='directory' and is_indexable`, [`keyboard-shortcuts/${app.slug}`]);
       changed += await insertDirectoryPageIfMissing(client,keyboardShortcutPageCopy(app));
       const result = await client.query('select public.stack127_sync_directory_records($1,$2::jsonb) changed',
         [`keyboard-shortcuts/${app.slug}`,JSON.stringify(app)]);

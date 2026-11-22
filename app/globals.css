@@ -35,54 +35,55 @@
   --focus-outline: 2px solid var(--color-accent-text);
 
   /* type: two body sizes plus the heading scale */
-  --text-body: 1.0625rem;
-  --text-small: 0.875rem;
-  --text-h1: clamp(2rem, 5vw, 2.6rem);
-  --text-h2: 1.7rem;
-  --text-h3: 1.15rem;
-  --line-body: 1.6;
-  --line-h1: 1.02;
+  --text-body: 1rem;
+  --text-small: 0.78125rem;
+  --text-h1: clamp(1.375rem, 4vw, 1.625rem);
+  --text-h1-home: clamp(1.75rem, 4.5vw, 2rem);
+  --text-h2: 1.375rem;
+  --text-h3: 1.125rem;
+  --line-body: 1.55;
+  --line-h1: 1.12;
   --line-heading: 1.2;
   --line-ui: 1.25;
   --tracking-display: -0.02em;
   --weight-regular: 400;
   --weight-semibold: 600;
   --weight-bold: 700;
-  --measure-prose: 760px;
+  --measure-prose: 700px;
 
   /* layout */
   --container-max: 1160px;
-  --container-gutter: clamp(24px, 2.5vw, 36px);
-  --page-padding-top: 30px;
-  --page-padding-bottom: 44px;
+  --container-gutter: clamp(18px, 1.7vw, 24px);
+  --page-padding-top: 20px;
+  --page-padding-bottom: 30px;
   --radius: 2px;
-  --space-1: 4px;
-  --space-2: 6px;
-  --space-3: 8px;
-  --space-4: 10px;
-  --space-5: 12px;
-  --space-6: 14px;
-  --space-7: 16px;
-  --space-8: 18px;
-  --space-9: 20px;
-  --space-10: 24px;
-  --space-11: 28px;
-  --space-12: 32px;
-  --space-13: 40px;
-  --space-14: 48px;
+  --space-1: 3px;
+  --space-2: 4px;
+  --space-3: 6px;
+  --space-4: 7px;
+  --space-5: 9px;
+  --space-6: 10px;
+  --space-7: 12px;
+  --space-8: 14px;
+  --space-9: 15px;
+  --space-10: 18px;
+  --space-11: 21px;
+  --space-12: 24px;
+  --space-13: 30px;
+  --space-14: 36px;
   --space-prose-paragraph: var(--space-7);
   --space-prose-heading-2: var(--space-7);
   --space-prose-heading-3: var(--space-3);
   --space-prose-section: var(--space-13);
-  --control-height-sm: 32px;
-  --control-height-md: 40px;
-  --control-height-lg: 42px;
-  /* Every single-line field box: one body line, 9px padding and a 1px border on each side. */
-  --control-height-field: calc(var(--text-body) * var(--line-body) + 20px);
+  --control-height-sm: 30px;
+  --control-height-md: 34px;
+  --control-height-lg: 36px;
+  /* Every single-line field box: one body line, 5px padding and a 1px border on each side. */
+  --control-height-field: calc(var(--text-body) * var(--line-body) + 11px);
   /* A field label line plus its gap. Puts a button or note beside a field level with the box. */
   --control-label-offset: calc(var(--text-body) * var(--line-ui) + var(--space-3));
-  --sidebar-width: clamp(260px, 20vw, 300px);
-  --top-bar-height: 58px;
+  --sidebar-width: 224px;
+  --top-bar-height: 46px;
   --motion-fast: 120ms ease;
   --motion-base: 180ms ease;
 
@@ -199,8 +200,8 @@ samp {
 
 @media (max-width: 900px) {
   :root {
-    --container-gutter: 22px;
-    --page-padding-top: 24px;
-    --page-padding-bottom: 36px;
+    --container-gutter: 16px;
+    --page-padding-top: 16px;
+    --page-padding-bottom: 26px;
   }
 }

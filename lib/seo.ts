@@ -58,8 +58,15 @@ export const siteStructuredData = [
     "@context": "https://schema.org",
     "@type": "Organization",
     email: "stack127@proton.me",
+    founder: {
+      "@type": "Person",
+      name: "Ravi Teja KNTS",
+      sameAs: ["https://x.com/RaviTejaKNTS", "https://github.com/RaviTejaKNTS"],
+      url: absoluteUrl("/about"),
+    },
     logo: absoluteUrl("/android-chrome-512x512.png"),
     name: siteName,
+    sameAs: ["https://github.com/stack127labs"],
     url: absoluteUrl("/"),
   },
 ];

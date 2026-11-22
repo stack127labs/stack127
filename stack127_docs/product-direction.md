@@ -23,11 +23,11 @@ stack127 started with a broad scope: smart home, homelab, self-hosting, open sou
 | Area | Status |
 | --- | --- |
 | Home automation tools | Removed. |
-| Smart home and hardware directories | Still published, but off the homepage. No new work. |
+| Smart home and hardware directories | Removed on 2026-11-10. |
 | Self-host apps and CLI apps directories | Kept. Solo developers use both. |
 | Self-hosting course and self-hosting references | Kept. They serve developers who run their own apps. |
 
-Don't plan new smart home or homelab resources. Before adding to the hardware directories, ask whether they should stay published at all.
+Don't plan new smart home or homelab resources.
 
 ## What stack127 builds
 

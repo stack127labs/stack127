@@ -8,11 +8,12 @@ Last reconciled: 28 September 2026.
 
 ## Rules
 
-- Real local env files are ignored by Git. Homelab files use mode `0600`; Mac mirrors use mode `0400` and must never be edited or recreated locally.
+- Infisical Cloud, project `stack127`, environment `prod`, is the one source for every value: the homelab `.env.*` files, the OVH env files, the Dokploy app env and GitHub secrets and variables. Change a value with `printf %s "$VALUE" | ssh homelab '~/.local/bin/infisical-env set stack127 FOLDER KEY'`, never by editing a file, Dokploy or GitHub by hand. `ssh homelab '~/.local/bin/infisical-env list stack127 --keys'` shows each folder and its place. A homelab sync writes each change within five minutes, or at once after `set`. See Cockpit `workflow/infisical.md`.
+- Real local env files are ignored by Git. Homelab files use mode `0600` and are written by the Infisical sync; Mac mirrors use mode `0400` and must never be edited or recreated locally.
 - The homelab main checkout `/srv/data/projects/stack127` holds the real private `.env.*` files at mode `0600`. Worktrees link directly to those files. Git ignores both the files and links. Worktree setup and the homelab timer discover new names automatically.
 - Each real file has a tracked, secret-free `*.example` schema.
 - Development and production use separate managed Supabase projects. stack127 doesn't start or depend on a local Docker Supabase stack.
-- GitHub Actions secrets can be scoped to the repository or to the protected `production` environment. Check both scopes when rotating.
+- GitHub Actions secrets can be scoped to the repository or to the protected `production` environment. Infisical holds them in `/github/secrets` and `/github/production/secrets`. Check both when rotating, and every other folder that holds the same value.
 - Dokploy runtime variables belong to the app that uses them. Don't copy BaseBuddy values into the stack127 app, or the other way round.
 - Don't rotate working credentials just because a name or domain changes. Rotate only for expiry, a scope fix, a compromise, or an explicit policy.
 - Keep recovery credentials in the password manager. Local ignored files are a working copy, not the only recovery copy.
@@ -228,7 +229,7 @@ DATABASE_POOLER_URL
 DATABASE_URL
 ```
 
-The release and scheduled discovery workflows also recognize these optional repository secrets:
+The release workflow recognizes the relevant optional repository secrets below. Self-host discovery and refresh now use Infisical `stack127 /vps/self-host-apps` on OVH; see [the cron runner guide](../scripts/self-host-apps/ovh/README.md). Their GitHub workflow secrets are no longer used for scheduling:
 
 ```text
 STACK127_GITHUB_TOKEN
@@ -334,6 +335,8 @@ Don't commit token values or print them in logs.
 
 ## Amazon Associates
 
+No code uses these values since the hardware directories and the Amazon affiliate module were removed on 10 November 2026. The file and its Infisical values stay until the owner retires them in Infisical; don't delete a mirrored copy by hand.
+
 `.env.affiliate` stores the Amazon Associates config for stack127. Git ignores it, and it must stay at mode `0600`. The tracked example lists the same keys without values.
 
 | Key | Secret? | Use |
@@ -351,7 +354,7 @@ Don't commit token values or print them in logs.
 | `AMAZON_CREATORS_API_REGION` | No | Optional credential region record. |
 | `AMAZON_CREATORS_API_MARKETPLACE` | No | Optional marketplace override. |
 
-Affiliate scripts must load `.env.affiliate` explicitly. Next.js doesn't load this split file on its own. Never expose the Creators API secret to client code or print the real file.
+Next.js doesn't load this split file on its own. Never expose the Creators API secret to client code or print the real file.
 
 ## Rotation checklist
 
@@ -370,3 +373,23 @@ When a credential changes:
 The tracked example files are schemas, not backups. A full recovery also needs the password manager entries and the secret records kept by each service.
 
 The rebrand's pre-migration production table recovery dump is stored outside the repository at `/Users/ravitejaknts/backups/stack127/2026-08-20/open_projects-before-provenance.dump`. It's mode `0600`. Its checksum is in the rebrand migration document.
+
+## Private ad network MCP and REST API
+
+Runtime owner: Infisical `stack127 /vps/web-app`. See [mcp-and-api.md](mcp-and-api.md) for formats, defaults, rotation and connection steps. These switches default off; no public mode is available.
+
+```text
+STACK127_MCP_ENABLED
+STACK127_REST_ENABLED
+STACK127_DATA_SQL_ENABLED
+STACK127_DATA_SQL_DATABASE_URL
+STACK127_MCP_TOKEN
+STACK127_MCP_PATH_SECRET
+STACK127_DATA_RPM
+STACK127_DATA_RPD
+STACK127_DATA_MAX_ROWS
+STACK127_DATA_TIMEOUT_MS
+STACK127_DATA_ALLOWED_ORIGINS
+```
+
+The eight fixed tools use the existing app database login in read-only transactions. This release creates no custom reader role. `STACK127_MCP_ENABLED`, `STACK127_REST_ENABLED` and `STACK127_DATA_SQL_ENABLED` default off. Keep all three off until release checks pass; SQL must stay off for this release and `STACK127_DATA_SQL_DATABASE_URL` must remain absent. A future administrator must provision and audit a dedicated restricted SQL login before that key can be set. See the "Before you turn it on" checklist in [mcp-and-api.md](mcp-and-api.md) for live proxy-header, Traefik and Cloudflare log checks and credential rotation.

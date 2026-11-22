@@ -12,6 +12,7 @@ import {
   saveLocalVerification,
   selectLocalPublishers,
 } from "./local-verifier-store.mjs";
+import { runVerificationBatch } from "./verification-batch.mjs";
 import { verifyPublisher } from "./verify-publisher.mjs";
 import {
   claimPublishers,
@@ -117,14 +118,16 @@ function createSummary() {
     outcomes: {},
     confirmedRelationships: 0,
     reviewRelationships: 0,
+    inconclusiveChecks: 0,
+    homepageFailures: {},
   };
 }
 
 async function processBatch(publishers, networks, summary) {
-  let cursor = 0;
-  const workers = Array.from({ length: Math.min(concurrency, publishers.length) }, async () => {
-    while (!stopping && cursor < publishers.length) {
-      const publisher = publishers[cursor++];
+  await runVerificationBatch(publishers, { concurrency, deadline,
+    shouldStop: () => stopping,
+    release: apply ? release : async () => {},
+    process: async publisher => {
       let result;
       try {
         result = await verifyPublisher(publisher, networks);
@@ -143,10 +146,15 @@ async function processBatch(publishers, networks, summary) {
           summary.databaseFailures += 1;
           await Promise.resolve(release(publisher.id)).catch(() => {});
           console.error(JSON.stringify({ domain: publisher.normalized_domain, status: "database_failed", error: error.message }));
-          continue;
+          return;
         }
       }
       summary.processed += 1;
+      if (result.inconclusiveNetworkIds?.length) summary.inconclusiveChecks++;
+      if (result.evidence.homepage?.outcome === "inconclusive") {
+        const reason = result.evidence.homepage.reason ?? "unknown";
+        summary.homepageFailures[reason] = (summary.homepageFailures[reason] ?? 0) + 1;
+      }
       summary.outcomes[result.outcome] = (summary.outcomes[result.outcome] ?? 0) + 1;
       summary.confirmedRelationships += result.matches?.confirmed.length ?? 0;
       summary.reviewRelationships += result.matches?.review.length ?? 0;
@@ -157,6 +165,8 @@ async function processBatch(publishers, networks, summary) {
           confirmed: result.matches?.confirmed.map((match) => match.slug) ?? [],
           review: result.matches?.review.map((match) => match.slug) ?? [],
           reason: result.evidence.reason ?? null,
+          homepage: result.evidence.homepage ?? null,
+          inconclusive: result.evidence.inconclusive_networks ?? [],
         }));
       } else if (summary.processed % 100 === 0) {
         const elapsed = (Date.now() - Date.parse(summary.startedAt)) / 1000;
@@ -170,10 +180,8 @@ async function processBatch(publishers, networks, summary) {
         await (await import("node:fs/promises")).rename(temporary, file);
         console.log(JSON.stringify(progress));
       }
-    }
+    },
   });
-  await Promise.all(workers);
-  if (apply && stopping) for (const publisher of publishers.slice(cursor)) await release(publisher.id);
 }
 
 async function saveSummary(summary) {
@@ -186,6 +194,7 @@ async function saveSummary(summary) {
 }
 
 const summary = createSummary();
+const deadline = Date.now() + timeBudgetMinutes * 60_000;
 let stopping = false;
 for (const signal of ['SIGINT','SIGTERM']) process.on(signal, () => { stopping = true; summary.interrupted = true; });
 try {
@@ -204,7 +213,6 @@ try {
     await processBatch(publishers, networks, summary);
     await saveSummary(summary);
   } else {
-    const deadline = Date.now() + timeBudgetMinutes * 60_000;
     while (!stopping && summary.attempted < limit && Date.now() < deadline) {
       const batchSize = Math.min(concurrency * 32, limit - summary.attempted);
       const publishers = await claim({ limit: batchSize, leaseMinutes, domains: [] });

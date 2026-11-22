@@ -89,8 +89,10 @@ export const sources = [
     robotsReviewedAt: "2026-09-28",
     verificationPriority: 80,
     normalRequestsPerRun: 2,
-    recurring: true,
-    pausedReason: null,
+    // Paused 2026-11-14: HTTP 406 to every honest request since 2026-11-03. Its
+    // last good run (2026-10-27) read 974 domains and added no new ones.
+    recurring: false,
+    pausedReason: "www.outbrain.com/sellers.json returns HTTP 406 since 2026-11-03",
   },
   {
     key: "official-publishers:ethicalads",
@@ -126,7 +128,8 @@ export function selectSources(keys = []) {
   const selected = sources.filter((source) => keys.includes(source.key) || keys.includes(source.networkSlug));
   const unknown = keys.filter((key) => !sources.some((source) => source.key === key || source.networkSlug === key));
   if (unknown.length) throw new Error(`Unknown source: ${unknown.join(", ")}`);
-  const held = selected.filter((source) => !source.recurring);
+  // A network name selects its active sources; a paused source named directly fails.
+  const held = selected.filter((source) => !source.recurring && (keys.includes(source.key) || selected.every((item) => !item.recurring)));
   if (held.length) throw new Error(`Source is paused: ${held.map((source) => `${source.key} (${source.pausedReason})`).join(", ")}`);
-  return selected;
+  return selected.filter((source) => source.recurring);
 }

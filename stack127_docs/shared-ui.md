@@ -21,17 +21,20 @@ The Components UI gallery is at `/components-ui` in development. That route retu
 | URL-based page navigation | `Pagination` in `app/ui/pagination.tsx` |
 | A section's 3 to 6 main pages | `SectionBar` in `app/ui/site/section-bar.tsx`, through `AppShell`'s optional `sectionNav`. Pass `label`, home `href`, active `current` href, and `items` with `label` and `href`. |
 | Detail drawer with focus and close behavior | `DetailDialog` and `DetailDialogClose` in `app/ui/detail-dialog.tsx` |
+| Site-wide page search in the top bar | `SiteSearch` in `app/ui/site/site-search.tsx`. See [Site search](#site-search). |
 | FAQ with repeated questions | `Faq` in `app/ui/faq.tsx` |
 | Scrollable table region | `TableFrame` in `app/ui/table-frame.tsx` |
 | Tabs that search engines and find-in-page can read | `UiTabs` in `app/ui/tabs.tsx` |
 | A stats report: question groups, side-by-side blocks, headline numbers, ranked bars | `Report`, `ReportGroup`, `ReportRow`, `ReportBlock`, `ReportNumbers`, `ReportFigure`, `ReportBars` in `app/ui/report.tsx` |
+| A directory's list or cards view: the switch, the bar above results, and the list | `DirectoryViewSwitch`, `DirectoryResultsBar`, `DirectoryList` in `app/ui/directories/directory-view.tsx`. See [Directory views](#directory-views). |
 | Search, select, and switch controls beside a section heading, and the large hero search box | `TableToolbar`, `ToolbarSearch`, `ToolbarSelect`, `ToolbarSwitch` in `app/ui/table-toolbar.tsx` |
 | Server-drawn data visuals: ranked bars, stacked bars, donut, columns, lines, flows, strips, treemap, heatmap, timelines | `app/ui/ad-networks/viz/`. See [Data visuals](#data-visuals). |
 | Ad network parts: logo tile, network card, sections, details, sites, niches, ladder, and site view | `app/ui/ad-networks/`. See [Ad network parts](#ad-network-parts). |
 | Page content blocks in MDX | `mdx-components.tsx`, built on `app/ui/content-elements.tsx`. See [page-content.md](page-content.md). |
+| Icons | `@/app/ui/icons`. See [Icons](#icons). |
 | Page shell, headings, prose, media, code, and navigation | `app/ui/site/` |
-| Linked page cards for tools, catalogs, directories, the course, and Labs | `PageCard`, `ToolCard`, `CatalogCard`, `DirectoryCard` in `app/ui/cards/` |
-| Software and hardware record cards, and directory filters | `app/ui/directories/` |
+| Linked page cards for tools, directories, the course, and Labs, and the homepage tool catalog card with its first tools | `PageCard`, `ToolCard`, `DirectoryCard`, `CatalogCard` in `app/ui/cards/` |
+| Software record cards, and directory filters | `app/ui/directories/` |
 | Tool catalog grid and navigation | `app/ui/catalogs/` |
 | Course and directory layouts | `app/ui/courses/` and `app/ui/directories/` |
 | Shared tool layouts and styles | `app/ui/tools/` |
@@ -62,6 +65,17 @@ Show each look once. When a thin wrapper renders the same thing as another compo
 - Keep calculations, data sources, and unusual interactions with the page or tool that owns them.
 - Static displays go in server-renderable modules. Interactive controls go in client modules.
 
+## Icons
+
+Site icons are sketched lucide: each lucide shape redrawn with rough.js so it matches the marker art. Import them by their lucide name from `@/app/ui/icons`, for example `import { Search, X } from "@/app/ui/icons";`. They take the same props as lucide icons: `size`, `strokeWidth`, `className`, `color`, `aria-*`, `style`, and other SVG props. They are `aria-hidden` unless you pass an `aria-*` prop, `role`, or `title`. Type an icon prop as `SketchIcon`.
+
+- `app/ui/icons/sketch-icon.tsx` is the hand-written wrapper.
+- `app/ui/icons/sketch-icons.generated.tsx` holds the drawn paths. Don't edit it.
+- To add an icon, import it by its lucide name from `@/app/ui/icons`, then run `npm run stack127:icons`. The script finds every icon the site imports, reads its shape from the installed `lucide-react` package, and redraws it with fixed seeds, so other icons don't change.
+- `npm run stack127:icons -- --check` fails when the generated file is out of date.
+
+Each ad network niche has one fixed icon. The map lives in `app/ui/ad-networks/niche-icon.tsx`, typed by `AdNetworkNicheSlug`, so a new niche fails type checks until it gets one. Show a niche's icon with `NicheIcon` and its slug; never pick an icon for a niche on the page.
+
 ## Tool inputs and results
 
 These pieces carry the rules in [tool-interface.md](tool-interface.md): simple Basic inputs, optional Advanced inputs, no text under fields, and personal visual results.
@@ -85,6 +99,26 @@ Don't use `description` on tool fields. It stays for forms outside tools, such a
 
 `DetailDialog` handles Escape, outside pointer presses, keyboard focus, body scrolling, and focus return. Put the page-specific heading and facts inside it, with `DetailDialogClose` in the heading. The page stores which item is selected. The dialog owns the shared behavior.
 
+### Site search
+
+`SiteSearch` in `app/ui/site/site-search.tsx` is the page search in the top bar. It's a quiet field on wide screens and an icon button at 960px and below. A click, `⌘K` or `Ctrl K`, or `/` opens the dialog in `site-search-dialog.tsx`. The dialog and the index load only on the first open. It searches pages only, never directory records.
+
+- The index is `/search-index.json`, built by `app/search-index.json/route.ts` from `lib/site-search-index.ts`. It lists every published page except the homepage and noindex child pages, using the same card name, description, and identity icon as cards and sidebars. A child page without its own icon uses its parent's.
+- It's static in both builds: a file in the Cloudflare export, a prerendered response on OVH. A `page` event refreshes it through the sitemap, homepage, and course tags. In Cloudflare mode the export rebuild replaces the file.
+- Matching lives in `lib/site-search.ts`: every query word must start a word in the title, description, or path. Title matches rank first. An empty query lists the catalogs, top-level directories, and the course.
+- The selected row uses a `--color-surface-2` fill with an accent icon, like `SidebarList`.
+
+### Top bar menus
+
+The top bar has two menus, `tools` and `directories`, from `SiteMenus` in `app/ui/site/site-menus.tsx`. Don't add other links to the top bar.
+
+- The rows use `SidebarList`: identity icon, lowercase card name, and the first card count in muted mono. `tools` lists every published catalog with its tool count. `directories` lists the home feature directories, then the course and Labs below a divider.
+- The page renders only the buttons. After page load, the client fetches `/site-menus.json` at idle time; opening a menu starts the fetch immediately. An open menu shows loading text, or a short error with Retry. The result stays in memory across client navigation.
+- `/site-menus.json` is static, noindex, and built once per release from `getSiteMenus()` in `app/ui/site/site-menu-data.ts`. It uses the home cards' sources and counts, so a newly published catalog or directory appears by itself. It's one small cached entry under the home, catalog, sitemap, course, and directory data tags.
+- `site-menus-client.tsx` loads the rows and opens and closes the menus. They are disclosure buttons with links, not `role="menu"`. Click, Enter, Space, or ArrowDown opens one. Arrow keys, Home, and End move through the links. Escape closes it and returns focus. A click outside or focus leaving closes it. Opening one closes the other.
+- The menu that holds the current page gets accent text and the 2px accent underline: catalogs and tools for `tools`, directories, their child pages, the course, and Labs for `directories`. `lib/site-menus.ts` decides this.
+- At 680px and below, one `menu` button opens both lists full screen under the bar. The search icon stays beside it.
+
 `StatePanel` takes `state="empty"`, `"loading"`, or `"error"`, a clear title, a useful explanation, and an action when the person can recover.
 
 | Message | Use |
@@ -95,11 +129,11 @@ Don't use `description` on tool fields. It stays for forms outside tools, such a
 
 ## Tabs
 
-`UiTabs` takes an accessible `label` and `tabs`, each with an `id`, a `title`, and server-rendered `content`. Every panel is in the page HTML under its own heading (`headingLevel`, h3 by default), so search engines read every panel and the page works without scripts. After hydration the tab row appears, the panel headings hide visually, and inactive panels get `hidden="until-found"`. Find-in-page still reaches hidden text and opens its tab through `beforematch`. Arrow keys, Home, and End move between tabs. Use tabs only for parallel sets of facts a reader picks between, such as Joining, Pay, Rules, and Service. Long reading content stays as prose.
+`UiTabs` takes an accessible `label` and `tabs`, each with an `id`, a `title`, and server-rendered `content`. Every panel is in the page HTML under its own heading (`headingLevel`, h3 by default), so search engines read every panel and the page works without scripts. After hydration the tab row appears, the panel headings hide visually, and inactive panels get `hidden="until-found"`. Find-in-page still reaches hidden text and opens its tab through `beforematch`. Arrow keys, Home, and End move between tabs. Use tabs only for parallel sets of facts a reader picks between, such as the plans or options of one product. Long reading content stays as prose.
 
 ## Reports
 
-`app/ui/report.tsx` lays out stats pages: a `Report` with an optional h2 title and a mono note, then `ReportGroup`s headed by the question each answers, split by hairlines. A `ReportRow` puts related `ReportBlock`s side by side and stacks them on phones: `1-1`, `2-1`, `1-1-1` (two columns on tablets, third block below), or `2-1-1` (a wide block, then two narrow ones). A row left with one block takes the full width. Each block has a short mono `label` and a one-line `description`, then a visual from [Data visuals](#data-visuals). `ReportNumbers` shows up to four headline numbers between hairlines (`ruled`, label above) or up to three loose inside a block (`plain`, value above). `ReportFigure` is one big number with a note. `ReportBars` is `RankedBars` with the report's names; `tone="current"` highlights one row.
+`app/ui/report.tsx` lays out stats pages: a `Report` with an optional h2 title and a mono note, then `ReportGroup`s headed by the question each answers, split by space with no rules. A `ReportRow` puts related `ReportBlock`s side by side and stacks them on phones: `1-1`, `2-1`, `1-1-1` (two columns on tablets, third block below), or `2-1-1` (a wide block, then two narrow ones). A row left with one block takes the full width. Each block has a `label` and an optional one-line `description`, then a visual. An h4 label (the default) is short lowercase mono; `level={3}` gives it the site's h3 style, as on the ad network pages from [Data visuals](#data-visuals). `ReportNumbers` shows up to four headline numbers between hairlines (`ruled`, label above) or up to three loose inside a block (`plain`, value above). `ReportFigure` is one big number with a few plain words beside it. `ReportBars` is `RankedBars` with the report's names; `tone="current"` highlights one row.
 
 Where data isn't collected yet, hide the block, row, or group. Don't print a "not collected yet" line and never fill a block with sample numbers.
 
@@ -139,9 +173,9 @@ Each one renders on the server, so it shows without scripts and search engines r
 `app/ui/ad-networks/` holds the other parts of the ad networks pages and the checker:
 
 - `NetworkLogo` (`network-logo.tsx`): the square icon on a white tile, `card` (32px) or `title` (in an h1). Pass `networkLogo(slug)` from `network-logo-src.ts`, which finds `public/ad-networks/logos/<slug>.png` on the server. Without a file it shows the first letter.
-- `NetworkCard`, `NetworkGrid`, `SortNote` (`network-card.tsx`): the directory card with the confirmed-share ring and its bubble, the four-across grid, and the line saying how cards are sorted. Leave `join` out to hide the card footer.
+- `NetworkCard`, `NetworkGrid`, `SortNote` (`network-card.tsx`): the directory card with the average Domain Rating, the site count on one line, and the top three niches under a divider, the grid (five across from 1240px, then four, three, two, and one), and the line saying how cards are sorted. Leave `averageDr` out to hide the rating and `topNiches` empty to hide the footer. Render `AhrefsCredit` once under the grid wherever DR shows.
 - `AdSection`, `SectionHead`, `SectionNote` (`section.tsx`): a section asked as a question, with optional controls and a one-line description. Sections in a row are split by a hairline.
-- `DetailsLayout`, `KeyNumbers`, `FactsList`, `NotPublic`, `SourcesLine` (`details.tsx`): the network details area, used with `UiTabs`.
+- `NotPublic`, `SourcesLine` (`details.tsx`): a fact the network doesn't publish, and the sources line under a network's facts.
 - `SitesTable` (`sites-table.tsx`): see [Tables](#tables).
 - `NichesTable` (`niches-table.tsx`) and `NetworkLadder` (`network-ladder.tsx`): the niches list with search, network filter, and sort, and the networks on one niche with a most used / easiest to join switch.
 - `SiteFacts`, `SiteNetworksTable`, `AdsTxtNumbers`, `AdsTxtPreview`, `SimilarSites`, `BlockSubheading` (`site-view.tsx`): the site view in the checker.
@@ -221,6 +255,15 @@ Rules for every chart setting:
 
 `SitesTable` in `app/ui/ad-networks/sites-table.tsx` lists ad network sites. The page passes the server-rendered first page as `initial`, its `defaultSort`, a fixed `scope` (`network` or `niche`), the `columns` and `sorts` to show, and optional `nicheFilter` and `networkFilter`. The response's `availableColumns`, `availableSorts`, and `availableFilters` hide anything with no data yet, and the sort select hides when one option is left. Search, filters, sort, and pages fetch the cached `/api/ad-networks/sites` route and keep their state in the URL, such as `?q=&niche=&page=2`. On phones each row becomes a two-line block.
 
+### Directory views
+
+Directories with many items open as a list, one item per row. A small `list` / `cards` switch sits at the right of the bar above the results. The self-host apps, CLI apps, and launch directories pages use it.
+
+- The list is the default. `?view=cards` shows cards. Any other value, such as an old `?view=table` link, shows the list.
+- The switch changes only `view` in the URL. Filters, sort, search, and the page stay.
+- Put `DirectoryViewInput` in the sidebar filter form, so filter changes keep the view. Build pagination, chip, and reset links with `withDirectoryView` or `directoryViewRoute`.
+- `DirectoryList` takes the columns and rows. Each row starts with the icon, the name (the same link or detail button the card uses), and a one-line summary. Give data values `mono`. On phones each row stacks, with each value after its label; mark less useful columns `hideOnPhone`.
+
 `ToolbarSelect` is built on React Aria, so there is no native `<select>`. Like a native select it is as wide as its longest option.
 
 Content tables written in Markdown use a scrollable `TableFrame`. Keep tables readable at mobile width. Let wide identifiers scroll instead of breaking every word.
@@ -231,7 +274,7 @@ Content tables written in Markdown use a scrollable `TableFrame`. Keep tables re
 
 ## Content blocks
 
-Page content is MDX beside each route. [page-content.md](page-content.md) lists every block content can use and how to write it: notes, warnings, tips, formulas, examples, terms, charts, data tables, and marker art. `mdx-components.tsx` maps them to the shared elements in `app/ui/content-elements.tsx`, so every page renders them the same way.
+Page content is MDX beside each route. [page-content.md](page-content.md) lists every block content can use and how to write it: notes, warnings, tips, formulas, examples, charts, data tables, and marker art. `mdx-components.tsx` maps them to the shared elements in `app/ui/content-elements.tsx`, so every page renders them the same way.
 
 - Use a note for context, a warning for something that can cost money, data, or time, and a tip for a recommendation.
 - Give a formula or example one clear home instead of repeating it around the page.

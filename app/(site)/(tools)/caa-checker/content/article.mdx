@@ -12,13 +12,13 @@ If a name is an alias (a CNAME), its target's CAA records count. The search does
 
 ## What do issue, issuewild, and iodef mean?
 
-<Terms>
-<Term name="issue">Allows one certificate authority to issue normal certificates. With no `issuewild`, it covers wildcards too.</Term>
-<Term name="issuewild">Allows one certificate authority to issue wildcard certificates, such as `*.example.com`. When any `issuewild` exists, wildcards ignore `issue`.</Term>
-<Term name="iodef">An email or web address for reports about blocked requests. It doesn't allow or block anything.</Term>
-<Term name='issue ";"'>An empty value. On its own, it allows no certificate authority.</Term>
-<Term name="Flag 128">Marks a record as critical. A certificate authority that doesn't understand it must refuse to issue.</Term>
-</Terms>
+| Setting | What it does |
+| --- | --- |
+| issue | Allows one certificate authority to issue normal certificates. With no `issuewild`, it covers wildcards too. |
+| issuewild | Allows one certificate authority to issue wildcard certificates, such as `*.example.com`. When any `issuewild` exists, wildcards ignore `issue`. |
+| iodef | An email or web address for reports about blocked requests. It doesn't allow or block anything. |
+| issue ";" | An empty value. On its own, it allows no certificate authority. |
+| Flag 128 | Marks a record as critical. A certificate authority that doesn't understand it must refuse to issue. |
 
 Several `issue` records add up, and each one allows one more certificate authority. A policy with only `issuewild` records leaves normal certificates unrestricted.
 

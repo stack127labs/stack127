@@ -15,14 +15,14 @@ import {
   Table2,
   TextCursorInput,
   Upload,
-  type LucideIcon,
-} from "lucide-react";
+  type SketchIcon,
+} from "@/app/ui/icons";
 
 export type GallerySection = {
   slug: string;
   label: string;
   description: string;
-  icon: LucideIcon;
+  icon: SketchIcon;
   /** Shared components shown on the section page, in page order. */
   components: string[];
 };
@@ -73,7 +73,7 @@ export const gallerySections: GallerySection[] = [
     label: "Results",
     description: "The main answer, supporting numbers, status words, progress, steps, timelines, and generated output.",
     icon: Gauge,
-    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiRangeMarker", "UiUnitGrid", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput", "Report", "ReportGroup", "ReportRow", "ReportBlock", "ReportNumbers", "ReportFigure", "ReportBars", "KeyNumbers", "FactsList", "NotPublic", "DetailsLayout", "SourcesLine", "SiteFacts", "AdsTxtNumbers", "AdsTxtPreview", "SimilarSites", "TrafficMeter"],
+    components: ["UiPrimaryResult", "UiResultLead", "UiMetricGroup", "UiKeyValueList", "UiStatusWord", "UiProgressBar", "UiAllocationBar", "UiRangeMarker", "UiUnitGrid", "UiSteps", "UiTimeline", "UiCodeOutput", "UiRawOutput", "Report", "ReportGroup", "ReportRow", "ReportBlock", "ReportNumbers", "ReportFigure", "ReportBars", "NotPublic", "SourcesLine", "SiteFacts", "AdsTxtNumbers", "AdsTxtPreview", "SimilarSites", "TrafficMeter"],
   },
   {
     slug: "tables",
@@ -106,9 +106,9 @@ export const gallerySections: GallerySection[] = [
   {
     slug: "content",
     label: "Content",
-    description: "Notes, warnings, tips, formulas, examples, terms, questions, and code.",
+    description: "Notes, warnings, tips, formulas, examples, questions, and code.",
     icon: FileText,
-    components: ["Callout", "Note", "Warning", "Tip", "ContentBlock", "Terms", "Term", "Faq", "CodeBlock"],
+    components: ["Callout", "Note", "Warning", "Tip", "ContentBlock", "Faq", "CodeBlock"],
   },
   {
     slug: "prose",

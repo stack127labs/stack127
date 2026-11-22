@@ -1,3 +1,4 @@
+import * as ahrefs from "../../../lib/ahrefs.ts";
 import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
@@ -11,6 +12,7 @@ import * as tldts from 'tldts';
 export function adNetworksLibrary(query, overrides={}, globals={}) {
   const exports={};
   const imports={
+    './ahrefs':ahrefs,
     './db':{getPool:()=>({query})},
     'next/cache':{unstable_cache:fn=>fn},
     './ad-network-niches':niches,'./ad-networks-report':report,'./ad-network-site-facts.mjs':facts,
