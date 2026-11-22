@@ -46,7 +46,7 @@ Hosted source: https://sentry.io/pricing/ and https://docs.sentry.io/pricing/. S
 | C09 | Separate paid trial | 14-day free trial of the Business plan with unlimited event data; pricing metadata says no credit card. After the trial, the account returns to its existing plan (Developer for new accounts). | days; card | Business trial | SaaS | Hosted | Trial | confirmed | https://docs.sentry.io/pricing/; https://sentry.io/pricing/ | 2026-11-23 | Product trials are separate: a one-time 14-day trial per product for Free, Team or Business accounts. New users also get 5,000 free replays a month for their first three months (pricing banner). |
 | C10 | Smallest useful paid plan | Team: $29 per month billed monthly ($26 per month if billed annually, $312 per year). Includes 50k errors, 5 GB logs, 5 GB application metrics, 5M spans, 50 replays, 1 uptime monitor, 1 cron monitor, 1 GB attachments. | USD/month | Team | SaaS | Hosted | Errors; logs; uptime; cron | confirmed | https://sentry.io/pricing/ | 2026-11-23 | Team adds unlimited users, API and third-party integrations, 20 custom dashboards and a 90-day lookback. Seer is an extra subscription. Business is $89 per month billed monthly. |
 | C10 | Seer add-on | Until December 8, 2026: $40 per active contributor per month on Team or Business. From December 8, 2026: usage-based credits in a Seer wallet. | USD | Team; Business | SaaS | Hosted | AI | confirmed | https://docs.sentry.io/pricing/ | 2026-11-23 | Active contributor: a user who makes two or more PRs to a Seer-enabled repository. Legacy $20 per month plus $25 of Seer credits ended as an add-on from January 2026. Seer is excluded from every cost scenario here. |
-| C11 | Cost at set usage levels: errors | 5,000 errors: $0 (Developer). 50,000 errors: $29 (Team, monthly). 500,000 errors: $134.65 estimated (Team plus PAYG). | estimated $/month | Developer; Team; Team plus PAYG | SaaS | Hosted | Errors | confirmed | https://sentry.io/pricing/; https://docs.sentry.io/pricing/quotas/manage-event-stream-guide/ | 2026-11-23 | Row-level states are in the Cost section. The 500,000 row is unclear because the docs do not say how PAYG bands combine. |
+| C11 | Cost at set usage levels: errors | 5,000 errors: $0 (Developer). 50,000 errors: $29 (Team, monthly). 500,000 errors: $134.65 estimated (Team plus PAYG). | estimated $/month | Developer; Team; Team plus PAYG | SaaS | Hosted | Errors | unclear | https://sentry.io/pricing/; https://docs.sentry.io/pricing/quotas/manage-event-stream-guide/ | 2026-11-23 | Row-level states are in the Cost section: 5,000 and 50,000 are confirmed; 500,000 is unclear. The 500,000 row is unclear because the docs do not say how PAYG bands combine. |
 | C11 | Cost at set usage levels: uptime | 5 / 25 / 100 monitors checked every 60 seconds: $33 / $53 / $128 per month (Team plus extra monitors) | estimated $/month | Team plus PAYG | SaaS | Hosted | Uptime | conflicting | https://sentry.io/pricing/; https://docs.sentry.io/pricing/; https://docs.sentry.io/pricing/quotas/manage-cron-monitors/ | 2026-11-23 | Developer has only one monitor and no PAYG, so it cannot cover 5 endpoints. Pricing page: "+$1.00/uptime alert additional". Docs: "$1.00/monitor". The scenario's own-domain status page is not offered. |
 | C11 | Cost at set usage levels: logs | 5 / 50 / 250 GB: Team $29 / $51.50 / $151.50 per month with a 14-day query window. Business $89 / $111.50 / $211.50 per month with a 30-day query window. | estimated $/month | Team; Business | SaaS | Hosted | Logs | unclear | https://sentry.io/pricing/; https://docs.sentry.io/pricing/; https://docs.sentry.io/product/explore/logs/ | 2026-11-23 | The GB unit is not defined as raw or compressed. Assumes logs only. The scenario's 30-day searchable retention needs Business. |
 | C11 | Cost at set usage levels: jobs | 5 / 25 / 100 jobs run hourly: Team $32.12 / $47.72 / $106.22 per month | estimated $/month | Team plus cron monitors | SaaS | Hosted | Cron | unclear | https://sentry.io/pricing/; https://docs.sentry.io/pricing/quotas/manage-cron-monitors/ | 2026-11-23 | Each job is one cron monitor. Team includes one; extra monitors are $0.78 each per billing period. Check-ins are not priced separately in the docs. Our sum. |
@@ -182,15 +182,15 @@ All sources in this section were checked 2026-11-23.
 ## Counts
 
 - Field IDs attempted: 50 of 50 (C01 to C27, E01 to E04, U01 to U05, L01 to L03, A01 to A03, S01 to S03, J01 to J02, H01 to H03).
-- Evidence rows: 95 (core facts and cost rows, type-specific facts). Some fields have more than one row.
+- Evidence rows: 87 (core facts and cost rows, type-specific facts). Some fields have more than one row.
 
 | State | Evidence rows | Distinct fields, conservative summary |
 | --- | --- | --- |
-| confirmed | 66 | 38 |
-| not_published | 9 | 7 |
-| unclear | 9 | 7 |
-| conflicting | 6 | 4 |
-| not_applicable | 6 | 4 |
+| confirmed | 57 | 30 |
+| not_published | 8 | 6 |
+| unclear | 11 | 6 |
+| conflicting | 5 | 5 |
+| not_applicable | 6 | 3 |
 | check_failed | 0 | 0 |
 
 Distinct-field summary uses the most cautious state among a field's rows: conflicting, check_failed, unclear, not_published, confirmed, not_applicable. A confirmed price row does not fill unknown parts of the same field.

@@ -1,0 +1,17 @@
+{
+  "slug": "sentry",
+  "name": "Sentry",
+  "official_url": "https://sentry.io/",
+  "image_url": "https://s1.sentry-cdn.com/_static/6f0dbb475964411d3eba7f22b4eb2dd5/sentry/images/logos/apple-touch-icon.png",
+  "source_page": "https://sentry.io/brand/",
+  "kind": "apple-touch-icon",
+  "source_host": "s1.sentry-cdn.com",
+  "original": {
+    "format": "png",
+    "width": 500,
+    "height": 500
+  },
+  "sha256": "00f345352a53a8a7b9030fdfbc384e123d7dc4eb90d23e011ae4154bd2cc5a74",
+  "note": "Official apple-touch icon (500x500) from the Sentry brand page; same mark as the official logo-sentry.svg, saved from the icon because it has its own background and stays readable on dark mode.",
+  "saved_at": "2026-11-22"
+}

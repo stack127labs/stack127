@@ -1,0 +1,474 @@
+{
+  "schema_version": 1,
+  "kind": "directories",
+  "pages": [
+    {
+      "slug": "payment-providers",
+      "family": "directory",
+      "registry": {
+        "label": "payment providers",
+        "meta_title": "175+ payment providers for indie hackers in 2026 | stack127",
+        "meta_description": "Compare card fees for 175+ payment providers by seller country. See who can sign up, when you get paid, and which ones sell for you.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>175+</mark> payment providers for indie hackers in 2026",
+        "card_name": "Payment providers",
+        "card_description": "Compare card fees, seller countries and payout times.",
+        "card_icon_key": "credit-card",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/payment-providers/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "payment-providers"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/payment-providers",
+            "text": "payment providers for indie hackers in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "hosting",
+      "family": "directory",
+      "registry": {
+        "label": "hosting",
+        "meta_title": "165+ hosting providers for apps and websites in 2026 | stack127",
+        "meta_description": "Compare 165+ hosts on the same three workloads: a static site, a small app API, and an app with Postgres. See costs and free plans.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>165+</mark> hosting providers for apps and websites in 2026",
+        "card_name": "Hosting",
+        "card_description": "Compare what hosts charge for the same app workload.",
+        "card_icon_key": "server",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/hosting/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "hosting"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/hosting",
+            "text": "hosting providers for apps and websites in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "databases",
+      "family": "directory",
+      "registry": {
+        "label": "databases",
+        "meta_title": "100+ databases and backends for your app in 2026 | stack127",
+        "meta_description": "Compare 100+ databases by free tier and monthly price for a small app. See which ones pause idle projects and where your data is stored.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>100+</mark> databases and backends for your app in 2026",
+        "card_name": "Databases",
+        "card_description": "Compare free tiers, monthly prices and regions.",
+        "card_icon_key": "database",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/databases/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "databases"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/databases",
+            "text": "databases and backends for your app in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "file-storage",
+      "family": "directory",
+      "registry": {
+        "label": "file storage",
+        "meta_title": "55+ file storage services and S3 alternatives in 2026 | stack127",
+        "meta_description": "Compare 55+ file storage services by monthly cost for 100 GB of files, with the same reads, writes and traffic for each. See regions and self-hosting.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>55+</mark> file storage services and S3 alternatives in 2026",
+        "card_name": "File storage",
+        "card_description": "Compare the monthly cost of storing and serving files.",
+        "card_icon_key": "files",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/file-storage/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "file-storage"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/file-storage",
+            "text": "file storage services and S3 alternatives in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "background-jobs",
+      "family": "directory",
+      "registry": {
+        "label": "background jobs",
+        "meta_title": "50+ background job and queue services in 2026 | stack127",
+        "meta_description": "Compare 50+ background job and queue tools by monthly cost for 10,000 jobs. See which ones also run scheduled tasks.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>50+</mark> background job and queue services in 2026",
+        "card_name": "Background jobs",
+        "card_description": "Compare queues and scheduled tasks by monthly cost.",
+        "card_icon_key": "hourglass",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/background-jobs/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "background-jobs"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/background-jobs",
+            "text": "background job and queue services in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "uptime-monitoring",
+      "family": "directory",
+      "registry": {
+        "label": "uptime and status",
+        "meta_title": "90+ uptime monitoring tools and status pages in 2026 | stack127",
+        "meta_description": "Compare 90+ uptime monitors and status pages by price for 5, 25 or 100 endpoints. See how often each one checks your site.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>90+</mark> uptime monitoring tools and status pages in 2026",
+        "card_name": "Uptime and status",
+        "card_description": "Check that your site answers, and tell users when it's down.",
+        "card_icon_key": "heart-pulse",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/uptime-monitoring/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "uptime-monitoring"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/uptime-monitoring",
+            "text": "uptime monitoring tools and status pages in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "error-tracking",
+      "family": "directory",
+      "registry": {
+        "label": "error tracking",
+        "meta_title": "110+ error tracking and logging tools in 2026 | stack127",
+        "meta_description": "Compare 110+ error tracking and log tools by price at 5,000 to 500,000 error reports a month. See how recently each one was updated.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>110+</mark> error tracking and logging tools in 2026",
+        "card_name": "Error tracking",
+        "card_description": "Catch crashes and read logs, priced by how many errors you get.",
+        "card_icon_key": "triangle-alert",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/error-tracking/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "error-tracking"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/error-tracking",
+            "text": "error tracking and logging tools in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "newsletter-tools",
+      "family": "directory",
+      "registry": {
+        "label": "newsletter tools",
+        "meta_title": "120+ newsletter and email marketing tools in 2026 | stack127",
+        "meta_description": "Compare 120+ newsletter and email tools by price for 1,000 to 50,000 subscribers. See which ones allow newsletters and have an API.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>120+</mark> newsletter and email marketing tools in 2026",
+        "card_name": "Newsletter tools",
+        "card_description": "Compare email tools by price for your subscriber list.",
+        "card_icon_key": "newspaper",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/newsletter-tools/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "newsletter-tools"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/newsletter-tools",
+            "text": "newsletter and email marketing tools in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "transactional-email",
+      "family": "directory",
+      "registry": {
+        "label": "transactional email",
+        "meta_title": "70+ transactional email services in 2026 | stack127",
+        "meta_description": "Compare 70+ services for sending password resets and receipts from your app, priced for 3,000 to 100,000 emails a month.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>70+</mark> transactional email services in 2026",
+        "card_name": "Transactional email",
+        "card_description": "Compare the price of sending app emails from your code.",
+        "card_icon_key": "mail",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/transactional-email/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "transactional-email"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/transactional-email",
+            "text": "transactional email services in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "analytics",
+      "family": "directory",
+      "registry": {
+        "label": "analytics",
+        "meta_title": "120+ analytics tools for websites and apps in 2026 | stack127",
+        "meta_description": "Compare 120+ analytics tools by price at 10,000 to 1 million pageviews. See cookie use, data location and self-hosting on each card.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>120+</mark> analytics tools for websites and apps in 2026",
+        "card_name": "Analytics",
+        "card_description": "Compare analytics tools by price, cookies and data location.",
+        "card_icon_key": "chart-column",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/analytics/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "analytics"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/analytics",
+            "text": "analytics tools for websites and apps in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "customer-support",
+      "family": "directory",
+      "registry": {
+        "label": "customer support",
+        "meta_title": "100+ customer support tools for small teams in 2026 | stack127",
+        "meta_description": "Compare 100+ help desk, live chat, AI agent and shared inbox tools for 1 or 3 people. AI costs are shown separately.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>100+</mark> customer support tools for small teams in 2026",
+        "card_name": "Customer support",
+        "card_description": "Compare help desks, live chat and AI agents for a small team.",
+        "card_icon_key": "headset",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/customer-support/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "customer-support"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/customer-support",
+            "text": "customer support tools for small teams in 2026"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "auth-providers",
+      "family": "directory",
+      "registry": {
+        "label": "auth providers",
+        "meta_title": "80+ auth providers and login services in 2026 | stack127",
+        "meta_description": "Compare 80+ login and auth services by monthly price for 1,000 to 100,000 users. See free user limits and business SSO costs.",
+        "is_published": true,
+        "is_indexable": false
+      },
+      "content": {
+        "title": "<mark>80+</mark> auth providers and login services in 2026",
+        "card_name": "Auth providers",
+        "card_description": "Compare login services by price, free users and business SSO.",
+        "card_icon_key": "key-round",
+        "card_art_key": null
+      },
+      "requirements": {
+        "route": "app/(site)/(directories)/auth-providers/page.tsx",
+        "records": {
+          "kind": "database",
+          "checks": [
+            {
+              "name": "apps imported",
+              "sql_file": "scripts/indie-hacker-apps/ready.sql",
+              "params": [
+                "auth-providers"
+              ]
+            }
+          ]
+        },
+        "smoke": [
+          {
+            "path": "/auth-providers",
+            "text": "auth providers and login services in 2026"
+          }
+        ]
+      }
+    }
+  ]
+}

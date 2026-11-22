@@ -16,7 +16,7 @@ One row means one product choice. Bundled features appear as extra type labels. 
 
 | Name | Official URL | Type and delivery | Home region / markets | Why it belongs; current identity | Found through | Status | Site checked |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Sentry | https://sentry.io/ | Error; APM; logs; hosted + self-host, license review | Unknown | Error and performance tracking. Main site returned unsupported Markdown; [official repository](https://github.com/getsentry/sentry) opened. Recheck hosted offer. | Brief; V1; C1 | check again | 2026-11-04 |
+| Sentry | https://sentry.io/ | Error; APM; logs; uptime; cron; replay; hosted + self-host, FSL source-available | United States vendor; data stored in US or EU | Error and performance tracking with logs, tracing, uptime and cron monitors. Self-hosted edition uses FSL-1.1-Apache-2.0, which is source-available, not open source. 2026-11-23: no ownership change, shutdown or breach notice found; Seer moves to usage credits on 2026-12-08. | Brief; V1; C1 | active | 2026-11-23 |
 | BugSnag | https://www.bugsnag.com/ | Error; APM; hosted | Unknown | Crash and stability monitoring for web and mobile; SmartBear branding remains visible. | Brief; V1; R1 | active | 2026-11-04 |
 | Rollbar | https://rollbar.com/ | Error; replay; hosted | Unknown | Captures production errors and connects them to releases; free start is advertised. | Brief; V1 | active | 2026-11-04 |
 | Honeybadger | https://www.honeybadger.io/ | Error; logs; APM; uptime; cron; status; hosted | Unknown | A small-builder monitoring bundle; includes missed-job and outage detection. | Brief; V1; F1 | active | 2026-11-04 |

@@ -259,7 +259,8 @@
         "backend": "sql",
         "vector": "sql",
         "files": "files",
-        "jobs": "jobs"
+        "jobs": "jobs",
+        "nosql": "sql"
       }
     },
     {
@@ -351,7 +352,9 @@
         "errors": "errors",
         "logs": "errors",
         "uptime": "uptime",
-        "status": "uptime"
+        "status": "uptime",
+        "performance": "errors",
+        "cron": "errors"
       }
     },
     {
