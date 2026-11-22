@@ -8,6 +8,8 @@ For each job it shows what the job does, when it runs, its last result, 90 days 
 
 The dashboard takes each stack127 job's name and description from [`monitoring.json`](monitoring.json), read from the homelab main checkout. When a change adds, moves, renames or removes a scheduled job, a GitHub workflow, an Edge Function schedule or a server timer, update its entry in the same pull request.
 
+BaseBuddy is its own project on the dashboard. Its jobs (the `stack127labs/basebuddy` and `stack127labs/basebuddy-website` workflows, and the demo and GitHub traffic jobs on the Bloxodes VPS) are described in `implementation_docs/monitoring.json` in `stack127labs/basebuddy-website`, not here.
+
 One entry per job:
 
 ```json
