@@ -2,7 +2,14 @@
   "slug": "coinremitter",
   "name": "Coinremitter",
   "url": "https://coinremitter.com/",
-  "jobs": ["crypto"],
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts BTC, LTC, DOGE, DASH and USDT or USDC on listed networks",
+      "links": "F16: shareable Payment Page links; a seller can send the link without a website"
+    }
+  },
   "line": "Crypto gateway with hosted checkout, invoices and wallet payouts.",
   "free": { "kind": "free", "text": "Free: 8 coins, 100 API requests/min, 500 wallet addresses" },
   "cells": {

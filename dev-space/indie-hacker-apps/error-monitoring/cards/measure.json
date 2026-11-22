@@ -3,6 +3,14 @@
   "name": "Measure",
   "url": "https://measure.sh/",
   "jobs": ["errors", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: mobile crashes, ANRs and handled errors, grouped into issues (E01)",
+      "logs": "L02: session search matches log bodies, IDs and exception traces",
+      "performance": "A01: mobile traces with custom spans, screen timings and HTTP latency"
+    }
+  },
   "line": "Tracks mobile crashes, ANRs, logs and performance with session context.",
   "free": { "kind": "free", "text": "5 GB/month and 30-day retention; no card" },
   "cells": {

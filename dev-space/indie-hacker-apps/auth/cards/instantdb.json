@@ -3,6 +3,12 @@
   "name": "InstantDB",
   "url": "https://www.instantdb.com/docs/auth",
   "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: open-source self-hosted backend with accounts and sessions; F03: self-host guides remain, cloud signups closed"
+    }
+  },
   "line": "Open-source backend with social login and guest accounts.",
   "free": { "kind": "selfhost", "text": "Free software; cloud signups are closed" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "UploadThing",
   "url": "https://uploadthing.com/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted file upload and storage service is the primary category; F01: 2 GB Free and 100 GB App storage plans"
+    }
+  },
   "line": "Hosted file uploads, storage and CDN delivery with SDKs for app frameworks.",
   "free": { "kind": "free", "text": "2GB shared; uploads/downloads unlimited; no idle or file deletion timer" },
   "cells": {

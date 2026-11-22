@@ -3,6 +3,14 @@
   "name": "Mailjet",
   "url": "https://www.mailjet.com/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: marketing campaigns and newsletters",
+      "marketing": "F02: automated lifecycle journeys",
+      "transactional": "F02: transactional and app-generated email, sent through the Send API or SMTP Relay (F03)"
+    }
+  },
   "line": "Email campaigns, lifecycle journeys and transactional API delivery.",
   "free": { "kind": "free", "text": "Free for 1,000 contacts, 6,000 emails/month and 200/day" },
   "cells": {

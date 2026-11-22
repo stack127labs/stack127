@@ -2,7 +2,15 @@
   "slug": "lucky-orange",
   "name": "Lucky Orange",
   "url": "https://www.luckyorange.com/",
-  "jobs": ["replay", "web"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary job is website behavior analytics; F17: DOM-based session recordings and dynamic heatmaps",
+      "web": "F15: pageviews, unique visitors, traffic source, UTM campaigns, country and device filters",
+      "product": "F16: ordered URL or event funnels with at least two steps, and developer-defined events"
+    }
+  },
   "line": "Records website sessions with heatmaps, funnels, and form analytics.",
   "free": { "kind": "free", "text": "Free: 100 sessions/month, 1 site, 30-day history; pauses at limit" },
   "cells": {

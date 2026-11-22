@@ -3,6 +3,12 @@
   "name": "ImageKit",
   "url": "https://imagekit.io/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "files": "C07: Media Library, file upload and management APIs, and CDN delivery are included"
+    }
+  },
   "line": "Store, transform, and deliver media through APIs and a global CDN.",
   "free": { "kind": "free", "text": "3GB media, 20GB bandwidth; 500 video, 650 extension units/mo; no idle pause" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Backblaze B2",
   "url": "https://www.backblaze.com/cloud-storage",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed file and object storage is the primary role; F05: S3-compatible subset plus Native API"
+    }
+  },
   "line": "Store files in hosted object storage with S3-compatible APIs.",
   "free": { "kind": "free", "text": "First 10 GB stored free per account" },
   "cells": {

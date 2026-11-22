@@ -2,9 +2,22 @@
   "slug": "humblytics",
   "name": "Humblytics",
   "url": "https://humblytics.com/",
-  "jobs": ["web", "product"],
+  "jobs": [
+    "web",
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is web analytics; F15: pages, sources, countries, devices and live visitors",
+      "revenue": "F19: Stripe and Foxy connections with tracked revenue, revenue per visitor and ROAS"
+    }
+  },
   "line": "Tracks website visits, funnels, experiments, and revenue attribution.",
-  "free": { "kind": "credits", "text": "25,000 data points on 1 site; no card" },
+  "free": {
+    "kind": "credits",
+    "text": "25,000 data points on 1 site; no card"
+  },
   "cells": {
     "cookieless": "Yes, no cookies or local-storage IDs",
     "location": "EU; some processors in the USA",
@@ -12,9 +25,24 @@
   },
   "costs": {
     "pv": [
-      { "v": "$0", "plan": "Starter credit", "state": "confirmed", "math": "10,000 pageviews fit within the first 25,000 data points. This one-time starter credit does not refill." },
-      { "v": "$39", "plan": "One-time 100,000-point pack", "state": "confirmed", "math": "One $39 prepaid pack gives 100,000 points for 12 months. It is a one-time purchase, not a monthly charge." },
-      { "v": "$300", "plan": "Point packs", "state": "unclear", "math": "$39 for the first 100,000 points, plus nine top-ups of 100,000 points at $29 each, to reach 1,000,000 points. That totals $300. Assumes the nine top-ups can be added and used this month." }
+      {
+        "v": "$0",
+        "plan": "Starter credit",
+        "state": "confirmed",
+        "math": "10,000 pageviews fit within the first 25,000 data points. This one-time starter credit does not refill."
+      },
+      {
+        "v": "$39",
+        "plan": "One-time 100,000-point pack",
+        "state": "confirmed",
+        "math": "One $39 prepaid pack gives 100,000 points for 12 months. It is a one-time purchase, not a monthly charge."
+      },
+      {
+        "v": "$300",
+        "plan": "Point packs",
+        "state": "unclear",
+        "math": "$39 for the first 100,000 points, plus nine top-ups of 100,000 points at $29 each, to reach 1,000,000 points. That totals $300. Assumes the nine top-ups can be added and used this month."
+      }
     ]
   }
 }

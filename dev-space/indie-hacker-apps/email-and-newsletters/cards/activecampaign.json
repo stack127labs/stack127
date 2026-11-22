@@ -2,7 +2,14 @@
   "slug": "activecampaign",
   "name": "ActiveCampaign",
   "url": "https://www.activecampaign.com/",
-  "jobs": ["marketing", "newsletter", "transactional"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: automated customer journeys and autoresponders on the hosted marketing platform (F01)",
+      "newsletter": "F02: campaigns and newsletters sent from ActiveCampaign's own servers (F03)"
+    }
+  },
   "line": "Email campaigns and customer journeys, with transactional mail through Postmark.",
   "free": { "kind": "trial", "text": "14-day trial; 100 sends and 1 user" },
   "cells": { "newsletters": "Yes", "api": "Yes" },

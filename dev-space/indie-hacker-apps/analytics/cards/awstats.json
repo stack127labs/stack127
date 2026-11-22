@@ -3,6 +3,12 @@
   "name": "AWStats",
   "url": "https://www.awstats.org/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is server-log web analytics; F15: visits, unique visitors, pages, referrers and countries"
+    }
+  },
   "line": "Website traffic reports generated from your server logs.",
   "free": {"kind": "selfhost", "text": "Free software; you supply logs and hosting"},
   "cells": {

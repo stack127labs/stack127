@@ -4,9 +4,17 @@
   "url": "https://www.pingdom.com/",
   "jobs": [
     "uptime",
-    "performance",
-    "status"
+    "status",
+    "performance"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: synthetic uptime checks over HTTP, TCP and ping (U01)",
+      "status": "S01, S03: one organization-level public status page built from Uptime checks",
+      "performance": "A01: browser page-speed and real-user page timing; backend APM is separate"
+    }
+  },
   "line": "SolarWinds uptime, browser and page-speed checks.",
   "free": {
     "kind": "none",

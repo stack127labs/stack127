@@ -3,6 +3,12 @@
   "name": "Authboss",
   "url": "https://github.com/aarondl/authboss",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Go toolkit inside the developer's own web app; no hosted or server product"
+    }
+  },
   "line": "Go account and login toolkit with selectable auth modules.",
   "free": { "kind": "selfhost", "text": "Free MIT library; you run it" },
   "cells": {

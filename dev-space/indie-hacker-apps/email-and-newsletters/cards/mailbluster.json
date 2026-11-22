@@ -3,6 +3,13 @@
   "name": "MailBluster",
   "url": "https://mailbluster.com/",
   "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: triggered marketing sequences alongside scheduled campaigns",
+      "newsletter": "F02: bulk newsletters and promotional campaigns"
+    }
+  },
   "line": "Hosted email marketing for campaigns and scheduled sequences.",
   "free": { "kind": "credits", "text": "3,000 emails total, one time per account" },
   "cells": {

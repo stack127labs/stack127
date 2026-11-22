@@ -2,7 +2,13 @@
   "slug": "librekb",
   "name": "LibreKB",
   "url": "https://github.com/michaelstaake/LibreKB",
-  "jobs": ["helpdesk"],
+  "jobs": ["kb"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "kb": "F02: self-service help center and self-hosted knowledge base for customer articles"
+    }
+  },
   "line": "Self-hosted GPL knowledge base for publishing customer help articles.",
   "free": { "kind": "selfhost", "text": "Free software; you provide hosting" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Alibaba Cloud ECS",
   "url": "https://www.alibabacloud.com/en/product/ecs",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: ECS virtual machines; the customer manages the guest OS, runtimes and applications"
+    }
+  },
   "line": "Virtual machines for running websites, APIs, and databases.",
   "free": { "kind": "trial", "text": "One-year t5 trial for eligible new users" },
   "cells": { "type": "VPS/VM", "regions": "China, Asia, Europe, Americas, Middle East", "selfhost": "No" },

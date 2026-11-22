@@ -3,6 +3,14 @@
   "name": "Sequenzy",
   "url": "https://www.sequenzy.com/",
   "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle sequences triggered by subscriber, product, billing and commerce events",
+      "newsletter": "F02: newsletters and one-off marketing campaigns to lists or segments",
+      "transactional": "F02: transactional and app-generated email through the REST API and SMTP relay"
+    }
+  },
   "line": "SaaS email campaigns, lifecycle sequences and transactional delivery.",
   "free": { "kind": "free", "text": "Free: 2,500 emails/month; card requirement for sending is unclear" },
   "cells": {

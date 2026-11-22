@@ -3,6 +3,12 @@
   "name": "AceCloud Compute",
   "url": "https://acecloud.ai/cloud/compute/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented cloud VMs; the customer chooses the image and manages the guest OS and app"
+    }
+  },
   "line": "Run websites, APIs, and databases on virtual machines you manage.",
   "free": { "kind": "credits", "text": "Temporary signup credits; no recurring free compute" },
   "cells": {

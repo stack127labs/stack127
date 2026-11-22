@@ -5,6 +5,12 @@
   "jobs": [
     "vps"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented KVM virtual server with root access; the customer manages the guest OS and apps"
+    }
+  },
   "line": "Rent NVMe virtual servers with root or administrator access.",
   "free": {
     "kind": "none",

@@ -2,7 +2,14 @@
   "slug": "cloud-66",
   "name": "Cloud 66",
   "url": "https://www.cloud66.com/",
-  "jobs": ["panel"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted management plane that runs apps on servers the customer rents; paid, not free self-hosted software",
+      "static": "03: Cloud 66 Sites deploys static sites to object storage with a CDN"
+    }
+  },
   "line": "Deploy and manage apps on your own cloud servers.",
   "free": { "kind": "free", "text": "Free personal plan: 1 server, 1 site, 5 deploys/day, 50 build min" },
   "cells": { "type": "Deployment panel", "regions": "Your selected cloud server region", "selfhost": "Yes; deploy to your servers or providers" },

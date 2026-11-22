@@ -3,6 +3,12 @@
   "name": "Cronitor RUM",
   "url": "https://cronitor.io/rum",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary job is website audience analytics with real user performance; F15: sessions, pageviews, referrers, UTMs and countries"
+    }
+  },
   "line": "Website analytics with performance and JavaScript error monitoring.",
   "free": { "kind": "free", "text": "Free: 100,000 events/month, 1 dashboard user" },
   "cells": { "cookieless": "Yes (localStorage opt-out flag)", "location": "US and Ireland (AWS)", "selfhost": "No (none found)" },

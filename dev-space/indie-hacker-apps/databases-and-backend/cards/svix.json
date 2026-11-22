@@ -3,6 +3,12 @@
   "name": "Svix",
   "url": "https://www.svix.com/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: webhook delivery service is the primary type; J03: retry schedule for failed deliveries"
+    }
+  },
   "line": "Webhook delivery and ingestion with event routing, retries, and replay.",
   "free": { "kind": "free", "text": "50K messages/mo, 50/s, 7-day retention; no idle pause or deletion rule" },
   "cells": {

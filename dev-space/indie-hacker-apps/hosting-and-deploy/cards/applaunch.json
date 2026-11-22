@@ -3,6 +3,13 @@
   "name": "AppLaunch",
   "url": "https://applaunch.org/",
   "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: vendor-hosted container platform; source or image deploys run on the provider's platform",
+      "static": "03: static portfolio hosting is a separate listed family, with one free static portfolio"
+    }
+  },
   "line": "Host container apps, websites, and static portfolios.",
   "free": { "kind": "free", "text": "Free portfolio: one site, 100 MB storage, provider subdomain" },
   "cells": { "type": "Managed app hosting", "regions": "EEA nodes; exact locations unpublished", "selfhost": "No" },

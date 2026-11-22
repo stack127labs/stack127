@@ -3,6 +3,12 @@
   "name": "Clouding",
   "url": "https://clouding.io/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted virtual server; the customer manages the guest OS, app and maintenance"
+    }
+  },
   "line": "Configure a self-managed virtual server with hourly billing.",
   "free": { "kind": "credits", "text": "One-time €5 signup balance; no recurring free server plan" },
   "cells": { "type": "VPS/VM", "regions": "Barcelona, Spain", "selfhost": "No" },

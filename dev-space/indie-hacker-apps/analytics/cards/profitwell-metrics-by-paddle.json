@@ -3,6 +3,12 @@
   "name": "ProfitWell Metrics",
   "url": "https://www.paddle.com/profitwell-metrics",
   "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is subscription revenue analytics; F19: MRR, churn, LTV and cohorts from Stripe, Chargebee and other billing sources"
+    }
+  },
   "line": "Tracks subscription revenue, churn, and customer health.",
   "free": { "kind": "free", "text": "Core Metrics is free; no revenue-tier fee advertised" },
   "cells": {

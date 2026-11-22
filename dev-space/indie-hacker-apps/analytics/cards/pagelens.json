@@ -2,7 +2,16 @@
   "slug": "pagelens",
   "name": "PageLens",
   "url": "https://pagelens.io/",
-  "jobs": ["web", "revenue"],
+  "jobs": ["web", "product", "replay", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is hosted website traffic and conversion analytics; F15: pages, sources, countries, devices and live sessions",
+      "product": "F16: manual events, session timelines, journeys and page or event funnels, with identified-user retention cohorts",
+      "replay": "F17: optional web session replay on the Business plan, with form fields masked before transmission",
+      "revenue": "F19: Stripe and Paddle webhooks with revenue reports by source, channel, campaign and landing page"
+    }
+  },
   "line": "Tracks website traffic, conversions, and source-linked revenue.",
   "free": { "kind": "trial", "text": "7-day trial with no payment details" },
   "cells": {

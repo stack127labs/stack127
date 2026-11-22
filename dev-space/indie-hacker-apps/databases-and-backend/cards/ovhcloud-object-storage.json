@@ -3,6 +3,12 @@
   "name": "OVHcloud Object Storage",
   "url": "https://www.ovhcloud.com/en/public-cloud/object-storage/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage for files stored as objects is the primary type; F05: S3-compatible API"
+    }
+  },
   "line": "S3-compatible object storage for application files, backups, and archives.",
   "free": { "kind": "credits", "text": "US trial: $200/90d; no lasting free tier; no idle bucket pause or deletion" },
   "cells": {

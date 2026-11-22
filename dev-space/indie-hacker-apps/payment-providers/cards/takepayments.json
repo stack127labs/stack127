@@ -2,7 +2,15 @@
   "slug": "takepayments",
   "name": "takepayments",
   "url": "https://www.takepayments.com/",
-  "jobs": ["gateway", "links"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and payment acceptance; the merchant remains the seller",
+      "billing": "F15: MMS runs scheduled card transactions with frequency, first date and expiry; not a full suite",
+      "links": "F16: payment links shared by email, text, social channels or invoice, no website needed"
+    }
+  },
   "line": "UK payment gateway with hosted checkout, payment links, and invoices.",
   "free": { "kind": "none", "text": "Online gateway fees and monthly plan are by quote" },
   "cells": {

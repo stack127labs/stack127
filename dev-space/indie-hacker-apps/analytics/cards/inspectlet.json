@@ -2,7 +2,15 @@
   "slug": "inspectlet",
   "name": "Inspectlet",
   "url": "https://www.inspectlet.com/",
-  "jobs": ["replay", "web"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary job is website session replay and heatmaps; F17: browser-event replay with masking defaults",
+      "web": "F15: visitors filtered by country, device, referrer, landing and exit pages; traffic-source heatmaps",
+      "product": "F15: URL-step funnels; F16: searchable custom events and tags on sessions"
+    }
+  },
   "line": "Records website sessions and provides heatmaps and form analysis.",
   "free": { "kind": "free", "text": "Free: 3 sites, 1-month history; replay limit unclear" },
   "cells": {

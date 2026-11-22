@@ -2,7 +2,14 @@
   "slug": "mailchimp",
   "name": "Mailchimp",
   "url": "https://mailchimp.com/",
-  "jobs": ["marketing", "newsletter", "transactional"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle marketing flows alongside campaigns",
+      "newsletter": "F02: newsletters and campaigns"
+    }
+  },
   "line": "Email campaigns and marketing automation with a transactional add-on.",
   "free": { "kind": "free", "text": "Free for 250 contacts, 500 emails/month and 250/day" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Parse Server",
   "url": "https://docs.parseplatform.org/js/guide/#users",
   "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted backend server with accounts, login and sessions; F05: builder runs Node.js and database"
+    }
+  },
   "line": "Self-hosted backend with user accounts, login, and sessions.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 server; you run it" },
   "cells": {

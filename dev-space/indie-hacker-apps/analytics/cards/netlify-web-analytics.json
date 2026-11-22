@@ -3,6 +3,12 @@
   "name": "Netlify Web Analytics",
   "url": "https://www.netlify.com/products/analytics/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics from hosting logs; F15: pageviews, unique visitors, top pages, locations and referrers"
+    }
+  },
   "line": "Reports website traffic from Netlify's hosting logs without client scripts.",
   "free": { "kind": "free", "text": "Included on Free plan; 1-day analytics history" },
   "cells": {

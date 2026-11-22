@@ -3,6 +3,13 @@
   "name": "Toss Payments",
   "url": "https://www.tosspayments.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and settlement intermediary; the merchant sells and delivers",
+      "links": "F16: Linkpay creates hosted, reusable payment links without a website or app"
+    }
+  },
   "line": "South Korean gateway for cards, local banks, wallets, and payment links.",
   "free": { "kind": "none", "text": "KRW 220,000 signup fee plus KRW 110,000 annual fee" },
   "cells": {

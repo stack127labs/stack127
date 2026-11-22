@@ -3,6 +3,12 @@
   "name": "Prometheus",
   "url": "https://prometheus.io/",
   "jobs": ["performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: stores application and system metrics as time series; PromQL alerts (A01)"
+    }
+  },
   "line": "Stores application and system metrics, evaluates rules, and raises alerts.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you run and host it" },
   "cells": { "interval": "—", "maintained": "Last release 2026-11-04" },

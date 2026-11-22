@@ -2,7 +2,17 @@
   "slug": "featurebase",
   "name": "Featurebase",
   "url": "https://www.featurebase.app/",
-  "jobs": ["inbox", "chat", "helpdesk", "ai"],
+  "jobs": ["inbox", "helpdesk", "chat", "ai", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help center is part of the support inbox and feedback product",
+      "inbox": "F17: Support email routes into the shared Inbox on Growth and higher; Messenger chats reach the Inbox (F02)",
+      "helpdesk": "F02: Email tickets and a help center are part of the support offer alongside the shared inbox",
+      "chat": "F17: Native Messenger gives live chat on a website or web app through its JavaScript SDK; included on Free",
+      "ai": "F22: Fibi is an autonomous support agent for Messenger and email; it hands off to people when asked"
+    }
+  },
   "line": "Shared support inbox with chat, email, help center, and feedback boards.",
   "free": { "kind": "free", "text": "Free forever; 1 seat, unlimited chats, 50 help articles" },
   "cells": {

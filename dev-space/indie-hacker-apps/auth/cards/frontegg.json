@@ -3,6 +3,12 @@
   "name": "Frontegg",
   "url": "https://frontegg.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: proprietary identity SaaS; F35: private deployment has no public install or upgrade guide"
+    }
+  },
   "line": "Hosted account login and customer management for business apps.",
   "free": { "kind": "free", "text": "Free PAYG allowance includes 7,500 MAU" },
   "cells": {

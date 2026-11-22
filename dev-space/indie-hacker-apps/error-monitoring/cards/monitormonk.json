@@ -3,6 +3,13 @@
   "name": "MonitorMonk",
   "url": "https://monitormonk.com/",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP/HTTPS availability, keyword and SSL expiry checks (U01)",
+      "status": "S01, S03: public dashboards and status pages generated from monitor results"
+    }
+  },
   "line": "Checks websites for downtime, response time and SSL issues, with dashboards.",
   "free": { "kind": "free", "text": "10 websites and 2 dashboards; one-minute checks" },
   "cells": {

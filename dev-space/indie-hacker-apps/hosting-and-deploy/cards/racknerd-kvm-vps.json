@@ -3,12 +3,18 @@
   "name": "RackNerd KVM VPS",
   "url": "https://www.racknerd.com/kvm-vps",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: KVM virtual machine with root access; the customer handles OS, apps, security and backups"
+    }
+  },
   "line": "Run KVM virtual servers with root access and customer managed software.",
   "free": { "kind": "none", "text": "No ongoing free VPS allowance" },
   "cells": { "type": "VPS/VM", "regions": "12 KVM sites: US, Canada, Europe (France city unclear)", "selfhost": "Yes; root access, unmanaged" },
   "costs": { "work": [
     { "v": "Unknown", "plan": "Regular KVM-1GB", "state": "unclear", "math": "$17.99 a month is the known server charge. The 1,000 GB transfer is listed against 100 GB of data sent out, but the direction, extra charges, tax and domain costs are unclear." },
-    { "v": "Unknown", "plan": "Regular KVM-1GB", "state": "unclear", "math": "The $17.99 a month server has 2 vCores, 1,024 MB of RAM, 50 GB of SSD and 1,000 GB of transfer. Whether 100 GB sent out fits has not been tested, and tax is not included." },
+    { "v": "$17.99/mo", "plan": "Regular KVM-1GB", "state": "confirmed", "math": "$17.99 a month for the KVM-1GB plan, with 1 GB RAM, 2 vCores, 1,000 GB of transfer (covers 100 GB out) and one IPv4 included. Builds aren't billed. Tax isn't stated." },
     { "v": "Unknown", "plan": "Regular KVM-4GB", "state": "unclear", "math": "$24.59 a month is the hosting subtotal for the app and a Postgres database you manage yourself. Daily backup storage kept off the network and tax are extra. Whether the workload fits has not been tested." }
   ] }
 }

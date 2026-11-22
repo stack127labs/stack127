@@ -3,6 +3,12 @@
   "name": "Runframe",
   "url": "https://runframe.io/",
   "jobs": ["status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: customer-facing and private status pages with incident updates (S01, S03)"
+    }
+  },
   "line": "Routes alerts to on-call teams and publishes incident status pages.",
   "free": { "kind": "free", "text": "Free: 5 users, 1 public page, 50 email subscribers" },
   "cells": {

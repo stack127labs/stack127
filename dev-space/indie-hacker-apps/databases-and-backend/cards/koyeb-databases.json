@@ -3,6 +3,13 @@
   "name": "Koyeb Serverless Postgres",
   "url": "https://www.koyeb.com/docs/databases",
   "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: hosted managed SQL database is the primary type; D01: native PostgreSQL service",
+      "vector": "V01: pgvector 0.8.0 with HNSW indexes on the managed database"
+    }
+  },
   "line": "Managed PostgreSQL with selectable compute sizes and vector search.",
   "free": { "kind": "free", "text": "0.25 vCPU, 1GB RAM, 5h/mo, 1GB storage; sleeps after 5 idle minutes" },
   "cells": {

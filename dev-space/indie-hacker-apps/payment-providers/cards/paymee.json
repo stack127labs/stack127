@@ -3,6 +3,13 @@
   "name": "Paymee",
   "url": "https://www.paymee.tn/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and facilitator; the merchant handles the sale, Paymee the payment",
+      "links": "F16: Paylink creates a shareable hosted payment link sent by any channel"
+    }
+  },
   "line": "Tunisian checkout gateway with payment links; service resumption is unconfirmed.",
   "free": { "kind": "none", "text": "Zero subscription or monthly fee; free to open an account" },
   "cells": {

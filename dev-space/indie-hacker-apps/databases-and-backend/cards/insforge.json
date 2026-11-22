@@ -3,6 +3,16 @@
   "name": "InsForge",
   "url": "https://insforge.dev/",
   "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform; C07: database, auth, files, functions and realtime",
+      "sql": "D01: full PostgreSQL SQL database on the project",
+      "files": "F01: 1 GB free and 100 GB Pro file storage; F04: S3 gateway with 5 GB PutObject",
+      "jobs": "J01: functions run on HTTP, database triggers and schedules; J04: five-field cron schedules",
+      "vector": "V01: pgvector shipped on every project with HNSW and IVFFlat support"
+    }
+  },
   "line": "Backend with PostgreSQL, authentication, file storage, functions, and realtime.",
   "free": { "kind": "free", "text": "500MB DB, 1GB files, 5GB bw, 100K calls; pauses at 7 idle days; archives at 30d" },
   "cells": {

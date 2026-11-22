@@ -3,6 +3,12 @@
   "name": "fortrabbit",
   "url": "https://www.fortrabbit.com/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed PHP application hosting; fortrabbit runs the components and the customer deploys the code"
+    }
+  },
   "line": "Host PHP applications on managed cloud infrastructure.",
   "free": { "kind": "trial", "text": "7-day per-app trial; app/data deleted at end without payment" },
   "cells": { "type": "Managed PHP hosting", "regions": "Ireland and Virginia", "selfhost": "No" },

@@ -2,7 +2,15 @@
   "slug": "elestio",
   "name": "Elestio",
   "url": "https://elest.io/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: CI/CD target VMs run the customer's apps from GitHub, GitLab or registries; Elestio manages the VMs",
+      "panel": "03: BYOVM manages the customer's own Linux server with a free tier; hosted, not free self-hosted software",
+      "static": "04: static frontends are a listed workload type"
+    }
+  },
   "line": "Deploy and manage applications on dedicated or connected servers.",
   "free": { "kind": "selfhost", "text": "Free BYOVM management within 2 vCPU, 4 GB RAM, 80 GB disk" },
   "cells": { "type": "Managed services and CI/CD", "regions": "Nuremberg or Manassas example; provider options vary", "selfhost": "Yes; BYOVM manages your server" },

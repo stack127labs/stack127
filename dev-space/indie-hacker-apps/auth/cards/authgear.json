@@ -3,6 +3,13 @@
   "name": "Authgear",
   "url": "https://www.authgear.com/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: Authgear Cloud hosted identity service; F05: vendor operates Cloud",
+      "server": "F02: self-hosted identity server; F05: customer runs servers, PostgreSQL and Redis"
+    }
+  },
   "line": "Account login and SSO in Authgear Cloud or your server.",
   "free": { "kind": "free", "text": "Unlimited MAUs; 2 apps and 100 OTP messages/month" },
   "cells": {

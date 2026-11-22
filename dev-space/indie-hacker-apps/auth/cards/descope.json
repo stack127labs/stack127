@@ -3,6 +3,12 @@
   "name": "Descope",
   "url": "https://www.descope.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: public SaaS for accounts, login, sessions and SSO; F05: Descope runs the identity service"
+    }
+  },
   "line": "Hosted login flows, account management, and developer APIs.",
   "free": { "kind": "free", "text": "Free up to 7,500 MAU" },
   "cells": {

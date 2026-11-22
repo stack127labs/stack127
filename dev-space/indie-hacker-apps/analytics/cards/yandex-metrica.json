@@ -1,6 +1,12 @@
 {
   "slug": "yandex-metrica", "name": "Yandex Metrica", "url": "https://metrica.yandex.com/",
-  "jobs": ["web", "replay"],
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic and acquisition analytics; F15: traffic, geography, sources, campaigns, goals and ecommerce"
+    }
+  },
   "line": "Free website analytics with goals, acquisition reports and replay.",
   "free": {"kind": "free", "text": "Free: 200 goals/tag, 500 segments, 5 dashboards, 100 reports, 1K events/session"},
   "cells": {"cookieless": "No (visitor cookies and browser storage)", "location": "Russia; transfers may occur internationally", "selfhost": "No (none found)"},

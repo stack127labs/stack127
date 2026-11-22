@@ -3,6 +3,13 @@
   "name": "Logto",
   "url": "https://logto.io/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: Logto Cloud hosted identity platform; F05: vendor hosts and manages Cloud",
+      "server": "F02: free self-hosted open-source server; F05: developer runs server and PostgreSQL"
+    }
+  },
   "line": "Open-source login service with a managed Cloud option.",
   "free": { "kind": "free", "text": "Cloud Free: 50,000 MAU and 50,000 access tokens" },
   "cells": {

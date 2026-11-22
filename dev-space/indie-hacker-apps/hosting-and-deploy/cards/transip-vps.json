@@ -3,6 +3,12 @@
   "name": "TransIP VPS",
   "url": "https://www.transip.eu/vps/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented VPS with root access; TransIP maintains the hardware and the customer runs the OS and apps"
+    }
+  },
   "line": "Rent a Linux or Windows server and manage its apps yourself.",
   "free": { "kind": "none", "text": "No ongoing free VPS plan" },
   "cells": {

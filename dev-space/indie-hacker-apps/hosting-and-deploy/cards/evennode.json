@@ -3,6 +3,12 @@
   "name": "EvenNode",
   "url": "https://www.evennode.com/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: provider-managed app platform; the customer uploads Node.js or Python source and the platform runs it"
+    }
+  },
   "line": "Host Node.js and Python apps with managed runtime tools.",
   "free": { "kind": "trial", "text": "Signup trial; ongoing free hosting allowance not established" },
   "cells": { "type": "Managed app platform", "regions": "Europe and US; cities not listed", "selfhost": "No" },

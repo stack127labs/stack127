@@ -3,6 +3,12 @@
   "name": "WordPress.com Newsletter",
   "url": "https://wordpress.com/newsletter/",
   "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: native post-to-email newsletters with free and paid reader access"
+    }
+  },
   "line": "Hosted WordPress posts sent as newsletters, with free and paid readers.",
   "free": { "kind": "free", "text": "Unlimited sends; 100 imported subscribers; WordPress.com address" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "OpenSearch",
   "url": "https://opensearch.org/",
   "jobs": ["logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: application log ingest, full-text and structured search with dashboards (L02)"
+    }
+  },
   "line": "Searches and analyzes logs, with dashboards and scheduled data alerts.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; hosting and storage extra" },
   "cells": {

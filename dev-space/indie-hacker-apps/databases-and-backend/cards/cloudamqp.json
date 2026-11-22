@@ -3,6 +3,12 @@
   "name": "CloudAMQP",
   "url": "https://www.cloudamqp.com/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed message queue and broker is the primary type; J04: held-message limits per plan"
+    }
+  },
   "line": "Use managed RabbitMQ or LavinMQ message brokers for app queues.",
   "free": { "kind": "free", "text": "1M events/month, 20 connections; may delete after 2 months idle" },
   "cells": {

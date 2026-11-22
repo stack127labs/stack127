@@ -2,7 +2,14 @@
   "slug": "billionmail",
   "name": "BillionMail",
   "url": "https://www.billionmail.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter and campaign tasks in the self-hosted app",
+      "transactional": "F02: individual transactional email through a template-send API; F10 covers single-recipient sends"
+    }
+  },
   "line": "Self-hosted email campaigns and transactional sending with templates.",
   "free": {"kind": "selfhost", "text": "Free AGPL software; server and sending cost extra"},
   "cells": {"newsletters": "Yes", "api": "Yes, template-send API"},

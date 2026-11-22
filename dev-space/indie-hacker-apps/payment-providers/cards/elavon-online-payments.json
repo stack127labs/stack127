@@ -3,6 +3,14 @@
   "name": "Elavon online payments",
   "url": "https://www.elavon.co.uk/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acquiring; the merchant remains the seller",
+      "billing": "F15: UK back office sets recurring plans with frequency, intro pricing and end dates",
+      "links": "F16: UK payment links, reusable or single-use, shared by email, SMS or social URL"
+    }
+  },
   "line": "Online acquiring and checkout for UK, European and North American merchants.",
   "free": { "kind": "none", "text": "UK Always Open costs £25/month" },
   "cells": {

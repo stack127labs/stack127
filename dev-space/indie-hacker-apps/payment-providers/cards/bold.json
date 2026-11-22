@@ -2,10 +2,14 @@
   "slug": "bold",
   "name": "Bold",
   "url": "https://bold.co/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment acceptance gateway and aggregator; the merchant sells to the buyer",
+      "links": "F16: hosted payment link in Colombia; in Peru links are created in the Bold app"
+    }
+  },
   "line": "Colombia and Peru payment links and online card acceptance.",
   "free": {
     "kind": "none",

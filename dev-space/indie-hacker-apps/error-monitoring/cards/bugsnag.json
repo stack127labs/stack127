@@ -3,6 +3,13 @@
   "name": "BugSnag",
   "url": "https://www.bugsnag.com/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: primary job is detecting and triaging app exceptions and crashes (E01)",
+      "performance": "C02: distributed traces and real-user performance; see A01, A03"
+    }
+  },
   "line": "Collects and triages application crashes with diagnostic context.",
   "free": { "kind": "free", "text": "Free for 7,500 events/month; one user" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

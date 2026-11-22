@@ -3,6 +3,12 @@
   "name": "RamNode Cloud VPS",
   "url": "https://ramnode.com/products/cloud-vps",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: KVM virtual machine with root access; the customer installs, patches, secures and backs up the server"
+    }
+  },
   "line": "Run KVM virtual servers with hourly billing and root access.",
   "free": { "kind": "none", "text": "No ongoing free compute allowance" },
   "cells": { "type": "Cloud VPS", "regions": "Lite: EWR, LAX, NLX; ATL/SEA availability conflicts", "selfhost": "Yes; root access, manage the guest OS" },

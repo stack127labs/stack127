@@ -3,6 +3,14 @@
   "name": "PostHog",
   "url": "https://posthog.com/error-tracking",
   "jobs": ["errors", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: errors and crashes with fingerprint grouping and release tracking (E01, E03)",
+      "logs": "L02: time, service and severity filters with message search and saved views",
+      "performance": "A01: OpenTelemetry request spans with waterfalls and correlated logs"
+    }
+  },
   "line": "Captures application exceptions and logs, with distributed traces and session replay.",
   "free": { "kind": "free", "text": "Free: 100,000 exceptions/month; 1 project; no card" },
   "cells": {

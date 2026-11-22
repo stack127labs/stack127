@@ -3,6 +3,12 @@
   "name": "Inngest",
   "url": "https://www.inngest.com/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: durable event-triggered workflows with retries, waits and schedules; J04: cron triggers"
+    }
+  },
   "line": "Build durable event-triggered workflows with retries, waits, and schedules.",
   "free": { "kind": "free", "text": "50K executions, 500K events/mo; branches archive 3 days after last deploy" },
   "cells": {

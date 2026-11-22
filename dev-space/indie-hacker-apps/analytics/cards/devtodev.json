@@ -2,7 +2,15 @@
   "slug": "devtodev",
   "name": "devtodev",
   "url": "https://www.devtodev.com/",
-  "jobs": ["product", "replay"],
+  "jobs": ["product", "replay", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: product and game analytics; F16: events, funnels, cohorts, retention and user cards",
+      "replay": "F17: web screen-session replays, 5,000 a month, 30-day storage, with masking settings",
+      "revenue": "F19: purchase events, store payment tracking, subscription metrics and automatic refunds for store purchases"
+    }
+  },
   "line": "Product and game analytics for engagement, retention, and revenue.",
   "free": { "kind": "free", "text": "Free: 25,000 MAU, 5 team members, 30 event types, 3-month raw data" },
   "cells": { "cookieless": "Optional (localStorage or cookies)", "location": "EU providers; worldwide transfers possible", "selfhost": "No (none found)" },

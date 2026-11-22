@@ -3,6 +3,13 @@
   "name": "Bugsee",
   "url": "https://www.bugsee.com/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: mobile crash and error reporting is the primary job (E01)",
+      "performance": "A01: app traces for startup, screens, network and database calls (A02)"
+    }
+  },
   "line": "Captures mobile crashes with replay, logs, and device context.",
   "free": { "kind": "free", "text": "Free for up to 5 unique devices/month" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

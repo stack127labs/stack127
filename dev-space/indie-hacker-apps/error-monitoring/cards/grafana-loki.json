@@ -3,6 +3,12 @@
   "name": "Grafana Loki",
   "url": "https://grafana.com/oss/loki/",
   "jobs": ["logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: log aggregation, label search and live tail (L02)"
+    }
+  },
   "line": "Aggregates and searches logs, with live tail and alerts from log queries.",
   "free": { "kind": "free", "text": "Cloud Free: 50 GB logs/month, 14-day retention; no card" },
   "cells": {

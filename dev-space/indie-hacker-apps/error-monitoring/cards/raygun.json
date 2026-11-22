@@ -3,6 +3,13 @@
   "name": "Raygun",
   "url": "https://raygun.com/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error and crash diagnosis across browser, mobile and server apps (E01)",
+      "performance": "A01: request traces, database queries and external call timings"
+    }
+  },
   "line": "Groups application errors and crash reports across browser, mobile and server apps.",
   "free": { "kind": "trial", "text": "14-day trial; no card" },
   "cells": {

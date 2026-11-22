@@ -4,10 +4,21 @@
   "url": "https://www.enchant.com/",
   "jobs": [
     "helpdesk",
-    "inbox",
     "chat",
-    "ai"
+    "ai",
+    "inbox",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: hosted omnichannel helpdesk with knowledge bases",
+      "helpdesk": "F02: Hosted omnichannel helpdesk with knowledge bases; F17: native email and contact forms that route to the inbox",
+      "chat": "F17: Native Messenger with real-time live chat and asynchronous modes; Free includes chat Messenger",
+      "ai": "F14: AI Agent in beta on the Standard plan with no extra Agent fee, capped at 100 chats a month",
+      "inbox": "F18: Shared inbox with assignment, private notes, canned responses and collision indicators"
+    }
+  },
   "line": "Omnichannel help desk with shared inbox, website chat, and help center.",
   "free": {
     "kind": "free",

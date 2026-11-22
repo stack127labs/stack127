@@ -5,6 +5,12 @@
   "jobs": [
     "revenue"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is subscription revenue analytics; F19: MRR, net revenue, churn and retention from billing and store sources"
+    }
+  },
   "line": "Subscription revenue metrics from Stripe and other billing tools.",
   "free": {
     "kind": "free",

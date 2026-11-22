@@ -3,6 +3,13 @@
   "name": "Flodesk",
   "url": "https://flodesk.com/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter broadcasts",
+      "marketing": "F02: marketing sequences and purchase or cart workflows"
+    }
+  },
   "line": "Send newsletters and marketing workflows; paid subscriptions need Everything.",
   "free": { "kind": "free", "text": "Free list-building; no email sends or workflow automations" },
   "cells": { "newsletters": "Yes", "api": "Yes, REST API; key requires paid plan" },

@@ -3,6 +3,12 @@
   "name": "SSD Nodes",
   "url": "https://www.ssdnodes.com/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: provider-hosted KVM VPS with root access; the customer installs apps and maintains the OS and backups"
+    }
+  },
   "line": "Rent an unmanaged KVM server with root access and SSD storage.",
   "free": { "kind": "none", "text": "No ongoing free VPS allowance" },
   "cells": { "type": "VPS/VM", "regions": "15 sites in US, Canada, Brazil, Europe, Asia, Australia", "selfhost": "Yes; unmanaged VM with root access" },

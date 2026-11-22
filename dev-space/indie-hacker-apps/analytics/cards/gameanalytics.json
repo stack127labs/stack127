@@ -2,7 +2,14 @@
   "slug": "gameanalytics",
   "name": "GameAnalytics",
   "url": "https://www.gameanalytics.com/",
-  "jobs": ["product"],
+  "jobs": ["product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: game and mobile product analytics; F16: custom events, funnels, cohorts and retention",
+      "revenue": "F19: in-app purchase events with receipt validation, plus ad revenue from ad network integrations"
+    }
+  },
   "line": "Analytics for game events, players, and monetization.",
   "free": { "kind": "free", "text": "Free product analytics with no MAU cap" },
   "cells": { "cookieless": "Yes (SDK uses localStorage)", "location": "US (AWS core service)", "selfhost": "No (none found)" },

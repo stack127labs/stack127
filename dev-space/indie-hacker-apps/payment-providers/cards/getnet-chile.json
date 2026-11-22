@@ -2,7 +2,15 @@
   "slug": "getnet-chile",
   "name": "Getnet Chile",
   "url": "https://www.getnet.cl/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: card acquirer and payment gateway; the merchant sells and delivers",
+      "billing": "F14: PAT runs automatic recurring card charges; F15: subscriptions managed in the portal",
+      "links": "F16: payment links give a hosted checkout page; no merchant website is required"
+    }
+  },
   "line": "Chilean online gateway with payment links and recurring card collection.",
   "free": { "kind": "none", "text": "Web Checkout has no setup or monthly fee" },
   "cells": {

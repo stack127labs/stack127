@@ -2,9 +2,14 @@
   "slug": "turso",
   "name": "Turso",
   "url": "https://turso.tech/",
-  "jobs": [
-    "sql"
-  ],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: SQL database and managed database service is the primary type; D01: libSQL, a SQLite fork",
+      "vector": "C07: native vector functions on Cloud; V01: libSQL vector BLOBs with DiskANN indexes"
+    }
+  },
   "line": "SQLite-compatible databases, hosted or embedded in your app.",
   "free": {
     "kind": "free",

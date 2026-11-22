@@ -3,6 +3,12 @@
   "name": "Val Town",
   "url": "https://www.val.town/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted Deno execution platform; the customer writes the vals and Val Town runs them on HTTP, cron or other triggers"
+    }
+  },
   "line": "Runs JavaScript and TypeScript HTTP apps, cron jobs and APIs.",
   "free": { "kind": "free", "text": "100k runs/day; public code, 1-min runs, 15-min cron, no domains" },
   "cells": {

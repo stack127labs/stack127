@@ -3,6 +3,12 @@
   "name": "Microanalytics",
   "url": "https://microanalytics.io/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is hosted website traffic, acquisition, goals and conversion analytics; F15: pageviews, visitors, landing pages, referrers and campaigns"
+    }
+  },
   "line": "Tracks website traffic, acquisition, goals, and conversions.",
   "free": { "kind": "free", "text": "Free signup; current pageview allowance is unclear" },
   "cells": {

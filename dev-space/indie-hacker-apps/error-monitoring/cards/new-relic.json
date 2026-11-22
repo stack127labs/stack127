@@ -2,7 +2,16 @@
   "slug": "new-relic",
   "name": "New Relic",
   "url": "https://newrelic.com/",
-  "jobs": ["errors", "logs", "uptime", "performance"],
+  "jobs": ["performance", "errors", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: application performance is the first listed job (A01)",
+      "errors": "E01: unified Errors Inbox for APM, browser and mobile errors",
+      "uptime": "U01, U02: ping, browser and API synthetic checks from public probes (U03)",
+      "logs": "L02: structured log search, NRQL queries and logs in context"
+    }
+  },
   "line": "Investigates application errors, logs and traces, with synthetic checks.",
   "free": { "kind": "free", "text": "100 GB/month shared ingest; no card" },
   "cells": {

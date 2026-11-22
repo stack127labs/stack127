@@ -1,6 +1,13 @@
 {
   "slug": "uxwizz", "name": "UXWizz", "url": "https://www.uxwizz.com/",
   "jobs": ["web", "replay"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is self-hosted website analytics; F15: visitors, pageviews, referrers, countries and goals",
+      "replay": "F17: unlimited recordings as a license feature, with timeline playback and click, movement and scroll heatmaps"
+    }
+  },
   "line": "Self-hosted website analytics with replay, heatmaps and experiments.",
   "free": {"kind": "trial", "text": "14-day self-hosted trial; no email or payment"},
   "cells": {"cookieless": "Optional (IP hashing and browser storage settings)", "location": "Your server or WordPress database", "selfhost": "Yes"},

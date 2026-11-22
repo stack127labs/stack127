@@ -1,6 +1,13 @@
 {
   "slug": "vemetric", "name": "Vemetric", "url": "https://vemetric.com/",
   "jobs": ["web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: combined web and product analytics; F15: pageviews, unique users, referrers, UTMs, countries and devices",
+      "product": "F15: funnels of up to 10 steps (dedicated docs; FAQ calls them planned, a conflict); F16: identify-based profiles"
+    }
+  },
   "line": "Combines website and product analytics, events and conversion funnels.",
   "free": {"kind": "free", "text": "2,500 events/month, 2 projects, 2 seats, 1-month history"},
   "cells": {"cookieless": "Optional (visitor cookie can be enabled)", "location": "EU; traffic proxied through Cloudflare", "selfhost": "No"},

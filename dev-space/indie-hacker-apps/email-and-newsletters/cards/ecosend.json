@@ -3,6 +3,13 @@
   "name": "EcoSend",
   "url": "https://ecosend.io/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter broadcasts and scheduled campaigns",
+      "marketing": "F02: behavioural marketing automations and multi-message lifecycle sequences"
+    }
+  },
   "line": "Send newsletters and automated marketing campaigns to a managed contact list.",
   "free": { "kind": "free", "text": "Up to 250 contacts and 1,000 emails/month" },
   "cells": { "newsletters": "Yes", "api": "No, API access is Forest-only" },

@@ -2,7 +2,16 @@
   "slug": "paynow",
   "name": "PayNow",
   "url": "https://paynow.gg/",
-  "jobs": ["mor", "billing"],
+  "jobs": ["mor", "billing", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record and collecting agent; PayNow collects payment, tax and disputes",
+      "billing": "F14: automatic subscription renewals with separate orders; F15: trials, coupons and retries",
+      "links": "F16: hosted webstore and product storefront links need no custom frontend",
+      "crypto": "C03: crypto is accepted at checkout at a 1.5% gateway fee; C02: a third-party provider reviews it"
+    }
+  },
   "line": "Merchant of record for digital products, SaaS and game-server services.",
   "free": { "kind": "free", "text": "Free: $0/month, up to $2,000 sales; 3.5% platform fee" },
   "cells": {

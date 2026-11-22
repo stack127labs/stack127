@@ -3,6 +3,12 @@
   "name": "OmniAuth",
   "url": "https://github.com/omniauth/omniauth",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Ruby middleware for provider login; F05: developer runs app, accounts and sessions"
+    }
+  },
   "line": "Ruby middleware for adding login through external providers.",
   "free": { "kind": "selfhost", "text": "Free MIT middleware; you run it" },
   "cells": {

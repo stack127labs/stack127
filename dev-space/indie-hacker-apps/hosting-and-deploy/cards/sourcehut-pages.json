@@ -3,6 +3,12 @@
   "name": "sourcehut pages",
   "url": "https://srht.site/",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static website hosting; the customer supplies generated files and SourceHut serves them"
+    }
+  },
   "line": "Publish static sites from sourcehut repositories with automatic TLS.",
   "free": { "kind": "free", "text": "Alpha payment optional; site limit 1 GiB; no permanent free promise" },
   "cells": { "type": "Static hosting", "regions": "Netherlands/EU processing; encrypted US backups", "selfhost": "Yes; AGPLv3, self-host guide is work in progress" },

@@ -2,7 +2,14 @@
   "slug": "mailmodo",
   "name": "Mailmodo",
   "url": "https://www.mailmodo.com/",
-  "jobs": ["marketing", "newsletter", "transactional"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle journeys in the marketing product",
+      "newsletter": "F02: newsletters and marketing campaigns"
+    }
+  },
   "line": "Email newsletters, automated journeys and API-triggered messages.",
   "free": { "kind": "free", "text": "500 contacts; free credits listed as 2,000 or 4,000" },
   "cells": {

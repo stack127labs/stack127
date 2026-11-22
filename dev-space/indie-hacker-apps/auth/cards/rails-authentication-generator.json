@@ -3,6 +3,12 @@
   "name": "Rails authentication generator",
   "url": "https://guides.rubyonrails.org/security.html",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: generator writes login and account code into the developer's Rails app; F05: developer runs the app and database"
+    }
+  },
   "line": "Rails generator for a starting point with login and password recovery.",
   "free": { "kind": "selfhost", "text": "Free MIT generator; you run the app" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Akamai Object Storage",
   "url": "https://www.akamai.com/products/object-storage",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is the primary type; F05: S3-compatible endpoints"
+    }
+  },
   "line": "S3-compatible object storage for app files, backups, and media.",
   "free": { "kind": "credits", "text": "$100 promotional credit for 60 days, for eligible new accounts" },
   "cells": {

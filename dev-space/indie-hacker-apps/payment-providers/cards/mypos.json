@@ -2,7 +2,14 @@
   "slug": "mypos",
   "name": "myPOS",
   "url": "https://www.mypos.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and acquirer; the merchant remains the seller",
+      "links": "F16: payment links and Payment Requests can be sent without a web store"
+    }
+  },
   "line": "European payment provider with online checkout, links and saved-card billing.",
   "free": { "kind": "free", "text": "One plan is €0/month in newer plan markets" },
   "cells": {

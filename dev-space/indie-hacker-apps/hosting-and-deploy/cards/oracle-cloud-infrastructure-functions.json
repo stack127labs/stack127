@@ -3,6 +3,12 @@
   "name": "Oracle Cloud Infrastructure Functions",
   "url": "https://www.oracle.com/cloud/cloud-native/functions/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed on-demand functions service; Oracle manages the OS and runtime in code-only deployments"
+    }
+  },
   "line": "Deploy event-driven functions on Oracle's managed serverless platform.",
   "free": { "kind": "free", "text": "2 million invocations and 400,000 GB memory-seconds monthly" },
   "cells": { "type": "Serverless functions", "regions": "Regional; examples in US, India, UK and Germany", "selfhost": "No" },

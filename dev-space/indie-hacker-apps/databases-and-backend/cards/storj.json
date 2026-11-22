@@ -3,6 +3,12 @@
   "name": "Storj Object Storage",
   "url": "https://www.storj.io/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted distributed object storage is the primary type; F05: S3-compatible basic bucket and object calls"
+    }
+  },
   "line": "S3-compatible object storage with global Standard and regional US Advanced tiers.",
   "free": { "kind": "trial", "text": "30d trial; storage unknown; expired trials queued for deletion; timing unknown" },
   "cells": {

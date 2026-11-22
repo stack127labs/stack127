@@ -2,7 +2,15 @@
   "slug": "livesession",
   "name": "LiveSession",
   "url": "https://livesession.io/",
-  "jobs": ["replay", "product"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is session replay and product analytics; F17: DOM-based replay with masking controls",
+      "web": "F15: country, device, referrer, landing and exit URL and UTM breakdowns",
+      "product": "F16: autocapture and custom events with up to 50 typed properties; F15: event-based funnels"
+    }
+  },
   "line": "Records visitor sessions with product analytics and debugging tools.",
   "free": { "kind": "free", "text": "Free: 1,000 sessions/month, 2 projects, 3 members, 1-month history" },
   "cells": {

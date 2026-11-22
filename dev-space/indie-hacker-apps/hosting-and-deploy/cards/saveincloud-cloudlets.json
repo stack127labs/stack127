@@ -2,7 +2,14 @@
   "slug": "saveincloud-cloudlets",
   "name": "SaveInCloud Cloudlets",
   "url": "https://saveincloud.com/pt-BR/produtos/computacao/cloudlets-app-platform",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted app and container platform; the provider advertises the infrastructure and OS management",
+      "static": "04: static websites are a listed app type"
+    }
+  },
   "line": "Run apps in managed container environments across Brazil.",
   "free": { "kind": "credits", "text": "R$200 credit for 30 days; 14-day trial also advertised" },
   "cells": { "type": "Managed app platform", "regions": "Standard: SP/Vinhedo, Fortaleza, Brasília; Premium: Vinhedo", "selfhost": "No" },

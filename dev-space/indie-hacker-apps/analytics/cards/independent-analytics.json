@@ -3,6 +3,13 @@
   "name": "Independent Analytics",
   "url": "https://independentwp.com/",
   "jobs": ["web", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is WordPress website analytics; F15: pages, referrers, geography, device and visitor reports",
+      "revenue": "F19: WooCommerce, SureCart, EDD and other commerce sources; gross sales, refunds and average order value"
+    }
+  },
   "line": "WordPress analytics for traffic, referrals, and optional sales reports.",
   "free": { "kind": "free", "text": "Free plugin; unlimited sites and pageviews" },
   "cells": {

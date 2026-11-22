@@ -4,8 +4,15 @@
   "url": "https://www.drip.com/",
   "jobs": [
     "marketing",
-    "transactional"
+    "newsletter"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: email series and ecommerce marketing automation",
+      "newsletter": "F02: newsletter broadcasts"
+    }
+  },
   "line": "Send email campaigns and automated messages for ecommerce and other businesses.",
   "free": {
     "kind": "trial",

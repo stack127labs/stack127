@@ -2,7 +2,14 @@
   "slug": "xata",
   "name": "Xata",
   "url": "https://xata.io/",
-  "jobs": ["sql", "jobs", "vector"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: unmodified PostgreSQL 14 to 18",
+      "vector": "V01: catalog lists pgvector 0.8.1 with HNSW and IVFFlat indexes"
+    }
+  },
   "line": "Managed PostgreSQL with copy-on-write branches, scale-to-zero and migration tools.",
   "free": { "kind": "trial", "text": "14d trial; limits unset; may end early; if unpaid, delete 7d after trial end" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Scaleway Instances",
   "url": "https://www.scaleway.com/en/virtual-instances/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: public-cloud virtual machines; Scaleway manages the hardware and the customer manages the guest OS and app"
+    }
+  },
   "line": "Launch virtual machines in Scaleway availability zones.",
   "free": { "kind": "none", "text": "No recurring free CPU Instance allowance" },
   "cells": { "type": "Cloud instances", "regions": "Paris, Amsterdam, Warsaw, Milan; family availability differs", "selfhost": "Yes; root access, manage the guest OS" },

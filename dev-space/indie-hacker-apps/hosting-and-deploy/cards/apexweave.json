@@ -2,7 +2,14 @@
   "slug": "apexweave",
   "name": "ApexWeave",
   "url": "https://apexweave.com/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted container application platform with Git builds and a CLI",
+      "static": "04: native static sites are a listed app type on the platform"
+    }
+  },
   "line": "Deploy container apps with Git builds and managed database options.",
   "free": { "kind": "trial", "text": "Trial length conflicts; 7 or 14 days, free-tier wording unclear" },
   "cells": { "type": "Container app platform", "regions": "Japan advertised; selectable locations unpublished", "selfhost": "No" },

@@ -2,10 +2,14 @@
   "slug": "coinbase-business",
   "name": "Coinbase Business",
   "url": "https://www.coinbase.com/business",
-  "jobs": [
-    "crypto",
-    "links"
-  ],
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts USDC and USDT checkout payments on named networks",
+      "links": "F16: sellers create single-use or reusable payment links and QR codes"
+    }
+  },
   "line": "Crypto account with USDC payment links, invoices and checkout.",
   "free": {
     "kind": "none",

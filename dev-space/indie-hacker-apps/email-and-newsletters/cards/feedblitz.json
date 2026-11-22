@@ -3,6 +3,14 @@
   "name": "FeedBlitz",
   "url": "https://www.feedblitz.com/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and RSS-to-email",
+      "marketing": "F02: automated funnels",
+      "transactional": "F02: transactional API for receipts and account messages; needs the Accel or Enterprise plan"
+    }
+  },
   "line": "Send newsletters and automated campaigns, with a transactional email API.",
   "free": { "kind": "trial", "text": "30-day trial; no ongoing free plan listed" },
   "cells": { "newsletters": "Yes", "api": "Yes, REST; transactional API on Accel/Enterprise" },

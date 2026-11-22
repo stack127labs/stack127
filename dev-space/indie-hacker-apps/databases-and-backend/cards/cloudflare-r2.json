@@ -2,9 +2,13 @@
   "slug": "cloudflare-r2",
   "name": "Cloudflare R2",
   "url": "https://developers.cloudflare.com/r2/",
-  "jobs": [
-    "files"
-  ],
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage for unstructured data is the primary role; F05: S3-compatible API"
+    }
+  },
   "line": "S3-compatible object storage with no egress fees.",
   "free": {
     "kind": "free",

@@ -2,7 +2,15 @@
   "slug": "amazon-dynamodb",
   "name": "Amazon DynamoDB",
   "url": "https://aws.amazon.com/dynamodb/",
-  "jobs": ["kv"],
+  "jobs": ["nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C02: managed NoSQL key-value and document database; D01: native document tables with typed attributes",
+      "kv": "C02: managed key-value and document database is the primary type; D01: primary-key tables",
+      "vector": "V01: native vector indexes queried with SearchVectors on on-demand tables"
+    }
+  },
   "line": "Managed key-value and document database with item APIs and indexes.",
   "free": { "kind": "free", "text": "25 GB, 25 RCUs/WCUs per Region; free account closes at 6 months" },
   "cells": {

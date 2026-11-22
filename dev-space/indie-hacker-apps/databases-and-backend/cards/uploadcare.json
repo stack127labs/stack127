@@ -3,6 +3,12 @@
   "name": "Uploadcare",
   "url": "https://uploadcare.com/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "files": "C07: hosted Upload API, project file storage and CDN delivery of uploaded files"
+    }
+  },
   "line": "Upload, store, transform and deliver files and media through a managed CDN.",
   "free": { "kind": "free", "text": "Personal: 1GB, 5GB traffic, 1K ops/mo; 500MB/file; temp uploads expire 24h" },
   "cells": {

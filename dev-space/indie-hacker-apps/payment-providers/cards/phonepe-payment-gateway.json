@@ -2,7 +2,15 @@
   "slug": "phonepe-payment-gateway",
   "name": "PhonePe Payment Gateway",
   "url": "https://business.phonepe.com/payment-gateway",
-  "jobs": ["gateway", "links"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and aggregator; the merchant sells the goods or services",
+      "billing": "F14: UPI AutoPay automatic recurring payments; F15: PhonePe executes debits when autoDebit is on",
+      "links": "F16: links made in the Business Dashboard and shared by email or messages, no website needed"
+    }
+  },
   "line": "Indian gateway for checkout, payment links, and UPI AutoPay.",
   "free": { "kind": "trial", "text": "Limited-period free processing; ₹0 setup and annual fees" },
   "cells": {

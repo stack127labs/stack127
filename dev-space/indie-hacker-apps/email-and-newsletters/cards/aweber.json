@@ -3,6 +3,13 @@
   "name": "AWeber",
   "url": "https://www.aweber.com/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: broadcast newsletters to subscriber lists",
+      "marketing": "F02: welcome sequences and RSS-triggered workflows"
+    }
+  },
   "line": "Email newsletters, subscriber lists and automated welcome sequences.",
   "free": {"kind": "free", "text": "Up to 500 subscribers and 3,000 sends/month"},
   "cells": {"newsletters": "Yes", "api": "Yes"},

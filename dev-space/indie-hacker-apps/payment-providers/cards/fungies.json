@@ -2,7 +2,16 @@
   "slug": "fungies",
   "name": "Fungies",
   "url": "https://fungies.io/",
-  "jobs": ["mor", "billing"],
+  "jobs": ["mor", "billing", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record; Fungies is the legal seller for every processed payment",
+      "billing": "F14: automatic day, week, month and year recurring billing with saved methods",
+      "links": "F16: hosted links, overlay and embedded checkout included",
+      "crypto": "C01: crypto checkout offered for USDC and USDT through its Stripe-based checkout"
+    }
+  },
   "line": "Merchant of Record checkout and subscriptions for digital products.",
   "free": { "kind": "none", "text": "No setup or monthly fee; commission on successful sales" },
   "cells": {

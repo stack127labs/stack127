@@ -3,6 +3,12 @@
   "name": "Windmill",
   "url": "https://www.windmill.dev/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: primary type is a job and workflow runner; J04: scripts and flows with cron schedules and delayed runs"
+    }
+  },
   "line": "Code-first platform for jobs, workflows, scheduled tasks and internal apps.",
   "free": { "kind": "free", "text": "1,000 executions/month; no card; no idle pause/deletion rule stated" },
   "cells": {

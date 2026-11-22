@@ -3,6 +3,13 @@
   "name": "Eurobase Cloud",
   "url": "https://eurobase.dev/",
   "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: V8 Workers and serverless containers run the customer's code on the vendor's hosting",
+      "static": "03: plain static sites are one of the three deployment paths"
+    }
+  },
   "line": "Deploy static sites, serverless functions, and container apps in Europe.",
   "free": { "kind": "free", "text": "2 projects, 10 containers/functions, 2 buckets; 100 build min, 25GiB transfer" },
   "cells": { "type": "Serverless and container hosting", "regions": "Paris (Scaleway); multi-region list unavailable", "selfhost": "No" },

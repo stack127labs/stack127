@@ -2,10 +2,16 @@
   "slug": "paypal",
   "name": "PayPal",
   "url": "https://www.paypal.com/us/business",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider; the merchant sells the goods and services",
+      "billing": "F14: automatic subscriptions with plan, quantity and trial settings; F15: retries",
+      "links": "F16: PayPal-hosted checkout with payment links and QR codes; links work without a website",
+      "crypto": "C01: Pay with Crypto accepts about 100 assets for eligible US merchants; C03: paid in USD"
+    }
+  },
   "line": "Wallet and card checkout with payment links and invoices.",
   "free": {
     "kind": "none",

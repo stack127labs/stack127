@@ -3,6 +3,14 @@
   "name": "OnlineOrNot",
   "url": "https://onlineornot.com/",
   "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, API, DNS, TCP and browser checks; Hobby minimum 180 s (U02)",
+      "status": "S01, S03: public and private status pages linked to checks and heartbeats",
+      "cron": "J01, J02: fixed-interval and cron heartbeats with grace and missed-ping incidents"
+    }
+  },
   "line": "Checks websites, APIs and cron jobs, and publishes status pages.",
   "free": { "kind": "free", "text": "Hobby: 3 checks at 180 s; 1 page, 100 subscribers" },
   "cells": {

@@ -3,6 +3,13 @@
   "name": "Nile Auth",
   "url": "https://www.thenile.dev/auth",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed hosted auth route with accounts, login and sessions; F05: Nile runs hosted database and auth",
+      "server": "F02: self-hosted auth route; F35: Docker Compose and Helm chart supplied"
+    }
+  },
   "line": "Account login and customer organizations in a PostgreSQL backend.",
   "free": { "kind": "free", "text": "Free: unlimited users; 50 million query tokens" },
   "cells": {

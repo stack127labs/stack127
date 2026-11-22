@@ -3,6 +3,13 @@
   "name": "Tpay",
   "url": "https://tpay.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online gateway and payment service; the merchant sells and fulfils",
+      "links": "F16: payment-link generator included with all three online plans"
+    }
+  },
   "line": "Polish gateway for bank transfers, BLIK, cards, and payment links.",
   "free": { "kind": "none", "text": "Starter PLN 0/month; PLN 99 activation and transaction fees" },
   "cells": {

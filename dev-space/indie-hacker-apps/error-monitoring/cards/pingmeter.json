@@ -3,6 +3,13 @@
   "name": "Pingmeter",
   "url": "https://pingmeter.com/",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external availability and response-time checks over HTTP, SMTP and ICMP (U01)",
+      "status": "S01: public uptime status pages, optionally password-protected"
+    }
+  },
   "line": "Checks websites and services, with recovery actions and public status pages.",
   "free": { "kind": "free", "text": "Free: 10-minute checks; 14-day history" },
   "cells": {

@@ -2,7 +2,13 @@
   "slug": "amazon-pay",
   "name": "Amazon Pay",
   "url": "https://pay.amazon.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: Amazon Pay processes payments; the merchant sells its own goods and remains the seller"
+    }
+  },
   "line": "Let shoppers pay with payment details saved in their Amazon account.",
   "free": { "kind": "none", "text": "No setup or monthly fee listed for US accounts" },
   "cells": { "type": "Payment gateway and digital wallet", "countries": "US, UK, Europe, Japan and India", "payout": "US next schedule; EU daily; Japan every 14 days" },

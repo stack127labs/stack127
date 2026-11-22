@@ -3,6 +3,15 @@
   "name": "Freshmarketer",
   "url": "https://www.freshworks.com/crm/marketing/",
   "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: automated journey mail alongside marketing campaigns",
+      "newsletter": "F02: one-time newsletters and marketing campaigns",
+      "transactional": "F02: API-triggered transactional messages sent through the product's API",
+      "multichannel": "F02: email, SMS, WhatsApp and social campaigns in one product"
+    }
+  },
   "line": "Send marketing campaigns and automated journeys across email and other channels.",
   "free": { "kind": "free", "text": "100 contacts; email limit listed as 200 or 500/month" },
   "cells": { "newsletters": "Yes", "api": "Yes, transactional API on Enterprise" },

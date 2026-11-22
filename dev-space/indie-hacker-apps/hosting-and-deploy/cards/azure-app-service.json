@@ -3,6 +3,12 @@
   "name": "Azure App Service",
   "url": "https://azure.microsoft.com/en-us/products/app-service/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed web hosting; Microsoft patches the host OS and runtime, the customer deploys the app"
+    }
+  },
   "line": "Host websites and APIs on managed Windows or Linux plans.",
   "free": { "kind": "free", "text": "F1: 60 CPU minutes/day; trials and learning, not production" },
   "cells": { "type": "Managed web hosting", "regions": "East US example; many Azure regions", "selfhost": "No" },

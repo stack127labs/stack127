@@ -2,7 +2,15 @@
   "slug": "midtrans",
   "name": "Midtrans",
   "url": "https://midtrans.com/",
-  "jobs": ["gateway", "links"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and aggregator; the merchant sells to the buyer",
+      "billing": "F15: subscription scheduler with day, week or month intervals, retries and end dates",
+      "links": "F16: no-code Payment Links created in the dashboard, with expiry and buyer-entered amounts"
+    }
+  },
   "line": "Indonesian payment gateway with hosted checkout, links and local methods.",
   "free": { "kind": "none", "text": "No subscription or Core API integration fee" },
   "cells": {

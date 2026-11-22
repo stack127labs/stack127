@@ -3,6 +3,12 @@
   "name": "LiveChat",
   "url": "https://www.livechat.com/",
   "jobs": ["chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native website chat widget and hosted direct chat page; agents handle chats in the LiveChat workspace"
+    }
+  },
   "line": "Website live chat with an agent workspace and customer messaging tools.",
   "free": { "kind": "trial", "text": "14-day trial, no card" },
   "cells": {

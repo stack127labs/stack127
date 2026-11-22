@@ -3,6 +3,12 @@
   "name": "Lemon Squeezy Analytics",
   "url": "https://www.lemonsqueezy.com/",
   "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is revenue and subscription analytics; F19: MRR, ARR, churn, trial conversion and order revenue reports"
+    }
+  },
   "line": "Built-in revenue reports for digital product and subscription sales.",
   "free": { "kind": "free", "text": "No monthly fee; transaction fees apply" },
   "cells": {

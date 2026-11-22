@@ -4,9 +4,19 @@
   "url": "https://www.freshworks.com/freshdesk/",
   "jobs": [
     "helpdesk",
+    "ai",
     "inbox",
-    "ai"
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help desk includes help articles; F07 documents a knowledge base",
+      "helpdesk": "F02: Help desk and shared ticket inbox with email, help articles and automation",
+      "ai": "F22: Email AI Agent answers incoming email, portal and form tickets; chat AI agents need Omni",
+      "inbox": "F18: Groups and agents work tickets together with private notes and @mentions; email converts to tickets (F17)"
+    }
+  },
   "line": "Email-first customer help desk with tickets, automation, and a help center.",
   "free": {
     "kind": "trial",

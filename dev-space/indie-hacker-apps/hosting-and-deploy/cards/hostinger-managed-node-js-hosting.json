@@ -2,7 +2,14 @@
   "slug": "hostinger-managed-node-js-hosting",
   "name": "Hostinger managed Node.js hosting",
   "url": "https://www.hostinger.com/nodejs-hosting",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted managed app service; Hostinger runs the Node.js runtime and server stack",
+      "static": "04: frontend projects can publish static output without a Node process"
+    }
+  },
   "line": "Deploy Node.js applications on managed web and cloud plans.",
   "free": { "kind": "none", "text": "No ongoing free managed Node.js allowance" },
   "cells": { "type": "Managed Node.js hosting", "regions": "Europe, India, Southeast Asia, USA and Brazil", "selfhost": "No" },

@@ -2,7 +2,15 @@
   "slug": "paymongo",
   "name": "PayMongo",
   "url": "https://www.paymongo.com/en",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment-processing provider; the merchant remains the legal seller",
+      "billing": "F14: automatic scheduled subscriptions with cards and Maya; F15: plans, weekly to yearly, retries",
+      "links": "F16: no-code Links and Payment Pages are offered alongside the hosted API"
+    }
+  },
   "line": "Philippine payment gateway for checkout, links and recurring payments; signup paused.",
   "free": { "kind": "none", "text": "No setup/monthly fee; new merchant sign-ups are paused" },
   "cells": {

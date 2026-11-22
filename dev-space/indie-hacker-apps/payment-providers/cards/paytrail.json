@@ -3,6 +3,13 @@
   "name": "Paytrail",
   "url": "https://www.paytrail.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway through one agreement; the merchant remains the seller",
+      "links": "F16: Merchant Panel creates and emails a payment link without a full online store"
+    }
+  },
   "line": "Accept online payments through one gateway, hosted checkout, or payment links.",
   "free": { "kind": "trial", "text": "First month without monthly fee; transaction charges still apply" },
   "cells": {

@@ -2,7 +2,13 @@
   "slug": "heroic-kb",
   "name": "Heroic Knowledge Base",
   "url": "https://herothemes.com/plugins/heroic-wordpress-knowledge-base/",
-  "jobs": ["helpdesk"],
+  "jobs": ["kb"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "kb": "F02: WordPress help centre, documentation and FAQ publishing with search, feedback and analytics"
+    }
+  },
   "line": "WordPress plugin for customer help articles, FAQs, and documentation.",
   "free": { "kind": "none", "text": "No free plan; 14-day money-back guarantee" },
   "cells": {

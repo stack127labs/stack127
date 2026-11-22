@@ -2,7 +2,15 @@
   "slug": "cleverreach",
   "name": "CleverReach",
   "url": "https://www.cleverreach.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: subscriber and ecommerce lifecycle journeys; F01 calls it an email marketing service",
+      "newsletter": "F02: newsletters and promotional broadcasts",
+      "transactional": "F02: transactional system email via SMTP; the beta is enabled on request (F05)"
+    }
+  },
   "line": "Newsletter campaigns, marketing journeys and SMTP transactional email.",
   "free": {"kind": "free", "text": "Up to 250 recipients and 1,000 emails/month"},
   "cells": {"newsletters": "Yes", "api": "Yes; transactional SMTP beta needs a request"},

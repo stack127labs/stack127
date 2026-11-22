@@ -2,7 +2,15 @@
   "slug": "shopify-payments",
   "name": "Shopify Payments",
   "url": "https://www.shopify.com/payments",
-  "jobs": ["gateway", "links"],
+  "jobs": ["gateway", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: integrated gateway; the seller sells and stays responsible for the transaction",
+      "links": "F16: Quick Sale sends a payment link; Buy Buttons send buyers to Shopify Checkout",
+      "crypto": "C01: USDC checkout in eligible regions and networks only; no Bitcoin through this offer"
+    }
+  },
   "line": "Integrated card and local payment processing for Shopify stores.",
   "free": { "kind": "none", "text": "Requires a paid Shopify plan; no free Payments plan" },
   "cells": {

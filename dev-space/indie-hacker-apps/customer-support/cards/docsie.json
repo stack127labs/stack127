@@ -3,9 +3,18 @@
   "name": "Docsie",
   "url": "https://www.docsie.io/",
   "jobs": [
+    "kb",
     "helpdesk",
     "ai"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: customer self-service knowledge base and documentation platform",
+      "helpdesk": "F18: In-app support tickets with assignment, staff replies and status; email intake not documented; help portal (F17)",
+      "ai": "F02: Knowledge-base platform with AI answers; AI chatbots are included from the Premium plan (F17)"
+    }
+  },
   "line": "Customer knowledge bases with AI answers and in-app support tickets.",
   "free": {
     "kind": "free",

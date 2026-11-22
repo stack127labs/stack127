@@ -2,7 +2,15 @@
   "slug": "bento",
   "name": "Bento",
   "url": "https://bentonow.com/",
-  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: sequences and flows for onboarding and behavior-based journeys",
+      "newsletter": "F02: broadcasts for newsletters, announcements and launches",
+      "transactional": "F02: transactional and app mail through the Emails API and SMTP relay"
+    }
+  },
   "line": "Email broadcasts, behavior-based journeys and transactional messages.",
   "free": {"kind": "trial", "text": "30-day marketing trial; first 100 transactional emails/month free"},
   "cells": {"newsletters": "Yes", "api": "Yes, plus SMTP"},

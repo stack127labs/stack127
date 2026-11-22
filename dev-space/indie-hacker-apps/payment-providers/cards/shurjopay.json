@@ -3,6 +3,13 @@
   "name": "shurjoPay",
   "url": "https://shurjopay.com.bd/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway aggregator; the merchant remains the legal seller",
+      "links": "F16: Payment Link Generator, with links shared by email, SMS or WhatsApp"
+    }
+  },
   "line": "Bangladesh gateway for local wallets, online banking, and card checkout.",
   "free": { "kind": "none", "text": "Commercial fees by quote; no published setup or monthly amount" },
   "cells": {

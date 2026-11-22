@@ -3,6 +3,13 @@
   "name": "OpenStatus",
   "url": "https://www.openstatus.dev/",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, DNS, ICMP and gRPC checks from multiple regions (U03)",
+      "status": "S01, S03: status pages with components linked to monitors and manual reports"
+    }
+  },
   "line": "Runs multi-region uptime checks and status pages with incident updates.",
   "free": { "kind": "free", "text": "Hobby: 1 monitor, 1 page, 10-minute checks" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "paytr",
   "name": "PayTR",
   "url": "https://www.paytr.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment institution and gateway; the merchant sells and delivers",
+      "billing": "F14: Abonelik automatically charges a saved card on the seller's period; F15: plans",
+      "links": "F16: Link creates a hosted payment page with no website or code, shared by message or email"
+    }
+  },
   "line": "Turkish payment gateway with links, subscriptions and online checkout.",
   "free": { "kind": "none", "text": "No setup, activation, integration, monthly or annual fixed fee" },
   "cells": {

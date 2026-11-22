@@ -6,6 +6,13 @@
     "helpdesk",
     "inbox"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Help desk with email tickets, agent and customer portals, and a knowledge base",
+      "inbox": "F18: Team assigns tickets and shares private notes and saved replies; email accounts feed one ticket system (F17)"
+    }
+  },
   "line": "Open-source email ticketing and customer portals for support teams.",
   "free": {
     "kind": "selfhost",

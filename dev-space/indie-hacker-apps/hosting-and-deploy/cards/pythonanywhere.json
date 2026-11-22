@@ -2,7 +2,14 @@
   "slug": "pythonanywhere",
   "name": "PythonAnywhere",
   "url": "https://www.pythonanywhere.com/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed shared Python hosting; the provider runs the web serving and the customer deploys the code",
+      "static": "04: static-only HTML and JS sites are supported"
+    }
+  },
   "line": "Develop and host Python web apps on managed shared infrastructure.",
   "free": { "kind": "free", "text": "Beginner free account; web app expires monthly and must be renewed" },
   "cells": { "type": "Managed Python hosting", "regions": "US or EU accounts", "selfhost": "No" },

@@ -3,6 +3,12 @@
   "name": "SendLayer",
   "url": "https://sendlayer.com/",
   "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: application-triggered transactional messages through the SMTP relay or REST API"
+    }
+  },
   "line": "Transactional email API and SMTP relay for application messages.",
   "free": { "kind": "credits", "text": "Free trial includes up to 200 emails; renewal is not published" },
   "cells": {

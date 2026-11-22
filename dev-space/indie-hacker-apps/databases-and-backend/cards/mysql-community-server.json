@@ -2,7 +2,13 @@
   "slug": "mysql-community-server",
   "name": "MySQL Community Server",
   "url": "https://www.mysql.com/products/community/",
-  "jobs": ["sql", "jobs"],
+  "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: self-hosted relational SQL database is the primary type; D01: SQL engine with InnoDB"
+    }
+  },
   "line": "Self-hosted relational database with scheduled SQL events.",
   "free": { "kind": "selfhost", "text": "GPLv2, no hosted quota; you control uptime, disk, and retention" },
   "cells": {

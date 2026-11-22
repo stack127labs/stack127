@@ -2,9 +2,14 @@
   "slug": "render",
   "name": "Render",
   "url": "https://render.com/",
-  "jobs": [
-    "paas"
-  ],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed containerized services; Render manages the infrastructure, OS and runtime maintenance",
+      "static": "03: static CDN hosting is a listed service; static sites are a listed app type"
+    }
+  },
   "line": "Managed web services, static sites, workers and Postgres.",
   "free": {
     "kind": "free",

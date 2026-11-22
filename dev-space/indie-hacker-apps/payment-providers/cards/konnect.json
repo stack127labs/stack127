@@ -3,6 +3,13 @@
   "name": "Konnect",
   "url": "https://konnect.network/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment facilitator and gateway; the merchant remains the seller to its customer",
+      "links": "F16: hosted payment links made in the dashboard, shared by SMS, email or WhatsApp"
+    }
+  },
   "line": "Tunisian payment gateway with hosted checkout, links and integrations.",
   "free": { "kind": "none", "text": "No subscription per pricing page; terms conflict" },
   "cells": {

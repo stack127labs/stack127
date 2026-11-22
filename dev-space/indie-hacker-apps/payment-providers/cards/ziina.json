@@ -2,10 +2,14 @@
   "slug": "ziina",
   "name": "Ziina",
   "url": "https://ziina.com/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: UAE payment platform and payment service provider; the business sells its own goods",
+      "links": "F16: branded no-code payment links with customer fields, VAT and tips"
+    }
+  },
   "line": "UAE gateway with payment links, invoices, and hosted checkout.",
   "free": {
     "kind": "none",

@@ -2,11 +2,15 @@
   "slug": "pagbank",
   "name": "PagBank",
   "url": "https://pagbank.com.br/",
-  "jobs": [
-    "gateway",
-    "links",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acquirer; the merchant remains the seller to the buyer",
+      "billing": "F14: payment-link recurrence repeats card charges automatically; F15: plans and subscription events",
+      "links": "F16: no-code payment links created in the PagBank app, shared without a website"
+    }
+  },
   "line": "Brazilian gateway for hosted checkout, payment links and recurring sales.",
   "free": {
     "kind": "none",

@@ -3,6 +3,13 @@
   "name": "MailerLite",
   "url": "https://www.mailerlite.com/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and marketing campaigns",
+      "marketing": "F02: automated subscriber journeys"
+    }
+  },
   "line": "Email newsletters, marketing campaigns and subscriber automations.",
   "free": { "kind": "free", "text": "Free for 250 active subscribers and 2,500 emails per month" },
   "cells": {

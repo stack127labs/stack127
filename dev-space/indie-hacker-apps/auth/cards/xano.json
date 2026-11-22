@@ -3,6 +3,12 @@
   "name": "Xano",
   "url": "https://www.xano.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed backend with editable signup and login APIs; F35: BYOC and on-prem only negotiated, no public install guide"
+    }
+  },
   "line": "Hosted backend with user signup, login APIs, and PostgreSQL.",
   "free": { "kind": "none", "text": "Free is for development; production starts at $99/month" },
   "cells": {

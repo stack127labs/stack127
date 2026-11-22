@@ -3,6 +3,12 @@
   "name": "Curated",
   "url": "https://www.curated.co/",
   "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: editorial newsletters built from selected links and original commentary"
+    }
+  },
   "line": "Build editorial newsletters from selected links and original commentary.",
   "free": {"kind": "free", "text": "Free up to 1,500 subscribers"},
   "cells": {"newsletters": "Yes", "api": "Yes, subscriber API"},

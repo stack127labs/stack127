@@ -3,6 +3,12 @@
   "name": "Chroma",
   "url": "https://www.trychroma.com/",
   "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: self-hosted vector database is the primary type; V01: dense similarity search with HNSW index"
+    }
+  },
   "line": "Self-hosted vector database for embeddings, documents, and metadata.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; self-hosted only" },
   "cells": {

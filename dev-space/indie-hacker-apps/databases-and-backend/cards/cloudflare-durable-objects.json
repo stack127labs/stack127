@@ -3,6 +3,13 @@
   "name": "Cloudflare Durable Objects",
   "url": "https://developers.cloudflare.com/durable-objects/",
   "jobs": ["sql", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: private SQLite databases per object; D01: SQL API over embedded SQLite",
+      "jobs": "J03: native alarms run at least once with up to six retries; C02 lists scheduled jobs"
+    }
+  },
   "line": "Run stateful Workers objects with private databases and scheduled alarms.",
   "free": { "kind": "free", "text": "100K requests/day, 5 GB SQLite/account; idle objects hibernate, wake on event" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Fin AI Agent",
   "url": "https://fin.ai/",
   "jobs": ["ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Autonomous grounded answers with business actions and human escalation; answers customers itself"
+    }
+  },
   "line": "AI agent that resolves customer questions alongside a separate help desk.",
   "free": { "kind": "trial", "text": "14-day trial, no card" },
   "cells": {

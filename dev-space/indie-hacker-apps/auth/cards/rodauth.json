@@ -3,6 +3,12 @@
   "name": "Rodauth",
   "url": "https://rodauth.jeremyevans.net/",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Ruby account framework that runs in the app process; F05: developer operates app and tables"
+    }
+  },
   "line": "Ruby account and login toolkit with passkey support.",
   "free": { "kind": "selfhost", "text": "Free software; you run it" },
   "cells": {

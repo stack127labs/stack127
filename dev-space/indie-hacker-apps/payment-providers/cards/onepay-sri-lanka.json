@@ -2,7 +2,14 @@
   "slug": "onepay-sri-lanka",
   "name": "OnePay Sri Lanka",
   "url": "https://www.onepay.lk/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and payment facilitator; the merchant sells to the customer",
+      "links": "F16: shareable payment links with expiry, sent with invoices or messages"
+    }
+  },
   "line": "Sri Lankan payment gateway with links, hosted checkout and recurring cards.",
   "free": { "kind": "none", "text": "From LKR 499/month; LKR 1,500 setup fee (terms conflict)" },
   "cells": {

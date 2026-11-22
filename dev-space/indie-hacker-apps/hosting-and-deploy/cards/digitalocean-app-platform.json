@@ -6,6 +6,13 @@
     "paas",
     "static"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: DigitalOcean builds or accepts containers and runs them on its infrastructure; the customer maintains the code",
+      "static": "04: static websites are a listed app type"
+    }
+  },
   "line": "Build, deploy, and host static sites and dynamic apps.",
   "free": {
     "kind": "free",

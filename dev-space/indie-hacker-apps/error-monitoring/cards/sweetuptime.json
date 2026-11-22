@@ -3,6 +3,14 @@
   "name": "SweetUptime",
   "url": "https://dicloud.net/sweetuptime-server-uptime-monitoring/",
   "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: primary job is uptime monitoring with HTTP, ping, TCP and DNS checks (U01, U02)",
+      "status": "S01, S03: public and private status pages driven by monitors (S03)",
+      "cron": "J01, J02: cron heartbeats with interval, grace and missed-run totals"
+    }
+  },
   "line": "Monitors uptime, servers, domains, and cron jobs, with status pages.",
   "free": { "kind": "free", "text": "Free, no card; app lists 10 checks, product page says 20" },
   "cells": { "interval": "60 s uptime minimum", "maintained": "Hosted service" },

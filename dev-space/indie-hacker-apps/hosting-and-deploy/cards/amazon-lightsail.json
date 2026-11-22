@@ -2,7 +2,14 @@
   "slug": "amazon-lightsail",
   "name": "Amazon Lightsail",
   "url": "https://aws.amazon.com/lightsail/",
-  "jobs": ["vps"],
+  "jobs": ["vps", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: Lightsail instances are virtual private servers; the customer controls the guest OS and app",
+      "paas": "03: managed Linux container services run the customer's container images"
+    }
+  },
   "line": "Simple virtual servers with separate managed database and container options.",
   "free": { "kind": "credits", "text": "No repeating free VM tier; AWS credits may apply" },
   "cells": { "type": "VPS and managed services", "regions": "AWS Regions", "selfhost": "No" },

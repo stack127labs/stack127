@@ -2,7 +2,15 @@
   "slug": "fastspring",
   "name": "FastSpring",
   "url": "https://fastspring.com/",
-  "jobs": ["mor", "billing"],
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: Digital Retailer; FastSpring is the legal seller and handles transaction taxes",
+      "billing": "F15: managed subscriptions with trials, coupons, proration and card-style retries",
+      "links": "F16: hosted web checkout and direct product links need no coding"
+    }
+  },
   "line": "Merchant of Record for software and digital products with subscriptions.",
   "free": { "kind": "free", "text": "Free test store; live transaction pricing is quoted" },
   "cells": {

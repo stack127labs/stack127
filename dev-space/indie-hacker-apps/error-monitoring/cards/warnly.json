@@ -3,6 +3,12 @@
   "name": "Warnly",
   "url": "https://warnly.io/",
   "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: primary job is backend exception collection, grouping and webhook alerts (E01)"
+    }
+  },
   "line": "Groups backend exceptions and sends threshold-based webhook alerts.",
   "free": { "kind": "selfhost", "text": "Free MIT server; self-hosted; 90-day event retention" },
   "cells": { "interval": "—", "maintained": "Last release 2026-10-14" },

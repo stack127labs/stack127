@@ -2,7 +2,14 @@
   "slug": "hostinger-reach",
   "name": "Hostinger Reach",
   "url": "https://www.hostinger.com/reach",
-  "jobs": ["newsletter", "marketing", "multichannel"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: welcome and drip marketing, plus store-linked lifecycle marketing",
+      "newsletter": "F02: newsletters and promotional campaigns"
+    }
+  },
   "line": "Hosted email campaigns and automations for business audiences.",
   "free": { "kind": "trial", "text": "Free for one year on some accounts; sales page lists paid Starter" },
   "cells": {

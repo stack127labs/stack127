@@ -3,6 +3,12 @@
   "name": "AWS Elastic Beanstalk",
   "url": "https://aws.amazon.com/elasticbeanstalk/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: you deploy the application and AWS runs the platform, EC2 scaling and load balancing in your account"
+    }
+  },
   "line": "Deploy applications on AWS resources that Beanstalk manages for you.",
   "free": { "kind": "credits", "text": "$100 initial + up to $100 earned; up to six months" },
   "cells": { "type": "Managed deployment platform", "regions": "AWS regions", "selfhost": "No" },

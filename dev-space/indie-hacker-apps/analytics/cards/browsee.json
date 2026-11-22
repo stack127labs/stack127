@@ -2,7 +2,15 @@
   "slug": "browsee",
   "name": "Browsee",
   "url": "https://browsee.io/",
-  "jobs": ["replay"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is website behavior analytics and session replay; F17: DOM-based replay of clicks, scroll and input",
+      "web": "F15: referrers, UTMs, pages, devices and countries in traffic and session reports",
+      "product": "F16: automatic UI events, custom events and ordered funnels built from stored sessions"
+    }
+  },
   "line": "Session recordings, heatmaps and funnels for reviewing site behavior.",
   "free": {"kind": "free", "text": "Free for 1,500 recordings/month; 14-day storage"},
   "cells": {

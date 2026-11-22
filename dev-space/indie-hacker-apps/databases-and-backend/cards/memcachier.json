@@ -3,6 +3,12 @@
   "name": "MemCachier",
   "url": "https://www.memcachier.com/",
   "jobs": ["kv"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: hosted key-value cache is the primary type; D01: in-memory key/value Memcache service"
+    }
+  },
   "line": "Managed Memcached-compatible cache for sessions, counters, and query results.",
   "free": { "kind": "free", "text": "25MB; 10 connections; disabled after 30 idle days; data retention unclear" },
   "cells": {

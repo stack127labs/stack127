@@ -2,7 +2,15 @@
   "slug": "novalnet",
   "name": "Novalnet",
   "url": "https://www.novalnet.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and gateway; the merchant remains the seller",
+      "billing": "F14: subscription billing for supported methods; F15: amounts, intervals, pause and cancel",
+      "links": "F16: payment links created in the dashboard and shared without a webshop"
+    }
+  },
   "line": "German payment gateway with checkout, payment links and subscription billing.",
   "free": { "kind": "none", "text": "Instant account: €99 setup fee and €25 monthly" },
   "cells": {

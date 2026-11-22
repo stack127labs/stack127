@@ -3,6 +3,15 @@
   "name": "Sematext",
   "url": "https://sematext.com/",
   "jobs": ["logs", "uptime", "status", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: log collection and search with OpenSearch-compatible queries (L02)",
+      "uptime": "U01, U02: HTTP and Chrome journey checks from nine locations (U03)",
+      "status": "S01, S03: public and private status pages with manual incidents (S03)",
+      "performance": "A01: distributed trace waterfalls, latency percentiles and slow queries"
+    }
+  },
   "line": "Collects logs and traces, with uptime checks and customer status pages.",
   "free": { "kind": "trial", "text": "14-day Pro trial; no card" },
   "cells": {

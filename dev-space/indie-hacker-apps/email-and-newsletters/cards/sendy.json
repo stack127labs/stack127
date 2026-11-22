@@ -3,6 +3,13 @@
   "name": "Sendy",
   "url": "https://sendy.co/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: bulk newsletter and scheduled campaigns",
+      "marketing": "F02: list-entry autoresponders and date-based sequences"
+    }
+  },
   "line": "Self-hosted newsletter campaigns using Amazon SES or SMTP.",
   "free": { "kind": "none", "text": "No ongoing free edition or timed trial licence" },
   "cells": {

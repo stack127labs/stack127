@@ -3,6 +3,12 @@
   "name": "Amazon ECS Express Mode",
   "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: you supply a container image and AWS creates the service, load balancer, scaling and logs"
+    }
+  },
   "line": "Deploy container apps on ECS with generated load balancing and scaling.",
   "free": { "kind": "credits", "text": "AWS account credits; no recurring Express hosting bundle" },
   "cells": { "type": "Container app platform", "regions": "AWS ECS and Fargate regions", "selfhost": "No" },

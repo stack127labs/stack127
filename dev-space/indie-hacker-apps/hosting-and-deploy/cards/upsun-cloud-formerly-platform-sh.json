@@ -3,6 +3,13 @@
   "name": "Upsun Cloud",
   "url": "https://upsun.com/cloud/",
   "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed application platform; Git source is built into containers and routed to the web",
+      "static": "04: wholly static sites are supported through static file locations and cache rules"
+    }
+  },
   "line": "Builds Git-connected apps and runs them with managed services.",
   "free": { "kind": "trial", "text": "15-day no-card trial; 1 project/2 env, max 4.5 CPU/12 GB RAM; compute billed" },
   "cells": {

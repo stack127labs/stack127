@@ -2,7 +2,16 @@
   "slug": "azure-monitor-application-insights",
   "name": "Azure Monitor Application Insights",
   "url": "https://azure.microsoft.com/products/monitoring/",
-  "jobs": ["errors", "uptime", "logs", "performance"],
+  "jobs": ["performance", "errors", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: main job is application performance and diagnostic telemetry (A01)",
+      "errors": "E01: exception and crash telemetry collected by the SDK, with failure views",
+      "uptime": "U01: Standard availability tests from up to 16 probe locations (U02, U03)",
+      "logs": "C02: collects logs and traces; log records can be sent by the SDK (C20)"
+    }
+  },
   "line": "Collects application failures, performance data, logs, and availability checks.",
   "free": { "kind": "free", "text": "5 GB/month shared Log Analytics ingestion allowance" },
   "cells": { "interval": "5 min default/location; minimum unknown", "maintained": "Hosted service" },

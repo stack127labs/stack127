@@ -5,8 +5,16 @@
   "jobs": [
     "inbox",
     "chat",
-    "helpdesk"
+    "ai"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F18: Shared Inbox with canned replies, private notes, @mentions, transfer and assignment; email in (F17)",
+      "chat": "F17: Native web and mobile chat widget on Free and all paid plans",
+      "ai": "F22: Freddy AI Agent answers customer chats and knowledge questions automatically on paid plans"
+    }
+  },
   "line": "Shared support inbox for website chat, mobile messaging, and email.",
   "free": {
     "kind": "free",

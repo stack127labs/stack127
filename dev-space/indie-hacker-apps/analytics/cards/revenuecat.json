@@ -3,6 +3,13 @@
   "name": "RevenueCat",
   "url": "https://www.revenuecat.com/",
   "jobs": ["revenue", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is app subscription and purchase revenue analytics; F19: App Store, Google Play and Stripe revenue, MRR and realized LTV",
+      "product": "F16: paywall encounter, conversion and abandonment reports, with trial funnel and cohort analysis"
+    }
+  },
   "line": "Tracks in-app purchases, subscriptions, and customer revenue.",
   "free": { "kind": "free", "text": "Pro service fee is $0 below $2,500 tracked revenue" },
   "cells": {

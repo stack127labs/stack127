@@ -2,7 +2,14 @@
   "slug": "moyasar",
   "name": "Moyasar",
   "url": "https://docs.moyasar.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant sells and delivers",
+      "links": "F16: dashboard invoices open a Moyasar-hosted page and the invoice link can be shared"
+    }
+  },
   "line": "Saudi payment gateway with hosted invoices and recurring card billing.",
   "free": { "kind": "none", "text": "Free sandbox; live processing fees are quoted by sales" },
   "cells": {

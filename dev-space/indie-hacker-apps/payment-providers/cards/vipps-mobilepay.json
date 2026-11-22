@@ -6,6 +6,13 @@
     "gateway",
     "links"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: direct payment service provider and API; the merchant is the seller",
+      "links": "F16: no-code payment links created in the business portal, shared by URL or QR"
+    }
+  },
   "line": "Nordic wallet and card payments, recurring charges, and payment links.",
   "free": {
     "kind": "none",

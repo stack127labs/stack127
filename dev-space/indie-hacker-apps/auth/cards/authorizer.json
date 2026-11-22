@@ -3,6 +3,12 @@
   "name": "Authorizer",
   "url": "https://www.authorizer.dev/",
   "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted Apache-2.0 authentication server; F05: developer deploys binary or container"
+    }
+  },
   "line": "Self-hosted account and login server with organization features.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 server; you run it" },
   "cells": {

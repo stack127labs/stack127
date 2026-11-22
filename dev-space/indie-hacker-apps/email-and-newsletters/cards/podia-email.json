@@ -3,6 +3,13 @@
   "name": "Podia Email",
   "url": "https://www.podia.com/email",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and broadcasts sent through Podia",
+      "marketing": "F02: creator lifecycle sequences and scheduled marketing campaigns"
+    }
+  },
   "line": "Creator newsletters, scheduled campaigns and lifecycle sequences.",
   "free": { "kind": "trial", "text": "14-day trial, no card; no standalone free email plan" },
   "cells": {

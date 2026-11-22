@@ -2,7 +2,16 @@
   "slug": "digitalocean-managed-databases",
   "name": "DigitalOcean Managed Databases",
   "url": "https://www.digitalocean.com/products/managed-databases",
-  "jobs": ["sql", "kv", "vector", "jobs"],
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C02: managed document database (MongoDB) is listed; C12: MongoDB has a displayed plan price",
+      "sql": "C02: managed SQL databases (PostgreSQL, MySQL) are a main type; D01: PostgreSQL 15-18 and MySQL 8.4",
+      "kv": "C02: managed Valkey key/value service; D01: Valkey 8 and 9",
+      "vector": "V01: PostgreSQL vector(1536) supported; OpenSearch k-NN graph indexes"
+    }
+  },
   "line": "Managed PostgreSQL, MySQL, MongoDB, Valkey, OpenSearch, and Kafka clusters.",
   "free": { "kind": "credits", "text": "$5 signup credit, expires after 90 days" },
   "cells": {

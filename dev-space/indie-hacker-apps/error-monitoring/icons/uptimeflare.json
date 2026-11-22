@@ -1,0 +1,17 @@
+{
+  "slug": "uptimeflare",
+  "name": "UptimeFlare",
+  "official_url": "https://github.com/lyc8503/UptimeFlare",
+  "image_url": "https://raw.githubusercontent.com/lyc8503/UptimeFlare/main/public/favicon.png",
+  "source_page": "https://github.com/lyc8503/UptimeFlare",
+  "kind": "other",
+  "source_host": "raw.githubusercontent.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "e7a80f0e21ccad2ca2dd3029f59940e6f6cc6b0588c4f72fe182b76d4779d205",
+  "note": "project favicon from its GitHub repo (public/favicon.png), 192 px",
+  "saved_at": "2026-11-22"
+}

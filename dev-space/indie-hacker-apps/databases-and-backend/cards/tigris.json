@@ -2,9 +2,13 @@
   "slug": "tigris",
   "name": "Tigris",
   "url": "https://www.tigrisdata.com/",
-  "jobs": [
-    "files"
-  ],
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted S3-compatible object storage is the primary type; F05: S3-compatible endpoint and clients"
+    }
+  },
   "line": "Globally distributed S3-compatible object storage.",
   "free": {
     "kind": "free",

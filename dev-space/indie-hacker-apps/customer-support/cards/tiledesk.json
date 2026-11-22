@@ -2,7 +2,16 @@
   "slug": "tiledesk",
   "name": "Tiledesk",
   "url": "https://tiledesk.com/",
-  "jobs": ["ai", "chat", "inbox"],
+  "jobs": ["ai", "helpdesk", "chat", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Customer-facing knowledge answers and AI agents on hosted plans; Copilot drafts for staff",
+      "helpdesk": "F17: Email ticketing with threaded replies; hosted email ticketing is listed on the Enterprise plan",
+      "chat": "F17: Native website live chat and widget on the Pro, Business and Enterprise plans",
+      "inbox": "F18: Team inbox on all hosted tiers with private notes, canned responses, working hours and groups"
+    }
+  },
   "line": "AI agents and human support chat with workflows and knowledge sources.",
   "free": { "kind": "trial", "text": "14-day hosted trial, no card" },
   "cells": {

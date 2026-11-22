@@ -2,7 +2,16 @@
   "slug": "elastic-observability",
   "name": "Elastic Observability",
   "url": "https://www.elastic.co/observability",
-  "jobs": ["errors", "logs", "uptime", "performance"],
+  "jobs": ["logs", "errors", "uptime", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: log analysis, search and dashboards in Logs Essentials (L02)",
+      "errors": "E01: APM captures unhandled errors and groups them by stack trace",
+      "uptime": "U01, U03: Synthetics HTTP, TCP and ping checks from selectable locations",
+      "performance": "A01: APM traces, service maps and database query timings"
+    }
+  },
   "line": "Searches logs and traces, investigates errors and runs synthetic checks.",
   "free": { "kind": "selfhost", "text": "Free Basic self-managed software; hosting costs extra" },
   "cells": {

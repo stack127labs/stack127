@@ -2,7 +2,18 @@
   "slug": "site24x7",
   "name": "Site24x7",
   "url": "https://www.site24x7.com/",
-  "jobs": ["uptime", "errors", "logs", "status", "performance", "cron"],
+  "jobs": ["uptime", "errors", "status", "logs", "performance", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: uptime and synthetic checks from many public locations (U01, U03)",
+      "errors": "E01: APM exception types and RUM JavaScript error lists with filters",
+      "status": "S01, S03: status pages with incidents, maintenance and monitor sync (S03)",
+      "logs": "L02: query-language log search with saved searches and scheduled reports",
+      "performance": "A01: APM traces, SQL performance and service maps",
+      "cron": "J01, J02: cron schedules with grace periods and job start and end pings"
+    }
+  },
   "line": "Monitors sites, applications, logs, and infrastructure, with status pages.",
   "free": { "kind": "free", "text": "50 monitors, 5-min checks, 1 location, 1 public status page" },
   "cells": { "interval": "10 s poller (eligible packs); 60 s paid; 300 s free", "maintained": "Hosted service" },

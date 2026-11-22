@@ -3,6 +3,12 @@
   "name": "Cloudflare Workflows",
   "url": "https://developers.cloudflare.com/workflows/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed durable workflow and job orchestration; J04: step waits up to 365 days"
+    }
+  },
   "line": "Run durable multi-step jobs on Cloudflare Workers.",
   "free": { "kind": "free", "text": "100,000 invocations and 3,000 billed steps per day" },
   "cells": {

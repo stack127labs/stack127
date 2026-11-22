@@ -2,7 +2,15 @@
   "slug": "pay",
   "name": "Pay.",
   "url": "https://www.pay.nl/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and processor; the merchant keeps the customer obligations",
+      "billing": "F14: SEPA direct debit with fixed-interval recurring debits; approved recurring cards",
+      "links": "F16: payment links are on all public packages, with donation links"
+    }
+  },
   "line": "European payment gateway with hosted checkout, links and subscriptions.",
   "free": { "kind": "free", "text": "Pioneer €0/month; adds €0.05 plus 0.25% turnover to fees" },
   "cells": {

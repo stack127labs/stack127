@@ -3,6 +3,12 @@
   "name": "Cloady",
   "url": "https://cloady.com/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: vendor-hosted source or container platform; the provider runs the customer's applications"
+    }
+  },
   "line": "Deploy source code and container apps in one managed workspace.",
   "free": { "kind": "free", "text": "0.5 vCPU/1GB/5GB; 15GB, 1M requests, 4 CPU-h/mo; pauses after 7 idle days" },
   "cells": { "type": "Managed app platform", "regions": "US, Germany, UK, Japan, Singapore, Australia, India", "selfhost": "No" },

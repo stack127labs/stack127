@@ -3,6 +3,12 @@
   "name": "Exoscale Compute Instances",
   "url": "https://www.exoscale.com/compute/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: managed KVM virtual machines; the customer manages the guest OS, runtime and app"
+    }
+  },
   "line": "Run KVM virtual machines in Exoscale zones.",
   "free": { "kind": "credits", "text": "Eligible new accounts: €20/CHF20 credit; no recurring free VM allowance" },
   "cells": { "type": "VPS/VM", "regions": "8 EU/Swiss zones; Madrid shown as coming soon", "selfhost": "No" },

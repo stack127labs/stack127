@@ -3,6 +3,12 @@
   "name": "Magalu Cloud Virtual Machines",
   "url": "https://magalu.cloud/virtual-machines/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: isolated rented virtual machines; the customer manages the guest OS, app, patches and backups"
+    }
+  },
   "line": "Create virtual machines and manage the guest OS and applications.",
   "free": { "kind": "credits", "text": "R$100 credit expires at grant-month end; CPF/CNPJ and card required" },
   "cells": { "type": "Virtual machines", "regions": "Southeast and Northeast Brazil", "selfhost": "No" },

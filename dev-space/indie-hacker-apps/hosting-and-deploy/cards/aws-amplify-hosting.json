@@ -2,7 +2,14 @@
   "slug": "aws-amplify-hosting",
   "name": "AWS Amplify Hosting",
   "url": "https://aws.amazon.com/amplify/hosting/",
-  "jobs": ["static", "paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed Git-based hosting that runs SSR web apps and HTTP APIs through Node or framework routes",
+      "static": "04: static sites are a documented deploy type"
+    }
+  },
   "line": "Build, deploy, and deliver full-stack web apps from Git.",
   "free": { "kind": "credits", "text": "Up to $200 credits; six months or until credits run out" },
   "cells": { "type": "Managed web hosting", "regions": "20 AWS regions; global CloudFront delivery", "selfhost": "No" },

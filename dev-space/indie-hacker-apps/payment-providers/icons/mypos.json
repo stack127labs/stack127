@@ -1,0 +1,17 @@
+{
+  "slug": "mypos",
+  "name": "myPOS",
+  "official_url": "https://www.mypos.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4e/cd/b6/4ecdb6c7-8829-00b0-1ab2-8a48bb9d44be/AppIcon-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/gb/app/mypos-mobile/id934401253",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "bf47e97fdc39839d76d8dd7ebfeb15065b6157886915e38bbe5861a240fd780f",
+  "note": "App Store icon of the myPOS app (developer myPOS World Ltd.); the myPOS site's mobile app page links to it; site blocks scripts",
+  "saved_at": "2026-11-22"
+}

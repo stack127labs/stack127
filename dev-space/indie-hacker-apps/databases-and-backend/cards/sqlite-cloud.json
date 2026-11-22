@@ -2,7 +2,14 @@
   "slug": "sqlite-cloud",
   "name": "SQLite Cloud",
   "url": "https://www.sqlite.ai/cloud",
-  "jobs": ["sql", "files", "jobs", "vector"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQLite relational database is the primary type; D01: SQLite-native SQL database",
+      "vector": "V01: SQLite-Vector installed by default with fixed-dimension vector columns"
+    }
+  },
   "line": "Managed SQLite with REST APIs, authentication, vector search, and edge functions.",
   "free": { "kind": "free", "text": "512MB, 20 connections, 500K calls/mo; inactive projects delete after 3 months" },
   "cells": {

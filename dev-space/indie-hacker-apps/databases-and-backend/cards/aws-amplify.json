@@ -2,7 +2,15 @@
   "slug": "aws-amplify",
   "name": "AWS Amplify",
   "url": "https://aws.amazon.com/amplify/",
-  "jobs": ["backend", "sql", "files", "jobs"],
+  "jobs": ["backend", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform; C07: auth, data, storage and functions provisioned together",
+      "files": "C07: Storage provisions S3 buckets for uploads; F05: real S3 APIs with IAM",
+      "jobs": "J04: function schedules (cron and interval) and async event handling with dead-letter queues"
+    }
+  },
   "line": "Builds app backends from AWS database, login, storage and function services.",
   "free": { "kind": "credits", "text": "$100 credits; free plan closes at 6 months, data deleted after 90 days" },
   "cells": {

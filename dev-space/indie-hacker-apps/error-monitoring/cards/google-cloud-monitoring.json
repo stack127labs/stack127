@@ -2,7 +2,14 @@
   "slug": "google-cloud-monitoring",
   "name": "Google Cloud Monitoring",
   "url": "https://cloud.google.com/monitoring",
-  "jobs": ["uptime", "performance"],
+  "jobs": ["performance", "uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: application and infrastructure metrics charted; traces are a separate product",
+      "uptime": "U01, U02: HTTP, HTTPS and TCP checks from listed regions (U03)"
+    }
+  },
   "line": "Charts service metrics, alerts on problems and checks endpoint uptime.",
   "free": { "kind": "free", "text": "First 1 million regional uptime executions/project/month are free" },
   "cells": {

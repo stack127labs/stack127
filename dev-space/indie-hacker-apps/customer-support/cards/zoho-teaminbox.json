@@ -3,6 +3,12 @@
   "name": "Zoho TeamInbox",
   "url": "https://www.zoho.com/teaminbox/",
   "jobs": ["inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F18: Shared-inbox workflow with assignments, internal discussions, tags, templates and draft sharing on Starter"
+    }
+  },
   "line": "Shared inbox for email, WhatsApp, social messages, and team discussion.",
   "free": { "kind": "free", "text": "Mobile only; 3 users and 30 conversations/month" },
   "cells": {

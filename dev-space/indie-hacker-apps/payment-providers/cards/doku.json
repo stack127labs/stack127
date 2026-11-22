@@ -2,7 +2,15 @@
   "slug": "doku",
   "name": "DOKU",
   "url": "https://www.doku.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and gateway; the merchant sells its own goods",
+      "billing": "F15: subscription pricing with seats and tiers, scheduled retries; F14: card auto-debit",
+      "links": "F16: no-code Payment Links and Digital Catalog are available"
+    }
+  },
   "line": "Payment gateway with checkout, links and recurring billing tools.",
   "free": { "kind": "none", "text": "Indonesia gateway has no setup or monthly fee" },
   "cells": {

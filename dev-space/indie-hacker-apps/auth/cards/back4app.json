@@ -3,6 +3,12 @@
   "name": "Back4app",
   "url": "https://www.back4app.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted Parse backend with accounts, login and sessions; F35: managed hosting is the standard offer"
+    }
+  },
   "line": "Managed Parse backend with app accounts, login, and sessions.",
   "free": { "kind": "free", "text": "Free: 25,000 requests/month and 250 MB database" },
   "cells": {

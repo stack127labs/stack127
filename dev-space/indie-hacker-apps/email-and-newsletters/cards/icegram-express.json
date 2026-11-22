@@ -3,6 +3,13 @@
   "name": "Icegram Express",
   "url": "https://www.icegram.com/express/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter broadcasts to subscribers",
+      "marketing": "F02: paid Max automations: drip sequences, digests, cart recovery and birthday workflows"
+    }
+  },
   "line": "WordPress plugin for newsletters, with paid email automation and subscriber lists.",
   "free": { "kind": "free", "text": "Free on 1 site; you provide the email sender" },
   "cells": {

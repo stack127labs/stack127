@@ -3,6 +3,12 @@
   "name": "Garage",
   "url": "https://garagehq.deuxfleurs.fr/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: self-hosted S3-compatible object storage is the primary type; F05: S3 HTTP API"
+    }
+  },
   "line": "Run an S3-compatible object store across self-managed servers.",
   "free": { "kind": "selfhost", "text": "Free AGPLv3; capacity set by your disks; no hosted idle policy applies" },
   "cells": {

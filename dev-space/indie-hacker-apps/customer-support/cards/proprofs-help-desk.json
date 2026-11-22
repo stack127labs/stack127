@@ -4,10 +4,17 @@
   "url": "https://www.proprofsdesk.com/",
   "jobs": [
     "helpdesk",
-    "inbox",
-    "chat",
-    "ai"
+    "ai",
+    "inbox"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Support ticketing and shared inboxes with a customer portal; F17: native email tickets",
+      "ai": "F22: Autonomous role resolves routine tickets, sending answers and closing them; listed on the Suite plan",
+      "inbox": "F18: Ticket assignment, team inbox access, round-robin routing and internal notes are documented"
+    }
+  },
   "line": "Support ticketing and shared inbox with workflow automation and a portal.",
   "free": {
     "kind": "free",

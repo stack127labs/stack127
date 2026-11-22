@@ -1,6 +1,12 @@
 {
   "slug": "vercel-web-analytics", "name": "Vercel Web Analytics", "url": "https://vercel.com/analytics",
-  "jobs": ["web", "product"],
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is hosted website traffic analytics; F15: visitors, pageviews, top pages, referrers, countries and devices"
+    }
+  },
   "line": "Adds website traffic and custom event reports to Vercel projects.",
   "free": {"kind": "free", "text": "Hobby personal only: 50K events/month, 1-month reports; no custom events/UTM"},
   "cells": {"cookieless": "Yes (one-day request hash)", "location": "US; global transfers may occur", "selfhost": "No (none found)"},

@@ -3,6 +3,12 @@
   "name": "DevDome Analytics",
   "url": "https://devdome.com/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary job is website traffic and outbound-click analytics; F15: visitors, pages, referrers, countries and campaigns"
+    }
+  },
   "line": "Website traffic and outbound-click analytics with bot reports.",
   "free": { "kind": "free", "text": "Free: 50,000 human pageviews/month, unlimited sites, 90-day history" },
   "cells": { "cookieless": "Yes by default; optional visitor cookies", "location": "Frankfurt and Finland", "selfhost": "No (none found)" },

@@ -2,7 +2,15 @@
   "slug": "clip",
   "name": "Clip",
   "url": "https://www.clip.mx/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment processor and gateway; the merchant stays responsible to the buyer",
+      "billing": "F14: recurring plans with scheduled weekly, fortnightly or monthly charges; F15: reminders and retries",
+      "links": "F16: Link de Pago is generated in the Clip app and shared by message, email or SMS"
+    }
+  },
   "line": "Mexican online gateway with payment links and recurring payments.",
   "free": { "kind": "none", "text": "No setup or monthly fee; per-transaction commission" },
   "cells": {

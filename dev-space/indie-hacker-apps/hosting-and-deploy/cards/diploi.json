@@ -2,7 +2,14 @@
   "slug": "diploi",
   "name": "Diploi",
   "url": "https://diploi.com/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed platform; each deployment runs on a managed cluster and the customer does not manage the host",
+      "static": "04: static sites are a listed app type on the hosted platform"
+    }
+  },
   "line": "Deploy apps and databases in managed single-node clusters.",
   "free": { "kind": "credits", "text": "€50 credit for 14 days; usage then needs funded balance" },
   "cells": { "type": "Managed app platform", "regions": "Ireland (AWS); multi-region planned", "selfhost": "No" },

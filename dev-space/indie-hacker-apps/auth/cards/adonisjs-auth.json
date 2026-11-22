@@ -3,6 +3,12 @@
   "name": "AdonisJS Auth",
   "url": "https://github.com/adonisjs/auth",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Node.js auth library the developer runs; not a hosted tenant"
+    }
+  },
   "line": "Authentication guards and sessions for AdonisJS apps.",
   "free": { "kind": "selfhost", "text": "Free MIT package; you run it" },
   "cells": {

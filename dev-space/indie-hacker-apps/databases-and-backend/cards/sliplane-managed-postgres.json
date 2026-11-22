@@ -3,6 +3,13 @@
   "name": "Sliplane Managed Postgres",
   "url": "https://sliplane.io/managed-postgres",
   "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: hosted managed PostgreSQL is the primary type; D01: native PostgreSQL SQL",
+      "vector": "V02: pgvector enabled from the supported extension catalog; V01: pgvector supported"
+    }
+  },
   "line": "Managed PostgreSQL with TLS, PITR backups, and optional pgvector.",
   "free": { "kind": "none", "text": "No free tier; pausing keeps billing; nonpayment can lead to deletion" },
   "cells": {

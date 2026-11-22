@@ -3,6 +3,12 @@
   "name": "Cloudinary",
   "url": "https://cloudinary.com/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "files": "C02: hosted media file management; upload, store and deliver images and video through a CDN"
+    }
+  },
   "line": "Upload, store, transform, and deliver images and video.",
   "free": { "kind": "free", "text": "25 shared credits/month; 1 GB storage per credit" },
   "cells": {

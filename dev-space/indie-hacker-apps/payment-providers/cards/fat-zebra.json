@@ -3,6 +3,14 @@
   "name": "Fat Zebra",
   "url": "https://www.fatzebra.com/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway or processing with acquiring; the merchant remains the seller",
+      "billing": "F15: payment plans with recurring amounts, retries of three days and suspension",
+      "links": "F16: dashboard payment links, copied or emailed, with a fixed amount or reference"
+    }
+  },
   "line": "Australian payment gateway with online processing and merchant accounts.",
   "free": { "kind": "none", "text": "Gateway Only starts at AUD $250/month plus $0.30/transaction" },
   "cells": {

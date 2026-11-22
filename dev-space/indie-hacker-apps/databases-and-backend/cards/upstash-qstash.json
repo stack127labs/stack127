@@ -3,6 +3,12 @@
   "name": "Upstash QStash",
   "url": "https://upstash.com/qstash",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: HTTP messaging with queues, retries, delayed and scheduled delivery; J04: cron schedules with time zones"
+    }
+  },
   "line": "Managed HTTP messaging for queues, retries, scheduled delivery and webhooks.",
   "free": { "kind": "free", "text": "1,000 msgs/day; 50 GB/mo; Terms may delete idle Free resources after 1 week" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "backendless",
   "name": "Backendless",
   "url": "https://backendless.com/",
-  "jobs": ["backend", "sql", "files", "jobs"],
+  "jobs": ["backend", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with database, identity, files and server logic; C07: all documented together",
+      "files": "F04: REST file upload API; F01: 1 GB Free and 10 GB Scale storage",
+      "jobs": "J04: once, daily, weekly, monthly and cron timers documented"
+    }
+  },
   "line": "Build apps with a database, auth, file storage, realtime, and logic.",
   "free": { "kind": "free", "text": "1 GB files, 1,000 requests/day; inactive apps may end after 2 months" },
   "cells": {

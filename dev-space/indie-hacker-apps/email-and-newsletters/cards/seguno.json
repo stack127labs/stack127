@@ -3,6 +3,13 @@
   "name": "Seguno Email Marketing",
   "url": "https://www.seguno.com/",
   "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F07: prebuilt automations on the Starter plan",
+      "newsletter": "F02: newsletters and targeted marketing campaigns"
+    }
+  },
   "line": "Shopify newsletters, targeted campaigns and marketing automations.",
   "free": { "kind": "free", "text": "Free for up to 250 subscribers with unlimited sending" },
   "cells": {

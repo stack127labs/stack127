@@ -3,6 +3,14 @@
   "name": "Flare",
   "url": "https://flareapp.io/",
   "jobs": ["errors", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: application error tracking is the first job (E01, E03)",
+      "logs": "L02: live log stream searchable by message, host and severity (L01)",
+      "performance": "A01: request, query and queued-job spans with per-trace waterfalls"
+    }
+  },
   "line": "Tracks Laravel errors, logs and performance traces in production.",
   "free": { "kind": "trial", "text": "10-day trial, no card; no ongoing free plan" },
   "cells": {

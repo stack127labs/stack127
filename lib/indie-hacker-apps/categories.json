@@ -92,8 +92,8 @@
         ],
         [
           "panel",
-          "Self-hosted panel",
-          "Free software that turns your server into an app platform."
+          "Server panel",
+          "Software that turns your own server into an app platform. Some are free to self-host, some are paid services."
         ],
         [
           "static",
@@ -105,7 +105,7 @@
         [
           "type",
           "Type",
-          "Short type, e.g. \"App platform\", \"VPS\", \"Self-hosted panel\", \"Frontend\"."
+          "Short type, e.g. \"App platform\", \"VPS\", \"Server panel\", \"Frontend\"."
         ],
         [
           "regions",
@@ -156,6 +156,11 @@
           "sql",
           "SQL",
           "Postgres, MySQL, SQLite and similar."
+        ],
+        [
+          "nosql",
+          "Document and NoSQL",
+          "MongoDB-style document, graph and search databases."
         ],
         [
           "kv",
@@ -374,6 +379,11 @@
           "inbox",
           "Shared inbox",
           "One inbox for the team."
+        ],
+        [
+          "kb",
+          "Help center",
+          "A knowledge base your customers search themselves."
         ]
       ],
       "cells": [

@@ -2,7 +2,14 @@
   "slug": "klaviyo",
   "name": "Klaviyo",
   "url": "https://www.klaviyo.com/",
-  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing journeys on the hosted platform",
+      "newsletter": "F02: newsletter campaigns to opted-in lists"
+    }
+  },
   "line": "Marketing campaigns and event-triggered transactional email.",
   "free": { "kind": "free", "text": "Free for 250 active profiles and 500 email sends per month" },
   "cells": {

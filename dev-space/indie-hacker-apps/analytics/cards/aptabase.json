@@ -3,6 +3,12 @@
   "name": "Aptabase",
   "url": "https://aptabase.com/",
   "jobs": ["product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is privacy-focused app event analytics; F16: custom events with properties, real-time view and in-session event timeline"
+    }
+  },
   "line": "Open-source analytics for web, desktop and mobile app events.",
   "free": {"kind": "free", "text": "Free up to 20,000 events/month (availability unclear)"},
   "cells": {

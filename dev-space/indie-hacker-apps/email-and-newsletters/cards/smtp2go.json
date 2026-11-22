@@ -2,7 +2,13 @@
   "slug": "smtp2go",
   "name": "SMTP2GO",
   "url": "https://www.smtp2go.com/",
-  "jobs": ["transactional", "marketing", "newsletter"],
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: hosted application email through SMTP or the API"
+    }
+  },
   "line": "Hosted SMTP and API delivery for app email and permission-based lists.",
   "free": { "kind": "free", "text": "Free: 1,000/month, 200/day, 25/hour until sender-domain verification" },
   "cells": {

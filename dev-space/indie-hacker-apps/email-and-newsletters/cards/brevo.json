@@ -4,8 +4,17 @@
   "url": "https://www.brevo.com/",
   "jobs": [
     "marketing",
+    "newsletter",
     "transactional"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation; F07 lets 2,000 contacts into free-plan automations",
+      "newsletter": "F02: campaign newsletters sent from the platform",
+      "transactional": "F02: transactional app email through the API or SMTP; activation is separate (F05)"
+    }
+  },
   "line": "Campaigns, automation and app email in one service.",
   "free": {
     "kind": "free",

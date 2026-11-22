@@ -3,6 +3,12 @@
   "name": "Google Cloud Tasks",
   "url": "https://docs.cloud.google.com/tasks/docs",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed asynchronous task queue with retries and scheduling; J04: one-time schedule up to 30 days ahead"
+    }
+  },
   "line": "Schedule and dispatch HTTP tasks to your own worker endpoints.",
   "free": { "kind": "free", "text": "1M ops/month; queue inactive after 30 idle days; tasks deleted at 31 days" },
   "cells": {

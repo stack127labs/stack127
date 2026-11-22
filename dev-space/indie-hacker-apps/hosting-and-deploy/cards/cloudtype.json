@@ -2,7 +2,14 @@
   "slug": "cloudtype",
   "name": "Cloudtype",
   "url": "https://cloudtype.io/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed container app platform; Cloudtype builds and runs the customer's services",
+      "static": "04: static HTML and SPA deployments are documented"
+    }
+  },
   "line": "Build and run containerized apps with managed deployments.",
   "free": { "kind": "free", "text": "1GB RAM, 4 services, 1 project, 1GB temp DB disk; 100GB outbound" },
   "cells": { "type": "Managed app platform", "regions": "Seoul clusters", "selfhost": "No" },

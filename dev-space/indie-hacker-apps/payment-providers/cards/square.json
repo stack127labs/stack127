@@ -2,7 +2,16 @@
   "slug": "square",
   "name": "Square",
   "url": "https://squareup.com/us/en/payments/online-payments",
-  "jobs": ["gateway", "billing", "links"],
+  "jobs": ["gateway", "billing", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment facilitator; the seller supplies goods and handles sales taxes",
+      "billing": "F14: Subscriptions API charges a stored card automatically; F15: plans, trials and pause",
+      "links": "F16: Payment Links, QR codes and buttons need no code to start",
+      "crypto": "C01: BTC payments over Lightning for eligible US businesses; C03: 0% until 31 December 2026"
+    }
+  },
   "line": "Online payments, invoices, payment links, and subscriptions for Square sellers.",
   "free": { "kind": "free", "text": "Free ordinary account can stay open unused" },
   "cells": {

@@ -2,7 +2,14 @@
   "slug": "request-metrics",
   "name": "Request Metrics",
   "url": "https://requestmetrics.com/",
-  "jobs": ["errors", "performance"],
+  "jobs": ["performance", "errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: browser real-user performance monitoring is the main job",
+      "errors": "E01: browser error capture with custom error reporting on Professional"
+    }
+  },
   "line": "Monitors browser performance and reports client-side JavaScript errors.",
   "free": { "kind": "free", "text": "Free RUM: 1,000 pageviews/month; 24-hour retention" },
   "cells": {

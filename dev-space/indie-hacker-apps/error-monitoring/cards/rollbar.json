@@ -5,6 +5,12 @@
   "jobs": [
     "errors"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: primary job is error detection and debugging; grouping in E01"
+    }
+  },
   "line": "Hosted error tracking with release context and replay.",
   "free": {
     "kind": "free",

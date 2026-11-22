@@ -2,7 +2,14 @@
   "slug": "google-memorystore",
   "name": "Google Memorystore",
   "url": "https://cloud.google.com/memorystore",
-  "jobs": ["kv", "jobs", "vector"],
+  "jobs": ["kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: managed key-value databases and caches are the primary type; D01: Valkey and Redis versions",
+      "vector": "V01: Valkey vector indexes with FLAT or HNSW, up to 32,768 dimensions"
+    }
+  },
   "line": "Managed Valkey, Redis, Redis Cluster, and Memcached data stores.",
   "free": { "kind": "credits", "text": "$300/90d credit; stops at expiry; 30d recovery; paid capacity bills idle" },
   "cells": {

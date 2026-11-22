@@ -3,6 +3,12 @@
   "name": "Errbit",
   "url": "https://errbit.com/",
   "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: collects, groups and manages application-error notices (E01)"
+    }
+  },
   "line": "Self-hosted Airbrake-compatible error tracking for application exceptions.",
   "free": { "kind": "selfhost", "text": "Free MIT software; you run the app and MongoDB" },
   "cells": {

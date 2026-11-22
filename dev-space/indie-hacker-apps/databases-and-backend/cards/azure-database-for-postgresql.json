@@ -2,7 +2,14 @@
   "slug": "azure-database-for-postgresql",
   "name": "Azure Database for PostgreSQL",
   "url": "https://azure.microsoft.com/en-us/products/postgresql",
-  "jobs": ["sql", "vector", "jobs"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: native PostgreSQL 14-18 versions",
+      "vector": "V01: pgvector similarity queries with IVFFlat, HNSW and DiskANN indexes"
+    }
+  },
   "line": "Run managed PostgreSQL with vector search and scheduled SQL.",
   "free": { "kind": "trial", "text": "750 B1MS hours/month, 32 GB; stopped server restarts after 7 days" },
   "cells": {

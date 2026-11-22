@@ -2,7 +2,14 @@
   "slug": "cronalive",
   "name": "CronAlive",
   "url": "https://cronalive.com/",
-  "jobs": ["uptime", "cron"],
+  "jobs": ["cron", "uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "cron": "C02: heartbeat monitoring of scheduled jobs is the primary use (J01, J02)",
+      "uptime": "C02: scheduled HTTP checks with status and keyword rules (U01, U02)"
+    }
+  },
   "line": "Monitors scheduled jobs with heartbeats and checks websites from three regions.",
   "free": { "kind": "free", "text": "10 checks and 50,000 pings/month; no card" },
   "cells": {

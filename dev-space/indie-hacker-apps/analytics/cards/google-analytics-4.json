@@ -4,8 +4,17 @@
   "url": "https://marketingplatform.google.com/about/analytics/",
   "jobs": [
     "web",
-    "product"
+    "product",
+    "revenue"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website and app event analytics; F15: acquisition, pages, engagement and realtime reports",
+      "product": "F16: funnels, paths, retention cohorts and user-ID analysis across web and app events",
+      "revenue": "F19: total revenue from ecommerce, in-app purchases, subscriptions and ads, minus refunds"
+    }
+  },
   "line": "Free Google web and app analytics, tied to the ad tools.",
   "free": {
     "kind": "free",

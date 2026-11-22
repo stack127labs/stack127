@@ -3,6 +3,13 @@
   "name": "Sevalla",
   "url": "https://sevalla.com/",
   "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: applications and databases run on managed Kubernetes clusters that Sevalla operates",
+      "static": "03: static files use Sevalla's dedicated static product with delivery at Cloudflare's edge"
+    }
+  },
   "line": "Host static sites, app containers, and managed databases.",
   "free": { "kind": "free", "text": "Static sites $0 with shared 100 GB bandwidth and 600 build minutes" },
   "cells": { "type": "App and static hosting", "regions": "20 OCI regions; Cloudflare edge delivery", "selfhost": "No" },

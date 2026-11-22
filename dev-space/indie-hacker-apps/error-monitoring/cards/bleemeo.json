@@ -2,7 +2,16 @@
   "slug": "bleemeo",
   "name": "Bleemeo",
   "url": "https://bleemeo.com/",
-  "jobs": ["uptime", "logs", "status", "performance"],
+  "jobs": ["performance", "uptime", "status", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: server and service/application metrics are the core product (C01)",
+      "uptime": "U01: HTTP, TCP, ping, DNS and TLS checks from public probes (U03)",
+      "status": "S01, S03: public status pages update from tagged services and uptime monitors",
+      "logs": "L02: Log Explorer with full-text and regex search and live tail"
+    }
+  },
   "line": "Monitors servers, logs, uptime, and public service status.",
   "free": { "kind": "free", "text": "Free for 3 servers and 5 uptime monitors" },
   "cells": { "interval": "5 min free, 60 s paid", "maintained": "Hosted service" },

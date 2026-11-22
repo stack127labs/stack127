@@ -2,11 +2,14 @@
   "slug": "webxpay",
   "name": "WEBXPAY",
   "url": "https://webxpay.com/",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online gateway with cards, wallets and bank payments; seller terms not verified",
+      "links": "F16: XPAYLINK remote collection without a full ecommerce site, in all three packages"
+    }
+  },
   "line": "Sri Lankan online gateway for cards, wallets, recurring charges, and payment links.",
   "free": {
     "kind": "none",

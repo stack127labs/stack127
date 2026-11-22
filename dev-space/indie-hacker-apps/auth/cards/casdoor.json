@@ -3,6 +3,13 @@
   "name": "Casdoor",
   "url": "https://casdoor.ai/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed dedicated Cloud plans; F05: vendor hosts the dedicated instance and database",
+      "server": "F02: free Apache-2.0 self-host server; F05: builder runs the server and database"
+    }
+  },
   "line": "Open-source identity server with a managed Cloud option.",
   "free": { "kind": "selfhost", "text": "Free Apache server; you run it" },
   "cells": {

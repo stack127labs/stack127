@@ -5,6 +5,12 @@
   "jobs": [
     "hosted"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted customer identity service for accounts, login and federation; F35: not self-hosted"
+    }
+  },
   "line": "Hosted identity service for app login, users, and social sign-in.",
   "free": {
     "kind": "free",

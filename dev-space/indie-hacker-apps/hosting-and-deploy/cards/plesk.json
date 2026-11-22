@@ -3,6 +3,12 @@
   "name": "Plesk",
   "url": "https://www.plesk.com/",
   "jobs": ["panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: self-hosted control-panel software installed on the customer's or host's server; paid per-server license with a trial"
+    }
+  },
   "line": "Manage websites and databases with a panel installed on your server.",
   "free": { "kind": "trial", "text": "14-day license trial, no card; once per person/server; provide server" },
   "cells": { "type": "Hosting control panel", "regions": "Your server provider's region", "selfhost": "Yes; install on your own server" },

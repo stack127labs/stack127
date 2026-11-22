@@ -3,6 +3,14 @@
   "name": "Emailit",
   "url": "https://emailit.com/",
   "jobs": ["transactional", "newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and app email through the Email API or SMTP",
+      "newsletter": "F02: campaigns sent to subscribers in audiences",
+      "marketing": "F02: welcome and onboarding sequences with delays and email event triggers"
+    }
+  },
   "line": "Send app email through an API or SMTP, plus newsletters and automated campaigns.",
   "free": { "kind": "free", "text": "3,000 credits/month; 100 recipients/day before top-up" },
   "cells": { "newsletters": "Yes, production approval required", "api": "Yes, production approval required" },

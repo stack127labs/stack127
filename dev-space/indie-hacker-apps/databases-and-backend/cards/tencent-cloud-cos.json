@@ -3,6 +3,12 @@
   "name": "Tencent Cloud COS",
   "url": "https://www.tencentcloud.com/products/cos",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage for files and unstructured data is the primary type; F05: AWS S3-compatible API usage"
+    }
+  },
   "line": "S3-compatible object storage with lifecycle, versioning, and regional buckets.",
   "free": { "kind": "trial", "text": "50GB Standard/180d; requests and egress bill; no idle expiry or deletion" },
   "cells": {

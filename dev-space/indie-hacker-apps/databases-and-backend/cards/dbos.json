@@ -3,6 +3,12 @@
   "name": "DBOS",
   "url": "https://www.dbos.dev/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: durable execution library for background tasks with database-backed queues and cron schedules"
+    }
+  },
   "line": "Build durable workflows, task queues, and scheduled jobs for apps.",
   "free": { "kind": "selfhost", "text": "MIT library; no plan quota; unused resources may be deleted on 2 weeks' notice" },
   "cells": {

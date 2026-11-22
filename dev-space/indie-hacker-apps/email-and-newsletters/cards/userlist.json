@@ -2,7 +2,16 @@
   "slug": "userlist",
   "name": "Userlist",
   "url": "https://userlist.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["newsletter", "marketing", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: marketing newsletters and announcements through broadcasts",
+      "marketing": "F02: behavior-triggered lifecycle workflows and lead-nurture email",
+      "transactional": "F02: API-triggered transactional email through the Push API",
+      "multichannel": "F02: in-app messages are offered as a channel separate from email"
+    }
+  },
   "line": "SaaS lifecycle messaging, newsletters and API-triggered app email.",
   "free": { "kind": "trial", "text": "14 days, card required; send cap not published" },
   "cells": {

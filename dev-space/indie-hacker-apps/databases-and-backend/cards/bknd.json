@@ -2,7 +2,14 @@
   "slug": "bknd",
   "name": "bknd",
   "url": "https://github.com/bknd-io/bknd",
-  "jobs": ["backend", "sql", "files", "jobs"],
+  "jobs": ["backend", "files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend software with SQL data, auth, media and workflows; C07: opt-in Data, Auth and Media",
+      "files": "C07: Media with local filesystem, S3 and Cloudinary adapters; F04: direct uploads up to 5GB"
+    }
+  },
   "line": "Self-hostable backend software for data, auth, files, and workflows.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you provide hosting" },
   "cells": {

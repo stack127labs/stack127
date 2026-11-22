@@ -3,6 +3,17 @@
   "name": "AppSignal",
   "url": "https://www.appsignal.com/",
   "jobs": ["errors", "uptime", "status", "logs", "performance", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "E01: raised and reported exceptions captured by the SDK; grouped by type",
+      "uptime": "U01: HTTP checks every minute from several regions (U02, U03)",
+      "status": "S01: public status pages show selected uptime monitors (S03)",
+      "logs": "L02: full-text log search and live stream",
+      "performance": "A01: stored trace timeline, service map and slow query lists",
+      "cron": "J02: cron and heartbeat check-in monitors with missed-run states"
+    }
+  },
   "line": "Tracks application errors, performance, logs and uptime.",
   "free": {"kind": "free", "text": "30,000 requests/month and 1 GB logs; five-day retention"},
   "cells": {"interval": "60 s from four fixed regions", "maintained": "Hosted service"},

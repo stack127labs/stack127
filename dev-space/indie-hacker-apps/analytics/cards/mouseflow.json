@@ -2,13 +2,47 @@
   "slug": "mouseflow",
   "name": "Mouseflow",
   "url": "https://mouseflow.com/",
-  "jobs": ["replay", "web", "product"],
+  "jobs": [
+    "replay",
+    "web"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is website behavior analytics with replay and heatmaps; F17: DOM-based replay and click, scroll and geo maps",
+      "web": "F15: page, referrer, device, location and campaign filters on recorded sessions"
+    }
+  },
   "line": "Records website sessions, heatmaps, funnels and visitor behavior.",
-  "free": {"kind": "free", "text": "Free: 500 sessions/mo, 1 site, unlimited users, 1mo history (as-is)"},
-  "cells": {"cookieless": "Optional (uses browser storage)", "location": "Belgium (EU) and Iowa (US)", "selfhost": "No (none found)"},
-  "costs": {"pv": [
-    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 500 a month. Essential starts at €39 a month for 5,000 sessions."},
-    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 500 a month. Essential starts at €39 a month for 5,000 sessions."},
-    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 500 a month. Essential starts at €39 a month for 5,000 sessions."}
-  ]}
+  "free": {
+    "kind": "free",
+    "text": "Free: 500 sessions/mo, 1 site, unlimited users, 1mo history (as-is)"
+  },
+  "cells": {
+    "cookieless": "Optional (uses browser storage)",
+    "location": "Belgium (EU) and Iowa (US)",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Billed by sessions. The free plan covers 500 a month. Essential starts at €39 a month for 5,000 sessions."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Billed by sessions. The free plan covers 500 a month. Essential starts at €39 a month for 5,000 sessions."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Billed by sessions. The free plan covers 500 a month. Essential starts at €39 a month for 5,000 sessions."
+      }
+    ]
+  }
 }

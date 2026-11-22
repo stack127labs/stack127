@@ -2,7 +2,15 @@
   "slug": "cakemail",
   "name": "Cakemail",
   "url": "https://www.cakemail.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: automated email sequences alongside broadcast campaigns",
+      "newsletter": "F02: newsletters and broadcast campaigns",
+      "transactional": "F02: transactional email through the Email API or SMTP gateway (F06 covers single sends)"
+    }
+  },
   "line": "Marketing campaigns and transactional email through API or SMTP.",
   "free": {"kind": "free", "text": "Free: 500 contacts, 6,000 marketing sends; API 35k needs card/approval"},
   "cells": {"newsletters": "Yes", "api": "Yes; free API allowance needs card and approval"},

@@ -7,6 +7,14 @@
     "marketing",
     "newsletter"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: event-triggered and application email through the /emails API or SMTP",
+      "marketing": "F02: automations that respond to events and send email, plus contact workflows",
+      "newsletter": "F02: Broadcasts for newsletters, launches and promotions"
+    }
+  },
   "line": "Developer email API with SMTP, broadcasts and automations.",
   "free": {
     "kind": "free",

@@ -3,6 +3,13 @@
   "name": "Bunny Database",
   "url": "https://bunny.net/database/",
   "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: hosted relational SQL database is the primary type; D01: libSQL fork with SQLite core",
+      "vector": "V01: native vectors up to 65,536 dimensions with ANN indexes"
+    }
+  },
   "line": "Run managed SQL with global read replicas and vector search.",
   "free": { "kind": "free", "text": "1 GB/database in Preview; idle DBs move to object storage" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "omnisend",
   "name": "Omnisend",
   "url": "https://www.omnisend.com/",
-  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "jobs": ["marketing", "newsletter", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: ecommerce lifecycle journeys and marketing campaigns",
+      "newsletter": "F02: newsletters and marketing campaigns",
+      "multichannel": "F06: email and SMS subscribers share one contact record; F07: web push is on the free plan"
+    }
+  },
   "line": "Ecommerce email campaigns and customer journeys across channels.",
   "free": { "kind": "free", "text": "Free for 250 contacts and 500 emails/month; also 500 web pushes" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Neocities",
   "url": "https://neocities.org/",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static HTML, CSS and JavaScript hosting with a global CDN"
+    }
+  },
   "line": "Create and host static HTML, CSS, and JavaScript websites.",
   "free": { "kind": "free", "text": "1 GB storage, 200 GB/month, neocities.org subdomain" },
   "cells": { "type": "Static hosting", "regions": "Global CDN (>12 data centers); no app-region choice", "selfhost": "No" },

@@ -3,6 +3,13 @@
   "name": "Render Postgres",
   "url": "https://render.com/docs/postgresql-creating-connecting",
   "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed hosted SQL database is the primary type; D01: native PostgreSQL engine, majors 13-18",
+      "vector": "V01: pgvector is a supported extension on Render Postgres"
+    }
+  },
   "line": "Managed PostgreSQL with optional vector and geospatial extensions.",
   "free": { "kind": "trial", "text": "30d, 1GB/one DB; locks at day 30; deleted after 14 more days" },
   "cells": {

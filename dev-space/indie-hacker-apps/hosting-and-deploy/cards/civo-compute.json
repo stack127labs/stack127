@@ -3,6 +3,12 @@
   "name": "Civo Compute",
   "url": "https://www.civo.com/public-cloud/compute",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented Linux VM; the customer administers the guest OS, runtime, application and firewall"
+    }
+  },
   "line": "Rent Linux virtual machines on Civo public cloud.",
   "free": { "kind": "credits", "text": "31-day $250 credit; claim within 3 months; card required" },
   "cells": { "type": "VPS/VM", "regions": "Civo regions; price table does not specify city", "selfhost": "No" },

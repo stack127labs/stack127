@@ -1,6 +1,14 @@
 {
   "slug": "statsig", "name": "Statsig", "url": "https://www.statsig.com/",
-  "jobs": ["product", "replay", "web"],
+  "jobs": ["product", "web", "replay"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is product analytics connected to experiments; F16: trends, funnels, retention, journeys and lifecycle reports",
+      "web": "F15: pageviews, URL and referrer analysis, sessions and funnels in Metrics Explorer",
+      "replay": "F17: JavaScript and React web replay, with password fields masked by default"
+    }
+  },
   "line": "Product analytics, experiments and replay with event based pricing.",
   "free": {"kind": "free", "text": "Developer: 2,000,000 metered events/month"},
   "cells": {"cookieless": "Optional (cookies can be enabled)", "location": "US", "selfhost": "No (none found)"},

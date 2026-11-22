@@ -2,7 +2,17 @@
   "slug": "layerbase",
   "name": "Layerbase",
   "url": "https://layerbase.com/",
-  "jobs": ["sql", "kv", "vector", "jobs"],
+  "jobs": ["sql", "nosql", "kv", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C10: the free engine list includes DocumentDB, a MongoDB-compatible document database engine",
+      "sql": "C02: managed database platform with SQL first; D01: hosted PostgreSQL with its own SQL protocol",
+      "kv": "D01: hosted key/value engines among the nineteen, including Valkey",
+      "jobs": "J01: VQueue durable webhook queue included with Valkey; J03: at-least-once delivery",
+      "vector": "V02: hosted Qdrant and Weaviate engines with vector and hybrid search"
+    }
+  },
   "line": "Managed databases for SQL, key-value, vector search, and webhook queues.",
   "free": { "kind": "free", "text": "2 DBs, 5GB, 20 conns; sleep 15m idle/30m MySQL; archive 14d asleep, 7d unused" },
   "cells": {

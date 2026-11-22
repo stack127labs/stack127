@@ -2,7 +2,16 @@
   "slug": "gopay",
   "name": "GoPay",
   "url": "https://www.gopay.com/en/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway; not a merchant of record, the merchant sells directly",
+      "billing": "F14: automatic recurring card charges after buyer authorization; F15: fixed intervals",
+      "links": "F16: a payment link or button can be generated in the merchant account and sent to a buyer",
+      "crypto": "C01: buyers can pay in Bitcoin; C02: GoPay converts it and credits fiat to the merchant"
+    }
+  },
   "line": "Czech and Slovak gateway for online payments and recurring cards.",
   "free": { "kind": "free", "text": "Start: 12 months with free card volume up to CZK 50,000/month" },
   "cells": {

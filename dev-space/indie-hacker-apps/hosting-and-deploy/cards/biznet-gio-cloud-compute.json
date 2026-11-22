@@ -3,6 +3,12 @@
   "name": "Biznet GIO Cloud Compute",
   "url": "https://www.biznetgio.com/product/neo-virtual-compute/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual compute; the customer chooses the OS image and manages the guest OS and app"
+    }
+  },
   "line": "Prepaid virtual machines with customer managed operating systems.",
   "free": { "kind": "none", "text": "No ongoing free compute plan" },
   "cells": { "type": "VPS/VM", "regions": "Indonesia; price region unspecified", "selfhost": "No" },

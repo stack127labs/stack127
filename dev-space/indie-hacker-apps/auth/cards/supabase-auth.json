@@ -3,8 +3,16 @@
   "name": "Supabase Auth",
   "url": "https://supabase.com/auth",
   "jobs": [
-    "hosted"
+    "hosted",
+    "server"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted Auth in Supabase projects with accounts, login and sessions; F05: Supabase runs project infrastructure",
+      "server": "F02: MIT-licensed standalone self-hosted Auth server; F35: official Docker and Compose guide"
+    }
+  },
   "line": "Postgres-backed auth that comes with Supabase projects.",
   "free": {
     "kind": "free",

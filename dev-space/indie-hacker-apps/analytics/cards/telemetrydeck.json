@@ -1,6 +1,13 @@
 {
   "slug": "telemetrydeck", "name": "TelemetryDeck", "url": "https://telemetrydeck.com/",
   "jobs": ["product", "web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is event-based app and product analytics; F16: named events, ordered funnels and retention queries",
+      "web": "F15: page, referrer, campaign, country and device reports for web apps"
+    }
+  },
   "line": "Event analytics for mobile, desktop and web apps.",
   "free": {"kind": "free", "text": "New Free: 50K events, 3 apps, 3-month history; older accounts 100K"},
   "cells": {"cookieless": "Yes (daily rotating web ID)", "location": "EU (Helsinki)", "selfhost": "No"},

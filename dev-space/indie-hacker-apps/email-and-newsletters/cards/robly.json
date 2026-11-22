@@ -2,7 +2,14 @@
   "slug": "robly",
   "name": "Robly",
   "url": "https://www.robly.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: autoresponders and subscriber journeys",
+      "newsletter": "F02: newsletter broadcasts and scheduled campaigns"
+    }
+  },
   "line": "Email newsletters, marketing journeys and a separate transactional service.",
   "free": { "kind": "trial", "text": "14-day trial; nonprofits/community groups may get ongoing free (limits unknown)" },
   "cells": {

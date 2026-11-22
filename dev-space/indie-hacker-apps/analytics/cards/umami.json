@@ -4,8 +4,19 @@
   "url": "https://umami.is/",
   "jobs": [
     "web",
-    "product"
+    "product",
+    "replay",
+    "revenue"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website analytics; F15: pageviews, visitors, referrers, locations, devices and UTMs",
+      "product": "F16: custom events and properties, journeys, retention cohorts and segments",
+      "replay": "F17: web session recording through a separate recorder script, with 5,000 replays included on Business",
+      "revenue": "F19: Stripe, Paddle, Lemon Squeezy, Polar and WooCommerce payment imports with refunds, hourly"
+    }
+  },
   "line": "Open-source, privacy-friendly analytics with Cloud or self-host.",
   "free": {
     "kind": "free",

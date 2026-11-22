@@ -3,6 +3,12 @@
   "name": "RealUptime Errors",
   "url": "https://realuptime.io/errors",
     "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: captures exceptions, groups issues and tracks releases (E01, E03)"
+    }
+  },
   "line": "Captures exceptions, groups issues, and tracks releases across web and server apps.",
   "free": { "kind": "free", "text": "Free: 10,000 events/month; 14-day retention; 2 projects" },
   "cells": {

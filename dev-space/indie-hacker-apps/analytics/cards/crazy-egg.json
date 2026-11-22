@@ -2,7 +2,15 @@
   "slug": "crazy-egg",
   "name": "Crazy Egg",
   "url": "https://www.crazyegg.com/",
-  "jobs": ["web", "replay"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is website behavior analytics; F17: session recordings with input masking and sampling controls",
+      "web": "F15: traffic, new and returning visitors, pages, referrers, countries and devices",
+      "product": "F16: ordered funnels with drop-off rates, and custom events with user properties"
+    }
+  },
   "line": "Website analytics, heatmaps, recordings, and conversion tests.",
   "free": { "kind": "free", "text": "Free; no numeric traffic cap published" },
   "cells": { "cookieless": "No", "location": "US (AWS)", "selfhost": "No (none found)" },

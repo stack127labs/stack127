@@ -3,6 +3,14 @@
   "name": "Sevalla Database Hosting",
   "url": "https://sevalla.com/database-hosting/",
   "jobs": ["sql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL and in-memory databases are the primary type; D01: PostgreSQL, MySQL and MariaDB versions",
+      "kv": "C02: managed Redis and Valkey; D01: Redis 8.6 and Valkey 9.0 defaults",
+      "vector": "V01: official PostgreSQL vector example with HNSW and GIN indexes"
+    }
+  },
   "line": "Managed PostgreSQL, MySQL, MariaDB, Redis, and vector-enabled Postgres.",
   "free": { "kind": "credits", "text": "One-off $20 credit; expiry says 2 or 30 days; services bill after it ends" },
   "cells": {

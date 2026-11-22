@@ -2,7 +2,15 @@
   "slug": "mongodb-atlas",
   "name": "MongoDB Atlas",
   "url": "https://www.mongodb.com/products/platform/atlas-database",
-  "jobs": ["vector", "files", "jobs"],
+  "jobs": ["nosql", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is managed BSON document database; D01: native MongoDB document queries",
+      "jobs": "J04: scheduled triggers run cron-timed functions on Atlas; C07: database triggers run Functions",
+      "vector": "V01: Atlas Vector Search, up to 8,192 dimensions, is documented on Core clusters"
+    }
+  },
   "line": "Managed document database with full-text, vector, and hybrid search.",
   "free": { "kind": "free", "text": "0.5 GB storage; auto-pauses after 30 days without connections" },
   "cells": {

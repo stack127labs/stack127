@@ -2,7 +2,13 @@
   "slug": "wati",
   "name": "Wati",
   "url": "https://www.wati.io/",
-  "jobs": ["inbox", "ai"],
+  "jobs": ["ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Astra autonomously handles customer text and voice conversations and tool actions; part of the paid bundle"
+    }
+  },
   "line": "WhatsApp shared inbox with campaigns, commerce workflows, and AI agents.",
   "free": { "kind": "trial", "text": "7-day trial; no card advertised" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Histats",
   "url": "https://www.histats.com/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics; F15: real-time visitors, popular pages, referrers and geography"
+    }
+  },
   "line": "Website traffic reports with a hosted visitor and hit counter.",
   "free": { "kind": "free", "text": "Free hosted; up to 300 sites/account; 10 million hits/day" },
   "cells": { "cookieless": "No (first-party tracker cookie)", "location": "EU and US cloud servers", "selfhost": "No (none found)" },

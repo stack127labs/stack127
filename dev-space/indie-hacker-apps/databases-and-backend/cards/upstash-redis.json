@@ -2,9 +2,14 @@
   "slug": "upstash-redis",
   "name": "Upstash Redis",
   "url": "https://upstash.com/redis",
-  "jobs": [
-    "kv"
-  ],
+  "jobs": ["kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: managed key-value database and cache is the primary type; D01: Redis-compatible serverless service",
+      "vector": "V01: VECTOR.* commands with up to 32,768 dimensions; V02: HYBRID search with vector ranking"
+    }
+  },
   "line": "Serverless Redis with pay-per-command or fixed plans.",
   "free": {
     "kind": "free",

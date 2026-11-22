@@ -3,6 +3,12 @@
   "name": "Symfony Security",
   "url": "https://symfony.com/doc/current/security.html",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded PHP security module that runs inside your application; F05: developer operates users and sessions"
+    }
+  },
   "line": "PHP framework module for authentication, sessions, and access control.",
   "free": { "kind": "selfhost", "text": "Free MIT libraries; you host the app" },
   "cells": {

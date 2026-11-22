@@ -2,11 +2,14 @@
   "slug": "paytm-payment-gateway",
   "name": "Paytm Payment Gateway",
   "url": "https://business.paytm.com/",
-  "jobs": [
-    "gateway",
-    "links",
-    "billing"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment aggregation and gateway; the merchant remains the seller",
+      "links": "F16: links and invoices collect payment without a website; shared by SMS, email or WhatsApp"
+    }
+  },
   "line": "Indian online gateway with checkout, payment links and recurring payments.",
   "free": {
     "kind": "none",

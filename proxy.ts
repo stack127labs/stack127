@@ -11,7 +11,7 @@ import { isPrivateApiPath, isCanonicalPrivateApiPath } from "./lib/data-api/path
 import { notFoundResponse } from "./lib/data-api/private-response.mjs";
 
 function isPublicApiPath(pathname: string) {
-  return /^\/api\/(?:ad-networks(?:\/|$)|cache(?:\/|$)|cli-apps(?:\/|$)|dns(?:\/|$)|domain(?:\/|$)|self-host-apps(?:\/|$)|shortcuts(?:\/|$)|resource-planner-app(?:\/|$)|resource-planner-index(?:\/|$)|ip-asn-lookup(?:\/|$)|health(?:\/|$))/.test(pathname);
+  return /^\/api\/(?:ad-networks(?:\/|$)|cache(?:\/|$)|cli-apps(?:\/|$)|app-directories(?:\/|$)|dns(?:\/|$)|domain(?:\/|$)|self-host-apps(?:\/|$)|shortcuts(?:\/|$)|resource-planner-app(?:\/|$)|resource-planner-index(?:\/|$)|ip-asn-lookup(?:\/|$)|health(?:\/|$))/.test(pathname);
 }
 
 export async function proxy(request: NextRequest) {
@@ -83,6 +83,9 @@ export async function proxy(request: NextRequest) {
   if (pathname === "/platform-fees" || pathname.startsWith("/platform-fees/")) tags.push("platform-fees-catalog");
   if (pathname === "/ad-networks" || pathname.startsWith("/ad-networks/") || pathname.startsWith("/api/ad-networks/") || pathname === "/ad-network-checker") tags.push("ad-networks-catalog");
   if (pathname === "/keyboard-shortcuts" || pathname.startsWith("/keyboard-shortcuts/")) tags.push("keyboard-shortcuts-catalog");
+  // Same tag as appDirectoryEdgeTag() in lib/indie-hacker-apps/directories.ts. Record events purge it.
+  const appDirectoryApi = /^\/api\/app-directories\/([a-z0-9-]+)\//.exec(pathname)?.[1];
+  if (appDirectoryApi) tags.push(`app-directory:${appDirectoryApi}`);
   response.headers.set("Cache-Tag", tags.join(","));
   const filterQuery = new URLSearchParams(userQuery);
   filterQuery.delete("page");

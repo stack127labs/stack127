@@ -3,6 +3,12 @@
   "name": "netcup VPS",
   "url": "https://www.netcup.com/en/server/vps",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted VM with root access; netcup runs the server and the customer manages the OS and software"
+    }
+  },
   "line": "Run root-access virtual servers with optional Docker app deployment.",
   "free": { "kind": "none", "text": "No ongoing free VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Europe, US (Manassas), Singapore", "selfhost": "No" },

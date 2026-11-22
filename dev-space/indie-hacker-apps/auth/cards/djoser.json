@@ -3,6 +3,12 @@
   "name": "Djoser",
   "url": "https://djoser.readthedocs.io/en/latest/",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Python REST library for account endpoints; F05: developer runs Django and token storage"
+    }
+  },
   "line": "Django REST Framework endpoints for user accounts and login.",
   "free": { "kind": "selfhost", "text": "Free MIT library; you host it" },
   "cells": {

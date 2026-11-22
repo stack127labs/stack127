@@ -3,6 +3,12 @@
   "name": "AWS Step Functions",
   "url": "https://aws.amazon.com/step-functions/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: hosted workflow orchestration with retries, waits and parallel work is the primary role; J04: Wait states up to one year"
+    }
+  },
   "line": "Coordinates cloud workflows with states, retries, waits and branches.",
   "free": { "kind": "free", "text": "4,000 Standard state transitions each month" },
   "cells": {

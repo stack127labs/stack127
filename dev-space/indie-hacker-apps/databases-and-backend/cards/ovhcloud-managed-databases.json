@@ -2,7 +2,16 @@
   "slug": "ovhcloud-managed-databases",
   "name": "OVHcloud Managed Databases",
   "url": "https://www.ovhcloud.com/en/public-cloud/databases/",
-  "jobs": ["sql", "kv", "vector", "jobs"],
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C02: current product cards include managed MongoDB; C03: both MongoDB plans are included in the service",
+      "sql": "C02: managed database catalogue with PostgreSQL and MySQL; D01: PostgreSQL 15-18 and MySQL 8.4",
+      "kv": "D01: managed Valkey 8.1 and 9.1 clusters",
+      "vector": "V01: managed PostgreSQL offers pgvector"
+    }
+  },
   "line": "Managed PostgreSQL, MySQL, MongoDB, and Valkey database clusters.",
   "free": { "kind": "credits", "text": "UK: £175/1mo credit; idle clusters bill; projects may delete after 6mo unbilled" },
   "cells": {

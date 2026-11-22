@@ -1,6 +1,7 @@
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { directoryCardCounts } from "@/app/(site)/(directories)/card-counts";
+import { appStackCacheTags, appStackGroup, getAppStackPages } from "@/app/ui/directories/app-directory/app-stack";
 import { labProjects } from "@/app/(site)/(site-pages)/labs/projects";
 import type { PageCardCount } from "@/app/ui/cards/page-card";
 import {
@@ -44,7 +45,7 @@ export async function getHomeFeaturePages() {
  * Inner caches are bypassed while this entry rebuilds, so their tags are listed here.
  */
 const loadSiteMenus = unstable_cache(async (): Promise<SiteMenus> => {
-  const [catalogs, features] = await Promise.all([getPublishedToolCatalogs(), getHomeFeaturePages()]);
+  const [catalogs, features, appStack] = await Promise.all([getPublishedToolCatalogs(), getHomeFeaturePages(), getAppStackPages()]);
   const catalogTools = await Promise.all(catalogs.map((catalog) => getPublishedToolCatalog(catalog.page.slug)));
   return buildSiteMenus({
     catalogs: catalogs.map((catalog) => ({
@@ -61,6 +62,7 @@ const loadSiteMenus = unstable_cache(async (): Promise<SiteMenus> => {
       counts,
     })),
     toolSlugs: catalogTools.flatMap((catalog) => catalog?.tools.map((tool) => tool.slug) ?? []),
+    appStack: { label: appStackGroup.name, pages: appStack },
   });
 }, ["stack127-site-menus"], {
   revalidate: false,
@@ -74,6 +76,7 @@ const loadSiteMenus = unstable_cache(async (): Promise<SiteMenus> => {
     AD_NETWORKS_TAG,
     LAUNCH_DIRECTORIES_TAG,
     PLATFORM_FEES_TAG,
+    ...appStackCacheTags,
   ],
 });
 

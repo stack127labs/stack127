@@ -3,6 +3,13 @@
   "name": "AcelleMail",
   "url": "https://acellesend.com/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and campaigns sent from the app; the mail goes out through a sender you connect (F03)",
+      "marketing": "F02: welcome and drip sequences plus recurring or date-based automation"
+    }
+  },
   "line": "Self-hosted software for newsletters, campaigns, and email sequences.",
   "free": { "kind": "none", "text": "No free licence established" },
   "cells": { "newsletters": "Yes", "api": "Yes" },

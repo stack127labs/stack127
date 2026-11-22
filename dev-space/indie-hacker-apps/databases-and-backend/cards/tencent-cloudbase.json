@@ -2,7 +2,18 @@
   "slug": "tencent-cloudbase",
   "name": "Tencent CloudBase",
   "url": "https://www.tencentcloud.com/products/tcb",
-  "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "jobs": ["backend", "sql", "nosql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C07: China-site matrix offers the classic document mode in Shanghai; Singapore is PG only",
+      "backend": "C02: backend platform with PostgreSQL, auth, files and functions; C07: hosted PG bundle",
+      "sql": "D01: native PostgreSQL with full SQL, tables, views and extensions",
+      "files": "F04: PG buckets enforce file size limits and MIME types; F05: Storage API",
+      "jobs": "J04: seven-field cron timer triggers for functions",
+      "vector": "V01: vector extension supports IVFFlat and HNSW similarity search"
+    }
+  },
   "line": "Hosted backend with PostgreSQL, auth, file storage, functions, APIs, and realtime.",
   "free": { "kind": "free", "text": "China dev/test: 3,000 pts/mo; renew every 6mo; published mini-app deleted day 15" },
   "cells": {

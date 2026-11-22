@@ -2,7 +2,15 @@
   "slug": "liqpay",
   "name": "LiqPay",
   "url": "https://www.liqpay.ua/",
-  "jobs": ["gateway", "links"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: internet acquiring; the merchant remains the seller of its goods",
+      "billing": "F14: automatic card subscriptions with set first date and cadence; F15: three retries in 72 hours",
+      "links": "F16: invoices create a buyer payment link that can be shared by email"
+    }
+  },
   "line": "PrivatBank gateway for Ukrainian online sellers, invoices and subscriptions.",
   "free": { "kind": "none", "text": "No monthly subscription fee for the general tariff" },
   "cells": {

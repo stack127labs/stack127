@@ -5,6 +5,12 @@
   "jobs": [
     "errors"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error tracking is the main job; grouping and stack traces in E01, E04"
+    }
+  },
   "line": "Error tracker for Sentry SDKs, hosted or on your own server.",
   "free": {
     "kind": "free",

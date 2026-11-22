@@ -3,6 +3,12 @@
   "name": "Vultr Object Storage",
   "url": "https://docs.vultr.com/products/storage/object-storage",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object and file storage is the primary type; F05: S3 matrix for bucket and object operations"
+    }
+  },
   "line": "S3-compatible object storage with standard, performance and archive tiers.",
   "free": { "kind": "credits", "text": "No recurring quota; signup credits up to 30 days; no idle rule found" },
   "cells": {

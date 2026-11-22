@@ -2,7 +2,14 @@
   "slug": "opennode",
   "name": "OpenNode",
   "url": "https://opennode.com/",
-  "jobs": ["crypto"],
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts Bitcoin on-chain and over Lightning; no other coin in current docs",
+      "links": "F16: shareable payment template links and Pay with Bitcoin buttons; F15: permanent invoice link"
+    }
+  },
   "line": "Bitcoin and Lightning checkout with wallet, conversion and payout tools.",
   "free": { "kind": "none", "text": "No setup, minimum, monthly or annual fee" },
   "cells": {

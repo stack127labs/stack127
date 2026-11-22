@@ -10,6 +10,17 @@
     "performance",
     "cron"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01: HTTP, TCP, DNS, ping and browser checks from selectable regions (U03)",
+      "errors": "E01: SDK exceptions grouped with stack presets and occurrence counts",
+      "status": "S03: status updates from incidents or by hand, with subscribers (S01, S02)",
+      "logs": "L02: live tail, SQL search and retained log storage (L01, L03)",
+      "performance": "A01: distributed traces and service map for slow requests",
+      "cron": "J02: missing completion ping and explicit /fail signal (J01)"
+    }
+  },
   "line": "Uptime, logs, errors and status pages in one hosted tool.",
   "free": {
     "kind": "free",

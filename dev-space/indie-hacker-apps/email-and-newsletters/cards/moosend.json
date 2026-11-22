@@ -3,6 +3,14 @@
   "name": "Moosend",
   "url": "https://moosend.com/pricing/",
   "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation",
+      "newsletter": "F02: regular, RSS and repeatable newsletter campaigns",
+      "transactional": "F02: transactional email is a listed job; SMTP or API needs the Moosend+ or Enterprise plan"
+    }
+  },
   "line": "Email campaigns, lifecycle automation and transactional SMTP/API.",
   "free": { "kind": "trial", "text": "30-day trial for 1,000 contacts; unlimited sends" },
   "cells": {

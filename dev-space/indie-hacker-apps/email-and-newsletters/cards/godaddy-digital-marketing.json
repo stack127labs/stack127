@@ -3,6 +3,13 @@
   "name": "GoDaddy Digital Marketing",
   "url": "https://www.godaddy.com/online-marketing/digital-marketing",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: permission-based newsletters, coupons and promotional campaigns",
+      "marketing": "F02: email automations are advertised on the Digital Marketing product"
+    }
+  },
   "line": "Send permission-based newsletters and promotional email campaigns.",
   "free": { "kind": "trial", "text": "7-day trial; credit card required" },
   "cells": { "newsletters": "Yes", "api": "No, API and SMTP not established" },

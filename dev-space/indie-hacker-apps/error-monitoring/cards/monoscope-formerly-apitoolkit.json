@@ -2,7 +2,17 @@
   "slug": "monoscope-formerly-apitoolkit",
   "name": "Monoscope",
   "url": "https://monoscopehq.com/",
-  "jobs": ["errors", "logs", "uptime", "performance", "cron"],
+  "jobs": ["errors", "uptime", "logs", "performance", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: API and application error tracking with issue grouping (E01, E03)",
+      "uptime": "U01, U04: URL uptime monitors and API tests; issue opens after two failures",
+      "logs": "L02: logs searched with KQL and live tail; 30-day cloud retention",
+      "performance": "A01: APM latency and throughput with trace waterfalls",
+      "cron": "J01, J02: cron check-ins with interval and grace; missed check-in opens an issue"
+    }
+  },
   "line": "Tracks API errors, logs and traces, with uptime and cron monitors.",
   "free": { "kind": "free", "text": "10,000 events/day and 30-day retention" },
   "cells": {

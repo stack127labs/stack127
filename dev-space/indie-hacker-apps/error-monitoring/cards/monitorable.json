@@ -3,6 +3,12 @@
   "name": "Monitorable",
   "url": "https://monitorable.io/",
   "jobs": ["performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: server, container and service health metrics only; no app traces or APM (A01)"
+    }
+  },
   "line": "Monitors Linux server, container, service, and disk health metrics.",
   "free": { "kind": "free", "text": "Free Lite tier for up to 3 servers" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

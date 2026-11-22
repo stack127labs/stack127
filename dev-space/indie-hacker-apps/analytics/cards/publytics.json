@@ -3,6 +3,12 @@
   "name": "Publytics",
   "url": "https://publytics.net/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is publisher-focused audience, content and acquisition analytics; F15: users, sessions, pageviews, sources and countries"
+    }
+  },
   "line": "Publisher-focused analytics for audience, content, and acquisition.",
   "free": { "kind": "trial", "text": "14-day trial without a card" },
   "cells": {

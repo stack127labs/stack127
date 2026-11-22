@@ -3,6 +3,14 @@
   "name": "SmartrMail",
   "url": "https://www.smartrmail.com/",
   "jobs": ["marketing", "newsletter", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: cart and browse recovery, welcome and win-back automated email",
+      "newsletter": "F02: newsletters to store subscribers",
+      "multichannel": "F01: ecommerce email and SMS platform; cart and browse automations (F02)"
+    }
+  },
   "line": "Ecommerce newsletters, customer journeys and email/SMS automations.",
   "free": { "kind": "free", "text": "Free for 200 active subscribers and 3 emails each per month" },
   "cells": {

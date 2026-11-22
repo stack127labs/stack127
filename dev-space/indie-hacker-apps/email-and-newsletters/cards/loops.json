@@ -3,6 +3,14 @@
   "name": "Loops",
   "url": "https://loops.so/",
   "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: workflows that send messages on contact changes and events",
+      "newsletter": "F02: campaigns that send broadcasts to audience contacts",
+      "transactional": "F02: API-triggered one-to-one transactional messages; SMTP relay also listed"
+    }
+  },
   "line": "Email campaigns, event workflows and API-triggered transactional messages.",
   "free": { "kind": "free", "text": "Free for first 1,000 contacts and 4,000 emails per 30 days" },
   "cells": {

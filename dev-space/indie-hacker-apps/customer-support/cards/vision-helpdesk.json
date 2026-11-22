@@ -2,7 +2,15 @@
   "slug": "vision-helpdesk",
   "name": "Vision Helpdesk",
   "url": "https://www.visionhelpdesk.com/",
-  "jobs": ["helpdesk", "inbox", "chat"],
+  "jobs": ["helpdesk", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F17: the configurable widget offers knowledge-base search with the help desk tiers",
+      "helpdesk": "F17: Native email ticketing on all help-desk plans, with a web ticket form and knowledge base search (F21)",
+      "inbox": "F18: Assignment to multiple staff, private notes, canned responses and custom views on all help-desk plans"
+    }
+  },
   "line": "Email ticketing and customer support with a separate live chat product.",
   "free": { "kind": "trial", "text": "30-day trial, no card" },
   "cells": {

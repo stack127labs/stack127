@@ -2,7 +2,15 @@
   "slug": "paystack",
   "name": "Paystack",
   "url": "https://paystack.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and processor; the merchant remains responsible for delivery",
+      "billing": "F14: scheduled card subscriptions on set intervals; F15: plans, delayed start, cancellation",
+      "links": "F16: no-code Payment Pages, Product Links and invoices, plus hosted checkout"
+    }
+  },
   "line": "African payment gateway with checkout, payment pages and recurring charges.",
   "free": { "kind": "none", "text": "No setup or monthly fees in named active markets" },
   "cells": {

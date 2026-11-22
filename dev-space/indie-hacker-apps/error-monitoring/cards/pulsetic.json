@@ -2,7 +2,16 @@
   "slug": "pulsetic",
   "name": "Pulsetic",
   "url": "https://pulsetic.com/",
-  "jobs": ["errors", "uptime", "status", "cron"],
+  "jobs": ["uptime", "errors", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external uptime, network, API, SSL and domain checks (U01)",
+      "errors": "E01: uncaught JavaScript exceptions and failed fetches with occurrence counts",
+      "status": "S01, S03: status pages with incidents and monitor-driven components",
+      "cron": "J01, J02: heartbeats with expected interval, grace and offline state"
+    }
+  },
   "line": "Checks site uptime and tracks browser errors with real-user monitoring and status pages.",
   "free": { "kind": "free", "text": "Free: 10 checks, 5-minute interval; 1,000 RUM pageviews" },
   "cells": {

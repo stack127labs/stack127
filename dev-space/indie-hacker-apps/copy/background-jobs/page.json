@@ -1,0 +1,8 @@
+{
+  "title": "<mark>65+</mark> background job and queue services in 2026",
+  "meta_description": "Compare 65+ background job and queue tools by monthly cost for 10,000 jobs. See which ones also run scheduled tasks.",
+  "card_name": "Background jobs",
+  "card_description": "Compare queues and scheduled tasks by monthly cost.",
+  "count_used": 67,
+  "count_note": "Every card with the queues or background jobs job, counted 2026-11-22 at 23:30: 22 main job, 45 also does. Includes 2 closing apps: LeanCloud, Deno KV."
+}

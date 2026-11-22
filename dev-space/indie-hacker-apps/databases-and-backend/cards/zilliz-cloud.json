@@ -3,6 +3,12 @@
   "name": "Zilliz Cloud",
   "url": "https://zilliz.com/",
   "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: hosted vector database is the primary role; V01: vector dimension up to 32,768"
+    }
+  },
   "line": "Hosted vector database for similarity, filtered and hybrid search.",
   "free": { "kind": "free", "text": "5 GB storage; 2.5M vCUs/mo; 7 consecutive idle days to suspend; resumable" },
   "cells": {

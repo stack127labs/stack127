@@ -2,7 +2,15 @@
   "slug": "sendx",
   "name": "SendX",
   "url": "https://www.sendx.io/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: drip sequences, auto-trigger campaigns and branching workflows",
+      "newsletter": "F02: newsletter broadcasts and RSS campaigns",
+      "transactional": "F02: password resets, OTPs and receipts through the transactional add-on"
+    }
+  },
   "line": "Email campaigns, automated sequences and transactional messages.",
   "free": { "kind": "trial", "text": "14 days, up to 500 contacts and 500 total emails" },
   "cells": {

@@ -5,9 +5,16 @@
   "jobs": [
     "multichannel",
     "newsletter",
-    "marketing",
-    "transactional"
+    "marketing"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "multichannel": "F02: cross-channel orchestration across email, in-app, SMS, push, chat and webhooks",
+      "newsletter": "F02: newsletters and one-time marketing campaigns through broadcasts",
+      "marketing": "F02: lifecycle email through workflows"
+    }
+  },
   "line": "Coordinate email campaigns and triggered messages across in-app, SMS and push.",
   "free": {
     "kind": "free",

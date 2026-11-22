@@ -5,6 +5,12 @@
   "jobs": [
     "web"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic and conversion analytics; F15: visitors, pages, referrers, campaigns and countries"
+    }
+  },
   "line": "Cookie-free website analytics that anonymizes EU visitors before US storage.",
   "free": {
     "kind": "trial",

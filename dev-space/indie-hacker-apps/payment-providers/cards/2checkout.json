@@ -2,7 +2,16 @@
   "slug": "2checkout",
   "name": "2Checkout",
   "url": "https://www.2checkout.com/",
-  "jobs": ["gateway", "mor", "billing"],
+  "jobs": ["mor", "gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: 2Monetize is the merchant of record for digital goods; F29: it handles their tax",
+      "gateway": "F02: 2Sell and 2Subscribe are payment-service-provider packages; you are the seller",
+      "billing": "F14: automatic renewals on cards and PayPal; F15: plan and usage billing included",
+      "links": "F16: generated payment and buy links are documented"
+    }
+  },
   "line": "Accept payments for software, subscriptions, and physical goods.",
   "free": { "kind": "none", "text": "Free signup, no card; fees apply to successful sales" },
   "cells": {

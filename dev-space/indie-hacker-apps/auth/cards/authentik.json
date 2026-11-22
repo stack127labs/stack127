@@ -3,6 +3,12 @@
   "name": "authentik",
   "url": "https://goauthentik.io/",
   "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted identity provider and SSO server; F05: developer runs server and database"
+    }
+  },
   "line": "Self-hosted identity server for app login and SSO.",
   "free": { "kind": "selfhost", "text": "Free MIT core; you run the server" },
   "cells": {

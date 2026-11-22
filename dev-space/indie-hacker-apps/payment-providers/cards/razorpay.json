@@ -2,10 +2,15 @@
   "slug": "razorpay",
   "name": "Razorpay",
   "url": "https://razorpay.com/payment-gateway/",
-  "jobs": [
-    "gateway",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and gateway; the merchant sells the goods or services",
+      "billing": "F14: automatic card, UPI AutoPay and eNACH mandates; F15: plan changes, trials, retries",
+      "links": "F16: shareable Payment Links and hosted Payment Pages"
+    }
+  },
   "line": "India payment gateway with UPI, cards and subscriptions.",
   "free": {
     "kind": "none",

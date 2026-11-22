@@ -3,6 +3,12 @@
   "name": "RunCloud",
   "url": "https://runcloud.io/",
   "jobs": ["panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted SaaS control layer that installs its agent on the customer's own server; paid, not free self-hosted software"
+    }
+  },
   "line": "Manage web apps and servers from a hosted control panel.",
   "free": { "kind": "trial", "text": "7-day trial; payment method required; charge starts day 8" },
   "cells": { "type": "Server management panel", "regions": "App uses provider region; dashboard region unlisted", "selfhost": "No; hosted SaaS with proprietary server agent" },

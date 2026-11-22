@@ -2,7 +2,14 @@
   "slug": "stormkit",
   "name": "Stormkit",
   "url": "https://www.stormkit.io/",
-  "jobs": ["static", "paas"],
+  "jobs": ["static", "panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "04: Stormkit Cloud deploys static front ends and frameworks from source or build files",
+      "panel": "03: self-hosted Stormkit runs on the customer's own infrastructure; the Cloud runtimes for long-running apps are self-hosted only"
+    }
+  },
   "line": "Build and deploy sites on Stormkit Cloud or your own infrastructure.",
   "free": { "kind": "free", "text": "Free Cloud plan; advertised unlimited use, no numeric quotas" },
   "cells": { "type": "Deployment platform", "regions": "Cloud app regions unlisted; self-host uses your server", "selfhost": "Yes; AGPLv3 Community; Enterprise is paid" },

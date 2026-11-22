@@ -4,8 +4,19 @@
   "url": "https://zammad.com/en/",
   "jobs": [
     "helpdesk",
-    "inbox"
+    "chat",
+    "inbox",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help articles are part of the multichannel help desk",
+      "helpdesk": "F17: Native email channel with unlimited addresses on all hosted plans; forms create tickets directly",
+      "chat": "F17: Native agent live chat on hosted Professional and Plus and self-hosted; hidden when no agent has capacity",
+      "inbox": "F18: Ticket owner and group assignment, internal notes, mentions and saved replies on all hosted tiers"
+    }
+  },
   "line": "Open source helpdesk, hosted in Germany or self-hosted.",
   "free": {
     "kind": "selfhost",

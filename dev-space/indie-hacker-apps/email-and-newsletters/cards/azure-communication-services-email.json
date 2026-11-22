@@ -2,7 +2,13 @@
   "slug": "azure-communication-services-email",
   "name": "Azure Communication Services Email",
   "url": "https://azure.microsoft.com/en-us/products/communication-services",
-  "jobs": ["transactional", "newsletter"],
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: API-to-person transactional email through REST, SDKs or SMTP"
+    }
+  },
   "line": "Azure email delivery for app messages and bulk marketing sends.",
   "free": {"kind": "none", "text": "No ongoing free sending allowance"},
   "cells": {"newsletters": "Yes, bulk email; no native editor", "api": "Yes, REST, SDKs and SMTP"},

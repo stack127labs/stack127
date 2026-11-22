@@ -3,6 +3,12 @@
   "name": "Azure Container Apps",
   "url": "https://azure.microsoft.com/en-us/products/container-apps/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed serverless container hosting; Microsoft runs the platform and the customer supplies images"
+    }
+  },
   "line": "Run containerized applications on managed serverless infrastructure.",
   "free": { "kind": "free", "text": "Monthly grant: 180,000 vCPU-seconds, 360,000 GiB-seconds, 2M requests" },
   "cells": { "type": "Managed containers", "regions": "East US example; many Azure regions", "selfhost": "No" },

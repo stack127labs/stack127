@@ -2,7 +2,16 @@
   "slug": "doppler",
   "name": "Doppler",
   "url": "https://www.fromdoppler.com/es/",
-  "jobs": ["newsletter", "marketing", "transactional", "multichannel"],
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation in the marketing product; F01 says email and multichannel marketing",
+      "newsletter": "F02: newsletters, classic and social campaigns with A/B testing",
+      "transactional": "F02: Doppler Relay sends transactional email via API or SMTP; the scope covers this edition",
+      "multichannel": "F02: multichannel journeys in the marketing product"
+    }
+  },
   "line": "Send marketing campaigns and automated messages, plus app email through Relay.",
   "free": { "kind": "trial", "text": "90 days, 500 contacts; Relay: 30 days, 50 to 400 emails/day" },
   "cells": { "newsletters": "Yes", "api": "Yes, API and SMTP" },

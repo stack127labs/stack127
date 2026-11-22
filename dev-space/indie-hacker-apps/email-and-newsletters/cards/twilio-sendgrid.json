@@ -3,6 +3,14 @@
   "name": "Twilio SendGrid",
   "url": "https://www.twilio.com/en-us/sendgrid",
   "jobs": ["transactional", "newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: Email API sends transactional and application email through the API or SMTP",
+      "newsletter": "F02: Marketing Campaigns sends audience-based campaigns with contact management",
+      "marketing": "F21: drip series start when contacts join a list or segment; trial access conflicts (F21)"
+    }
+  },
   "line": "Transactional email APIs and audience-based marketing campaigns.",
   "free": { "kind": "trial", "text": "60 days; API 100/day; marketing 100 contacts and 100/day" },
   "cells": {

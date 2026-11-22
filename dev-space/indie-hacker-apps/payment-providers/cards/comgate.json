@@ -2,11 +2,15 @@
   "slug": "comgate",
   "name": "Comgate",
   "url": "https://www.comgate.eu/cs",
-  "jobs": [
-    "gateway",
-    "links",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: licensed payment institution and gateway; the merchant sells its own goods",
+      "billing": "F14: automatic repeat card charges after activation; F15: merchant owns the billing logic",
+      "links": "F16: payment links created in the merchant portal and sent by email or chat"
+    }
+  },
   "line": "European gateway with hosted checkout, links and recurring card payments.",
   "free": {
     "kind": "none",

@@ -2,11 +2,15 @@
   "slug": "paytabs",
   "name": "PayTabs",
   "url": "https://paytabs.com/",
-  "jobs": [
-    "gateway",
-    "links",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and platform; the merchant sells its own approved goods",
+      "billing": "F14: Repeat Billing automatically charges a saved card on weekly, monthly or yearly schedules",
+      "links": "F16: PayLinks and invoices collect payment without a custom checkout build"
+    }
+  },
   "line": "Regional payment gateway with hosted checkout, links and recurring cards.",
   "free": {
     "kind": "none",

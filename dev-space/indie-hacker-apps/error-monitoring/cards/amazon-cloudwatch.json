@@ -2,7 +2,16 @@
   "slug": "amazon-cloudwatch",
   "name": "Amazon CloudWatch",
   "url": "https://aws.amazon.com/cloudwatch/",
-  "jobs": ["uptime", "logs", "performance"],
+  "jobs": ["performance", "errors", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: metrics, Application Signals APM and traces are the main product; see A01",
+      "errors": "C02: shows app errors and faults via Application Signals; not an issue tracker (E01)",
+      "uptime": "U01: scheduled HTTP/API canaries from AWS or VPC locations (U02, U03)",
+      "logs": "C02: CloudWatch Logs collects logs; search and Live Tail in L02"
+    }
+  },
   "line": "Monitors AWS resources and applications with metrics, logs and canaries.",
   "free": {"kind": "free", "text": "Always Free includes 5 GB logs and 100 canary runs/month"},
   "cells": {"interval": "1 min canary", "maintained": "Hosted service"},

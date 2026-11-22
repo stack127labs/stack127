@@ -3,6 +3,12 @@
   "name": "SimpleWebAuthn",
   "url": "https://simplewebauthn.dev/",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: TypeScript server and browser libraries for WebAuthn; F05: developer runs the backend and credential database"
+    }
+  },
   "line": "TypeScript libraries for adding passkeys to an account system.",
   "free": { "kind": "selfhost", "text": "Free MIT packages; you run them" },
   "cells": {

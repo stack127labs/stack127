@@ -2,7 +2,17 @@
   "slug": "useresponse",
   "name": "UseResponse",
   "url": "https://www.useresponse.com/",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: knowledge base is part of the help desk and support workflow",
+      "helpdesk": "F17: Native email-to-ticket with threaded replies, plus hosted or embedded ticket forms",
+      "chat": "F17: Native embedded chat widget with behavior profiles and email alerts for missed replies",
+      "ai": "F22: AI bot generates customer answers from selected articles and FAQs in widgets and the support portal",
+      "inbox": "F18: Round-robin and team routing, private notes, canned replies and reply locks shared by agents"
+    }
+  },
   "line": "Shared customer support suite with email tickets, live chat, and help center.",
   "free": { "kind": "trial", "text": "14-day trial, no card" },
   "cells": {

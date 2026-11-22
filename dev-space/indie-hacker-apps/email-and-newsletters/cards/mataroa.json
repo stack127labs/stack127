@@ -3,6 +3,12 @@
   "name": "Mataroa",
   "url": "https://mataroa.blog/",
   "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: blog-post email newsletters and RSS publishing"
+    }
+  },
   "line": "A hosted blog that sends new posts to newsletter subscribers.",
   "free": { "kind": "free", "text": "Free; 15,000 email addresses is a soft limit" },
   "cells": {

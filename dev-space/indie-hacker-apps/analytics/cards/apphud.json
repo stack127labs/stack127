@@ -3,6 +3,12 @@
   "name": "Apphud",
   "url": "https://apphud.com/",
   "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is subscription and app-purchase revenue analytics; F19: Sales, Proceeds, MRR and churn reports"
+    }
+  },
   "line": "Subscription analytics and purchase tools for mobile apps.",
   "free": {"kind": "free", "text": "Free up to $10,000 MTR; 1 seat"},
   "cells": {

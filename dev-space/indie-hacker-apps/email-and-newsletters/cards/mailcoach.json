@@ -3,6 +3,14 @@
   "name": "Mailcoach",
   "url": "https://www.mailcoach.app/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter and marketing campaigns",
+      "marketing": "F02: lifecycle automations",
+      "transactional": "F02: app-generated transactional email is a listed email job"
+    }
+  },
   "line": "Email campaigns, automations and transactional messages.",
   "free": { "kind": "trial", "text": "14-day trial with 100 emails total" },
   "cells": {

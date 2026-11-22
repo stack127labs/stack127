@@ -3,6 +3,12 @@
   "name": "Ruk-Com Cloud PaaS",
   "url": "https://ruk-com.cloud/cloud-paas/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted container PaaS; the provider maintains the infrastructure, OS and managed runtime"
+    }
+  },
   "line": "Deploy managed container apps and databases on Virtuozzo PaaS.",
   "free": { "kind": "trial", "text": "Trial account; length/credit not stated; upgrade to continue" },
   "cells": { "type": "Managed container PaaS", "regions": "Thailand, Singapore, Japan, France; privacy lists TH/SG", "selfhost": "No" },

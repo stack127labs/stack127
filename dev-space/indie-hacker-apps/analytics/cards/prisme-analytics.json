@@ -2,7 +2,13 @@
   "slug": "prisme-analytics",
   "name": "Prisme Analytics",
   "url": "https://www.prismeanalytics.com/",
-  "jobs": ["web", "product"],
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is privacy-focused web traffic analytics; F15: visitors, sessions, pages, sources and countries"
+    }
+  },
   "line": "Tracks website traffic and custom events with configurable reports.",
   "free": { "kind": "trial", "text": "30-day trial; no permanent free cloud plan" },
   "cells": {

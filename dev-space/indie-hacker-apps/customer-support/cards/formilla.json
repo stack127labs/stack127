@@ -3,6 +3,13 @@
   "name": "Formilla",
   "url": "https://www.formilla.com/",
   "jobs": ["chat", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native website widget with live human messaging, offline forms and unlimited human chats on all plans",
+      "ai": "F22: ChatGPT Helper Bots answer website visitors from trained topics and web content; a paid add-on"
+    }
+  },
   "line": "Website live chat with human agents, chatbots, and customer messaging.",
   "free": { "kind": "free", "text": "Free for 1 agent with unlimited live chats" },
   "cells": {

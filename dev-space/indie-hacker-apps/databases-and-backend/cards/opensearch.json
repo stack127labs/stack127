@@ -2,7 +2,14 @@
   "slug": "opensearch",
   "name": "OpenSearch",
   "url": "https://opensearch.org/",
-  "jobs": ["vector"],
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: self-hosted document search and analytics engine that indexes JSON documents",
+      "vector": "C07: vector search is built into the self-hosted distribution through k-NN and Neural Search plugins"
+    }
+  },
   "line": "Open-source search and analytics engine for documents and vector retrieval.",
   "free": { "kind": "selfhost", "text": "Apache-2.0; no hosted quota or idle rule; you manage disks and retention" },
   "cells": {

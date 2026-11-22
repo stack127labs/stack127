@@ -2,7 +2,14 @@
   "slug": "emailoctopus",
   "name": "EmailOctopus",
   "url": "https://emailoctopus.com/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: welcome sequences plus date-based and branching automations; F01 says email marketing platform",
+      "newsletter": "F02: newsletters and campaigns"
+    }
+  },
   "line": "Send newsletters and automated campaigns, with an optional AWS SES connection.",
   "free": { "kind": "free", "text": "Up to 2,500 subscribers and 10,000 emails/month" },
   "cells": { "newsletters": "Yes", "api": "Yes, API v2" },

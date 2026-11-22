@@ -3,6 +3,14 @@
   "name": "Buckaroo",
   "url": "https://www.buckaroo.eu/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider; the merchant sells to the buyer",
+      "billing": "F15: subscription service with recurring invoices, bill runs and rate plans",
+      "links": "F16: payment links and PayPerEmail request payment by email or invoice link"
+    }
+  },
   "line": "Online payment gateway with cards, bank payments and direct debit.",
   "free": { "kind": "none", "text": "No public monthly price for the basic offer" },
   "cells": {

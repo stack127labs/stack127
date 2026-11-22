@@ -3,6 +3,12 @@
   "name": "RustFS",
   "url": "https://rustfs.com/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: self-hosted object and file storage through an S3-compatible API; F05: tested S3 subset"
+    }
+  },
   "line": "Self-hosted S3-compatible object storage with versioning and bucket policies.",
   "free": { "kind": "selfhost", "text": "Apache-2.0; no vendor quota or idle rule; you supply disks and retention" },
   "cells": {

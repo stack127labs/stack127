@@ -2,7 +2,13 @@
   "slug": "dada-mail",
   "name": "Dada Mail",
   "url": "https://dadamailproject.com/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: announcement newsletters and single or recurring scheduled campaigns"
+    }
+  },
   "line": "Self-hosted software for newsletters, marketing broadcasts, and mailing lists.",
   "free": { "kind": "selfhost", "text": "Free software; up to 100 subscribers per list" },
   "cells": { "newsletters": "Yes", "api": "Yes, API and external SMTP transport" },

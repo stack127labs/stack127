@@ -2,7 +2,15 @@
   "slug": "zeabur",
   "name": "Zeabur",
   "url": "https://zeabur.com/",
-  "jobs": ["paas", "static"],
+  "jobs": ["paas", "panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: dedicated Zeabur-supplied servers run managed deployments; the customer deploys the apps",
+      "panel": "03: a customer's own machine can be bound to the Zeabur dashboard; the server stays customer-owned and billed",
+      "static": "04: static frontends are a listed workload"
+    }
+  },
   "line": "Deploys container apps on hosted servers; the platform is winding down.",
   "free": { "kind": "free", "text": "Free, no card; bind 1 own server, 2C/4G CI; ends Dec 31, 2026" },
   "cells": {

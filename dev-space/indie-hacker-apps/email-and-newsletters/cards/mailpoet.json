@@ -3,6 +3,14 @@
   "name": "MailPoet",
   "url": "https://www.mailpoet.com/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: broadcast newsletters and scheduled post notifications",
+      "marketing": "F02: event-triggered automation with delays and branches",
+      "transactional": "F02: WordPress password resets and order notices sent through MailPoet's sending service"
+    }
+  },
   "line": "WordPress newsletters, marketing automation and site email delivery.",
   "free": { "kind": "free", "text": "Free for 500 subscribers and 5,000 emails per month" },
   "cells": {

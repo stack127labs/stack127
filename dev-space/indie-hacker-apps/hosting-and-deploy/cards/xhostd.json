@@ -3,6 +3,13 @@
   "name": "xhostd",
   "url": "https://xhostd.com/",
   "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed, always-on container hosting; each app environment runs on xhostd's infrastructure",
+      "static": "04: static files are a listed app type with their own environment"
+    }
+  },
   "line": "Runs static sites, apps and APIs with managed Postgres.",
   "free": { "kind": "free", "text": "Free Basic, no card: 3 channels, 128 MiB RAM, 500 MiB DB, 2 GB objects" },
   "cells": {

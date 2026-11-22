@@ -2,7 +2,16 @@
   "slug": "kommunicate",
   "name": "Kommunicate",
   "url": "https://www.kommunicate.io/",
-  "jobs": ["helpdesk", "chat", "ai", "inbox"],
+  "jobs": ["ai", "helpdesk", "chat", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Autonomous support answers in chat and email from configured knowledge; Kompose builds the agents",
+      "helpdesk": "F17: Native support-email ticket workflow with AI automation; F21: native help center",
+      "chat": "F17: Native web and mobile live chat widget; Starter lists web and mobile channels",
+      "inbox": "F18: Inbox of assigned, all and resolved conversations with notes, tags, macros and round-robin assignment"
+    }
+  },
   "line": "Human support inbox and AI agents for chat, email, and messaging.",
   "free": { "kind": "trial", "text": "30-day trial, no card" },
   "cells": {

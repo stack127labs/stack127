@@ -3,6 +3,13 @@
   "name": "Bird Email API",
   "url": "https://bird.com/email-api",
   "jobs": ["transactional", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and app email through the REST API or SMTP relay",
+      "newsletter": "F02: newsletters, announcements and scheduled campaigns through broadcasts"
+    }
+  },
   "line": "Hosted email API and SMTP delivery with newsletter broadcasts.",
   "free": {"kind": "free", "text": "1,000 emails/month, capped at 50/day"},
   "cells": {"newsletters": "Yes, broadcasts", "api": "Yes, plus SMTP"},

@@ -3,6 +3,13 @@
   "name": "Phare",
   "url": "https://phare.io/",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external HTTP, TCP and ICMP uptime checks from many regions (U03)",
+      "status": "S01, S03: unlimited public status pages with incidents and maintenance (S03)"
+    }
+  },
   "line": "Checks public sites and APIs from several regions, with status pages and alerts.",
   "free": { "kind": "free", "text": "Hobby: 100,000 checks/month; 30 s minimum" },
   "cells": {

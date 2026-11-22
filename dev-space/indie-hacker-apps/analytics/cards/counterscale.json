@@ -3,6 +3,12 @@
   "name": "Counterscale",
   "url": "https://counterscale.dev/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics; F15: views, visitors, paths, referrers, countries and UTM campaigns"
+    }
+  },
   "line": "Self-hosted website analytics built on Cloudflare services.",
   "free": { "kind": "selfhost", "text": "Free software; runs in your Cloudflare account" },
   "cells": { "cookieless": "Yes", "location": "Your Cloudflare account", "selfhost": "Yes (Cloudflare deployment)" },

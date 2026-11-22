@@ -2,7 +2,14 @@
   "slug": "kajabi-email-marketing",
   "name": "Kajabi Email Marketing",
   "url": "https://www.kajabi.com/features/email-marketing",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing broadcasts and automated sequences",
+      "newsletter": "F02: native newsletter publishing and broadcasts"
+    }
+  },
   "line": "Email campaigns and automated sequences in Kajabi's creator suite.",
   "free": { "kind": "trial", "text": "14-day trial; exact send quota is not published" },
   "cells": {

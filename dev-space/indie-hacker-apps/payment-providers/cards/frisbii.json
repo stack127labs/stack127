@@ -2,7 +2,15 @@
   "slug": "frisbii",
   "name": "Frisbii",
   "url": "https://frisbii.com/",
-  "jobs": ["billing", "gateway"],
+  "jobs": ["billing", "gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F02: billing SaaS for recurring billing and invoicing; F15: plans, trials and dunning",
+      "gateway": "F02: gateway/checkout layer; an acquirer processes and settles the card payment",
+      "links": "F16: hosted, branded checkout pages are configurable in the product; no separate link tool is documented"
+    }
+  },
   "line": "Subscription billing software with gateway and checkout options.",
   "free": { "kind": "none", "text": "Free test account; live Starter plan is €49/month" },
   "cells": {

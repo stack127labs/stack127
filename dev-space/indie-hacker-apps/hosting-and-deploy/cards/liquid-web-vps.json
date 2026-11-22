@@ -3,6 +3,12 @@
   "name": "Liquid Web VPS",
   "url": "https://www.liquidweb.com/vps-hosting/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented VM with root access; the customer configures the guest server, or buys managed support on top"
+    }
+  },
   "line": "Rent a managed or self-managed virtual server with root access.",
   "free": { "kind": "none", "text": "No recurring free VPS tier or allowance" },
   "cells": { "type": "Root-access VM; managed support optional", "regions": "Lansing, Phoenix, Amsterdam, London; availability varies", "selfhost": "No" },

@@ -2,7 +2,14 @@
   "slug": "eway",
   "name": "Eway",
   "url": "https://www.eway.com.au/",
-  "jobs": ["gateway", "billing", "links"],
+  "jobs": ["gateway", "billing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and merchant facility; the merchant remains the seller",
+      "billing": "F14: automatic recurring card payments, weekly, monthly and annual"
+    }
+  },
   "line": "Online gateway and acquiring for Australia and New Zealand merchants.",
   "free": { "kind": "none", "text": "AU Online Payments has no setup or monthly fee" },
   "cells": {

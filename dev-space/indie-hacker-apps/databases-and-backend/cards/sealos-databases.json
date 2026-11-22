@@ -2,7 +2,18 @@
   "slug": "sealos-databases",
   "name": "Sealos",
   "url": "https://sealos.io/products/databases/",
-  "jobs": ["sql", "kv", "files", "jobs", "vector"],
+  "jobs": ["sql", "nosql", "kv", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C02: managed database hosting with SQL, documents, caching and vectors; C08: MongoDB client listed",
+      "sql": "C02: managed database hosting with SQL first; D01: native PostgreSQL and MySQL deployment options",
+      "kv": "D01: Redis data structures offered as a managed deployment option",
+      "files": "F05: managed MinIO-based S3-compatible object storage; F04: MinIO-compatible SDK access",
+      "jobs": "J01: CronJob is an adjacent managed scheduled-task module; J04: cron expressions supported",
+      "vector": "V01: Milvus example with configurable dimension and IVF_FLAT index"
+    }
+  },
   "line": "Managed SQL, document, cache, vector, and Kafka services on one cloud platform.",
   "free": { "kind": "trial", "text": "7d: 4 vCPU/4GB RAM, 5GB storage, 500MB bandwidth; post-trial data policy unknown" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "fiuu",
   "name": "Fiuu",
   "url": "https://fiuu.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and acquiring; the merchant sells the goods and services",
+      "billing": "F15: enabled recurring portal runs plans, subscribers, charging periods and retries; needs enabling",
+      "links": "F16: payment links from the dashboard or Virtual Terminal, shared by email or SMS"
+    }
+  },
   "line": "Asian payment gateway with checkout, links and recurring collections.",
   "free": { "kind": "free", "text": "Malaysia signup and first-year maintenance fees waived" },
   "cells": {

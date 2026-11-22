@@ -2,13 +2,45 @@
   "slug": "cloudways-velocity",
   "name": "Cloudways Velocity",
   "url": "https://www.cloudways.com/en/velocity.php",
-  "jobs": ["paas"],
+  "jobs": [
+    "paas"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted managed Node.js runtime; Cloudways runs the infrastructure and the customer deploys apps"
+    }
+  },
   "line": "Deploy and manage Node.js apps on Cloudways infrastructure.",
-  "free": { "kind": "trial", "text": "3-day trial; card requirement and expiry behavior are unpublished" },
-  "cells": { "type": "Managed Node.js hosting", "regions": "DigitalOcean regions; New York example", "selfhost": "No" },
-  "costs": { "work": [
-    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$20 a month for the advertised Starter base, plus a disk charge for a 25 GB disk, plus backup storage, plus other costs. The full workload total is unknown." },
-    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$20 for the Starter base for 730 hours, plus an unknown disk charge for a 25 GB disk, plus backup storage and other costs. The exact hosting charge is not confirmed." },
-    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$30 a month for the Professional base, plus disk, backup, internal 10 GB traffic and other fees. Whether the database capacity qualifies is not verified." }
-  ] }
+  "free": {
+    "kind": "trial",
+    "text": "3-day trial; card requirement and expiry behavior are unpublished"
+  },
+  "cells": {
+    "type": "Managed Node.js hosting",
+    "regions": "DigitalOcean regions; New York example",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "$20 a month for the advertised Starter base, plus a disk charge for a 25 GB disk, plus backup storage, plus other costs. The full workload total is unknown."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "$20 for the Starter base for 730 hours, plus an unknown disk charge for a 25 GB disk, plus backup storage and other costs. The exact hosting charge is not confirmed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "$30 a month for the Professional base, plus disk, backup, internal 10 GB traffic and other fees. Whether the database capacity qualifies is not verified."
+      }
+    ]
+  }
 }

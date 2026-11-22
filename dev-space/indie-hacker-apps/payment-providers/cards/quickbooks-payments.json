@@ -3,6 +3,14 @@
   "name": "QuickBooks Payments",
   "url": "https://quickbooks.intuit.com/payments/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: Intuit collects the seller's card payments as the seller's payment agent",
+      "billing": "F14: US Recurring Payments with customer-authorized scheduled charges; F15: schedule and cancel",
+      "links": "F16: US hosted payment links shared by email, text, QR code or social, no code needed"
+    }
+  },
   "line": "Accept payments and send invoices from QuickBooks with card and bank methods.",
   "free": { "kind": "free", "text": "US Free: 2 invoices/month; unlimited after Payments approval" },
   "cells": {

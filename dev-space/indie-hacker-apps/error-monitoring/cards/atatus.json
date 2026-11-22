@@ -3,6 +3,15 @@
   "name": "Atatus",
   "url": "https://www.atatus.com/",
   "jobs": ["errors", "uptime", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "E01: backend APM tracks exceptions with stack traces; browser errors too",
+      "uptime": "U01: synthetic HTTP, SSL and multi-step checks from nine locations (U03)",
+      "logs": "L02: logs collected by the Infrastructure Agent and searchable",
+      "performance": "A01: APM transactions, latency and database query breakdowns"
+    }
+  },
   "line": "Monitors application errors, performance, logs, and uptime.",
   "free": { "kind": "trial", "text": "14-day APM trial, no card" },
   "cells": { "interval": "1 min default; fastest unknown", "maintained": "Hosted service" },

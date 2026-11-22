@@ -3,6 +3,14 @@
   "name": "Pesapal",
   "url": "https://www.pesapal.com/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and collection service; the merchant is the seller",
+      "billing": "F14: customer-opted-in scheduled card payments on daily to yearly frequencies",
+      "links": "F16: hosted payment page or link, sent without a website; branded email invoices"
+    }
+  },
   "line": "Online gateway for cards, mobile money, invoices, and recurring payments.",
   "free": { "kind": "none", "text": "Per-transaction fees; no monthly price published" },
   "cells": {

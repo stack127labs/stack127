@@ -3,6 +3,12 @@
   "name": "Firebase Crashlytics",
   "url": "https://firebase.google.com/products/crashlytics",
   "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: native crashes, non-fatal errors and ANRs with release stability (E01, E03)"
+    }
+  },
   "line": "Reports mobile app crashes and non-fatal errors with release stability data.",
   "free": { "kind": "free", "text": "No-cost native Crashlytics for production apps; no card" },
   "cells": {

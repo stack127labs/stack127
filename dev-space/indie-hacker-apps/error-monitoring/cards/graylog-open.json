@@ -3,6 +3,12 @@
   "name": "Graylog Open",
   "url": "https://graylog.org/products/source-available/",
   "jobs": ["logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: central log collection, parsing and search with dashboards (L02)"
+    }
+  },
   "line": "Collects, parses and searches logs with dashboards and basic event alerts.",
   "free": { "kind": "selfhost", "text": "Free SSPL edition; self-host with no volume cap" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "emailchef",
   "name": "Emailchef",
   "url": "https://emailchef.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: visual automated contact journeys triggered by external events",
+      "newsletter": "F02: newsletters and bulk marketing campaigns",
+      "transactional": "F02: single-recipient email API for application-generated email"
+    }
+  },
   "line": "Send newsletters and automated campaigns, with a single-recipient email API.",
   "free": { "kind": "trial", "text": "One-month trial with up to 500 contacts and 1,000 emails" },
   "cells": { "newsletters": "Yes", "api": "Yes, single-recipient email API" },

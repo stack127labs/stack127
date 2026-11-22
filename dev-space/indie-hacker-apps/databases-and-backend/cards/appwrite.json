@@ -2,7 +2,18 @@
   "slug": "appwrite",
   "name": "Appwrite",
   "url": "https://appwrite.io/",
-  "jobs": ["backend", "sql", "files", "jobs"],
+  "jobs": ["backend", "sql", "nosql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: schemaless JSON-style documents organized in databases and collections, with filtering and sorting",
+      "backend": "C02: backend platform; C07: auth, databases, storage and functions documented together",
+      "sql": "D01: typed relational tables on PostgreSQL 18 by default",
+      "files": "F01: platform file storage with a plan allowance and excess price; F05: S3 gateway",
+      "jobs": "J04: cron schedules and one-off delayed async function executions",
+      "vector": "V01: VectorsDB collections of 1-16,000 dimensions with an HNSW index"
+    }
+  },
   "line": "Backend platform with databases, login, file storage and functions.",
   "free": { "kind": "free", "text": "2 GB storage; pauses after 7 idle days, deletes after 90" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Cyfuture Cloud Compute",
   "url": "https://cyfuture.cloud/compute",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted VPS; Cyfuture provisions the VM and the customer controls the guest OS and app"
+    }
+  },
   "line": "Provision virtual machines on Cyfuture's public cloud.",
   "free": { "kind": "trial", "text": "FAQ: 1-month trial, $1 auth; pricing says contact sales" },
   "cells": { "type": "VPS/VM", "regions": "Delhi NCR/Jaipur; region selection unclear", "selfhost": "No" },

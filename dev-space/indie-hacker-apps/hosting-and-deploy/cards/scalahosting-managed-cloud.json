@@ -3,6 +3,12 @@
   "name": "ScalaHosting managed cloud",
   "url": "https://www.scalahosting.com/managed-cloud-hosting.html",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted virtual private server with dedicated plan resources; ScalaHosting operates the server"
+    }
+  },
   "line": "Run apps on a managed virtual server with SPanel and support.",
   "free": { "kind": "none", "text": "No recurring free managed-cloud plan" },
   "cells": { "type": "Managed cloud VPS", "regions": "US, Canada, EU, Asia, Australia; selector unclear", "selfhost": "Yes; run apps on the managed VPS" },

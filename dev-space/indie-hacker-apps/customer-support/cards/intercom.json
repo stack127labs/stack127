@@ -3,11 +3,22 @@
   "name": "Intercom",
   "url": "https://www.intercom.com/",
   "jobs": [
+    "inbox",
     "helpdesk",
     "chat",
     "ai",
-    "inbox"
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: public Help Center on all plans with a custom domain",
+      "inbox": "F18: Shared Inbox with assignment, notes, mentions, snoozing and macros; teammates see who is viewing",
+      "helpdesk": "F17: Support email forwards into the Inbox; F21: public Help Center on all plans with a custom domain",
+      "chat": "F17: Native Messenger website chat with unlimited support live chat on all standard plans",
+      "ai": "F22: Fin answers customers from approved knowledge, runs Procedures and escalates when configured"
+    }
+  },
   "line": "Helpdesk, Messenger chat and the Fin AI agent.",
   "free": {
     "kind": "trial",

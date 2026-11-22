@@ -3,6 +3,12 @@
   "name": "Twilio Verify",
   "url": "https://www.twilio.com/en-us/user-authentication-identity/verify",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted verification API for phone, email and device checks; the app still owns accounts and sessions"
+    }
+  },
   "line": "Hosted phone, email, and device verification for app sign-in.",
   "free": { "kind": "credits", "text": "40 trial units and 40 after upgrade" },
   "cells": {

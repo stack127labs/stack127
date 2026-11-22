@@ -3,6 +3,13 @@
   "name": "EngageBay",
   "url": "https://www.engagebay.com/",
   "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: timed sequences and marketing or lifecycle automation",
+      "newsletter": "F02: newsletters and broadcasts, including RSS-to-email"
+    }
+  },
   "line": "Send newsletters and automated campaigns from a marketing and customer platform.",
   "free": { "kind": "free", "text": "Up to 250 contacts and 1,000 branded emails/month" },
   "cells": { "newsletters": "Yes", "api": "Yes, REST API" },

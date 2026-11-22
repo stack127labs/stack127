@@ -5,6 +5,12 @@
   "jobs": [
     "library"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: TypeScript library the developer deploys in their own app; F05: developer runs it"
+    }
+  },
   "line": "TypeScript auth library you run in your own app.",
   "free": {
     "kind": "selfhost",

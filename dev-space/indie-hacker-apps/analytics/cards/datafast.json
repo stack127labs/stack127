@@ -2,7 +2,15 @@
   "slug": "datafast",
   "name": "DataFast",
   "url": "https://datafa.st/",
-  "jobs": ["web", "product", "revenue"],
+  "jobs": ["revenue", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is revenue attribution; F19: Stripe, Lemon Squeezy, Polar, Shopify and WooCommerce connections",
+      "web": "F15: real-time traffic, sources, pages, locations, devices and campaigns",
+      "product": "F16: identify links anonymous visits to a user ID and journeys; F15: goal funnels with drop-off"
+    }
+  },
   "line": "Website and product analytics that connect traffic to revenue.",
   "free": { "kind": "none", "text": "Paid from $9/month" },
   "cells": { "cookieless": "No (default cookies; cookieless mode available)", "location": "Mostly outside EU, including US", "selfhost": "No (none found)" },

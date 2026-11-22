@@ -1,6 +1,13 @@
 {
   "slug": "superwall", "name": "Superwall", "url": "https://superwall.com/",
   "jobs": ["revenue", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job includes revenue analytics; F19: App Store, Google Play, RevenueCat and Stripe revenue with MRR, ARR and refunds",
+      "product": "F16: paywall and flow funnels with step drop-off, experiment results and user-level timelines"
+    }
+  },
   "line": "Builds mobile paywalls and reports subscription revenue and tests.",
   "free": {"kind": "free", "text": "Free subscription tools; paywalls through $10,000/month MAR"},
   "cells": {"cookieless": "Optional (web uses cookies and localStorage by default)", "location": "US", "selfhost": "No (none found)"},

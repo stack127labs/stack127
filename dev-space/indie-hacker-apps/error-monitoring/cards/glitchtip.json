@@ -10,6 +10,17 @@
     "performance",
     "cron"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error tracking is the first job; SDK events become grouped issues (E01)",
+      "uptime": "U01, U02: HTTP and TCP checks with expected status and body match",
+      "status": "C02, S01, S03: status pages group monitors, public or organization-only",
+      "logs": "L02: severity, service and full-text log filters with trace links",
+      "performance": "A01: transaction groups with p50 and p95 timings and span breakdowns",
+      "cron": "J02: missing heartbeat marks a check down; success pings restore it"
+    }
+  },
   "line": "Open source Sentry-compatible errors, uptime and logs.",
   "free": {
     "kind": "free",

@@ -3,6 +3,13 @@
   "name": "Netlify Blobs",
   "url": "https://docs.netlify.com/build/data-and-storage/netlify-blobs/",
   "jobs": ["files", "kv"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is a primary type; C07: Blobs store files with optional metadata",
+      "kv": "C02: hosted key-value storage is a primary type; C07: key-value records"
+    }
+  },
   "line": "Store objects and key-value data for Netlify sites and functions.",
   "free": { "kind": "free", "text": "300 shared credits/mo; Blob quota unknown; pauses at 0 credits; no idle timer" },
   "cells": {

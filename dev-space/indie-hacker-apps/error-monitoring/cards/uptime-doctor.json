@@ -2,7 +2,14 @@
   "slug": "uptime-doctor",
   "name": "Uptime Doctor",
   "url": "https://www.uptimedoctor.com/en/",
-  "jobs": ["uptime"],
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external website and server uptime checks every minute from 51 stations (U01, U03)",
+      "status": "S01, S03: public uptime report page with status and update times"
+    }
+  },
   "line": "Checks sites and ports every minute and publishes uptime reports.",
   "free": { "kind": "free", "text": "Free: 5 tests, 60-second checks, 1-year reports" },
   "cells": { "interval": "60 s all plans", "maintained": "Hosted service" },

@@ -3,6 +3,12 @@
   "name": "Scaleway Transactional Email",
   "url": "https://www.scaleway.com/en/transactional-email-tem/",
   "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: application transactional email through the REST API or SMTP relay; marketing is prohibited"
+    }
+  },
   "line": "Managed email API and SMTP for application notifications.",
   "free": { "kind": "credits", "text": "Essential includes 300 emails; then €0.25/1,000 before tax" },
   "cells": {

@@ -2,7 +2,13 @@
   "slug": "chatlio",
   "name": "Chatlio",
   "url": "https://chatlio.com/",
-  "jobs": ["chat", "inbox"],
+  "jobs": ["chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native website chat widget; replies come from the team's Slack, Discord or Teams workspace"
+    }
+  },
   "line": "Website chat that agents answer from Slack, Discord, or Teams.",
   "free": { "kind": "trial", "text": "30-day trial, no card" },
   "cells": {

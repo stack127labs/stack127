@@ -3,6 +3,13 @@
   "name": "Google Cloud SQL",
   "url": "https://cloud.google.com/sql",
   "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL databases are the primary type; D01: PostgreSQL and MySQL versions",
+      "vector": "V01: pgvector on PostgreSQL with HNSW and IVFFlat indexes"
+    }
+  },
   "line": "Managed MySQL, PostgreSQL, and SQL Server with vector search support.",
   "free": { "kind": "trial", "text": "30d trial: 8 vCPU, 64 GB RAM, 100 GB; stops day 30, deleted after 90 more" },
   "cells": {

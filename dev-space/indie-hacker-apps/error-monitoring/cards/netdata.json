@@ -2,7 +2,15 @@
   "slug": "netdata",
   "name": "Netdata",
   "url": "https://www.netdata.cloud/",
-  "jobs": ["uptime", "logs", "performance"],
+  "jobs": ["performance", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "A01: OpenTelemetry traces explorer with spans, waterfalls and RED views",
+      "uptime": "U01, U02: HTTP, TCP, ping, DNS and TLS checks run by your agents (U03)",
+      "logs": "L02: searchable system logs with full-text search and live tail"
+    }
+  },
   "line": "Monitors infrastructure metrics and runs synthetic endpoint checks.",
   "free": { "kind": "selfhost", "text": "Free Agent; Cloud Community covers up to 5 nodes" },
   "cells": {

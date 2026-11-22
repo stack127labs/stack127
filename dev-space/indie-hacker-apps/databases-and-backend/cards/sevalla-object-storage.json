@@ -3,6 +3,12 @@
   "name": "Sevalla Object Storage",
   "url": "https://sevalla.com/object-storage/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object and file storage is the primary type; F05: S3-compatible API"
+    }
+  },
   "line": "Hosted S3-compatible buckets with free requests, ingress, and egress.",
   "free": { "kind": "credits", "text": "One-time $20 first-company credit; no recurring free tier or idle deletion" },
   "cells": {

@@ -2,11 +2,15 @@
   "slug": "windcave",
   "name": "Windcave",
   "url": "https://windcave.com/",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway connecting an acquirer; the merchant supplies the product",
+      "billing": "F15: subscription invoices with server-managed collection, scheduled start and retries",
+      "links": "F16: Paylink payment links delivered by email or SMS"
+    }
+  },
   "line": "Online gateway with cards, wallets, ACH, recurring billing, and hosted payment pages.",
   "free": {
     "kind": "none",

@@ -2,7 +2,14 @@
   "slug": "listmonk",
   "name": "listmonk",
   "url": "https://listmonk.app/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: one-way mailing lists, bulk campaigns and scheduled newsletter sends",
+      "transactional": "F02: POST /api/tx sends a reusable template for order, welcome and password-reset mail"
+    }
+  },
   "line": "Self-hosted mailing lists, bulk campaigns and transactional email API.",
   "free": { "kind": "selfhost", "text": "Free self-hosted software; supply a server, database and sender" },
   "cells": {

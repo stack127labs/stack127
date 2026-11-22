@@ -3,6 +3,15 @@
   "name": "Courier",
   "url": "https://www.courier.com/",
   "jobs": ["transactional", "newsletter", "marketing", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional email and product notifications, sent through your own email provider (F03)",
+      "newsletter": "F02: newsletter and announcement broadcasts to lists or audiences",
+      "marketing": "F02: lifecycle sequences such as onboarding, re-engagement and digests",
+      "multichannel": "F06: one template can reach email, SMS and push in one send, and counts once"
+    }
+  },
   "line": "Route email notifications and build broadcasts and lifecycle journeys.",
   "free": {"kind": "free", "text": "Free up to 10,000 sends/month"},
   "cells": {"newsletters": "Yes, broadcasts", "api": "Yes"},

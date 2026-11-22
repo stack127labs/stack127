@@ -2,7 +2,15 @@
   "slug": "scout-monitoring",
   "name": "Scout APM",
   "url": "https://www.scoutapm.com/",
-  "jobs": ["errors", "logs", "performance"],
+  "jobs": ["performance", "errors", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: application performance monitoring with request and job traces (A01)",
+      "errors": "E01: automatic unhandled exception capture with grouping and triage",
+      "logs": "L02: log search with time, content and attribute filters"
+    }
+  },
   "line": "Traces requests and background jobs, groups errors, and searches application logs.",
   "free": { "kind": "free", "text": "Free: 300K transactions, 5,000 errors, 1 GB logs" },
   "cells": {

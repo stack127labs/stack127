@@ -2,10 +2,14 @@
   "slug": "nile",
   "name": "Nile",
   "url": "https://www.thenile.dev/",
-  "jobs": [
-    "sql",
-    "vector"
-  ],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed tenant-aware PostgreSQL is the primary type; D01: built on PostgreSQL 15",
+      "vector": "V01: pgvector 0.8.0 pre-enabled, with HNSW and IVFFlat indexes"
+    }
+  },
   "line": "Managed PostgreSQL with tenant-aware data, authentication, and vector search.",
   "free": {
     "kind": "free",

@@ -3,6 +3,12 @@
   "name": "UpCloud Cloud Servers",
   "url": "https://upcloud.com/products/cloud-servers/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: infrastructure as a service; the customer deploys the VM and manages its OS, application and security"
+    }
+  },
   "line": "Run apps on a virtual server you configure and manage.",
   "free": { "kind": "trial", "text": "7 days; ID/card; up to 2 cores, 4 GB RAM, 180 GB storage; no Windows" },
   "cells": {

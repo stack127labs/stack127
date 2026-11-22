@@ -2,7 +2,14 @@
   "slug": "seq",
   "name": "Seq",
   "url": "https://datalust.co/",
-  "jobs": ["errors", "logs", "performance"],
+  "jobs": ["logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: structured log collection with search and proactive query alerts (L02)",
+      "performance": "A01: hierarchical trace timelines with span durations and correlated logs"
+    }
+  },
   "line": "Collects structured logs and traces, including logged exception details.",
   "free": { "kind": "selfhost", "text": "Free Individual: 1 person; 50 GB retained data" },
   "cells": {

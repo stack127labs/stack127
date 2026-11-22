@@ -2,7 +2,15 @@
   "slug": "easebuzz",
   "name": "Easebuzz",
   "url": "https://easebuzz.in/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and payment aggregator; the merchant is the seller to the buyer",
+      "billing": "F15: Recurri offers recurring, usage and one-time billing with trials; SmartBilling sends recurring invoices",
+      "links": "F16: payment links are generated in the dashboard and shared by email, SMS or WhatsApp"
+    }
+  },
   "line": "Indian gateway for online payments, links and recurring collections.",
   "free": { "kind": "none", "text": "Signup is advertised free; transaction fees apply" },
   "cells": {

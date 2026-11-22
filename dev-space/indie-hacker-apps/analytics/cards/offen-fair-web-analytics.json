@@ -3,6 +3,12 @@
   "name": "Offen Fair Web Analytics",
   "url": "https://www.offen.dev/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is consent-based self-hosted web analytics; F15: pageviews, sessions, bounce rate, top pages and campaigns"
+    }
+  },
   "line": "Self-hosted visitor analytics that lets people inspect their data.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you provide the server" },
   "cells": {

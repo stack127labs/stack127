@@ -2,7 +2,15 @@
   "slug": "fivenines",
   "name": "Fivenines",
   "url": "https://fivenines.io/",
-  "jobs": ["uptime", "status", "performance", "cron"],
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTPS, TCP, ICMP and DNS checks from four regions (U03)",
+      "status": "S01, S03: status pages fed by hosts, uptime monitors and cron jobs",
+      "cron": "J01, J02: cron heartbeats with grace periods and late-job incidents"
+    }
+  },
   "line": "Monitors servers, websites and scheduled jobs, with public status pages.",
   "free": { "kind": "trial", "text": "14-day trial; no ongoing free plan" },
   "cells": {

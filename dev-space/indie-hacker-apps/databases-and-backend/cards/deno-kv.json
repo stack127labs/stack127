@@ -3,6 +3,13 @@
   "name": "Deno KV",
   "url": "https://docs.deno.com/deploy/reference/deno_kv/",
   "jobs": ["kv", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: transactional key-value database; D01: structured key and value access",
+      "jobs": "J01: Deno.cron runs managed handler code on hosted Deploy; C04 notes an announced shutdown"
+    }
+  },
   "line": "Transactional key-value storage with hosted and SQLite-backed options.",
   "free": { "kind": "free", "text": "1 GiB; 1M reads, 500K writes/mo; no idle deletion; Deploy is shutting down" },
   "cells": {

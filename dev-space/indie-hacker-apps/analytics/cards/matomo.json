@@ -5,8 +5,18 @@
   "jobs": [
     "web",
     "product",
-    "replay"
+    "replay",
+    "revenue"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website analytics; F15: pages, sources, campaigns, locations, devices and goals",
+      "product": "F16: events are core; funnels and acquisition-date retention cohorts on paid plans or the paid self-host extension",
+      "replay": "F17: session replay and click, move and scroll heatmaps on Cloud and the paid self-host plugin",
+      "revenue": "F19: built-in ecommerce reports for orders, products, sales conversion and average order value"
+    }
+  },
   "line": "Open-source analytics you can host yourself or buy as Cloud.",
   "free": {
     "kind": "selfhost",

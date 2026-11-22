@@ -2,7 +2,15 @@
   "slug": "webchecky",
   "name": "WebChecky",
   "url": "https://webchecky.com/",
-  "jobs": ["uptime", "status", "performance", "cron"],
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website and API checks with content rules, SSL and DNS tracking (U01, U05)",
+      "status": "S03: live components, 90-day uptime calendar and incident timeline (S03)",
+      "cron": "J01, J02: heartbeats with expected interval, grace and explicit fail URL (J02)"
+    }
+  },
   "line": "Website and API checks, browser journeys, heartbeats, and status pages.",
   "free": {
     "kind": "free",

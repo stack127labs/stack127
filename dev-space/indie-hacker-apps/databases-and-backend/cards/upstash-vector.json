@@ -3,6 +3,12 @@
   "name": "Upstash Vector",
   "url": "https://upstash.com/pricing/vector",
   "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: managed vector database is the primary type; V01: dense vectors up to 1,536 dimensions on Free"
+    }
+  },
   "line": "Managed vector database for semantic search, metadata filtering and hybrid retrieval.",
   "free": { "kind": "free", "text": "10K queries + updates/day; 1 GB; idle Free index may be deleted after 1 week" },
   "cells": {

@@ -7,6 +7,14 @@
     "status",
     "cron"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP, TCP, ping, DNS and keyword checks on your own server (U01, U03)",
+      "status": "S01, S03: multiple public status pages with incidents and maintenance (S03)",
+      "cron": "J01, J02: push heartbeats that fail when missed or reported down (J02)"
+    }
+  },
   "line": "Self-hosted uptime monitor with status pages.",
   "free": {
     "kind": "selfhost",

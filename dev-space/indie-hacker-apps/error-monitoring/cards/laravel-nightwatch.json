@@ -3,6 +3,14 @@
   "name": "Laravel Nightwatch",
   "url": "https://laravel.com/nightwatch",
   "jobs": ["errors", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: Laravel exceptions captured automatically; unhandled ones create issues (E01)",
+      "logs": "L02: structured logs searchable and correlated with execution timelines",
+      "performance": "A01: request, SQL and queue-job timings with slow-route alerts"
+    }
+  },
   "line": "Tracks Laravel exceptions, logs, requests, jobs and scheduler runs.",
   "free": { "kind": "free", "text": "300,000 events/month; 14-day lookback" },
   "cells": {

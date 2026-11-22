@@ -3,6 +3,13 @@
   "name": "Monitive",
   "url": "https://monitive.com/",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP, HTTPS, API, ICMP and TCP checks with escalating alerts (U01, U02)",
+      "status": "S01, S03: public status pages built from monitors; unlimited on Pro (S01)"
+    }
+  },
   "line": "Checks websites and APIs for downtime, response problems and incidents.",
   "free": { "kind": "free", "text": "1 HTTP monitor with 10-minute checks; free forever" },
   "cells": {

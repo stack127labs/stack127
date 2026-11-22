@@ -2,12 +2,18 @@
   "slug": "firebase",
   "name": "Firebase",
   "url": "https://firebase.google.com/",
-  "jobs": [
-    "backend",
-    "sql",
-    "files",
-    "jobs"
-  ],
+  "jobs": ["backend", "sql", "nosql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C07: Cloud Firestore document database is part of the bundle; D01: Standard tier is a document database",
+      "backend": "C02: managed backend platform; C07: Firestore, Authentication, Cloud Storage and Functions",
+      "sql": "D01: SQL Connect maps GraphQL onto a managed Cloud SQL for PostgreSQL database",
+      "files": "F04: Cloud Storage with resumable uploads; F01: per-GiB-hour storage classes",
+      "jobs": "C07: Cloud Tasks and Cloud Scheduler functions; J04: cron schedules and task queues",
+      "vector": "V01: Firestore vector kNN search with embeddings up to 2,048 dimensions"
+    }
+  },
   "line": "Google backend: Firestore, auth, storage, functions and hosting.",
   "free": {
     "kind": "free",

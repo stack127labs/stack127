@@ -1,6 +1,15 @@
 {
   "slug": "swetrix", "name": "Swetrix", "url": "https://swetrix.com/",
-  "jobs": ["web", "product", "replay"],
+  "jobs": ["web", "product", "replay", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is web analytics; F15: pages, referrers, UTMs, countries and devices",
+      "product": "F16: ordered funnels of two to ten page or event steps, with profiles linked by identify()",
+      "replay": "F17: Cloud web session replay on Plus and Enterprise, started explicitly",
+      "revenue": "F19: Stripe and Paddle read-only integrations on Cloud, with revenue, refunds, AOV and MRR"
+    }
+  },
   "line": "Privacy-focused web and product analytics with replay and errors.",
   "free": {"kind": "selfhost", "text": "No new Cloud free plan; free Community Edition to self-host"},
   "cells": {"cookieless": "Yes by default", "location": "Germany (Cloud); operator chooses for CE", "selfhost": "Yes"},

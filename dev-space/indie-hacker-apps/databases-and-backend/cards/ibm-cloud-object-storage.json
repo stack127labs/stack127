@@ -3,6 +3,12 @@
   "name": "IBM Cloud Object Storage",
   "url": "https://www.ibm.com/products/cloud-object-storage",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage for unstructured files is the primary type; F05: S3-compatible REST subset"
+    }
+  },
   "line": "Store and serve objects in S3-compatible regional and cross-region buckets.",
   "free": { "kind": "trial", "text": "12mo: 5GB, 2K A/20K B, 10GB retrieval/5GB egress; 7d delete recovery" },
   "cells": {

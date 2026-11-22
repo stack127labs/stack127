@@ -3,6 +3,12 @@
   "name": "Atlantic.Net Cloud VPS",
   "url": "https://www.atlantic.net/vps-hosting/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual machine; root or admin access, and the customer operates the application stack"
+    }
+  },
   "line": "Cloud virtual servers with root access and hourly or monthly billing.",
   "free": { "kind": "none", "text": "No current recurring free VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Multiple regions; exact set not summarized", "selfhost": "No" },

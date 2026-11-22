@@ -5,6 +5,12 @@
   "jobs": [
     "server"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted Keycloak IAM and SSO server; F05: developer or contracted host runs it"
+    }
+  },
   "line": "Open-source identity server you host yourself.",
   "free": {
     "kind": "selfhost",

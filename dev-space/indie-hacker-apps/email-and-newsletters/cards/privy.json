@@ -3,6 +3,14 @@
   "name": "Privy",
   "url": "https://www.privy.com/",
   "jobs": ["marketing", "newsletter", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: flows for cart and browse recovery, post-purchase and winback",
+      "newsletter": "F02: newsletter and promotional campaigns to consented contacts",
+      "multichannel": "F01: email and SMS marketing; cart and browse flows run on shopper actions (F02)"
+    }
+  },
   "line": "Ecommerce email and SMS campaigns, flows and event-triggered messages.",
   "free": { "kind": "trial", "text": "15-day trial; email limited to 100 contacts per day" },
   "cells": {

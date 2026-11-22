@@ -2,9 +2,14 @@
   "slug": "zoho-billing",
   "name": "Zoho Billing",
   "url": "https://www.zoho.com/billing/",
-  "jobs": [
-    "billing"
-  ],
+  "jobs": ["billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F02: billing software for recurring plans, invoices and customer billing; F15: trials and retries",
+      "links": "F16: invoice payment links shared by email or URL, and Premium hosted pages, no custom build"
+    }
+  },
   "line": "Subscriptions, invoices, and customer billing with connected gateways.",
   "free": {
     "kind": "trial",

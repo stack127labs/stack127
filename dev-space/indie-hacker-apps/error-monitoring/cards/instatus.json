@@ -7,6 +7,14 @@
     "uptime",
     "cron"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: hosted public, private and select-audience status pages (S01, S03)",
+      "uptime": "U01, U02: HTTP, ping, TCP, UDP and DNS checks; SSL expiry alerts (U05)",
+      "cron": "J01, J02: cron heartbeats with period, grace and start, success and fail pings"
+    }
+  },
   "line": "Hosted status pages with built-in uptime checks.",
   "free": {
     "kind": "free",

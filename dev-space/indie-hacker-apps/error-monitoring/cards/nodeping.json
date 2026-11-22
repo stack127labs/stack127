@@ -3,6 +3,14 @@
   "name": "NodePing",
   "url": "https://nodeping.com/",
   "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, DNS, SMTP and database checks every 15 to 60 s (U03)",
+      "status": "S01, S03: status pages built from monitor state, with custom domains on paid plans",
+      "cron": "J01, J02: PUSH heartbeats that fail when a report is missing (J01)"
+    }
+  },
   "line": "Checks websites and services, then shows their status and uptime history.",
   "free": { "kind": "trial", "text": "15-day trial; no card" },
   "cells": {

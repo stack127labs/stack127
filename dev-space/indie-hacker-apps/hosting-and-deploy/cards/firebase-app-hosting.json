@@ -2,7 +2,14 @@
   "slug": "firebase-app-hosting",
   "name": "Firebase App Hosting",
   "url": "https://firebase.google.com/products/app-hosting",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed build and container runtime; Google runs server-rendered and full-stack apps",
+      "static": "04: static sites and single-page apps also fit the product"
+    }
+  },
   "line": "Build and host full-stack web apps with Google's managed platform.",
   "free": { "kind": "free", "text": "Blaze required; first 10GiB App Hosting delivery/month is free" },
   "cells": { "type": "Managed full-stack hosting", "regions": "Iowa, Virginia, Ohio, Taiwan, Singapore, Netherlands", "selfhost": "No" },

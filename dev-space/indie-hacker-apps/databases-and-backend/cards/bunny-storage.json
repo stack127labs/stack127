@@ -3,6 +3,12 @@
   "name": "Bunny Storage",
   "url": "https://bunny.net/storage/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is the primary type; F05: S3-compatible API in public preview"
+    }
+  },
   "line": "Store and replicate files across regions with an S3-compatible API.",
   "free": { "kind": "trial", "text": "14-day trial; no fixed storage quota published" },
   "cells": {

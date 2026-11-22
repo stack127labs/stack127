@@ -2,7 +2,14 @@
   "slug": "appliku",
   "name": "Appliku",
   "url": "https://appliku.com/",
-  "jobs": ["panel"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: deployment manager that turns the customer's own servers into app platforms; hosted, not free self-hosted software",
+      "static": "04: supports static sites deployed to the customer's server"
+    }
+  },
   "line": "Deploy and manage apps on servers you choose and pay for.",
   "free": { "kind": "free", "text": "$0 panel plan; server billed separately" },
   "cells": { "type": "Deployment panel", "regions": "Your server's region", "selfhost": "Yes; use a connected server" },

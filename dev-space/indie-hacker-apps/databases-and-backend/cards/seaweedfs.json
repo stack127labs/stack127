@@ -3,6 +3,12 @@
   "name": "SeaweedFS",
   "url": "https://seaweedfs.com/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: self-hosted file and object storage is the primary type; F05: S3 API for common object operations"
+    }
+  },
   "line": "Distributed S3-compatible storage that you run on your own servers.",
   "free": { "kind": "selfhost", "text": "Apache-2.0; no community quota or hosted idle rule; you control disks/retention" },
   "cells": {

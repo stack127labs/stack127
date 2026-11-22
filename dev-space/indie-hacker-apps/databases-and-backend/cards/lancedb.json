@@ -3,6 +3,12 @@
   "name": "LanceDB",
   "url": "https://www.lancedb.com/",
   "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: vector and multimodal data store is the primary type; V02: dense vector and hybrid search documented"
+    }
+  },
   "line": "Vector and multimodal data store with embedded and managed deployments.",
   "free": { "kind": "selfhost", "text": "Apache-2.0 library; no vendor quota or hosted idle rule; you host it" },
   "cells": {

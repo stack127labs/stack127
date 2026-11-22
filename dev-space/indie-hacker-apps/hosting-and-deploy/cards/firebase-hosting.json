@@ -3,6 +3,12 @@
   "name": "Firebase Hosting",
   "url": "https://firebase.google.com/products/hosting",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed file hosting and global CDN for static sites and single-page apps"
+    }
+  },
   "line": "Host static web apps on a global CDN with optional backend rewrites.",
   "free": { "kind": "free", "text": "Spark: 10GB storage; transfer limit listed as 10GB/mo or 360MB/day" },
   "cells": { "type": "Static hosting and CDN", "regions": "Global CDN delivery", "selfhost": "No" },

@@ -3,6 +3,14 @@
   "name": "NATS / JetStream",
   "url": "https://nats.io/",
   "jobs": ["jobs", "kv", "files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: primary type is jobs, queues and events; J03: unacknowledged messages are redelivered",
+      "kv": "C07: JetStream key-value buckets are a built-in feature",
+      "files": "C07: JetStream object stores are a built-in feature"
+    }
+  },
   "line": "Durable message broker with queues, key-value stores, and object storage.",
   "free": { "kind": "free", "text": "Personal: 5GiB storage, 10GiB network; inactive free teams may be deleted" },
   "cells": {

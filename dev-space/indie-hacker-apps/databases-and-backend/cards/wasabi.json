@@ -3,6 +3,12 @@
   "name": "Wasabi Hot Cloud Storage",
   "url": "https://wasabi.com/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted S3-compatible object storage is the primary role; F05: S3 API compatibility"
+    }
+  },
   "line": "S3-compatible object storage for files, media and backups.",
   "free": { "kind": "trial", "text": "Up to 1 TB/30-day trial (limits vary); expiry deletes trial account and data" },
   "cells": {

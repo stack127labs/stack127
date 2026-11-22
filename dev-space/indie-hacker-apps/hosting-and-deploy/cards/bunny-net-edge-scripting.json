@@ -3,6 +3,12 @@
   "name": "bunny.net Edge Scripting",
   "url": "https://bunny.net/edge-scripting/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed JavaScript and TypeScript execution; bunny.net runs the scripts in its isolated runtimes"
+    }
+  },
   "line": "Run JavaScript and TypeScript scripts across edge locations.",
   "free": { "kind": "trial", "text": "14-day trial; $20 credit, $50 after verified card" },
   "cells": { "type": "Edge functions", "regions": "72 scripting PoPs; 119 overall edge locations", "selfhost": "No" },

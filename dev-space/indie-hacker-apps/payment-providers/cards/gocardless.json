@@ -2,10 +2,15 @@
   "slug": "gocardless",
   "name": "GoCardless",
   "url": "https://gocardless.com/",
-  "jobs": [
-    "gateway",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: collects the merchant's payments as a bank-debit processor; the merchant is the seller",
+      "billing": "F14: automatic recurring Direct Debit and instalment schedules; F15: subscriptions and intervals",
+      "links": "F16: payment links, hosted payment pages and drop-in forms are supported"
+    }
+  },
   "line": "Bank debit payments for recurring and one-off sales.",
   "free": {
     "kind": "none",

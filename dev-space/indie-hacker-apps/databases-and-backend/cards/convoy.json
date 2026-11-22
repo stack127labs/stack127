@@ -3,6 +3,12 @@
   "name": "Convoy",
   "url": "https://www.getconvoy.io/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: webhook gateway that queues and delivers events with automatic retries (J03)"
+    }
+  },
   "line": "Receive webhooks and deliver events to subscribed endpoints.",
   "free": { "kind": "selfhost", "text": "1 user, 1 org, 2 projects; no idle pause; payment failure can lead to deletion" },
   "cells": {

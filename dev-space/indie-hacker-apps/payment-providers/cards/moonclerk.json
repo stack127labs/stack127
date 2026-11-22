@@ -2,7 +2,14 @@
   "slug": "moonclerk",
   "name": "MoonClerk",
   "url": "https://www.moonclerk.com/",
-  "jobs": ["links", "billing"],
+  "jobs": ["billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F14: automatically charged recurring plans with trials and setup fees; F15: proration and retries",
+      "links": "F16: each form gets a hosted payment link, shared by email, QR code or button"
+    }
+  },
   "line": "Hosted payment forms and recurring billing built around a Stripe account.",
   "free": { "kind": "none", "text": "Plans start at $18/month for up to $2,000 volume" },
   "cells": {

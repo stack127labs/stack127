@@ -2,7 +2,13 @@
   "slug": "phplist",
   "name": "phpList",
   "url": "https://www.phplist.org/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters, marketing campaigns and announcements to subscriber lists"
+    }
+  },
   "line": "Newsletter software with hosted and self-hosted editions.",
   "free": { "kind": "free", "text": "Hosted free plan: 300 messages/month and 50 per day" },
   "cells": {

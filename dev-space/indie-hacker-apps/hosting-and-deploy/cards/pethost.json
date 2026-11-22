@@ -2,7 +2,14 @@
   "slug": "pethost",
   "name": "Pethost",
   "url": "https://pethost.dev/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: provider-managed software and Docker Compose projects run on an account-exclusive hosted VM",
+      "static": "04: static sites are a listed app type"
+    }
+  },
   "line": "Run Docker Compose projects on an account-exclusive hosted VM.",
   "free": { "kind": "none", "text": "No ongoing free tier" },
   "cells": { "type": "Managed app server", "regions": "Europe data centres; specific locations unpublished", "selfhost": "No" },

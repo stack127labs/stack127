@@ -3,6 +3,16 @@
   "name": "TrailBase",
   "url": "https://trailbase.io/",
   "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with SQL, typed REST APIs, auth, files and WASM handlers",
+      "sql": "D01: default SQLite relational engine with tables and views",
+      "files": "C07: file APIs; F04: uploads attach to record columns with size constraints",
+      "jobs": "C07: scheduled background jobs; J04: six or seven-field cron expressions",
+      "vector": "V01: sqlite-vec distance SQL over BLOB embeddings, bundled with the binary"
+    }
+  },
   "line": "Self-hosted SQLite backend with auth, file APIs, live updates, WASM code and jobs.",
   "free": { "kind": "selfhost", "text": "OSL-3.0; no vendor quota or idle expiry; you host and retain the data" },
   "cells": {

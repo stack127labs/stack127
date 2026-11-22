@@ -3,8 +3,16 @@
   "name": "Buttondown",
   "url": "https://buttondown.com/",
   "jobs": [
-    "newsletter"
+    "newsletter",
+    "marketing"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter broadcasts to subscribers",
+      "marketing": "F02: subscriber lifecycle sequences; automations are a paid add-on (F12)"
+    }
+  },
     "line": "Newsletter service with Markdown and an API.",
   "free": {
     "kind": "free",

@@ -2,12 +2,17 @@
   "slug": "supabase",
   "name": "Supabase",
   "url": "https://supabase.com/",
-  "jobs": [
-    "backend",
-    "sql",
-    "files",
-    "jobs"
-  ],
+  "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with Postgres, auth, file storage and functions; C07 confirmed",
+      "sql": "D01: full PostgreSQL database per project with native SQL",
+      "files": "F01: 1 GB Free and 100 GB Pro file storage; F05: TUS and partial S3 API",
+      "jobs": "C07: Cron and pgmq queues are hosted features; J03: logged queues persist messages",
+      "vector": "V01: pgvector HNSW indexes up to 2,000 dimensions; V02: hybrid search in SQL"
+    }
+  },
   "line": "Postgres, auth, file storage and functions in one hosted backend.",
   "free": {
     "kind": "free",

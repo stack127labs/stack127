@@ -2,7 +2,14 @@
   "slug": "zoho-campaigns",
   "name": "Zoho Campaigns",
   "url": "https://www.zoho.com/campaigns/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and bulk marketing campaigns for permission-based lists",
+      "marketing": "F02: contact-based automated journeys"
+    }
+  },
   "line": "Newsletters and marketing journeys, plus a separate app-email API.",
   "free": { "kind": "free", "text": "Free up to 2,000 contacts and 6,000 emails/month" },
   "cells": {

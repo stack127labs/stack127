@@ -2,7 +2,14 @@
   "slug": "keila",
   "name": "Keila",
   "url": "https://www.keila.io/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: campaign creation, segmentation, scheduling and newsletter signup",
+      "transactional": "F02: one-off receipts, confirmations and password resets sent through the API"
+    }
+  },
   "line": "Email campaigns, automation and API-triggered transactional messages.",
   "free": { "kind": "selfhost", "text": "Free AGPLv3 software; host it and provide email delivery" },
   "cells": {

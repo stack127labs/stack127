@@ -2,10 +2,14 @@
   "slug": "przelewy24",
   "name": "Przelewy24",
   "url": "https://www.przelewy24.pl/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway and payment institution; the merchant is the seller",
+      "links": "F16: merchant-generated payment links shared by email, SMS, social media or QR code"
+    }
+  },
   "line": "Polish online gateway for cards, BLIK, bank transfers, and payment links.",
   "free": {
     "kind": "none",

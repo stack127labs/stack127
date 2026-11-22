@@ -2,10 +2,15 @@
   "slug": "lemon-squeezy",
   "name": "Lemon Squeezy",
   "url": "https://www.lemonsqueezy.com/",
-  "jobs": [
-    "mor",
-    "links"
-  ],
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record; Lemon Squeezy is the authorized reseller the buyer buys from",
+      "billing": "F14: automatic subscriptions on cards and wallets; F15: trials, plan changes and retries",
+      "links": "F16: hosted shareable checkout links and a no-code storefront"
+    }
+  },
   "line": "Merchant of record for software and downloads, owned by Stripe.",
   "free": {
     "kind": "none",

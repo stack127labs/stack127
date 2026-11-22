@@ -3,6 +3,13 @@
   "name": "Backendless",
   "url": "https://backendless.com/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: Cloud is vendor hosted and includes native user service with login and sessions",
+      "server": "F02: Pro is a self-hosted edition; F35: published Pro Community server sizing guideline"
+    }
+  },
   "line": "Backend platform with user accounts, login, and sessions.",
   "free": { "kind": "free", "text": "Cloud Free includes 50 API requests/minute" },
   "cells": {

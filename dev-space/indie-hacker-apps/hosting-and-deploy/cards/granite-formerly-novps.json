@@ -5,6 +5,12 @@
   "jobs": [
     "paas"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: provider-hosted container platform; web apps, workers and cron jobs run on the provider's platform"
+    }
+  },
   "line": "Deploy multi-service apps with managed databases and storage.",
   "free": {
     "kind": "none",

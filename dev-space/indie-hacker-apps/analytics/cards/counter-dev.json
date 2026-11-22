@@ -3,6 +3,12 @@
   "name": "Counter.dev",
   "url": "https://counter.dev/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics; F15: daily unique visitors, referrals, pages and visitor dimensions"
+    }
+  },
   "line": "Simple website traffic reports for visitors and referrals.",
   "free": { "kind": "free", "text": "Free hosted service; optional contributions" },
   "cells": { "cookieless": "Yes (uses sessionStorage)", "location": "Frankfurt, Germany", "selfhost": "Yes (AGPL v3 beta)" },

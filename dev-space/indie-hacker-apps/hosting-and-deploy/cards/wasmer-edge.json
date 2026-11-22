@@ -3,6 +3,13 @@
   "name": "Wasmer Edge",
   "url": "https://wasmer.io/products/edge",
   "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed Wasm application hosting; Wasmer operates the runtime, gateway and scaling",
+      "static": "04: static sites are a listed app type"
+    }
+  },
   "line": "Runs WebAssembly apps, APIs and static sites at the edge.",
   "free": { "kind": "free", "text": "Free Hobby: 1M req, 150 GB, 6 CPU h, 1k build min; no card" },
   "cells": {

@@ -3,6 +3,13 @@
   "name": "Pabbly Subscription Billing",
   "url": "https://www.pabbly.com/subscriptions/",
   "jobs": ["billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F02: subscription billing software; F15: plans, trials, add-ons and client portal",
+      "links": "F16: hosted checkout links generated for plans and shared with customers, no coding"
+    }
+  },
   "line": "Subscription billing software with hosted checkout links and recurring plans.",
   "free": { "kind": "free", "text": "Free for 50 customers; revenue limit is not stated" },
   "cells": {

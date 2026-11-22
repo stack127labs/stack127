@@ -3,6 +3,12 @@
   "name": "Ueberauth",
   "url": "https://github.com/ueberauth/ueberauth",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Elixir login framework; provider strategies supply external login; F05: developer runs app and accounts"
+    }
+  },
   "line": "Elixir login framework with community provider strategies.",
   "free": { "kind": "selfhost", "text": "Free MIT framework; you run it" },
   "cells": {

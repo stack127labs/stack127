@@ -2,7 +2,14 @@
   "slug": "burst-statistics",
   "name": "Burst Statistics",
   "url": "https://burst-statistics.com/",
-  "jobs": ["web"],
+  "jobs": ["web", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is WordPress website analytics; F15: visitors, sessions, pages, referrers and country reports",
+      "revenue": "F19: WooCommerce and EDD sales reports on Business+; MRR and churn from WooCommerce Subscriptions and EDD Recurring"
+    }
+  },
   "line": "WordPress traffic and conversion reports stored on your own site.",
   "free": {"kind": "selfhost", "text": "Free WordPress plugin with unlimited pageviews"},
   "cells": {

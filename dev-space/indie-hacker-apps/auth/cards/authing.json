@@ -2,19 +2,50 @@
   "slug": "authing",
   "name": "Authing",
   "url": "https://www.authing.cn/",
-  "jobs": ["hosted"],
+  "jobs": [
+    "hosted"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: vendor-hosted identity service; F05: Authing operates its own software"
+    }
+  },
   "line": "Hosted login and user management with developer APIs.",
-  "free": { "kind": "free", "text": "Free up to 8,000 MAU; one app" },
+  "free": {
+    "kind": "free",
+    "text": "Free up to 8,000 MAU; one app"
+  },
   "cells": {
     "freeUsers": "8,000 MAU; one app and one social connection",
     "sso": "Basic lists 1 connection; Advanced lists 3"
   },
   "costs": {
     "mau": [
-      { "v": "¥0", "plan": "Free", "state": "confirmed", "math": "1,000 users is within the 8,000 free limit. The free plan and the required add-ons for users, organizations and SSO total ¥0 a month." },
-      { "v": "¥1,190", "plan": "B2C Basic", "state": "confirmed", "math": "The B2C Basic plan for 10,000 users: ¥1,190 base plus ¥0 for required add-ons, so ¥1,190 a month." },
-      { "v": "Unknown", "plan": "", "state": "unclear", "math": "50,000 users is above the 10,000-user limit of the public B2C plans. The plan for this many monthly users and its required charges still need a quote." },
-      { "v": "Unknown", "plan": "", "state": "unclear", "math": "100,000 users is above the 10,000-user limit of the public B2C plans. The plan for this many monthly users and its required charges still need a quote." }
+      {
+        "v": "¥0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "1,000 users is within the 8,000 free limit. The free plan and the required add-ons for users, organizations and SSO total ¥0 a month."
+      },
+      {
+        "v": "¥1,190",
+        "plan": "B2C Basic",
+        "state": "confirmed",
+        "math": "The B2C Basic plan for 10,000 users: ¥1,190 base plus ¥0 for required add-ons, so ¥1,190 a month."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "50,000 users is above the 10,000-user limit of the public B2C plans. The plan for this many monthly users and its required charges still need a quote."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "100,000 users is above the 10,000-user limit of the public B2C plans. The plan for this many monthly users and its required charges still need a quote."
+      }
     ]
   }
 }

@@ -3,6 +3,12 @@
   "name": "Google App Engine",
   "url": "https://cloud.google.com/appengine",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: Google handles the platform for Standard and Flexible runtimes; the customer deploys the app"
+    }
+  },
   "line": "Build and run apps on Google's managed application platform.",
   "free": { "kind": "free", "text": "Standard: 28 F1/9 B1 hours + 1GiB egress/day; Flexible has no free compute" },
   "cells": { "type": "Managed application platform", "regions": "US, Europe, Asia and other GCP regions", "selfhost": "No" },

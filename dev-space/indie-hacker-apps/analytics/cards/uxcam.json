@@ -1,6 +1,14 @@
 {
   "slug": "uxcam", "name": "UXCam", "url": "https://uxcam.com/",
-  "jobs": ["product", "replay"],
+  "jobs": ["product", "web", "replay"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is product and behavior analytics; F16: funnels, retention cohorts, segments and journeys",
+      "web": "F15: automatic page visits, referrer URL, landing UTMs, browser, device and geography",
+      "replay": "F17: native and web replay with masking of password and card fields; heatmaps are not on Free"
+    }
+  },
   "line": "Analyzes mobile app and website behavior with replay and heatmaps.",
   "free": {"kind": "free", "text": "Free: 3,000 sessions and videos/month"},
   "cells": {"cookieless": "Unknown", "location": "US/EU/UAE DPA options; other claims conflict (unclear)", "selfhost": "No (none found)"},

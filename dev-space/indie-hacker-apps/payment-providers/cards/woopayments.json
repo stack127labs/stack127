@@ -2,10 +2,14 @@
   "slug": "woopayments",
   "name": "WooPayments",
   "url": "https://woocommerce.com/payments/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway built into WooCommerce; the store merchant is the seller",
+      "links": "F16: WooCommerce sends links to pay pending orders; the app shares order-payment links and QR codes"
+    }
+  },
   "line": "Card, wallet, local, and payment-link checkout for WooCommerce.",
   "free": {
     "kind": "none",

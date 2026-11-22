@@ -3,6 +3,12 @@
   "name": "Cachet",
   "url": "https://cachethq.io/",
   "jobs": ["status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: self-hosted status pages for incidents, maintenance and metrics (S01, S03)"
+    }
+  },
   "line": "Self-hosted status pages for incidents, maintenance and service metrics.",
   "free": { "kind": "selfhost", "text": "Free to self-host; you pay for your own hosting" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Azure Functions",
   "url": "https://azure.microsoft.com/en-us/products/functions/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed function execution; the customer uploads function code and Azure runs it"
+    }
+  },
   "line": "Run event driven and HTTP functions on managed Azure compute.",
   "free": { "kind": "free", "text": "Flex: 250,000 executions and 100,000 GB-seconds/month" },
   "cells": { "type": "Serverless functions", "regions": "East US example; many Azure regions", "selfhost": "No" },

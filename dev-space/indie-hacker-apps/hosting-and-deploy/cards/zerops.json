@@ -3,6 +3,13 @@
   "name": "Zerops",
   "url": "https://zerops.io/",
   "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: provider operates the bare-metal and system-container infrastructure; the builder deploys runtime apps",
+      "static": "04: static websites are a documented workload"
+    }
+  },
   "line": "Deploys apps, static sites and managed databases from Git.",
   "free": { "kind": "free", "text": "Lightweight core: 15 build h, 100 GB egress, 5 GB backup; app resources extra" },
   "cells": {

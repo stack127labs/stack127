@@ -2,7 +2,14 @@
   "slug": "callbell",
   "name": "Callbell",
   "url": "https://www.callbell.eu/",
-  "jobs": ["inbox", "chat", "ai"],
+  "jobs": ["chat", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native in-page real-time website chat; team replies from Callbell with assignment and mobile handling",
+      "ai": "F22: Autonomous AI agent replies across supported messaging channels and webchat; billed in AI credits"
+    }
+  },
   "line": "Combines WhatsApp, social messages, and website chat in a team inbox.",
   "free": { "kind": "trial", "text": "7-day trial; no card advertised" },
   "cells": {

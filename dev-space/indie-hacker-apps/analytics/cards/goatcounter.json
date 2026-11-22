@@ -3,6 +3,12 @@
   "name": "GoatCounter",
   "url": "https://www.goatcounter.com/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics; F15: pages, referrers, campaigns, browsers and locations"
+    }
+  },
   "line": "Simple website traffic analytics with optional event counts.",
   "free": { "kind": "free", "text": "Free for personal/small businesses; millions of views/day excluded" },
   "cells": { "cookieless": "Yes (visitor tracking uses no browser ID)", "location": "Finland and Germany", "selfhost": "Yes" },

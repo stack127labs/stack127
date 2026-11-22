@@ -3,6 +3,14 @@
   "name": "Mailpro",
   "url": "https://www.mailpro.com/",
   "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation",
+      "newsletter": "F02: newsletters and campaigns",
+      "transactional": "F02: transactional API mail and SMTP relay"
+    }
+  },
   "line": "Email campaigns, lifecycle automation and transactional API mail.",
   "free": { "kind": "trial", "text": "30-day trial; 500 starting credits also advertised" },
   "cells": {

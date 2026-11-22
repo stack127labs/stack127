@@ -3,6 +3,12 @@
   "name": "Cloudflare D1",
   "url": "https://developers.cloudflare.com/d1/",
   "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the primary type; D01: SQLite query engine"
+    }
+  },
   "line": "Use a managed SQLite database with serverless Workers apps.",
   "free": { "kind": "free", "text": "500 MB/db, 5 GB/account; 5M rows read/day, 100K written/day" },
   "cells": {

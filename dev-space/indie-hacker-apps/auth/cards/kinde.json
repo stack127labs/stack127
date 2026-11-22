@@ -5,6 +5,12 @@
   "jobs": [
     "hosted"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted cloud SaaS for accounts, authentication and authorization; F35: self-host not applicable"
+    }
+  },
   "line": "Hosted authentication, authorization and billing for SaaS applications.",
   "free": {
     "kind": "free",

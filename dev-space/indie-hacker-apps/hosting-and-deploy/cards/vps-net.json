@@ -3,6 +3,12 @@
   "name": "VPS.NET SSD VPS",
   "url": "https://www.vps.net/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual server; the customer controls the OS and app and operates the server"
+    }
+  },
   "line": "Rent a Linux VPS and manage the operating system and apps.",
   "free": { "kind": "credits", "text": "Advertised $20 credit; V2+ purchase; current offer terms unverified" },
   "cells": {

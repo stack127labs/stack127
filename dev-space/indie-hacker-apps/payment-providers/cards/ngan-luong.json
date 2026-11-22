@@ -3,6 +3,13 @@
   "name": "Ngan Luong",
   "url": "https://www.nganluong.vn/vn/home.html",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and VND wallet; the merchant sells directly to the buyer",
+      "links": "F16: Payment Link created in the merchant interface and shared by chat, email or social"
+    }
+  },
   "line": "Vietnam payment gateway with payment links, scheduled to close February 2027.",
   "free": { "kind": "none", "text": "No integration or monthly maintenance fee listed" },
   "cells": {

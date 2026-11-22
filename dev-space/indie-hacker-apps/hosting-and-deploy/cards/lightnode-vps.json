@@ -3,6 +3,12 @@
   "name": "LightNode VPS",
   "url": "https://www.lightnode.com/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented KVM virtual machine; LightNode operates the host and the customer manages the guest OS and app"
+    }
+  },
   "line": "Provision a virtual server with configurable CPU, memory, and traffic.",
   "free": { "kind": "credits", "text": "New users may receive up to $15 credit; eligibility and expiry unknown" },
   "cells": { "type": "VPS/VM", "regions": "41 active nodes/8 regions; other pages say 44 (unclear)", "selfhost": "No" },

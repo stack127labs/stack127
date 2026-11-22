@@ -1,6 +1,12 @@
 {
   "slug": "webflow-analytics-analyze", "name": "Webflow Analyze", "url": "https://webflow.com/analyze",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic and conversion analytics; F15: traffic, sources, pages, devices, countries and goals"
+    }
+  },
   "line": "Adds traffic, conversion and click-map reports to Webflow sites.",
   "free": {"kind": "none", "text": "No free Analyze plan; it is a paid site add-on"},
   "cells": {"cookieless": "Yes (uses local storage identifiers)", "location": "US; global processing may occur", "selfhost": "No (none found)"},

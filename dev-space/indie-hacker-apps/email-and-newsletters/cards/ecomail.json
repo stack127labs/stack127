@@ -2,7 +2,15 @@
   "slug": "ecomail",
   "name": "Ecomail",
   "url": "https://ecomail.app/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: automated welcome, birthday and recovery messages plus ecommerce lifecycle marketing",
+      "newsletter": "F02: newsletters and scheduled campaigns",
+      "transactional": "F02: transactional API for order and registration confirmations; activation needs a paid plan or credits (F05)"
+    }
+  },
   "line": "Send newsletters, automated marketing, and transactional email from one hosted service.",
   "free": { "kind": "free", "text": "Free up to 200 contacts and 200 emails/month" },
   "cells": { "newsletters": "Yes", "api": "Yes, API and SMTP" },

@@ -3,9 +3,14 @@
   "name": "Botsonic",
   "url": "https://botsonic.com/",
   "jobs": [
-    "ai",
-    "chat"
+    "ai"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Autonomous customer-facing answers from configured sources; agentic workflows on Advanced and Enterprise"
+    }
+  },
   "line": "Builds website chat agents that answer from your business content.",
   "free": {
     "kind": "trial",

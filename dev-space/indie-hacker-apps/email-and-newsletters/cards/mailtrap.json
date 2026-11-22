@@ -3,6 +3,14 @@
   "name": "Mailtrap",
   "url": "https://mailtrap.io/",
   "jobs": ["transactional", "newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: Email API and SMTP send transactional email",
+      "newsletter": "F02: Email Marketing sends newsletters and promotional campaigns",
+      "marketing": "F21: automations that send email on contact and API events, with delays and splits"
+    }
+  },
   "line": "Email API, SMTP delivery and a separate email marketing service.",
   "free": { "kind": "free", "text": "API: 4,000 emails/month; marketing: 500 contacts, 1,500 emails" },
   "cells": {

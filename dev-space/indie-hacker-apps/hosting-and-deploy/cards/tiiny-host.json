@@ -3,6 +3,13 @@
   "name": "Tiiny Host",
   "url": "https://tiiny.host/",
   "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed website publishing for HTML, CSS and JavaScript sites with provider-operated HTTPS",
+      "paas": "04: paid PHP apps are a listed hosted project type"
+    }
+  },
   "line": "Publishes static sites and runs paid PHP apps.",
   "free": { "kind": "free", "text": "1 project, 3 MB, 5,000 visits/mo; log in every 3 months" },
   "cells": {

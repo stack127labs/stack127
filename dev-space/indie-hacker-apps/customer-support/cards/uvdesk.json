@@ -4,8 +4,17 @@
   "url": "https://www.uvdesk.com/",
   "jobs": [
     "helpdesk",
-    "inbox"
+    "inbox",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: knowledge base with public articles",
+      "helpdesk": "F17: Mailbox integration turns incoming email into tickets; F21: knowledge base with public articles",
+      "inbox": "F18: Agents, groups and teams with private notes, saved replies and workflow rules on the shared ticket queue"
+    }
+  },
   "line": "Open-source help desk with shared tickets, email, and knowledge base.",
   "free": {
     "kind": "selfhost",

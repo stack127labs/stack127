@@ -3,6 +3,12 @@
   "name": "GitLab Pages",
   "url": "https://docs.gitlab.com/user/project/pages/",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static website hosting; repository changes are built and published with GitLab CI/CD"
+    }
+  },
   "line": "Build and publish static websites from GitLab repositories.",
   "free": { "kind": "free", "text": "Free plan includes 400 CI compute minutes per namespace monthly" },
   "cells": { "type": "Static hosting", "regions": "GitLab.com hosted infrastructure", "selfhost": "No" },

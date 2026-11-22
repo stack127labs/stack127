@@ -2,7 +2,14 @@
   "slug": "alwaysdata",
   "name": "alwaysdata",
   "url": "https://www.alwaysdata.com/en/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed shared hosting; alwaysdata runs the stack and the customer deploys applications",
+      "static": "04: static websites are a supported site type on the hosted account"
+    }
+  },
   "line": "Managed shared hosting for websites, apps, and databases.",
   "free": { "kind": "free", "text": "Free personal/non-profit plan: 1 GB disk, 256 MB RAM" },
   "cells": { "type": "Managed hosting", "regions": "Paris, France", "selfhost": "No" },

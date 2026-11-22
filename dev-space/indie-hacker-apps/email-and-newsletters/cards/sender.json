@@ -2,7 +2,16 @@
   "slug": "sender",
   "name": "Sender",
   "url": "https://www.sender.net/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F01: email marketing and transactional platform; lifecycle workflows listed in F02",
+      "newsletter": "F02: newsletters and campaigns to consented subscribers",
+      "transactional": "F02: REST API and SMTP relay for transactional app email",
+      "multichannel": "F02: SMS is listed with campaigns, lifecycle workflows and transactional mail"
+    }
+  },
   "line": "Email campaigns, lifecycle workflows and transactional API/SMTP.",
   "free": { "kind": "free", "text": "Free for 2,500 subscribers and 15,000 emails per month" },
   "cells": {

@@ -2,7 +2,16 @@
   "slug": "cronitor",
   "name": "Cronitor",
   "url": "https://cronitor.io/",
-  "jobs": ["errors", "uptime", "status", "cron"],
+  "jobs": ["cron", "errors", "uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "cron": "C02: missed, failed and late job detection via heartbeat monitors (J01, J02)",
+      "errors": "E01: website RUM collects JavaScript error events; server exceptions not described",
+      "uptime": "U01, U02: HTTP and TCP checks with assertions and frequency options",
+      "status": "S01, S03: hosted status pages with incidents and components from monitors"
+    }
+  },
   "line": "Monitors scheduled jobs and endpoints, browser errors, and status pages.",
   "free": { "kind": "free", "text": "5 monitors, 1 basic status page, 50 subscribers; no card" },
   "cells": {

@@ -2,9 +2,14 @@
   "slug": "coolify",
   "name": "Coolify",
   "url": "https://coolify.io/",
-  "jobs": [
-    "panel"
-  ],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: self-hosted control plane installed on the customer's Linux server; it manages Docker deployments there",
+      "static": "04: deploys static sites as a listed application type"
+    }
+  },
   "line": "Open-source deploy panel you install on your own server.",
   "free": {
     "kind": "selfhost",

@@ -2,9 +2,14 @@
   "slug": "dokploy",
   "name": "Dokploy",
   "url": "https://dokploy.com/",
-  "jobs": [
-    "panel"
-  ],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: self-hosted controller and UI; apps, databases and proxy run on the customer's own servers",
+      "static": "04: static NGINX-served output is a listed deployment type"
+    }
+  },
   "line": "Open-source deploy panel for your own servers, with a paid Cloud option.",
   "free": {
     "kind": "selfhost",

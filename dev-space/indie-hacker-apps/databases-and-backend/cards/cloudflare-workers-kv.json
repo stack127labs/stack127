@@ -3,6 +3,12 @@
   "name": "Cloudflare Workers KV",
   "url": "https://developers.cloudflare.com/kv/",
   "jobs": ["kv"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: hosted key-value store for configuration and cached data; D01: get, put, delete and prefix listing"
+    }
+  },
   "line": "Store and read key-value data across Cloudflare's global network.",
   "free": { "kind": "free", "text": "1 GB stored; 100,000 reads and 1,000 writes per day" },
   "cells": {

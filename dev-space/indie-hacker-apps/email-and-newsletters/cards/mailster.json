@@ -3,6 +3,14 @@
   "name": "Mailster",
   "url": "https://mailster.co/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: manual campaigns and RSS or post newsletters",
+      "marketing": "F02: welcome, birthday and follow-up emails plus visual email workflows",
+      "transactional": "F02: can replace WordPress wp_mail delivery, including third-party plugin mail"
+    }
+  },
   "line": "WordPress newsletter campaigns, automations and site email delivery.",
   "free": { "kind": "trial", "text": "14-day trial; trial sending quota is not published" },
   "cells": {

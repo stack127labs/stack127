@@ -2,7 +2,15 @@
   "slug": "logrocket",
   "name": "LogRocket",
   "url": "https://logrocket.com/",
-  "jobs": ["replay", "product"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is session replay with product analytics; F17: DOM-based web replay with click, scroll and conversion maps",
+      "web": "F15: page views, sessions, landing and last pages, referrers, country and UTM groupings",
+      "product": "F16: custom events with forward and reverse path analysis; F15: single and cross-session funnels"
+    }
+  },
   "line": "Records app sessions and connects user behavior to frontend problems.",
   "free": { "kind": "free", "text": "Free up to 1,000 sessions a month" },
   "cells": {

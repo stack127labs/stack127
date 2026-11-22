@@ -2,7 +2,14 @@
   "slug": "hestia-control-panel",
   "name": "Hestia Control Panel",
   "url": "https://hestiacp.com/",
-  "jobs": ["panel"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: free panel software installed on a server the user supplies; it manages hosting on that server",
+      "static": "04: can serve static websites through configured web domains and templates"
+    }
+  },
   "line": "Manage websites and services on a server you supply.",
   "free": { "kind": "selfhost", "text": "Free GPL-3.0 panel software; provide a server" },
   "cells": { "type": "Self-hosted panel", "regions": "Your server's region", "selfhost": "Yes; install on a supported OS with root access" },

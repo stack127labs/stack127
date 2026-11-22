@@ -6,6 +6,13 @@
     "newsletter",
     "marketing"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter broadcasts",
+      "marketing": "F02: marketing sequences and behavior-based marketing journeys"
+    }
+  },
   "line": "Creator newsletters with automations and paid subscriptions.",
   "free": {
     "kind": "free",

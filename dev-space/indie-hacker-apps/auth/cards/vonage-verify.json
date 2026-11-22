@@ -3,6 +3,12 @@
   "name": "Vonage Verify",
   "url": "https://www.vonage.com/communications-apis/verify/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted OTP and verification API; builder stores app users and sessions; F35: no self-hosted edition"
+    }
+  },
   "line": "Hosted phone and message verification for app login flows.",
   "free": { "kind": "credits", "text": "€2 trial credit; test-recipient limits apply" },
   "cells": {

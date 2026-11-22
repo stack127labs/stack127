@@ -3,6 +3,12 @@
   "name": "ChartMogul",
   "url": "https://chartmogul.com/",
   "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is subscription revenue analytics; F19: MRR, ARR, churn, expansion and refund reports from billing sources"
+    }
+  },
   "line": "Subscription revenue reports for MRR, churn and customer cohorts.",
   "free": {"kind": "free", "text": "Free up to $10,000 MRR"},
   "cells": {

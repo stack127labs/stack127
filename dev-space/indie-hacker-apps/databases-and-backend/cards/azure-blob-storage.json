@@ -3,6 +3,12 @@
   "name": "Azure Blob Storage",
   "url": "https://azure.microsoft.com/en-us/products/storage/blobs",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is the primary type; F04: block blob upload limits documented"
+    }
+  },
   "line": "Store unstructured files in Microsoft Azure.",
   "free": { "kind": "trial", "text": "5 GB Hot storage for 12 months; free account may disable after 30 days" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "fluentcrm",
   "name": "FluentCRM",
   "url": "https://fluentcrm.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: drip sequences and behavior-driven marketing workflows; F01 calls it an email marketing plugin",
+      "newsletter": "F02: campaigns and newsletters, scheduled and recurring",
+      "transactional": "F02: REST custom-email endpoint sends one-off email from your code; delivery via wp_mail or FluentSMTP"
+    }
+  },
   "line": "Run newsletters and marketing automation on WordPress, with external email delivery.",
   "free": { "kind": "selfhost", "text": "Free plugin; you provide WordPress hosting and an email sender" },
   "cells": { "newsletters": "Yes", "api": "Yes, REST API" },

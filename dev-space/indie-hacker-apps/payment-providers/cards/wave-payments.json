@@ -2,11 +2,15 @@
   "slug": "wave-payments",
   "name": "Wave Payments",
   "url": "https://www.waveapps.com/payments",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment processing for the merchant's own invoiced sales",
+      "billing": "F14: recurring invoices automatically charge a saved card; recurring Checkout",
+      "links": "F16: Hosted Checkout shared by URL, website button or QR code"
+    }
+  },
   "line": "Online invoice payments, recurring invoices, and hosted checkout.",
   "free": {
     "kind": "free",

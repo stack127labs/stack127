@@ -2,7 +2,14 @@
   "slug": "deployhq",
   "name": "DeployHQ",
   "url": "https://www.deployhq.com/",
-  "jobs": ["panel"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted control panel and build service that sends code to the customer's own targets; not free self-hosted software",
+      "static": "03: Managed Static Hosting add-on can be attached to a plan; the research file marks it as beta"
+    }
+  },
   "line": "Build and deploy code to servers and storage you choose.",
   "free": { "kind": "free", "text": "Free personal: 1 project, 5 servers, 30 build min, 3 deploys/day" },
   "cells": { "type": "Deployment service", "regions": "Your selected server or storage region", "selfhost": "No" },

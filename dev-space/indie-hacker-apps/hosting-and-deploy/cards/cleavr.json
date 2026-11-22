@@ -2,7 +2,14 @@
   "slug": "cleavr",
   "name": "Cleavr",
   "url": "https://cleavr.io/",
-  "jobs": ["panel"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted control panel that provisions and manages app servers the customer rents; paid, not free self-hosted software",
+      "static": "04: supports static sites on the customer's server"
+    }
+  },
   "line": "Manage deployments to servers rented from cloud providers.",
   "free": { "kind": "trial", "text": "5-day Pro trial; card requirement differs by page" },
   "cells": { "type": "Deployment panel", "regions": "Your server provider's regions", "selfhost": "Yes; connect servers you manage" },

@@ -2,7 +2,15 @@
   "slug": "hetrixtools",
   "name": "HetrixTools",
   "url": "https://hetrixtools.com/",
-  "jobs": ["uptime", "status", "performance", "cron"],
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, ping, port and SMTP checks every 60 s on all plans",
+      "status": "S01, S03: status pages built from monitored targets, with manual updates",
+      "cron": "J01, J02: heartbeat jobs with cron strings, grace periods and missing-ping down state"
+    }
+  },
   "line": "Monitors websites, servers and heartbeats, with status pages and alerts.",
   "free": { "kind": "free", "text": "15 uptime monitors, 60-second checks, 3 own domains" },
   "cells": {

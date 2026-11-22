@@ -3,6 +3,12 @@
   "name": "Zoho CPaaS",
   "url": "https://www.zoho.com/cpaas/",
   "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and application-generated email, including OTPs, password resets and receipts"
+    }
+  },
   "line": "Transactional email delivery through API and SMTP.",
   "free": { "kind": "credits", "text": "One credit, up to 10,000 emails; 100/day, valid 1 month" },
   "cells": {

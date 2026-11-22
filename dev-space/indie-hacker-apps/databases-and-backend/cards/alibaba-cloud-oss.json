@@ -3,6 +3,12 @@
   "name": "Alibaba Cloud OSS",
   "url": "https://www.alibabacloud.com/product/oss",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is the primary type; F05: S3 bucket operations subset"
+    }
+  },
   "line": "Regional S3-compatible object storage for app files and backups.",
   "free": { "kind": "credits", "text": "One-month trial quota for eligible new accounts" },
   "cells": {

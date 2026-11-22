@@ -2,7 +2,16 @@
   "slug": "back4app",
   "name": "Back4App",
   "url": "https://www.back4app.com/",
-  "jobs": ["backend", "sql", "files", "jobs"],
+  "jobs": ["backend", "nosql", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: MongoDB document database is the managed data store on Back4App",
+      "backend": "C02: managed backend platform; C07: database, auth, file storage and Cloud Code documented",
+      "files": "F01: included file pool with excess pricing; F04: 20MB default file size",
+      "jobs": "J04: cron-style recurring Cloud Jobs with start time, repeat interval and Run now"
+    }
+  },
   "line": "Build apps with a managed Parse database, auth, files, and functions.",
   "free": { "kind": "free", "text": "25K requests, 250 MB database, 1 GB files monthly" },
   "cells": {

@@ -2,11 +2,14 @@
   "slug": "wix-payments",
   "name": "Wix Payments",
   "url": "https://www.wix.com/payments",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: integrated payment gateway; the seller is the merchant of record for its sales",
+      "links": "F16: Wix Pay Links create shareable payment URLs for a custom amount or catalog item"
+    }
+  },
   "line": "Integrated payments, recurring charges, and payment links for Wix sites.",
   "free": {
     "kind": "none",

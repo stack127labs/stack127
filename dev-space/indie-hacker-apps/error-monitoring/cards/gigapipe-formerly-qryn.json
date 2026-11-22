@@ -3,6 +3,13 @@
   "name": "Gigapipe",
   "url": "https://gigapipe.com/",
   "jobs": ["logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: logs stored and queried with LogQL and live tail (L02)",
+      "performance": "A01: distributed traces, service graphs and continuous profiles (A01)"
+    }
+  },
   "line": "Stores and queries logs, metrics, traces and profiles in one backend.",
   "free": { "kind": "selfhost", "text": "Free AGPL software; hosting and backups are your cost" },
   "cells": {

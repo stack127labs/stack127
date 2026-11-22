@@ -3,6 +3,12 @@
   "name": "GoAccess",
   "url": "https://goaccess.io/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is server-log web analytics; F15: requests, visitors, referrers, UTM campaigns and countries"
+    }
+  },
   "line": "Web traffic reports generated from server access logs.",
   "free": { "kind": "selfhost", "text": "Free and open source; you run the analyzer" },
   "cells": { "cookieless": "Yes (uses IP and browser fingerprinting)", "location": "Your server", "selfhost": "Yes" },

@@ -3,6 +3,12 @@
   "name": "ArvanCloud Cloud Container",
   "url": "https://www.arvancloud.ir/en/products/cloud-container",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed Kubernetes and container platform; ArvanCloud operates the cluster and users deploy images"
+    }
+  },
   "line": "Deploy and scale container workloads on managed Kubernetes.",
   "free": { "kind": "free", "text": "Free upload traffic and first 250 GB download tier" },
   "cells": { "type": "Managed containers", "regions": "Iran and Europe; region sources conflict", "selfhost": "No" },

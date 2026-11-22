@@ -2,7 +2,17 @@
   "slug": "deadbro",
   "name": "DeadBro",
   "url": "https://www.deadbro.com/",
-  "jobs": ["errors", "uptime", "status", "logs", "performance"],
+  "jobs": ["performance", "errors", "uptime", "status", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: Rails APM is a primary job; request, SQL and queue timings (A01)",
+      "errors": "E01: unhandled Rails exceptions captured and grouped automatically",
+      "uptime": "U01, U04: HTTP website checks with content matching and a short stabilization delay",
+      "status": "S01: public status page per website check, viewable without login",
+      "logs": "L02: Growth+ log viewer browses lines by severity, linked to requests"
+    }
+  },
   "line": "Monitors Rails errors, requests, jobs, logs and website availability.",
   "free": { "kind": "free", "text": "50,000 requests/month, 1 app, 1 URL; no card" },
   "cells": {

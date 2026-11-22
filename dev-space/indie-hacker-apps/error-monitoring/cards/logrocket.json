@@ -3,6 +3,13 @@
   "name": "LogRocket",
   "url": "https://logrocket.com/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: frontend and mobile errors and crashes, grouped into issues (E01)",
+      "performance": "A01: real-user page-load timelines, long tasks and network timings"
+    }
+  },
   "line": "Pairs browser and mobile errors with session replay and user context.",
   "free": { "kind": "free", "text": "1,000 sessions/month; Free forever" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "prisma-postgres",
   "name": "Prisma Postgres",
   "url": "https://www.prisma.io/postgres",
-  "jobs": ["sql", "files", "jobs", "vector"],
+  "jobs": ["sql", "files", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: hosted serverless SQL database is the primary type; D01: managed PostgreSQL 17",
+      "files": "C07: optional project Object Store supports files; F05: described as S3-compatible",
+      "vector": "V01: pgvector supported and enabled with CREATE EXTENSION vector"
+    }
+  },
   "line": "Managed PostgreSQL with optional Compute, Object Store, and vector search.",
   "free": { "kind": "free", "text": "200K ops, 2GB; unclaimed DBs delete after 24h; claimed Free DBs idle to zero" },
   "cells": {

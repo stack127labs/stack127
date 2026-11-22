@@ -1,0 +1,17 @@
+{
+  "slug": "vps-net",
+  "name": "VPS.NET SSD VPS",
+  "official_url": "https://www.vps.net/",
+  "image_url": "https://www.vps.net/includes/images/og-logo.png",
+  "source_page": "https://www.vps.net/",
+  "kind": "logo-mark",
+  "source_host": "vps.net",
+  "original": {
+    "format": "png",
+    "width": 200,
+    "height": 200
+  },
+  "sha256": "42ff3711640e435847f30196c8726f95bde371af40ce6e633bc5852b2726ab4d",
+  "note": "square logo: cube mark with the VPS.NET wordmark under it; the site's only other icon is 16 px",
+  "saved_at": "2026-11-22"
+}

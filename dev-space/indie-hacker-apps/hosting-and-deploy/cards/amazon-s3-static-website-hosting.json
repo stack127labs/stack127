@@ -3,6 +3,12 @@
   "name": "Amazon S3 static website hosting",
   "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "04: static websites from bucket website configuration; no server-side scripting"
+    }
+  },
   "line": "Host static website files from an Amazon S3 bucket.",
   "free": { "kind": "credits", "text": "AWS credits; recurring transfer allowance is shared across services" },
   "cells": { "type": "Object storage hosting", "regions": "AWS Regions; CloudFront adds global edges", "selfhost": "No" },

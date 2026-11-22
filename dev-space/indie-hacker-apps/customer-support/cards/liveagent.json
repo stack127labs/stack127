@@ -2,7 +2,17 @@
   "slug": "liveagent",
   "name": "LiveAgent",
   "url": "https://www.liveagent.com/",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: self-service content is part of the help desk",
+      "helpdesk": "F17: Native email ticketing on all paid plans; F21: native help center with public and internal articles",
+      "chat": "F17: Native JavaScript chat widget on all paid plans, with chat-button limits by plan",
+      "ai": "F22: AI chatbot answers in website chat before or alongside human support, using configured knowledge",
+      "inbox": "F18: Assignment and department routing, canned responses, private notes and collision detection in one workspace"
+    }
+  },
   "line": "Help desk with shared tickets, website chat, and a customer portal.",
   "free": { "kind": "trial", "text": "30-day trial, no card" },
   "cells": {

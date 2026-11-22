@@ -2,7 +2,14 @@
   "slug": "squarespace-email-campaigns",
   "name": "Squarespace Email Campaigns",
   "url": "https://www.squarespace.com/email-marketing",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: subscriber journeys and website-linked customer automations; F01 says email marketing product",
+      "newsletter": "F02: blast newsletters to subscribers"
+    }
+  },
   "line": "Hosted newsletters and website-linked marketing and transactional automations.",
   "free": { "kind": "trial", "text": "Up to 3 trial blast campaigns; recipient limits unknown" },
   "cells": {

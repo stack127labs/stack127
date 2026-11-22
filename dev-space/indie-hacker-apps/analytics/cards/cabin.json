@@ -3,6 +3,12 @@
   "name": "Cabin",
   "url": "https://withcabin.com/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics; F15: pageviews, referrers, pages, countries and UTM campaigns"
+    }
+  },
   "line": "Website analytics for traffic, scroll depth and page activity.",
   "free": {"kind": "free", "text": "Free for one domain up to 10,000 pageviews/month"},
   "cells": {

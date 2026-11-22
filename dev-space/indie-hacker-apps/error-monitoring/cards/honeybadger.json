@@ -10,6 +10,17 @@
     "performance",
     "cron"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: primary job is application error tracking (E01, E03)",
+      "uptime": "U01, U02: HTTP uptime checks from five locations, with SSL warnings (U05)",
+      "status": "C02: customer-facing status pages for communicating incidents",
+      "logs": "L02: BadgerQL field filters, aggregations and dashboards over events",
+      "performance": "A01: Rails request timing, slow queries and OTLP traces",
+      "cron": "J01, J02: check-ins with cron schedules, grace periods and missed-report alerts"
+    }
+  },
   "line": "Errors, uptime, check-ins and status pages for small teams.",
   "free": {
     "kind": "free",

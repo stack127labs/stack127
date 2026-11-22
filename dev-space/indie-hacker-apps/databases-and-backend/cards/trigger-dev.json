@@ -2,9 +2,13 @@
   "slug": "trigger-dev",
   "name": "Trigger.dev",
   "url": "https://trigger.dev/",
-  "jobs": [
-    "jobs"
-  ],
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed durable task and workflow execution with queues and schedules; J04: declarative cron schedules"
+    }
+  },
   "line": "Background jobs and workflows written as code, hosted or self-hosted.",
   "free": {
     "kind": "free",

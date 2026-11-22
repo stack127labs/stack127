@@ -3,6 +3,14 @@
   "name": "Kissmetrics",
   "url": "https://kissmetrics.io/",
   "jobs": ["product", "web", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is person-level product and customer-journey analytics; F16: funnels, activity and paid paths",
+      "web": "F15: landing page, referrer, device and UTM campaign records for visits",
+      "revenue": "F19: revenue reports for new and recurring revenue, churn and channel attribution, from browser, server and Shopify sources"
+    }
+  },
   "line": "Connects product events to customer journeys and revenue reports.",
   "free": { "kind": "free", "text": "Free: 100,000 events/month, 3 seats, 3 active integrations" },
   "cells": {

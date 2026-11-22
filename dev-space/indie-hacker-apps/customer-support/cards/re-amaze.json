@@ -2,7 +2,16 @@
   "slug": "re-amaze",
   "name": "Re:amaze",
   "url": "https://www.reamaze.com/",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["inbox", "helpdesk", "chat", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F18: Assignment, internal notes, @mentions, saved replies and workflow routing for the shared team inbox",
+      "helpdesk": "F01: Hosted help desk, chat and engagement product; F21: FAQ help site with public articles",
+      "chat": "F17: Native Reamaze.js shoutbox with two-way website messaging; Basic includes chat",
+      "ai": "F22: AI Agent answers chat, email and SMS on its own from enabled knowledge sources"
+    }
+  },
   "line": "Shared support inbox for email, website chat, social, and ecommerce.",
   "free": { "kind": "trial", "text": "14-day trial, no card" },
   "cells": {

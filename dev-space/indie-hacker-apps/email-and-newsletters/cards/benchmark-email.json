@@ -2,7 +2,13 @@
   "slug": "benchmark-email",
   "name": "Benchmark Email",
   "url": "https://www.benchmarkemail.com/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter and promotional broadcasts with scheduled campaigns"
+    }
+  },
   "line": "Email newsletters and promotional campaigns with contact lists.",
   "free": {"kind": "free", "text": "500 or 525 contacts; 1,000 or 2,500 sends/month (limits differ)"},
   "cells": {"newsletters": "Yes", "api": "Yes"},

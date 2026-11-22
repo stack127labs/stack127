@@ -2,7 +2,14 @@
   "slug": "campaignlark",
   "name": "CampaignLark",
   "url": "https://campaignlark.com/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing automation and promotional campaigns; F01 calls it an email marketing product",
+      "newsletter": "F02: newsletter broadcasts sent from the hosted workspace"
+    }
+  },
   "line": "Newsletter campaigns and marketing automation with audience segments.",
   "free": {"kind": "free", "text": "5,000 contacts; 1,000 email sends/month"},
   "cells": {"newsletters": "Yes", "api": "Yes, campaign and event APIs"},

@@ -2,7 +2,15 @@
   "slug": "remarkety",
   "name": "Remarkety",
   "url": "https://www.remarkety.com/",
-  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "jobs": ["marketing", "newsletter", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: commerce lifecycle automation",
+      "newsletter": "F02: newsletters and promotional campaigns",
+      "multichannel": "F01: commerce email and SMS marketing product"
+    }
+  },
   "line": "Commerce email campaigns, lifecycle automation and SMS marketing.",
   "free": { "kind": "trial", "text": "14-day trial; CSV import limit differs by page" },
   "cells": {

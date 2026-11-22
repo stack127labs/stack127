@@ -3,6 +3,14 @@
   "name": "Tilopay",
   "url": "https://tilopay.com/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment facilitator that processes and settles; the merchant sells its own goods",
+      "billing": "F14: Tilopay charges subscriptions on schedule; F15: plans, trials and daily retries up to 30 days",
+      "links": "F16: payment links and QR codes made from the panel, no website needed"
+    }
+  },
   "line": "Central American gateway for checkout, recurring payments, and payment links.",
   "free": { "kind": "none", "text": "No monthly or annual platform fee; transaction fees apply" },
   "cells": {

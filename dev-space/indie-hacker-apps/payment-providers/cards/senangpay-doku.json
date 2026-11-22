@@ -3,6 +3,14 @@
   "name": "senangPay-DOKU",
   "url": "https://senangpay.com/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and facilitator; the merchant is the seller to the buyer",
+      "billing": "F14: FlexiBill plans and subscriptions with saved-card auto-debit; F15: no automatic retries",
+      "links": "F16: hosted Payment Links and Digital Catalog; up to 10 custom links a month"
+    }
+  },
   "line": "Malaysian gateway for cards, online banking, subscriptions, and payment links.",
   "free": { "kind": "none", "text": "Starter RM199/year; Advance RM349/year, plus transaction fees" },
   "cells": {

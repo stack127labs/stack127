@@ -3,6 +3,12 @@
   "name": "Weaviate",
   "url": "https://weaviate.io/",
   "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: vector database for AI applications is the primary role; V02: dense vector, BM25F and hybrid search"
+    }
+  },
   "line": "Managed vector database for semantic, hybrid and keyword search.",
   "free": { "kind": "free", "text": "100K objects; 1GB RAM/10GB disk; suspend at 7d inactive; delete at 30d inactive" },
   "cells": {

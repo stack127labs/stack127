@@ -2,7 +2,15 @@
   "slug": "payhere",
   "name": "PayHere",
   "url": "https://www.payhere.lk/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and third-party processor; the merchant remains the seller",
+      "billing": "F14: automatic fixed-interval subscriptions on Plus and Premium; F15: retries and cancellation",
+      "links": "F16: hosted redirect checkout and shareable payment links sent by chat, email or SMS"
+    }
+  },
   "line": "Sri Lankan gateway with payment links, checkout and recurring card plans.",
   "free": { "kind": "free", "text": "Lite plan has no monthly fee; recurring billing needs Plus or higher" },
   "cells": {

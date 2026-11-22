@@ -3,6 +3,12 @@
   "name": "VNG Cloud vServer",
   "url": "https://www.vngcloud.vn/vi/web/guest/product/vserver",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: IaaS VM; the customer chooses the OS image and manages the guest OS, installed apps and data"
+    }
+  },
   "line": "Virtual servers from VNG Cloud, now under the GreenNode brand.",
   "free": { "kind": "credits", "text": "Signup free usage may be offered within 3 days; amount unknown" },
   "cells": {

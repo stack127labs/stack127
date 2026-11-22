@@ -2,7 +2,15 @@
   "slug": "statuscake",
   "name": "StatusCake",
   "url": "https://www.statuscake.com/",
-  "jobs": ["uptime", "status", "performance", "cron"],
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external uptime, API and network checks with confirmation rules (U01, U04)",
+      "status": "S01, S03: hosted status pages with incidents and subscribers (S02)",
+      "cron": "J01, J02: push heartbeats with expected interval; missed push marks Down"
+    }
+  },
   "line": "Checks sites and APIs, watches servers, and publishes status pages.",
   "free": { "kind": "free", "text": "Free: 3 checks/15 min in client pricing; homepage says 10/5 min" },
   "cells": { "interval": "900 s free / 300 s homepage (conflict); 30 s Business", "maintained": "Hosted service" },

@@ -3,6 +3,12 @@
   "name": "Flask-Security (Flask-Security-Too)",
   "url": "https://flask-security-too.readthedocs.io/en/stable/",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Flask account toolkit in one MIT package; F05: developer runs the app and stores"
+    }
+  },
   "line": "Flask account toolkit for login, signup, recovery, and MFA.",
   "free": { "kind": "selfhost", "text": "Free MIT package; you host it" },
   "cells": {

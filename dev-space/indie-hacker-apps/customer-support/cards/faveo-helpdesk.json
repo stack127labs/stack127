@@ -4,8 +4,21 @@
   "url": "https://www.faveohelpdesk.com/",
   "jobs": [
     "helpdesk",
-    "inbox"
+    "chat",
+    "ai",
+    "inbox",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: customer-support ticketing with a shared inbox and knowledge base",
+      "helpdesk": "F02: Customer-support ticketing with a shared inbox and knowledge base; F17: email ticketing on all plans",
+      "chat": "F17: Elea advertises a native web widget with bots and live-agent handoff; Tawk and Intercom are third-party",
+      "ai": "F22: Elea autonomous agent answers customers; plan entitlement is conflicting, so check pricing before buying",
+      "inbox": "F17: Multiple shared inboxes and email ticketing on Freelancer, Startup, SME, Enterprise and Cloud plans"
+    }
+  },
   "line": "Email ticketing and customer support with hosted and self-managed options.",
   "free": {
     "kind": "free",

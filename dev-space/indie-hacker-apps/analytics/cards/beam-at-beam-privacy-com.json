@@ -3,6 +3,12 @@
   "name": "Beam",
   "url": "https://beam-privacy.com/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic and custom-event analytics; F15: pageviews, referrers, countries and UTM campaigns"
+    }
+  },
   "line": "Website analytics with pageview, referrer and campaign reports.",
   "free": {"kind": "free", "text": "Free for one site up to 50,000 pageviews/month"},
   "cells": {

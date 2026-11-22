@@ -3,6 +3,14 @@
   "name": "OpenUptime",
   "url": "https://openuptime.app/",
   "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, DNS, WebSocket and database handshake checks (U03)",
+      "status": "S01, S03: public status pages with components and automatic incidents",
+      "cron": "J01, J02: expected ping interval with grace; a missing ping creates a failure"
+    }
+  },
   "line": "Checks websites, APIs and databases, with alerts and public status pages.",
   "free": { "kind": "free", "text": "Free: 3 monitors, 300 s; 26,000 checks/month" },
   "cells": {

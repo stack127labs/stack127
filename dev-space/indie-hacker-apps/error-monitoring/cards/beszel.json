@@ -2,7 +2,13 @@
   "slug": "beszel",
   "name": "Beszel",
   "url": "https://beszel.dev/",
-  "jobs": ["uptime", "performance"],
+  "jobs": ["uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: Agents probe HTTP, TCP, ICMP and DNS targets with response time (U01, U02)"
+    }
+  },
   "line": "Monitors server health and probes ICMP, TCP, HTTP, and DNS targets.",
   "free": { "kind": "selfhost", "text": "Free MIT-licensed Hub and Agent; run them yourself" },
   "cells": { "interval": "1 s minimum; 30 s default", "maintained": "Last release 2026-10-22" },

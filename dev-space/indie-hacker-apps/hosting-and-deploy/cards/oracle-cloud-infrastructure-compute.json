@@ -3,6 +3,12 @@
   "name": "Oracle Cloud Infrastructure Compute",
   "url": "https://www.oracle.com/cloud/compute/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual machines; the customer manages the guest OS, application and firewall rules"
+    }
+  },
   "line": "Run virtual machines and manage the guest operating system yourself.",
   "free": { "kind": "free", "text": "Home region: 2 E2 Micro VMs, A1 2 OCPU/12 GB, 200 GB disk, 10 TB egress" },
   "cells": { "type": "Cloud compute", "regions": "Global regions; Always Free limited to home region", "selfhost": "No" },

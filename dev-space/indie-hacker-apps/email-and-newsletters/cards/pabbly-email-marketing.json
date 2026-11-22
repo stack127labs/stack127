@@ -3,6 +3,14 @@
   "name": "Pabbly Email Marketing",
   "url": "https://www.pabbly.com/email-marketing/",
   "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: automatic follow-ups and subscriber-triggered workflows",
+      "newsletter": "F02: newsletters, promotional broadcasts and scheduled campaigns",
+      "transactional": "F02: API sends a saved campaign to individual email addresses"
+    }
+  },
   "line": "Email campaigns, subscriber workflows and API-triggered sends.",
   "free": { "kind": "trial", "text": "Free for 100 contacts; duration listed as 30 days or ongoing" },
   "cells": {

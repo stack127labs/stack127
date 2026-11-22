@@ -2,7 +2,17 @@
   "slug": "middleware",
   "name": "Middleware",
   "url": "https://middleware.io/",
-  "jobs": ["errors", "logs", "uptime", "status", "performance"],
+  "jobs": ["performance", "errors", "uptime", "status", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: application and infrastructure performance and APM traces (A01)",
+      "errors": "E01: browser and APM errors grouped by message and stack signature",
+      "uptime": "U01: synthetic HTTP, TCP, ICMP, DNS and browser checks from many regions",
+      "status": "S01, S03: public beta status page with subscribers and incident history",
+      "logs": "L02: Log Explorer with full-text search, attribute filters and live view"
+    }
+  },
   "line": "Monitors application errors, logs and uptime, with public status pages.",
   "free": { "kind": "free", "text": "100 GB/month telemetry, 14-day retention; card required" },
   "cells": {

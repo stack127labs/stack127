@@ -2,7 +2,14 @@
   "slug": "dragonpay",
   "name": "Dragonpay",
   "url": "https://www.dragonpay.ph/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and processor; the merchant sells the goods and stays responsible",
+      "billing": "F14: subscriptions with weekly, monthly or yearly scheduling; F15: scheduled cycles and retries"
+    }
+  },
   "line": "Philippine online gateway now onboarding merchants through Xendit.",
   "free": { "kind": "none", "text": "$50 monthly minimum on the new route" },
   "cells": {

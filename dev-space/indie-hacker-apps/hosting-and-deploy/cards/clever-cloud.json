@@ -2,7 +2,14 @@
   "slug": "clever-cloud",
   "name": "Clever Cloud",
   "url": "https://www.clever.cloud/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed PaaS; the platform provisions and runs the customer's app instances",
+      "static": "04: static files and static site generator output are supported app types"
+    }
+  },
   "line": "Deploy and run apps on managed cloud instances.",
   "free": { "kind": "credits", "text": "€20 signup credit; expiry is not published" },
   "cells": { "type": "Managed app platform", "regions": "Paris example; other cloud regions", "selfhost": "No" },

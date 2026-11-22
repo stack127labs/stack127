@@ -2,7 +2,17 @@
   "slug": "livehelpnow",
   "name": "LiveHelpNow",
   "url": "https://livehelpnow.net/",
-  "jobs": ["helpdesk", "chat", "ai", "inbox"],
+  "jobs": ["chat", "helpdesk", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: knowledge base is part of the live chat and help desk product",
+      "chat": "F17: Native browser chat widget for websites; chats go to agents in the LiveHelpNow workspace",
+      "helpdesk": "F17: Email-to-ticket queue and portal submissions on Professional and above; F21: public knowledge base on Essential",
+      "ai": "F22: Hue AI gives customers Knowledge AI answers on paid tiers; included suggestions help agents",
+      "inbox": "F18: Emails queued by owner and status; ticket drafts shared across agents with internal notes"
+    }
+  },
   "line": "Live chat and help desk with tickets, customer portal, and AI tools.",
   "free": { "kind": "trial", "text": "Customized trial after demo; duration not published" },
   "cells": {

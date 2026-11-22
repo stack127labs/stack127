@@ -2,11 +2,15 @@
   "slug": "payu-india",
   "name": "PayU India",
   "url": "https://payu.in/",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and gateway; the merchant remains the seller",
+      "billing": "F15: Zion runs trials, plans, automatic charges and retries; enabled by account manager",
+      "links": "F16: no-code links, invoices and buttons, shared by email, SMS or WhatsApp"
+    }
+  },
   "line": "Indian gateway for recurring payments, subscription billing, and payment links.",
   "free": {
     "kind": "none",

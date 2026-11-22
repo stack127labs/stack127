@@ -2,10 +2,14 @@
   "slug": "paddle",
   "name": "Paddle",
   "url": "https://www.paddle.com/",
-  "jobs": [
-    "mor",
-    "billing"
-  ],
+  "jobs": ["mor", "billing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record and authorized reseller; Paddle sells and handles sales tax",
+      "billing": "F14: checkout subscriptions collect automatic renewals; F15: trials, seats, proration, retries"
+    }
+  },
   "line": "Merchant of record that handles tax and billing for software.",
   "free": {
     "kind": "none",

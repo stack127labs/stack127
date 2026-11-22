@@ -3,6 +3,12 @@
   "name": "BuyVM",
   "url": "https://buyvm.net/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: provider-run KVM virtual servers; the customer controls the guest OS and software"
+    }
+  },
   "line": "KVM virtual servers with root access and customer managed apps.",
   "free": { "kind": "none", "text": "No recurring free KVM VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Las Vegas, New York, Luxembourg; location lists conflict", "selfhost": "No" },

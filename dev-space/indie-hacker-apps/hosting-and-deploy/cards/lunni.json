@@ -3,6 +3,12 @@
   "name": "Lunni",
   "url": "https://lunni.dev/",
   "jobs": ["panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: self-hosted software the customer installs on their own Linux server; the public pricing shows $0 for self-hosted use"
+    }
+  },
   "line": "Deploy and manage Docker apps on a server you operate.",
   "free": { "kind": "selfhost", "text": "Free self-hosted software; provide the server and services" },
   "cells": { "type": "Self-hosted Docker PaaS", "regions": "Your server's region", "selfhost": "Yes; install on your Linux server" },

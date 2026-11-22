@@ -3,6 +3,15 @@
   "name": "Hyperping",
   "url": "https://hyperping.com/",
   "jobs": ["uptime", "status", "logs", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U03: HTTP, port, ICMP, DNS and browser checks from 18 regions",
+      "status": "S01, S03: hosted status pages; monitor outages update the page automatically",
+      "logs": "L02: log search and tail; labelled alpha and not for EU-only accounts (C03)",
+      "cron": "J01, J02: cron healthchecks with grace periods and start and success pings"
+    }
+  },
   "line": "Checks websites and cron jobs, collects logs and publishes status pages.",
   "free": { "kind": "free", "text": "20 monitors at 5-minute checks; 1 basic status page" },
   "cells": {

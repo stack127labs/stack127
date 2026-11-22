@@ -2,7 +2,15 @@
   "slug": "payrequest",
   "name": "PayRequest",
   "url": "https://payrequest.io/",
-  "jobs": ["links", "billing"],
+  "jobs": ["links", "billing", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "links": "F16: hosted payment links and pages with QR codes, shared by email or SMS, no website needed",
+      "billing": "F14: Business plan subscriptions with stored card or SEPA mandate; F15: retries and portal",
+      "crypto": "C01: native USDC checkout on Base and Solana; C02: seller's own wallet, no custody"
+    }
+  },
   "line": "Payment links, invoices and subscriptions through connected providers.",
   "free": { "kind": "free", "text": "Free: €0/month; 2% per payment, capped at €25" },
   "cells": {

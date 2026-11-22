@@ -3,6 +3,12 @@
   "name": "Vultr Cloud Compute",
   "url": "https://www.vultr.com/products/cloud-compute/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual machine; Vultr operates the cloud and the customer maintains the OS and app"
+    }
+  },
   "line": "Run websites, APIs and databases on a virtual server you manage.",
   "free": { "kind": "free", "text": "Free VM: 1 vCPU/512 MB/10 GB, 0 GB plan bandwidth; access terms unclear" },
   "cells": {
@@ -13,7 +19,7 @@
   "costs": {
     "work": [
       { "v": "Unknown", "plan": "vc2-1c-0.5gb + backups", "state": "unclear", "math": "$3.50 plan + $0.70 default backups = $4.20 a month subtotal before tax. 100 GB fits the 512 GB allowance, but the plan's single location is not named, so availability at EWR is not verified." },
-      { "v": "Unknown", "plan": "vc2-1c-1gb + backups", "state": "unclear", "math": "$5 plan + $1 default backups = $6 a month subtotal before tax. 100 GB fits 1 TB, but the plan's 31 locations are not named, so availability at EWR is not verified." },
+      { "v": "$6/mo", "plan": "vc2-1c-1gb + backups", "state": "unclear", "math": "$5 plan (1 vCPU, 1 GB RAM, 1 TB transfer) + $1 default backups = $6 a month. São Paulo costs $7.50 plus backups. Backups can be turned off for $5. No separate IPv4 price is stated." },
       { "v": "Unknown", "plan": "vc2-2c-4gb + backups", "state": "unclear", "math": "$20 plan + $4 default backups = $24 a month subtotal before tax. 100 GB fits 3 TB. Daily database dumps need setup. Snapshots cost $0.05 per GB a month (size unknown), and availability at EWR is not verified." }
     ]
   }

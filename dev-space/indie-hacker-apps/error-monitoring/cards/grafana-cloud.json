@@ -2,7 +2,16 @@
   "slug": "grafana-cloud",
   "name": "Grafana Cloud",
   "url": "https://grafana.com/products/cloud/",
-  "jobs": ["errors", "logs", "uptime", "performance"],
+  "jobs": ["performance", "errors", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: hosted metrics, traces and profiles; service and latency views (A01)",
+      "errors": "E01: Faro captures browser exceptions and unhandled rejections",
+      "uptime": "U01: HTTP, DNS, ping, TCP and browser checks, including k6 scripts",
+      "logs": "L02: label and text queries over logs, correlated with metrics and traces"
+    }
+  },
   "line": "Collects logs, metrics and traces, with application and synthetic monitoring.",
   "free": { "kind": "free", "text": "50 GB each of logs, traces and profiles/month; no card" },
   "cells": {

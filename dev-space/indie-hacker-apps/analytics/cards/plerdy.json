@@ -2,7 +2,16 @@
   "slug": "plerdy",
   "name": "Plerdy",
   "url": "https://www.plerdy.com/",
-  "jobs": ["replay", "web"],
+  "jobs": ["replay", "web", "product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is website behavior and conversion analytics; F17: web session replay with interaction timeline",
+      "web": "F15: sessions, channels, top pages, device, country and campaign tags",
+      "product": "F16: URL-step funnels counting unique sessions with drop-off, and element click events",
+      "revenue": "F19: orders, order value, products, daily revenue by channel and average order value"
+    }
+  },
   "line": "Combines website heatmaps, session replays, funnels, and SEO tools.",
   "free": { "kind": "free", "text": "Free: 100 views/day, 3 pages; 500 total replay sessions" },
   "cells": {

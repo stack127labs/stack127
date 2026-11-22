@@ -5,6 +5,12 @@
   "jobs": [
     "hosted"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted accounts, login and sessions; F05: Google operates the hosted identity backend"
+    }
+  },
   "line": "Google's hosted sign-in, free for basic methods.",
   "free": {
     "kind": "free",

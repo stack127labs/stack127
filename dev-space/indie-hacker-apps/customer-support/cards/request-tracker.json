@@ -4,8 +4,17 @@
   "url": "https://requesttracker.com/request-tracker/",
   "jobs": [
     "helpdesk",
-    "inbox"
+    "inbox",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: self-service portal with articles is part of the email help desk",
+      "helpdesk": "F17: Native incoming and outgoing email ticket tracking, plus web self-service ticket creation",
+      "inbox": "F18: Ticket owners, requestor and CC roles, internal comments; a free extension shows who is working a ticket"
+    }
+  },
   "line": "Self-hosted email help desk and request tracker with a customer portal.",
   "free": {
     "kind": "selfhost",

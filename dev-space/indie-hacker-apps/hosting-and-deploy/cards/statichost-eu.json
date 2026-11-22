@@ -3,6 +3,12 @@
   "name": "statichost.eu",
   "url": "https://www.statichost.eu/",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static hosting with a native Git and build platform; static sites are the core use"
+    }
+  },
   "line": "Build and host static sites with Git deployments and HTTPS.",
   "free": { "kind": "free", "text": "Hobby free for one site, 10 GB bandwidth and 100 build minutes" },
   "cells": { "type": "Static hosting", "regions": "Europe-wide CDN; exact nodes/redundancy unclear", "selfhost": "No" },

@@ -3,6 +3,12 @@
   "name": "ASP.NET Core Identity",
   "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded .NET framework libraries; F05: developer runs the app and user store"
+    }
+  },
   "line": "Account, password, role, and sign-in tools for .NET apps.",
   "free": { "kind": "selfhost", "text": "Free framework library; you host it" },
   "cells": {

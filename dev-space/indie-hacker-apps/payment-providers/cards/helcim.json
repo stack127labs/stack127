@@ -3,6 +3,14 @@
   "name": "Helcim",
   "url": "https://www.helcim.com/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and facilitator; the merchant sells its own goods",
+      "billing": "F14: Recurring Payments automatically charge stored cards or bank details; F15: plans and trials",
+      "links": "F16: no-code Hosted Payment Pages, payment links and QR codes with fixed or chosen amounts"
+    }
+  },
   "line": "US and Canadian payment processing with online checkout and invoicing.",
   "free": { "kind": "none", "text": "No monthly, setup, minimum or cancellation fee" },
   "cells": {

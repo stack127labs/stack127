@@ -3,6 +3,14 @@
   "name": "Audienceful",
   "url": "https://www.audienceful.com/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and marketing broadcasts to your contacts",
+      "marketing": "F02: lifecycle and marketing automations",
+      "transactional": "F02: native transactional API for receipts, resets and one-off messages"
+    }
+  },
   "line": "Newsletter publishing, marketing automations and transactional email.",
   "free": {"kind": "free", "text": "Free up to 1,000 contacts; 100 transactional sends/month"},
   "cells": {"newsletters": "Yes", "api": "Yes; sending needs a valid payment method"},

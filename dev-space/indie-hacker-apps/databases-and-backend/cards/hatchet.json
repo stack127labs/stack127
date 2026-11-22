@@ -3,6 +3,12 @@
   "name": "Hatchet",
   "url": "https://hatchet.run/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: background task queue and workflow orchestration engine; J04: cron and one-time scheduled runs"
+    }
+  },
   "line": "Coordinate durable background tasks and workflows on your own workers.",
   "free": { "kind": "free", "text": "With card: 1M runs/events monthly; 2K/day without; no Cloud idle deletion" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "payphone",
   "name": "PayPhone",
   "url": "https://payphone.app/",
-  "jobs": ["gateway", "links"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and infrastructure; the merchant is the seller",
+      "billing": "F14: optional Business subscription module runs periodic charges after consent; needs activation",
+      "links": "F16: shareable Payphone Business payment links with fixed or editable amounts"
+    }
+  },
   "line": "Ecuador payment gateway and wallet with links, QR and online checkout.",
   "free": { "kind": "none", "text": "No setup, monthly, affiliation or maintenance fee" },
   "cells": {

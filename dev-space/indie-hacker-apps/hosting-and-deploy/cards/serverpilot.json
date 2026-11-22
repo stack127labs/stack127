@@ -3,6 +3,12 @@
   "name": "ServerPilot",
   "url": "https://serverpilot.io/",
   "jobs": ["panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted dashboard and agent installed on the customer's own Linux server; it configures the web stack there"
+    }
+  },
   "line": "Manage PHP websites on Linux servers from a hosted dashboard.",
   "free": { "kind": "trial", "text": "14-day trial, no card; adding payment starts paid features" },
   "cells": { "type": "Server management panel", "regions": "App uses server region; dashboard region unlisted", "selfhost": "No; hosted panel, agent runs on your server" },

@@ -2,7 +2,14 @@
   "slug": "substack",
   "name": "Substack",
   "url": "https://substack.com/",
-  "jobs": ["newsletter"],
+  "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: editorial newsletter publishing with a web archive and email delivery",
+      "marketing": "F02: welcome emails and drip campaigns are documented or advertised"
+    }
+  },
   "line": "Publish editorial newsletters with a hosted web archive and paid subscriptions.",
   "free": { "kind": "free", "text": "Free publishing with no subscriber cap; send quota unknown" },
   "cells": {

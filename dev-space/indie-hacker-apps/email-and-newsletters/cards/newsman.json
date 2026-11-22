@@ -3,6 +3,14 @@
   "name": "NewsMAN",
   "url": "https://www.newsman.com/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: marketing newsletters and scheduled campaigns",
+      "marketing": "F02: behavioural and commerce journeys",
+      "transactional": "F02: transactional SMTP and HTTP API for account, order and password-reset messages"
+    }
+  },
   "line": "Newsletters, marketing journeys and transactional SMTP/API email.",
   "free": { "kind": "credits", "text": "Up to 1,000 subscribers and 5,000 email credits total" },
   "cells": {

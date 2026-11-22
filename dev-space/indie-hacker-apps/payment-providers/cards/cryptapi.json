@@ -3,6 +3,12 @@
   "name": "CryptAPI",
   "url": "https://cryptapi.io/",
   "jobs": ["crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts many coins and tokens on listed networks; C03: forwards them to your wallet"
+    }
+  },
   "line": "No-signup crypto payment API that forwards funds to your wallet.",
   "free": { "kind": "none", "text": "No setup or monthly fee; 1% at the lowest volume tier" },
   "cells": {

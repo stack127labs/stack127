@@ -3,6 +3,12 @@
   "name": "Authsignal",
   "url": "https://www.authsignal.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted passwordless and MFA layer on vendor APIs; F35: self-host not applicable"
+    }
+  },
   "line": "Passwordless login and extra authentication checks for apps.",
   "free": { "kind": "trial", "text": "30-day trial; no ongoing free plan listed" },
   "cells": {

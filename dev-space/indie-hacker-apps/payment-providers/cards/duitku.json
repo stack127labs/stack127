@@ -2,7 +2,13 @@
   "slug": "duitku",
   "name": "Duitku",
   "url": "https://www.duitku.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and aggregator; the merchant supplies the goods and services"
+    }
+  },
   "line": "Indonesian gateway for cards, bank transfers, wallets and payouts.",
   "free": { "kind": "none", "text": "No registration or system-maintenance fee" },
   "cells": {

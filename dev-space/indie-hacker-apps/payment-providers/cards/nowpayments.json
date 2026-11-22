@@ -2,7 +2,15 @@
   "slug": "nowpayments",
   "name": "NOWPayments",
   "url": "https://nowpayments.io/",
-  "jobs": ["crypto", "links"],
+  "jobs": ["crypto", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts many coins and tokens on listed networks; C02: standard flow sends to your wallet",
+      "billing": "F15: plans and subscribers managed in the dashboard and API; balance-based renewals",
+      "links": "F16: hosted invoice links from the dashboard or API, plus payment buttons"
+    }
+  },
   "line": "Crypto payment gateway with hosted checkout, links and wallet settlement.",
   "free": { "kind": "none", "text": "No setup or monthly fee; single-currency payments cost 1%" },
   "cells": {

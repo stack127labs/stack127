@@ -2,7 +2,15 @@
   "slug": "smartsupp",
   "name": "Smartsupp",
   "url": "https://www.smartsupp.com/",
-  "jobs": ["chat", "inbox", "ai"],
+  "jobs": ["chat", "ai", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native customer web widget and hosted chat page on all plans; paid human plans have unlimited conversations",
+      "ai": "F22: Mira autonomously answers FAQs and recommends products on the website; a separately priced AI",
+      "inbox": "F17: Native connected-mailbox inbox from Solo (Gmail, Outlook or IMAP); F18: open and resolved queues with assignment"
+    }
+  },
   "line": "Website chat and shared inbox for email, social, and ecommerce support.",
   "free": { "kind": "free", "text": "Free for 1 operator and 25 chats/month" },
   "cells": {

@@ -2,7 +2,14 @@
   "slug": "knowledgebase",
   "name": "KnowledgeBase",
   "url": "https://www.knowledgebase.com/",
-  "jobs": ["helpdesk", "ai"],
+  "jobs": ["kb", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: hosted customer help center and internal knowledge library, with AI search",
+      "ai": "F22: QuickAnswer generates answers to visitors' searches from help articles; visitors can rate them"
+    }
+  },
   "line": "Hosted customer help center with AI search and article writing.",
   "free": { "kind": "trial", "text": "14-day trial, no card" },
   "cells": {

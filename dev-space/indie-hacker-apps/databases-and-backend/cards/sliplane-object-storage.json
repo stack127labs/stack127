@@ -3,6 +3,12 @@
   "name": "Sliplane Object Storage",
   "url": "https://sliplane.io/object-storage",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted S3-compatible object storage for files and objects is the primary type; F05: standard S3 API"
+    }
+  },
   "line": "S3-compatible object storage with bucket-scoped keys and versioning.",
   "free": { "kind": "free", "text": "1GB avg/team; free requests/egress; no idle expiry; bucket deletion waits 24h" },
   "cells": {

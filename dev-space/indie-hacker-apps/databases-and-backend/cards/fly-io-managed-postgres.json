@@ -2,7 +2,14 @@
   "slug": "fly-io-managed-postgres",
   "name": "Fly.io Managed Postgres",
   "url": "https://docs.fly.io/postgres",
-  "jobs": ["sql"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed PostgreSQL database is the primary type; D01: native PostgreSQL 16 or 17",
+      "vector": "D08: pgvector HNSW and IVFFlat indexes supported on managed Postgres"
+    }
+  },
   "line": "Managed PostgreSQL clusters with built-in failover, pooling, and backups.",
   "free": { "kind": "credits", "text": "$1 for 7 days; resources may be deleted at expiry; no paid idle deletion rule" },
   "cells": {

@@ -2,7 +2,15 @@
   "slug": "payline",
   "name": "Payline",
   "url": "https://paylinedata.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: merchant processing and gateway; the merchant sells its own goods and services",
+      "billing": "F14: gateway recurring API with card subscriptions and repeated schedules; F15: plans",
+      "links": "F16: payment links and QuickClick button flows are public options, no full checkout needed"
+    }
+  },
   "line": "Online payment processor with hosted checkout, links and recurring billing.",
   "free": { "kind": "none", "text": "Processing, account and setup pricing are not published" },
   "cells": {

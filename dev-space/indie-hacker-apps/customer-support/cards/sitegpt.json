@@ -3,6 +3,14 @@
   "name": "SiteGPT",
   "url": "https://sitegpt.ai/",
   "jobs": ["ai", "chat", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Autonomous grounded answers on the website and connected channels; email auto-replies or drafts",
+      "chat": "F17: Native hosted website widget on any plan, with human replies and takeover from the AI",
+      "inbox": "F17: Native email integration on any active plan; F18: email rules send to the team or hold drafts for review"
+    }
+  },
   "line": "Website AI support agents with human replies and an optional inbox.",
   "free": { "kind": "trial", "text": "7-day trial; card required" },
   "cells": {

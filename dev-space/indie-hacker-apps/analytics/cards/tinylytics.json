@@ -1,6 +1,12 @@
 {
   "slug": "tinylytics", "name": "Tinylytics", "url": "https://tinylytics.app/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is hosted website traffic analytics; F15: hits, top pages, countries, referrers and campaigns"
+    }
+  },
   "line": "Website analytics with custom events and site health checks.",
   "free": {"kind": "trial", "text": "14-day full-feature trial, no credit card"},
   "cells": {"cookieless": "Yes (daily rotating visitor hash)", "location": "Falkenstein, Germany", "selfhost": "No (none found)"},

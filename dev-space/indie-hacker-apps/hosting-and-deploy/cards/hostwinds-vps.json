@@ -3,6 +3,12 @@
   "name": "Hostwinds VPS",
   "url": "https://www.hostwinds.com/vps/linux",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented VPS with customer root access; unmanaged plans leave OS and app upkeep to the customer"
+    }
+  },
   "line": "Rent a Linux virtual server with managed or unmanaged support.",
   "free": { "kind": "none", "text": "No recurring free VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Seattle, Dallas, Amsterdam; regional prices not listed", "selfhost": "No" },

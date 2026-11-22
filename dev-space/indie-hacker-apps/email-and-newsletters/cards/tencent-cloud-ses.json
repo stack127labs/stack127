@@ -2,7 +2,14 @@
   "slug": "tencent-cloud-ses",
   "name": "Tencent Cloud SES",
   "url": "https://www.tencentcloud.com/products/ses",
-  "jobs": ["transactional", "newsletter", "marketing"],
+  "jobs": ["transactional", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: app-generated email through API or SMTP, including verification codes and password resets",
+      "newsletter": "F02: supports marketing campaigns and newsletters with scheduled batch sends"
+    }
+  },
   "line": "Cloud email sending for campaigns, notifications and app messages.",
   "free": { "kind": "credits", "text": "1,000-email gift; renewal unclear; new domains start at 500/day" },
   "cells": {

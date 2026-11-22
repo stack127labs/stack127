@@ -2,7 +2,14 @@
   "slug": "ravion-successor-to-flightcontrol",
   "name": "Ravion",
   "url": "https://www.ravion.com/",
-  "jobs": ["paas"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted control plane that deploys into the customer's own AWS account; paid, not free self-hosted software",
+      "static": "04: supports static sites as a listed deployment type"
+    }
+  },
   "line": "Deploy apps and infrastructure into your AWS account.",
   "free": { "kind": "free", "text": "Free Individual: 1 user, 50 modules, 2,000 pipeline min/mo" },
   "cells": { "type": "AWS deployment platform", "regions": "Choose AWS region; Ravion control-plane region unlisted", "selfhost": "Yes; Enterprise on-prem only, custom pricing" },

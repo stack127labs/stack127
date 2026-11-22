@@ -1,0 +1,17 @@
+{
+  "slug": "newebpay",
+  "name": "NewebPay",
+  "official_url": "https://www.newebpay.com/",
+  "image_url": "https://www.newebpay.com/images/head.ico",
+  "source_page": "https://www.newebpay.com/",
+  "kind": "favicon",
+  "source_host": "newebpay.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "97a37b4f91a22ae14f0b46da0d7373683e8472a2953ba8f4426be4d822c6cab5",
+  "note": "largest official icon is 32 px; round striped NEWEBPAY mark",
+  "saved_at": "2026-11-22"
+}

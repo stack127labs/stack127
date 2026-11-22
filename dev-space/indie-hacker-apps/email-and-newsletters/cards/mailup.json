@@ -2,7 +2,16 @@
   "slug": "mailup",
   "name": "MailUp",
   "url": "https://mailup.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["newsletter", "marketing", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: email broadcasts and campaigns",
+      "marketing": "F02: automated email journeys",
+      "transactional": "F02: transactional email through the SMTP+ relay or transactional REST API",
+      "multichannel": "F02: SMS campaigns and automated email and SMS journeys"
+    }
+  },
   "line": "Email campaigns, automated journeys and transactional SMTP/API email.",
   "free": { "kind": "trial", "text": "15-day trial, up to 1,000 sends; trial API capped at 25/month" },
   "cells": {

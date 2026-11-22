@@ -2,7 +2,15 @@
   "slug": "onepay-vietnam",
   "name": "OnePay Vietnam",
   "url": "https://www.onepay.vn/",
-  "jobs": ["gateway", "links"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: electronic payment gateway; the merchant supplies the goods and its own sale terms",
+      "billing": "F14: automatic recurring collection advertised with preconfigured instructions; intervals not confirmed",
+      "links": "F16: payment links can be created and sent by email or chat"
+    }
+  },
   "line": "Vietnam gateway for website and app checkout, payment links and collections.",
   "free": { "kind": "none", "text": "Registration, monthly and transaction amounts not published" },
   "cells": {

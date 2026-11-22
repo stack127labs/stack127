@@ -3,6 +3,13 @@
   "name": "Alibaba Cloud DirectMail",
   "url": "https://www.alibabacloud.com/en/product/directmail",
   "jobs": ["transactional", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: event-triggered app email sent through the API or SMTP",
+      "newsletter": "F02: console batch sends to uploaded lists of opted-in members, using reviewed templates"
+    }
+  },
   "line": "Email delivery for app messages and consent-based batch campaigns.",
   "free": {"kind": "credits", "text": "One-time 2,000 emails; up to 200/day"},
   "cells": {"newsletters": "Yes, opted-in lists", "api": "Yes, plus SMTP"},

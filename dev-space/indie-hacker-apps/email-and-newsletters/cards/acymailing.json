@@ -3,6 +3,14 @@
   "name": "AcyMailing",
   "url": "https://www.acymailing.com/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and scheduled campaigns in the WordPress or Joomla plugin",
+      "marketing": "F02: follow-up sequences and event-based marketing",
+      "transactional": "F02: plugin template-send REST endpoint sends app email; a hosted MIME-send API also exists"
+    }
+  },
   "line": "WordPress and Joomla email campaigns with a separate app email API.",
   "free": {"kind": "free", "text": "Free plugin; 500 bundled emails/month"},
   "cells": {"newsletters": "Yes", "api": "Yes; plugin REST API needs Essential or above"},

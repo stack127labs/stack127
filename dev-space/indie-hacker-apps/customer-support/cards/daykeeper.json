@@ -2,7 +2,14 @@
   "slug": "daykeeper",
   "name": "Daykeeper",
   "url": "https://www.mydaykeeper.com/",
-  "jobs": ["inbox", "chat", "helpdesk", "ai"],
+  "jobs": ["inbox", "chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F02: Shared support inbox where people pick up and reply; verified support email on Pro and Scale (F17)",
+      "chat": "F17: Native Daykeeper web messenger widget on Free and paid plans"
+    }
+  },
   "line": "Developer-focused support inbox for humans and software agents.",
   "free": { "kind": "free", "text": "Free: 1 inbox and 100 conversations/month" },
   "cells": {

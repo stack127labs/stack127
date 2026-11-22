@@ -3,6 +3,12 @@
   "name": "Sorry",
   "url": "https://www.sorryapp.com/",
   "jobs": ["status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: public or private status pages with incidents and maintenance (S03)"
+    }
+  },
   "line": "Publishes status pages, incident updates, and scheduled maintenance notices.",
   "free": { "kind": "trial", "text": "7-day trial, no card; an older guide says 14 days" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

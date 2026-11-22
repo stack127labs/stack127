@@ -4,10 +4,21 @@
   "url": "https://crisp.chat/en/",
   "jobs": [
     "chat",
-    "inbox",
     "helpdesk",
-    "ai"
+    "ai",
+    "inbox",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F17: help center is included on the Essentials and Plus plans",
+      "chat": "F06: Free plan includes website live chat, shared inbox, contact form and chat SDKs",
+      "helpdesk": "F17: Plus Ticket Center lets customers create and reply to requests; help center on Essentials and Plus",
+      "ai": "F24: Hugo answers customers, escalates to people and allows manual takeover; Mini includes Hugo credits",
+      "inbox": "F17: Shared support email starts on Mini; forward a support mailbox to Crisp and reply from the shared inbox"
+    }
+  },
   "line": "Website chat, shared inbox, help center and AI.",
   "free": {
     "kind": "free",

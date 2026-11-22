@@ -3,6 +3,12 @@
   "name": "Microsoft Entra External ID",
   "url": "https://www.microsoft.com/en-us/security/business/identity/microsoft-entra-external-id",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted customer directory with registration, login and federation; F05: Microsoft operates the infrastructure"
+    }
+  },
   "line": "Microsoft hosted customer identity service for app login.",
   "free": { "kind": "free", "text": "Basic includes first 50,000 MAU each month" },
   "cells": {

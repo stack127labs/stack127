@@ -3,6 +3,13 @@
   "name": "AhaSend",
   "url": "https://ahasend.com/",
   "jobs": ["transactional", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional email through the REST API, SMTP, CLI and SDKs",
+      "newsletter": "F02: Campaign Builder sends newsletters, product updates and promotions"
+    }
+  },
   "line": "Transactional email with API, SMTP and a campaign builder.",
   "free": {"kind": "free", "text": "1,000 emails/month shared across sends"},
   "cells": {"newsletters": "Yes, consent-based campaigns", "api": "Yes, plus SMTP"},

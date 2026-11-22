@@ -3,6 +3,12 @@
   "name": "Google Cloud Pub/Sub",
   "url": "https://cloud.google.com/pubsub",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed publish-and-subscribe messaging; C07: retry policies and dead-letter topics"
+    }
+  },
   "line": "Route messages between services with managed publish-and-subscribe topics.",
   "free": { "kind": "free", "text": "10 GiB Basic/month; subscriptions expire after 31 idle days by default" },
   "cells": {

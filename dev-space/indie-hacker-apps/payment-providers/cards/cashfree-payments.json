@@ -2,11 +2,15 @@
   "slug": "cashfree-payments",
   "name": "Cashfree Payments",
   "url": "https://www.cashfree.com/payment-links/",
-  "jobs": [
-    "gateway",
-    "links",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and gateway; the merchant remains the seller",
+      "billing": "F15: fixed periodic and variable recurring charges with plan changes and retries",
+      "links": "F16: dashboard, API and bulk Payment Links with expiry and sharing"
+    }
+  },
   "line": "Indian payment gateway with links, hosted pages and subscriptions.",
   "free": {
     "kind": "none",

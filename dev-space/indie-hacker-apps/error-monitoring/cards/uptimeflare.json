@@ -3,6 +3,13 @@
   "name": "UptimeFlare",
   "url": "https://github.com/lyc8503/UptimeFlare",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP and TCP uptime checks with response time, run on Cloudflare (U01, U02)",
+      "status": "C02: status page with automatic incident history and maintenance notices (S03)"
+    }
+  },
   "line": "Runs checks on Cloudflare and hosts a customizable status page.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0; 50 checks advertised, provider limits apply" },
   "cells": { "interval": "60 s checks", "maintained": "Last update 2026-10-21" },

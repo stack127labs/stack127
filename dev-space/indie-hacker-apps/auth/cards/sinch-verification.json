@@ -3,6 +3,12 @@
   "name": "Sinch Verification",
   "url": "https://developers.sinch.com/docs/verification/introduction",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted phone verification API with cloud REST and SDKs; F35: no self-hosted distribution documented"
+    }
+  },
   "line": "Hosted phone verification API for app signup and login.",
   "free": { "kind": "credits", "text": "Testing credit of 2 units in account currency" },
   "cells": {

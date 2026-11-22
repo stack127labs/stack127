@@ -3,6 +3,14 @@
   "name": "Parse Server",
   "url": "https://github.com/parse-community/parse-server",
   "jobs": ["backend", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend framework with object data, auth, files and Cloud Code; C07 confirmed",
+      "files": "C07: files via GridFS, filesystem and S3 adapters; F04: default upload limit 20 MB",
+      "jobs": "J01: Cloud Jobs run inside Parse Server with status records (J05); scheduling is external"
+    }
+  },
   "line": "Self-hosted backend framework with auth, files, Cloud Code, and jobs.",
   "free": { "kind": "selfhost", "text": "Apache-2.0; no hosted quota or idle rule; you run the server and database" },
   "cells": {

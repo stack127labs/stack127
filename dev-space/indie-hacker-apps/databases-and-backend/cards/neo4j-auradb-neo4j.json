@@ -2,7 +2,14 @@
   "slug": "neo4j-auradb-neo4j",
   "name": "Neo4j AuraDB",
   "url": "https://neo4j.com/product/auradb/",
-  "jobs": ["vector"],
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is native property-graph database queried with Cypher",
+      "vector": "V01: vector indexes support 1 to 4,096 dimensions with HNSW indexing and cosine or Euclidean similarity"
+    }
+  },
   "line": "Graph database for connected app data, with vector and full-text search.",
   "free": { "kind": "free", "text": "1GB; 200K nodes/400K rels; pauses at 72h idle; deletes after 30d paused" },
   "cells": {

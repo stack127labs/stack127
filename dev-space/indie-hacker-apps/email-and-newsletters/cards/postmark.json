@@ -3,9 +3,14 @@
   "name": "Postmark",
   "url": "https://postmarkapp.com/",
   "jobs": [
-    "transactional",
-    "newsletter"
+    "transactional"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: app-generated transactional email through the REST API or SMTP"
+    }
+  },
     "line": "App email delivery with separate broadcast streams.",
   "free": {
     "kind": "free",

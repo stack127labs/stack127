@@ -1,0 +1,17 @@
+{
+  "slug": "rauthy",
+  "name": "Rauthy",
+  "official_url": "https://github.com/sebadob/rauthy",
+  "image_url": "https://raw.githubusercontent.com/sebadob/rauthy/main/assets/logo/rauthy_grey.svg",
+  "source_page": "https://github.com/sebadob/rauthy",
+  "kind": "logo-mark",
+  "source_host": "raw.githubusercontent.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "486ab4820595cf15aa076a298f3146456d1926aac27801af05831081faaa6ab7",
+  "note": "project logo from its GitHub repo (assets/logo/rauthy_grey.svg), vector",
+  "saved_at": "2026-11-22"
+}

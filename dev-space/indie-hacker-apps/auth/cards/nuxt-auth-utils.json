@@ -3,6 +3,12 @@
   "name": "Nuxt Auth Utils",
   "url": "https://github.com/atinux/nuxt-auth-utils",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Nuxt server module for sessions and OAuth helpers; F05: builder deploys and stores accounts"
+    }
+  },
   "line": "Nuxt session and login helpers with provider and passkey support.",
   "free": { "kind": "selfhost", "text": "Free MIT module; you run it" },
   "cells": {

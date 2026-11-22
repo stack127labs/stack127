@@ -2,9 +2,14 @@
   "slug": "chargebee",
   "name": "Chargebee",
   "url": "https://www.chargebee.com/",
-  "jobs": [
-    "billing"
-  ],
+  "jobs": ["billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F15: plans, trials, proration, seats, usage and a self-serve portal run inside Chargebee",
+      "links": "F16: payment links for subscription and one-time checkouts; the creation steps are not stated"
+    }
+  },
   "line": "Subscription billing software that runs on your own gateway.",
   "free": {
     "kind": "none",

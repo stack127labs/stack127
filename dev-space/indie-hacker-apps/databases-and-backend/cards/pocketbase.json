@@ -3,6 +3,15 @@
   "name": "PocketBase",
   "url": "https://pocketbase.io/",
   "jobs": ["backend", "sql", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with database, auth, files, realtime and hooks; C07 confirmed",
+      "sql": "D01: embedded SQLite with typed collections as tables; SQL views supported",
+      "files": "C07: local or S3-backed file storage; F05: external S3-compatible bucket option",
+      "jobs": "C07: scheduled jobs; J04: recurring cron jobs with IDs and expressions"
+    }
+  },
   "line": "Self-hosted backend with SQLite, auth, file uploads, and realtime APIs.",
   "free": { "kind": "selfhost", "text": "Free MIT software; you supply hosting and storage" },
   "cells": {

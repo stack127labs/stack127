@@ -2,7 +2,16 @@
   "slug": "amplitude",
   "name": "Amplitude",
   "url": "https://amplitude.com/",
-  "jobs": ["product", "replay"],
+  "jobs": ["product", "web", "replay", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: product analytics with funnels, retention and cohorts; F16: event segmentation, funnels, retention and cohorts",
+      "web": "F15: pages, sessions, bounce, traffic and campaign/channel reports",
+      "replay": "F17: web and native session replay linked to analytics; replay quota applies on each plan",
+      "revenue": "F19: revenue events, Revenue LTV and currency conversion; no turnkey MRR or churn ledger"
+    }
+  },
   "line": "Product analytics for app events, user journeys and session replays.",
   "free": {"kind": "free", "text": "Free up to 2 million events/month"},
   "cells": {

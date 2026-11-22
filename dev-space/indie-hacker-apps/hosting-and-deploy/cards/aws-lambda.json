@@ -3,6 +3,12 @@
   "name": "AWS Lambda",
   "url": "https://aws.amazon.com/lambda/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: AWS runs uploaded event and web functions as managed compute"
+    }
+  },
   "line": "Run event functions or HTTP applications on managed AWS compute.",
   "free": { "kind": "free", "text": "Event functions: 1 million requests and 400,000 GB-seconds monthly" },
   "cells": { "type": "Serverless functions", "regions": "AWS regions; Web Functions in five regions", "selfhost": "No" },

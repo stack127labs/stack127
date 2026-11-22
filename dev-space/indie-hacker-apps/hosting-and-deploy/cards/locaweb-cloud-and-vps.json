@@ -3,6 +3,12 @@
   "name": "Locaweb Cloud and VPS",
   "url": "https://www.locaweb.com.br/cloud/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: Locaweb Cloud rents isolated VMs and the VPS is a prepaid server the customer manages"
+    }
+  },
   "line": "Rent Linux virtual servers or cloud VMs and manage their software.",
   "free": { "kind": "none", "text": "No free plan; new customers may get up to R$100 off first invoice" },
   "cells": { "type": "IaaS and VPS", "regions": "2 Brazil Cloud zones; VPS in Brazil; no cities listed", "selfhost": "No" },

@@ -3,6 +3,12 @@
   "name": "Temporal",
   "url": "https://temporal.io/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: durable workflow and job orchestration is the primary type; J04: durable timers and schedules"
+    }
+  },
   "line": "Durable workflow engine that resumes jobs, retries activities, and schedules work.",
   "free": { "kind": "credits", "text": "$150 credits/90d; no idle pause; closed-workflow retention is configurable" },
   "cells": {

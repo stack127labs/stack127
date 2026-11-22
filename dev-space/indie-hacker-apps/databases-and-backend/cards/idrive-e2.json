@@ -3,6 +3,12 @@
   "name": "IDrive e2",
   "url": "https://www.idrive.com/s3-storage-e2/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted S3-compatible object storage for files is the primary type; F05: S3 API compatible"
+    }
+  },
   "line": "Store objects in S3-compatible buckets across multiple regions.",
   "free": { "kind": "trial", "text": "10 GB; duration unknown; empty region removed after 30d; free account may end" },
   "cells": {

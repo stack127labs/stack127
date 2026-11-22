@@ -2,7 +2,14 @@
   "slug": "khalti-by-ime",
   "name": "Khalti by IME",
   "url": "https://khalti.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and wallet services; the merchant remains the seller",
+      "links": "F16: Bazaar hosted selling page with no website needed; onboarding is required"
+    }
+  },
   "line": "Nepal payment gateway with wallet checkout, links and merchant payouts.",
   "free": { "kind": "none", "text": "Setup and processing charges are personalized" },
   "cells": {

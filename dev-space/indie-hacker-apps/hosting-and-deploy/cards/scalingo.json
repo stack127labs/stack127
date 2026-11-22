@@ -3,6 +3,12 @@
   "name": "Scalingo",
   "url": "https://scalingo.com/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed Linux application containers; Scalingo maintains the hosting platform"
+    }
+  },
   "line": "Deploy and run managed app containers and databases.",
   "free": { "kind": "trial", "text": "30-day trial; payment method; 1 app/5 S-M containers; delete before expiry" },
   "cells": { "type": "Managed app platform", "regions": "Paris; secure zone needs EU org + legitimate need", "selfhost": "No" },

@@ -3,6 +3,12 @@
   "name": "Google Compute Engine",
   "url": "https://cloud.google.com/products/compute",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual machines; the customer manages the guest OS, application and runtime"
+    }
+  },
   "line": "Create virtual machines and manage their operating systems and apps.",
   "free": { "kind": "free", "text": "One e2-micro VM, 30 GB disk and 1 GB outbound monthly in eligible US regions" },
   "cells": { "type": "Virtual machines", "regions": "Iowa example; selectable Google Cloud regions", "selfhost": "No" },

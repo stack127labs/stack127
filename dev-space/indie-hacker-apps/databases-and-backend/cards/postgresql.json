@@ -2,7 +2,13 @@
   "slug": "postgresql",
   "name": "PostgreSQL",
   "url": "https://www.postgresql.org/",
-  "jobs": ["sql", "vector", "jobs"],
+  "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: self-hosted object-relational SQL database is the primary type; D01: native PostgreSQL engine"
+    }
+  },
   "line": "Self-hosted relational database with SQL, JSON, and optional vector indexing.",
   "free": { "kind": "selfhost", "text": "Free software; no provider quota or idle rule; you host and manage retention" },
   "cells": {

@@ -2,7 +2,16 @@
   "slug": "desk365",
   "name": "Desk365",
   "url": "https://www.desk365.io/",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["helpdesk", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: public help content is part of the ticketing and shared inbox product",
+      "helpdesk": "F02: Customer-support ticketing; F17: native email-to-ticket and a customer support portal",
+      "ai": "F22: Buildable AI Agents answer from assigned knowledge on website, Support Portal and Teams on Plus and Premium",
+      "inbox": "F18: Shared inbox basics: ticket assignment and groups, private and public notes, canned replies"
+    }
+  },
   "line": "Email ticketing and customer support with a portal and Teams app.",
   "free": { "kind": "free", "text": "Free for up to 3 agents and 50 tickets/month" },
   "cells": {

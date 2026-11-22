@@ -3,6 +3,12 @@
   "name": "Vercel Blob",
   "url": "https://vercel.com/storage/blob",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object and file storage is the primary category; F05: SDK and CLI, with S3 as backing service only"
+    }
+  },
   "line": "Hosted object storage for app uploads, files and media with public or private access.",
   "free": { "kind": "free", "text": "Hobby noncommercial: 1 GB, 10K+2K ops, 10 GB transfer; no idle rule stated" },
   "cells": {

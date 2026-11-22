@@ -2,7 +2,15 @@
   "slug": "payfast-south-africa",
   "name": "Payfast",
   "url": "https://payfast.io/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: aggregation collects for the merchant into a Payfast balance; the seller keeps delivery",
+      "billing": "F14: automatic recurring card subscriptions; F15: amount, date and frequency changes, retries",
+      "links": "F16: emailed Payment Requests can be sent to buyers, alongside Pay Now and Subscribe buttons"
+    }
+  },
   "line": "South African checkout gateway with payment requests and recurring cards.",
   "free": { "kind": "none", "text": "No setup/monthly fee; R115 inactivity fee after 12 months" },
   "cells": {

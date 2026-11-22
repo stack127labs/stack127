@@ -3,6 +3,13 @@
   "name": "InsForge",
   "url": "https://insforge.dev/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: native accounts and login on hosted InsForge; F05: InsForge runs the API server and Postgres",
+      "server": "F02: same auth on the Apache self-hosted platform; F05: builder runs Docker Compose and database"
+    }
+  },
   "line": "Backend platform with user accounts, authentication, and app services.",
   "free": { "kind": "free", "text": "Free up to 50,000 MAU, within resource limits" },
   "cells": {

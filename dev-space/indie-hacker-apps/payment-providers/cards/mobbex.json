@@ -2,7 +2,15 @@
   "slug": "mobbex",
   "name": "Mobbex",
   "url": "https://www.mobbex.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment technology intermediary in gateway mode; the merchant sells to the buyer",
+      "billing": "F14: automatic scheduled subscriptions managed by Mobbex; F15: plans with trials and retries",
+      "links": "F16: payment links with fixed or open amounts, channel sharing and expiry settings"
+    }
+  },
   "line": "Argentine payment platform for checkout, payment links and subscriptions.",
   "free": { "kind": "none", "text": "Essential has no setup fee or minimum charge" },
   "cells": {

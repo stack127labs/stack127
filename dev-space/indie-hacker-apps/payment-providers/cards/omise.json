@@ -2,7 +2,15 @@
   "slug": "omise",
   "name": "Omise",
   "url": "https://www.omise.co/en",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and processor; the merchant sells and handles customer claims",
+      "billing": "F14: Schedule API charges saved cards automatically on day, week or month intervals",
+      "links": "F16: hosted Payment Links+ with branding and custom fields; no coding for the link"
+    }
+  },
   "line": "Asian payment gateway for online checkout, payment links and recurring cards.",
   "free": { "kind": "none", "text": "No fixed or monthly minimum fees in standard service" },
   "cells": {

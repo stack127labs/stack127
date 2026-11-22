@@ -3,6 +3,13 @@
   "name": "IntaSend",
   "url": "https://intasend.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and infrastructure; the merchant remains the seller",
+      "links": "F16: payment links with fixed or customer-entered amounts, QR codes and email requests"
+    }
+  },
   "line": "East African payments API for cards, mobile money and bank transfers.",
   "free": { "kind": "none", "text": "No setup fee; current transaction prices are quote-based" },
   "cells": {

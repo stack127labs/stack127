@@ -2,9 +2,14 @@
   "slug": "liara-paas",
   "name": "Liara PaaS",
   "url": "https://liara.ir/",
-  "jobs": [
-    "paas"
-  ],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed application and container platform; Liara operates the hosting and build infrastructure",
+      "static": "04: native static and frontend templates are supported"
+    }
+  },
   "line": "Build and deploy applications with managed hosting and databases.",
   "free": {
     "kind": "free",

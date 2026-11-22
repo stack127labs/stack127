@@ -2,7 +2,14 @@
   "slug": "crypto-com-pay",
   "name": "Crypto.com Pay",
   "url": "https://crypto.com/pay-merchant",
-  "jobs": ["crypto"],
+  "jobs": ["crypto", "billing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: Pay accepts BTC, ETH, USDT, USDC and others on listed networks",
+      "billing": "F14: automatic subscription collections, but only for customers paying from the Crypto.com App"
+    }
+  },
   "line": "Merchant crypto checkout with invoicing, subscriptions and payouts.",
   "free": { "kind": "none", "text": "No setup or monthly fee published; settlement fees apply" },
   "cells": {

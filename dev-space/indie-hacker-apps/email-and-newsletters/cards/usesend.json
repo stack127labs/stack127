@@ -2,7 +2,14 @@
   "slug": "usesend",
   "name": "useSend",
   "url": "https://usesend.com/",
-  "jobs": ["transactional", "newsletter", "marketing"],
+  "jobs": ["transactional", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional or product email through the API and SMTP",
+      "newsletter": "F02: campaigns and newsletters with a visual editor and contact books"
+    }
+  },
   "line": "Hosted campaign and transactional email with API and SMTP sending.",
   "free": { "kind": "free", "text": "3,000 emails/month, 100/day; 1 contact book, domain and member" },
   "cells": {

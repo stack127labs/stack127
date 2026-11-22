@@ -3,6 +3,12 @@
   "name": "Filebase",
   "url": "https://filebase.com/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C07: S3-compatible object storage buckets; F05: core S3 object operations supported"
+    }
+  },
   "line": "S3-compatible object storage and IPFS pinning with a built-in CDN.",
   "free": { "kind": "free", "text": "5 GB pooled; 1 bucket, 500 IPFS pins; no idle pause or deletion rule" },
   "cells": {

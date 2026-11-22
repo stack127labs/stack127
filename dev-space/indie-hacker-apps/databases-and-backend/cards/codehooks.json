@@ -2,7 +2,17 @@
   "slug": "codehooks",
   "name": "Codehooks",
   "url": "https://codehooks.io/",
-  "jobs": ["backend", "kv", "files", "jobs"],
+  "jobs": ["backend", "nosql", "kv", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: JSON document collections with a MongoDB-style query subset; C07: NoSQL is in the project",
+      "backend": "C02: managed backend platform with NoSQL, API functions, files, queues and workflows",
+      "kv": "D01: Redis-like string and object operations, counters and optional TTL",
+      "files": "F01: 1 GB files included; F04: saveFile accepts binary streams",
+      "jobs": "J01: managed queue workers, cron jobs and workflow steps run on the platform"
+    }
+  },
   "line": "Build APIs with document data, functions, files, and job queues.",
   "free": { "kind": "free", "text": "1 dev, 1 Space; 1 req/s, 500/day; DB 150 MB, files 1 GB; no idle rule" },
   "cells": {

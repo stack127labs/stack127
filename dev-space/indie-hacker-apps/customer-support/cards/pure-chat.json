@@ -3,6 +3,12 @@
   "name": "Pure Chat",
   "url": "https://purechat.com/",
   "jobs": ["chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native visitor chat widget with pre-chat fields and file exchange; paid plans have unlimited chats"
+    }
+  },
   "line": "Website live chat with visitor tracking and lead capture.",
   "free": { "kind": "trial", "text": "30-day PRO trial, no card" },
   "cells": {

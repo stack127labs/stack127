@@ -3,6 +3,12 @@
   "name": "Status.io",
   "url": "https://status.io/",
   "jobs": ["status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: public and private status pages for incidents and maintenance (S01, S03)"
+    }
+  },
   "line": "Hosts public and private status pages for incidents and maintenance.",
   "free": { "kind": "none", "text": "No free plan or trial terms published" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

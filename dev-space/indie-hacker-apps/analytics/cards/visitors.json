@@ -1,6 +1,14 @@
 {
   "slug": "visitors", "name": "Visitors", "url": "https://visitors.now/",
   "jobs": ["web", "product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: web and product analytics; F15: visitors, pages, referrers, UTMs, countries and devices",
+      "product": "F16: custom events and funnel analysis, with identify() linking activity across devices",
+      "revenue": "F19: Stripe and Dodo payment webhooks with new, recurring and refunded revenue reports"
+    }
+  },
   "line": "Tracks website and product activity with visitor journeys and revenue attribution.",
   "free": {"kind": "trial", "text": "14-day trial, no card; unlimited usage"},
   "cells": {"cookieless": "Optional (visitor cookie can persist identity)", "location": "Germany (Hetzner; EU processing)", "selfhost": "No (none found)"},

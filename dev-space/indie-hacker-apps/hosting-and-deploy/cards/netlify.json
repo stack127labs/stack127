@@ -2,9 +2,14 @@
   "slug": "netlify",
   "name": "Netlify",
   "url": "https://www.netlify.com/",
-  "jobs": [
-    "static"
-  ],
+  "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed build, deploy and global CDN for static sites and frontends",
+      "paas": "03: event-triggered Functions run the customer's server code in Netlify's ephemeral runtimes"
+    }
+  },
   "line": "Static and frontend hosting with functions, forms and a managed Postgres.",
   "free": {
     "kind": "free",

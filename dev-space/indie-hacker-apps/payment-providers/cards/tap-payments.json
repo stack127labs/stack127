@@ -3,6 +3,14 @@
   "name": "Tap Payments",
   "url": "https://developers.tap.company/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant sells its own goods",
+      "billing": "F14: card subscriptions with daily to annual cycles; Tap sends recurring charge events",
+      "links": "F16: goCollect payment links and bills sent by email, SMS, WhatsApp or social, no website"
+    }
+  },
   "line": "GCC gateway for card and local payments, invoices, subscriptions, and links.",
   "free": { "kind": "none", "text": "Plans and fixed fees vary by market; processing fees apply" },
   "cells": {

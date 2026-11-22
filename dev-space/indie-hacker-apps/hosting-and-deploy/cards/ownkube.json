@@ -3,6 +3,12 @@
   "name": "Ownkube",
   "url": "https://ownkube.io/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: provider-hosted app containers with source builds and rolling releases; Ownkube runs them"
+    }
+  },
   "line": "Deploy container apps and databases on managed or own-cloud infrastructure.",
   "free": { "kind": "none", "text": "No free hosted compute; own-cloud Starter still needs paid AWS resources" },
   "cells": { "type": "Managed app platform", "regions": "Hosted: Mumbai/Germany; BYOC: 17 AWS regions", "selfhost": "No; Ownkube controller remains hosted" },

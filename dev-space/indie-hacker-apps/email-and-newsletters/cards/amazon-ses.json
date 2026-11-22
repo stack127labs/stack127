@@ -3,9 +3,14 @@
   "name": "Amazon SES",
   "url": "https://aws.amazon.com/ses/",
   "jobs": [
-    "transactional",
-    "marketing"
+    "transactional"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: sends transactional mail through the SES API, SMTP or an AWS SDK"
+    }
+  },
     "line": "Bulk and app email infrastructure from AWS.",
     "free": {
     "kind": "credits",

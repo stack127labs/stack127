@@ -2,7 +2,15 @@
   "slug": "hitpay",
   "name": "HitPay",
   "url": "https://hitpayapp.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway; the merchant supplies the goods and fulfils the orders",
+      "billing": "F15: plans on weekly, monthly or yearly cycles, pause and resume, retries",
+      "links": "F16: hosted links, invoices and store checkout work without a website"
+    }
+  },
   "line": "Payment gateway with payment links, recurring charges and commerce tools.",
   "free": { "kind": "none", "text": "No setup or monthly fee in Singapore, Malaysia and Philippines" },
   "cells": {

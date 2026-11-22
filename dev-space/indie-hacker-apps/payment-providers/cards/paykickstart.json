@@ -3,6 +3,14 @@
   "name": "PayKickstart",
   "url": "https://paykickstart.com/",
   "jobs": ["billing", "gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F14: subscriptions and rebills; F15: trials, usage pricing, retries and cancel or pause",
+      "gateway": "F02: Connect is PayKickstart's own gateway for cards and bank payments, separate from the software",
+      "links": "F16: checkout pages built in a checkout builder; live URLs made in the sales funnel"
+    }
+  },
   "line": "Subscription checkout software with optional Connect card processing.",
   "free": { "kind": "free", "text": "Launch Plan: no subscription; 6% per sale" },
   "cells": {

@@ -3,6 +3,13 @@
   "name": "Purchasely",
   "url": "https://www.purchasely.com/",
   "jobs": ["revenue", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is in-app purchase and subscription analytics; F19: App Store, Google Play and Stripe revenue, MRR and churn",
+      "product": "F16: paywall and screen analytics, purchase funnels and cohort retention"
+    }
+  },
   "line": "Measures mobile subscription journeys, paywalls, and purchases.",
   "free": { "kind": "none", "text": "Demo-led sales; pricing requires a quote" },
   "cells": {

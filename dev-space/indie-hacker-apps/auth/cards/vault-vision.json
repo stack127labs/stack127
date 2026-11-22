@@ -3,6 +3,12 @@
   "name": "Vault Vision",
   "url": "https://vaultvision.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted account login, users and OIDC identity provider for app connections; F35: no self-host install"
+    }
+  },
   "line": "Hosted account login and OIDC identity provider for apps.",
   "free": { "kind": "none", "text": "Free sandbox up to 100 users; production from $25/month" },
   "cells": {

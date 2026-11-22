@@ -2,7 +2,15 @@
   "slug": "reactflow",
   "name": "Reactflow",
   "url": "https://reactflow.com/",
-  "jobs": ["replay", "web"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is website behavior analytics and session replay; F17: click, scroll and input recording with masked text",
+      "web": "F15: pages, referrals, browser, OS and location, with per-visitor page-load timing",
+      "product": "F15: step-based funnels with drop-off and linked recordings for converted and abandoned visits"
+    }
+  },
   "line": "Records visitor actions with heatmaps, funnels, and debugging details.",
   "free": { "kind": "trial", "text": "14-day trial; no card to get started" },
   "cells": {

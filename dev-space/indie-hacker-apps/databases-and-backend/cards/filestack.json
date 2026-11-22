@@ -2,7 +2,13 @@
   "slug": "filestack",
   "name": "Filestack",
   "url": "https://www.filestack.com/",
-  "jobs": ["files", "jobs"],
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "files": "C07: uploaded files are stored in its managed S3 by default; CDN delivery and file APIs are documented"
+    }
+  },
   "line": "Upload, transform, and deliver files through APIs and automated workflows.",
   "free": { "kind": "free", "text": "500 uploads, 1K transforms; 1 GB storage/bandwidth; 20 MB/file; no idle pause" },
   "cells": {

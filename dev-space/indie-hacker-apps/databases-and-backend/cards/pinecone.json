@@ -2,9 +2,13 @@
   "slug": "pinecone",
   "name": "Pinecone",
   "url": "https://www.pinecone.io/",
-  "jobs": [
-    "vector"
-  ],
+  "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: managed vector database is the primary type; V01: dense vectors up to 20,000 dimensions"
+    }
+  },
   "line": "Managed vector database for search and AI apps.",
   "free": {
     "kind": "free",

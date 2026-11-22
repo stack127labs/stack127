@@ -2,10 +2,15 @@
   "slug": "asiapay",
   "name": "AsiaPay",
   "url": "https://www.asiapay.com/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and payment processing; the merchant supplies the goods and stays the seller",
+      "billing": "F14: SchedulePay runs automatic periodic billing with schedules; F15: seats and trials not shown",
+      "links": "F16: Payment Link and QR are created in the merchant console"
+    }
+  },
   "line": "Online gateway with regional brands for merchant payments.",
   "free": {
     "kind": "none",

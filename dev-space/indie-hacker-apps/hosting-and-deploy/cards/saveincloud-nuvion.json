@@ -3,6 +3,12 @@
   "name": "SaveInCloud Nuvion",
   "url": "https://saveincloud.com/pt-BR/produtos/computacao/nuvion",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: IaaS virtual machine managed through the Nuvion panel; the customer manages the guest OS and apps"
+    }
+  },
   "line": "Provision virtual machines and manage their operating systems yourself.",
   "free": { "kind": "credits", "text": "R$200 credit for 30 days; a 14-day trial is also advertised" },
   "cells": { "type": "VPS/VM", "regions": "São Paulo/Vinhedo, Fortaleza and Brasília", "selfhost": "Yes; manage the guest OS and apps" },

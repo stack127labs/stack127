@@ -2,7 +2,14 @@
   "slug": "laravel-cloud",
   "name": "Laravel Cloud",
   "url": "https://laravel.com/cloud",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed app platform; Laravel provisions, builds, deploys and patches the infrastructure",
+      "static": "04: Nuxt generated static sites are a listed use"
+    }
+  },
   "line": "Build and deploy Laravel apps on managed cloud infrastructure.",
   "free": { "kind": "trial", "text": "31 days no fee; $5/mo credit; excess billed; payment required; evaluation only" },
   "cells": { "type": "Managed app platform", "regions": "US/Canada/Europe/APAC; UAE API listing unclear", "selfhost": "No" },

@@ -3,6 +3,13 @@
   "name": "IONOS Deploy Now",
   "url": "https://www.ionos.com/hosting/deploy-now",
   "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "04: static sites, static site generators and browser-side single-page apps are listed uses",
+      "paas": "03: managed shared hosting runs the customer's custom PHP applications after GitHub Actions deployment"
+    }
+  },
   "line": "Build and deploy GitHub websites to managed hosting.",
   "free": { "kind": "trial", "text": "One-month $0 offer; ongoing free plan unclear" },
   "cells": { "type": "Git-based managed hosting", "regions": "Germany/US by customer market; UK unclear", "selfhost": "No" },

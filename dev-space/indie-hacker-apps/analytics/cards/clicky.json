@@ -3,6 +3,12 @@
   "name": "Clicky",
   "url": "https://clicky.com/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website analytics; F15: real-time visits, referrers, countries, devices and UTM campaigns"
+    }
+  },
   "line": "Real-time website analytics for visits, actions and conversions.",
   "free": {"kind": "free", "text": "Free: 1 site, 3,000 pageviews/day, 30-day history"},
   "cells": {

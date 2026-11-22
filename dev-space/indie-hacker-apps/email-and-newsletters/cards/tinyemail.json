@@ -2,7 +2,14 @@
   "slug": "tinyemail",
   "name": "tinyEmail",
   "url": "https://www.tinyemail.com/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing lifecycle workflows alongside newsletters and campaigns",
+      "newsletter": "F02: newsletters, broadcasts and scheduled campaigns"
+    }
+  },
   "line": "Hosted newsletters, campaigns and marketing workflows.",
   "free": { "kind": "free", "text": "Eligible Shopify stores: unlimited contacts, 1M emails/month" },
   "cells": {

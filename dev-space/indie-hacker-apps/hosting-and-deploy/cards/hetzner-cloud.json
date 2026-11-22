@@ -5,6 +5,12 @@
   "jobs": [
     "vps"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: self-managed virtual machines with full admin rights; the customer manages and secures the OS and app"
+    }
+  },
   "line": "Rented virtual servers in Europe, the US and Singapore. You run the software.",
   "free": {
     "kind": "none",

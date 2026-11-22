@@ -4,9 +4,19 @@
   "url": "https://xsolla.com/",
   "jobs": [
     "mor",
+    "gateway",
     "billing",
     "links"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: Pay Station merchant of record; Xsolla sells to the player on its own behalf",
+      "gateway": "F02: separate Xsolla Payment Service Provider; the publisher stays merchant of record",
+      "billing": "F14: subscriptions auto-renew from a saved account; F15: trials, plan changes and retries",
+      "links": "F16: Site Builder storefront and game-key payment links are documented"
+    }
+  },
   "line": "Game checkout with subscriptions, tax handling, and payment links.",
   "free": {
     "kind": "none",

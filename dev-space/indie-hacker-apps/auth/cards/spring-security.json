@@ -3,6 +3,12 @@
   "name": "Spring Security",
   "url": "https://spring.io/projects/spring-security/",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Java security framework for authentication and OAuth2 servers; F05: developer deploys and operates the app"
+    }
+  },
   "line": "Java security framework for authentication, authorization, and web apps.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 framework; you host it" },
   "cells": {

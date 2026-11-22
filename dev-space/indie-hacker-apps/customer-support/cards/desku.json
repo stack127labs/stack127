@@ -3,11 +3,22 @@
   "name": "Desku",
   "url": "https://desku.io/",
   "jobs": [
-    "helpdesk",
     "inbox",
+    "helpdesk",
     "chat",
-    "ai"
+    "ai",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F07: one knowledge base with articles is included on the Free plan",
+      "inbox": "F17: Shared email on every plan; default Desku mailbox, or your own over SMTP, IMAP or Google Workspace",
+      "helpdesk": "F17: Ticket forms and a customer portal on all plans; F07: one knowledge base with articles on Free",
+      "chat": "F17: Native customizable website live chat widget on Free and paid tiers; paste the code into your site",
+      "ai": "F22: Eva answers autonomously inside a published chatbot flow; Copilot assists agents separately"
+    }
+  },
   "line": "Shared inbox for email, live chat, social messages, and help content.",
   "free": {
     "kind": "free",

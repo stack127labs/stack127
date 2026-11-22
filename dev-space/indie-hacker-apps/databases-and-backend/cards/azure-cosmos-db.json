@@ -2,7 +2,14 @@
   "slug": "azure-cosmos-db",
   "name": "Azure Cosmos DB",
   "url": "https://azure.microsoft.com/en-us/products/cosmos-db",
-  "jobs": ["sql", "vector"],
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is document and graph databases; D01: NoSQL distributed JSON documents",
+      "vector": "D08: native vector search is a built-in index option on NoSQL containers"
+    }
+  },
   "line": "Run managed NoSQL databases with vector search and multiple APIs.",
   "free": { "kind": "free", "text": "1,000 RU/s and 25 GB/account; empty accounts may be deleted" },
   "cells": {

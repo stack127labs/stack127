@@ -3,6 +3,12 @@
   "name": "Amazon EC2",
   "url": "https://aws.amazon.com/ec2/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual machine instances; the customer configures and patches the guest OS and app"
+    }
+  },
   "line": "Rent virtual machines and manage their operating systems and apps.",
   "free": { "kind": "credits", "text": "Up to $200 in credits; new account access ends by six months" },
   "cells": { "type": "Virtual machines", "regions": "34 AWS Regions", "selfhost": "No" },

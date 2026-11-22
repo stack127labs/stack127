@@ -2,7 +2,14 @@
   "slug": "snapdeploy",
   "name": "SnapDeploy",
   "url": "https://snapdeploy.dev/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed app and container hosting on AWS Fargate; source builds and images are handled for the customer",
+      "static": "04: static sites and SPAs are a listed app type"
+    }
+  },
   "line": "Build and deploy containerized applications on AWS Fargate.",
   "free": { "kind": "free", "text": "4 Small containers, 100 pooled hours/mo; no card; then wait/pay" },
   "cells": { "type": "Managed container hosting", "regions": "AWS US East compute; EU/India planned; Cloudflare delivery", "selfhost": "No" },

@@ -2,7 +2,14 @@
   "slug": "kashier",
   "name": "Kashier",
   "url": "https://www.kashier.io/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant sells its own goods",
+      "links": "F16: payment links created in the dashboard or API, shared with customers, no website needed"
+    }
+  },
   "line": "Egyptian payment gateway with checkout, links and recurring card charges.",
   "free": { "kind": "none", "text": "No setup or monthly subscription fee for standard online acceptance" },
   "cells": {

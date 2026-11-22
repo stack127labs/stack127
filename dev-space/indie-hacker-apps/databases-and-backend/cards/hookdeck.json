@@ -3,6 +3,12 @@
   "name": "Hookdeck",
   "url": "https://hookdeck.com/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: Event Gateway provides durable event queueing with retries; J03: at-least-once delivery"
+    }
+  },
   "line": "Queue and route webhook events with retries and delivery logs.",
   "free": { "kind": "free", "text": "10K events/mo; 3-day retention; no idle pause or deletion rule" },
   "cells": {

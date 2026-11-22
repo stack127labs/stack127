@@ -3,6 +3,13 @@
   "name": "CatchJS",
   "url": "https://catchjs.com/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "E01: window.onerror captures browser exceptions; grouped by type and location",
+      "performance": "A01, A03: real-user page-load timings and web vitals per URL"
+    }
+  },
   "line": "Tracks browser JavaScript errors with screenshots and performance details.",
   "free": { "kind": "trial", "text": "14-day trial; card required" },
   "cells": {

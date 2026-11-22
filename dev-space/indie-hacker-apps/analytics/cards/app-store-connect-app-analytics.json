@@ -3,6 +3,13 @@
   "name": "App Store Connect App Analytics",
   "url": "https://developer.apple.com/app-store-connect/analytics/",
   "jobs": ["product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F16: sessions, active devices, retention and download/subscription cohorts are built in",
+      "revenue": "F19: paid-app, in-app purchase and subscription revenue reports, with MRR and churn, are built in"
+    }
+  },
   "line": "Store reports for app downloads, usage and acquisition sources.",
   "free": {"kind": "free", "text": "Included with an eligible Apple Developer membership"},
   "cells": {

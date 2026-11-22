@@ -2,7 +2,17 @@
   "slug": "quackback",
   "name": "Quackback",
   "url": "https://quackback.io/",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["inbox", "helpdesk", "chat", "ai", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: customer help center is part of the support inbox product",
+      "inbox": "F18: Inbox with assignment to people or teams, bulk assignment, internal notes, mentions and views",
+      "helpdesk": "F17: Email and portal tickets flow into the shared inbox; F21: searchable public help center on Cloud plans",
+      "chat": "F17: Website Messenger chat in the widget, included on all Cloud plans with no separate chat charge",
+      "ai": "F22: Quinn has a customer-facing Agent in Messenger; the customer Agent and Copilot answers start on Pro"
+    }
+  },
   "line": "Support inbox with website chat, email, help center, and feedback boards.",
   "free": { "kind": "free", "text": "Free: 1 seat, 1 board, 1 email address" },
   "cells": {

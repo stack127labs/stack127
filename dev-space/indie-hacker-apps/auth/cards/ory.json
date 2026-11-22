@@ -6,6 +6,13 @@
     "hosted",
     "server"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: Ory Network managed identity platform with accounts, login and sessions; F03: public paid routes",
+      "server": "F02: self-hosted Kratos and Hydra servers; F35: Docker, Kubernetes and Helm production guides"
+    }
+  },
   "line": "Identity services with Ory Network and self-hosted components.",
   "free": {
     "kind": "none",

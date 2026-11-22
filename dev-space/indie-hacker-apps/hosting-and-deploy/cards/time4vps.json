@@ -3,6 +3,12 @@
   "name": "Time4VPS",
   "url": "https://www.time4vps.com/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: self-managed Linux, Windows and container VPS; the customer installs services and updates the OS"
+    }
+  },
   "line": "Rent a Linux or Windows VPS and manage the server yourself.",
   "free": { "kind": "none", "text": "No ongoing free VPS plan" },
   "cells": {

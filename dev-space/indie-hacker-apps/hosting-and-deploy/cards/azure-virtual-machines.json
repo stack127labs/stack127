@@ -3,6 +3,12 @@
   "name": "Azure Virtual Machines",
   "url": "https://azure.microsoft.com/en-us/products/virtual-machines/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: IaaS virtual machines; the customer selects the VM size and image and administers the guest OS"
+    }
+  },
   "line": "Run Linux or Windows virtual machines and manage the guest OS yourself.",
   "free": { "kind": "trial", "text": "Eligible new customers: time-limited 12-month VM offer" },
   "cells": { "type": "Virtual machines", "regions": "East US example; Azure regions", "selfhost": "No" },

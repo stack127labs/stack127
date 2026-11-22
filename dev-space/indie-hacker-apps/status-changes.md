@@ -16,6 +16,7 @@ Rows marked `closing` (shutting down, closed to new users, or pivoted away):
 | Dittofeed | email-and-newsletters | Hosted cloud closed 2026-10-31; self-hosted core remains |
 | Simple Observability | error-monitoring | Pivoted from monitoring to AI compute (2026-09-02) |
 | Zeabur | hosting-and-deploy | Wind-down from 2026-12-01; all servers stop by 2026-12-31; two 2026 breaches |
+| Val Town | hosting-and-deploy | Shutting down on 2027-01-10 (notice on its pricing page, checked 2026-11-23) |
 | Biznet GIO cloud compute | hosting-and-deploy | NVC product retires 2027-01-31 |
 | Ngan Luong | payment-providers | Announced shutdown 2027-02-09 |
 

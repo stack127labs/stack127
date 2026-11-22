@@ -3,6 +3,12 @@
   "name": "Paddle Billing Reporting",
   "url": "https://www.paddle.com/billing/reporting",
   "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is billing-provider revenue reporting; F19: transactions, subscriptions, MRR and Explore revenue charts from Paddle data"
+    }
+  },
   "line": "Reports billing, sales, and revenue data from Paddle transactions.",
   "free": { "kind": "none", "text": "No separate analytics fee; transaction charges apply" },
   "cells": {

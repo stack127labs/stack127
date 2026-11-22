@@ -3,6 +3,13 @@
   "name": "Campayn",
   "url": "https://www.campayn.com/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter broadcasts to contact lists",
+      "marketing": "F02: contact-list-triggered autoresponder sequences"
+    }
+  },
   "line": "Newsletter campaigns and autoresponder sequences for contact lists.",
   "free": {"kind": "free", "text": "Existing Free plan: 500 contacts; new registration is disabled"},
   "cells": {"newsletters": "Yes", "api": "Yes, campaign API"},

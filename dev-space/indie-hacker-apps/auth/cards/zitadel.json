@@ -3,9 +3,16 @@
   "name": "ZITADEL",
   "url": "https://zitadel.com/",
   "jobs": [
-    "server",
-    "hosted"
+    "hosted",
+    "server"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: ZITADEL Cloud identity service with accounts, sessions and organizations; F05: vendor operates Cloud",
+      "server": "F02: self-hosted AGPL server; F05: customer runs server, PostgreSQL and backups"
+    }
+  },
   "line": "Open-source identity platform with a Cloud or self-host option.",
   "free": {
     "kind": "free",

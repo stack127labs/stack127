@@ -3,6 +3,13 @@
   "name": "AppsFlyer",
   "url": "https://www.appsflyer.com/",
   "jobs": ["product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F16: custom in-app events with cohorts, retention and LTV; main product is attribution, which no job covers",
+      "revenue": "F19: manual revenue events and ROI360 store revenue with refunds and net store revenue"
+    }
+  },
   "line": "Mobile attribution reports connect installs to campaigns and app actions.",
   "free": {"kind": "free", "text": "Free for owned-media tools; paid campaigns excluded"},
   "cells": {

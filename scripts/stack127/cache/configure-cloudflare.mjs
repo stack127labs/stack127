@@ -73,6 +73,8 @@ const detailAnchor = 'starts_with(http.request.uri.path, "/api/self-host-apps/")
 const jsonRoutes = [
   ['"/api/resource-planner-index"', 'http.request.uri.path eq "/api/resource-planner-index"'],
   ['"/api/cli-apps/index"', 'http.request.uri.path eq "/api/cli-apps/index"'],
+  // The 12 app directories (payment providers, hosting, ...): index and side-panel detail JSON.
+  ['"/api/app-directories/"', 'starts_with(http.request.uri.path, "/api/app-directories/")'],
 ];
 for (const [marker, expression] of jsonRoutes) {
   if (detailExpression.includes(marker)) continue;

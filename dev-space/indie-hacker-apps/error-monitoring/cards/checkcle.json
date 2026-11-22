@@ -2,7 +2,14 @@
   "slug": "checkcle",
   "name": "CheckCle",
   "url": "https://docs.checkcle.io/",
-  "jobs": ["uptime", "status", "performance"],
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP/S, ping, TCP and DNS checks on a schedule, with regional agents (U03)",
+      "status": "S01, S03: public operational page showing selected components; self-hosted"
+    }
+  },
   "line": "Self-hosted checks for websites, ports, DNS, servers and Docker.",
   "free": { "kind": "selfhost", "text": "Free MIT software; v1 is not advised for critical production use" },
   "cells": {

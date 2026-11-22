@@ -3,6 +3,12 @@
   "name": "dj-rest-auth",
   "url": "https://dj-rest-auth.readthedocs.io/en/latest/",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Django REST Framework library; F05: developer or chosen host runs the app and database"
+    }
+  },
   "line": "Django REST endpoints for account login and management.",
   "free": { "kind": "selfhost", "text": "Free MIT package; you host it" },
   "cells": {

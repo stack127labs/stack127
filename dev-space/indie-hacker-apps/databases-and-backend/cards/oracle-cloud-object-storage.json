@@ -3,6 +3,12 @@
   "name": "Oracle Cloud Object Storage",
   "url": "https://www.oracle.com/cloud/storage/object-storage/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed regional object storage for files is the primary role; F05: native and S3 Compatibility APIs"
+    }
+  },
   "line": "Regional object storage for files, backups, and static assets.",
   "free": { "kind": "free", "text": "20GB total, 50K requests/mo; use account within 60d; object expiry unclear" },
   "cells": {

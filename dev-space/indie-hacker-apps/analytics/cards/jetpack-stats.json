@@ -3,6 +3,12 @@
   "name": "Jetpack Stats",
   "url": "https://jetpack.com/stats/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is WordPress traffic and content analytics; F15: views, visitors, referrers, search terms and countries"
+    }
+  },
   "line": "WordPress traffic reports for publishers and site owners.",
   "free": { "kind": "free", "text": "Free plugin; any traffic level, full history" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Google Cloud Logging",
   "url": "https://cloud.google.com/logging",
   "jobs": ["logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: collects, routes, stores and searches logs with Logs Explorer (L02)"
+    }
+  },
   "line": "Collects, stores and searches application and cloud service logs.",
   "free": { "kind": "free", "text": "50 GiB/project/month included for ordinary logs" },
   "cells": {

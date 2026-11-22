@@ -3,6 +3,12 @@
   "name": "Huawei Cloud ECS",
   "url": "https://www.huaweicloud.com/intl/en-us/product/ecs.html",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented provider-hosted virtual machines; the customer manages the guest OS, runtime and app"
+    }
+  },
   "line": "Run virtual machines and manage the operating system and apps.",
   "free": { "kind": "none", "text": "No recurring always-free ECS allowance established" },
   "cells": { "type": "VPS/VM", "regions": "Singapore, Hong Kong and other China/overseas regions", "selfhost": "No" },

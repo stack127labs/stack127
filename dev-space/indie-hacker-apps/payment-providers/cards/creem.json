@@ -2,7 +2,15 @@
   "slug": "creem",
   "name": "Creem",
   "url": "https://www.creem.io/",
-  "jobs": ["mor", "billing"],
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: Creem is the contractual reseller and legal seller to the buyer",
+      "billing": "F14: automatic subscriptions with trials, proration and retries; F15: meters and credits",
+      "links": "F16: no-code reusable product payment links for the hosted store"
+    }
+  },
   "line": "Merchant of Record checkout and billing for software and digital products.",
   "free": { "kind": "none", "text": "No monthly fee; transaction fees apply" },
   "cells": {

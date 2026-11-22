@@ -3,6 +3,12 @@
   "name": "WatchSumo",
   "url": "https://www.watchsumo.com/",
   "jobs": ["uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website availability and response-time checks with SSL expiry alerts (U01, U05)"
+    }
+  },
   "line": "Checks website availability and response time, with SSL alerts.",
   "free": { "kind": "trial", "text": "30-day trial, no card; no ongoing free plan" },
   "cells": { "interval": "300 s Startup, 60 s Business/Agency", "maintained": "Hosted service" },

@@ -2,7 +2,14 @@
   "slug": "depay",
   "name": "DePay",
   "url": "https://www.depay.com/",
-  "jobs": ["crypto"],
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts supported tokens on EVM and other networks, sent to the seller's wallet",
+      "links": "F16: no-code hosted payment links work on mobile and desktop"
+    }
+  },
   "line": "Wallet-to-wallet crypto checkout widgets, links and store integrations.",
   "free": { "kind": "free", "text": "Open Source: 0% DePay fee; platform features excluded" },
   "cells": {

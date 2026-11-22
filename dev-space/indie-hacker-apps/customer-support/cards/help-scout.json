@@ -3,11 +3,22 @@
   "name": "Help Scout",
   "url": "https://www.helpscout.com/",
   "jobs": [
-    "helpdesk",
     "inbox",
+    "helpdesk",
     "chat",
-    "ai"
+    "ai",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: Docs help center with public articles, search and custom domain",
+      "inbox": "F18: Assignment, private notes, saved replies and collision detection in one shared support inbox",
+      "helpdesk": "F21: Docs help center with public articles, search and custom domain; email arrives as conversations (F17)",
+      "chat": "F17: Native Beacon live chat on Standard, Plus and Pro; Free has contact forms only",
+      "ai": "F22: Scout resolves Beacon and email inquiries on its own; helpers draft and summarize for agents"
+    }
+  },
   "line": "Shared support inbox with Beacon chat and Docs.",
   "free": {
     "kind": "free",

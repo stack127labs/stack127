@@ -2,7 +2,14 @@
   "slug": "doprax",
   "name": "Doprax",
   "url": "https://www.doprax.com/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: App Space is a managed container host; the customer deploys containers and app data",
+      "vps": "03: VM products are Linux servers with root access that the customer manages"
+    }
+  },
   "line": "Deploy apps on managed App Space or virtual server plans.",
   "free": { "kind": "none", "text": "No recurring free VM or App Space allowance" },
   "cells": { "type": "App platform and VPS", "regions": "Canada, France, Germany, Poland, UK", "selfhost": "No" },

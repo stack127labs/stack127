@@ -2,7 +2,15 @@
   "slug": "sendpulse",
   "name": "SendPulse",
   "url": "https://sendpulse.com/",
-  "jobs": ["newsletter", "marketing", "transactional", "multichannel"],
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: broadcast newsletters and segmented campaigns",
+      "marketing": "F02: automated subscriber journeys",
+      "transactional": "F02: transactional SMTP and API for password resets, confirmations and notifications"
+    }
+  },
   "line": "Email campaigns and automated journeys with a transactional email API.",
   "free": { "kind": "free", "text": "Marketing: 500 contacts/15,000 emails; SMTP: 12,000/month" },
   "cells": {

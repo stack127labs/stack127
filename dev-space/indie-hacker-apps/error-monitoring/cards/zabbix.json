@@ -2,7 +2,15 @@
   "slug": "zabbix",
   "name": "Zabbix",
   "url": "https://www.zabbix.com/",
-  "jobs": ["uptime", "logs", "performance"],
+  "jobs": ["performance", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: metrics from servers and apps; OpenTelemetry APM traces in Zabbix 8.0 (A01)",
+      "uptime": "U01, U02: web scenarios, ICMP, TCP, UDP and DNS checks (U01)",
+      "logs": "C02: agent log items filter and extract lines from local log files"
+    }
+  },
   "line": "Self-hosted monitoring for infrastructure, logs, and web availability.",
   "free": {
     "kind": "selfhost",

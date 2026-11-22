@@ -2,7 +2,14 @@
   "slug": "coinpayments",
   "name": "CoinPayments",
   "url": "https://www.coinpayments.net/",
-  "jobs": ["crypto"],
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts major coins and USDT and USDC on several networks",
+      "links": "F16: hosted invoice checkout is created in the dashboard and invoice links can be shared"
+    }
+  },
   "line": "Hosted crypto checkout with invoicing, API and merchant wallets.",
   "free": { "kind": "none", "text": "No standard subscription fee published; processing fees apply" },
   "cells": {

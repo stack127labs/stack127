@@ -3,6 +3,12 @@
   "name": "Atlassian Statuspage",
   "url": "https://www.atlassian.com/software/statuspage",
   "jobs": ["status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: hosted public status pages for incidents and maintenance (S01, S03)"
+    }
+  },
   "line": "Publishes service status, incidents, maintenance, and uptime history.",
   "free": { "kind": "free", "text": "Free public page: 100 subscribers, 25 components" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

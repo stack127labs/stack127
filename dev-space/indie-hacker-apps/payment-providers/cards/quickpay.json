@@ -3,6 +3,13 @@
   "name": "Quickpay",
   "url": "https://quickpay.net/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway connecting checkout to acquirers; the merchant is the seller",
+      "links": "F16: one-off payment links created in Manager, or generated through the API"
+    }
+  },
   "line": "European gateway for card, bank, wallet, and payment-link checkout.",
   "free": { "kind": "none", "text": "Free to create and test; live plans have monthly and transaction fees" },
   "cells": {

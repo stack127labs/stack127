@@ -3,6 +3,13 @@
   "name": "SuperTokens",
   "url": "https://supertokens.com/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: SuperTokens Cloud runs Core and its database; F05: vendor operates Core infrastructure",
+      "server": "F02: Apache self-hosted Core on your own infrastructure; F35: Docker or VM deployment documented"
+    }
+  },
   "line": "App authentication service with Cloud and self-hosted options.",
   "free": { "kind": "free", "text": "Free below 5,000 MAU; published threshold conflicts" },
   "cells": {

@@ -2,7 +2,13 @@
   "slug": "phpmyfaq",
   "name": "phpMyFAQ",
   "url": "https://www.phpmyfaq.de/",
-  "jobs": ["helpdesk"],
+  "jobs": ["kb"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "kb": "F02: searchable customer FAQ and help center with moderated questions and article submissions"
+    }
+  },
   "line": "Self-hosted open-source FAQ and knowledge base for customer questions.",
   "free": { "kind": "selfhost", "text": "Free MPL-2.0 software; you provide hosting" },
   "cells": {

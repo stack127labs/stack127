@@ -2,7 +2,14 @@
   "slug": "instapods",
   "name": "InstaPods",
   "url": "https://instapods.com/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted persistent Linux containers; the provider maintains the platform and base images",
+      "static": "04: static sites are a listed app type"
+    }
+  },
   "line": "Run persistent Linux app containers with SSH and built-in proxying.",
   "free": { "kind": "credits", "text": "One-time $10 starter credit; no ongoing free plan" },
   "cells": { "type": "Persistent app containers", "regions": "France/Germany/US; location pages differ", "selfhost": "No" },

@@ -3,6 +3,12 @@
   "name": "Azure Database for MySQL",
   "url": "https://azure.microsoft.com/en-us/products/mysql",
   "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the primary type; D01: native MySQL Community Edition"
+    }
+  },
   "line": "Run managed MySQL databases on Azure Flexible Server.",
   "free": { "kind": "trial", "text": "750 B1ms hours/month, 32 GB; upgrade within 30 days to continue" },
   "cells": {

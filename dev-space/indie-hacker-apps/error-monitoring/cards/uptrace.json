@@ -2,7 +2,16 @@
   "slug": "uptrace",
   "name": "Uptrace",
   "url": "https://uptrace.dev/",
-  "jobs": ["errors", "logs", "uptime", "performance"],
+  "jobs": ["performance", "errors", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: OpenTelemetry APM and distributed tracing are the first listed jobs (A01)",
+      "errors": "E01: exceptions recorded from OpenTelemetry spans and grouped by type",
+      "uptime": "C02: HTTP checks run by your Collector with content and TLS assertions (U01, U05)",
+      "logs": "L02: full-text, attribute and regex log search with trace links"
+    }
+  },
   "line": "Collects traces, errors, and logs, with customer-run synthetic HTTP checks.",
   "free": { "kind": "free", "text": "Free Cloud: 50 GB spans/logs + 5,000 timeseries/month; Community is free too" },
   "cells": { "interval": "60 s Collector default; fastest unknown", "maintained": "Last release 2026-10-22" },

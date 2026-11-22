@@ -3,6 +3,12 @@
   "name": "Netlify Identity",
   "url": "https://docs.netlify.com/manage/security/secure-access-to-sites/identity/overview/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed Identity accounts, login and sessions per Netlify project; F05: Netlify runs the auth service"
+    }
+  },
   "line": "Netlify app-user accounts with password and social login.",
   "free": { "kind": "free", "text": "No Identity user cap; Netlify Free has 300 credits/month" },
   "cells": {

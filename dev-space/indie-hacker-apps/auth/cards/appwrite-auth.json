@@ -3,6 +3,13 @@
   "name": "Appwrite Auth",
   "url": "https://appwrite.io/products/auth",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: Auth runs on Appwrite Cloud; F05: Cloud infrastructure is vendor-managed",
+      "server": "F02: self-hosted backend server includes Auth; F35: Docker Compose or Helm install"
+    }
+  },
   "line": "User accounts and login in Appwrite Cloud or your own server.",
   "free": { "kind": "free", "text": "Cloud free tier includes 75,000 MAU" },
   "cells": {

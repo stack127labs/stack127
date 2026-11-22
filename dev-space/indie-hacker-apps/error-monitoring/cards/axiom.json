@@ -3,6 +3,13 @@
   "name": "Axiom",
   "url": "https://axiom.co/",
   "jobs": ["logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: primary job is event and log search and monitoring (L02)",
+      "performance": "C02: distributed traces with waterfalls and slow-operation charts (A01)"
+    }
+  },
   "line": "Searches and monitors logs, traces, and metrics.",
   "free": { "kind": "free", "text": "Free for 500 GB loading/month, 10 GB-hour queries" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

@@ -2,7 +2,15 @@
   "slug": "dittofeed",
   "name": "Dittofeed",
   "url": "https://www.dittofeed.com/",
-  "jobs": ["marketing", "transactional", "multichannel", "newsletter"],
+  "jobs": ["marketing", "newsletter", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: user journeys with waits, delays and segment splits",
+      "newsletter": "F02: broadcasts send one-off newsletters and announcements to a segment",
+      "multichannel": "F02: messaging across email, SMS, mobile push, WhatsApp and Slack, triggered by user events (F21)"
+    }
+  },
   "line": "Self-host customer messaging journeys and newsletters across email and other channels.",
   "free": { "kind": "selfhost", "text": "Free MIT software; you provide hosting and email delivery" },
   "cells": { "newsletters": "Yes", "api": "Yes, REST API and event SDKs" },

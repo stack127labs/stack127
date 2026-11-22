@@ -3,6 +3,12 @@
   "name": "IncidentHub",
   "url": "https://incidenthub.cloud/",
   "jobs": ["status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: hosted status pages that aggregate provider incidents (S01, S03)"
+    }
+  },
   "line": "Aggregates third-party service incidents into alerts and status pages.",
   "free": { "kind": "free", "text": "5 monitored services; no customer status page; no card" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "NAVER Cloud Server",
   "url": "https://www.ncloud.com/product/compute/server",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted IaaS VMs; NAVER Cloud runs the hypervisor and the customer administers the VM OS and app"
+    }
+  },
   "line": "Run virtual servers on NAVER Cloud and manage their operating systems.",
   "free": { "kind": "trial", "text": "1 Micro Server for Korea residents; 1 year, IP/traffic extra; then paid" },
   "cells": { "type": "Cloud servers", "regions": "KR/US West/SG/JP/DE; g3 VPC only KR/SG/JP", "selfhost": "No" },

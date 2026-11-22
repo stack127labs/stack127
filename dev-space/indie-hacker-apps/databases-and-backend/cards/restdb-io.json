@@ -2,7 +2,15 @@
   "slug": "restdb-io",
   "name": "restdb.io",
   "url": "https://restdb.io/",
-  "jobs": ["backend", "files", "jobs"],
+  "jobs": ["nosql", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is hosted NoSQL document database with generated REST and JavaScript APIs",
+      "files": "F01: 20 GB media storage included on Standard; F05: native /media endpoints for upload and fetch",
+      "jobs": "C07: Codehooks & Jobs with scheduled runJob functions are listed on all three plans"
+    }
+  },
   "line": "NoSQL document database with generated APIs, media storage, and codehooks.",
   "free": { "kind": "free", "text": "2,500 records, 500 calls/day, 100MB media; no idle pause or deletion rule" },
   "cells": {

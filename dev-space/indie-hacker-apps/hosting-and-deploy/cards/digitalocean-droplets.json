@@ -3,6 +3,12 @@
   "name": "DigitalOcean Droplets",
   "url": "https://www.digitalocean.com/products/droplets",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: Linux virtual server; the customer maintains the OS, applications and data"
+    }
+  },
   "line": "Run Linux virtual servers and manage their operating systems and apps.",
   "free": { "kind": "credits", "text": "No recurring free CPU plan; signup credits expire" },
   "cells": { "type": "VPS/VM", "regions": "North America, Europe, Asia-Pacific, Australia", "selfhost": "No" },

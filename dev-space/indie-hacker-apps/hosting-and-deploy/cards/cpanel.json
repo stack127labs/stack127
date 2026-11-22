@@ -2,7 +2,14 @@
   "slug": "cpanel",
   "name": "cPanel",
   "url": "https://www.cpanel.net/",
-  "jobs": ["panel"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: self-hosted panel software on a server the customer owns or rents; a paid license, not free software",
+      "static": "04: can serve static site files and PHP websites through its managed web server"
+    }
+  },
   "line": "Install a web hosting control panel on your own server.",
   "free": { "kind": "trial", "text": "15-day trial, up to 30 accounts; one per static public IP" },
   "cells": { "type": "Hosting control panel", "regions": "Your server's region", "selfhost": "Yes; install on a VPS or dedicated server" },

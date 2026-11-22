@@ -2,7 +2,14 @@
   "slug": "layershift-enscale",
   "name": "Layershift Enscale",
   "url": "https://www.layershift.com/enscale-paas-hosting",
-  "jobs": ["paas"],
+  "jobs": ["paas", "vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted container PaaS; Layershift configures and supports the certified application and database stacks",
+      "vps": "03: Elastic VPS gives root access; the customer maintains that software and its security"
+    }
+  },
   "line": "Deploy managed applications and databases on a container PaaS.",
   "free": { "kind": "trial", "text": "14 days: public IP off by default, no Elastic VPS; paid upgrade needs deposit" },
   "cells": { "type": "Certified stacks managed; custom Docker/VPS self-managed", "regions": "UK, US and Singapore; Manchester default", "selfhost": "No" },

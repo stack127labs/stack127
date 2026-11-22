@@ -3,6 +3,12 @@
   "name": "Jetpack Newsletter",
   "url": "https://jetpack.com/newsletter/",
   "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and new-post notifications, with native paid newsletters"
+    }
+  },
   "line": "Send new posts and newsletters to subscribers from WordPress.",
   "free": { "kind": "free", "text": "Unlimited direct signups and sends; 100 imported contacts, fair use applies" },
   "cells": {

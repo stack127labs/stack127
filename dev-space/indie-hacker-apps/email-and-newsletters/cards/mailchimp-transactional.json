@@ -2,7 +2,14 @@
   "slug": "mailchimp-transactional",
   "name": "Mailchimp Transactional",
   "url": "https://mailchimp.com/features/transactional-email/",
-  "jobs": ["transactional"],
+  "jobs": ["transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: one-to-one app and commerce email through the API or SMTP, including resets and receipts",
+      "multichannel": "F02: transactional SMS is offered as a separate channel that needs SMS credits"
+    }
+  },
   "line": "API and SMTP delivery for one-to-one app and commerce emails.",
   "free": { "kind": "credits", "text": "One-time demo for up to 500 emails" },
   "cells": {

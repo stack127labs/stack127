@@ -3,6 +3,12 @@
   "name": "SMTPeter",
   "url": "https://www.smtpeter.com/en",
   "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and application email through SMTP or the REST API"
+    }
+  },
   "line": "Hosted SMTP and REST relay for application-generated email.",
   "free": { "kind": "none", "text": "No free plan; pre-approval test limits are not listed" },
   "cells": {

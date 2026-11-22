@@ -2,7 +2,15 @@
   "slug": "freemius",
   "name": "Freemius",
   "url": "https://freemius.com/",
-  "jobs": ["mor", "billing"],
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record; Freemius resells the licence and is the buyer-facing legal seller",
+      "billing": "F14: monthly and annual automatic renewals; F15: prorations, trials and retries",
+      "links": "F16: hosted checkout and payment links that need no checkout code"
+    }
+  },
   "line": "Merchant of Record checkout, licensing and subscriptions for software makers.",
   "free": { "kind": "none", "text": "No setup or monthly fee; pay when a sale succeeds" },
   "cells": {

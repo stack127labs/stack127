@@ -1,6 +1,14 @@
 {
   "slug": "usermaven", "name": "Usermaven", "url": "https://usermaven.com/",
   "jobs": ["web", "product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F15: visitors, pageviews, sessions, sources, UTMs and geography",
+      "product": "F16: funnels with optional steps, paths, and retention of users or companies",
+      "revenue": "F19: Stripe and Paddle signed events with MRR, net MRR and realized LTV reports"
+    }
+  },
   "line": "Connects website and product behavior to marketing and revenue.",
   "free": {"kind": "none", "text": "No free plan or new-customer trial; request a quote"},
   "cells": {"cookieless": "Optional (strict privacy mode)", "location": "EU-hosted (vendor claim); exact regions unknown", "selfhost": "Yes, Enterprise on-premise"},

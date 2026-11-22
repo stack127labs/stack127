@@ -3,6 +3,12 @@
   "name": "Rauthy",
   "url": "https://github.com/sebadob/rauthy",
   "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted Rust identity server with accounts, OIDC login and sessions; F05: builder runs Rauthy and its storage"
+    }
+  },
   "line": "Self-hosted Rust identity server with OIDC, sessions, and passkeys.",
   "free": { "kind": "selfhost", "text": "Free software; you run the server" },
   "cells": {

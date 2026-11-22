@@ -2,7 +2,14 @@
   "slug": "ubicloud-postgres",
   "name": "Ubicloud Postgres",
   "url": "https://www.ubicloud.com/use-cases/postgresql",
-  "jobs": ["sql", "jobs", "vector"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: native PostgreSQL 16, 17 and 18",
+      "vector": "V01: pgvector 0.8.2 supported on managed PostgreSQL"
+    }
+  },
   "line": "Managed PostgreSQL with backups, point-in-time recovery, replicas and extensions.",
   "free": { "kind": "none", "text": "No hosted free tier; Hobby-1 $19.54/mo; no idle pause or deletion rule" },
   "cells": {

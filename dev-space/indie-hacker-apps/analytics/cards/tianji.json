@@ -1,6 +1,12 @@
 {
   "slug": "tianji", "name": "Tianji", "url": "https://tianji.dev/",
-  "jobs": ["web", "product"],
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website analytics with app events; F15: pageviews, uniques, referrers, UTMs and geography"
+    }
+  },
   "line": "Open-source website analytics, app events and infrastructure monitoring.",
   "free": {"kind": "selfhost", "text": "Free Apache-licensed software to self-host"},
   "cells": {"cookieless": "Yes (vendor says no tracking cookies)", "location": "Frankfurt, Germany (Cloud)", "selfhost": "Yes"},

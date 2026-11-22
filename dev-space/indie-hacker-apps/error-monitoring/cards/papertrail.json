@@ -3,6 +3,12 @@
   "name": "SolarWinds Papertrail",
   "url": "https://www.papertrail.com/",
   "jobs": ["logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: centralized log collection, live search and archives (L02)"
+    }
+  },
   "line": "Collects, searches and archives application logs with saved-query alerts.",
   "free": { "kind": "trial", "text": "30-day trial, 100 GB; no card" },
   "cells": {

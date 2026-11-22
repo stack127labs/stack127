@@ -2,9 +2,14 @@
   "slug": "vercel",
   "name": "Vercel",
   "url": "https://vercel.com/",
-  "jobs": [
-    "static"
-  ],
+  "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static CDN for builds and deployments; static and hybrid sites are a listed use",
+      "paas": "03: autoscaling Functions and Container Runtime run the customer's HTTP apps; Daemons keep workers running"
+    }
+  },
   "line": "Managed frontend hosting with a CDN, builds and autoscaling functions.",
   "free": {
     "kind": "free",

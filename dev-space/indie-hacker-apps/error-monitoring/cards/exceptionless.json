@@ -3,6 +3,13 @@
   "name": "Exceptionless",
   "url": "https://exceptionless.com/",
   "jobs": ["errors", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: unhandled and handled error tracking with grouping (E01)",
+      "logs": "L02: paid search by project, time, level and fields over log events"
+    }
+  },
   "line": "Tracks application errors, logs and custom events with issue grouping.",
   "free": { "kind": "free", "text": "3,000 events/month; 1 project/user; 3-day detail" },
   "cells": {

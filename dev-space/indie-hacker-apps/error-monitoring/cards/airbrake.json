@@ -3,6 +3,13 @@
   "name": "Airbrake",
   "url": "https://www.airbrake.io/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error tracking is a main job; error SDKs listed in C16",
+      "performance": "C02: APM is the other main job; APM plans and quotas in C07"
+    }
+  },
   "line": "Tracks application errors and performance events.",
   "free": {"kind": "free", "text": "Developer account; error limits not established"},
   "cells": {"interval": "—", "maintained": "Hosted service"},

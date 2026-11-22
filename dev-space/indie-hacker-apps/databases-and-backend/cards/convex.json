@@ -2,7 +2,17 @@
   "slug": "convex",
   "name": "Convex",
   "url": "https://www.convex.dev/",
-  "jobs": ["backend", "sql", "files", "vector", "jobs"],
+  "jobs": ["backend", "nosql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: Convex's own engine stores JSON-like documents with optional schema, queried from JavaScript",
+      "backend": "C02: hosted backend platform with database, functions, realtime, auth and files",
+      "files": "F01: 1 GB included, then $0.033/GB-month; F02: documented upload flow",
+      "jobs": "C07: scheduled and cron functions; J04: runAfter and runAt delays persist across restarts",
+      "vector": "V01: vector indexes of 2-4,096 dimensions; V02: cosine approximate nearest-neighbor search"
+    }
+  },
   "line": "Build apps with a database, auth, realtime, files, and functions.",
   "free": { "kind": "free", "text": "0.5 GB database, 1 GB files, and 1M calls per team" },
   "cells": {

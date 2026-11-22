@@ -3,6 +3,12 @@
   "name": "Hetzner Object Storage",
   "url": "https://www.hetzner.com/storage/object-storage/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed object storage for files in buckets is the primary type; C07: S3 API bucket storage"
+    }
+  },
   "line": "S3-compatible object storage with shared storage and egress allowances.",
   "free": { "kind": "none", "text": "No free tier; €7.72/month while any bucket is active, even if empty" },
   "cells": {

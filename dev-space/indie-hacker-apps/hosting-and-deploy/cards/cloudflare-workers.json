@@ -2,9 +2,14 @@
   "slug": "cloudflare-workers",
   "name": "Cloudflare Workers",
   "url": "https://www.cloudflare.com/products/workers/",
-  "jobs": [
-    "static"
-  ],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed serverless compute; the customer deploys code and Cloudflare runs it on its network",
+      "static": "04: static sites and SPAs are a listed use of Workers"
+    }
+  },
   "line": "Serverless code and static assets on Cloudflare's network.",
   "free": {
     "kind": "free",

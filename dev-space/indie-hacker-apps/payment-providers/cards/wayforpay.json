@@ -2,11 +2,15 @@
   "slug": "wayforpay",
   "name": "WayForPay",
   "url": "https://wayforpay.com/uk",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and processor; the merchant sells and is the seller",
+      "billing": "F14: card subscriptions with scheduled automatic charges and retry settings",
+      "links": "F16: payment links and invoices sent by email, SMS or messaging apps"
+    }
+  },
   "line": "Ukraine payment gateway for cards, wallets, recurring billing, and links.",
   "free": {
     "kind": "none",

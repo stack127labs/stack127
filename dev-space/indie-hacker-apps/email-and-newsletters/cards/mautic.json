@@ -3,6 +3,14 @@
   "name": "Mautic",
   "url": "https://mautic.org/",
   "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: contact-based campaign journeys with event actions and conditions",
+      "newsletter": "F02: segment broadcasts",
+      "transactional": "F02: HTTP API sends a template email to a stored contact"
+    }
+  },
   "line": "Self-hosted marketing automation with newsletters and API-triggered mail.",
   "free": { "kind": "selfhost", "text": "Free open-source software; provide hosting and email delivery" },
   "cells": {

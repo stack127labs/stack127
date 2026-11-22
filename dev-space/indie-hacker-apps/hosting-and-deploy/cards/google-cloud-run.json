@@ -3,6 +3,12 @@
   "name": "Google Cloud Run",
   "url": "https://cloud.google.com/run",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed container platform; Google runs the services and jobs the customer deploys"
+    }
+  },
   "line": "Run containerized services and jobs on managed infrastructure.",
   "free": { "kind": "free", "text": "Request-based: 180k vCPU-s, 360k GiB-s, 2M requests/month" },
   "cells": { "type": "Managed containers", "regions": "Iowa example; multiple US, Europe and Asia regions", "selfhost": "No" },

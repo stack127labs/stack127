@@ -6,6 +6,13 @@
     "web",
     "revenue"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary job is website analytics for Wix sites; F15: visits, entry pages, devices, locations, sources and campaigns",
+      "revenue": "F19: sales reports across Wix payment methods, plus subscription reports for recurring and one-time revenue"
+    }
+  },
   "line": "Built-in website, marketing and sales reports for Wix sites.",
   "free": {
     "kind": "free",

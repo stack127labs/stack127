@@ -6,6 +6,13 @@
     "static",
     "paas"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: provider-managed static, SPA and hybrid site hosting on Cloud",
+      "paas": "04: supported server-rendered apps run in the provider's isolated containers"
+    }
+  },
   "line": "Build and host static, single page, and server rendered sites.",
   "free": {
     "kind": "free",

@@ -3,6 +3,12 @@
   "name": "Contabo VPS",
   "url": "https://contabo.com/en/vps/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: KVM virtual machine with full server admin rights; the customer manages the OS and apps"
+    }
+  },
   "line": "Rent a virtual server and manage its operating system and applications.",
   "free": { "kind": "none", "text": "No ongoing free VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "EU offer; other Contabo locations", "selfhost": "No" },

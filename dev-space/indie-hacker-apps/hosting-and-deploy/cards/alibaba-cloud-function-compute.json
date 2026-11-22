@@ -3,6 +3,12 @@
   "name": "Alibaba Cloud Function Compute",
   "url": "https://www.alibabacloud.com/en/product/function-compute",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed function execution; the customer uploads application code and the provider runs it"
+    }
+  },
   "line": "Run HTTP apps and event functions on managed serverless compute.",
   "free": { "kind": "credits", "text": "Three-month compute trial for eligible new users" },
   "cells": { "type": "Serverless functions", "regions": "Asia, Europe, US, Middle East", "selfhost": "No" },

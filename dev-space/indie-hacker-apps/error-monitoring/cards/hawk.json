@@ -3,6 +3,13 @@
   "name": "Hawk",
   "url": "https://hawk.so/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: primary job is error capture, grouping and release tracking (E01, E03)",
+      "performance": "C02: optional browser Web Vitals and long-task issue events; no full APM (A01)"
+    }
+  },
   "line": "Groups application errors and shows debugging context, releases and alerts.",
   "free": { "kind": "free", "text": "1,000 events/workspace/month; no card" },
   "cells": {

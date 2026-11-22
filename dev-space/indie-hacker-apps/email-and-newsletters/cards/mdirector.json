@@ -2,7 +2,16 @@
   "slug": "mdirector",
   "name": "MDirector",
   "url": "https://www.mdirector.com/en/",
-  "jobs": ["marketing", "newsletter", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: date and behaviour-based lifecycle email",
+      "newsletter": "F02: email newsletters and bulk marketing campaigns",
+      "transactional": "F02: one-to-one transactional email through the API or SMTP on Pro or Total",
+      "multichannel": "F02: lifecycle SMS, based on behaviour and dates"
+    }
+  },
   "line": "Email campaigns, lifecycle messaging and transactional API delivery.",
   "free": { "kind": "free", "text": "Advertised free for 5,000 contacts and emails/month; signup suspended" },
   "cells": {

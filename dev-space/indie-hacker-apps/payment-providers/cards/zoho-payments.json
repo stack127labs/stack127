@@ -2,10 +2,14 @@
   "slug": "zoho-payments",
   "name": "Zoho Payments",
   "url": "https://www.zoho.com/payments/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider in the US and aggregator in India; the merchant sells",
+      "links": "F16: standalone payment links that collect a sale without a full storefront"
+    }
+  },
   "line": "Online payments for US and Indian sellers, with cards, UPI, and links.",
   "free": {
     "kind": "none",

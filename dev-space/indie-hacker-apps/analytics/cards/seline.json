@@ -1,6 +1,14 @@
 {
   "slug": "seline", "name": "Seline", "url": "https://seline.com/",
   "jobs": ["web", "product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: website and product analytics; F15: real-time traffic, pages, sources, devices and UTMs",
+      "product": "F16: funnels of two or more ordered steps, with custom events and user profiles",
+      "revenue": "F19: Stripe and Polar sync and Shopify checkout capture, with revenue in the project currency"
+    }
+  },
   "line": "Website and product analytics with funnels and revenue attribution.",
   "free": {"kind": "trial", "text": "7-day trial, no credit card"},
   "cells": {"cookieless": "Yes (optional visitor cookie)", "location": "Germany (Hetzner)", "selfhost": "No"},

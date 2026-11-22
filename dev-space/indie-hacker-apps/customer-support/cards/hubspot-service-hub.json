@@ -2,7 +2,17 @@
   "slug": "hubspot-service-hub",
   "name": "HubSpot Service Hub",
   "url": "https://www.hubspot.com/products/service",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: knowledge base is part of the cloud support inbox and Service Hub",
+      "helpdesk": "F17: Help desk connects shared email and creates tickets automatically on Professional and Enterprise",
+      "chat": "F17: Native website chat widget on all products and plans, with schedules and optional bots",
+      "ai": "F22: Customer Agent answers customers autonomously on connected channels from supplied knowledge",
+      "inbox": "F17: Basic team email and conversations inbox is free; F18: owners, notes and macros shared by the team"
+    }
+  },
   "line": "Customer support inbox, tickets, live chat, and AI within HubSpot CRM.",
   "free": { "kind": "free", "text": "Free for 2 users; 1,000 CRM contacts" },
   "cells": {

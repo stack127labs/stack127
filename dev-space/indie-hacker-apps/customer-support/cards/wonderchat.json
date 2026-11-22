@@ -2,7 +2,16 @@
   "slug": "wonderchat",
   "name": "Wonderchat",
   "url": "https://wonderchat.io/",
-  "jobs": ["inbox", "chat", "ai"],
+  "jobs": ["ai", "helpdesk", "chat", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Autonomous customer-facing agent answers from connected content; billed by AI reply credits",
+      "helpdesk": "F18: Tickets, help desk and shared inbox are included on every plan, Free included",
+      "chat": "F17: Website chat widget on all plans; humans can join live chat and take over (F24)",
+      "inbox": "F18: Shared inbox on every plan, with tickets that teammates can assign, note and close"
+    }
+  },
   "line": "AI support agent with human handoff, shared inbox, and help desk.",
   "free": { "kind": "free", "text": "Free forever; 2 seats and 50 AI replies/month" },
   "cells": {

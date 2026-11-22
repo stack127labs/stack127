@@ -2,7 +2,16 @@
   "slug": "scalingo-databases",
   "name": "Scalingo Databases",
   "url": "https://scalingo.com/databases",
-  "jobs": ["sql", "kv", "vector"],
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C01: managed MongoDB and OpenSearch are listed as Scalingo database engines",
+      "sql": "C02: managed database hosting with relational SQL first; D01: native PostgreSQL and MySQL engines",
+      "kv": "C08: Redis-compatible Caching protocol; C12: Caching plans priced per 30 days",
+      "vector": "V01: pgvector 0.8.6 with HNSW and IVFFlat indexes"
+    }
+  },
   "line": "Managed PostgreSQL, MySQL, MongoDB, caching, and search databases.",
   "free": { "kind": "trial", "text": "30d; 1 app/5 containers/1 small DB each; runs and bills or deletes after expiry" },
   "cells": {

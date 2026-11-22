@@ -2,11 +2,15 @@
   "slug": "univapay",
   "name": "UnivaPay",
   "url": "https://univapay.com/",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and collection agent; the merchant sells and is responsible to buyers",
+      "billing": "F14: native scheduled automatic subscriptions on credit cards and Paidy",
+      "links": "F16: hosted link forms made in the management console, sent by email, chat, SMS or QR"
+    }
+  },
   "line": "Japanese gateway for cards, local methods, subscriptions, and payment links.",
   "free": {
     "kind": "none",

@@ -2,7 +2,16 @@
   "slug": "aiven",
   "name": "Aiven",
   "url": "https://aiven.io/",
-  "jobs": ["sql", "kv", "jobs", "vector"],
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C09: the recurring free tier covers OpenSearch, a managed search database; C02 lists search as a role",
+      "sql": "C02: SQL and managed databases is the main type; D01: native managed PostgreSQL",
+      "kv": "C10: managed Valkey (Redis-style) service with a free tier",
+      "vector": "V01: pgvector is documented for managed PostgreSQL"
+    }
+  },
   "line": "Managed databases, caches, search, streams, and container apps.",
   "free": { "kind": "free", "text": "1 GB disk; may power off idle, deleted after 180 days off" },
   "cells": {

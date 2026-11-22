@@ -2,7 +2,14 @@
   "slug": "filess-io",
   "name": "filess.io",
   "url": "https://filess.io/",
-  "jobs": ["sql", "jobs"],
+  "jobs": ["sql", "nosql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: the managed catalog includes MongoDB 6.0 and 5.0 as document databases",
+      "sql": "C02: managed SQL databases are the primary type; D01: MySQL, PostgreSQL and MariaDB catalog"
+    }
+  },
   "line": "Host SQL and MongoDB databases alongside separate container apps.",
   "free": { "kind": "free", "text": "2 DBs × 10 MB; 5 connections; weekly backups; disable at 30d, delete after 60d" },
   "cells": {

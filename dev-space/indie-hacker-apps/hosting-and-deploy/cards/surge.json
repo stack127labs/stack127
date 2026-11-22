@@ -3,6 +3,12 @@
   "name": "Surge",
   "url": "https://surge.sh/",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static-file hosting on Surge's CDN; the customer uploads the built output"
+    }
+  },
   "line": "Publish static websites from a command line to Surge's CDN.",
   "free": { "kind": "free", "text": "Free, no card; verify email before new surge.sh sites pause at 90 min" },
   "cells": { "type": "Static hosting", "regions": "US, Canada, Europe, India, Asia-Pacific and Australia", "selfhost": "No" },

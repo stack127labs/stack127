@@ -3,6 +3,15 @@
   "name": "Customer.io",
   "url": "https://customer.io/",
   "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing automation for customer journeys",
+      "newsletter": "F02: one-time newsletter and broadcast sending",
+      "transactional": "F02: API-triggered transactional email is supported",
+      "multichannel": "F02: email combined with push, in-app, SMS, WhatsApp and webhooks"
+    }
+  },
   "line": "Customer journeys and broadcasts across email and other messaging channels.",
   "free": {"kind": "trial", "text": "14-day trial; up to 5,000 total messages"},
   "cells": {"newsletters": "Yes", "api": "Yes"},

@@ -2,7 +2,15 @@
   "slug": "btcpay-server",
   "name": "BTCPay Server",
   "url": "https://btcpayserver.org/",
-  "jobs": ["crypto"],
+  "jobs": ["crypto", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts Bitcoin, Litecoin and other chains; C02: payments go to your wallet",
+      "billing": "F15: plans, prices, intervals, trials and a customer portal run inside BTCPay",
+      "links": "F16: payment requests and invoice links can be shared without an online store"
+    }
+  },
   "line": "Self-hosted crypto checkout and invoicing software.",
   "free": { "kind": "selfhost", "text": "Free software; you pay for hosting and network costs" },
   "cells": {

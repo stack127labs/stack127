@@ -2,7 +2,15 @@
   "slug": "heap-by-contentsquare",
   "name": "Heap",
   "url": "https://www.heap.io/",
-  "jobs": ["product", "replay"],
+  "jobs": ["product", "web", "replay"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is product analytics with automatic capture; F16: funnels, journeys and retention on all plans",
+      "web": "F15: landing-page and campaign analysis, plus pageview capture and live event data",
+      "replay": "F17: Session Replay is a Pro or Premier add-on; web replay masks input values by default"
+    }
+  },
   "line": "Product analytics that automatically captures user behavior.",
   "free": { "kind": "free", "text": "Free up to 10,000 sessions/month" },
   "cells": { "cookieless": "No", "location": "Ireland, Frankfurt, or Virginia options", "selfhost": "No (none found)" },

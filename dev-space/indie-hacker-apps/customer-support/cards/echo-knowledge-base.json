@@ -2,7 +2,14 @@
   "slug": "echo-knowledge-base",
   "name": "Echo Knowledge Base",
   "url": "https://www.echoknowledgebase.com/",
-  "jobs": ["helpdesk", "ai"],
+  "jobs": ["kb", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: WordPress self-service help centre, docs and FAQ; AI chat is optional",
+      "ai": "F07: Optional AI Chat answers visitors automatically; uses your own Gemini or OpenAI key"
+    }
+  },
   "line": "WordPress help center and FAQ plugin with optional AI search and chat.",
   "free": { "kind": "free", "text": "Free core plugin; unlimited sites and articles" },
   "cells": {

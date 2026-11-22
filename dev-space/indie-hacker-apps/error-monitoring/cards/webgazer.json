@@ -3,6 +3,14 @@
   "name": "WebGazer",
   "url": "https://www.webgazer.io/",
   "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: primary uptime monitoring with HTTP, API, ping and TCP checks (U01, U02)",
+      "status": "S01, S03: hosted status pages with incident RSS and linked monitor status (S03)",
+      "cron": "J01, J02: heartbeat checks with elapsed interval and tolerance (J02)"
+    }
+  },
   "line": "Uptime and API checks, job heartbeats, and hosted status pages.",
   "free": {
     "kind": "free",

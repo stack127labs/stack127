@@ -3,6 +3,14 @@
   "name": "Groundhogg",
   "url": "https://groundhogg.io/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter broadcasts and bulk campaigns",
+      "marketing": "F02: marketing flows",
+      "transactional": "F02: transactional and one-off emails, sent through the WordPress mail transport or a configured sender"
+    }
+  },
   "line": "Self-hosted WordPress CRM for newsletters, automation and app email.",
   "free": { "kind": "free", "text": "Free core; contacts, flows and emails are unlimited" },
   "cells": {

@@ -3,6 +3,13 @@
   "name": "Maya Business",
   "url": "https://www.maya.ph/business",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acquirer; the merchant keeps the sale and delivery",
+      "links": "F16: no-code Payment Links and Email Invoice, sent without a merchant website"
+    }
+  },
   "line": "Philippine payment gateway for checkout, invoices and payment links.",
   "free": { "kind": "none", "text": "No fixed monthly price published; processing fees apply" },
   "cells": {

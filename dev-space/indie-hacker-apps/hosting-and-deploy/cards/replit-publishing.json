@@ -2,7 +2,14 @@
   "slug": "replit-publishing",
   "name": "Replit Publishing",
   "url": "https://replit.com/deployments",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: published apps run on Replit's managed cloud infrastructure; HTTP apps and workers are deployment types",
+      "static": "04: static websites and client-side apps are a listed deployment type"
+    }
+  },
   "line": "Publish and run apps on Replit's managed cloud infrastructure.",
   "free": { "kind": "free", "text": "Starter: 1 published app, monthly credits; link expires after 30 days" },
   "cells": { "type": "Managed app hosting", "regions": "Free defaults US; paid regions list 5 areas (guide conflict)", "selfhost": "No" },

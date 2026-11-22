@@ -3,6 +3,12 @@
   "name": "Amazon SQS",
   "url": "https://aws.amazon.com/sqs/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: hosted queue for messages to background workers is the primary role; J04: 60 seconds to 14 days retention"
+    }
+  },
   "line": "Managed message queues that connect apps and background workers.",
   "free": { "kind": "free", "text": "1 million request units each month" },
   "cells": {

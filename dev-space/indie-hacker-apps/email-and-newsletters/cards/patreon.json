@@ -3,6 +3,13 @@
   "name": "Patreon",
   "url": "https://www.patreon.com/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: native newsletters delivered from creator posts",
+      "marketing": "F02: membership promotions and retention messages through Autopilot"
+    }
+  },
   "line": "Publish newsletters and paid posts for a creator membership audience.",
   "free": { "kind": "free", "text": "Free unlimited-contact newsletters; no numeric send cap is listed" },
   "cells": {

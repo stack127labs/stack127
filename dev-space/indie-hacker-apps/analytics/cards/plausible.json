@@ -3,8 +3,16 @@
   "name": "Plausible Analytics",
   "url": "https://plausible.io/",
   "jobs": [
-    "web"
+    "web",
+    "revenue"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary job is website traffic and conversion analytics; F15: visitors, sessions, pages, sources and devices",
+      "revenue": "F19: total and average value of tracked orders; official WooCommerce and Easy Digital Downloads plugin"
+    }
+  },
   "line": "Simple, privacy-first website stats with goals and funnels.",
   "free": {
     "kind": "trial",

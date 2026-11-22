@@ -3,6 +3,12 @@
   "name": "Scaleway Object Storage",
   "url": "https://www.scaleway.com/en/object-storage/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted S3-compatible object and file storage is the primary type; F05: supported S3 API subset"
+    }
+  },
   "line": "S3-compatible object storage with Multi-AZ and One Zone bucket options.",
   "free": { "kind": "trial", "text": "750GB for 90d; eligibility unclear; no idle bucket deletion rule" },
   "cells": {

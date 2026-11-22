@@ -3,6 +3,12 @@
   "name": "Koko Analytics",
   "url": "https://www.kokoanalytics.com/",
   "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is WordPress website traffic analytics; F15: visitors, pageviews, popular pages, referrers and campaigns"
+    }
+  },
   "line": "Stores WordPress traffic reports on your own server.",
   "free": { "kind": "free", "text": "Free WordPress plugin; no pageview limit stated" },
   "cells": {

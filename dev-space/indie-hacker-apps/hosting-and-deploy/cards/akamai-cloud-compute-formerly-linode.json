@@ -3,6 +3,12 @@
   "name": "Akamai Cloud Compute",
   "url": "https://www.akamai.com/products/cpu",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented Linux virtual machines; the customer maintains the guest OS and software stack"
+    }
+  },
   "line": "Run apps on Linux virtual machines managed through Akamai Cloud.",
   "free": { "kind": "none", "text": "No recurring free compute plan" },
   "cells": {

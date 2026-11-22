@@ -2,7 +2,14 @@
   "slug": "redis-cloud-redis",
   "name": "Redis Cloud",
   "url": "https://redis.io/cloud/",
-  "jobs": ["kv", "vector", "jobs"],
+  "jobs": ["kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: key-value database and cache is the primary type; D01: in-memory data-structure server",
+      "vector": "V01: native vector indexes with FLAT and HNSW algorithms"
+    }
+  },
   "line": "Hosted Redis database for key-value data, vector search, and message streams.",
   "free": { "kind": "free", "text": "30MB, 100 ops/s, 5GB/mo; evaluation deletes after 14d idle; Free rule unclear" },
   "cells": {

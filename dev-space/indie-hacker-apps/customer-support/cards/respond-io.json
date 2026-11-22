@@ -2,7 +2,15 @@
   "slug": "respond-io",
   "name": "respond.io",
   "url": "https://respond.io/",
-  "jobs": ["inbox", "helpdesk", "chat", "ai"],
+  "jobs": ["inbox", "chat", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F02: Hosted omnichannel shared inbox; F18: assigned owner, teammate collaborators and internal comments",
+      "chat": "F17: Native Website Chat Widget with live, session-based conversations and a pre-chat contact form",
+      "ai": "F22: AI Agents on Growth and higher answer customer messages and run configured actions"
+    }
+  },
   "line": "Omnichannel customer inbox for messaging, calling, and support automation.",
   "free": { "kind": "trial", "text": "7-day trial, no card" },
   "cells": {

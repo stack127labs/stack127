@@ -3,6 +3,12 @@
   "name": "cloudscale.ch",
   "url": "https://www.cloudscale.ch/en",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented cloud VMs with root access; the customer installs, patches and backs up the guest OS and apps"
+    }
+  },
   "line": "Run root-access virtual servers on Swiss cloud infrastructure.",
   "free": { "kind": "none", "text": "No recurring free VM plan" },
   "cells": { "type": "VPS/VM", "regions": "Switzerland", "selfhost": "No" },

@@ -2,7 +2,15 @@
   "slug": "drumbeats",
   "name": "Drumbeats",
   "url": "https://drumbeats.io/",
-  "jobs": ["uptime", "status", "cron"],
+  "jobs": ["cron", "uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "cron": "C02: cron and heartbeat monitoring with grace periods and run history (J01, J02)",
+      "uptime": "U01, U02: HTTP and HTTPS checks on set intervals, with response time",
+      "status": "S01, S03: public status pages that update from monitors and incidents"
+    }
+  },
   "line": "Monitors cron jobs, heartbeats and HTTP uptime, with public status pages.",
   "free": { "kind": "free", "text": "200,000 Beats/month and 50 monitors; no card" },
   "cells": {

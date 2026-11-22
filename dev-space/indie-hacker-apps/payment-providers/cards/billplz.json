@@ -3,6 +3,13 @@
   "name": "Billplz",
   "url": "https://main.billplz.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and payment facilitator; the merchant remains the seller",
+      "links": "F16: dashboard and API bill links, plus hosted Billplz bill page"
+    }
+  },
   "line": "Malaysian gateway for collecting payments and sending payment orders.",
   "free": { "kind": "none", "text": "MYR0 Basic membership; successful-payment fees apply" },
   "cells": {

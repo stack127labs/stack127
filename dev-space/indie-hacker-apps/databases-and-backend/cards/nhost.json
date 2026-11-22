@@ -3,6 +3,16 @@
   "name": "Nhost",
   "url": "https://nhost.io/",
   "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with Postgres, GraphQL, auth, files and functions; C07: all documented",
+      "sql": "D01: full PostgreSQL with native SQL and generated GraphQL",
+      "files": "F01: 1 GB Starter and 50 GB Pro file storage; F04: bucket uploads via REST and SDK",
+      "jobs": "J04: five-field cron and one-off scheduled events",
+      "vector": "V01: pgvector exact and approximate nearest-neighbor search with HNSW and IVFFlat"
+    }
+  },
   "line": "PostgreSQL backend with GraphQL, user authentication, files, and functions.",
   "free": { "kind": "free", "text": "1 GB DB, 1 GB files, 5 GB egress; pauses after 1 idle week" },
   "cells": {

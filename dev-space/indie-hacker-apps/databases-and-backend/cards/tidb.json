@@ -2,7 +2,14 @@
   "slug": "tidb",
   "name": "TiDB Cloud",
   "url": "https://www.pingcap.com/tidb/cloud/",
-  "jobs": ["sql", "files", "vector"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: distributed SQL database is the primary type; D01: MySQL-compatible distributed SQL",
+      "vector": "V01: preview vector search on Cloud Starter and self-hosted v8.4+, up to 16,383 dimensions"
+    }
+  },
   "line": "Managed distributed SQL with optional vector search and a self-hosted Community edition.",
   "free": { "kind": "free", "text": "MySQL: 5 instances get 5GiB row + 5GiB column, 50M RUs/mo; no idle rule" },
   "cells": {

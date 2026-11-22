@@ -2,11 +2,16 @@
   "slug": "newebpay",
   "name": "NewebPay",
   "url": "https://www.newebpay.com/",
-  "jobs": [
-    "gateway",
-    "links",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: third-party payment collection and gateway; the merchant remains the seller",
+      "billing": "F14: automatic recurring card collection in TWD on set cycles; F15: pause, resume, amount changes",
+      "links": "F16: free EPG payment links and QR pages, no code needed",
+      "crypto": "C01: buyers pay USDT or USDC from a BitoPro balance; C03: merchant is paid in TWD via a partner"
+    }
+  },
   "line": "Taiwan payment gateway with hosted checkout, payment links and recurring cards.",
   "free": {
     "kind": "none",

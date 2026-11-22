@@ -3,6 +3,12 @@
   "name": "Write.as",
   "url": "https://write.as/",
   "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: blog-post newsletters with web and RSS distribution"
+    }
+  },
   "line": "Hosted blog posts delivered as newsletters, with web and RSS publishing.",
   "free": { "kind": "trial", "text": "14-day Pro or 30-day Team trial; Free excludes newsletters" },
   "cells": {

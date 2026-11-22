@@ -2,7 +2,17 @@
   "slug": "railway-databases",
   "name": "Railway",
   "url": "https://railway.com/",
-  "jobs": ["sql", "kv", "files", "jobs", "vector"],
+  "jobs": ["sql", "nosql", "kv", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C07: MongoDB is a native database template alongside PostgreSQL, MySQL and Redis",
+      "sql": "C02: hosted database deployment platform with PostgreSQL first; D01: native PostgreSQL and MySQL engines",
+      "kv": "D01: Redis key-value engine deployed from a template",
+      "files": "F01: Standard object storage at $0.015/GB-month; F05: documented S3 subset",
+      "jobs": "J04: five-field UTC cron services; J01: cron services run on Railway"
+    }
+  },
   "line": "Hosted database services for PostgreSQL, MySQL, Redis and MongoDB.",
   "free": { "kind": "none", "text": "Trial $5/30d; new deploys suspended; Free $1/mo; volumes delete 30d after expiry" },
   "cells": {

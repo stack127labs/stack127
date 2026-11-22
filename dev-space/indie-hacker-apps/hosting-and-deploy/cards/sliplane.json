@@ -3,6 +3,12 @@
   "name": "Sliplane",
   "url": "https://sliplane.io/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed container platform; Sliplane runs the hosts, builds and deployments"
+    }
+  },
   "line": "Deploy container apps and PostgreSQL on managed servers.",
   "free": { "kind": "trial", "text": "48-hour demo, no card, up to twice; data is deleted at expiry" },
   "cells": { "type": "Managed container platform", "regions": "DE, FI, US East/West, SG; Confidential needs agreement", "selfhost": "No" },

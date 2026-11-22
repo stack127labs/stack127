@@ -3,6 +3,12 @@
   "name": "Replit Database",
   "url": "https://replit.com/products/database",
   "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: hosted managed PostgreSQL is the primary type; D01: native PostgreSQL 16 in development"
+    }
+  },
   "line": "Managed PostgreSQL for Replit apps, with separate development and production data.",
   "free": { "kind": "free", "text": "Dev cap 20GB/GiB unclear; account may end after 1y idle; prod sleeps at 5m" },
   "cells": {

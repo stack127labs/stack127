@@ -2,7 +2,13 @@
   "slug": "apache-couchdb",
   "name": "Apache CouchDB",
   "url": "https://couchdb.apache.org/",
-  "jobs": ["sql", "files"],
+  "jobs": ["nosql"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: self-hosted JSON document database; D01: JSON documents with Mango selectors and indexes"
+    }
+  },
   "line": "Self-hosted JSON document database with HTTP APIs and replication.",
   "free": { "kind": "selfhost", "text": "Free Apache-licensed software; hosting costs extra" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "DocsBot",
   "url": "https://docsbot.ai/",
   "jobs": ["ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Grounded autonomous answers from your sources, with Agent Mode tools, voice and lead collection"
+    }
+  },
   "line": "AI agents answer from your docs and connect to support channels.",
   "free": { "kind": "free", "text": "Free for personal use; 1 bot, 50 pages, 100 credits/month" },
   "cells": {

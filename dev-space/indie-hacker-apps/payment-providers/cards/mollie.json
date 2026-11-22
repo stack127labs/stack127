@@ -2,7 +2,15 @@
   "slug": "mollie",
   "name": "Mollie",
   "url": "https://www.mollie.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and gateway; the merchant sells to the customer",
+      "billing": "F15: fixed-amount scheduled subscriptions run by the API; F15: retries up to five times",
+      "links": "F16: shareable Payment Links, plus hosted checkout"
+    }
+  },
   "line": "European payment gateway with checkout, links and recurring collections.",
   "free": { "kind": "none", "text": "Pay per successful transaction; no general monthly plan" },
   "cells": {

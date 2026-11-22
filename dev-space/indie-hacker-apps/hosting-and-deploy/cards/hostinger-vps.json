@@ -3,6 +3,12 @@
   "name": "Hostinger VPS",
   "url": "https://www.hostinger.com/vps-hosting",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented self-managed KVM virtual server with root access; the customer maintains the OS and app"
+    }
+  },
   "line": "Rent a KVM server with root access and manage your apps yourself.",
   "free": { "kind": "none", "text": "No ongoing free VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Europe, India, Southeast Asia, USA and Brazil", "selfhost": "No" },

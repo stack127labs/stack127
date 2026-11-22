@@ -3,6 +3,14 @@
   "name": "Gatus",
   "url": "https://gatus.io/",
   "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, ICMP, DNS and TLS checks with status and body conditions",
+      "status": "S01, S03: hosted and self-hosted status pages with manual incident notices",
+      "cron": "J01, J02: external heartbeat alerts when no update arrives in time"
+    }
+  },
   "line": "Checks endpoints and publishes status pages, with a self-hosted option.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; hosting is your cost" },
   "cells": {

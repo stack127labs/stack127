@@ -99,6 +99,10 @@ export function SiteMenusClient() {
     tools: <PathnameSidebarList items={listItems(menus.tools)} />,
     directories: <>
       <PathnameSidebarList items={listItems(menus.directories)} />
+      {menus.appStack?.items.length ? <div className={styles.stack}>
+        <p className={styles.stackLabel}>{menus.appStack.label}</p>
+        <PathnameSidebarList items={listItems(menus.appStack.items)} />
+      </div> : null}
       {menus.more.length ? <div className={styles.more}>
         <PathnameSidebarList items={listItems(menus.more)} />
       </div> : null}

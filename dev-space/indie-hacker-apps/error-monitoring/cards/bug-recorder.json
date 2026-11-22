@@ -2,7 +2,17 @@
   "slug": "bug-recorder",
   "name": "Bug Recorder",
   "url": "https://bugrecorder.com/",
-  "jobs": ["errors", "uptime", "logs", "status", "performance"],
+  "jobs": ["errors", "uptime", "status", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "E01: frontend and server errors with stack traces and a sendError API",
+      "uptime": "U01, U02: URL and API checks with response assertions and schedules",
+      "status": "S01: public or private status pages bound to selected health checks",
+      "logs": "L02: server log viewer with domain, time range and level filters",
+      "performance": "C02: CPU and memory metrics from the server SDK; traces not shown (A01)"
+    }
+  },
   "line": "Tracks app errors with replay, logs, uptime checks, and status pages.",
   "free": { "kind": "trial", "text": "14-day trial" },
   "cells": { "interval": "1 min", "maintained": "Hosted service" },

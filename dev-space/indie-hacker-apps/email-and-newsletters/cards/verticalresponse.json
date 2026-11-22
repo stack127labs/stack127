@@ -2,7 +2,14 @@
   "slug": "verticalresponse",
   "name": "VerticalResponse",
   "url": "https://verticalresponse.com/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: automated subscriber email series; F01 says email marketing service",
+      "newsletter": "F02: marketing campaigns and newsletters to contacts who opted in"
+    }
+  },
   "line": "Email marketing campaigns, newsletters and automated subscriber series.",
   "free": { "kind": "trial", "text": "60 days, no card; 300 contacts and 4,000 emails/month" },
   "cells": {

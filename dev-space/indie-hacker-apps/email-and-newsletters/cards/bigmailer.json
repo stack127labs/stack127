@@ -3,6 +3,14 @@
   "name": "BigMailer",
   "url": "https://www.bigmailer.io/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and marketing broadcasts to lists",
+      "marketing": "F21: automations start on list entry or opens and clicks, with timed delays",
+      "transactional": "F22: developer REST API has a transactional campaign-send endpoint"
+    }
+  },
   "line": "Email campaigns, lifecycle automation and transactional messages.",
   "free": {"kind": "free", "text": "Up to 1,000 contacts and 2,000 emails/month"},
   "cells": {"newsletters": "Yes, opted-in lists only", "api": "Yes, transactional API"},

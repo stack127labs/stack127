@@ -3,6 +3,12 @@
   "name": "Dead Man's Snitch",
   "url": "https://deadmanssnitch.com/",
   "jobs": ["cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "cron": "C02: missed-check-in alerts for cron and other periodic jobs (J01, J02)"
+    }
+  },
   "line": "Alerts when scheduled jobs miss their expected check-ins or fail.",
   "free": { "kind": "free", "text": "Free plan includes 1 Snitch" },
   "cells": {

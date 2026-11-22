@@ -2,11 +2,15 @@
   "slug": "ccavenue",
   "name": "CCAvenue",
   "url": "https://www.ccavenue.com/",
-  "jobs": [
-    "gateway",
-    "billing",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and aggregator; the merchant sells and delivers the goods",
+      "billing": "F14: India Subscriptions run automated recurring collection; F15: trials, pause and resume",
+      "links": "F16: hosted StoreFront and Invoice Payments work before the merchant site is live"
+    }
+  },
   "line": "Payment gateway with card, local payment and recurring options.",
   "free": {
     "kind": "none",

@@ -3,9 +3,18 @@
   "name": "FreeScout",
   "url": "https://freescout.net/",
   "jobs": [
-    "inbox",
-    "helpdesk"
+    "helpdesk",
+    "chat",
+    "inbox"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Shared support mailbox with ticketing; ticket portal and knowledge base come from paid modules (F17, F21)",
+      "chat": "F17: Paid Live Chat module embeds on a website and replies land in mailbox conversations",
+      "inbox": "F18: Core assignment and internal notes on a shared mailbox; collision notice when two agents open one conversation"
+    }
+  },
   "line": "Self-hosted shared email help desk with optional chat and knowledge modules.",
   "free": {
     "kind": "selfhost",

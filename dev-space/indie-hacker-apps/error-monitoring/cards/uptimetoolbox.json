@@ -2,7 +2,15 @@
   "slug": "uptimetoolbox",
   "name": "UptimeToolbox",
   "url": "https://www.uptimetoolbox.com/",
-  "jobs": ["uptime", "status", "performance", "cron"],
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website uptime and latency checks with SSL and domain expiry (U01, U05)",
+      "status": "S01, S03: public status pages with endpoint history and uptime charts (S03)",
+      "cron": "J01, J02: heartbeats with an expected silence interval; missing ping alerts (J02)"
+    }
+  },
   "line": "Monitors websites and servers and publishes status pages.",
   "free": { "kind": "free", "text": "Free: 5 monitors, 3-min checks, 1 page, 1 server" },
   "cells": { "interval": "3 min free, 1 min Pro, 30 s Business", "maintained": "Hosted service" },

@@ -3,6 +3,12 @@
   "name": "PocketBase",
   "url": "https://pocketbase.io/",
   "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted backend with auth collections, login and user administration; F05: self-hosted only"
+    }
+  },
   "line": "Self-hosted Go backend with accounts, login, and SQLite.",
   "free": { "kind": "selfhost", "text": "Free MIT server; you run it" },
   "cells": {

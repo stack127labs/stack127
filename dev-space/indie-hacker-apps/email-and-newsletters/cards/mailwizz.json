@@ -3,6 +3,14 @@
   "name": "MailWizz",
   "url": "https://www.mailwizz.com/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters, broadcasts and recurring campaigns",
+      "marketing": "F02: autoresponders on the marketing side of the product",
+      "transactional": "F02: transactional email API accepts recipient, body and a send time"
+    }
+  },
   "line": "Self-hosted email campaigns, automations and transactional API sends.",
   "free": { "kind": "none", "text": "No free licence or included delivery allowance" },
   "cells": {

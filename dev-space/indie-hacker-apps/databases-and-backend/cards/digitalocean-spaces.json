@@ -3,6 +3,12 @@
   "name": "DigitalOcean Spaces",
   "url": "https://www.digitalocean.com/products/spaces",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is the primary role; F05: S3-compatible API with partial support"
+    }
+  },
   "line": "Store objects with an S3-compatible API and optional CDN delivery.",
   "free": { "kind": "credits", "text": "$5 signup credit, expires after 90 days" },
   "cells": {

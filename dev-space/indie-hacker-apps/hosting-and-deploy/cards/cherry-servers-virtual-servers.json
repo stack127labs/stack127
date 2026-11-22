@@ -3,6 +3,12 @@
   "name": "Cherry Servers virtual servers",
   "url": "https://www.cherryservers.com/virtual-servers",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented server with root access; the customer installs, configures and secures the stack"
+    }
+  },
   "line": "Rent virtual servers with root access and monthly or hourly billing.",
   "free": { "kind": "none", "text": "No recurring free Cloud VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Rate card: 5 regions; docs also list Frankfurt", "selfhost": "No" },

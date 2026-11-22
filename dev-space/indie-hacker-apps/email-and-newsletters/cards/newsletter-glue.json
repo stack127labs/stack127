@@ -3,6 +3,13 @@
   "name": "Newsletter Glue",
   "url": "https://newsletterglue.com/pricing/",
   "jobs": ["newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: broadcast newsletters and scheduled editorial digests",
+      "transactional": "F02: WordPress password-reset and WooCommerce transactional integrations (4.0.7)"
+    }
+  },
   "line": "WordPress newsletter publishing with native sending and post archives.",
   "free": { "kind": "none", "text": "No free plan or live-sending trial listed" },
   "cells": {

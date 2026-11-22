@@ -3,6 +3,12 @@
   "name": "Nearbase",
   "url": "https://nearbase.dev/",
   "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the primary type; D01: managed PostgreSQL"
+    }
+  },
   "line": "Managed PostgreSQL with monthly compute and provisioned storage pricing.",
   "free": { "kind": "none", "text": "No public free plan; sponsorship unclear; unpaid instances can be deleted" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "SQL Clusters",
   "url": "https://www.sqlclusters.com/mysql-pricing",
   "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database hosting is the primary type; D01: native MySQL 5.7 and 8.0"
+    }
+  },
   "line": "Managed MySQL hosting with backups, monitoring, and migration help.",
   "free": { "kind": "trial", "text": "7-day app trial; paid plan needed; cancelled backups may delete after 2 months" },
   "cells": {

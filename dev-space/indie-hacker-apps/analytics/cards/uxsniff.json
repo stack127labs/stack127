@@ -1,6 +1,13 @@
 {
   "slug": "uxsniff", "name": "UXsniff", "url": "https://uxsniff.com/",
   "jobs": ["replay", "web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is session replay and website heatmaps; F17: clicks, scrolling and mouse movement recorded, with form inputs masked",
+      "web": "F15: recording results show URL, referrer, country, device, browser and OS; heatmaps show pageviews by path"
+    }
+  },
   "line": "Records website sessions and builds heatmaps, journeys and surveys.",
   "free": {"kind": "free", "text": "Free for life: 4,500 pageviews and 300 recordings/month"},
   "cells": {"cookieless": "No (first-party visitor cookies)", "location": "US and EU (AWS)", "selfhost": "No (none found)"},

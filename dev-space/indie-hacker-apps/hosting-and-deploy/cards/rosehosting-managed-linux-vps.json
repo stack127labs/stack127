@@ -3,6 +3,12 @@
   "name": "RoseHosting managed Linux VPS",
   "url": "https://www.rosehosting.com/linux-vps-hosting/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented KVM Linux VPS with root access; RoseHosting operates the server, the customer owns the apps"
+    }
+  },
   "line": "Run Linux apps on a managed VPS with root access and NVMe storage.",
   "free": { "kind": "none", "text": "No recurring free Linux VPS tier" },
   "cells": { "type": "Managed Linux VPS", "regions": "St. Louis, Missouri, US", "selfhost": "Yes; root access to managed Linux VPS" },

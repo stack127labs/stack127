@@ -2,7 +2,14 @@
   "slug": "bugfender",
   "name": "Bugfender",
   "url": "https://bugfender.com/",
-  "jobs": ["errors", "logs"],
+  "jobs": ["logs", "errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: client-side remote logging is the first primary job; search in L02",
+      "errors": "E01: native and browser uncaught errors captured by the SDK; handled via sendIssue"
+    }
+  },
   "line": "Collects mobile app logs, crashes, and user feedback.",
   "free": { "kind": "free", "text": "100,000 log lines/day; retention varies by data type" },
   "cells": { "interval": "—", "maintained": "Hosted service" },

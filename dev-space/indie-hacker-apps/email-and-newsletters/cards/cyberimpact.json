@@ -2,7 +2,15 @@
   "slug": "cyberimpact",
   "name": "Cyberimpact",
   "url": "https://www.cyberimpact.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: welcome and follow-up automation; F01 calls it a marketing and SMTP service",
+      "newsletter": "F02: campaigns and newsletters, plus recurring RSS and Atom sends",
+      "transactional": "F02: SMTP relay for order confirmations and password resets; staff must activate it (F05)"
+    }
+  },
   "line": "Send newsletters, automated campaigns, and app email through a hosted service.",
   "free": { "kind": "free", "text": "Free up to 250 contacts" },
   "cells": { "newsletters": "Yes", "api": "Yes, REST API and SMTP" },

@@ -2,7 +2,16 @@
   "slug": "pingzo",
   "name": "Pingzo",
   "url": "https://www.pingzoapp.com/",
-  "jobs": ["uptime", "status", "cron"],
+  "jobs": ["uptime", "status", "performance", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: uptime, API and port checks with latency and content rules (U01)",
+      "status": "S01, S03: hosted status pages fed by monitor selections (S03)",
+      "performance": "C02: real-user monitoring and browser vitals; outside latency (A01)",
+      "cron": "J01, J02: heartbeats with interval, grace and explicit fail status (J02)"
+    }
+  },
   "line": "Checks sites, domains and cron jobs, with hosted status pages and alerts.",
   "free": { "kind": "free", "text": "Free: 1 monitor, 15-minute checks, 7-day history" },
   "cells": {

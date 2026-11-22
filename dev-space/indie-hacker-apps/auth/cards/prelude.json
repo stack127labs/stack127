@@ -3,6 +3,12 @@
   "name": "Prelude",
   "url": "https://prelude.so/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted verification plus a separate Auth API with login and managed sessions; F35: vendor-operated APIs"
+    }
+  },
   "line": "Phone and email verification with a separate account-auth product.",
   "free": { "kind": "none", "text": "No recurring free production allowance found" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Zeplo",
   "url": "https://zeplo.io/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: hosted HTTP request queue and scheduler is the primary type; J04: delayed delivery up to 30 days"
+    }
+  },
   "line": "Managed HTTP queue for delayed requests, retries and recurring schedules.",
   "free": { "kind": "free", "text": "500 req/mo; no idle rule; logs: 7d Privacy vs 30d plan table (conflict)" },
   "cells": {

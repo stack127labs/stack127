@@ -3,6 +3,14 @@
   "name": "Authorize.net",
   "url": "https://www.authorize.net/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: card gateway; the merchant sells the goods and services",
+      "billing": "F14: ARB automatically collects scheduled card recurring payments; F15: trials and intervals",
+      "links": "F16: New Experience Simple Checkout gives copyable item links and QR codes"
+    }
+  },
   "line": "Card gateway with hosted checkout, payment links and recurring billing.",
   "free": { "kind": "none", "text": "$25/month on the published US plan" },
   "cells": {

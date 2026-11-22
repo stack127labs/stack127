@@ -3,6 +3,14 @@
   "name": "Plunk",
   "url": "https://www.useplunk.com/",
   "jobs": ["transactional", "marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and product emails through the API and SMTP relay",
+      "marketing": "F02: event-based lifecycle workflows with delays and branches",
+      "newsletter": "F02: one-off newsletter and marketing broadcasts to selected contacts"
+    }
+  },
   "line": "Email API, SMTP, campaigns and event-based workflows.",
   "free": { "kind": "free", "text": "Free for 1,000 email credits/month across all email use" },
   "cells": {

@@ -2,7 +2,13 @@
   "slug": "terminusdb",
   "name": "TerminusDB",
   "url": "https://terminusdb.com/",
-  "jobs": ["vector"],
+  "jobs": ["nosql"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: versioned document and knowledge-graph database with schema-checked JSON and graph queries"
+    }
+  },
   "line": "Versioned document graph database; vector search is documented in v12.1 RC.",
   "free": { "kind": "selfhost", "text": "Apache-2.0; no vendor quota or idle rule; you host and retain the data" },
   "cells": {

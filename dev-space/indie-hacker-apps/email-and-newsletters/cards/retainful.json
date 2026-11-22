@@ -3,6 +3,13 @@
   "name": "Retainful",
   "url": "https://www.retainful.com/",
   "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: behavior-triggered customer lifecycle email and journeys",
+      "newsletter": "F02: newsletter campaigns and promotions"
+    }
+  },
   "line": "Email campaigns and behavior-triggered customer journeys.",
   "free": { "kind": "free", "text": "Free with unlimited contacts and 500 emails per month" },
   "cells": {

@@ -6,8 +6,19 @@
     "helpdesk",
     "chat",
     "ai",
-    "inbox"
+    "inbox",
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: native help-center articles are part of the help desk",
+      "helpdesk": "F17: Native email-to-ticket on Support Team, the entry plan; F21: native help-center articles",
+      "chat": "F17: Native messaging web widget on Suite Team and higher, with persistent conversations",
+      "ai": "F22: AI agents answer customers autonomously through messaging, email and voice, with the right entitlement",
+      "inbox": "F18: Ticket groups and assignees with internal comments; business rules assign and notify"
+    }
+  },
   "line": "Ticketing and messaging suite with AI agents.",
   "free": {
     "kind": "trial",

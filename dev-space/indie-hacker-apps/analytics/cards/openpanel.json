@@ -2,7 +2,15 @@
   "slug": "openpanel",
   "name": "OpenPanel",
   "url": "https://openpanel.dev/",
-  "jobs": ["web", "product"],
+  "jobs": ["web", "product", "replay"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: web and product analytics; F15: visitors, sessions, sources, UTMs, geography and devices",
+      "product": "F16: funnels of up to 64 steps, retention cohorts and company or workspace groups",
+      "replay": "F17: rrweb DOM replay, opt-in and unlimited recordings with 30-day retention"
+    }
+  },
   "line": "Tracks website and product events with replay and self-hosted options.",
   "free": { "kind": "selfhost", "text": "Free self-host; OSS: active public OSI repo + backlink; 2.5M Cloud events/mo" },
   "cells": {

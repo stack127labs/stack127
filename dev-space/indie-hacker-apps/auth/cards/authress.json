@@ -3,6 +3,12 @@
   "name": "Authress",
   "url": "https://authress.io/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted login, sessions and access records; F35: Authress Local is dev-only, not production self-host"
+    }
+  },
   "line": "Hosted login and access control for app users.",
   "free": { "kind": "credits", "text": "First 1,000 billable calls are free once" },
   "cells": {

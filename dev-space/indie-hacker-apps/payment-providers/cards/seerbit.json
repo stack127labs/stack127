@@ -3,6 +3,14 @@
   "name": "SeerBit",
   "url": "https://www.seerbit.com/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and processor; the merchant is responsible for its own sales",
+      "billing": "F14: recurring page describes card pre-authorization, automatic retries and post-trial charges",
+      "links": "F16: payment links advertised next to hosted checkout and e-commerce integrations"
+    }
+  },
   "line": "African payments gateway for checkout, links, and subscription collections.",
   "free": { "kind": "none", "text": "Free account; transaction fees apply" },
   "cells": {

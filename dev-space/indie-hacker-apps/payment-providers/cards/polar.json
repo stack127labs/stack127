@@ -2,10 +2,15 @@
   "slug": "polar",
   "name": "Polar",
   "url": "https://polar.sh/",
-  "jobs": [
-    "mor",
-    "billing"
-  ],
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record and authorized reseller; the buyer purchases from Polar",
+      "billing": "F14: automatic renewals; F15: seats, metered usage, prepaid credits, proration and retries",
+      "links": "F16: persistent no-code payment links for products, plus hosted checkout"
+    }
+  },
   "line": "Developer billing and merchant of record for digital products.",
   "free": {
     "kind": "none",

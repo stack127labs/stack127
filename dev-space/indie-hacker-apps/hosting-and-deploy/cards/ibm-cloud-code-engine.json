@@ -3,6 +3,12 @@
   "name": "IBM Cloud Code Engine",
   "url": "https://www.ibm.com/products/code-engine",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed container, job and function platform; IBM maintains the platform"
+    }
+  },
   "line": "Run container applications, jobs, and functions on managed Kubernetes.",
   "free": { "kind": "free", "text": "Monthly grants: 27.8 vCPU-hours, 55.5 GB-hours, 100k API calls" },
   "cells": { "type": "Managed containers and functions", "regions": "Dallas, Washington, Toronto, São Paulo, Europe and Asia", "selfhost": "No" },

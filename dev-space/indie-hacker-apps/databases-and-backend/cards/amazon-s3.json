@@ -3,6 +3,12 @@
   "name": "Amazon S3",
   "url": "https://aws.amazon.com/s3/",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed object storage for files and data objects is the primary role; F05: native S3 REST API"
+    }
+  },
   "line": "Object storage for app uploads, backups, static sites, and archives.",
   "free": { "kind": "credits", "text": "Up to $200 credits; account suspends at 6 months, data erased after 90 days" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Authlib",
   "url": "https://authlib.org/",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: Python protocol toolkit added to your app; F05: developer runs app and token stores"
+    }
+  },
   "line": "Python library for adding OAuth and OpenID Connect login.",
   "free": { "kind": "selfhost", "text": "Free BSD-3-Clause Community code; you host" },
   "cells": {

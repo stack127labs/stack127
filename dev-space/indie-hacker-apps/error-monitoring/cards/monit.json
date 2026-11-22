@@ -2,7 +2,13 @@
   "slug": "monit",
   "name": "Monit",
   "url": "https://mmonit.com/monit/",
-  "jobs": ["uptime", "performance"],
+  "jobs": ["uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: remote host, port, HTTP and TLS checks with alerts (U01, U02)"
+    }
+  },
   "line": "Self-hosted process, system and remote-service checks with automatic actions.",
   "free": { "kind": "selfhost", "text": "Free AGPL Monit software; M/Monit has a paid license" },
   "cells": {

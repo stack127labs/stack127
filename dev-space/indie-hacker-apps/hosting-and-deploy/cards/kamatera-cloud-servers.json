@@ -3,6 +3,12 @@
   "name": "Kamatera Cloud Servers",
   "url": "https://www.kamatera.com/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: infrastructure as a service; the customer chooses and administers the guest OS and app stack"
+    }
+  },
   "line": "Configure cloud servers with selectable compute, storage, and regions.",
   "free": { "kind": "trial", "text": "One-time 30-day trial: 1 server ≤$100, 1 TB; card required" },
   "cells": { "type": "Cloud servers", "regions": "Multiple Kamatera data-center zones", "selfhost": "No" },

@@ -2,7 +2,14 @@
   "slug": "constant-contact",
   "name": "Constant Contact",
   "url": "https://www.constantcontact.com/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: contact-triggered lifecycle automation; F01 says Email & Digital Marketing",
+      "newsletter": "F02: newsletters and campaigns sent to contact lists"
+    }
+  },
   "line": "Email campaigns and contact-triggered marketing automation.",
   "free": {"kind": "trial", "text": "30-day trial; 100 email sends total"},
   "cells": {"newsletters": "Yes", "api": "Yes, campaign API"},

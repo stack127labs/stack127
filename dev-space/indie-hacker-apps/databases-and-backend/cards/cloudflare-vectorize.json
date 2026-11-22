@@ -3,6 +3,12 @@
   "name": "Cloudflare Vectorize",
   "url": "https://developers.cloudflare.com/vectorize/",
   "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: managed vector database is the primary role; V01: up to 1,536 dimensions and 20 million vectors per index"
+    }
+  },
   "line": "Store embeddings and search them by vector similarity.",
   "free": { "kind": "free", "text": "30M queried and 5M stored vector dimensions monthly" },
   "cells": {

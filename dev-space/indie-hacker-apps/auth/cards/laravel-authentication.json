@@ -3,6 +3,12 @@
   "name": "Laravel authentication",
   "url": "https://laravel.com/framework/docs/authentication",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: Fortify, Sanctum and Passport run inside the developer's Laravel app; F05: developer runs it"
+    }
+  },
   "line": "Laravel account and login tools, including Fortify and Sanctum.",
   "free": { "kind": "selfhost", "text": "Free MIT packages; you host them" },
   "cells": {

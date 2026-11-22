@@ -2,7 +2,15 @@
   "slug": "campaign-monitor",
   "name": "Campaign Monitor",
   "url": "https://www.campaignmonitor.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing campaigns and subscriber journeys",
+      "newsletter": "F02: newsletters and RSS emails sent from the hosted service",
+      "transactional": "F02: native transactional messages sent through the API or SMTP"
+    }
+  },
   "line": "Email campaigns, subscriber journeys and transactional messages.",
   "free": {"kind": "trial", "text": "30-day trial; 500 contacts and 500 emails total"},
   "cells": {"newsletters": "Yes", "api": "Yes; transactional sending needs paid plan"},

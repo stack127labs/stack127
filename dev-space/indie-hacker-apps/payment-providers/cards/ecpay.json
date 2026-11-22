@@ -2,10 +2,15 @@
   "slug": "ecpay",
   "name": "ECPay",
   "url": "https://www.ecpay.com.tw/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: third-party payment collection; the merchant remains the seller",
+      "billing": "F14: ECPay schedules fixed recurring card charges; general-seller access is conflicting",
+      "links": "F16: no-code payment links, forms and QR codes, fixed or buyer-entered amounts"
+    }
+  },
   "line": "Taiwan payment collection with online checkout and merchant tools.",
   "free": {
     "kind": "none",

@@ -2,7 +2,14 @@
   "slug": "mailazy",
   "name": "Mailazy",
   "url": "https://mailazy.com/",
-  "jobs": ["marketing", "newsletter", "transactional"],
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: list-triggered onboarding, nurture and drip automations; F03 calls it an automation layer",
+      "newsletter": "F02: newsletters and one-off marketing broadcasts to a list"
+    }
+  },
   "line": "Email campaigns and event-triggered messages using your SMTP sender.",
   "free": { "kind": "free", "text": "1,000 contacts, 5,000 emails/month, and 1 automation" },
   "cells": {

@@ -2,7 +2,14 @@
   "slug": "coingate",
   "name": "CoinGate",
   "url": "https://coingate.com/",
-  "jobs": ["crypto", "links", "billing"],
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: merchant checkout accepts BTC, ETH, USDC, LTC and other coins on named networks",
+      "links": "F16: payment links and dashboard payment requests can be emailed or shared directly"
+    }
+  },
   "line": "Crypto checkout with invoices, payment links and recurring billing.",
   "free": { "kind": "none", "text": "No setup or monthly fee; 1% per merchant payment" },
   "cells": {

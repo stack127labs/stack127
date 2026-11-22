@@ -2,7 +2,14 @@
   "slug": "apply-build",
   "name": "Apply.Build",
   "url": "https://apply.build/",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: vendor-hosted app platform; GitHub source is built and run in isolated micro-VMs",
+      "static": "04: static sites are a listed app type"
+    }
+  },
   "line": "Build and run Git based apps in isolated micro-VMs.",
   "free": { "kind": "free", "text": "Free: 0.5 vCPU, 512 MiB memory, 5 GB storage" },
   "cells": { "type": "Managed app platform", "regions": "Finland", "selfhost": "No" },

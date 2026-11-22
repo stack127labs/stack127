@@ -2,7 +2,17 @@
   "slug": "jitbit-helpdesk",
   "name": "Jitbit Helpdesk",
   "url": "https://www.jitbit.com/",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: knowledge base is part of the email-first ticketing product",
+      "helpdesk": "F17: Native two-way ticket email and a customer portal; F21: native searchable knowledge base",
+      "chat": "F17: Native embedded live-chat widget in SaaS and self-hosted editions; real-time chats become tickets",
+      "ai": "F22: AI chat autoresponses answer visitors until they ask for a person, then the chat passes to the helpdesk (F24)",
+      "inbox": "F18: Agents assign and take tickets, set categories and priorities, and see when another agent is viewing"
+    }
+  },
   "line": "Email-first help desk with ticketing, customer portal, and live chat.",
   "free": { "kind": "trial", "text": "21-day hosted trial, no card" },
   "cells": {

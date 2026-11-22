@@ -2,10 +2,14 @@
   "slug": "yoco",
   "name": "Yoco",
   "url": "https://www.yoco.com/za/",
-  "jobs": [
-    "gateway",
-    "links"
-  ],
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant remains the supplier",
+      "links": "F16: Payment Links set a sale amount and work without a website; reusable Page for buyer amounts"
+    }
+  },
   "line": "South African online payments, invoices, and payment links.",
   "free": {
     "kind": "none",

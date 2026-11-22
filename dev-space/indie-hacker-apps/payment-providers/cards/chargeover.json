@@ -2,7 +2,14 @@
   "slug": "chargeover",
   "name": "ChargeOver",
   "url": "https://chargeover.com/",
-  "jobs": ["billing"],
+  "jobs": ["billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F02: recurring billing and invoicing software; F15: subscriptions, proration and dunning",
+      "links": "F16: hosted sign-up pages and invoice payment links are supported in the app"
+    }
+  },
   "line": "Subscription billing and invoicing software that connects to your gateway.",
   "free": { "kind": "trial", "text": "Free trial; length not published" },
   "cells": {

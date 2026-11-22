@@ -3,6 +3,12 @@
   "name": "IDCloudHost Cloud VPS",
   "url": "https://idcloudhost.com/cloud-vps/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted VPS; IDCloudHost provides the VM and the customer administers the OS and apps"
+    }
+  },
   "line": "Provision a virtual private server with self-managed operating system and apps.",
   "free": { "kind": "none", "text": "No recurring free Cloud VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Indonesia and Singapore; price region not stated", "selfhost": "No" },

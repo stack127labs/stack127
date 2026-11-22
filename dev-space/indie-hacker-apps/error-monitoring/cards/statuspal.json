@@ -3,6 +3,13 @@
   "name": "StatusPal",
   "url": "https://www.statuspal.io/",
   "jobs": ["status", "uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: primary job is public and private status pages with incident notices (S01, S03)",
+      "uptime": "U01, U02: HTTP and TCP endpoint checks; Classic checks once a minute (U02)"
+    }
+  },
   "line": "Hosts status pages, checks endpoints, and manages incidents.",
   "free": { "kind": "free", "text": "Next Free: 5 checks, 1 page, 500 subscribers, no custom domain" },
   "cells": { "interval": "Classic 60 s; Next interval unknown", "maintained": "Hosted service" },

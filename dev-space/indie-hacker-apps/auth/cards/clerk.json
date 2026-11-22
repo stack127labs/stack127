@@ -5,6 +5,12 @@
   "jobs": [
     "hosted"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: vendor-hosted authentication and user management; F35: self-host not applicable"
+    }
+  },
   "line": "Hosted sign-in with ready-made components and organizations.",
   "free": {
     "kind": "free",

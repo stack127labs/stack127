@@ -2,7 +2,14 @@
   "slug": "waypoint",
   "name": "Waypoint",
   "url": "https://www.usewaypoint.com/",
-  "jobs": ["transactional", "marketing", "newsletter"],
+  "jobs": ["transactional", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: API-driven product and transactional email",
+      "marketing": "F02: event-triggered and delayed lifecycle emails built in workflows"
+    }
+  },
   "line": "API email for transactional messages and user activity workflows.",
   "free": { "kind": "free", "text": "Free for tests only; 2 domains, 1 workspace; no live sends" },
   "cells": {

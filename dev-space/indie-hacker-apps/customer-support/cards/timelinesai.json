@@ -2,7 +2,13 @@
   "slug": "timelinesai",
   "name": "TimelinesAI",
   "url": "https://timelines.ai/",
-  "jobs": ["inbox", "ai"],
+  "jobs": ["ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: ChatGPT Agents answer incoming WhatsApp messages automatically; one active agent per number"
+    }
+  },
   "line": "Shared WhatsApp inbox with CRM connections and messaging automation.",
   "free": { "kind": "trial", "text": "10-day trial, no card" },
   "cells": {

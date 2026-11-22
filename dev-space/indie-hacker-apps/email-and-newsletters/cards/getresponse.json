@@ -2,7 +2,15 @@
   "slug": "getresponse",
   "name": "GetResponse",
   "url": "https://www.getresponse.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: autoresponders and visual automation on the hosted platform",
+      "newsletter": "F02: broadcast newsletters on the hosted platform",
+      "transactional": "F02: SMTP and API transactional sending is a paid add-on on the MAX plan only"
+    }
+  },
   "line": "Send newsletters and automated marketing, with transactional email on MAX.",
   "free": { "kind": "free", "text": "Up to 500 contacts and 2,500 newsletter emails/month" },
   "cells": { "newsletters": "Yes", "api": "Yes, REST; transactional SMTP add-on on MAX" },

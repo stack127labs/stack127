@@ -2,7 +2,15 @@
   "slug": "signoz",
   "name": "SigNoz",
   "url": "https://signoz.io/",
-  "jobs": ["errors", "logs", "performance"],
+  "jobs": ["performance", "errors", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: APM and distributed traces are the first listed jobs (A01)",
+      "errors": "E01: exceptions view groups trace exception events by service, type and message",
+      "logs": "L02: structured and text log filters with a live view"
+    }
+  },
   "line": "Collects application exceptions, traces, logs, and metrics.",
   "free": { "kind": "selfhost", "text": "Free self-hosted Community software under MIT" },
   "cells": { "interval": "—", "maintained": "Last release 2026-11-04" },

@@ -2,7 +2,15 @@
   "slug": "hubspot-marketing-hub",
   "name": "HubSpot Marketing Hub",
   "url": "https://www.hubspot.com/products/marketing",
-  "jobs": ["marketing", "newsletter", "multichannel", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle workflows alongside marketing broadcasts",
+      "newsletter": "F02: newsletters and marketing broadcasts",
+      "transactional": "F02: receipts and system messages, with the paid Transactional Email add-on"
+    }
+  },
   "line": "Marketing campaigns, workflows and transactional email in a CRM.",
   "free": { "kind": "free", "text": "Free for 2 users and 2,000 email sends per month" },
   "cells": {

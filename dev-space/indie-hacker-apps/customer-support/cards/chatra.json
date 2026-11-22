@@ -2,7 +2,15 @@
   "slug": "chatra",
   "name": "Chatra",
   "url": "https://chatra.com/",
-  "jobs": ["chat", "inbox", "helpdesk"],
+  "jobs": ["chat", "helpdesk", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native online and offline website chat widget on all plans; Free allows five chats a month",
+      "helpdesk": "F17: Essential and Pro include an email helpdesk; forward the support email in and answer in Chatra",
+      "inbox": "F02: Website chat and messaging with a shared email and social inbox that agents work from"
+    }
+  },
   "line": "Website chat and email messaging with a shared agent inbox.",
   "free": { "kind": "free", "text": "Free for 1 agent, limited to 5 chats/month" },
   "cells": {

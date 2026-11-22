@@ -3,6 +3,12 @@
   "name": "Sakura Cloud",
   "url": "https://cloud.sakura.ad.jp/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted IaaS virtual servers; the customer creates and administers them and installs the app stack"
+    }
+  },
   "line": "Create and manage virtual servers on Sakura's cloud infrastructure.",
   "free": { "kind": "none", "text": "No ongoing free production server plan" },
   "cells": { "type": "Cloud virtual servers", "regions": "Ishikari (3 zones), Tokyo (2); disks must match zone", "selfhost": "Yes; customer manages the VM and apps" },

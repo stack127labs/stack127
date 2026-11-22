@@ -2,7 +2,14 @@
   "slug": "cloudflare-pages",
   "name": "Cloudflare Pages",
   "url": "https://www.cloudflare.com/products/pages/",
-  "jobs": ["static"],
+  "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static hosting for sites and frontends",
+      "paas": "03: request-driven Functions run the customer's server code on the Workers runtime"
+    }
+  },
   "line": "Build and host static sites with optional edge Functions.",
   "free": { "kind": "free", "text": "Static delivery unlimited; Functions share 100,000 daily requests" },
   "cells": { "type": "Static hosting and functions", "regions": "Global edge network", "selfhost": "No" },

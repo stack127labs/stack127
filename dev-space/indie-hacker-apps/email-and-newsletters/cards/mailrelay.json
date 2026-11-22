@@ -3,6 +3,14 @@
   "name": "Mailrelay",
   "url": "https://mailrelay.com/en/",
   "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: hosted newsletters and marketing campaigns",
+      "marketing": "F02: automated sequences",
+      "transactional": "F02: transactional email via SMTP or the REST API"
+    }
+  },
   "line": "Newsletters, marketing automation and API/SMTP transactional email.",
   "free": { "kind": "free", "text": "80,000 emails, 20,000 recipients/month; review starts at 500/day" },
   "cells": {

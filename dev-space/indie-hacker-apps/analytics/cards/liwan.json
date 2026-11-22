@@ -2,7 +2,13 @@
   "slug": "liwan",
   "name": "liwan",
   "url": "https://liwan.dev/",
-  "jobs": ["web", "product"],
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is real-time website traffic, sources and audience analytics; F15: views, visitors, pages, referrers and countries"
+    }
+  },
   "line": "Self-hosted web analytics for traffic, sources, and custom events.",
   "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; you provide the server" },
   "cells": {

@@ -2,7 +2,14 @@
   "slug": "akamai-managed-databases",
   "name": "Akamai Managed Databases",
   "url": "https://www.akamai.com/products/managed-databases",
-  "jobs": ["sql", "kv"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed database service; D01: MySQL 8.4 and PostgreSQL 15-18 engines",
+      "vector": "V01: pgvector similarity search, linked from the managed PostgreSQL guide"
+    }
+  },
   "line": "Managed PostgreSQL, MySQL, and Valkey clusters on Akamai Cloud.",
   "free": { "kind": "credits", "text": "Possible $100 promotional credit for 60 days; eligibility unclear" },
   "cells": {

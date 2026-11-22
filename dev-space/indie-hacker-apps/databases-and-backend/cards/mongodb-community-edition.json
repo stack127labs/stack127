@@ -2,7 +2,14 @@
   "slug": "mongodb-community-edition",
   "name": "MongoDB Community Edition",
   "url": "https://www.mongodb.com/products/self-managed/community-edition",
-  "jobs": ["vector", "files"],
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is self-hosted BSON document database with native document queries",
+      "vector": "D08: self-managed mongot runs Search and Vector Search; V01: HNSW and quantization options"
+    }
+  },
   "line": "Self-hosted document database with GridFS and vector search.",
   "free": { "kind": "selfhost", "text": "Free SSPL-1.0; no hosted quota or idle rule; you run and retain the data" },
   "cells": {

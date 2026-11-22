@@ -2,7 +2,14 @@
   "slug": "mariadb-server",
   "name": "MariaDB Server",
   "url": "https://mariadb.org/",
-  "jobs": ["sql", "vector", "jobs"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: self-hosted relational SQL database is the primary type; D01: relational SQL engine with InnoDB",
+      "vector": "V01: VECTOR(N) columns up to 16,383 dimensions with MHNSW index"
+    }
+  },
   "line": "Self-hosted SQL database with event scheduling and vector search.",
   "free": { "kind": "selfhost", "text": "Free GPLv2 server; no provider quota or hosted idle rule; you run it" },
   "cells": {

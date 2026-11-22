@@ -2,7 +2,17 @@
   "slug": "openobserve",
   "name": "OpenObserve",
   "url": "https://openobserve.ai/",
-  "jobs": ["errors", "logs", "uptime", "status", "performance"],
+  "jobs": ["logs", "errors", "uptime", "status", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: unified logs with SQL and full-text search (L02)",
+      "errors": "E01: browser uncaught errors and rejections grouped by type and message",
+      "uptime": "U01, U02: HTTP, TCP, TLS and SSH checks every 5 minutes by default",
+      "status": "S01, S03: check-driven public status pages with 90-day uptime history",
+      "performance": "A01: OpenTelemetry traces with span search, waterfall and flame views"
+    }
+  },
   "line": "Collects logs, traces and browser errors, with synthetic checks and status pages.",
   "free": { "kind": "selfhost", "text": "Free OSS self-host; Cloud trial 14 days" },
   "cells": {

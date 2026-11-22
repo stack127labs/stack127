@@ -2,7 +2,15 @@
   "slug": "kener",
   "name": "Kener",
   "url": "https://kener.ing/",
-  "jobs": ["uptime", "status"],
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: built-in HTTP, ping, TCP, DNS and SSL checks run by the operator's host (U01)",
+      "status": "C02: public status pages with incidents, maintenance and RSS feed (S01, S03)",
+      "cron": "C20: heartbeat monitors accept pushes from a cron job or worker (C20)"
+    }
+  },
   "line": "Self-hosted uptime checks and public pages for incidents and maintenance.",
   "free": { "kind": "selfhost", "text": "Free MIT software; hosting, database and email cost extra" },
   "cells": {

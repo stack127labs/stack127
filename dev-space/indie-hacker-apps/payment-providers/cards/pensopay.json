@@ -3,6 +3,13 @@
   "name": "pensopay",
   "url": "https://pensopay.com/da/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and hosted gateway; the webshop is the seller",
+      "links": "F16: individual payment links created in the account and sent by email, SMS or chat"
+    }
+  },
   "line": "Online gateway for card payments, recurring charges, and payment links.",
   "free": { "kind": "none", "text": "Basic is €0/month; transaction and acquiring fees apply" },
   "cells": {

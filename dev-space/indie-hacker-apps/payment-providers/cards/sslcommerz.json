@@ -3,6 +3,13 @@
   "name": "SSLCOMMERZ",
   "url": "https://sslcommerz.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and aggregator; SSL receives payments and the merchant fulfils the order",
+      "links": "F16: dashboard payment links with fixed amount or pay-what-you-want, shared by email or social"
+    }
+  },
   "line": "Bangladesh gateway for cards, mobile wallets, bank payments, and invoices.",
   "free": { "kind": "trial", "text": "7-day trial; digital goods are excluded during the trial" },
   "cells": {

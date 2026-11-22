@@ -3,6 +3,12 @@
   "name": "CloudKilat VPS",
   "url": "https://www.cloudkilat.com/id/kilat-vps/",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented KVM VPS with root SSH; the customer manages the guest OS, apps and backups"
+    }
+  },
   "line": "Rent a KVM virtual server with root access and SSD storage.",
   "free": { "kind": "none", "text": "No recurring free VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "Indonesia", "selfhost": "No" },

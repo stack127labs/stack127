@@ -8,6 +8,15 @@
     "ai",
     "inbox"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Help desk for software teams with email, chat and a customer portal; F21: hosted help center",
+      "chat": "F17: Native live-chat widget on all plans; chat conversations enter the same queue as email",
+      "ai": "F22: Customer Agent answers assigned customer threads autonomously; staff tools assist with drafts",
+      "inbox": "F17: Native email on all plans into one support queue; F18: assignment, private notes and snippets"
+    }
+  },
   "line": "Support platform built for software companies.",
   "free": {
     "kind": "trial",

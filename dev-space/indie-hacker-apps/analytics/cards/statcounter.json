@@ -1,6 +1,13 @@
 {
   "slug": "statcounter", "name": "Statcounter", "url": "https://statcounter.com/",
   "jobs": ["web", "replay"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website analytics; F15: traffic totals, pages, entry and exit paths, referrers, locations and devices",
+      "replay": "F17: reconstructed web playback of pages, clicks, scrolling and form interactions, with form inputs masked"
+    }
+  },
   "line": "Tracks website visits, individual sessions, replay and heatmaps.",
   "free": {"kind": "free", "text": "Free Basic: 5,000 sessions/month; older 250K-view cap conflicts"},
   "cells": {"cookieless": "No (visitor cookies by default)", "location": "Unknown", "selfhost": "No (none found)"},

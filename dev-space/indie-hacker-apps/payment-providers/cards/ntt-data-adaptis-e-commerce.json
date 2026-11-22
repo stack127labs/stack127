@@ -2,7 +2,15 @@
   "slug": "ntt-data-adaptis-e-commerce",
   "name": "NTT DATA ADAPTIS e-Commerce",
   "url": "https://my.nttdatapay.com/en/payment-services/adaptis-e-commerce",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acquiring facilitator; the merchant remains the seller in Malaysia",
+      "billing": "F14: Malaysia automated recurring card collection with stored tokens; F15: scheduled charges",
+      "links": "F16: Malaysia Direct Link and email payment links; Philippines payment links"
+    }
+  },
   "line": "Southeast Asian payment gateway for checkout, links and subscriptions.",
   "free": { "kind": "none", "text": "Current setup and monthly fees are not published" },
   "cells": {

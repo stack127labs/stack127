@@ -3,6 +3,12 @@
   "name": "RabbitMQ",
   "url": "https://www.rabbitmq.com/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: message broker and job queue is the primary type; J03: manual acknowledgements and requeue"
+    }
+  },
   "line": "Message broker with durable queues, event streams, and acknowledgements.",
   "free": { "kind": "selfhost", "text": "MPL-2.0; no vendor quota or idle expiry; you host and retain messages" },
   "cells": {

@@ -3,6 +3,13 @@
   "name": "Marketing Nube (formerly Perfit)",
   "url": "https://www.perfit.com/es",
   "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: ecommerce lifecycle automations alongside campaigns",
+      "newsletter": "F02: newsletter broadcasts and promotional campaigns"
+    }
+  },
   "line": "Email campaigns and ecommerce lifecycle automation for stores.",
   "free": { "kind": "free", "text": "Free for 500 contacts and 2,000 emails per month" },
   "cells": {

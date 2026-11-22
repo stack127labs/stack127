@@ -3,6 +3,12 @@
   "name": "MRR.io",
   "url": "https://mrr.io/",
   "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is recurring subscription revenue tracking; F19: MRR, churn and revenue metrics from Stripe and Paddle integrations"
+    }
+  },
   "line": "Tracks recurring revenue, customer counts, and churn for SaaS.",
   "free": { "kind": "free", "text": "Free up to 100 paying customers; 3 team members" },
   "cells": {

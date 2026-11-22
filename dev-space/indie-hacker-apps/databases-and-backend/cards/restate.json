@@ -3,6 +3,12 @@
   "name": "Restate",
   "url": "https://restate.dev/",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: durable execution and workflow runtime is the primary type; J04: delayed messages and cron pattern"
+    }
+  },
   "line": "Durable workflow runtime that resumes handlers and schedules work after failures.",
   "free": { "kind": "free", "text": "100K actions/mo (older page: 50K); 1GB state; no idle pause/deletion rule" },
   "cells": {

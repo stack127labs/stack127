@@ -3,6 +3,13 @@
   "name": "EdgeOne Makers",
   "url": "https://pages.edgeone.ai/",
   "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: provider-managed static assets and CDN delivery",
+      "paas": "03: request-scoped Edge and Cloud Functions run the customer's code"
+    }
+  },
   "line": "Build and host static sites, edge functions, and cloud functions.",
   "free": { "kind": "free", "text": "Static 5GB/20k files; 500 builds/mo; Functions 1M requests/500k GB-s" },
   "cells": { "type": "Static and serverless hosting", "regions": "China, global network and other listed regions", "selfhost": "No" },

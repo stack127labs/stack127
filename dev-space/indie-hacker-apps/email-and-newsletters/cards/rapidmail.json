@@ -2,7 +2,15 @@
   "slug": "rapidmail",
   "name": "rapidmail",
   "url": "https://www.rapidmail.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: subscriber, date and activity automations",
+      "newsletter": "F02: broadcast newsletters and follow-up campaigns",
+      "transactional": "F02: SMTP delivery for registration, order, shipping and password messages"
+    }
+  },
   "line": "Business newsletters, subscriber automation and transactional SMTP.",
   "free": { "kind": "credits", "text": "First campaign up to 2,000 free; transactional includes 1,000/month" },
   "cells": {

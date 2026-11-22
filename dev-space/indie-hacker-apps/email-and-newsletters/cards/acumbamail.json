@@ -2,7 +2,16 @@
   "slug": "acumbamail",
   "name": "Acumbamail",
   "url": "https://acumbamail.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: automated email journeys, autoresponders and RSS campaigns; F01 says email-marketing service",
+      "newsletter": "F02: newsletters and one-off campaigns with A/B tests",
+      "transactional": "F02: transactional SMTP for confirmations and password resets; needs a paid plan and support activation (F05)",
+      "multichannel": "F02: automated email and SMS journeys; SMS is an optional paid extra (F12)"
+    }
+  },
   "line": "Email campaigns, automated journeys, and transactional sending.",
   "free": { "kind": "free", "text": "Free up to 250 subscribers and 2,000 emails/month" },
   "cells": { "newsletters": "Yes", "api": "Yes; SMTP needs paid plan and support activation" },

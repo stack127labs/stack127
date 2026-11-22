@@ -3,6 +3,12 @@
   "name": "Skycloak",
   "url": "https://skycloak.io/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted managed Keycloak with accounts, login and sessions; F05: Skycloak manages infrastructure and database"
+    }
+  },
   "line": "Managed Keycloak hosting for account login and SSO.",
   "free": { "kind": "trial", "text": "21-day shared trial; no credit card" },
   "cells": {

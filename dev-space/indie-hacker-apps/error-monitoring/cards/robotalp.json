@@ -3,6 +3,14 @@
   "name": "Robotalp",
   "url": "https://robotalp.com/",
   "jobs": ["uptime", "status", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website availability checks with content rules and fixed schedules (U01, U02)",
+      "status": "S01, S03: public status pages with state from property measurements (S03)",
+      "performance": "C02: lab page-speed tests and real Chrome visitor speed data (U01)"
+    }
+  },
   "line": "Checks website availability and page speed, then publishes status pages.",
   "free": { "kind": "free", "text": "Free: 3 properties; 5-minute checks; 1 branded status page" },
   "cells": {

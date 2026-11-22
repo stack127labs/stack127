@@ -3,6 +3,12 @@
   "name": "IONOS VPS",
   "url": "https://www.ionos.com/servers/vps",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented fully virtualized server with root or admin access; the customer administers the OS and apps"
+    }
+  },
   "line": "Rent a virtual server with root or administrator access.",
   "free": { "kind": "none", "text": "No ongoing free VPS plan" },
   "cells": { "type": "VPS/VM", "regions": "US/UK/Germany/Spain listed; exact choice varies", "selfhost": "No" },

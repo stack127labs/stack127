@@ -3,6 +3,12 @@
   "name": "Maileroo",
   "url": "https://maileroo.com/",
   "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional app email through the SMTP relay and REST API"
+    }
+  },
   "line": "Hosted SMTP relay and email API for transactional messages.",
   "free": { "kind": "free", "text": "3,000 emails/month after approval; starts with 100 test sends" },
   "cells": {

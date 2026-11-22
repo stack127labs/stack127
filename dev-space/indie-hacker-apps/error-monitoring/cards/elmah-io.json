@@ -2,7 +2,16 @@
   "slug": "elmah-io",
   "name": "elmah.io",
   "url": "https://elmah.io/",
-  "jobs": ["errors", "logs", "uptime", "cron"],
+  "jobs": ["errors", "uptime", "logs", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error monitoring for .NET and JavaScript; grouping in E01",
+      "uptime": "U01, U02: HTTP and MCP checks every 5 minutes from selected regions (U03)",
+      "logs": "L02: full-text and field search over stored log messages",
+      "cron": "J01, J02: expected interval with grace period and missing-heartbeat errors"
+    }
+  },
   "line": "Collects .NET errors and logs, plus uptime checks and job heartbeats.",
   "free": { "kind": "trial", "text": "21-day trial; payment is required afterward" },
   "cells": {

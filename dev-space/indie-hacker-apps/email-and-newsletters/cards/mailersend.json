@@ -2,7 +2,13 @@
   "slug": "mailersend",
   "name": "MailerSend",
   "url": "https://www.mailersend.com/",
-  "jobs": ["transactional", "marketing", "newsletter"],
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional app email through the REST API or SMTP"
+    }
+  },
   "line": "Transactional email API and SMTP with a bulk email endpoint.",
   "free": { "kind": "free", "text": "Free for 500 emails per 30 days; card required" },
   "cells": {

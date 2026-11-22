@@ -3,6 +3,12 @@
   "name": "Memberstack",
   "url": "https://www.memberstack.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted membership service with accounts, login and sessions; F05: Memberstack runs the account service"
+    }
+  },
   "line": "Hosted member accounts, login, and paid membership features.",
   "free": { "kind": "none", "text": "Test Mode only; up to 50 test members" },
   "cells": {

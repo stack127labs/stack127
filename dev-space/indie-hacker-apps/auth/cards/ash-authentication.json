@@ -3,6 +3,12 @@
   "name": "Ash Authentication",
   "url": "https://ash-authentication.hexdocs.pm/readme.html",
   "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Elixir extension for Ash apps; developer supplies resources and data"
+    }
+  },
   "line": "Elixir account and login tools for Ash apps.",
   "free": { "kind": "selfhost", "text": "Free MIT library; you host it" },
   "cells": {

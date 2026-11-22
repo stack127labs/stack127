@@ -2,7 +2,13 @@
   "slug": "unione",
   "name": "UniOne",
   "url": "https://unione.io/",
-  "jobs": ["transactional", "newsletter", "marketing"],
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and application email through the Web API and SMTP"
+    }
+  },
   "line": "Hosted email delivery for newsletters, campaigns and app messages.",
   "free": { "kind": "free", "text": "Free test sending, up to 100/day to verified or confirmed addresses" },
   "cells": {

@@ -3,6 +3,13 @@
   "name": "MultiSafepay",
   "url": "https://www.multisafepay.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway, processor and acquirer; the merchant sells the goods",
+      "links": "F16: no-code payment links can be created manually, with no extra activation needed"
+    }
+  },
   "line": "European payment gateway with hosted pages, payment links and QR checkout.",
   "free": { "kind": "none", "text": "No setup or monthly fee; transaction rate quoted" },
   "cells": {

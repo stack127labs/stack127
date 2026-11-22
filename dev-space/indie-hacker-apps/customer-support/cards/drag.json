@@ -2,7 +2,16 @@
   "slug": "drag",
   "name": "Drag",
   "url": "https://www.dragapp.com/",
-  "jobs": ["inbox", "helpdesk", "chat", "ai"],
+  "jobs": ["inbox", "chat", "ai", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: public help content is part of the shared inbox product",
+      "inbox": "F17: Native Gmail and Google Workspace shared accounts, aliases and Google Groups on all paid plans",
+      "chat": "F17: Native website chat widget and shared live chat board on every paid plan; marked Early Access",
+      "ai": "F14: Pro Agent finishes some conversations with no team member taking part; 50 credits each"
+    }
+  },
   "line": "Turns Gmail into a shared support inbox with chat and AI agents.",
   "free": { "kind": "trial", "text": "7-day trial, no card" },
   "cells": {

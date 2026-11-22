@@ -2,7 +2,15 @@
   "slug": "godaddy-payments",
   "name": "GoDaddy Payments",
   "url": "https://www.godaddy.com/payments",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment facilitator; the merchant remains the seller",
+      "billing": "F14: recurring invoices automatically charge a saved card on set schedules",
+      "links": "F16: hosted payment links and QR codes; no ecommerce website required"
+    }
+  },
   "line": "US and Canadian payment processing with links, invoices and checkout.",
   "free": { "kind": "none", "text": "US Free Pay Links; 2.9% + $0.30 per card payment" },
   "cells": {

@@ -1,6 +1,12 @@
 {
   "slug": "stripe-billing-analytics", "name": "Stripe Billing analytics", "url": "https://stripe.com/billing",
   "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is subscription billing with revenue reporting; F19: MRR, ARR, churn and revenue recovery measures from Stripe billing data"
+    }
+  },
   "line": "Subscription billing with reports on recurring revenue and recovery.",
   "free": {"kind": "none", "text": "No recurring fee; pay-as-you-go charges 0.7% of Billing volume"},
   "cells": {"cookieless": "Unknown (not a visitor tracker)", "location": "US and global affiliate processing", "selfhost": "No"},

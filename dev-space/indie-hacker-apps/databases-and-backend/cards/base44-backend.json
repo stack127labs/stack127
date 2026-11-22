@@ -2,7 +2,16 @@
   "slug": "base44-backend",
   "name": "Base44 Backend",
   "url": "https://base44.com/developers",
-  "jobs": ["backend", "sql", "files", "jobs"],
+  "jobs": ["backend", "nosql", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: managed NoSQL documents with MongoDB-compatible operators through the Base44 SDK",
+      "backend": "C02: managed backend platform; C07: entities, auth, realtime, files and functions",
+      "files": "F04: live uploads of 50-100 MB by file type; F05: UploadFile documented",
+      "jobs": "J04: workflow recurring schedules at most once per 5 minutes, timezone-aware"
+    }
+  },
   "line": "Build apps with hosted data, auth, files, realtime, and functions.",
   "free": { "kind": "free", "text": "100 integration credits monthly; up to 5 apps" },
   "cells": {

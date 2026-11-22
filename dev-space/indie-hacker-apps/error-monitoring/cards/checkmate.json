@@ -2,7 +2,14 @@
   "slug": "checkmate",
   "name": "Checkmate",
   "url": "https://checkmate.so/",
-  "jobs": ["uptime", "status", "performance"],
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, ping, DNS and port checks every 15 s to 30 min",
+      "status": "S01, S03: public status pages built from selected monitors, with own domain"
+    }
+  },
   "line": "Self-hosted website, protocol and server checks with public status pages.",
   "free": { "kind": "selfhost", "text": "Free AGPL software; run it with your own server and MongoDB" },
   "cells": {

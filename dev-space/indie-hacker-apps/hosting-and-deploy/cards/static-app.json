@@ -3,6 +3,12 @@
   "name": "Static.app",
   "url": "https://static.app/",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed file hosting for built HTML, CSS and JavaScript, with the provider operating the serving infrastructure"
+    }
+  },
   "line": "Upload and host static website files with managed HTTPS.",
   "free": { "kind": "trial", "text": "7-day trial, no card; 1 website, 50 MB storage" },
   "cells": { "type": "Static file hosting", "regions": "US hosting; Cloudflare delivery; no selectable region", "selfhost": "No" },

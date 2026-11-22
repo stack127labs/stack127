@@ -2,7 +2,14 @@
   "slug": "binarycanary",
   "name": "BinaryCanary",
   "url": "https://www.binarycanary.com/",
-  "jobs": ["uptime", "performance"],
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external checks of sites, email, databases, DNS and expiry (U01, U05)",
+      "status": "S01, S03: public uptime reports per monitor with badges; no incident posting (S02)"
+    }
+  },
   "line": "Checks websites, email, ports, DNS, and certificate or domain expiry.",
   "free": { "kind": "trial", "text": "14-day trial" },
   "cells": { "interval": "1 min", "maintained": "Hosted service" },

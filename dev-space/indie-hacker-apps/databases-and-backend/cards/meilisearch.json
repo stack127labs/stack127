@@ -2,7 +2,14 @@
   "slug": "meilisearch",
   "name": "Meilisearch",
   "url": "https://www.meilisearch.com/",
-  "jobs": ["vector"],
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is hosted and self-hosted search engine that indexes JSON documents",
+      "vector": "V01: vectors are stored in documents with named embedders; C02 lists vector search as a core role"
+    }
+  },
   "line": "Hosted and self-hosted search engine for full-text, vector, and hybrid search.",
   "free": { "kind": "selfhost", "text": "MIT Community has no product limit; Cloud trial 14 days; no idle pause stated" },
   "cells": {

@@ -3,6 +3,13 @@
   "name": "Hanko",
   "url": "https://www.hanko.io/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: Hanko Cloud runs the whole account system; F03: Starter and Pro sign up self-serve",
+      "server": "F02: self-hosted Go auth server (AGPL-3.0); F35: Docker or built executable"
+    }
+  },
   "line": "Account login with passkeys, passwords, and social sign-in.",
   "free": { "kind": "free", "text": "Free up to 10,000 MAU" },
   "cells": {

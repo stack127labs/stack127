@@ -2,7 +2,13 @@
   "slug": "ibm-cloudant",
   "name": "IBM Cloudant",
   "url": "https://www.ibm.com/products/cloudant",
-  "jobs": ["sql"],
+  "jobs": ["nosql"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is managed JSON document database; D01: REST document access and Mango queries"
+    }
+  },
   "line": "Managed JSON document database with CouchDB-compatible APIs and search.",
   "free": { "kind": "free", "text": "Lite: 1 GB; 20 reads/s, 10 writes/s; legacy 30-day idle deletion rule unclear" },
   "cells": {

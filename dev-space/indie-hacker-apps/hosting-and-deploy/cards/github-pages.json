@@ -3,6 +3,12 @@
   "name": "GitHub Pages",
   "url": "https://pages.github.com/",
   "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static hosting; a repository's HTML, CSS and JavaScript become a published website"
+    }
+  },
   "line": "Publish static websites from a GitHub repository.",
   "free": { "kind": "free", "text": "$0 for public repository Pages on Free account" },
   "cells": { "type": "Static hosting", "regions": "Not published", "selfhost": "No" },

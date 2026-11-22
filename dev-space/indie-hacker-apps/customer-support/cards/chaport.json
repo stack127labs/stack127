@@ -2,7 +2,15 @@
   "slug": "chaport",
   "name": "Chaport",
   "url": "https://www.chaport.com/",
-  "jobs": ["chat", "inbox", "helpdesk"],
+  "jobs": ["chat", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: public knowledge base is part of the website chat and messaging product",
+      "chat": "F17: Native website chat widget on all plans, with unlimited chats and websites",
+      "inbox": "F17: Pro forwards email into the chat inbox; operators reply from Chaport as regular email"
+    }
+  },
   "line": "Website chat and customer messaging with a shared operator inbox.",
   "free": { "kind": "free", "text": "Free for 2 operators; unlimited chats and sites" },
   "cells": {

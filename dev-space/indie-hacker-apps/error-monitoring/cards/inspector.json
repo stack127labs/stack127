@@ -3,6 +3,13 @@
   "name": "Inspector",
   "url": "https://inspector.dev/",
   "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: production application errors and exception tracking (E01)",
+      "performance": "A01: request and job transactions with query and external-call segments"
+    }
+  },
   "line": "Tracks PHP application errors and performance across requests and jobs.",
   "free": { "kind": "free", "text": "30,000 transactions/month after first 7 days; no card" },
   "cells": {

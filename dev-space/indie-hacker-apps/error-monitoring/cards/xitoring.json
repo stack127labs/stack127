@@ -2,7 +2,15 @@
   "slug": "xitoring",
   "name": "Xitoring",
   "url": "https://xitoring.com/",
-  "jobs": ["uptime", "status", "performance", "cron"],
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website, API, ping, DNS and TCP checks from fifteen nodes (U01, U03)",
+      "status": "S01, S02: public and password-protected status pages with incident notes (S02)",
+      "cron": "C02: heartbeat and cronjob monitors detect missed or late scheduled work"
+    }
+  },
   "line": "Uptime checks, job heartbeats, server alerts, and hosted status pages.",
   "free": {
     "kind": "trial",

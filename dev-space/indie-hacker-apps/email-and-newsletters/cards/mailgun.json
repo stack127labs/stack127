@@ -2,7 +2,13 @@
   "slug": "mailgun",
   "name": "Mailgun",
   "url": "https://www.mailgun.com/",
-  "jobs": ["transactional", "marketing", "newsletter"],
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: app-generated transactional email through the REST API or SMTP relay"
+    }
+  },
   "line": "Email API and SMTP for app email and bulk delivery to lists.",
   "free": { "kind": "free", "text": "100 emails/day listed; verified-domain guide gives a different cap" },
   "cells": {

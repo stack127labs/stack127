@@ -2,7 +2,13 @@
   "slug": "nocodelytics",
   "name": "Nocodelytics",
   "url": "https://www.nocodelytics.com/",
-  "jobs": ["web", "product"],
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is Webflow website engagement analytics; F15: pageviews, visitors, sources, countries and top pages"
+    }
+  },
   "line": "Tracks Webflow site traffic and visitor actions.",
   "free": { "kind": "free", "text": "Free: 1,000 views/month; over-limit disables site and deletes events" },
   "cells": {

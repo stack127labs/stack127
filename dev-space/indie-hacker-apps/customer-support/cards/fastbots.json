@@ -2,7 +2,15 @@
   "slug": "fastbots",
   "name": "FastBots",
   "url": "https://fastbots.ai/",
-  "jobs": ["ai", "helpdesk", "chat"],
+  "jobs": ["ai", "chat", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F02: Knowledge-trained customer support AI that answers customers; human handoff is a higher-plan feature",
+      "chat": "F18: Live Chat on Business and above: team members claim chats from queues, reply and take over",
+      "inbox": "F18: Email on Business and above connects several mailboxes; reviewers approve AI drafts before sending"
+    }
+  },
   "line": "Knowledge-trained agents for customer questions, with human handoff.",
   "free": { "kind": "trial", "text": "14-day trial, no card; 200 message credits" },
   "cells": {

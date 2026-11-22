@@ -3,6 +3,13 @@
   "name": "Tyro",
   "url": "https://www.tyro.com/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: merchant acquiring and gateway; the merchant remains the seller",
+      "links": "F16: Payment Links created in the Portal and shared by email, SMS or messaging"
+    }
+  },
   "line": "Australian acquiring and online payment links for cards and wallets.",
   "free": { "kind": "none", "text": "Links have no added setup/monthly fee; merchant facility fees may apply" },
   "cells": {

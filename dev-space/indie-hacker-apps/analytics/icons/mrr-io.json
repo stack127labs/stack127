@@ -1,0 +1,17 @@
+{
+  "slug": "mrr-io",
+  "name": "MRR.io",
+  "official_url": "https://mrr.io/",
+  "image_url": "https://mrr.io/assets/img/social-media-logo.png",
+  "source_page": "https://mrr.io/",
+  "kind": "other",
+  "source_host": "mrr.io",
+  "original": {
+    "format": "png",
+    "width": 400,
+    "height": 400
+  },
+  "sha256": "1f7d850130047e05f0d24aaffbd2a22566042f693c6890d29ac94257f340b54d",
+  "note": "wordmark tile: the official square social logo (MRR.io text on dark); the site favicon is only 16 px",
+  "saved_at": "2026-11-22"
+}

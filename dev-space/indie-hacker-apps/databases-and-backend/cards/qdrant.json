@@ -3,6 +3,12 @@
   "name": "Qdrant",
   "url": "https://qdrant.tech/",
   "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: vector database is the primary type; V01: dense vectors up to 65,535 dimensions"
+    }
+  },
   "line": "Vector database for semantic search with dense, sparse, and hybrid retrieval.",
   "free": { "kind": "free", "text": "1 node, 1 GB RAM, 4 GB disk; suspends after 1 week, deletes after 4" },
   "cells": {

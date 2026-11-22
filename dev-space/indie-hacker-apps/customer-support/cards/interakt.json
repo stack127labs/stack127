@@ -2,7 +2,13 @@
   "slug": "interakt",
   "name": "Interakt",
   "url": "https://www.interakt.shop/",
-  "jobs": ["inbox", "ai"],
+  "jobs": ["ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Customer Support AI answers customers' FAQs on its own; Auto-Handoff sends unanswered chats to a person (F24)"
+    }
+  },
   "line": "WhatsApp and Instagram support inbox with commerce and campaign tools.",
   "free": { "kind": "trial", "text": "7–14-day trial; homepage says no card" },
   "cells": {

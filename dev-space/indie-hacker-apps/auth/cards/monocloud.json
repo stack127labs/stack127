@@ -3,6 +3,12 @@
   "name": "MonoCloud",
   "url": "https://www.monocloud.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted identity platform with accounts, login and sessions; F35: self-host not applicable"
+    }
+  },
   "line": "Hosted login, passwordless authentication, and user management.",
   "free": { "kind": "free", "text": "Free up to 50,000 MAU" },
   "cells": {

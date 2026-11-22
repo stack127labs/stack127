@@ -3,6 +3,12 @@
   "name": "DonWeb Cloud Servers",
   "url": "https://donweb.com/es-ar/hosting-cloud-servers-vps",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented cloud VM with root or admin access; the customer controls the OS, packages and apps"
+    }
+  },
   "line": "Rent virtual servers with configurable compute, storage, and transfer.",
   "free": { "kind": "none", "text": "No recurring free Cloud Server plan" },
   "cells": { "type": "VPS/VM", "regions": "Argentina; four data centers", "selfhost": "No" },

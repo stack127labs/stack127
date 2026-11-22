@@ -3,6 +3,12 @@
   "name": "Google Cloud Storage",
   "url": "https://cloud.google.com/storage",
   "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed object and file storage is the primary type; F04: objects up to 5 TiB"
+    }
+  },
   "line": "Store, secure, and deliver files in regional and multi-region buckets.",
   "free": { "kind": "free", "text": "5 GB-mo; 5K A, 50K B ops; 100 GB NA egress; 7d deleted hold; no idle pause" },
   "cells": {

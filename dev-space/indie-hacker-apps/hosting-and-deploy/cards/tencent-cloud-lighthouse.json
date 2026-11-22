@@ -3,6 +3,12 @@
   "name": "Tencent Cloud Lighthouse",
   "url": "https://www.tencentcloud.com/products/lighthouse",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: managed cloud VPS; Tencent provides the VM and the customer administers the guest OS and app"
+    }
+  },
   "line": "Run a bundled virtual server with customer-managed software.",
   "free": { "kind": "none", "text": "No ongoing free instance plan" },
   "cells": { "type": "Cloud VPS", "regions": "Region count conflicts: 9 on product page, 11 in guide", "selfhost": "Yes; customer manages the server" },

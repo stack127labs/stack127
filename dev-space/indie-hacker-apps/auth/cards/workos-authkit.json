@@ -5,6 +5,12 @@
   "jobs": [
     "hosted"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted account system with signup, login, sessions and SSO; F35: on-prem guide still needs hosted API"
+    }
+  },
   "line": "Free login for up to a million users, with paid SSO.",
   "free": {
     "kind": "free",

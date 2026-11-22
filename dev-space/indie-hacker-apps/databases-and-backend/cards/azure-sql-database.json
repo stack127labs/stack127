@@ -2,7 +2,15 @@
   "slug": "azure-sql-database",
   "name": "Azure SQL Database",
   "url": "https://azure.microsoft.com/en-us/products/azure-sql/database",
-  "jobs": ["sql", "vector", "jobs"],
+  "jobs": ["sql", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the primary type; D01: managed SQL Server engine with T-SQL",
+      "jobs": "J01: Elastic Jobs, a managed agent that runs scheduled T-SQL jobs; J03: default retries",
+      "vector": "C07: native VECTOR type and vector search; V01: 1-1,998 float32 dimensions"
+    }
+  },
   "line": "Run managed SQL Server databases with vector search and job scheduling.",
   "free": { "kind": "free", "text": "100K vCore seconds, 32 GB data/backups; pauses after 15 idle minutes" },
   "cells": {

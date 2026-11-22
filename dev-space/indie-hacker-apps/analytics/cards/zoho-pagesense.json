@@ -1,6 +1,14 @@
 {
   "slug": "zoho-pagesense", "name": "Zoho PageSense", "url": "https://www.zoho.com/pagesense/",
-  "jobs": ["replay", "web"],
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is website behavior analytics with replay and heatmaps; F17: multi-page web replay with input masking",
+      "web": "F15: real-time acquisition, channel, source and geography reports; pages, entries, exits and goal completion",
+      "product": "F16: goal and funnel paths with visitor drop-offs, linked to identified sessions"
+    }
+  },
   "line": "Analyzes website behavior with replay, heatmaps, funnels and tests.",
   "free": {"kind": "free", "text": "Free: 5k users, 5k recordings/month, 1 project, 1-month history; goals unclear"},
   "cells": {"cookieless": "No (cookies and browser storage)", "location": "US, EU, India, Japan, Australia, Canada and others", "selfhost": "No"},

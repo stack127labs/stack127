@@ -3,6 +3,14 @@
   "name": "Mailercloud",
   "url": "https://www.mailercloud.com/",
   "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: autoresponders and branching lifecycle workflows",
+      "newsletter": "F02: newsletter broadcasts and A/B-tested campaigns",
+      "transactional": "F02: programmatic OTPs, password resets and receipts through the Email API or SMTP"
+    }
+  },
   "line": "Email marketing campaigns and transactional API delivery.",
   "free": { "kind": "free", "text": "Free for 1,000 contacts, 12,000 emails/month and 1,000/day" },
   "cells": {

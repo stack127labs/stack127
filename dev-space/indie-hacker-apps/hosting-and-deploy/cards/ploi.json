@@ -2,7 +2,14 @@
   "slug": "ploi",
   "name": "Ploi",
   "url": "https://ploi.io/",
-  "jobs": ["panel"],
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted control plane that sets up and manages the customer's own servers; paid, not free self-hosted software",
+      "static": "04: static HTML is a listed site type on the customer's server"
+    }
+  },
   "line": "Manage and deploy apps to servers you rent or already own.",
   "free": { "kind": "free", "text": "Free: 1 server, 1 site, 5 deploys/mo; 5-day Pro trial, no card" },
   "cells": { "type": "Deployment panel", "regions": "Apps use provider regions; Ploi control plane in Europe", "selfhost": "No; hosted panel; Core requires Unlimited" },

@@ -3,6 +3,13 @@
   "name": "PingPing",
   "url": "https://pingping.io/",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: hosted HTTP and HTTPS uptime and response-time checks (U01)",
+      "status": "S01, S03: one public or private status page per monitored URL (S03)"
+    }
+  },
   "line": "Checks websites and certificates, then publishes status pages for each site.",
   "free": { "kind": "trial", "text": "14-day trial, up to 5 websites; no card" },
   "cells": {

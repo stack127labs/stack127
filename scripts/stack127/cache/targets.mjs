@@ -1,4 +1,5 @@
-import { COURSE_PAGES_TAG, PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, DIRECTORY_PAGES_TAG, TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG, SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG, CLI_APPS_TAG, SITEMAP_TAG, PLATFORM_FEES_TAG, AD_NETWORKS_TAG, LAUNCH_DIRECTORIES_TAG } from "../../../lib/cache-tags.ts";
+import { COURSE_PAGES_TAG, PAGE_REGISTRY_TAG, HOME_PAGES_TAG, TOOL_PAGES_TAG, DIRECTORY_PAGES_TAG, TOOL_CATALOGS_TAG, TOOL_CATALOG_TAG, TOOL_PRIMARY_CATALOGS_TAG, SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG, CLI_APPS_TAG, SITEMAP_TAG, PLATFORM_FEES_TAG, AD_NETWORKS_TAG, LAUNCH_DIRECTORIES_TAG, INDIE_HACKER_APPS_TAG } from "../../../lib/cache-tags.ts";
+import { appDirectoryApiIndexPath, appDirectoryEdgeTag, getAppDirectory, indieAppsCategoryTag } from "../../../lib/indie-hacker-apps/directories.ts";
 import { networkIdentities } from "../../ad-networks/network-identities.mjs";
 import { adNetworkNiches } from "../../../lib/ad-network-niches.ts";
 import { feeGroups, groupPath } from "../../../lib/platform-fees/groups.ts";
@@ -63,6 +64,11 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       if (slug === "cli-apps") {
         addPage("/api/cli-apps/index", false);
         edgeTags.add("cli-apps-catalog");
+      }
+      if (getAppDirectory(slug)) {
+        // Publication decides whether the JSON routes answer 404.
+        addPage(appDirectoryApiIndexPath(slug), false);
+        edgeTags.add(appDirectoryEdgeTag(slug));
       }
       addPage("/");
       paths.add("/sitemap.xml");
@@ -135,6 +141,18 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
       addPage("/launch-directories/compare");
       addPage("/launch-directories");
       addPage("/");
+    } else if (event.entity_type === "indie_hacker_apps") {
+      // One event per published app directory whose records changed, or that was
+      // published or unpublished. Events don't name apps: the app panel routes are
+      // purged by the directory's family tag and revalidated by the data tag, the
+      // same tag the verified index reads.
+      const directory = getAppDirectory(slug);
+      nextTags.add(directory ? indieAppsCategoryTag(directory.category) : INDIE_HACKER_APPS_TAG);
+      edgeTags.add(appDirectoryEdgeTag(slug));
+      addPage(`/${slug}`);
+      addPage(appDirectoryApiIndexPath(slug), false);
+      // The homepage card shows app counts.
+      addPage("/");
     } else {
       throw new Error(`Unknown cache event type: ${event.entity_type}`);
     }
@@ -150,6 +168,6 @@ export function targetsForEvents(events, catalogSlugs = [], toolSlugs = []) {
   }
   const verifiedApis = [...paths].filter(path => path.startsWith("/api/self-host-apps/") ||
     path.startsWith("/api/resource-planner-app/") || path === "/api/cli-apps/index" ||
-    path === "/api/ad-networks/sites" || path === "/api/ad-networks/site");
+    path === "/api/ad-networks/sites" || path === "/api/ad-networks/site" || path.startsWith("/api/app-directories/"));
   return { verifyPaths: [...new Set([...warmPaths, ...verifiedApis])], paths: [...paths], nextTags: [...nextTags], edgeTags: [...edgeTags], warmPaths: [...warmPaths] };
 }

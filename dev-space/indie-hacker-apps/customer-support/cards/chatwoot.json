@@ -5,9 +5,20 @@
   "jobs": [
     "helpdesk",
     "chat",
+    "ai",
     "inbox",
-    "ai"
+    "kb"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: public help center articles on paid Cloud and self-hosted plans",
+      "helpdesk": "F21: Public help center articles on paid Cloud and self-hosted; F02 classifies it as a help desk",
+      "chat": "F17: Native website chat widget on Hacker, paid Cloud, Community and self-hosted",
+      "ai": "F22: Captain answers customers and hands off to people; needs a paid Cloud or self-hosted plan",
+      "inbox": "F17: Native email inbox; F18: agents share assignment, private notes and canned replies"
+    }
+  },
   "line": "Open source support inbox, live chat and AI assistant.",
   "free": {
     "kind": "free",

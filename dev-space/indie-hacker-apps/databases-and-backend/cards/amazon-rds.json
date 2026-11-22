@@ -2,7 +2,14 @@
   "slug": "amazon-rds",
   "name": "Amazon RDS",
   "url": "https://aws.amazon.com/rds/",
-  "jobs": ["sql"],
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL databases are the primary type; D01: Db2, MySQL, PostgreSQL and others",
+      "vector": "V01: RDS PostgreSQL pgvector supports HNSW indexes and vector data"
+    }
+  },
   "line": "Managed relational databases for PostgreSQL, MySQL and other engines.",
   "free": { "kind": "credits", "text": "$100 signup credit and up to $100 earned credits" },
   "cells": {

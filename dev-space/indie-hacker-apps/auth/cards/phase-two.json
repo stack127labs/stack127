@@ -3,6 +3,13 @@
   "name": "Phase Two",
   "url": "https://phasetwo.io/",
   "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed Keycloak hosting with accounts, login and organizations; F05: Phase Two operates dedicated compute and backups",
+      "server": "F02: self-host container image is also available; F35: Docker image and Helm or Operator documented"
+    }
+  },
   "line": "Managed Keycloak hosting with extensions for app accounts and SSO.",
   "free": { "kind": "trial", "text": "30-day Starter trial" },
   "cells": {

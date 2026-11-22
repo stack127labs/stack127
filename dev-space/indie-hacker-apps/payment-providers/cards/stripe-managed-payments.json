@@ -3,6 +3,14 @@
   "name": "Stripe Managed Payments",
   "url": "https://stripe.com/managed-payments",
   "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record for eligible transactions; Sold through Link is the legal seller",
+      "billing": "F14: automatic recurring payments through Stripe Billing on the Managed Payments method list",
+      "links": "F16: no-code Dashboard Payment Links for Managed Payments sales"
+    }
+  },
   "line": "Merchant of record service for eligible digital sales through Stripe.",
   "free": { "kind": "none", "text": "No setup fees or monthly minimum; transaction fees apply" },
   "cells": {

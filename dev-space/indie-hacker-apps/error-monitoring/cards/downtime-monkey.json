@@ -3,6 +3,12 @@
   "name": "Downtime Monkey",
   "url": "https://downtimemonkey.com/",
   "jobs": ["uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external website uptime and response-time checks with keyword alerts (U01, U02)"
+    }
+  },
   "line": "Checks website uptime and response times, with keyword alerts and history.",
   "free": { "kind": "free", "text": "60 monitors, 5-minute checks, 90-day uptime stats" },
   "cells": {

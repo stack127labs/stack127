@@ -2,7 +2,15 @@
   "slug": "paycomet",
   "name": "PAYCOMET",
   "url": "https://www.paycomet.com/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway and acquiring; the merchant remains the seller",
+      "billing": "F14: stored-card subscriptions; F15: subscription service with frequency, amount and retries",
+      "links": "F16: Pay-by-link is a no-code link shared by SMS, email, WhatsApp or social channels"
+    }
+  },
   "line": "EU payment gateway with hosted checkout, payment links and recurring cards.",
   "free": { "kind": "trial", "text": "New contracts may receive 3 months free, subject to approval" },
   "cells": {

@@ -3,6 +3,12 @@
   "name": "Northflank",
   "url": "https://northflank.com/",
   "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: Northflank Cloud builds and runs the customer's container services and jobs on provider infrastructure"
+    }
+  },
   "line": "Build and run container services, jobs, and databases.",
   "free": { "kind": "free", "text": "Sandbox $20/mo; max 2 services, 2 jobs, 1 DB, 2 projects; not production" },
   "cells": { "type": "Managed app platform", "regions": "17 project regions; location fixed at creation", "selfhost": "No; BYOC/BYOK do not host its control plane" },

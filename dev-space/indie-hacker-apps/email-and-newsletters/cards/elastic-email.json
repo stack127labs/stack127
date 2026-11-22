@@ -2,7 +2,15 @@
   "slug": "elastic-email",
   "name": "Elastic Email",
   "url": "https://elasticemail.com/",
-  "jobs": ["newsletter", "marketing", "transactional"],
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation on Marketing PRO; event-driven campaigns on Email Marketing",
+      "newsletter": "F02: Email Marketing supports newsletters and bulk campaigns",
+      "transactional": "F02: Email API sends application transactional email through the API or SMTP relay"
+    }
+  },
   "line": "Send newsletters and automated campaigns, or deliver app email through an API or SMTP.",
   "free": { "kind": "free", "text": "Free marketing up to 1,000 contacts and 3,000 emails/month" },
   "cells": { "newsletters": "Yes", "api": "Yes, API and SMTP" },

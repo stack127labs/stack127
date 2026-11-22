@@ -2,11 +2,17 @@
   "slug": "neon",
   "name": "Neon",
   "url": "https://neon.com/",
-  "jobs": [
-    "sql",
-    "files",
-    "jobs"
-  ],
+  "jobs": ["sql", "files", "jobs", "backend", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: Postgres 14 to 18",
+      "files": "F01: Object Storage at $0.023/GB-month, 5 GB free; F05: S3 subset API",
+      "jobs": "J04: five-field UTC cron schedules on Functions triggers; J01: scheduled triggers",
+      "backend": "C07: Postgres, Managed Better Auth, Object Storage and Functions offered together",
+      "vector": "V01: pgvector HNSW indexes with vectors up to 2,000 dimensions"
+    }
+  },
   "line": "Serverless Postgres that sleeps when idle, now part of Databricks.",
   "free": {
     "kind": "free",

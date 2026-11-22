@@ -2,7 +2,16 @@
   "slug": "stackhero",
   "name": "Stackhero",
   "url": "https://www.stackhero.io/en-US",
-  "jobs": ["sql", "kv", "files", "jobs", "backend", "vector"],
+  "jobs": ["sql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: SQL focus with managed PostgreSQL, MySQL and MariaDB; C07: SQL services with admin tools",
+      "files": "F05: MinIO storage with S3 SDK and AWS SDK examples; F01: MinIO plans from 100 GB",
+      "jobs": "J01: managed RabbitMQ broker; J04: provider advertises unlimited queues and retention",
+      "vector": "V01: PgVector included on hosted PostgreSQL via CREATE EXTENSION vector"
+    }
+  },
   "line": "Managed SQL, MinIO storage, Redis caching, and RabbitMQ queues.",
   "free": { "kind": "none", "text": "Free start terms unknown; unpaid data may be deleted; no idle expiry stated" },
   "cells": {

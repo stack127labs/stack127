@@ -3,6 +3,13 @@
   "name": "Zoho SalesIQ",
   "url": "https://www.zoho.com/salesiq/",
   "jobs": ["chat", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native website and in-app chat with human operators on all current plans",
+      "ai": "F22: Zia Agents answer visitors autonomously on Basic and above, without an extra operator seat for each agent"
+    }
+  },
   "line": "Website and in-app live chat with visitor tracking, bots, and AI agents.",
   "free": { "kind": "free", "text": "Free forever; 3 operators and 100 chat sessions/month" },
   "cells": {

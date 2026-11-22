@@ -2,7 +2,13 @@
   "slug": "valkey",
   "name": "Valkey",
   "url": "https://valkey.io/",
-  "jobs": ["kv", "jobs", "vector"],
+  "jobs": ["kv"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: self-hosted key-value database and cache is the primary type; D01: in-memory data-structure server"
+    }
+  },
   "line": "Self-hosted key-value database with streams and optional vector search.",
   "free": { "kind": "selfhost", "text": "BSD-3-Clause; no hosted quota or vendor idle pause/deletion" },
   "cells": {

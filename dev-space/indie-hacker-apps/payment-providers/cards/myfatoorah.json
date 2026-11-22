@@ -2,11 +2,15 @@
   "slug": "myfatoorah",
   "name": "MyFatoorah",
   "url": "https://www.myfatoorah.com/",
-  "jobs": [
-    "gateway",
-    "links",
-    "billing"
-  ],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant sells and delivers",
+      "billing": "F14: MyFatoorah-managed recurring charges with intervals and up to five retries; needs activation",
+      "links": "F16: payment links and product links usable without a separate online store"
+    }
+  },
   "line": "Regional payment gateway for checkout, links, invoices and recurring charges.",
   "free": {
     "kind": "none",

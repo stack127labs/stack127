@@ -3,6 +3,13 @@
   "name": "Ghost",
   "url": "https://ghost.org/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: website posts, newsletters and email-only posts",
+      "marketing": "F02: welcome, upgrade and win-back sequences for members; general Automations is still beta"
+    }
+  },
   "line": "Publish a website and send newsletters with managed hosting or your own server.",
   "free": { "kind": "selfhost", "text": "Free MIT software; you run a server and connect Mailgun for bulk email" },
   "cells": { "newsletters": "Yes", "api": "Yes; hosted Admin API on Publisher+" },

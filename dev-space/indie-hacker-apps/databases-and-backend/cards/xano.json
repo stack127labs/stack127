@@ -3,6 +3,16 @@
   "name": "Xano",
   "url": "https://www.xano.com/",
   "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with PostgreSQL, APIs, auth, files and background tasks; C07 confirmed",
+      "sql": "D01: managed PostgreSQL with relational tables and SQL",
+      "files": "F01: 100 GB image and file storage included in Essential",
+      "jobs": "J04: scheduled background tasks repeat from a start time; J03: async functions",
+      "vector": "V01: native vector field with documented vector indexes and similarity metrics"
+    }
+  },
   "line": "Backend platform with PostgreSQL, APIs, authentication, files and background tasks.",
   "free": { "kind": "free", "text": "1GB DB, 100K records; no scheduled tasks; term unclear; no idle rule found" },
   "cells": {

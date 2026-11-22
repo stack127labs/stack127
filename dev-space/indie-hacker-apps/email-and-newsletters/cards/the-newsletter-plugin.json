@@ -3,6 +3,13 @@
   "name": "The Newsletter Plugin",
   "url": "https://www.thenewsletterplugin.com/",
   "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and marketing campaigns",
+      "marketing": "F02: paid delayed email series and recurring post digests"
+    }
+  },
   "line": "Self-hosted WordPress newsletters, campaigns and email sequences.",
   "free": { "kind": "selfhost", "text": "Free plugin; no subscriber cap; server and sending costs extra" },
   "cells": {

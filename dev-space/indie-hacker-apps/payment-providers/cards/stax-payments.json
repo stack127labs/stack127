@@ -3,6 +3,14 @@
   "name": "Stax Payments",
   "url": "https://staxpayments.com/",
   "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: merchant processing and gateway; the merchant sells its own goods and services",
+      "billing": "F14: recurring invoices charge a stored card or ACH automatically when autopay is set",
+      "links": "F16: no-code hosted pages, payment links, buttons and QR codes"
+    }
+  },
   "line": "US and Canadian payment platform for cards, invoices, and recurring billing.",
   "free": { "kind": "none", "text": "Plans start at $99/month; online fee is $0.15/payment plus interchange" },
   "cells": {

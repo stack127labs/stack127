@@ -2,7 +2,15 @@
   "slug": "flutterwave",
   "name": "Flutterwave",
   "url": "https://flutterwave.com/ng/",
-  "jobs": ["gateway", "links", "billing"],
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment facilitator and gateway; the merchant sells the goods or services",
+      "billing": "F14: Payment Plans auto-renew cards; F15: plan intervals, cancellation and retries",
+      "links": "F16: no-code payment links and invoices, alongside hosted checkout and Store"
+    }
+  },
   "line": "Payment gateway with online checkout, links and subscriptions.",
   "free": { "kind": "none", "text": "No signup or setup cost; transaction fees apply" },
   "cells": {

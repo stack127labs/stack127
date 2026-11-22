@@ -3,6 +3,12 @@
   "name": "Infomaniak Public Cloud",
   "url": "https://www.infomaniak.com/en/hosting/public-cloud",
   "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: IaaS virtual machines on OpenStack; the customer is the sole administrator of the guest OS and apps"
+    }
+  },
   "line": "Provision OpenStack virtual machines and manage their software yourself.",
   "free": { "kind": "credits", "text": "CHF300 one-time credit; up to 3 months; card and matching phone required" },
   "cells": { "type": "IaaS virtual machines", "regions": "Switzerland", "selfhost": "No" },

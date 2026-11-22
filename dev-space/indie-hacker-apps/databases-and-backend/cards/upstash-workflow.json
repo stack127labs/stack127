@@ -3,6 +3,12 @@
   "name": "Upstash Workflow",
   "url": "https://upstash.com/docs/workflow/getstarted",
   "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: hosted durable-workflow orchestrator with delayed work and schedules; J03: retries with exponential backoff"
+    }
+  },
   "line": "Managed durable workflows with retries, waits, schedules and event-driven steps.",
   "free": { "kind": "free", "text": "1,000 steps/day; 50 GB/mo; Terms may delete idle Free resources after 1 week" },
   "cells": {

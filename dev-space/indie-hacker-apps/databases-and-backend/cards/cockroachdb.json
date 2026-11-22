@@ -3,6 +3,13 @@
   "name": "CockroachDB",
   "url": "https://www.cockroachlabs.com/pricing/",
   "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: distributed SQL database is the primary type; D01: native distributed SQL engine",
+      "vector": "V01: VECTOR type with approximate nearest-neighbor indexes"
+    }
+  },
   "line": "Run distributed SQL databases in the cloud or on your own servers.",
   "free": { "kind": "credits", "text": "$400/30-day trial; pauses at end, deleted after 30-day grace" },
   "cells": {

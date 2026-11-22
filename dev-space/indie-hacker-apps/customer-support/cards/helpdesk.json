@@ -2,7 +2,16 @@
   "slug": "helpdesk",
   "name": "HelpDesk.com (Text)",
   "url": "https://www.helpdesk.com/",
-  "jobs": ["helpdesk", "inbox", "chat", "ai"],
+  "jobs": ["helpdesk", "chat", "ai", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Hosted customer email and ticketing desk; F17: forwarded support email becomes tickets",
+      "chat": "F17: Current Essential, Growth and Enterprise plans include website chat and in-app embedding",
+      "ai": "F22: AI Agent answers from assigned knowledge and hands off to a teammate when it cannot answer",
+      "inbox": "F18: Automatic or manual assignment, canned responses and internal notes shared by the team"
+    }
+  },
   "line": "Text combines email tickets, human chat, workflows, and AI support.",
   "free": { "kind": "trial", "text": "14-day trial, no card" },
   "cells": {

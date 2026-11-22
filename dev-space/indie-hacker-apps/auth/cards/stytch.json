@@ -5,6 +5,12 @@
   "jobs": [
     "hosted"
   ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted consumer and B2B accounts, login, verification and sessions; F05: vendor operates the identity API"
+    }
+  },
   "line": "API-first auth for consumer apps and B2B SaaS.",
   "free": {
     "kind": "free",

@@ -2,7 +2,14 @@
   "slug": "shopify-messaging",
   "name": "Shopify Messaging",
   "url": "https://www.shopify.com/email-marketing",
-  "jobs": ["newsletter", "marketing", "multichannel"],
+  "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter and broadcast campaigns to consented store contacts",
+      "marketing": "F02: store-linked lifecycle marketing automations"
+    }
+  },
   "line": "Shopify store email and SMS campaigns with lifecycle automation.",
   "free": { "kind": "none", "text": "10k emails/month included; paid store needed; trial/Pause & Build can't send" },
   "cells": {

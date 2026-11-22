@@ -3,6 +3,13 @@
   "name": "Montastic",
   "url": "https://www.montastic.com/",
   "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: primary job is hosted website uptime detection (U01, U02)",
+      "status": "S01, S03: public status pages with email subscribers and incident updates (S02)"
+    }
+  },
   "line": "Checks websites for downtime and publishes status pages with incidents.",
   "free": { "kind": "free", "text": "50 checkpoints at 5-minute intervals; 1 page, 20 subscribers" },
   "cells": {

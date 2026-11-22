@@ -2,7 +2,15 @@
   "slug": "bitpay",
   "name": "BitPay",
   "url": "https://www.bitpay.com/business",
-  "jobs": ["crypto"],
+  "jobs": ["crypto", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "F02: crypto payment processor; C01: invoices accept BTC, ETH, USDC and others",
+      "billing": "F14: subscription records and API schedules send recurring invoices; buyer pays each one",
+      "links": "F16: shareable invoice URL and dashboard payment buttons, no code needed"
+    }
+  },
   "line": "Crypto checkout that can settle to a bank account or wallet.",
   "free": { "kind": "none", "text": "No monthly fee stated; transaction fees apply" },
   "cells": {

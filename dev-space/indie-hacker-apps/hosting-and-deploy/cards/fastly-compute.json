@@ -2,7 +2,14 @@
   "slug": "fastly-compute",
   "name": "Fastly Compute",
   "url": "https://www.fastly.com/products/edge-compute",
-  "jobs": ["paas"],
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: Fastly runs the request-driven Wasm functions at its edge from code the builder supplies",
+      "static": "04: static sites are a listed use of Compute"
+    }
+  },
   "line": "Run WebAssembly apps at the edge on Fastly's network.",
   "free": { "kind": "free", "text": "10 million requests and 100 million vCPU milliseconds monthly" },
   "cells": { "type": "Edge functions", "regions": "Fastly global edge network", "selfhost": "No" },

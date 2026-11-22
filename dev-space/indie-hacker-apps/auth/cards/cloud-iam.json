@@ -3,6 +3,12 @@
   "name": "Cloud-IAM",
   "url": "https://www.cloud-iam.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed Keycloak hosting with accounts, login and sessions; F05: vendor runs the infrastructure"
+    }
+  },
   "line": "Managed Keycloak for app login, accounts, and identity brokering.",
   "free": { "kind": "free", "text": "Free up to 100 users on one realm" },
   "cells": {

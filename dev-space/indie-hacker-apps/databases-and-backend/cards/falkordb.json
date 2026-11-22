@@ -2,7 +2,14 @@
   "slug": "falkordb",
   "name": "FalkorDB",
   "url": "https://www.falkordb.com/",
-  "jobs": ["vector"],
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is property-graph database; D01: in-memory graph engine queried with Cypher",
+      "vector": "V01: HNSW vector index, 1 to 4,096 dimensions, is documented for graph properties"
+    }
+  },
   "line": "Query property graphs with Cypher, vector search, and full-text search.",
   "free": { "kind": "free", "text": "100 MB RAM and a maximum 100 MB graph dataset" },
   "cells": {

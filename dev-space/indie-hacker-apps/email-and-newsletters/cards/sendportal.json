@@ -2,7 +2,13 @@
   "slug": "sendportal",
   "name": "SendPortal",
   "url": "https://sendportal.io/",
-  "jobs": ["newsletter", "marketing"],
+  "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and marketing campaigns to tagged audiences with scheduled broadcasts"
+    }
+  },
   "line": "Self-hosted newsletters and marketing campaigns using your email provider.",
   "free": { "kind": "selfhost", "text": "Free MIT software; supply a server, database and sender" },
   "cells": {

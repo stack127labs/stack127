@@ -3,6 +3,12 @@
   "name": "Outseta",
   "url": "https://www.outseta.com/",
   "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: vendor-hosted membership platform with authentication and accounts; F35: no self-host edition"
+    }
+  },
   "line": "Hosted member login, billing, CRM, email, and support tools.",
   "free": { "kind": "trial", "text": "14-day trial; no ongoing free production tier" },
   "cells": {

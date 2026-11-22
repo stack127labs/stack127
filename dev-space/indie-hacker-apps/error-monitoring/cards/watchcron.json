@@ -3,6 +3,14 @@
   "name": "WatchCron",
   "url": "https://watchcron.com/",
   "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP, TCP, UDP, DNS and ICMP checks with SSL and domain expiry (U01, U05)",
+      "status": "S01, S03: public status pages on every plan, driven by checks and incidents (S03)",
+      "cron": "J01, J02: heartbeat checks with cron expressions, grace and /fail signals"
+    }
+  },
   "line": "Checks websites and ports, tracks cron jobs, and hosts status pages.",
   "free": { "kind": "free", "text": "Free: 20 checks, 1 Cloud Cron, 100 pings/check/month; interval unclear" },
   "cells": { "interval": "HTTP 30 s/5 min; ports 30 s Pro, 60 s Starter, 5 min Free", "maintained": "Hosted service" },

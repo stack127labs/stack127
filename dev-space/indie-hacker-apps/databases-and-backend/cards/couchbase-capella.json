@@ -2,7 +2,15 @@
   "slug": "couchbase-capella",
   "name": "Couchbase Capella",
   "url": "https://www.couchbase.com/pricing/",
-  "jobs": ["sql", "kv", "files", "vector", "jobs"],
+  "jobs": ["nosql", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is document database; D01: JSON/key-value engine queried with SQL++",
+      "jobs": "J04: Eventing timers run scheduled callbacks inside the managed cluster; J01 Eventing runs on changes",
+      "vector": "V01: Search vector indexes, up to 4,096 elements, are documented for Capella clusters"
+    }
+  },
   "line": "Run managed document databases with search, vector, and eventing features.",
   "free": { "kind": "free", "text": "1 cluster/org; 8 GB GCP or 10 GB AWS/Azure; turns off after 72 idle hours" },
   "cells": {

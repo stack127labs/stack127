@@ -3,6 +3,13 @@
   "name": "KKiaPay",
   "url": "https://kkiapay.me/",
   "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and gateway; the merchant is the seller to its customer",
+      "links": "F16: kkiapay Direct shareable payment links, no seller website or app needed"
+    }
+  },
   "line": "West African gateway for online payments, links and merchant payouts.",
   "free": { "kind": "none", "text": "No entry or setup fee listed" },
   "cells": {
