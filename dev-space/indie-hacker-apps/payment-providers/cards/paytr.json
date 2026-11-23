@@ -1,0 +1,29 @@
+{
+  "slug": "paytr",
+  "name": "PayTR",
+  "url": "https://www.paytr.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment institution and gateway; the merchant sells and delivers",
+      "billing": "F14: Abonelik automatically charges a saved card on the seller's period; F15: plans",
+      "links": "F16: Link creates a hosted payment page with no website or code, shared by message or email"
+    }
+  },
+  "line": "Turkish payment gateway with links, subscriptions and online checkout.",
+  "free": { "kind": "none", "text": "No setup, activation, integration, monthly or annual fixed fee" },
+  "cells": {
+    "type": "Payment institution and payment gateway",
+    "countries": "Türkiye and Northern Cyprus only",
+    "payout": "Starting 2.19% rate has 7-day settlement"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so US sellers are excluded." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so UK sellers are excluded." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so German sellers are excluded." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside Türkiye and KKTC (Northern Cyprus) can't apply, so Indian sellers are excluded." }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "moosend",
+  "name": "Moosend",
+  "url": "https://moosend.com/pricing/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation",
+      "newsletter": "F02: regular, RSS and repeatable newsletter campaigns",
+      "transactional": "F02: transactional email is a listed job; SMTP or API needs the Moosend+ or Enterprise plan"
+    }
+  },
+  "line": "Email campaigns, lifecycle automation and transactional SMTP/API.",
+  "free": { "kind": "trial", "text": "30-day trial for 1,000 contacts; unlimited sends" },
+  "cells": {
+    "newsletters": "Yes, newsletters and marketing campaigns",
+    "api": "Yes, transactional SMTP/API on Moosend+ or Enterprise"
+  },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "Pro reference", "state": "unclear", "math": "A published $16 a month reference covers 1,000 contacts and 4,000 sends, but the live fee is not verified." },
+      { "v": "Unknown", "plan": "Pro reference", "state": "unclear", "math": "A published $48 a month reference covers 5,000 contacts and 20,000 sends, but the live fee is not verified." },
+      { "v": "Unknown", "plan": "Pro reference", "state": "unclear", "math": "A published $88 a month reference covers 10,000 contacts and 40,000 sends, but the live fee is not verified." },
+      { "v": "Unknown", "plan": "Pro reference", "state": "unclear", "math": "A published $315 a month reference covers 50,000 contacts and 200,000 sends, but the live fee is not verified." }
+    ],
+    "appmail": [
+      { "v": "Quote", "plan": "Moosend+ or Enterprise", "state": "confirmed", "math": "App email sending through SMTP or API requires the Moosend+ or Enterprise plan. The exact total is not available." },
+      { "v": "Quote", "plan": "Moosend+ or Enterprise", "state": "confirmed", "math": "App email sending through SMTP or API requires the Moosend+ or Enterprise plan. The exact total is not available." },
+      { "v": "Quote", "plan": "Moosend+ or Enterprise", "state": "confirmed", "math": "App email sending through SMTP or API requires the Moosend+ or Enterprise plan. The exact total is not available." },
+      { "v": "Quote", "plan": "Moosend+ or Enterprise", "state": "confirmed", "math": "App email sending through SMTP or API requires the Moosend+ or Enterprise plan. The exact total is not available." }
+    ]
+  }
+}

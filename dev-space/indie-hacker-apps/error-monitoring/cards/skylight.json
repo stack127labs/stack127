@@ -1,0 +1,27 @@
+{
+  "slug": "skylight",
+  "name": "Skylight",
+  "url": "https://www.skylight.io/",
+  "jobs": ["performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: Ruby and Rails performance monitoring with endpoint traces (A01)"
+    }
+  },
+  "line": "Profiles Ruby and Rails requests and supported background jobs.",
+  "free": { "kind": "free", "text": "Free for 100,000 request and job traces each month" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Skylight doesn't provide uptime checks from outside." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Skylight doesn't provide uptime checks from outside." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Skylight doesn't provide uptime checks from outside." }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "watchgoose",
+  "name": "Watchgoose",
+  "url": "https://watchgoose.com/",
+  "jobs": ["cron", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "cron": "C02: heartbeat and missed-run monitoring for cron jobs and scripts (J01, J02)",
+      "status": "S01, S03: one public status page per project showing check state (S01)"
+    }
+  },
+  "line": "Tracks missed scheduled jobs and publishes public status pages.",
+  "free": { "kind": "free", "text": "Free forever: 10 checks, 1 Cron job, 100 pings/check/month" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Watchgoose tracks scheduled jobs. It doesn't check endpoints from outside." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Watchgoose tracks scheduled jobs. It doesn't check endpoints from outside." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Watchgoose tracks scheduled jobs. It doesn't check endpoints from outside." }
+    ]
+  }
+}

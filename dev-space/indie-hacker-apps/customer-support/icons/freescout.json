@@ -1,0 +1,17 @@
+{
+  "slug": "freescout",
+  "name": "FreeScout",
+  "official_url": "https://freescout.net/",
+  "image_url": "https://freescout.net/android-chrome-256x256.png",
+  "source_page": "https://freescout.net/",
+  "kind": "manifest-icon",
+  "source_host": "freescout.net",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "2539f1dd9c881151111281e7264b8d774fd543b7ed262856b6b5dd78ade79fce",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

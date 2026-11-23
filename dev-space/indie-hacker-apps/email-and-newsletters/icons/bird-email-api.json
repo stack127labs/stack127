@@ -1,0 +1,17 @@
+{
+  "slug": "bird-email-api",
+  "name": "Bird Email API",
+  "official_url": "https://bird.com/email-api",
+  "image_url": "https://bird.com/favicon.svg",
+  "source_page": "https://bird.com/email-api",
+  "kind": "svg-icon",
+  "source_host": "bird.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "1ed9918acc4006d05384f710035700d17f97a3ed1351bc5ed02f1d2086db0b55",
+  "note": "parent brand: Bird; Email API has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "cherry-servers-virtual-servers",
+  "name": "Cherry Servers virtual servers",
+  "official_url": "https://www.cherryservers.com/virtual-servers",
+  "image_url": "https://www.cherryservers.com/cherryservers-favicon.ico",
+  "source_page": "https://www.cherryservers.com/virtual-servers",
+  "kind": "favicon",
+  "source_host": "cherryservers.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "24767120eee45384ffcbac04583a49e09af3c37d0c0c87828bbeba70bb2a63d7",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

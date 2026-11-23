@@ -1,0 +1,33 @@
+{
+  "slug": "klaviyo",
+  "name": "Klaviyo",
+  "url": "https://www.klaviyo.com/",
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing journeys on the hosted platform",
+      "newsletter": "F02: newsletter campaigns to opted-in lists"
+    }
+  },
+  "line": "Marketing campaigns and event-triggered transactional email.",
+  "free": { "kind": "free", "text": "Free for 250 active profiles and 500 email sends per month" },
+  "cells": {
+    "newsletters": "Yes, campaigns to opted-in lists",
+    "api": "Yes, paid account and approved transactional flow required"
+  },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "We could not verify the current price or the send quota of the tier chosen for 1,000 profiles and 4,000 sends." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "We could not verify the current price or the send quota of the tier chosen for 5,000 profiles and 20,000 sends." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "We could not verify the current price or the send quota of the tier chosen for 10,000 profiles and 40,000 sends." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "We could not verify the current price or the send quota of the tier chosen for 50,000 profiles and 200,000 sends." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "3,000 emails use 500 profiles with 6 runs each. USD 20 is the starting subscription, but the 5,000-send allowance depends on conditions and is not a verified quote." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "We could not verify the current price or send allowance of the qualifying tier for 10,000 emails." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "We could not verify the current price or send allowance of the qualifying tier for 50,000 emails." },
+      { "v": "Unknown", "plan": "", "state": "check_failed", "math": "We could not verify the current price or send allowance of the qualifying tier for 100,000 emails." }
+    ]
+  }
+}

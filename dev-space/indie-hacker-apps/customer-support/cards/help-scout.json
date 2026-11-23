@@ -1,0 +1,48 @@
+{
+  "slug": "help-scout",
+  "name": "Help Scout",
+  "url": "https://www.helpscout.com/",
+  "jobs": [
+    "inbox",
+    "helpdesk",
+    "chat",
+    "ai",
+    "kb"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: Docs help center with public articles, search and custom domain",
+      "inbox": "F18: Assignment, private notes, saved replies and collision detection in one shared support inbox",
+      "helpdesk": "F21: Docs help center with public articles, search and custom domain; email arrives as conversations (F17)",
+      "chat": "F17: Native Beacon live chat on Standard, Plus and Pro; Free has contact forms only",
+      "ai": "F22: Scout resolves Beacon and email inquiries on its own; helpers draft and summarize for agents"
+    }
+  },
+  "line": "Shared support inbox with Beacon chat and Docs.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 5 users, 1 inbox, 100 contacts/month"
+  },
+  "cells": {
+    "channels": "Email, chat, WhatsApp, Instagram, Messenger, SMS",
+    "ai": "$0.75 per resolution",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "Free email: 100 contacts helped a month. Standard is $25 a user a month, paid annually."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "Free allows 5 users, but only 100 contacts a month for the whole account."
+      }
+    ]
+  }
+}

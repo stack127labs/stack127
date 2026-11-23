@@ -1,0 +1,17 @@
+{
+  "slug": "fastly-compute",
+  "name": "Fastly Compute",
+  "official_url": "https://www.fastly.com/products/edge-compute",
+  "image_url": "https://www.fastly.com/favicons/favicon-128x128.png",
+  "source_page": "https://www.fastly.com/products/edge-compute",
+  "kind": "favicon",
+  "source_host": "fastly.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "1daa476a08b785c9e3e90bc2fc58f866090b889f7c027f6e85e0636e81bb0c6d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

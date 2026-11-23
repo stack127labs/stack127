@@ -1,0 +1,17 @@
+{
+  "slug": "scalingo",
+  "name": "Scalingo",
+  "official_url": "https://scalingo.com/",
+  "image_url": "https://framerusercontent.com/images/oiGqcWF1TfNLGyQxfXSoI83FpoM.png",
+  "source_page": "https://scalingo.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "framerusercontent.com",
+  "original": {
+    "format": "heif",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "76f3fc1829b8010f199fbec134159f4237886de5961e7ca7b38fb388e6d61835",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

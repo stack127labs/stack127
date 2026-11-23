@@ -1,0 +1,52 @@
+{
+  "slug": "scaleway-serverless-sql-database",
+  "name": "Scaleway Serverless SQL Database",
+  "url": "https://www.scaleway.com/en/serverless-sql-database/",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: hosted serverless SQL database is the primary type; D01: PostgreSQL engine with pooled connections",
+      "vector": "V02: pgvector provides SQL similarity search; V01: pgvector supported on the hosted database"
+    }
+  },
+  "line": "Serverless PostgreSQL with pooled connections, autoscaling, and pgvector support.",
+  "free": { "kind": "credits", "text": "Startups: up to €1K/12mo; DB idles after 5m; no deletion timer" },
+  "cells": {
+    "metered": "€0.13752/vCPU-hr + €0.000272/GB-hr; 1 GB floor",
+    "regions": "Paris only",
+    "selfhost": "No, Scaleway operates the managed service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "€1.57376+",
+        "plan": "Serverless SQL, Paris",
+        "state": "unclear",
+        "math": "An example: 10 vCPU-hours × €0.13752 + 1 GB × 730 hours × €0.000272 an hour = €1.57376. Transfer and other charges are unknown and not included."
+      },
+      {
+        "v": "€0.19856+",
+        "plan": "Serverless SQL, Paris",
+        "state": "unclear",
+        "math": "1 GB of storage × 730 hours × €0.000272 an hour = €0.19856. Compute for automatic backups, transfer and other charges are still unknown."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Serverless SQL does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "€100.58816+",
+        "plan": "pg_cron + one-vCPU Serverless SQL",
+        "state": "unclear",
+        "math": "For SQL jobs: 730 hours × €0.13752 an hour for compute, + 1 GB × 730 hours × €0.000272 an hour for storage = €100.58816. Transfer and other charges are extra."
+      }
+    ]
+  }
+}

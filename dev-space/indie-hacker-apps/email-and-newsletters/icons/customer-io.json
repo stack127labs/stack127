@@ -1,0 +1,17 @@
+{
+  "slug": "customer-io",
+  "name": "Customer.io",
+  "official_url": "https://customer.io/",
+  "image_url": "https://customer.io/favicon.svg",
+  "source_page": "https://customer.io/",
+  "kind": "svg-icon",
+  "source_host": "customer.io",
+  "original": {
+    "format": "svg",
+    "width": 5333,
+    "height": 5333
+  },
+  "sha256": "140acc1beead9d9618d88815f58783b2dfdf0e19268c3ef9418a9ebed494770f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

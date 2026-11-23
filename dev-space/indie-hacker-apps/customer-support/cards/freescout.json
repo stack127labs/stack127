@@ -1,0 +1,44 @@
+{
+  "slug": "freescout",
+  "name": "FreeScout",
+  "url": "https://freescout.net/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "inbox"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Shared support mailbox with ticketing; ticket portal and knowledge base come from paid modules (F17, F21)",
+      "chat": "F17: Paid Live Chat module embeds on a website and replies land in mailbox conversations",
+      "inbox": "F18: Core assignment and internal notes on a shared mailbox; collision notice when two agents open one conversation"
+    }
+  },
+  "line": "Self-hosted shared email help desk with optional chat and knowledge modules.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free AGPL software; you provide hosting"
+  },
+  "cells": {
+    "channels": "Email; chat requires a paid module",
+    "ai": "Free integration module; model/provider costs extra",
+    "selfhost": "Yes, AGPL-3.0"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Self-hosted core",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-hosted core",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

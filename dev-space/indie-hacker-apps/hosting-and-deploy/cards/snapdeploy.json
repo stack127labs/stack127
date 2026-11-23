@@ -1,0 +1,21 @@
+{
+  "slug": "snapdeploy",
+  "name": "SnapDeploy",
+  "url": "https://snapdeploy.dev/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed app and container hosting on AWS Fargate; source builds and images are handled for the customer",
+      "static": "04: static sites and SPAs are a listed app type"
+    }
+  },
+  "line": "Build and deploy containerized applications on AWS Fargate.",
+  "free": { "kind": "free", "text": "4 Small containers, 100 pooled hours/mo; no card; then wait/pay" },
+  "cells": { "type": "Managed container hosting", "regions": "AWS US East compute; EU/India planned; Cloudflare delivery", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Always-On Small", "state": "unclear", "math": "$12 a month is the Small base. The free pool is only 100 running hours across the account. The full 730-hour cost adds unknown data sent out (100 GB) and tax, because transfer terms conflict." },
+    { "v": "Unknown", "plan": "Always-On Medium (1 vCPU/2 GB)", "state": "unclear", "math": "$25 a month is the subscription base for 730 hours. The full total adds unknown data sent out (100 GB) and tax. Terms allow metered transfer, despite the flat-price page." },
+    { "v": "Unknown", "plan": "Medium + Postgres Standard", "state": "unclear", "math": "$25 for Medium + $49 for Postgres Standard = $74 a month base. The database has 2 GB RAM and 10 GB, with daily 30-day backups. Add unknown data sent out (100 GB), app-to-database traffic (10 GB) and tax." }
+  ] }
+}

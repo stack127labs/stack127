@@ -1,0 +1,17 @@
+{
+  "slug": "everframe",
+  "name": "Everframe",
+  "official_url": "https://everframe.dev/",
+  "image_url": "https://everframe.dev/favicon.png",
+  "source_page": "https://everframe.dev/",
+  "kind": "favicon",
+  "source_host": "everframe.dev",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "cdeac8388b54d619f45efa496e2b89772c3430015c49819f936e1beeb3ad5054",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

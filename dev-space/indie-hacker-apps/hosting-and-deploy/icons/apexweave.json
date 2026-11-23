@@ -1,0 +1,17 @@
+{
+  "slug": "apexweave",
+  "name": "ApexWeave",
+  "official_url": "https://apexweave.com/",
+  "image_url": "https://apexweave.com/favicon-light.png",
+  "source_page": "https://apexweave.com/",
+  "kind": "favicon",
+  "source_host": "apexweave.com",
+  "original": {
+    "format": "png",
+    "width": 1221,
+    "height": 1356
+  },
+  "sha256": "b510a96456a5747029e2ab684f2ad932252e7b5263912329d5a7c0fdf86902a5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

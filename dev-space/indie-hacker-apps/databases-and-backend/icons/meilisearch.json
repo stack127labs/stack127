@@ -1,0 +1,17 @@
+{
+  "slug": "meilisearch",
+  "name": "Meilisearch",
+  "official_url": "https://www.meilisearch.com/",
+  "image_url": "https://www.meilisearch.com/logo.png",
+  "source_page": "https://www.meilisearch.com/",
+  "kind": "logo-mark",
+  "source_host": "meilisearch.com",
+  "original": {
+    "format": "png",
+    "width": 250,
+    "height": 250
+  },
+  "sha256": "2e7f4e5879520a1e42c0fbcfbb7c97ac8a05c5863db8e362f130c71d734cf1c1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "simplewebauthn",
+  "name": "SimpleWebAuthn",
+  "official_url": "https://simplewebauthn.dev/",
+  "image_url": "https://simplewebauthn.dev/img/logo_favicon.png",
+  "source_page": "https://simplewebauthn.dev/",
+  "kind": "favicon",
+  "source_host": "simplewebauthn.dev",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "ab5ccba35f56b8becf155eab3af42908bf9e4e72971c77b1e39f6985623272f5",
+  "note": "Only official 64×64 icon found",
+  "saved_at": "2026-11-14"
+}

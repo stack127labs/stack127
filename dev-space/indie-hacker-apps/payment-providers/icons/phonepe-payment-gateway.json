@@ -1,0 +1,17 @@
+{
+  "slug": "phonepe-payment-gateway",
+  "name": "PhonePe Payment Gateway",
+  "official_url": "https://business.phonepe.com/payment-gateway",
+  "image_url": "https://business.phonepe.com/favicon.ico",
+  "source_page": "https://business.phonepe.com/payment-gateway",
+  "kind": "favicon",
+  "source_host": "business.phonepe.com",
+  "original": {
+    "format": "png",
+    "width": 94,
+    "height": 96
+  },
+  "sha256": "41047b260c8c7c9faa872b01016abfa0d03ea93eb9efe4706fdb6e21077e3378",
+  "note": "parent brand: PhonePe",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "tidio",
+  "name": "Tidio",
+  "url": "https://www.tidio.com/",
+  "jobs": [
+    "inbox",
+    "helpdesk",
+    "chat",
+    "ai",
+    "kb"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help articles are part of the shared inbox product",
+      "inbox": "F18: Team inbox on all hosted tiers with private notes, canned responses, working hours and groups",
+      "helpdesk": "F17: Email ticketing with threaded replies; the hosted email ticketing sits on the Enterprise plan",
+      "chat": "F17: Native website live chat and widget on the Pro, Business and Enterprise plans",
+      "ai": "F22: Customer-facing knowledge answers and AI agents on hosted plans; Copilot drafts for staff"
+    }
+  },
+  "line": "Customer support inbox for live chat, email tickets, and AI answers.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 10 seats and 50 human conversations/month"
+  },
+  "cells": {
+    "channels": "Website chat, email, social messaging",
+    "ai": "$75/month for 100 Lyro conversations",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$29",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "The Starter plan covers 100 human conversations a month and ten seats."
+      },
+      {
+        "v": "$29",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "The same project price covers three of the ten seats and 100 conversations."
+      }
+    ]
+  }
+}

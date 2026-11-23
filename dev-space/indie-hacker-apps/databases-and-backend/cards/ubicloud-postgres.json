@@ -1,0 +1,52 @@
+{
+  "slug": "ubicloud-postgres",
+  "name": "Ubicloud Postgres",
+  "url": "https://www.ubicloud.com/use-cases/postgresql",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: native PostgreSQL 16, 17 and 18",
+      "vector": "V01: pgvector 0.8.2 supported on managed PostgreSQL"
+    }
+  },
+  "line": "Managed PostgreSQL with backups, point-in-time recovery, replicas and extensions.",
+  "free": { "kind": "none", "text": "No hosted free tier; Hobby-1 $19.54/mo; no idle pause or deletion rule" },
+  "cells": {
+    "metered": "Hobby-1 $19.54/mo; Standard-2 $78/$78.15 (unclear)",
+    "regions": "3 metal regions; AWS; Google Cloud preview",
+    "selfhost": "Yes, AGPL-3.0 platform"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$19.54+",
+        "plan": "Hobby-1",
+        "state": "unclear",
+        "math": "$19.54 is the advertised monthly resource budget. The exact per-minute bill, 5 GB of egress and add-ons are not yet confirmed."
+      },
+      {
+        "v": "$19.54+",
+        "plan": "Hobby-1",
+        "state": "unclear",
+        "math": "The same $19.54 advertised budget applies while idle. The exact per-minute bill and any extra costs are not yet confirmed."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Postgres backups are not an app object storage service."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "Hobby-1 + pg_cron",
+        "state": "not_published",
+        "math": "pg_cron uses database capacity. No price per job or matching worker size is published."
+      }
+    ]
+  }
+}

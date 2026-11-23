@@ -1,0 +1,17 @@
+{
+  "slug": "statichost-eu",
+  "name": "statichost.eu",
+  "official_url": "https://www.statichost.eu/",
+  "image_url": "https://www.statichost.eu/favicon.svg",
+  "source_page": "https://www.statichost.eu/",
+  "kind": "svg-icon",
+  "source_host": "statichost.eu",
+  "original": {
+    "format": "svg",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "f3500f385d10e17c13547aeeb2804f72275e88273ebff5efc82526815787ca6f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

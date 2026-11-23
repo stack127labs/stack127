@@ -1,0 +1,17 @@
+{
+  "slug": "vault-vision",
+  "name": "Vault Vision",
+  "official_url": "https://vaultvision.com/",
+  "image_url": "https://vaultvision.com/wp-content/uploads/2019/03/favicon_root.png",
+  "source_page": "https://vaultvision.com/",
+  "kind": "favicon",
+  "source_host": "vaultvision.com",
+  "original": {
+    "format": "webp",
+    "width": 284,
+    "height": 284
+  },
+  "sha256": "bd26a1a289be76061e7d2b679a243e8932924dd1186b9d940e3f93f1b4adc16c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

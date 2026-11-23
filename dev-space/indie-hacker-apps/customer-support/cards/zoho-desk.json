@@ -1,0 +1,48 @@
+{
+  "slug": "zoho-desk",
+  "name": "Zoho Desk",
+  "url": "https://www.zoho.com/desk/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "ai",
+    "inbox",
+    "kb"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: public help center from the Standard plan",
+      "helpdesk": "F17: Native email-to-ticket channel in every plan; F21: public help center from Standard",
+      "chat": "F17: Native Business Messaging widget where associated agents answer, on Standard and above",
+      "ai": "F22: Answer Bot answers customer questions from the Desk knowledge base; can be enabled for customers",
+      "inbox": "F18: Manual and rule-based assignment, and private and public comments on tickets"
+    }
+  },
+  "line": "Help desk for email, messaging, support articles, and ticket automation.",
+  "free": {
+    "kind": "free",
+    "text": "Free forever: 3 agents, 1 support email"
+  },
+  "cells": {
+    "channels": "Email, web chat, WhatsApp, social, voice",
+    "ai": "Zia features vary by plan; some need your API key",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "USD 0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Free email and ticket support for one agent."
+      },
+      {
+        "v": "USD 0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Free email and ticket support for three agents sharing one address."
+      }
+    ]
+  }
+}

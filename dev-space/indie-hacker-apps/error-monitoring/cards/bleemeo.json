@@ -1,0 +1,30 @@
+{
+  "slug": "bleemeo",
+  "name": "Bleemeo",
+  "url": "https://bleemeo.com/",
+  "jobs": ["performance", "uptime", "status", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: server and service/application metrics are the core product (C01)",
+      "uptime": "U01: HTTP, TCP, ping, DNS and TLS checks from public probes (U03)",
+      "status": "S01, S03: public status pages update from tagged services and uptime monitors",
+      "logs": "L02: Log Explorer with full-text and regex search and live tail"
+    }
+  },
+  "line": "Monitors servers, logs, uptime, and public service status.",
+  "free": { "kind": "free", "text": "Free for 3 servers and 5 uptime monitors" },
+  "cells": { "interval": "5 min free, 60 s paid", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Bleemeo has no error tracking that groups errors into issues." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Bleemeo has no error tracking that groups errors into issues." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Bleemeo has no error tracking that groups errors into issues." }
+    ],
+    "uptime": [
+      { "v": "€4.99", "plan": "Starter", "state": "unclear", "math": "Five monitors fit the five included ones. The estimate is €4.99 a month, which includes one monitored server." },
+      { "v": "€25.19", "plan": "Starter", "state": "unclear", "math": "For 25 monitors: €4.99, plus €1.01 for each monitor above the 5 included, comes to €25.19 a month, including one server." },
+      { "v": "€100.94", "plan": "Starter", "state": "unclear", "math": "For 100 monitors: €4.99, plus €1.01 for each monitor above the 5 included, comes to €100.94 a month, including one server." }
+    ]
+  }
+}

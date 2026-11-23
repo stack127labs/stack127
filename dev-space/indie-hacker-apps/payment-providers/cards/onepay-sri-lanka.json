@@ -1,0 +1,28 @@
+{
+  "slug": "onepay-sri-lanka",
+  "name": "OnePay Sri Lanka",
+  "url": "https://www.onepay.lk/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and payment facilitator; the merchant sells to the customer",
+      "links": "F16: shareable payment links with expiry, sent with invoices or messages"
+    }
+  },
+  "line": "Sri Lankan payment gateway with links, hosted checkout and recurring cards.",
+  "free": { "kind": "none", "text": "From LKR 499/month; LKR 1,500 setup fee (terms conflict)" },
+  "cells": {
+    "type": "Payment gateway and facilitator",
+    "countries": "Sri Lankan businesses are the documented seller market",
+    "payout": "Card payments settle T+2 bank working days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card pricing is for Sri Lankan sellers. It isn't published whether US sellers can sign up, and no US rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card pricing is for Sri Lankan sellers. It isn't published whether UK sellers can sign up, and no UK rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card pricing is for Sri Lankan sellers. It isn't published whether German sellers can sign up, and no German rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "Published card pricing is for Sri Lankan sellers. It isn't published whether Indian sellers can sign up, and no India rate is published." }
+    ]
+  }
+}

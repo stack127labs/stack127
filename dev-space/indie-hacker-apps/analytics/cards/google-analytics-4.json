@@ -1,0 +1,50 @@
+{
+  "slug": "google-analytics-4",
+  "name": "Google Analytics",
+  "url": "https://marketingplatform.google.com/about/analytics/",
+  "jobs": [
+    "web",
+    "product",
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website and app event analytics; F15: acquisition, pages, engagement and realtime reports",
+      "product": "F16: funnels, paths, retention cohorts and user-ID analysis across web and app events",
+      "revenue": "F19: total revenue from ecommerce, in-app purchases, subscriptions and ads, minus refunds"
+    }
+  },
+  "line": "Free Google web and app analytics, tied to the ad tools.",
+  "free": {
+    "kind": "free",
+    "text": "Free; export sandbox: 10 GiB storage, 1 TiB queries/month"
+  },
+  "cells": {
+    "cookieless": "No",
+    "location": "Not stated",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "0",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "The standard fee is zero, and that covers only the Analytics service."
+      },
+      {
+        "v": "0",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "The standard fee is zero, and that covers only the Analytics service."
+      },
+      {
+        "v": "0",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "The standard fee is zero, and that covers only the Analytics service."
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "tencent-cloud-lighthouse",
+  "name": "Tencent Cloud Lighthouse",
+  "url": "https://www.tencentcloud.com/products/lighthouse",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: managed cloud VPS; Tencent provides the VM and the customer administers the guest OS and app"
+    }
+  },
+  "line": "Run a bundled virtual server with customer-managed software.",
+  "free": { "kind": "none", "text": "No ongoing free instance plan" },
+  "cells": { "type": "Cloud VPS", "regions": "Region count conflicts: 9 on product page, 11 in guide", "selfhost": "Yes; customer manages the server" },
+  "costs": { "work": [
+    { "v": "$5", "plan": "Razor Speed Linux", "state": "confirmed", "math": "Singapore bundle: 2 vCPU, 1 GB RAM, 40 GB SSD and unlimited transfer. $5 a month, prepaid, before tax. Builds run on your own tools. Capacity is untested." },
+    { "v": "$5", "plan": "Razor Speed Linux", "state": "confirmed", "math": "Singapore bundle: 2 vCPU, 1 GB RAM, 40 GB SSD and unlimited transfer. $5 a month, prepaid, before tax. Request capacity is untested." },
+    { "v": "Unknown", "plan": "Linux Starter", "state": "unclear", "math": "The Singapore VM with 2 vCPU, 2 GB and 40 GB is a $4.20 a month subtotal. The full total is unclear, because seven daily snapshots go over the free quota and extra snapshot pricing is not published." }
+  ] }
+}

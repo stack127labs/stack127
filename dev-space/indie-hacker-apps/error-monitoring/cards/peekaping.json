@@ -1,0 +1,32 @@
+{
+  "slug": "peekaping",
+  "name": "Peekaping",
+  "url": "https://peekaping.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, ICMP, DNS and database checks with retries (U04)",
+      "status": "S01, S03: status pages with own domains and selected monitors (S03)",
+      "cron": "J01, J02: push heartbeats go Down when late or missing (J02)"
+    }
+  },
+  "line": "Monitors service uptime and publishes status pages with alert routing.",
+  "free": { "kind": "selfhost", "text": "Free MIT software; hosting and delivery costs extra" },
+  "cells": {
+    "interval": "20 s minimum",
+    "maintained": "Last release 2026-10-28"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Community self-hosted", "state": "not_published", "math": "5 checks cost $0 in software. The full monthly cost isn't known without prices for the server, storage, backups and email provider." },
+      { "v": "Unknown", "plan": "Community self-hosted", "state": "not_published", "math": "25 checks cost $0 in software. The full monthly cost isn't known without prices for the server, storage, backups and email provider." },
+      { "v": "Unknown", "plan": "Community self-hosted", "state": "not_published", "math": "100 checks cost $0 in software. The full monthly cost isn't known without prices for the server, storage, backups and email provider." }
+    ]
+  }
+}

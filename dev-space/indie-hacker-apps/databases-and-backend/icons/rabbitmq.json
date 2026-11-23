@@ -1,0 +1,17 @@
+{
+  "slug": "rabbitmq",
+  "name": "RabbitMQ",
+  "official_url": "https://www.rabbitmq.com/",
+  "image_url": "https://www.rabbitmq.com/favicon.svg",
+  "source_page": "https://www.rabbitmq.com/",
+  "kind": "svg-icon",
+  "source_host": "rabbitmq.com",
+  "original": {
+    "format": "svg",
+    "width": 2667,
+    "height": 2667
+  },
+  "sha256": "57e0084b90879294227f8ddbde377e96122774f9ae2b1b782095ce7cc31daa28",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

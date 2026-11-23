@@ -1,0 +1,17 @@
+{
+  "slug": "fedapay",
+  "name": "FedaPay",
+  "official_url": "https://www.fedapay.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/28/1a/4c/281a4cb5-469e-3a5d-afd4-b0c671934708/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/myfeda/id1644390036?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "babd9cd8ab0bd0b0c1797f2d1624acfb0ae5b72ae80f2604b8eb4ce8d120927d",
+  "note": "MyFeda app by FEDAPAY.",
+  "saved_at": "2026-11-14"
+}

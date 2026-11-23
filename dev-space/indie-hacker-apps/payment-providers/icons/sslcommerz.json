@@ -1,0 +1,17 @@
+{
+  "slug": "sslcommerz",
+  "name": "SSLCOMMERZ",
+  "official_url": "https://sslcommerz.com/",
+  "image_url": "https://sslcommerz.com/wp-content/uploads/2024/03/z.svg",
+  "source_page": "https://sslcommerz.com/",
+  "kind": "svg-icon",
+  "source_host": "sslcommerz.com",
+  "original": {
+    "format": "svg",
+    "width": 160,
+    "height": 160
+  },
+  "sha256": "c52d69b85550c99c1e7f53a3b9674655db67ebf3afcab1f013cc09b9ccd24fbc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

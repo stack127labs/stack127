@@ -1,0 +1,29 @@
+{
+  "slug": "deskpro",
+  "name": "Deskpro",
+  "url": "https://www.deskpro.com/",
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: customer help content is part of the multi-channel ticketing product",
+      "helpdesk": "F17: Native email ticketing on all current tiers, with a Help Center and ticket forms (F21)",
+      "chat": "F17: Native live chat through Deskpro Messenger on Cloud and Private, with transfers and history",
+      "ai": "F22: Knowledge-grounded chatbot answers customers within selected flows; agents get drafts and summaries",
+      "inbox": "F18: Assignment, queues, private agent notes, mentions, drafts and collision detection with ticket locking"
+    }
+  },
+  "line": "Multi-channel ticketing and a help center for customer support teams.",
+  "free": { "kind": "trial", "text": "14-day cloud trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, messaging, voice",
+    "ai": "Provider usage credits or your own AI account",
+    "selfhost": "Yes, paid Private edition"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$195", "plan": "Cloud Team", "state": "unclear", "math": "A five-agent minimum at $39 each. Only one agent works, and four seats go unused." },
+      { "v": "$195", "plan": "Cloud Team", "state": "unclear", "math": "A five-agent minimum at $39 each. Three agents work, and two seats go unused." }
+    ]
+  }
+}

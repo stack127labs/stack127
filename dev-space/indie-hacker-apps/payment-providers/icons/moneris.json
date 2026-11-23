@@ -1,0 +1,17 @@
+{
+  "slug": "moneris",
+  "name": "Moneris",
+  "official_url": "https://www.moneris.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/30/e8/8c/30e88c0d-5eb2-ce6e-5408-ee89eec7b921/mzl.ozdiyfjz.jpg/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/payd-by-moneris/id885270601?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "62d2706f3be737bdb47c382e9a91c352b2eaa2943777c34fd985973d55953001",
+  "note": "PAYD merchant payments app by Moneris Solutions Corporation.",
+  "saved_at": "2026-11-14"
+}

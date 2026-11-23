@@ -1,0 +1,31 @@
+{
+  "slug": "amazon-s3",
+  "name": "Amazon S3",
+  "url": "https://aws.amazon.com/s3/",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed object storage for files and data objects is the primary role; F05: native S3 REST API"
+    }
+  },
+  "line": "Object storage for app uploads, backups, static sites, and archives.",
+  "free": { "kind": "credits", "text": "Up to $200 credits; account suspends at 6 months, data erased after 90 days" },
+  "cells": {
+    "metered": "$0.023/GiB-month Standard storage in us-east-1",
+    "regions": "Multiple AWS Regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a database" }
+    ],
+    "files": [
+      { "v": "USD $3.20", "plan": "S3 Standard, us-east-1", "state": "confirmed", "math": "100 GiB of storage costs $2.30. Add $0.50 for upload requests (PUT) and $0.40 for download requests (GET). Outbound data transfer (egress) is $0.00. The total is $3.20." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not execute jobs" }
+    ]
+  }
+}

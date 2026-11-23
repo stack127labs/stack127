@@ -1,0 +1,26 @@
+{
+  "slug": "time4vps",
+  "name": "Time4VPS",
+  "url": "https://www.time4vps.com/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: self-managed Linux, Windows and container VPS; the customer installs services and updates the OS"
+    }
+  },
+  "line": "Rent a Linux or Windows VPS and manage the server yourself.",
+  "free": { "kind": "none", "text": "No ongoing free VPS plan" },
+  "cells": {
+    "type": "VPS/VM",
+    "regions": "Vilnius, Lithuania",
+    "selfhost": "Yes; unmanaged server"
+  },
+  "costs": {
+    "work": [
+      { "v": "€2.99", "plan": "Linux 1", "state": "confirmed", "math": "€2.99 a month, but the 3-month minimum is €8.97 prepaid. Linux 1 has 1 CPU unit, 1 GB, 10 GB and 1 TB of listed transfer. Transfer direction and request performance are unverified. VAT is not included." },
+      { "v": "€2.99", "plan": "Linux 1", "state": "confirmed", "math": "€2.99 a month, but the 3-month minimum is €8.97 prepaid. Linux 1 meets the minimum of 1 vCPU and 1 GiB. Transfer direction for 1 TB and capacity for 1 million requests are unverified. VAT is not included." },
+      { "v": "Unknown", "plan": "Linux 2", "state": "unclear", "math": "€7.99 a month is steady-state hosting only (the first-month price shown on the pricing card is €2.40). 1 CPU, 2 GB and 25 GB. The backup price and seven-day daily retention are unverified, so the total is unknown." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "alibaba-cloud-directmail",
+  "name": "Alibaba Cloud DirectMail",
+  "official_url": "https://www.alibabacloud.com/en/product/directmail",
+  "image_url": "https://github.com/aliyun.png?size=460",
+  "source_page": "https://github.com/aliyun",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 320,
+    "height": 320
+  },
+  "sha256": "d90ce7667c25977a8bc17f491a0300ceaa67c2e709d0f4aaccf82cb93c58f4dc",
+  "note": "parent brand: Alibaba Cloud; official GitHub organization (aliyun); alibabacloud.com blocks icon downloads",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "layerbase",
+  "name": "Layerbase",
+  "official_url": "https://layerbase.com/",
+  "image_url": "https://layerbase.com/images/icons/icon-512.png",
+  "source_page": "https://layerbase.com/",
+  "kind": "manifest-icon",
+  "source_host": "layerbase.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "289a60a3abcfc33aa71425541287d7b37e7ac404d6b6de8082a8371b34d9e695",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "webchecky",
+  "name": "WebChecky",
+  "url": "https://webchecky.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website and API checks with content rules, SSL and DNS tracking (U01, U05)",
+      "status": "S03: live components, 90-day uptime calendar and incident timeline (S03)",
+      "cron": "J01, J02: heartbeats with expected interval, grace and explicit fail URL (J02)"
+    }
+  },
+  "line": "Website and API checks, browser journeys, heartbeats, and status pages.",
+  "free": {
+    "kind": "free",
+    "text": "15 monitored sites; 15-minute checks; no card"
+  },
+  "cells": {
+    "interval": "900 s free; paid minimum unknown",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$30 / ₹2,853",
+        "plan": "Pro candidate",
+        "state": "unclear",
+        "math": "One Pro subscription covers 5 sites. The listed price is $30 or ₹2,853 a month. Whether paid 60-second checks and an own-domain page are included isn't confirmed."
+      },
+      {
+        "v": "$30 / ₹2,853",
+        "plan": "Pro candidate",
+        "state": "unclear",
+        "math": "25 sites fit the Pro plan's 50-site cap, at $30 or ₹2,853 a month. Whether a 60-second minimum and an own-domain page are included isn't confirmed."
+      },
+      {
+        "v": "$50 / ₹4,755",
+        "plan": "Agency candidate",
+        "state": "unclear",
+        "math": "100 sites fit the Agency plan's 100-site cap, at $50 or ₹4,755 a month. Whether one-minute checks and an own-domain page are included isn't confirmed."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "bento",
+  "name": "Bento",
+  "official_url": "https://bentonow.com/",
+  "image_url": "https://bentonow.com/bento-logo.png",
+  "source_page": "https://bentonow.com/",
+  "kind": "logo-mark",
+  "source_host": "bentonow.com",
+  "original": {
+    "format": "png",
+    "width": 500,
+    "height": 500
+  },
+  "sha256": "e0594856e2d0a125a7ee897d112aa24901d7f027a511d15cb6164acc292e0a63",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

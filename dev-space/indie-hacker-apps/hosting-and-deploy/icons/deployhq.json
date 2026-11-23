@@ -1,0 +1,17 @@
+{
+  "slug": "deployhq",
+  "name": "DeployHQ",
+  "official_url": "https://www.deployhq.com/",
+  "image_url": "https://www.deployhq.com/assets/favicon-357ebe39b58f28869358da83948e76e7cadfb0791c97af34abfe346f5e3ef634.png",
+  "source_page": "https://www.deployhq.com/",
+  "kind": "favicon",
+  "source_host": "deployhq.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "381f935fb7fa4b5d149dedcec267e7811804ba8fb063a82a27530ce6f3ecdcd5",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

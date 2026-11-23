@@ -1,0 +1,17 @@
+{
+  "slug": "senangpay-doku",
+  "name": "senangPay-DOKU",
+  "official_url": "https://senangpay.com/",
+  "image_url": "https://senangpay.com/wp-content/uploads/2023/07/submark-05.png",
+  "source_page": "https://senangpay.com/",
+  "kind": "favicon",
+  "source_host": "senangpay.com",
+  "original": {
+    "format": "png",
+    "width": 800,
+    "height": 726
+  },
+  "sha256": "312a8ff91bf0b7c7d2f3db0550173a78f9249a7c0699f1ce1396bda4b2fd6850",
+  "note": "senangPay mark; combined senangPay-DOKU asset is a wordmark",
+  "saved_at": "2026-11-14"
+}

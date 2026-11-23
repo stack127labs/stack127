@@ -1,0 +1,17 @@
+{
+  "slug": "ecomail",
+  "name": "Ecomail",
+  "official_url": "https://ecomail.app/",
+  "image_url": "https://ecomail.app/images/favicons/favicon-196x196.png",
+  "source_page": "https://ecomail.app/",
+  "kind": "favicon",
+  "source_host": "ecomail.app",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "e1f21ac1b576d19db278df78c6f16045e955252f9452f461e62b754005ab6d97",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

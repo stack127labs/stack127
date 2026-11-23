@@ -1,0 +1,17 @@
+{
+  "slug": "campaignlark",
+  "name": "CampaignLark",
+  "official_url": "https://campaignlark.com/",
+  "image_url": "https://campaignlark.com/android-chrome-512x512.png",
+  "source_page": "https://campaignlark.com/",
+  "kind": "manifest-icon",
+  "source_host": "campaignlark.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "7977feda1fdcfd3180749d444b696fc0361e5faaf7914861019a2a1e658352c1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

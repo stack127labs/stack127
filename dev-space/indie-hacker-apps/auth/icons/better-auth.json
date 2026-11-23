@@ -1,0 +1,17 @@
+{
+  "slug": "better-auth",
+  "name": "Better Auth",
+  "official_url": "https://www.better-auth.com/",
+  "image_url": "https://better-auth.com/favicon/apple-touch-icon.png",
+  "source_page": "https://better-auth.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "better-auth.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "f8084eef78c8bc4958142807eb192fe543af607c2c5c6c3b3e5760f57d00cede",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

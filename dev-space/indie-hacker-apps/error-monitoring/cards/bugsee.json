@@ -1,0 +1,28 @@
+{
+  "slug": "bugsee",
+  "name": "Bugsee",
+  "url": "https://www.bugsee.com/",
+  "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: mobile crash and error reporting is the primary job (E01)",
+      "performance": "A01: app traces for startup, screens, network and database calls (A02)"
+    }
+  },
+  "line": "Captures mobile crashes with replay, logs, and device context.",
+  "free": { "kind": "free", "text": "Free for up to 5 unique devices/month" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "PRO", "state": "unclear", "math": "$139 a month only if monthly device usage stays within 50. The report count alone isn't enough to work out the cost." },
+      { "v": "Unknown", "plan": "PRO", "state": "unclear", "math": "$139 a month only if monthly device usage stays within 50. The report count alone isn't enough to work out the cost." },
+      { "v": "Unknown", "plan": "PRO", "state": "unclear", "math": "$139 a month only if monthly device usage stays within 50. The plan doesn't guarantee room for half a million reports." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

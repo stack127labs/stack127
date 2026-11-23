@@ -1,0 +1,17 @@
+{
+  "slug": "uxsniff",
+  "name": "UXsniff",
+  "official_url": "https://uxsniff.com/",
+  "image_url": "https://uxsniff.com/files/img/emaillogo.png",
+  "source_page": "https://uxsniff.com/",
+  "kind": "logo-mark",
+  "source_host": "uxsniff.com",
+  "original": {
+    "format": "png",
+    "width": 304,
+    "height": 130
+  },
+  "sha256": "143a90b7cb674034ec27b4b120797a623238126d810c3580286bc97ae2f0b8b9",
+  "note": "official logo includes a square-enough mascot mark with wordmark",
+  "saved_at": "2026-11-14"
+}

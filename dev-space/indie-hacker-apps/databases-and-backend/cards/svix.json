@@ -1,0 +1,51 @@
+{
+  "slug": "svix",
+  "name": "Svix",
+  "url": "https://www.svix.com/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: webhook delivery service is the primary type; J03: retry schedule for failed deliveries"
+    }
+  },
+  "line": "Webhook delivery and ingestion with event routing, retries, and replay.",
+  "free": { "kind": "free", "text": "50K messages/mo, 50/s, 7-day retention; no idle pause or deletion rule" },
+  "cells": {
+    "metered": "$20/mo Basic; 50k messages, then $0.0001 each",
+    "regions": "US, EU, Canada, and Australia",
+    "selfhost": "Yes, MIT Server OSS; hosted features differ"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Svix delivers webhooks; it is not a database"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Svix delivers webhooks; it is not a database"
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Svix is not a file or object-storage service"
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Svix relays webhook events. It does not host customer jobs."
+      }
+    ]
+  }
+}

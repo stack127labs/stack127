@@ -1,0 +1,31 @@
+{
+  "slug": "enginemailer",
+  "name": "Enginemailer",
+  "url": "https://www.enginemailer.com/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter and marketing campaigns",
+      "marketing": "F02: scheduled autoresponder sequences",
+      "transactional": "F02: application-generated transactional messages through the REST sending API"
+    }
+  },
+  "line": "Send newsletters, automated campaigns, and transactional email from one service.",
+  "free": { "kind": "free", "text": "10,000 emails/month, with a 500-email daily limit" },
+  "cells": { "newsletters": "Yes", "api": "Yes, REST API; SMTP not documented" },
+  "costs": {
+    "subs": [
+      { "v": "$0", "plan": "Free Forever", "state": "confirmed", "math": "4,000 emails a month fit the 10,000 monthly quota, as long as they are staged at no more than 500 a day." },
+      { "v": "$15.80", "plan": "12K email tier + overage", "state": "confirmed", "math": "$9 base, plus 8,000 extra emails at $0.00085 each = $15.80 a month." },
+      { "v": "$32.80", "plan": "12K email tier + overage", "state": "confirmed", "math": "$9 base, plus 28,000 extra emails at $0.00085 each = $32.80 a month." },
+      { "v": "$136.50", "plan": "75K email tier + overage", "state": "confirmed", "math": "$49 base, plus 125,000 extra emails at $0.00070 each = $136.50 a month." }
+    ],
+    "appmail": [
+      { "v": "$0", "plan": "Free Forever", "state": "confirmed", "math": "3,000 emails a month fit inside the monthly quota and the 500-a-day limit, when spread across the month." },
+      { "v": "$0", "plan": "Free Forever", "state": "confirmed", "math": "10,000 emails a month fit the monthly quota, when sent over at least 20 days at 500 a day." },
+      { "v": "$41.30", "plan": "12K email tier + overage", "state": "confirmed", "math": "$9 base, plus 38,000 extra emails at $0.00085 each = $41.30 a month." },
+      { "v": "$66.50", "plan": "75K email tier + overage", "state": "confirmed", "math": "$49 base, plus 25,000 extra emails at $0.00070 each = $66.50 a month." }
+    ]
+  }
+}

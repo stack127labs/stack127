@@ -1,0 +1,31 @@
+{
+  "slug": "gigapipe-formerly-qryn",
+  "name": "Gigapipe",
+  "url": "https://gigapipe.com/",
+  "jobs": ["logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: logs stored and queried with LogQL and live tail (L02)",
+      "performance": "A01: distributed traces, service graphs and continuous profiles (A01)"
+    }
+  },
+  "line": "Stores and queries logs, metrics, traces and profiles in one backend.",
+  "free": { "kind": "selfhost", "text": "Free AGPL software; hosting and backups are your cost" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-11-03"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Gigapipe doesn't offer an error tracker that groups errors into issues." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Gigapipe doesn't offer an error tracker that groups errors into issues." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Gigapipe doesn't offer an error tracker that groups errors into issues." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide endpoint uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide endpoint uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide endpoint uptime checks" }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "request-tracker",
+  "name": "Request Tracker (RT)",
+  "official_url": "https://requesttracker.com/request-tracker/",
+  "image_url": "https://i0.wp.com/requesttracker.com/wp-content/uploads/2024/11/cropped-13d8eb00-c903-11eb-853d-c44e379eca57.png?fit=192%2C192&#038;ssl=1",
+  "source_page": "https://requesttracker.com/request-tracker/",
+  "kind": "favicon",
+  "source_host": "i0.wp.com",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "7d7fc37bf7b2c4d0cb497d846c3ef2f7dbe0271214e1f3672014b44ce2d8685b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

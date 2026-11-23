@@ -1,0 +1,29 @@
+{
+  "slug": "helcim",
+  "name": "Helcim",
+  "url": "https://www.helcim.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and facilitator; the merchant sells its own goods",
+      "billing": "F14: Recurring Payments automatically charge stored cards or bank details; F15: plans and trials",
+      "links": "F16: no-code Hosted Payment Pages, payment links and QR codes with fixed or chosen amounts"
+    }
+  },
+  "line": "US and Canadian payment processing with online checkout and invoicing.",
+  "free": { "kind": "none", "text": "No monthly, setup, minimum or cancellation fee" },
+  "cells": {
+    "type": "Payment facilitator",
+    "countries": "United States and Canada",
+    "payout": "US 1–2 business days; Canada next day if eligible"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Interchange + 0.50% + $0.25", "plan": "US online, Tier 1", "state": "confirmed", "math": "Helcim's extra margin (its own fee on top of the base card fee) for US and Canada online card payments, for up to $50,000 a month in volume. The base card fee, called interchange, varies by card." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Helcim lists only the United States and Canada as seller markets." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Helcim lists only the United States and Canada as seller markets." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Helcim lists only the United States and Canada as seller markets." }
+    ]
+  }
+}

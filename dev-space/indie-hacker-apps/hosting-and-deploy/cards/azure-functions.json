@@ -1,0 +1,20 @@
+{
+  "slug": "azure-functions",
+  "name": "Azure Functions",
+  "url": "https://azure.microsoft.com/en-us/products/functions/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed function execution; the customer uploads function code and Azure runs it"
+    }
+  },
+  "line": "Run event driven and HTTP functions on managed Azure compute.",
+  "free": { "kind": "free", "text": "Flex: 250,000 executions and 100,000 GB-seconds/month" },
+  "cells": { "type": "Serverless functions", "regions": "East US example; many Azure regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Static files need separate storage, or a function design with a clearly stated scope." },
+    { "v": "$10.70", "plan": "Flex 512MB isolated-period illustration", "state": "confirmed", "math": "1 million isolated periods of 1 second each: 500,000 GB-seconds minus a 100,000 GB-second grant = $10.40, plus $0.30 for extra executions. Host storage and logs cost extra." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The small app API's $10.70 isolated-period example, plus $133.62 for PostgreSQL compute and 32 GiB of storage. Host storage, logs, backup excess and network costs vary." }
+  ] }
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "django-authentication",
+  "name": "Django authentication",
+  "url": "https://docs.djangoproject.com/en/stable/topics/auth/",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: built-in auth module embedded in the developer's Django app; F05: developer runs the user database"
+    }
+  },
+  "line": "Built-in Django accounts, passwords, permissions, and sessions.",
+  "free": { "kind": "selfhost", "text": "Free BSD-licensed framework module; you host" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No SSO fee in Django core"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Django software licence costs $0. Application hosting, database and operations are separate costs." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Django software licence costs $0. Application hosting, database and operations are separate costs." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Django software licence costs $0. Application hosting, database and operations are separate costs." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Django software licence costs $0. Application hosting, database and operations are separate costs." }
+    ]
+  }
+}

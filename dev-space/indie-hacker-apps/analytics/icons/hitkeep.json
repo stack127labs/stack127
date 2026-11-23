@@ -1,0 +1,17 @@
+{
+  "slug": "hitkeep",
+  "name": "HitKeep",
+  "official_url": "https://hitkeep.com/",
+  "image_url": "https://hitkeep.com/favicon.svg",
+  "source_page": "https://hitkeep.com/",
+  "kind": "svg-icon",
+  "source_host": "hitkeep.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "b4b3dca81de64a7665664ff9a87a6a5298ff42d918fde978b623481fc4f4877e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "cloudamqp",
+  "name": "CloudAMQP",
+  "official_url": "https://www.cloudamqp.com/",
+  "image_url": "https://www.cloudamqp.com/img/icons/icon-192.png",
+  "source_page": "https://www.cloudamqp.com/",
+  "kind": "manifest-icon",
+  "source_host": "cloudamqp.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "20479832f0a02bd5f3a261441ceaf29af8b7b79bfabbb1686c63feef222d2d01",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

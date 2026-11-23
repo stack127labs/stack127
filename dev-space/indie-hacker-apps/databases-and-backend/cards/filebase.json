@@ -1,0 +1,31 @@
+{
+  "slug": "filebase",
+  "name": "Filebase",
+  "url": "https://filebase.com/",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C07: S3-compatible object storage buckets; F05: core S3 object operations supported"
+    }
+  },
+  "line": "S3-compatible object storage and IPFS pinning with a built-in CDN.",
+  "free": { "kind": "free", "text": "5 GB pooled; 1 bucket, 500 IPFS pins; no idle pause or deletion rule" },
+  "cells": {
+    "metered": "$7.50/month Pro includes 500 GB pooled storage",
+    "regions": "S3 region auto; IPFS endpoint uses us-east-1",
+    "selfhost": "No, hosted storage service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Filebase provides object storage, not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Filebase provides object storage, not a database" }
+    ],
+    "files": [
+      { "v": "$7.50/month", "plan": "Pro", "state": "confirmed", "math": "The Pro plan includes 500 GB of shared storage, 1 million Class A requests and 10 million Class B requests. Paid S3 outbound data (egress) is free." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Filebase stores and delivers files; it does not run background jobs" }
+    ]
+  }
+}

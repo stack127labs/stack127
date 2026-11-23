@@ -1,0 +1,29 @@
+{
+  "slug": "benchmark-email",
+  "name": "Benchmark Email",
+  "url": "https://www.benchmarkemail.com/",
+  "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter and promotional broadcasts with scheduled campaigns"
+    }
+  },
+  "line": "Email newsletters and promotional campaigns with contact lists.",
+  "free": {"kind": "free", "text": "500 or 525 contacts; 1,000 or 2,500 sends/month (limits differ)"},
+  "cells": {"newsletters": "Yes", "api": "Yes"},
+  "costs": {
+    "subs": [
+      {"v": "$19", "plan": "Pro reference", "state": "unclear", "math": "4,000 emails a month. The $19 price comes from a regional event page, so it is not verified as the price everywhere."},
+      {"v": "$63", "plan": "Send It reference", "state": "unclear", "math": "20,000 emails a month. An older official Send It price table lists $63, but it is unclear which current plan matches this size."},
+      {"v": "$93", "plan": "Send It reference", "state": "unclear", "math": "40,000 emails a month. An older official Send It price table lists $93, but it is unclear which current plan matches this size."},
+      {"v": "$279 / $299", "plan": "Pro / Send It references", "state": "conflicting", "math": "200,000 emails a month. Official pages list $279 and $299, and we could not confirm the exact current total."}
+    ],
+    "appmail": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code."}
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "liara-paas",
+  "name": "Liara PaaS",
+  "official_url": "https://liara.ir/",
+  "image_url": "https://liara.ir/assets/logo.png",
+  "source_page": "https://liara.ir/",
+  "kind": "logo-mark",
+  "source_host": "liara.ir",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "619a14ef3d8924098298de98c0819a527fd24c95edf06cdbeb83a1388d052c49",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

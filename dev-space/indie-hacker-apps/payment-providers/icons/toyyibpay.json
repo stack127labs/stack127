@@ -1,0 +1,17 @@
+{
+  "slug": "toyyibpay",
+  "name": "ToyyibPay",
+  "official_url": "https://www.toyyibpay.com/",
+  "image_url": "https://www.toyyibpay.com/wp-content/uploads/2025/10/cropped-logo-tp-ico-192x192.png",
+  "source_page": "https://www.toyyibpay.com/",
+  "kind": "favicon",
+  "source_host": "toyyibpay.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "d6cc18e16c3dc884099c7a5ba9f514d921b7a2d3d9bedbf026bd785a55dfc4e7",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

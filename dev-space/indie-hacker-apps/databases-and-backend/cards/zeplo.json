@@ -1,0 +1,51 @@
+{
+  "slug": "zeplo",
+  "name": "Zeplo",
+  "url": "https://zeplo.io/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: hosted HTTP request queue and scheduler is the primary type; J04: delayed delivery up to 30 days"
+    }
+  },
+  "line": "Managed HTTP queue for delayed requests, retries and recurring schedules.",
+  "free": { "kind": "free", "text": "500 req/mo; no idle rule; logs: 7d Privacy vs 30d plan table (conflict)" },
+  "cells": {
+    "metered": "Free 500/mo; $20/100K over; Company $39/mo includes 1M",
+    "regions": "No selectable data region published",
+    "selfhost": "No (none found), hosted HTTP queue service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zeplo is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zeplo is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Zeplo is not a file-storage service."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$1.90",
+        "plan": "Developer Free overage",
+        "state": "unclear",
+        "math": "For 10,000 jobs a month, assume 1 pushed or scheduled request per job and no retries. (10,000 − 500 included) × $20 ÷ 100,000 = $1.90 a month. Destination compute is separate, and retry billing is not published."
+      }
+    ]
+  }
+}

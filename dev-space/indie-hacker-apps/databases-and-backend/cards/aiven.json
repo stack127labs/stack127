@@ -1,0 +1,34 @@
+{
+  "slug": "aiven",
+  "name": "Aiven",
+  "url": "https://aiven.io/",
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C09: the recurring free tier covers OpenSearch, a managed search database; C02 lists search as a role",
+      "sql": "C02: SQL and managed databases is the main type; D01: native managed PostgreSQL",
+      "kv": "C10: managed Valkey (Redis-style) service with a free tier",
+      "vector": "V01: pgvector is documented for managed PostgreSQL"
+    }
+  },
+  "line": "Managed databases, caches, search, streams, and container apps.",
+  "free": { "kind": "free", "text": "1 GB disk; may power off idle, deleted after 180 days off" },
+  "cells": {
+    "metered": "PostgreSQL from $0.007/hour; plans vary",
+    "regions": "Multiple cloud providers and regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$11.68", "plan": "PostgreSQL Hobbyist", "state": "unclear", "math": "730 hours a month at $0.016 an hour. Whether the storage and connection limits fit your app is not guaranteed." },
+      { "v": "$11.68", "plan": "PostgreSQL Hobbyist powered on", "state": "unclear", "math": "An idle database still bills for all 730 hours a month. Costs for files stored outside it are not included." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Aiven has no file storage plan of its own." }
+    ],
+    "jobs": [
+      { "v": "$140.0140", "plan": "Five Runtime startup-50-1024 apps", "state": "unclear", "math": "5 apps × 730 hours a month × $0.03836 an hour. This is an example for the workers only, before queue and other outside costs." }
+    ]
+  }
+}

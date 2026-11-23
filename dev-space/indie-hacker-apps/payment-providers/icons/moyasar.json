@@ -1,0 +1,17 @@
+{
+  "slug": "moyasar",
+  "name": "Moyasar",
+  "official_url": "https://docs.moyasar.com/",
+  "image_url": "https://docs.moyasar.com/img/favicon.svg",
+  "source_page": "https://docs.moyasar.com/",
+  "kind": "svg-icon",
+  "source_host": "docs.moyasar.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "060aa2200da5497e9be2c2de9d0d0c5323237d4126077d4573e41afea40d50fe",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

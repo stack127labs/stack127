@@ -1,0 +1,28 @@
+{
+  "slug": "konnect",
+  "name": "Konnect",
+  "url": "https://konnect.network/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment facilitator and gateway; the merchant remains the seller to its customer",
+      "links": "F16: hosted payment links made in the dashboard, shared by SMS, email or WhatsApp"
+    }
+  },
+  "line": "Tunisian payment gateway with hosted checkout, links and integrations.",
+  "free": { "kind": "none", "text": "No subscription per pricing page; terms conflict" },
+  "cells": {
+    "type": "Payment gateway, links, plugins and API",
+    "countries": "Tunisia clearly marketed; other seller countries unpublished",
+    "payout": "Automatic bank transfer; timing shown in dashboard"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rates cover Tunisian-issued cards and international cards. They don't cover domestic cards for US sellers." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rates cover Tunisian-issued cards and international cards. They don't cover domestic cards for UK sellers." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rates cover Tunisian-issued cards and international cards. They don't cover domestic cards for German sellers." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rates cover Tunisian-issued cards and international cards. They don't cover domestic cards for Indian sellers." }
+    ]
+  }
+}

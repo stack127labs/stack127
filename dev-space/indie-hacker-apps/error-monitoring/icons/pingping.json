@@ -1,0 +1,17 @@
+{
+  "slug": "pingping",
+  "name": "PingPing",
+  "official_url": "https://pingping.io/",
+  "image_url": "https://pingping.io/android-chrome-256x256.png",
+  "source_page": "https://pingping.io/",
+  "kind": "manifest-icon",
+  "source_host": "pingping.io",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "a2337f3a8ebb3d5bb570ddc013ef130d91ef79deec63524417f89b79f8074b4c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

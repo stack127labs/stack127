@@ -1,0 +1,17 @@
+{
+  "slug": "fathom-analytics",
+  "name": "Fathom Analytics",
+  "official_url": "https://usefathom.com/",
+  "image_url": "https://usefathom.com/assets/src/favicon.svg",
+  "source_page": "https://usefathom.com/",
+  "kind": "svg-icon",
+  "source_host": "usefathom.com",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "2167123ae719078a3f95271745d22a4f40de95b85d6e718ab86fbd1e4d47dda1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "humblytics",
+  "name": "Humblytics",
+  "official_url": "https://humblytics.com/",
+  "image_url": "https://humblytics.com/assets/logos/humblytics-mark.svg",
+  "source_page": "https://humblytics.com/",
+  "kind": "logo-mark",
+  "source_host": "humblytics.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "41fd1be4eaf4412f0312ac0ef6ed8878d0c7bc975693660562c4d7ac344b9dbd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

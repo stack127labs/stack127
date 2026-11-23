@@ -1,0 +1,26 @@
+{
+  "slug": "memberstack",
+  "name": "Memberstack",
+  "url": "https://www.memberstack.com/",
+  "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted membership service with accounts, login and sessions; F05: Memberstack runs the account service"
+    }
+  },
+  "line": "Hosted member accounts, login, and paid membership features.",
+  "free": { "kind": "none", "text": "Test Mode only; up to 50 test members" },
+  "cells": {
+    "freeUsers": "No free production plan; 50 Test Mode members",
+    "sso": "Custom OIDC is paid; incoming customer SAML unsupported"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$29–$49", "plan": "Basic or Professional", "state": "conflicting", "math": "The Basic plan lists $29. A stated 100% upgrade threshold moves it to Professional at $49. The exact bill for 1,000 accounts is not settled." },
+      { "v": "$99", "plan": "Business", "state": "confirmed", "math": "The Business plan is $99 base, plus a 0.9% membership fee applied to 0, which is $0. That comes to $99 a month before tax and outside website costs." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "50,000 is above the published pricing guidance. A vendor quote is needed, and no public price for this volume was found." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "100,000 is above the published pricing guidance. A vendor quote is needed, and no public price for this volume was found." }
+    ]
+  }
+}

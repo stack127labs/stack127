@@ -1,0 +1,17 @@
+{
+  "slug": "mailster",
+  "name": "Mailster",
+  "official_url": "https://mailster.co/",
+  "image_url": "https://mailster.co/wp-content/uploads/2024/03/cropped-M_blue-192x192.png",
+  "source_page": "https://mailster.co/",
+  "kind": "favicon",
+  "source_host": "mailster.co",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "0d9130a5c9b80a41f0224985ec860737cfb607ecd3155592790c5fb27d411f52",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

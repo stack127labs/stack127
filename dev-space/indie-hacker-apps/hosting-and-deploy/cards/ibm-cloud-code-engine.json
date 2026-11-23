@@ -1,0 +1,20 @@
+{
+  "slug": "ibm-cloud-code-engine",
+  "name": "IBM Cloud Code Engine",
+  "url": "https://www.ibm.com/products/code-engine",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed container, job and function platform; IBM maintains the platform"
+    }
+  },
+  "line": "Run container applications, jobs, and functions on managed Kubernetes.",
+  "free": { "kind": "free", "text": "Monthly grants: 27.8 vCPU-hours, 55.5 GB-hours, 100k API calls" },
+  "cells": { "type": "Managed containers and functions", "regions": "Dallas, Washington, Toronto, São Paulo, Europe and Asia", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$0.4842 request subtotal, plus CPU and RAM charges based on running instance hours. 100 GB of data sent out and production logs are not priced." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$105.1835 for CPU, RAM and requests, for 1 vCPU and 2 GB over 730 hours. 100 GB of data sent out, logs and rollout usage are extra." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$105.1835 from the small app API, plus outside PostgreSQL, backup excess, 10 GB of database traffic, data sent out, logs and rollout costs." }
+  ] }
+}

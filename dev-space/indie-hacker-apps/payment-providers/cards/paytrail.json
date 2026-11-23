@@ -1,0 +1,28 @@
+{
+  "slug": "paytrail",
+  "name": "Paytrail",
+  "url": "https://www.paytrail.com/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway through one agreement; the merchant remains the seller",
+      "links": "F16: Merchant Panel creates and emails a payment link without a full online store"
+    }
+  },
+  "line": "Accept online payments through one gateway, hosted checkout, or payment links.",
+  "free": { "kind": "trial", "text": "First month without monthly fee; transaction charges still apply" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "EEA-registered entities and private entrepreneurs",
+    "payout": "S weekly; M selectable; daily usually 3 banking days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be registered in the European Economic Area (EEA), so US sellers can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be registered in the European Economic Area (EEA), so UK sellers can't sign up." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Germany is in the EEA, but Paytrail publishes card fees only for Finland. Prices for other countries may differ." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be registered in the European Economic Area (EEA), so Indian sellers can't sign up." }
+    ]
+  }
+}

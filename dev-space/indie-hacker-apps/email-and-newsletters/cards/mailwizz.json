@@ -1,0 +1,34 @@
+{
+  "slug": "mailwizz",
+  "name": "MailWizz",
+  "url": "https://www.mailwizz.com/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters, broadcasts and recurring campaigns",
+      "marketing": "F02: autoresponders on the marketing side of the product",
+      "transactional": "F02: transactional email API accepts recipient, body and a send time"
+    }
+  },
+  "line": "Self-hosted email campaigns, automations and transactional API sends.",
+  "free": { "kind": "none", "text": "No free licence or included delivery allowance" },
+  "cells": {
+    "newsletters": "Yes, newsletters and recurring campaigns",
+    "api": "Yes, transactional API; connect your own mail server"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 17.57202667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 1,000 subscribers × 4 emails each. Production access; extras and tax excluded." },
+      { "v": "USD 20.19346667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 5,000 subscribers × 4 emails each. Production access; extras and tax excluded." },
+      { "v": "USD 23.47026667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 10,000 subscribers × 4 emails each. Production access; extras and tax excluded." },
+      { "v": "USD 49.68466667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 50,000 subscribers × 4 emails each. Production access; extras and tax excluded." }
+    ],
+    "appmail": [
+      { "v": "USD 17.40818667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 3,000 app sends, 0 workflows. Production access." },
+      { "v": "USD 18.55506667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 10,000 app sends, 0 workflows. Production access." },
+      { "v": "USD 25.10866667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 50,000 app sends, 0 workflows. Production access." },
+      { "v": "USD 33.30066667/month", "plan": "Annual licence + sender/host", "state": "unclear", "math": "$59 a year for the licence, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, 32 KB per email at $0.12 per GB. 100,000 app sends, 0 workflows. Production access." }
+    ]
+  }
+}

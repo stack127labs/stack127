@@ -1,0 +1,17 @@
+{
+  "slug": "ibm-cloud-object-storage",
+  "name": "IBM Cloud Object Storage",
+  "official_url": "https://www.ibm.com/products/cloud-object-storage",
+  "image_url": "https://www.ibm.com/apple-touch-icon.png",
+  "source_page": "https://www.ibm.com/products/cloud-object-storage",
+  "kind": "apple-touch-icon",
+  "source_host": "ibm.com",
+  "original": {
+    "format": "png",
+    "width": 57,
+    "height": 57
+  },
+  "sha256": "5a6c228f948b80417e648100fee457829b15fa8a26a91c37929215db9710befa",
+  "note": "parent brand: IBM; ibm.com apple-touch-icon (57 px); recognisable IBM mark instead of the site's grey bee favicon",
+  "saved_at": "2026-11-14"
+}

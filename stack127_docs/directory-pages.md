@@ -54,6 +54,7 @@ An MDX content change doesn't move the date by itself. When it matters to reader
 | Ad networks | Changed network facts or confirmed publishers touch the network child and `/ad-networks`. Crawler leases and other bookkeeping do not. |
 | Self-host apps | Changed published apps, category links, resource estimates, install options, or linked GitHub facts touch `/self-host-apps`. Registered app children and affected category children also get touched. Category membership removals and app deletions refresh the former categories too. |
 | CLI apps | Changed published terminal apps or their linked GitHub facts touch `/cli-apps`. Affected category children also get touched, including old and new memberships. Candidate discovery and provenance do not. |
+| App directories (`/payment-providers`, `/file-storage`, ...) | Changed app rows touch every directory the app is listed in, before and after the change. Identical re-imports do not. See [the import README](../scripts/indie-hacker-apps/README.md). |
 | Software licenses | Changes to published app license counts move the date. License facts in code need an explicit touch. |
 | Keyboard shortcuts | Copy syncs touch changed children and the hub. Full app records catch shortcut edits with the same count. A separate hub snapshot catches removed apps and changed catalog counts. The first run establishes a baseline. |
 
@@ -131,3 +132,9 @@ The public paths are `/self-host-apps/categories/<category>` and `/cli-apps/cate
 A category page has the same layout as its hub: filter sidebar, app cards and details, search, sort, and pagination, all locked to that category. The Category filter is hidden, and every link stays on the category path. Below the cards come the category links, with the current one marked, and a short about section.
 
 Each category has two MDX files in `app/(site)/(directories)/<directory>/categories/[category]/content/<category>/`: `intro.mdx` above the apps and `about.mdx` below them. Replace starting copy with reviewed copy. Both are imported by that route's `content/index.ts` (`categoryIntros` and `categoryAbouts`); add both imports when adding a new category. The page fails to render when either is missing. Use the fields editor above for the reviewed title, search title, description, and card fields. The draft sync never changes those fields or publishes a row. See [page-publishing.md](page-publishing.md#app-category-publication) for preview and release commands.
+
+## App directories
+
+The 12 app directories (`/payment-providers`, `/hosting`, `/file-storage`, ...) are defined in `lib/indie-hacker-apps/directories.ts`. Each has its own route folder under `app/(site)/(directories)/<slug>/` with `content/intro.mdx` and `content/article.mdx`. Its `page.tsx` only passes its slug and MDX to the shared page in `app/ui/directories/app-directory/`, which holds the filters, list and card views, side panel, and card counts.
+
+An app is listed in every directory whose job it does. Apps whose main job is in another directory carry a small "also does this" label, and the "Main job only" filter hides them. The directories menu and the home page show the published ones together under one heading (`app-stack.ts`), not as separate cards. Records come from `public.indie_hacker_apps`; the publisher readiness check is `scripts/indie-hacker-apps/ready.sql` with the directory slug as its parameter.

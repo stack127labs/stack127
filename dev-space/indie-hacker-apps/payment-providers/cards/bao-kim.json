@@ -1,0 +1,28 @@
+{
+  "slug": "bao-kim",
+  "name": "Bao Kim",
+  "url": "https://www.baokim.vn/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and collection provider; the merchant sells and delivers its products",
+      "links": "F16: Plus payment links from the portal; older offer page, so confirm before relying on it"
+    }
+  },
+  "line": "Vietnam payment gateway for online collections and disbursements.",
+  "free": { "kind": "none", "text": "No public monthly or processing price; contract rates apply" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Vietnam business entities",
+    "payout": "Set by merchant contract"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers outside Vietnam can sign up, and no Vietnam card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers outside Vietnam can sign up, and no Vietnam card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers outside Vietnam can sign up, and no Vietnam card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't published whether sellers outside Vietnam can sign up, and no Vietnam card rate is published." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "payline",
+  "name": "Payline",
+  "official_url": "https://paylinedata.com/",
+  "image_url": "https://paylinedata.com/apple-icon.svg",
+  "source_page": "https://paylinedata.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "paylinedata.com",
+  "original": {
+    "format": "svg",
+    "width": 960,
+    "height": 960
+  },
+  "sha256": "df655457a9c4890c3f446e9160e3e1f6b98868b980e06de4a93ea28af1a6d301",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

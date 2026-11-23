@@ -1,0 +1,46 @@
+{
+  "slug": "freshdesk",
+  "name": "Freshdesk",
+  "url": "https://www.freshworks.com/freshdesk/",
+  "jobs": [
+    "helpdesk",
+    "ai",
+    "inbox",
+    "kb"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help desk includes help articles; F07 documents a knowledge base",
+      "helpdesk": "F02: Help desk and shared ticket inbox with email, help articles and automation",
+      "ai": "F22: Email AI Agent answers incoming email, portal and form tickets; chat AI agents need Omni",
+      "inbox": "F18: Groups and agents work tickets together with private notes and @mentions; email converts to tickets (F17)"
+    }
+  },
+  "line": "Email-first customer help desk with tickets, automation, and a help center.",
+  "free": {
+    "kind": "trial",
+    "text": "Free program: 2 agents, 1 support email, 6 months"
+  },
+  "cells": {
+    "channels": "Email, customer portal; chat is in Freshdesk Omni",
+    "ai": "$49 per 100 AI sessions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$23",
+        "plan": "Growth",
+        "state": "confirmed",
+        "math": "1 agent at $23 a month, with email support and 100 conversations."
+      },
+      {
+        "v": "$69",
+        "plan": "Growth",
+        "state": "confirmed",
+        "math": "3 agents at $23 a month each, with email support and 100 conversations."
+      }
+    ]
+  }
+}

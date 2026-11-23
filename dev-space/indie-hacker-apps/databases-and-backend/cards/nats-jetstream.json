@@ -1,0 +1,33 @@
+{
+  "slug": "nats-jetstream",
+  "name": "NATS / JetStream",
+  "url": "https://nats.io/",
+  "jobs": ["jobs", "kv", "files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: primary type is jobs, queues and events; J03: unacknowledged messages are redelivered",
+      "kv": "C07: JetStream key-value buckets are a built-in feature",
+      "files": "C07: JetStream object stores are a built-in feature"
+    }
+  },
+  "line": "Durable message broker with queues, key-value stores, and object storage.",
+  "free": { "kind": "free", "text": "Personal: 5GiB storage, 10GiB network; inactive free teams may be deleted" },
+  "cells": {
+    "metered": "$49/mo Starter; extra Standard storage is $0.20/GiB",
+    "regions": "Taipei, Dublin, Ohio, and Oregon",
+    "selfhost": "Yes, Apache-2.0 NATS Server"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0", "plan": "Synadia Cloud Personal", "state": "unclear", "math": "1 GiB of data and 5 GB of transfer fit within 5 GiB of storage and 10 GiB of network. Whether connections and throughput fit is not guaranteed." },
+      { "v": "$0", "plan": "Synadia Cloud Personal", "state": "unclear", "math": "The Personal plan is free. Synadia may delete a team it considers inactive, and the inactivity period is not published." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Synadia Cloud Enterprise", "state": "not_published", "math": "100 GB is more than the Pro plan's 50 GiB of Standard storage. Enterprise storage and price are custom." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Synadia Cloud Starter", "state": "not_published", "math": "The $49 a month Starter plan includes one container service, but CPU, RAM, runtime and workload capacity are not published." }
+    ]
+  }
+}

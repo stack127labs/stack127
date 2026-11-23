@@ -1,0 +1,22 @@
+{
+  "slug": "datafast",
+  "name": "DataFast",
+  "url": "https://datafa.st/",
+  "jobs": ["revenue", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is revenue attribution; F19: Stripe, Lemon Squeezy, Polar, Shopify and WooCommerce connections",
+      "web": "F15: real-time traffic, sources, pages, locations, devices and campaigns",
+      "product": "F16: identify links anonymous visits to a user ID and journeys; F15: goal funnels with drop-off"
+    }
+  },
+  "line": "Website and product analytics that connect traffic to revenue.",
+  "free": { "kind": "none", "text": "Paid from $9/month" },
+  "cells": { "cookieless": "No (default cookies; cookieless mode available)", "location": "Mostly outside EU, including US", "selfhost": "No (none found)" },
+  "costs": { "pv": [
+    { "v": "$9/month", "plan": "Starter", "state": "confirmed", "math": "Assumes pageviews are the only events. 10,000 events fall in the 10K Starter band." },
+    { "v": "$19/month", "plan": "Starter", "state": "confirmed", "math": "Assumes pageviews are the only events. 100,000 events fall in the 100K Starter band." },
+    { "v": "$69/month", "plan": "Starter", "state": "confirmed", "math": "Assumes pageviews are the only events. 1,000,000 events fall in the 1M Starter band." }
+  ] }
+}

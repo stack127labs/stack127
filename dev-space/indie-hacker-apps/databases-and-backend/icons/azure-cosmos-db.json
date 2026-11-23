@@ -1,0 +1,17 @@
+{
+  "slug": "azure-cosmos-db",
+  "name": "Azure Cosmos DB",
+  "official_url": "https://azure.microsoft.com/en-us/products/cosmos-db",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "597be17321671aa35a0a8411010e1e1efae400a1ad28ddbd78a86e7e4c73a0e1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

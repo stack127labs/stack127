@@ -1,0 +1,17 @@
+{
+  "slug": "fastspring",
+  "name": "FastSpring",
+  "official_url": "https://fastspring.com/",
+  "image_url": "https://fastspring.com/wp-content/themes/fastspring-bamboo/images/favicons/apple-touch-icon.png?v=ng9wKyB4nn",
+  "source_page": "https://fastspring.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "fastspring.com",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "a4cc0ee1ac69897bf842b1a3692bffcaad4d64718248e8915844bef63ee451e4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

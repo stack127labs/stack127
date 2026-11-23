@@ -1,0 +1,17 @@
+{
+  "slug": "zendesk",
+  "name": "Zendesk",
+  "official_url": "https://www.zendesk.com/",
+  "image_url": "https://d1eipm3vz40hy0.cloudfront.net/images/logos/favicons/zendesk-icon-152.png",
+  "source_page": "https://www.zendesk.com/in/",
+  "kind": "apple-touch-icon",
+  "source_host": "d1eipm3vz40hy0.cloudfront.net",
+  "original": {
+    "format": "png",
+    "width": 152,
+    "height": 152
+  },
+  "sha256": "12bc9e3beb850ce46ef525804aebd7d2b1d227d5c12df40ff5edc11e09697a85",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

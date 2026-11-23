@@ -1,0 +1,29 @@
+{
+  "slug": "watchcron",
+  "name": "WatchCron",
+  "url": "https://watchcron.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP, TCP, UDP, DNS and ICMP checks with SSL and domain expiry (U01, U05)",
+      "status": "S01, S03: public status pages on every plan, driven by checks and incidents (S03)",
+      "cron": "J01, J02: heartbeat checks with cron expressions, grace and /fail signals"
+    }
+  },
+  "line": "Checks websites and ports, tracks cron jobs, and hosts status pages.",
+  "free": { "kind": "free", "text": "Free: 20 checks, 1 Cloud Cron, 100 pings/check/month; interval unclear" },
+  "cells": { "interval": "HTTP 30 s/5 min; ports 30 s Pro, 60 s Starter, 5 min Free", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Free", "state": "unclear", "math": "The $0 plan fits 5 checks. The full total isn't known, because the 60-second interval and own-domain page are unsupported or unclear." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "The $7 Starter plan fits 25 checks. The 60-second interval is unclear, and own-domain pages aren't available." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "The $19 Pro plan fits 100 checks. The 60-second interval is unclear, and own-domain pages aren't available." }
+    ]
+  }
+}

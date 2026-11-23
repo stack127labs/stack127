@@ -1,0 +1,17 @@
+{
+  "slug": "liveagent",
+  "name": "LiveAgent",
+  "official_url": "https://www.liveagent.com/",
+  "image_url": "https://www.liveagent.com/apple-touch-icon.png",
+  "source_page": "https://www.liveagent.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "liveagent.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "27e7319f977388299812c49e0ba11b310736c6264f4937f584e3eb5ca2a7d6f8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

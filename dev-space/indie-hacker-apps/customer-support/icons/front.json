@@ -1,0 +1,17 @@
+{
+  "slug": "front",
+  "name": "Front",
+  "official_url": "https://front.com/",
+  "image_url": "https://front.com/android-icon-192x192.png",
+  "source_page": "https://front.com/",
+  "kind": "manifest-icon",
+  "source_host": "front.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "65388e885267358b8f9687eec411ac1e3f50a160f1b457692b9f3c5b5216eb14",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

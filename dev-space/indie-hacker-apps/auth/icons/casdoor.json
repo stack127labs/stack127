@@ -1,0 +1,17 @@
+{
+  "slug": "casdoor",
+  "name": "Casdoor",
+  "official_url": "https://casdoor.ai/",
+  "image_url": "https://casdoor.ai/img/casdoor.png",
+  "source_page": "https://casdoor.ai/",
+  "kind": "favicon",
+  "source_host": "casdoor.ai",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "1abb479f198a41c4cc5d92d6d682b6626a59a52ca9156434d34e67ed630a0932",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "montastic",
+  "name": "Montastic",
+  "official_url": "https://www.montastic.com/",
+  "image_url": "https://www.montastic.com/assets/montastic-logo-64d70d89a1d8c06a12ec4a718062a0393cfdebd6dd63f4b567901cf5c3335de7.png",
+  "source_page": "https://www.montastic.com/",
+  "kind": "favicon",
+  "source_host": "montastic.com",
+  "original": {
+    "format": "png",
+    "width": 75,
+    "height": 64
+  },
+  "sha256": "705cedf31822526d44d27287a91972858e7ccaab42f9c333324aa116ee1b29f0",
+  "note": "75 px official favicon; the candidate is a small, old-style mark.",
+  "saved_at": "2026-11-14"
+}

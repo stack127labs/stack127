@@ -1,0 +1,29 @@
+{
+  "slug": "razorpay-curlec",
+  "name": "Razorpay Curlec",
+  "url": "https://curlec.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and aggregator; the merchant sells to the buyer",
+      "billing": "F14: managed subscriptions on cards and Touch 'n Go; F15: trials, retries on T+1 to T+3",
+      "links": "F16: no-code Links, Pages, Buttons, Invoices and subscription links"
+    }
+  },
+  "line": "Malaysian gateway for cards, bank payments, subscriptions, and payment links.",
+  "free": { "kind": "none", "text": "Basic: RM0 setup and no annual fee; transaction fees apply" },
+  "cells": {
+    "type": "Payment gateway and aggregator",
+    "countries": "Malaysia; India, US, Singapore access unclear",
+    "payout": "Domestic gateway settlement T+2 working days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Domestic card rates for sellers outside Malaysia aren't published. Curlec's public card rates are in Malaysian ringgit (MYR)." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Domestic card rates for sellers outside Malaysia aren't published. Curlec's public card rates are in Malaysian ringgit (MYR)." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Domestic card rates for sellers outside Malaysia aren't published. Curlec's public card rates are in Malaysian ringgit (MYR)." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Domestic card rates for sellers outside Malaysia aren't published. Curlec's public card rates are in Malaysian ringgit (MYR)." }
+    ]
+  }
+}

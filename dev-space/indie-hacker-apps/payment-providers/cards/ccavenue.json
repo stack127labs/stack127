@@ -1,0 +1,52 @@
+{
+  "slug": "ccavenue",
+  "name": "CCAvenue",
+  "url": "https://www.ccavenue.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and aggregator; the merchant sells and delivers the goods",
+      "billing": "F14: India Subscriptions run automated recurring collection; F15: trials, pause and resume",
+      "links": "F16: hosted StoreFront and Invoice Payments work before the merchant site is live"
+    }
+  },
+  "line": "Payment gateway with card, local payment and recurring options.",
+  "free": {
+    "kind": "none",
+    "text": "No monthly fee stated for India Standard"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "India only",
+    "payout": "India weekly by default; account schedule may vary"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "2.00%",
+        "plan": "India Standard domestic cards",
+        "state": "confirmed",
+        "math": "The published rate for Indian cards. 18% GST, India's goods and services tax, is added to the processing fee."
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "beszel",
+  "name": "Beszel",
+  "url": "https://beszel.dev/",
+  "jobs": ["uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: Agents probe HTTP, TCP, ICMP and DNS targets with response time (U01, U02)"
+    }
+  },
+  "line": "Monitors server health and probes ICMP, TCP, HTTP, and DNS targets.",
+  "free": { "kind": "selfhost", "text": "Free MIT-licensed Hub and Agent; run them yourself" },
+  "cells": { "interval": "1 s minimum; 30 s default", "maintained": "Last release 2026-10-22" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "Beszel has no hosted plan, and the cost of a new server isn't known. It adds $0 only when it runs on an existing server with spare capacity." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "Beszel has no hosted plan, and the cost of a new server isn't known. It adds $0 only when it runs on an existing server with spare capacity." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "Beszel has no hosted plan, and the cost of a new server isn't known. It adds $0 only when it runs on an existing server with spare capacity." }
+    ]
+  }
+}

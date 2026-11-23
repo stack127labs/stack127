@@ -1,0 +1,20 @@
+{
+  "slug": "bunny-net-magic-containers",
+  "name": "bunny.net Magic Containers",
+  "url": "https://bunny.net/magic-containers/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed Docker container hosting; bunny.net runs the scheduling and container infrastructure"
+    }
+  },
+  "line": "Run Docker containers on globally distributed managed infrastructure.",
+  "free": { "kind": "none", "text": "No recurring free compute allowance" },
+  "cells": { "type": "Managed containers", "regions": "North America, Europe, Asia, South America, Africa, Oceania", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The full price depends on CPU, memory in use, registry and build choices, and cache behavior." },
+    { "v": "Unknown", "plan": "Container + CDN", "state": "unclear", "math": "Known partial sum: $2.468055. It excludes system overhead, rounding up of billing blocks, startup and other CPU use." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "PostgreSQL, extra memory, storage volume and separately set up backups still need their own pricing for this workload." }
+  ] }
+}

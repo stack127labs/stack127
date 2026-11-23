@@ -6,6 +6,8 @@ import { getPublishedToolCatalog, getPublishedToolCatalogs } from "@/lib/tool-ca
 import { CatalogCard } from "@/app/ui/cards/catalog-card";
 import { CourseCard } from "@/app/ui/cards/course-card";
 import { DirectoryCard } from "@/app/ui/cards/directory-card";
+import { AppStackCard } from "@/app/ui/cards/app-stack-card";
+import { appStackGroup, getAppStackPages } from "@/app/ui/directories/app-directory/app-stack";
 import {
   getMainPublishedPages,
   getRequiredPublishedPage,
@@ -34,10 +36,11 @@ async function publishedLessonCount(page: Stack127Page) {
 }
 
 export default async function Home() {
-  const [homePage, mainPages, toolCatalogs] = await Promise.all([
+  const [homePage, mainPages, toolCatalogs, appStackPages] = await Promise.all([
     getRequiredPublishedPage(""),
     getMainPublishedPages(),
     getPublishedToolCatalogs(),
+    getAppStackPages(),
   ]);
   const featurePages = mainPages.filter((page) =>
     isHomeVisiblePage(page) && isHomeFeaturePage(page) && !hiddenOnHome.has(page.slug)) as HomePageCardRecord[];
@@ -66,13 +69,14 @@ export default async function Home() {
       </EntryHero>
       {launchSnapshot ? <span data-launch-directories-revision={launchSnapshot.revision} hidden /> : null}
       <PageCanvas as="section" flow className="home-main" aria-labelledby="home-title">
-        {directoryPages.length > 0 ? (
+        {directoryPages.length > 0 || appStackPages.length > 0 ? (
           <section className="home-resources" aria-labelledby="home-resources-title">
             <h2 id="home-resources-title">Directories and references</h2>
             <div className="home-page-grid">
               {directoryPages.map((page, index) => (
                 <DirectoryCard counts={directoryCounts[index]} key={page.slug} page={page} />
               ))}
+              {appStackPages.length > 0 ? <AppStackCard iconKey={appStackGroup.iconKey} name={appStackGroup.name} pages={appStackPages} /> : null}
             </div>
           </section>
         ) : null}

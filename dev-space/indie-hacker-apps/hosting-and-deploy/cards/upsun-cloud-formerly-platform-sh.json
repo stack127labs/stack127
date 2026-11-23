@@ -1,0 +1,27 @@
+{
+  "slug": "upsun-cloud-formerly-platform-sh",
+  "name": "Upsun Cloud",
+  "url": "https://upsun.com/cloud/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed application platform; Git source is built into containers and routed to the web",
+      "static": "04: wholly static sites are supported through static file locations and cache rules"
+    }
+  },
+  "line": "Builds Git-connected apps and runs them with managed services.",
+  "free": { "kind": "trial", "text": "15-day no-card trial; 1 project/2 env, max 4.5 CPU/12 GB RAM; compute billed" },
+  "cells": {
+    "type": "App platform",
+    "regions": "14 app regions; access may vary by org",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "Shared CPU static app", "state": "unclear", "math": "€2.409 for CPU + €7.70 for traffic (500k extra requests, 90 GB sent out). Add RAM for 64 MB, €19 project/user fees, 10% support, minus the eligible €19 credit. RAM metering and credit rules are not confirmed. Before tax." },
+      { "v": "Unknown", "plan": "Shared CPU 1 vCPU/1920 MB", "state": "unclear", "math": "€24.09 CPU + €7.70 traffic (500k extra requests, 90 GB out). Add RAM for 1,920 MB, €19 fees, 10% support, less eligible €19 credit. RAM and credit rules unclear. Allocation, not 100 ms per request, is billed. Before tax." },
+      { "v": "Unknown", "plan": "App + PostgreSQL + seven-day backups", "state": "unclear", "math": "€54.575 + RAM for 1,920 or 1,408 MB + €0.10 per backup GB a month + internal transfer + €19 fees + 10% support − eligible €19 credit. 7 daily backups. RAM, backup size, transfer and support costs unconfirmed. Before tax." }
+    ]
+  }
+}

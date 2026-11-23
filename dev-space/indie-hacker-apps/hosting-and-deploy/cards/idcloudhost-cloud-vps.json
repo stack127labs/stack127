@@ -1,0 +1,20 @@
+{
+  "slug": "idcloudhost-cloud-vps",
+  "name": "IDCloudHost Cloud VPS",
+  "url": "https://idcloudhost.com/cloud-vps/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted VPS; IDCloudHost provides the VM and the customer administers the OS and apps"
+    }
+  },
+  "line": "Provision a virtual private server with self-managed operating system and apps.",
+  "free": { "kind": "none", "text": "No recurring free Cloud VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Indonesia and Singapore; price region not stated", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "Rp 87,000 a month known VM subtotal. The public IPv4 rate and whether tax is included are not published, so the full total is unknown." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "A VM with 2 cores and 2 GB is Rp 87,000 a month (hourly alternative Rp 87,600). The IPv4 price and whether tax is included are unknown." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "Rp 225,000 a month for a VM with 2 cores and 4 GB. Database, daily 7-day backups, IPv4, tax and 10 GB traffic terms are not priced." }
+  ] }
+}

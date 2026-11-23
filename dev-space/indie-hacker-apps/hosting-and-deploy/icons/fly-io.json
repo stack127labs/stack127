@@ -1,0 +1,17 @@
+{
+  "slug": "fly-io",
+  "name": "Fly.io",
+  "official_url": "https://fly.io/",
+  "image_url": "https://fly.io/phx/images/fly-balloon-icon-417a0f1be37234f7d3aca46fb6ebbe08.svg?vsn=d",
+  "source_page": "https://fly.io/",
+  "kind": "logo-mark",
+  "source_host": "fly.io",
+  "original": {
+    "format": "svg",
+    "width": 320,
+    "height": 320
+  },
+  "sha256": "4f82cd507837eff2e0281d9a2f14f1ebb076c15de2fce25ecbc56296e7aa343f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

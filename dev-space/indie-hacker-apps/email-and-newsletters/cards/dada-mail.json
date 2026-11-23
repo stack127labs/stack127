@@ -1,0 +1,29 @@
+{
+  "slug": "dada-mail",
+  "name": "Dada Mail",
+  "url": "https://dadamailproject.com/",
+  "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: announcement newsletters and single or recurring scheduled campaigns"
+    }
+  },
+  "line": "Self-hosted software for newsletters, marketing broadcasts, and mailing lists.",
+  "free": { "kind": "selfhost", "text": "Free software; up to 100 subscribers per list" },
+  "cells": { "newsletters": "Yes", "api": "Yes, API and external SMTP transport" },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "Pro annual", "state": "unclear", "math": "Monthly billing is not available. The software is $150 a year, plus separate hosting and a separate email sender." },
+      { "v": "Unknown", "plan": "Pro annual", "state": "unclear", "math": "Monthly billing is not available. The software is $150 a year, plus separate hosting and a separate email sender." },
+      { "v": "Unknown", "plan": "Pro annual", "state": "unclear", "math": "Monthly billing is not available. The software is $150 a year, plus separate hosting and a separate email sender." },
+      { "v": "Unknown", "plan": "Pro annual", "state": "unclear", "math": "Monthly billing is not available. The software is $150 a year, plus separate hosting and a separate email sender." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." }
+    ]
+  }
+}

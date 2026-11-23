@@ -1,0 +1,17 @@
+{
+  "slug": "proprofs-knowledge-base",
+  "name": "ProProfs Knowledge Base",
+  "official_url": "https://www.proprofskb.com/",
+  "image_url": "https://www.proprofskb.com/blog/wp-content/uploads/2025/03/ProProfs-Knowledge-Base-Software.png",
+  "source_page": "https://www.proprofskb.com/",
+  "kind": "logo-mark",
+  "source_host": "proprofskb.com",
+  "original": {
+    "format": "png",
+    "width": 500,
+    "height": 164
+  },
+  "sha256": "eaf08d17b40295e8958cbf1f47958065ff7eee6e8f86bfdb0c12dc36ec1e6ba9",
+  "note": "official product wordmark; no square app icon found",
+  "saved_at": "2026-11-14"
+}

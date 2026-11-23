@@ -1,0 +1,17 @@
+{
+  "slug": "goatcounter",
+  "name": "GoatCounter",
+  "official_url": "https://www.goatcounter.com/",
+  "image_url": "https://static.zgo.at/favicon/apple-touch-icon.png",
+  "source_page": "https://www.goatcounter.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "static.zgo.at",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "f9d239c6066502fc95018dd17d6e5042dc3fc88484a592e19c88dae0586974b8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

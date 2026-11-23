@@ -1,0 +1,34 @@
+{
+  "slug": "openobserve",
+  "name": "OpenObserve",
+  "url": "https://openobserve.ai/",
+  "jobs": ["logs", "errors", "uptime", "status", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: unified logs with SQL and full-text search (L02)",
+      "errors": "E01: browser uncaught errors and rejections grouped by type and message",
+      "uptime": "U01, U02: HTTP, TCP, TLS and SSH checks every 5 minutes by default",
+      "status": "S01, S03: check-driven public status pages with 90-day uptime history",
+      "performance": "A01: OpenTelemetry traces with span search, waterfall and flame views"
+    }
+  },
+  "line": "Collects logs, traces and browser errors, with synthetic checks and status pages.",
+  "free": { "kind": "selfhost", "text": "Free OSS self-host; Cloud trial 14 days" },
+  "cells": {
+    "interval": "1 min; 5 min default",
+    "maintained": "Last release 2026-11-04"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Cloud or self-host", "state": "not_published", "math": "5,000 reports can't set a bill. Cloud charges for ingested bytes and searched GB. The report size and query volume aren't known." },
+      { "v": "Unknown", "plan": "Cloud or self-host", "state": "not_published", "math": "50,000 reports can't set a bill. Cloud charges for ingested bytes and searched GB. The report size and query volume aren't known." },
+      { "v": "Unknown", "plan": "Cloud or self-host", "state": "not_published", "math": "500,000 reports can't set a bill. Cloud charges for ingested bytes and searched GB. The report size and query volume aren't known." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Cloud or Enterprise", "state": "not_published", "math": "5 endpoints need 216,000 scheduled runs a month. The rate for each protocol, the ongoing allowance and how retries are billed aren't known." },
+      { "v": "Unknown", "plan": "Cloud or Enterprise", "state": "not_published", "math": "25 endpoints need 1,080,000 scheduled runs a month. The rate for each protocol, the ongoing allowance and how retries are billed aren't known." },
+      { "v": "Unknown", "plan": "Cloud or Enterprise", "state": "not_published", "math": "100 endpoints need 4,320,000 scheduled runs a month. The rate for each protocol, the ongoing allowance and how retries are billed aren't known." }
+    ]
+  }
+}

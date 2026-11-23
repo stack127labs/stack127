@@ -1,0 +1,17 @@
+{
+  "slug": "fly-io-managed-postgres",
+  "name": "Fly.io Managed Postgres",
+  "official_url": "https://docs.fly.io/postgres",
+  "image_url": "https://docs.fly.io/mintlify-assets/_mintlify/favicons/fly-io/pksrSrIEk6ICJvMM/_generated/favicon/android-chrome-192x192.png",
+  "source_page": "https://docs.fly.io/postgres",
+  "kind": "favicon",
+  "source_host": "docs.fly.io",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "0d8416d66c97bfd0054b5f43067faa12f6e1b56121cb0b7d89804bfd62049903",
+  "note": "Fly.io brand mark used for its managed Postgres product.",
+  "saved_at": "2026-11-14"
+}

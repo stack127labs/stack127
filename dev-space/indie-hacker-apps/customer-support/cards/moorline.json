@@ -1,0 +1,40 @@
+{
+  "slug": "moorline",
+  "name": "Moorline",
+  "url": "https://www.moorline.app/",
+  "jobs": [
+    "helpdesk"
+  ],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "helpdesk": "F02: personal email-support workspace that tracks customers owed a reply; one person only, no shared inbox"
+    }
+  },
+  "line": "Mac email-support workspace for a solo founder and their customers.",
+  "free": {
+    "kind": "trial",
+    "text": "14-day trial wording conflicts with refund policy"
+  },
+  "cells": {
+    "channels": "Supported email inboxes on Mac",
+    "ai": "Included; no per-reply charge published",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$9",
+        "plan": "Moorline",
+        "state": "confirmed",
+        "math": "One solo subscription covers one owner, a mailbox, and 100 conversations a month."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "A one-person app, with no shared inbox or support for a three-agent team."
+      }
+    ]
+  }
+}

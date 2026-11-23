@@ -1,0 +1,17 @@
+{
+  "slug": "seline",
+  "name": "Seline",
+  "official_url": "https://seline.com/",
+  "image_url": "https://seline.com/favicon.ico",
+  "source_page": "https://seline.com/",
+  "kind": "favicon",
+  "source_host": "seline.com",
+  "original": {
+    "format": "png",
+    "width": 75,
+    "height": 75
+  },
+  "sha256": "40c82380a900b39501e35bd002425f1e58e61114e9077783b2dde554a45b0850",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

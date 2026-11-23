@@ -1,0 +1,50 @@
+{
+  "slug": "mixpanel",
+  "name": "Mixpanel",
+  "url": "https://mixpanel.com/",
+  "jobs": [
+    "product",
+    "web",
+    "replay"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is product analytics; F16: insights, funnels, flows, retention and group analytics",
+      "web": "F15: native web analytics and campaign reports, with browser, device, location and URL dimensions",
+      "replay": "F17: web and mobile session replay, with 10K free and 20K paid replays a month"
+    }
+  },
+  "line": "Event-based product analytics with funnels, flows and replay.",
+  "free": {
+    "kind": "free",
+    "text": "$0/month: 1M events, 10K replays"
+  },
+  "cells": {
+    "cookieless": "No",
+    "location": "US, EU or India (you pick)",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$0/month",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Assumes one event per pageview and no other billable events. Each scenario fits within the free limit of 1M events."
+      },
+      {
+        "v": "$0/month",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Assumes one event per pageview and no other billable events. Each scenario fits within the free limit of 1M events."
+      },
+      {
+        "v": "$0/month",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Assumes one event per pageview and no other billable events. 1,000,000 events is exactly the free limit."
+      }
+    ]
+  }
+}

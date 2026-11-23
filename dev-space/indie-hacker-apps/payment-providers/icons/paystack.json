@@ -1,0 +1,17 @@
+{
+  "slug": "paystack",
+  "name": "Paystack",
+  "official_url": "https://paystack.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d9/d0/83/d9d08374-8b63-e701-b6f8-96ffa8b8907b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/paystack-merchant/id1481413006?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "60c81b460eb57e367d3c56db9a224b2ead11a21877d496b537ebb44d4d0ea400",
+  "note": "Paystack Merchant app by Paystack Payments Limited.",
+  "saved_at": "2026-11-14"
+}

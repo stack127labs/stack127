@@ -1,0 +1,17 @@
+{
+  "slug": "uptrace",
+  "name": "Uptrace",
+  "official_url": "https://uptrace.dev/",
+  "image_url": "https://uptrace.dev/android-chrome-512x512.png",
+  "source_page": "https://uptrace.dev/",
+  "kind": "favicon",
+  "source_host": "uptrace.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "637f5ff6b9c83926b6a009ea99b746c8c3ccbc4e9d02bb822928f739e09d1463",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

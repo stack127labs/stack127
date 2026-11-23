@@ -1,0 +1,17 @@
+{
+  "slug": "otpless",
+  "name": "OTPless",
+  "official_url": "https://otpless.com/",
+  "image_url": "https://otpless.com/assets/favicon-512.png",
+  "source_page": "https://otpless.com/",
+  "kind": "logo-mark",
+  "source_host": "otpless.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "3165ee4f31279b1e3fcad394494f104c507dd7c57185c78ce6f89f7dc25e0c88",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "litlyx",
+  "name": "Litlyx",
+  "official_url": "https://litlyx.com/",
+  "image_url": "https://litlyx.com/apple-icon",
+  "source_page": "https://litlyx.com/",
+  "kind": "manifest-icon",
+  "source_host": "litlyx.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "43a03d093ee453a4fd37574a41079803ae4714e5dac68d61112416c49e731e20",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

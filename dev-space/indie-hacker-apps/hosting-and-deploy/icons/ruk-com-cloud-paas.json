@@ -1,0 +1,17 @@
+{
+  "slug": "ruk-com-cloud-paas",
+  "name": "Ruk-Com Cloud PaaS",
+  "official_url": "https://ruk-com.cloud/cloud-paas/",
+  "image_url": "https://ruk-com.cloud/assets/favicon.svg",
+  "source_page": "https://ruk-com.cloud/cloud-paas/",
+  "kind": "svg-icon",
+  "source_host": "ruk-com.cloud",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "ff05456f68262765b0e6d8ed11eab46099bfa5e2d8c059295f6879b0970021f3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

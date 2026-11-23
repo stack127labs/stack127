@@ -1,0 +1,20 @@
+{
+  "slug": "amazon-ecs-on-aws-fargate",
+  "name": "Amazon ECS on AWS Fargate",
+  "url": "https://aws.amazon.com/fargate/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed container hosting; AWS provisions and patches the Fargate infrastructure"
+    }
+  },
+  "line": "Run containers without managing the underlying servers.",
+  "free": { "kind": "credits", "text": "AWS credits; no recurring free Fargate compute allowance" },
+  "cells": { "type": "Managed containers", "regions": "US, Asia, Europe, Canada, Brazil", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$36.485025", "plan": "Fargate + ALB", "state": "unclear", "math": "Known base price for a static site. Logs, overlapping replacement tasks and IP addresses, and extra data transfer can still change the price." },
+    { "v": "$63.5151", "plan": "Fargate + ALB", "state": "unclear", "math": "Known base price for a small app API. Logs, overlapping tasks, overlapping IP addresses and data transfer can still change the price." },
+    { "v": "$77.4951", "plan": "Fargate + ALB + RDS", "state": "unclear", "math": "Known base price for app plus Postgres, including $13.98 for database compute and storage. Backups, logs and data transfer can change the price." }
+  ] }
+}

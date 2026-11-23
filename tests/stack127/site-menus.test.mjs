@@ -86,3 +86,15 @@ test("a failed menu request can retry, then stays cached", async () => {
   assert.equal(await load(), menus);
   assert.equal(calls, 2);
 });
+
+test("app directories sit under one heading and mark the directories menu", () => {
+  const withStack = buildSiteMenus({
+    catalogs: [],
+    features: [],
+    toolSlugs: [],
+    appStack: { label: "For your app's stack", pages: [{ slug: "file-storage", name: "File storage", iconKey: "files", apps: 65 }] },
+  });
+  assert.deepEqual(withStack.appStack, { label: "for your app's stack", items: [{ href: "/file-storage", label: "file storage", iconKey: "files", count: 65 }] });
+  assert.equal(siteMenuSection("/file-storage", withStack), "directories");
+  assert.deepEqual(menus.appStack.items, []);
+});

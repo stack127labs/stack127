@@ -1,0 +1,29 @@
+{
+  "slug": "seerbit",
+  "name": "SeerBit",
+  "url": "https://www.seerbit.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and processor; the merchant is responsible for its own sales",
+      "billing": "F14: recurring page describes card pre-authorization, automatic retries and post-trial charges",
+      "links": "F16: payment links advertised next to hosted checkout and e-commerce integrations"
+    }
+  },
+  "line": "African payments gateway for checkout, links, and subscription collections.",
+  "free": { "kind": "none", "text": "Free account; transaction fees apply" },
+  "cells": {
+    "type": "Payment gateway and processor",
+    "countries": "Seller list unpublished; 9 African pricing markets",
+    "payout": "T+1 settlement for collected payments"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No US card pricing is published. The public local card rates cover African markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No UK card pricing is published. The public local card rates cover African markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No German card pricing is published. The public local card rates cover African markets." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No India card pricing is published. The public local card rates cover African markets." }
+    ]
+  }
+}

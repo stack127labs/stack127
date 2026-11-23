@@ -1,0 +1,20 @@
+{
+  "slug": "ssd-nodes",
+  "name": "SSD Nodes",
+  "url": "https://www.ssdnodes.com/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: provider-hosted KVM VPS with root access; the customer installs apps and maintains the OS and backups"
+    }
+  },
+  "line": "Rent an unmanaged KVM server with root access and SSD storage.",
+  "free": { "kind": "none", "text": "No ongoing free VPS allowance" },
+  "cells": { "type": "VPS/VM", "regions": "15 sites in US, Canada, Brazil, Europe, Asia, Australia", "selfhost": "Yes; unmanaged VM with root access" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "KVM Small", "state": "unclear", "math": "$17 a month is the latest published rate, from May 2026. 100 GB fits the 4 TB allowance, but the current checkout price, domain, tax and outside build costs are unknown." },
+    { "v": "Unknown", "plan": "KVM Small", "state": "unclear", "math": "$17 a month is the latest published rate for 2 vCPU and 8 GB, with 100 GB within 4 TB. The current checkout price and tax are unknown, and throughput is untested." },
+    { "v": "Unknown", "plan": "KVM Small + snapshot", "state": "unclear", "math": "$17 for the latest published server rate + about $2 for a snapshot = about $19 before tax. Snapshots on the same node are not off-site daily backups, and the price for those is unknown." }
+  ] }
+}

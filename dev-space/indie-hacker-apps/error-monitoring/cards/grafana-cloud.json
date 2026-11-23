@@ -1,0 +1,33 @@
+{
+  "slug": "grafana-cloud",
+  "name": "Grafana Cloud",
+  "url": "https://grafana.com/products/cloud/",
+  "jobs": ["performance", "errors", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: hosted metrics, traces and profiles; service and latency views (A01)",
+      "errors": "E01: Faro captures browser exceptions and unhandled rejections",
+      "uptime": "U01: HTTP, DNS, ping, TCP and browser checks, including k6 scripts",
+      "logs": "L02: label and text queries over logs, correlated with metrics and traces"
+    }
+  },
+  "line": "Collects logs, metrics and traces, with application and synthetic monitoring.",
+  "free": { "kind": "free", "text": "50 GB each of logs, traces and profiles/month; no card" },
+  "cells": {
+    "interval": "10 s HTTP/DNS/ping; 60 s browser",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "The issue-report total depends on how many events are sent and how long data is kept, so the total for three apps isn't known." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "The issue-report total depends on how many events are sent and how long data is kept, so the total for three apps isn't known." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "The issue-report total depends on how many events are sent and how long data is kept, so the total for three apps isn't known." }
+    ],
+    "uptime": [
+      { "v": "$77", "plan": "Pro", "state": "unclear", "math": "A base-rate estimate for one check location (probe). Generated telemetry and an own-domain status page add costs that aren't known." },
+      { "v": "$509", "plan": "Pro", "state": "unclear", "math": "A base-rate estimate for one check location (probe). Generated telemetry and an own-domain status page add costs that aren't known." },
+      { "v": "$2,129", "plan": "Pro", "state": "unclear", "math": "A base-rate estimate for one check location (probe). Generated telemetry and an own-domain status page add costs that aren't known." }
+    ]
+  }
+}

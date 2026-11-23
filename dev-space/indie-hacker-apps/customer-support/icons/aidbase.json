@@ -1,0 +1,17 @@
+{
+  "slug": "aidbase",
+  "name": "Aidbase",
+  "official_url": "https://www.aidbase.ai/",
+  "image_url": "https://www.aidbase.ai/images/favicon.webp",
+  "source_page": "https://www.aidbase.ai/",
+  "kind": "favicon",
+  "source_host": "aidbase.ai",
+  "original": {
+    "format": "webp",
+    "width": 273,
+    "height": 272
+  },
+  "sha256": "a4a6d802b229a6b0ca6b051a52d0778a9826ff8cf409b161431795225605c451",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

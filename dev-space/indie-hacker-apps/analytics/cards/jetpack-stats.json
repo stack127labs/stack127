@@ -1,0 +1,26 @@
+{
+  "slug": "jetpack-stats",
+  "name": "Jetpack Stats",
+  "url": "https://jetpack.com/stats/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is WordPress traffic and content analytics; F15: views, visitors, referrers, search terms and countries"
+    }
+  },
+  "line": "WordPress traffic reports for publishers and site owners.",
+  "free": { "kind": "free", "text": "Free plugin; any traffic level, full history" },
+  "cells": {
+    "cookieless": "Unknown, visitor cookie behavior is unclear",
+    "location": "Worldwide; EU data may transfer outside the EU",
+    "selfhost": "No, collection and reports are hosted by Automattic"
+  },
+  "costs": {
+    "pv": [
+      { "v": "₹489.95", "plan": "Paid Stats, annual introductory year", "state": "confirmed", "math": "₹5,879.40 billed yearly, divided by 12, gives a monthly equivalent of ₹489.95 for the 10K tier, before tax." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The price for the 100K tier needs a login. Public pages do not show the amount." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The price for the 1M tier needs a login. Public pages do not show the amount." }
+    ]
+  }
+}

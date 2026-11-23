@@ -1,0 +1,29 @@
+{
+  "slug": "iugu",
+  "name": "iugu",
+  "url": "https://www.iugu.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment institution and intermediary; the merchant keeps the sale and taxes",
+      "billing": "F15: plans with intervals, upgrades, credits and suspension on unpaid invoices",
+      "links": "F16: reusable or unique payment links for Pix, boleto and card, no store needed"
+    }
+  },
+  "line": "Brazilian payment platform for cards, Pix, billing and split payments.",
+  "free": { "kind": "none", "text": "Essencial Panel has no monthly platform fee" },
+  "cells": {
+    "type": "Payment institution and gateway",
+    "countries": "Brazil only",
+    "payout": "Card release up to 32 days; withdrawal D+1"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "To sign up, a seller needs a Brazilian legal entity, an active CNPJ (Brazil's company registration number), and a Brazilian bank account." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "To sign up, a seller needs a Brazilian legal entity, an active CNPJ (Brazil's company registration number), and a Brazilian bank account." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "To sign up, a seller needs a Brazilian legal entity, an active CNPJ (Brazil's company registration number), and a Brazilian bank account." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "To sign up, a seller needs a Brazilian legal entity, an active CNPJ (Brazil's company registration number), and a Brazilian bank account." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "victorialogs",
+  "name": "VictoriaLogs",
+  "official_url": "https://victoriametrics.com/products/victorialogs/",
+  "image_url": "https://victoriametrics.com/icons/android-chrome-512x512.webp",
+  "source_page": "https://victoriametrics.com/products/victorialogs/",
+  "kind": "manifest-icon",
+  "source_host": "victoriametrics.com",
+  "original": {
+    "format": "webp",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "483ccaf5515f2728d440d622ce228d72e2d9aa97a4cca089f27d2fc0d72af38e",
+  "note": "parent brand: VictoriaMetrics; no VictoriaLogs-specific icon was among the downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

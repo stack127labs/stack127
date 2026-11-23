@@ -1,0 +1,17 @@
+{
+  "slug": "devdome-analytics",
+  "name": "DevDome Analytics",
+  "official_url": "https://devdome.com/",
+  "image_url": "https://devdome.com/favicon.svg",
+  "source_page": "https://devdome.com/",
+  "kind": "svg-icon",
+  "source_host": "devdome.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "22cf91353528fcb5c07c7caa7e4ed15c0ca09ff555a57cf628e2d5057749054a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

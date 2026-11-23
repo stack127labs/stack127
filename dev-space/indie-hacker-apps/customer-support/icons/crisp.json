@@ -1,0 +1,17 @@
+{
+  "slug": "crisp",
+  "name": "Crisp",
+  "official_url": "https://crisp.chat/en/",
+  "image_url": "https://crisp.chat/favicons/favicon-512x512.png",
+  "source_page": "https://crisp.chat/en/",
+  "kind": "favicon",
+  "source_host": "crisp.chat",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "86a7cfb910b040ec64e38ee2a1edc77a26bfac26477ad7e735e3e288ddae498b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

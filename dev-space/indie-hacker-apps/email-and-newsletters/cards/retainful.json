@@ -1,0 +1,33 @@
+{
+  "slug": "retainful",
+  "name": "Retainful",
+  "url": "https://www.retainful.com/",
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: behavior-triggered customer lifecycle email and journeys",
+      "newsletter": "F02: newsletter campaigns and promotions"
+    }
+  },
+  "line": "Email campaigns and behavior-triggered customer journeys.",
+  "free": { "kind": "free", "text": "Free with unlimited contacts and 500 emails per month" },
+  "cells": {
+    "newsletters": "Yes, newsletter campaigns and promotions",
+    "api": "Yes, REST API for contacts, lists and events"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$14/month before tax", "plan": "Pro", "state": "confirmed", "math": "$14 covers up to 10,000 emails a month for 1,000 subscribers and 4 campaigns." },
+      { "v": "$46/month before tax", "plan": "Pro", "state": "confirmed", "math": "$14 + 8 × $4 = $46 a month, which includes 50,000 emails for 5,000 subscribers." },
+      { "v": "$86/month before tax", "plan": "Pro", "state": "confirmed", "math": "$14 + 18 × $4 = $86 a month, which includes 100,000 emails for 10,000 subscribers." },
+      { "v": "$406/month before tax", "plan": "Pro", "state": "confirmed", "math": "$14 + 98 × $4 = $406 a month, which includes 500,000 emails for 50,000 subscribers." }
+    ],
+    "appmail": [
+      { "v": "$14/month", "plan": "Pro", "state": "confirmed", "math": "1,000 contacts, with 3,000 one-email workflow entries (3 per contact). The tier includes 10,000 emails." },
+      { "v": "$14/month", "plan": "Pro", "state": "confirmed", "math": "1,000 contacts, with 10,000 one-email workflow entries (10 per contact), leaving no sends for campaigns." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "50,000 workflow entries need 40,000 additional emails. The exact total is unknown." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "100,000 workflow entries need 90,000 additional emails. The exact total is unknown." }
+    ]
+  }
+}

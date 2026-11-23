@@ -1,0 +1,27 @@
+{
+  "slug": "logto",
+  "name": "Logto",
+  "url": "https://logto.io/",
+  "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: Logto Cloud hosted identity platform; F05: vendor hosts and manages Cloud",
+      "server": "F02: free self-hosted open-source server; F05: developer runs server and PostgreSQL"
+    }
+  },
+  "line": "Open-source login service with a managed Cloud option.",
+  "free": { "kind": "free", "text": "Cloud Free: 50,000 MAU and 50,000 access tokens" },
+  "cells": {
+    "freeUsers": "50,000 MAU; token allowance also applies",
+    "sso": "$48/month per incoming enterprise SSO connector"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "At 2,000 assumed access tokens (passes that prove a sign-in), Free covers 1,000 users. Users alone cannot set the real token bill." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "At 20,000 assumed access tokens (passes that prove a sign-in), Free covers 10,000 users. Users alone cannot set the real token bill." },
+      { "v": "$64", "plan": "Pro", "state": "unclear", "math": "With 2 sign-ins per user, that is 100,000 access tokens. Pro is $24, plus $0.08 for each 100 tokens over the included amount, which is 100,000 minus 50,000. That comes to $64 a month." },
+      { "v": "$144", "plan": "Pro", "state": "unclear", "math": "With 2 sign-ins per user, that is 200,000 access tokens. Pro is $24, plus $0.08 for each 100 tokens over the included amount, which is 200,000 minus 50,000. That comes to $144 a month." }
+    ]
+  }
+}

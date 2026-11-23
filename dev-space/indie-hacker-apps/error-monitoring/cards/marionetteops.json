@@ -1,0 +1,32 @@
+{
+  "slug": "marionetteops",
+  "name": "MarionetteOps",
+  "url": "https://www.marionetteops.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: hosted uptime checks; HTTP and HTTPS checks at 1-minute frequency (U01, U02)",
+      "status": "S01: public status pages, 20 on Free and unlimited on Pro (S01)",
+      "cron": "C02: cron-job monitoring is advertised; schedule rules not published (J01)"
+    }
+  },
+  "line": "Monitors websites and servers, with public status pages and alerts.",
+  "free": { "kind": "free", "text": "20 uptime monitors, 20 public pages, 60-second checks" },
+  "cells": {
+    "interval": "60 s",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "5 monitors fit the Free plan if a slot is available. Own-domain page support isn't confirmed." },
+      { "v": "$20", "plan": "Pro", "state": "unclear", "math": "25 monitors fit the Pro plan. Own-domain page support isn't confirmed." },
+      { "v": "$999", "plan": "Enterprise", "state": "unclear", "math": "The Enterprise plan is listed as coming soon. Whether you can buy it now, and whether own-domain pages are supported, isn't confirmed." }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "nile",
+  "name": "Nile",
+  "url": "https://www.thenile.dev/",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed tenant-aware PostgreSQL is the primary type; D01: built on PostgreSQL 15",
+      "vector": "V01: pgvector 0.8.0 pre-enabled, with HNSW and IVFFlat indexes"
+    }
+  },
+  "line": "Managed PostgreSQL with tenant-aware data, authentication, and vector search.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 1GB, 50M query tokens/mo; never pauses; no idle deletion rule"
+  },
+  "cells": {
+    "metered": "$15/mo Pro; Free overages for tokens and storage",
+    "regions": "AWS US West/EU Central; Azure East US",
+    "selfhost": "No, production database self-hosting is not established"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "Unknown",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "Free is $0 if storage stays at 1 GB and the token count stays at or under 50M tokens. Reads and writes do not decide the token count. 5 GB of egress is not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "With zero query tokens and 1 GB stored, the published Free base, compute and storage charges total $0. Backup costs remain unknown."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Nile does not provide an object storage service for customers."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Nile does not provide a managed job runner or queue"
+      }
+    ]
+  }
+}

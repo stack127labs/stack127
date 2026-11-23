@@ -1,0 +1,54 @@
+{
+  "slug": "vipps-mobilepay",
+  "name": "Vipps MobilePay",
+  "url": "https://developer.vippsmobilepay.com/",
+  "jobs": [
+    "gateway",
+    "links"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: direct payment service provider and API; the merchant is the seller",
+      "links": "F16: no-code payment links created in the business portal, shared by URL or QR"
+    }
+  },
+  "line": "Nordic wallet and card payments, recurring charges, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "No setup or monthly fee; per-transaction rates apply"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Norway, Denmark, Finland",
+    "payout": "NO Day 3; DK/FI Day 2"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Applying directly is only for businesses registered in Norway, Denmark or Finland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Applying directly is only for businesses registered in Norway, Denmark or Finland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Applying directly is only for businesses registered in Norway, Denmark or Finland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Applying directly is only for businesses registered in Norway, Denmark or Finland."
+      }
+    ]
+  }
+}

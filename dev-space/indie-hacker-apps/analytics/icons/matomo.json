@@ -1,0 +1,17 @@
+{
+  "slug": "matomo",
+  "name": "Matomo",
+  "official_url": "https://matomo.org/",
+  "image_url": "https://m-img.org/spai/q_lossless+ret_img+to_webp/matomo.org/wp-content/uploads/2026/04/favicon-matomo-2026-450x450.png",
+  "source_page": "https://matomo.org/",
+  "kind": "favicon",
+  "source_host": "m-img.org",
+  "original": {
+    "format": "webp",
+    "width": 450,
+    "height": 450
+  },
+  "sha256": "620956ae4940a5ea0a1ee29757cc0de4a5e4e711e6e5e229e8514bd1f0af9b5a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

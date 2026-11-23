@@ -1,0 +1,29 @@
+{
+  "slug": "liqpay",
+  "name": "LiqPay",
+  "url": "https://www.liqpay.ua/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: internet acquiring; the merchant remains the seller of its goods",
+      "billing": "F14: automatic card subscriptions with set first date and cadence; F15: three retries in 72 hours",
+      "links": "F16: invoices create a buyer payment link that can be shared by email"
+    }
+  },
+  "line": "PrivatBank gateway for Ukrainian online sellers, invoices and subscriptions.",
+  "free": { "kind": "none", "text": "No monthly subscription fee for the general tariff" },
+  "cells": {
+    "type": "Bank internet acquiring with hosted checkout",
+    "countries": "Ukraine-registered FOPs and legal entities",
+    "payout": "Next operating day; instant to some PrivatBank accounts"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be registered in Ukraine, so registration isn't open to US sellers." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be registered in Ukraine, so registration isn't open to UK sellers." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be registered in Ukraine, so registration isn't open to German sellers." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be registered in Ukraine, so registration isn't open to Indian sellers." }
+    ]
+  }
+}

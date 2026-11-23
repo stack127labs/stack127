@@ -1,0 +1,55 @@
+{
+  "slug": "turso",
+  "name": "Turso",
+  "url": "https://turso.tech/",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: SQL database and managed database service is the primary type; D01: libSQL, a SQLite fork",
+      "vector": "C07: native vector functions on Cloud; V01: libSQL vector BLOBs with DiskANN indexes"
+    }
+  },
+  "line": "SQLite-compatible databases, hosted or embedded in your app.",
+  "free": {
+    "kind": "free",
+    "text": "5 GB/project; Free databases archive after 10 days idle"
+  },
+  "cells": {
+    "metered": "USD 5.99/month Developer",
+    "regions": "6 listed regions",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "USD 5.99",
+        "plan": "Developer",
+        "state": "unclear",
+        "math": "USD 5.99 is the known subscription. The price for 5 GB of ordinary transfer is unknown, so the total is incomplete."
+      },
+      {
+        "v": "USD 5.99",
+        "plan": "Developer",
+        "state": "confirmed",
+        "math": "USD 5.99 subscription + USD 0 storage + USD 0 query usage. The Free plan is USD 0, but it is archived after 10 days."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not run jobs."
+      }
+    ]
+  }
+}

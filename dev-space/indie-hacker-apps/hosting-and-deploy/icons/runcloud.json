@@ -1,0 +1,17 @@
+{
+  "slug": "runcloud",
+  "name": "RunCloud",
+  "official_url": "https://runcloud.io/",
+  "image_url": "https://cf1.cdn.runcloud.io/favicon-196x196.png",
+  "source_page": "https://runcloud.io/",
+  "kind": "favicon",
+  "source_host": "cf1.cdn.runcloud.io",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "2db67adcba3fe766682ae6cbb8636897a9ee21e60272518c925e4ff4edb614be",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "amazon-sqs",
+  "name": "Amazon SQS",
+  "url": "https://aws.amazon.com/sqs/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: hosted queue for messages to background workers is the primary role; J04: 60 seconds to 14 days retention"
+    }
+  },
+  "line": "Managed message queues that connect apps and background workers.",
+  "free": { "kind": "free", "text": "1 million request units each month" },
+  "cells": {
+    "metered": "$0.40/million Standard requests",
+    "regions": "Commercial and GovCloud Regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Queue service, not a SQL database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Queue service, not a SQL database" }
+    ],
+    "files": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Queue messages are not file storage." }],
+    "jobs": [{ "v": "Unknown", "plan": "Standard", "state": "unclear", "math": "The cost in request units depends on the sends, receives, deletes and payload blocks each job uses. How many of these each job needs is not known." }]
+  }
+}

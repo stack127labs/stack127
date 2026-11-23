@@ -1,0 +1,17 @@
+{
+  "slug": "rodauth",
+  "name": "Rodauth",
+  "official_url": "https://rodauth.jeremyevans.net/",
+  "image_url": "https://rodauth.jeremyevans.net/images/rodauth.svg",
+  "source_page": "https://rodauth.jeremyevans.net/",
+  "kind": "logo-mark",
+  "source_host": "rodauth.jeremyevans.net",
+  "original": {
+    "format": "svg",
+    "width": 107,
+    "height": 107
+  },
+  "sha256": "f5047fe3e657c4dd61df6c29fdac0e0024ce48b4e24e69ab30e49068cb3e458c",
+  "note": "padlock logo from the official site, vector",
+  "saved_at": "2026-11-22"
+}

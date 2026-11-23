@@ -1,0 +1,17 @@
+{
+  "slug": "novu",
+  "name": "Novu",
+  "official_url": "https://www.novu.co/",
+  "image_url": "https://www.novu.co/favicon/favicon.png",
+  "source_page": "https://www.novu.co/",
+  "kind": "favicon",
+  "source_host": "novu.co",
+  "original": {
+    "format": "png",
+    "width": 2048,
+    "height": 2048
+  },
+  "sha256": "e07479e2766282c6f8b41685bd81e52bf17789bfc3ddd0d9fbb88355b8813615",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

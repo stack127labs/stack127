@@ -1,0 +1,17 @@
+{
+  "slug": "purchasely",
+  "name": "Purchasely",
+  "official_url": "https://www.purchasely.com/",
+  "image_url": "https://cdn.prod.website-files.com/6a4d58e61b3dad85725e1c66/6a4d5a27908519acbb4ed00f_icon.png",
+  "source_page": "https://www.purchasely.com/",
+  "kind": "favicon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "8f114276d19d854ef4879c30d73199aa7e60dfed090c5b307292c30f2c8b75e0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

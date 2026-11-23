@@ -1,0 +1,17 @@
+{
+  "slug": "workos-authkit",
+  "name": "WorkOS AuthKit",
+  "official_url": "https://workos.com/user-management",
+  "image_url": "https://dotcom.workos.com/favicon.svg",
+  "source_page": "https://workos.com/authkit",
+  "kind": "svg-icon",
+  "source_host": "dotcom.workos.com",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "53567a163946ba9cc8e31373a3f8f323458b3421fcd9b66a262148890e1c3001",
+  "note": "parent brand: WorkOS; AuthKit is a WorkOS product",
+  "saved_at": "2026-11-14"
+}

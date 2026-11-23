@@ -1,0 +1,28 @@
+{
+  "slug": "super-monitoring",
+  "name": "Super Monitoring",
+  "url": "https://www.supermonitoring.com/",
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: availability, protocol and browser transaction checks from five stations (U01, U03)",
+      "status": "S01, S03: public status pages built from selected checks, with dated messages"
+    }
+  },
+  "line": "Checks website uptime and synthetic flows, with hosted status pages.",
+  "free": { "kind": "trial", "text": "14-day trial with 5 checks; no billing data required" },
+  "cells": { "interval": "60 s availability checks", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "$29.99", "plan": "Ultra", "state": "confirmed", "math": "Five endpoints checked every 60 seconds fit the Ultra plan's ten-check allowance. An own-domain page is included, but the probe location isn't fixed." },
+      { "v": "Quote", "plan": "Dedicated", "state": "not_published", "math": "25 endpoints are more than the Multi plan's published cap of 20 checks. No add-on monitor price is listed." },
+      { "v": "Quote", "plan": "Dedicated", "state": "not_published", "math": "100 endpoints are more than the Multi plan's published cap of 20 checks. No add-on monitor price is listed." }
+    ]
+  }
+}

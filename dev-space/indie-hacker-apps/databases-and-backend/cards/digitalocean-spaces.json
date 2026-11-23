@@ -1,0 +1,31 @@
+{
+  "slug": "digitalocean-spaces",
+  "name": "DigitalOcean Spaces",
+  "url": "https://www.digitalocean.com/products/spaces",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is the primary role; F05: S3-compatible API with partial support"
+    }
+  },
+  "line": "Store objects with an S3-compatible API and optional CDN delivery.",
+  "free": { "kind": "credits", "text": "$5 signup credit, expires after 90 days" },
+  "cells": {
+    "metered": "$5/month includes 250 GiB Standard storage",
+    "regions": "13 Standard regions; Cold Storage excludes BLR1",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Spaces is object storage, not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Spaces is object storage, not a database" }
+    ],
+    "files": [
+      { "v": "$5/month", "plan": "Standard", "state": "confirmed", "math": "The $5 subscription includes 250 GiB stored and 1,024 GiB outbound. 100 GB stored and 100 GB out fit within those amounts." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Spaces stores files; it does not run background jobs" }
+    ]
+  }
+}

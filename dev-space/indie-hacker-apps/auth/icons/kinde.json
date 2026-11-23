@@ -1,0 +1,17 @@
+{
+  "slug": "kinde",
+  "name": "Kinde",
+  "official_url": "https://www.kinde.com/",
+  "image_url": "https://www.kinde.com/icon.svg",
+  "source_page": "https://www.kinde.com/",
+  "kind": "svg-icon",
+  "source_host": "kinde.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "ca80458b2cdef274217973bb4f1d3b8caeabee4fe31e7c35baee7e5ca33512c6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

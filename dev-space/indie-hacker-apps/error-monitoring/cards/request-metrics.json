@@ -1,0 +1,31 @@
+{
+  "slug": "request-metrics",
+  "name": "Request Metrics",
+  "url": "https://requestmetrics.com/",
+  "jobs": ["performance", "errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: browser real-user performance monitoring is the main job",
+      "errors": "E01: browser error capture with custom error reporting on Professional"
+    }
+  },
+  "line": "Monitors browser performance and reports client-side JavaScript errors.",
+  "free": { "kind": "free", "text": "Free RUM: 1,000 pageviews/month; 24-hour retention" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Professional", "state": "not_published", "math": "The Professional plan is $96 a month for 500,000 pageviews and includes error monitoring. How reports are billed per view isn't published." },
+      { "v": "Unknown", "plan": "Professional", "state": "not_published", "math": "The Professional plan is $96 a month for 500,000 pageviews and includes error monitoring. How reports are billed per view isn't published." },
+      { "v": "Unknown", "plan": "Professional", "state": "not_published", "math": "The Professional plan is $96 a month for 500,000 pageviews and includes error monitoring. How reports are billed per view isn't published." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime monitoring" }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "pulsetic",
+  "name": "Pulsetic",
+  "official_url": "https://pulsetic.com/",
+  "image_url": "https://pulsetic.com/assets/brand/pulsetic-icon.png",
+  "source_page": "https://pulsetic.com/",
+  "kind": "logo-mark",
+  "source_host": "pulsetic.com",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "8031097574c82f88b49ce86c45724d9b8b5f377630028368fdae42e9b46592d0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

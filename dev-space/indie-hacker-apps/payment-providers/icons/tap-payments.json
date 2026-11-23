@@ -1,0 +1,17 @@
+{
+  "slug": "tap-payments",
+  "name": "Tap Payments",
+  "official_url": "https://developers.tap.company/",
+  "image_url": "https://developers.tap.company/icon-512.png?v=0045e935a653",
+  "source_page": "https://developers.tap.company/",
+  "kind": "manifest-icon",
+  "source_host": "developers.tap.company",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "61a12e8d55762e10a86cbe38c334259173bd6ec3b52142e7e9aebdef5dc96932",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

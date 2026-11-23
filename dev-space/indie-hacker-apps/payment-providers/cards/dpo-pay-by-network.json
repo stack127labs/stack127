@@ -1,0 +1,29 @@
+{
+  "slug": "dpo-pay-by-network",
+  "name": "DPO Pay by Network",
+  "url": "https://dpogroup.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider; the merchant sells its own licensed goods and services",
+      "billing": "F14: automatic recurring card payments on weekly or monthly periods, on request",
+      "links": "F16: dashboard-created invoice and payment links, sent by email, SMS or WhatsApp"
+    }
+  },
+  "line": "African payment gateway for online merchants and local payment methods.",
+  "free": { "kind": "none", "text": "No setup fee; monthly and transaction fees are account-specific" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "African markets; full seller-country list unpublished",
+    "payout": "Account-specific schedule; no standard timing published"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Neither a US card rate nor US seller eligibility is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Neither a UK card rate nor UK seller eligibility is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Neither a German card rate nor German seller eligibility is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Neither an India card rate nor India seller eligibility is published." }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "tebex",
+  "name": "Tebex",
+  "url": "https://www.tebex.io/",
+  "jobs": [
+    "mor",
+    "billing",
+    "links"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record and reseller; Tebex is the legal seller and handles tax",
+      "billing": "F14: automatic subscription renewals on cards and PayPal; F15: trials, tiers and retries",
+      "links": "F16: a hosted webstore template is included with Starter, no code needed"
+    }
+  },
+  "line": "Merchant of record for game servers, mods, and digital creator goods.",
+  "free": {
+    "kind": "free",
+    "text": "Starter has no monthly fee; standard platform rate is 5%"
+  },
+  "cells": {
+    "type": "Merchant of record and reseller",
+    "countries": "Global seller list unpublished",
+    "payout": "PayPal settlement 7+ days; card settlement up to 14 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "2.49% + 5% platform",
+        "plan": "Starter, most games",
+        "state": "unclear",
+        "math": "The card payment fee is 2.49%, plus a 5% platform fee for most games. For FiveM, the rate is 15%. The fixed fee and currency aren't clear."
+      },
+      {
+        "v": "2.49% + 5% platform",
+        "plan": "Starter, most games",
+        "state": "unclear",
+        "math": "The card payment fee is 2.49%, plus a 5% platform fee for most games. For FiveM, the rate is 15%. The fixed fee and currency aren't clear."
+      },
+      {
+        "v": "2.49% + 5% platform",
+        "plan": "Starter, most games",
+        "state": "unclear",
+        "math": "The card payment fee is 2.49%, plus a 5% platform fee for most games. For FiveM, the rate is 15%. The fixed fee and currency aren't clear."
+      },
+      {
+        "v": "2.49% + 5% platform",
+        "plan": "Starter, most games",
+        "state": "unclear",
+        "math": "The card payment fee is 2.49%, plus a 5% platform fee for most games. For FiveM, the rate is 15%. The fixed fee and currency aren't clear."
+      }
+    ]
+  }
+}

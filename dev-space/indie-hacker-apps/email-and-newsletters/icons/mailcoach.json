@@ -1,0 +1,17 @@
+{
+  "slug": "mailcoach",
+  "name": "Mailcoach",
+  "official_url": "https://www.mailcoach.app/",
+  "image_url": "https://www.mailcoach.app/favicons/icon.svg",
+  "source_page": "https://www.mailcoach.app/",
+  "kind": "svg-icon",
+  "source_host": "mailcoach.app",
+  "original": {
+    "format": "svg",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "b3d53192cda04b340c9c0ce799272e356ee4caa4d3c3f0b4007d7f0d7d9a0601",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

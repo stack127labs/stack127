@@ -1,0 +1,17 @@
+{
+  "slug": "quickpay",
+  "name": "Quickpay",
+  "official_url": "https://quickpay.net/",
+  "image_url": "https://quickpay.net/favicon/apple-touch-icon.png",
+  "source_page": "https://quickpay.net/",
+  "kind": "apple-touch-icon",
+  "source_host": "quickpay.net",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "0728c003d1baa3a2390a60aba47490a1c4bba84f2f56a0c1c3c81ac3f45c383e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

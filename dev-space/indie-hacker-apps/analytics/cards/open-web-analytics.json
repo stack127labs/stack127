@@ -1,0 +1,50 @@
+{
+  "slug": "open-web-analytics",
+  "name": "Open Web Analytics",
+  "url": "https://www.openwebanalytics.com/",
+  "jobs": [
+    "web",
+    "replay",
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is web analytics; F15: pages, entries and exits, sources, campaigns and geolocation",
+      "replay": "F17: click heatmaps and Domstream interaction recordings with playback, sampled at 100% by default when on",
+      "revenue": "F19: ecommerce order model with totals, tax, shipping, refunds and delayed attribution to sessions"
+    }
+  },
+  "line": "Self-hosted web analytics for sites and applications.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free software with no published pageview limit"
+  },
+  "cells": {
+    "cookieless": "No, uses visitor and session cookies",
+    "location": "Your server and database",
+    "selfhost": "Yes, PHP server and database"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "The software license costs zero. Hosting, storage, backups and maintenance are not priced."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "The software license costs zero. Hosting, storage, backups and maintenance are not priced."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "The software license costs zero. Hosting, storage, backups and maintenance are not priced."
+      }
+    ]
+  }
+}

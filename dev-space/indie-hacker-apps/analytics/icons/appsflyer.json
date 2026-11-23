@@ -1,0 +1,17 @@
+{
+  "slug": "appsflyer",
+  "name": "AppsFlyer",
+  "official_url": "https://www.appsflyer.com/",
+  "image_url": "https://www.appsflyer.com/favicon.svg",
+  "source_page": "https://www.appsflyer.com/",
+  "kind": "svg-icon",
+  "source_host": "appsflyer.com",
+  "original": {
+    "format": "svg",
+    "width": 85,
+    "height": 85
+  },
+  "sha256": "b9a45018d69b7a7de58e9fa672052b6df9e63b8a038672859d70751d6d2dc1e1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

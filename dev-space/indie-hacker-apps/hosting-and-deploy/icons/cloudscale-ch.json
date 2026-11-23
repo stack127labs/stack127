@@ -1,0 +1,17 @@
+{
+  "slug": "cloudscale-ch",
+  "name": "cloudscale.ch",
+  "official_url": "https://www.cloudscale.ch/en",
+  "image_url": "https://www.cloudscale.ch/apple-touch-icon.png",
+  "source_page": "https://www.cloudscale.ch/en",
+  "kind": "apple-touch-icon",
+  "source_host": "cloudscale.ch",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "5ec5de21f4065701c270ff0a004bc9b16e7450057d317a8bd70892ff2ea17484",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

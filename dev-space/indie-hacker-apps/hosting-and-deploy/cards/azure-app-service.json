@@ -1,0 +1,20 @@
+{
+  "slug": "azure-app-service",
+  "name": "Azure App Service",
+  "url": "https://azure.microsoft.com/en-us/products/app-service/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed web hosting; Microsoft patches the host OS and runtime, the customer deploys the app"
+    }
+  },
+  "line": "Host websites and APIs on managed Windows or Linux plans.",
+  "free": { "kind": "free", "text": "F1: 60 CPU minutes/day; trials and learning, not production" },
+  "cells": { "type": "Managed web hosting", "regions": "East US example; many Azure regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$12.41", "plan": "Linux B1", "state": "confirmed", "math": "730 hours at $0.017 an hour. Assumes the first 100 GB of data sent out falls within an unused allowance, local builds, and the storage and logging included in the plan." },
+    { "v": "$12.41", "plan": "Linux B1", "state": "confirmed", "math": "1 B1 instance for 730 hours at $0.017 an hour. 100 GB of data sent out fits in an unused allowance. Always On (the app stays loaded instead of idling) and how much traffic it handles are not tested." },
+    { "v": "$146.03", "plan": "B1 + PostgreSQL", "state": "confirmed", "math": "$12.41 for the B1 plan + $129.94 for a 2-vCore database + $3.68 for 32 GiB of SSD. Excludes extra backups and app-to-database traffic, which is still unknown." }
+  ] }
+}

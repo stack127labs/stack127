@@ -1,0 +1,51 @@
+{
+  "slug": "valkey",
+  "name": "Valkey",
+  "url": "https://valkey.io/",
+  "jobs": ["kv"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: self-hosted key-value database and cache is the primary type; D01: in-memory data-structure server"
+    }
+  },
+  "line": "Self-hosted key-value database with streams and optional vector search.",
+  "free": { "kind": "selfhost", "text": "BSD-3-Clause; no hosted quota or vendor idle pause/deletion" },
+  "cells": {
+    "metered": "No Valkey tariff; host, disk, backups and transfer extra",
+    "regions": "Operator chooses server, replica and backup locations",
+    "selfhost": "Yes, BSD-3-Clause server"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "Unknown",
+        "plan": "Self-hosted",
+        "state": "unclear",
+        "math": "$0 Valkey software fee. Host, disk, backups, transfer and operations are not priced."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Self-hosted",
+        "state": "unclear",
+        "math": "$0 Valkey software fee. Kept disk, backups and any host charges that remain are not priced."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Valkey is not an object-storage service."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "Valkey Streams + external worker",
+        "state": "unclear",
+        "math": "Valkey software is free. Broker hosting, worker compute, storage, logs and network costs are unknown."
+      }
+    ]
+  }
+}

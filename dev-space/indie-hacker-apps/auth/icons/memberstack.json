@@ -1,0 +1,17 @@
+{
+  "slug": "memberstack",
+  "name": "Memberstack",
+  "official_url": "https://www.memberstack.com/",
+  "image_url": "https://www.memberstack.com/apple-touch-icon.png",
+  "source_page": "https://www.memberstack.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "memberstack.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "aa5e0891cdde517e50fb40aff4c37fb9e58b7ce1ab5aa7887661e5752720cbc6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

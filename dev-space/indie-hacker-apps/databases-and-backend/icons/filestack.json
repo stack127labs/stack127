@@ -1,0 +1,17 @@
+{
+  "slug": "filestack",
+  "name": "Filestack",
+  "official_url": "https://www.filestack.com/",
+  "image_url": "https://www.filestack.com/wp-content/uploads/2022/09/favicon-32x32-1.png",
+  "source_page": "https://www.filestack.com/",
+  "kind": "favicon",
+  "source_host": "filestack.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "a3cc3088195c0f223c10326ce8cbb9412808c473f3fde3e4ed5925c7259500e4",
+  "note": "square mark; largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

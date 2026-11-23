@@ -1,0 +1,17 @@
+{
+  "slug": "swetrix",
+  "name": "Swetrix",
+  "official_url": "https://swetrix.com/",
+  "image_url": "https://swetrix.com/favicon.ico",
+  "source_page": "https://swetrix.com/",
+  "kind": "favicon",
+  "source_host": "swetrix.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "4896c4b380c9612cd702e9edae55670a4be79b81f53a921954481f43a800642c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

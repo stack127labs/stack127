@@ -1,0 +1,17 @@
+{
+  "slug": "mouseflow",
+  "name": "Mouseflow",
+  "official_url": "https://mouseflow.com/",
+  "image_url": "https://mouseflow.com/wp-content/themes/mouseflow/assets/images/favicon.svg",
+  "source_page": "https://mouseflow.com/",
+  "kind": "svg-icon",
+  "source_host": "mouseflow.com",
+  "original": {
+    "format": "svg",
+    "width": 85,
+    "height": 85
+  },
+  "sha256": "a1f6cf861685b22710c0a9b649368e01dc0e665126604422c1ad1bb86611e90c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

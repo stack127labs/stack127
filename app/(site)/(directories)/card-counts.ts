@@ -1,4 +1,5 @@
 import type { PageCardCount } from "@/app/ui/cards/page-card";
+import { appDirectoryCardCountLoaders } from "@/app/ui/directories/app-directory/card-counts";
 import { cardCounts as adNetworks } from "./ad-networks/card-counts";
 import { cardCounts as cliApps } from "./cli-apps/card-counts";
 import { cardCounts as eppStatusCodes } from "./epp-status-codes/card-counts";
@@ -20,6 +21,8 @@ const counts: Record<string, () => Promise<PageCardCount[]>> = {
   "self-host-apps": selfHostApps,
   "software-licenses-for-self-hosting": softwareLicenses,
   "tld-directory": tldDirectory,
+  // The 12 app directories: /payment-providers, /hosting, /file-storage, ...
+  ...appDirectoryCardCountLoaders,
 };
 
 export function directoryCardCounts(slug: string) {

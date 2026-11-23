@@ -1,0 +1,52 @@
+{
+  "slug": "polar",
+  "name": "Polar",
+  "url": "https://polar.sh/",
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record and authorized reseller; the buyer purchases from Polar",
+      "billing": "F14: automatic renewals; F15: seats, metered usage, prepaid credits, proration and retries",
+      "links": "F16: persistent no-code payment links for products, plus hosted checkout"
+    }
+  },
+  "line": "Developer billing and merchant of record for digital products.",
+  "free": {
+    "kind": "none",
+    "text": "Starter $0/month; 5% + $0.50 per sale"
+  },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "119 countries",
+    "payout": "Manual; 4 to 7 business days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "5% + $0.50",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "This is for a US-issued card. The Pro plan (3.8% plus $0.40) costs $20 a month more."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Domestic online card",
+        "state": "not_published",
+        "math": "UK sellers are supported, but the published card rate is for US-issued cards. No UK card rate is listed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Domestic online card",
+        "state": "not_published",
+        "math": "German sellers are supported, but the published card rate is for US-issued cards. No German card rate is listed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Domestic online card",
+        "state": "not_published",
+        "math": "Indian sellers are supported, but the published card rate is for US-issued cards. No India card rate is listed."
+      }
+    ]
+  }
+}

@@ -200,6 +200,7 @@ test("origin verification checks search against the source and rejects a stale r
     "@/lib/page-source": {},
     "@/lib/platform-fees/groups": {},
     "@/lib/launch-directories-data": {},
+    "@/lib/indie-hacker-apps": {},
     "@/lib/ad-networks-cache-verification": {adNetworkPageKind: () => "network"},
   }, { fetch: async () => published ? Response.json(served) : Response.json({ error: "Directory not found." }, { status: 404 }) });
   const request = () => new Request("https://stack127.com/api/cache/refresh", {
@@ -241,6 +242,7 @@ test("origin verification rejects stale CLI indexes and verifies unpublished 404
       "@/lib/page-source": {},
       "@/lib/platform-fees/groups": {},
       "@/lib/launch-directories-data": {},
+      "@/lib/indie-hacker-apps": {},
       "@/lib/ad-networks-cache-verification": {adNetworkPageKind: () => "network"},
     }, { fetch: async () => Response.json(served, { status }) });
     const request = () => new Request("https://stack127.com/api/cache/refresh", {
@@ -256,6 +258,44 @@ test("origin verification rejects stale CLI indexes and verifies unpublished 404
     assert.equal(removed.status, 200, path);
     assert.equal((await removed.json()).verified[0].status, 404);
   }
+});
+
+test("origin verification compares app directory indexes with the database and verifies unpublished 404s", async () => {
+  const path = "/api/app-directories/file-storage/index";
+  const expected = [{ slug: "r2", main: true }];
+  let served = expected;
+  let published = true;
+  let status = 200;
+  const { POST } = await loadWithImports("../../app/api/cache/refresh/route.ts", {
+    "next/server": nextServer,
+    "@/scripts/stack127/cache/verify-origin-indexing.mjs": {inspectOriginIndexing:()=>{}},
+    "@/scripts/stack127/cache/refresh.mjs": { cacheBodyDigest: async () => "digest" },
+    "@/lib/cache-auth": { cacheAuthorized: async () => true },
+    "@/lib/apps": {}, "@/lib/terminal-apps": {}, "@/lib/self-host-apps-search-data": {}, "@/lib/self-host-apps-search": {},
+    "@/lib/self-hosted-app-resource-planner/data": {},
+    "@/lib/db": { getPool: () => ({ query: async (_sql, values) => {
+      assert.equal(values[0], "file-storage");
+      return { rows: [{ is_published: published }] };
+    } }) },
+    "@/lib/page-source": {}, "@/lib/platform-fees/groups": {}, "@/lib/launch-directories-data": {},
+    "@/lib/ad-networks-cache-verification": {adNetworkPageKind: () => "network"},
+    "@/lib/indie-hacker-apps": {
+      getAppDirectory: (slug) => slug === "file-storage" ? { slug } : undefined,
+      loadAppDirectoryIndex: async (slug) => { assert.equal(slug, "file-storage"); return expected; },
+    },
+  }, { fetch: async () => Response.json(served, { status }) });
+  const request = () => new Request("https://stack127.com/api/cache/refresh", { method: "POST", body: JSON.stringify({ paths: [path] }) });
+  const fresh = await POST(request());
+  assert.equal(fresh.status, 200);
+  assert.equal((await fresh.json()).verified[0].digest, "digest");
+  served = [{ slug: "r2", main: false }];
+  assert.equal((await POST(request())).status, 503, "stale content");
+  published = false;
+  assert.equal((await POST(request())).status, 503, "unpublished directory still served");
+  status = 404;
+  const removed = await POST(request());
+  assert.equal(removed.status, 200);
+  assert.equal((await removed.json()).verified[0].status, 404);
 });
 
 test("deleted directory detail sources accept only 404s even when their registry rows remain published", async () => {
@@ -278,6 +318,7 @@ test("deleted directory detail sources accept only 404s even when their registry
       "@/lib/page-source": { sitePageAvailable: () => true },
       "@/lib/platform-fees/groups": { getFeeGroup },
       "@/lib/launch-directories-data": {},
+      "@/lib/indie-hacker-apps": {},
       "@/lib/ad-networks-cache-verification": {adNetworkPageKind: () => "network"},
       "@/lib/db": { getPool: () => ({ query: async (sql, values) => {
         if (sql.includes("public.stack127_pages")) return { rows: [{ is_published: true, row_updated_at: new Date(revision) }] };

@@ -1,0 +1,48 @@
+{
+  "slug": "hitsteps",
+  "name": "Hitsteps",
+  "url": "https://www.hitsteps.com/",
+  "jobs": [
+    "web",
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics with live visitor profiles; F15: live visitors, sources, pages and countries",
+      "revenue": "F19: Shopify, WooCommerce and custom order sources with orders, payments and refunds"
+    }
+  },
+  "line": "Tracks website visitors, journeys, goals, and click heatmaps.",
+  "free": {
+    "kind": "trial",
+    "text": "7-day Pro trial; Free 1 site, 14-day history, 2,000-view cap unclear"
+  },
+  "cells": {
+    "cookieless": "Yes, core analytics can run without cookies",
+    "location": "Europe; exact country not published",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$9.99",
+        "plan": "Growth",
+        "state": "unclear",
+        "math": "10,000 is not under the Starter limit of 10,000, so it falls in Growth, which covers under 50,000. If the limit includes that boundary, Starter at $4.99 could apply instead."
+      },
+      {
+        "v": "$21.99",
+        "plan": "Pro",
+        "state": "confirmed",
+        "math": "100,000 pageviews is under the Pro limit of 500,000. The monthly base price is $21.99."
+      },
+      {
+        "v": "$99.99",
+        "plan": "Scale",
+        "state": "unclear",
+        "math": "1,000,000 is not under the Business limit of 1,000,000, so it falls in Scale, which covers under 12,000,000. If the limit includes that boundary, Business at $49.99 could apply instead."
+      }
+    ]
+  }
+}

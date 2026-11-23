@@ -1,0 +1,17 @@
+{
+  "slug": "statuspal",
+  "name": "StatusPal",
+  "official_url": "https://www.statuspal.io/",
+  "image_url": "https://www.statuspal.io/favicon/apple-touch-icon.png",
+  "source_page": "https://www.statuspal.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "statuspal.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "90f099f65709f1f708175c7513f0416c9df42db701098566f04e6f37b0e570f5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

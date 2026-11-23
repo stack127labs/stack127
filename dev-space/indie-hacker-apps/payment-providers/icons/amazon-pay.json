@@ -1,0 +1,17 @@
+{
+  "slug": "amazon-pay",
+  "name": "Amazon Pay",
+  "official_url": "https://pay.amazon.com/",
+  "image_url": "https://dekx1ztr9dy57.cloudfront.net/favicon-32x32.png",
+  "source_page": "https://pay.amazon.com/",
+  "kind": "favicon",
+  "source_host": "dekx1ztr9dy57.cloudfront.net",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "a1ac34e903ec1a8a1e4feb3965204f2b40cafb7d141cd6aa3ceedcdd7814b687",
+  "note": "parent brand: Amazon; largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "helpdesk",
+  "name": "HelpDesk.com (Text)",
+  "official_url": "https://www.helpdesk.com/",
+  "image_url": "https://www.helpdesk.com/favicon.ico",
+  "source_page": "https://www.helpdesk.com/",
+  "kind": "favicon",
+  "source_host": "helpdesk.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "677c67419c611b59c916eeaf6d34e4a538069543a831e6b3bfeebf5343906da6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

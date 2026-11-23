@@ -1,0 +1,31 @@
+{
+  "slug": "azure-blob-storage",
+  "name": "Azure Blob Storage",
+  "url": "https://azure.microsoft.com/en-us/products/storage/blobs",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is the primary type; F04: block blob upload limits documented"
+    }
+  },
+  "line": "Store unstructured files in Microsoft Azure.",
+  "free": { "kind": "trial", "text": "5 GB Hot storage for 12 months; free account may disable after 30 days" },
+  "cells": {
+    "metered": "Pay for storage, operations, and data transfer",
+    "regions": "Azure regions worldwide",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No SQL database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No SQL database service" }
+    ],
+    "files": [
+      { "v": "$2.98", "plan": "Standard Hot LRS, East US", "state": "unclear", "math": "100 GB of storage at $0.0208 per GB a month, plus 10 × $0.05 for writes and 100 × $0.004 for reads, which are billed by blocks of requests. The first 100 GB of internet outbound data each month is free." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No queue or workflow service" }
+    ]
+  }
+}

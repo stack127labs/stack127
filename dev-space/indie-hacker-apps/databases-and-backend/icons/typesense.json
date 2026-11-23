@@ -1,0 +1,17 @@
+{
+  "slug": "typesense",
+  "name": "Typesense",
+  "official_url": "https://typesense.org/",
+  "image_url": "https://typesense.org/favicon.png",
+  "source_page": "https://typesense.org/",
+  "kind": "favicon",
+  "source_host": "typesense.org",
+  "original": {
+    "format": "png",
+    "width": 620,
+    "height": 620
+  },
+  "sha256": "5dd7c2a895e1df5fadff1116095896cf6648e67dcc5452ee01838814fa9ba1ae",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "xata",
+  "name": "Xata",
+  "url": "https://xata.io/",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: unmodified PostgreSQL 14 to 18",
+      "vector": "V01: catalog lists pgvector 0.8.1 with HNSW and IVFFlat indexes"
+    }
+  },
+  "line": "Managed PostgreSQL with copy-on-write branches, scale-to-zero and migration tools.",
+  "free": { "kind": "trial", "text": "14d trial; limits unset; may end early; if unpaid, delete 7d after trial end" },
+  "cells": {
+    "metered": "Micro $0.012/h; storage $0.28–0.34/GB-mo (unclear)",
+    "regions": "AWS US/EU; GCP US and Asia-Southeast",
+    "selfhost": "Yes, Apache-2.0 open-source core"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$17.80+",
+        "plan": "Micro primary + micro replica",
+        "state": "unclear",
+        "math": "US price reference: 2 micro instances × 730 hours × $0.012 an hour + $0.28 × 1 billable GB = $17.80. This assumes one micro replica and 1 billable GB. Transfer, backup, tax and the total are unknown."
+      },
+      {
+        "v": "$0.28+",
+        "plan": "Hibernated branch",
+        "state": "unclear",
+        "math": "Assumes the branch is hibernated (asleep) all 730 hours: no compute. 1 billable GB × $0.28 = $0.28. If it starts active when idle, the default 30-minute delay adds $0.012. Backup, tax and other charges are unknown."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Xata Postgres is not a general file-storage service."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "PostgreSQL pg_cron",
+        "state": "not_published",
+        "math": "pg_cron runs SQL inside the database. No matching price for a 0.5 vCPU and 0.5 GB application worker is published."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "quickbooks-payments",
+  "name": "QuickBooks Payments",
+  "url": "https://quickbooks.intuit.com/payments/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: Intuit collects the seller's card payments as the seller's payment agent",
+      "billing": "F14: US Recurring Payments with customer-authorized scheduled charges; F15: schedule and cancel",
+      "links": "F16: US hosted payment links shared by email, text, QR code or social, no code needed"
+    }
+  },
+  "line": "Accept payments and send invoices from QuickBooks with card and bank methods.",
+  "free": { "kind": "free", "text": "US Free: 2 invoices/month; unlimited after Payments approval" },
+  "cells": {
+    "type": "Payment processing service",
+    "countries": "United States, Canada, United Kingdom",
+    "payout": "First up to 5 days; later US 1 day, Canada/UK cards 2 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2.99%", "plan": "US Standard Online invoice card", "state": "confirmed", "math": "The standard rate for cards paid through an online invoice. Keyed-in cards and API payments have different rates." },
+      { "v": "1.2% + GBP 0.20", "plan": "UK Pay by Card", "state": "confirmed", "math": "VAT at 20% is added to the fee. A QuickBooks Online subscription is needed separately." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Seller offers are only for the US, Canada and UK. Germany isn't a supported sign-up country." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Seller offers are only for the US, Canada and UK. India isn't a supported sign-up country." }
+    ]
+  }
+}

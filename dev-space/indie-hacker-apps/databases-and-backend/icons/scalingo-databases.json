@@ -1,0 +1,17 @@
+{
+  "slug": "scalingo-databases",
+  "name": "Scalingo Databases",
+  "official_url": "https://scalingo.com/databases",
+  "image_url": "https://scalingo.com/apple-touch-icon.png",
+  "source_page": "https://scalingo.com/databases",
+  "kind": "apple-touch-icon",
+  "source_host": "scalingo.com",
+  "original": {
+    "format": "heif",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "76f3fc1829b8010f199fbec134159f4237886de5961e7ca7b38fb388e6d61835",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

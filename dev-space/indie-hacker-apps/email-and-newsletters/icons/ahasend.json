@@ -1,0 +1,17 @@
+{
+  "slug": "ahasend",
+  "name": "AhaSend",
+  "official_url": "https://ahasend.com/",
+  "image_url": "https://ahasend.com/favicon.svg",
+  "source_page": "https://ahasend.com/",
+  "kind": "svg-icon",
+  "source_host": "ahasend.com",
+  "original": {
+    "format": "svg",
+    "width": 1167,
+    "height": 1099
+  },
+  "sha256": "b35fd2c3e614ff390bf9b24d7716febde17e008b8b6cafdb095155352cc00556",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

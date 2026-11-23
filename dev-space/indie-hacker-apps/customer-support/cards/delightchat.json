@@ -1,0 +1,28 @@
+{
+  "slug": "delightchat",
+  "name": "DelightChat",
+  "url": "https://www.delightchat.io/",
+  "jobs": ["inbox", "helpdesk", "chat", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F17: Native connected email inbox on paid plans; forward the support mailbox in and reply from it",
+      "helpdesk": "F10: Each customer message creates a support ticket; help-center articles shown in the widget (F21)",
+      "chat": "F17: Native live chat in the store's self-service widget on published paid plans",
+      "ai": "F22: AI Agent automatically answers live chat, Instagram, Messenger and WhatsApp messages, set per channel"
+    }
+  },
+  "line": "Ecommerce support inbox for email, website chat, and WhatsApp.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, WhatsApp",
+    "ai": "$1 per 100,000 tokens after included allowance",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29 / $39", "plan": "Startup", "state": "conflicting", "math": "The pricing page lists $29 a month, but the help center lists $39. Five agents are included." },
+      { "v": "$29 / $39", "plan": "Startup", "state": "conflicting", "math": "The same bundle covers three people. The pricing sources disagree on whether it is $29 or $39 a month." }
+    ]
+  }
+}

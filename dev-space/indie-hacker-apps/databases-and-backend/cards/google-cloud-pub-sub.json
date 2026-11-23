@@ -1,0 +1,31 @@
+{
+  "slug": "google-cloud-pub-sub",
+  "name": "Google Cloud Pub/Sub",
+  "url": "https://cloud.google.com/pubsub",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed publish-and-subscribe messaging; C07: retry policies and dead-letter topics"
+    }
+  },
+  "line": "Route messages between services with managed publish-and-subscribe topics.",
+  "free": { "kind": "free", "text": "10 GiB Basic/month; subscriptions expire after 31 idle days by default" },
+  "cells": {
+    "metered": "10 GiB free, then $40/TiB Basic throughput",
+    "regions": "Global topics; message storage can be region-restricted",
+    "selfhost": "No, Google-managed cloud service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Pub/Sub is a messaging service, not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Pub/Sub is a messaging service, not a database" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Pub/Sub does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Basic", "state": "unclear", "math": "Basic costs $40 per TiB after the first 10 GiB free. 10,000 jobs alone do not show how many message bytes are published and read." }
+    ]
+  }
+}

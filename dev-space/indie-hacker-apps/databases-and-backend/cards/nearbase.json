@@ -1,0 +1,31 @@
+{
+  "slug": "nearbase",
+  "name": "Nearbase",
+  "url": "https://nearbase.dev/",
+  "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the primary type; D01: managed PostgreSQL"
+    }
+  },
+  "line": "Managed PostgreSQL with monthly compute and provisioned storage pricing.",
+  "free": { "kind": "none", "text": "No public free plan; sponsorship unclear; unpaid instances can be deleted" },
+  "cells": {
+    "metered": "$14/mo estimate; 20 GB minimum storage in Singapore",
+    "regions": "10 regions; Economy ARM availability varies",
+    "selfhost": "No, Nearbase provides managed PostgreSQL"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$14", "plan": "Economy ARM, Singapore", "state": "unclear", "math": "The total of $6 for compute plus (20 GB ÷ 10 × $3.60) is rounded up to $14. Tax is not included, and whether the workload fits is not proven." },
+      { "v": "$14", "plan": "Economy ARM, Singapore", "state": "unclear", "math": "The monthly base stays $14 with no queries. The full cost, with protection, needs off-site backup pricing." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Nearbase does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Nearbase does not include a job runner or queue" }
+    ]
+  }
+}

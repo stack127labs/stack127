@@ -1,0 +1,20 @@
+{
+  "slug": "rosehosting-managed-linux-vps",
+  "name": "RoseHosting managed Linux VPS",
+  "url": "https://www.rosehosting.com/linux-vps-hosting/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented KVM Linux VPS with root access; RoseHosting operates the server, the customer owns the apps"
+    }
+  },
+  "line": "Run Linux apps on a managed VPS with root access and NVMe storage.",
+  "free": { "kind": "none", "text": "No recurring free Linux VPS tier" },
+  "cells": { "type": "Managed Linux VPS", "regions": "St. Louis, Missouri, US", "selfhost": "Yes; root access to managed Linux VPS" },
+  "costs": { "work": [
+    { "v": "$43.99", "plan": "NVMe 2", "state": "confirmed", "math": "$43.99 a month on monthly billing. Private-repo deployment setup is handled by you or arranged with support. 100 GB of transfer is within the unmetered offer, subject to reasonable use." },
+    { "v": "$43.99", "plan": "NVMe 2", "state": "confirmed", "math": "The fixed monthly plan has 2 dedicated cores and 2 GB of RAM for the 730-hour workload. Throughput has not been tested." },
+    { "v": "Unknown", "plan": "NVMe 4 + daily backup", "state": "not_published", "math": "$64.99 a month includes weekly offsite backups. The required daily 7-day option has no published rate or retention, so the full total is unknown." }
+  ] }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "instapods",
+  "name": "InstaPods",
+  "url": "https://instapods.com/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted persistent Linux containers; the provider maintains the platform and base images",
+      "static": "04: static sites are a listed app type"
+    }
+  },
+  "line": "Run persistent Linux app containers with SSH and built-in proxying.",
+  "free": { "kind": "credits", "text": "One-time $10 starter credit; no ongoing free plan" },
+  "cells": { "type": "Persistent app containers", "regions": "France/Germany/US; location pages differ", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$3", "plan": "Launch", "state": "unclear", "math": "$3 for a full-month plan, which includes 100 GB of traffic and 100 build minutes. 100 MB of files fits within 10 GB before code and dependencies. Whether builds fit is untested." },
+    { "v": "$7", "plan": "Build", "state": "unclear", "math": "A plan with 2 vCPU, 2 GB and 25 GB. A full month costs $7, with requests, bandwidth and builds included. The exact 730-hour charge depends on calendar dates." },
+    { "v": "$15", "plan": "Grow", "state": "unclear", "math": "A plan with 2 vCPU, 4 GB and 50 GB includes local PostgreSQL and daily backups, up to 10 saved copies. Seven-day coverage with successful backups is not guaranteed." }
+  ] }
+}

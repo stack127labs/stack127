@@ -1,0 +1,17 @@
+{
+  "slug": "mailchimp-transactional",
+  "name": "Mailchimp Transactional",
+  "official_url": "https://mailchimp.com/features/transactional-email/",
+  "image_url": "https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/mailchimp-favicons/apple-touch-icon.png",
+  "source_page": "https://mailchimp.com/features/transactional-email/",
+  "kind": "apple-touch-icon",
+  "source_host": "digitalasset.intuit.com",
+  "original": {
+    "format": "heif",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "53321a6e11829d7e4741f3fa02cf16dce786008fa2c41a11187687feeac5b398",
+  "note": "parent brand: Mailchimp; Transactional has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

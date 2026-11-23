@@ -1,0 +1,17 @@
+{
+  "slug": "telr",
+  "name": "Telr",
+  "official_url": "https://telr.com/",
+  "image_url": "https://cdn.prod.website-files.com/65fa7e78751459f6afa1496f/667d1c80e120d97756295572_favicon-32x32.png",
+  "source_page": "https://telr.com/",
+  "kind": "favicon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "562372d10ede292ffc355a154bf7fa40c11c8ebf6068a2c157c8d9e4d8a20b34",
+  "note": "square mark; largest square official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

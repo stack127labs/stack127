@@ -1,0 +1,30 @@
+{
+  "slug": "engagebay",
+  "name": "EngageBay",
+  "url": "https://www.engagebay.com/",
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: timed sequences and marketing or lifecycle automation",
+      "newsletter": "F02: newsletters and broadcasts, including RSS-to-email"
+    }
+  },
+  "line": "Send newsletters and automated campaigns from a marketing and customer platform.",
+  "free": { "kind": "free", "text": "Up to 250 contacts and 1,000 branded emails/month" },
+  "cells": { "newsletters": "Yes", "api": "Yes, REST API" },
+  "costs": {
+    "subs": [
+      { "v": "US$49.99", "plan": "Marketing Growth", "state": "confirmed", "math": "1,000 contacts × 4 campaigns = 4,000 emails a month. The one-user Growth plan costs US$49.99 a month." },
+      { "v": "US$64.99", "plan": "All-in-One Growth", "state": "confirmed", "math": "5,000 contacts × 4 campaigns = 20,000 emails a month. The All-in-One Growth plan includes 25,000 emails." },
+      { "v": "US$119.99", "plan": "All-in-One Pro", "state": "confirmed", "math": "10,000 contacts × 4 campaigns = 40,000 emails a month. The All-in-One Pro plan includes 50,000 emails." },
+      { "v": "Unknown", "plan": "Expanded contacts", "state": "not_published", "math": "Above the published limit of 10,000 contacts, you need a custom quote." }
+    ],
+    "appmail": [
+      { "v": "US$64.99", "plan": "All-in-One Growth", "state": "confirmed", "math": "One recipient per API call, 5,000 stored contacts, 0 workflow runs. The Growth plan covers 3,000 emails and 50,000 API calls. Daily warm-up limits (for new senders) still apply." },
+      { "v": "US$64.99", "plan": "All-in-One Growth", "state": "confirmed", "math": "One recipient per API call, 5,000 stored contacts, 0 workflow runs. The Growth plan covers 10,000 emails and 50,000 API calls. Daily warm-up limits (for new senders) still apply." },
+      { "v": "US$119.99", "plan": "All-in-One Pro", "state": "confirmed", "math": "One recipient per API call, 5,000 stored contacts, 0 workflow runs. The All-in-One Pro plan covers 50,000 emails and 75,000 API calls. Daily warm-up limits (for new senders) still apply." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The complete total for 100,000 API emails is unknown." }
+    ]
+  }
+}

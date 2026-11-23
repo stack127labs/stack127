@@ -1,0 +1,28 @@
+{
+  "slug": "payplug",
+  "name": "Payplug",
+  "url": "https://www.payplug.com/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acquirer; the merchant remains responsible for the sale",
+      "links": "F16: hosted payment links shared by SMS, email or social, no full checkout integration"
+    }
+  },
+  "line": "European payment gateway with hosted checkout, links and recurring cards.",
+  "free": { "kind": "trial", "text": "Pro: 3 months offered; then €30/month excluding VAT" },
+  "cells": {
+    "type": "Payment gateway, acquirer and payment account",
+    "countries": "32 European signup countries, including Germany",
+    "payout": "Pro has scheduled payouts; first may take 10 workdays"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The US isn't on Payplug's public list of 32 countries where sellers can sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The UK isn't on Payplug's public list of 32 countries where sellers can sign up." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "German sellers are supported, but public card prices cover only France and Italy." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "India isn't on Payplug's public list of 32 countries where sellers can sign up." }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "prisma-postgres",
+  "name": "Prisma Postgres",
+  "url": "https://www.prisma.io/postgres",
+  "jobs": ["sql", "files", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: hosted serverless SQL database is the primary type; D01: managed PostgreSQL 17",
+      "files": "C07: optional project Object Store supports files; F05: described as S3-compatible",
+      "vector": "V01: pgvector supported and enabled with CREATE EXTENSION vector"
+    }
+  },
+  "line": "Managed PostgreSQL with optional Compute, Object Store, and vector search.",
+  "free": { "kind": "free", "text": "200K ops, 2GB; unclaimed DBs delete after 24h; claimed Free DBs idle to zero" },
+  "cells": {
+    "metered": "$10/mo Starter; Compute and Object Store are separate",
+    "regions": "6 database/Compute regions; other placement is unclear",
+    "selfhost": "No, managed database; local development only"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "120,000 operations and 1 GB fit within the 200,000-operation and 2 GB allowances. 10 pooled clients reach the concurrency limit." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "1 GB stored and zero operations fit the Free plan. The plan has no idle charge, but the Free plan has no snapshots or SLA (uptime promise)." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Object Store", "state": "not_published", "math": "Prices for Object Store storage, requests, retrieval, transfer and retention are not published." }
+    ],
+    "jobs": [
+      { "v": "$10.097222…", "plan": "Starter plus Compute", "state": "unclear", "math": "$10 Starter base + $0.097222… for active work. No durable queue, scheduler or guaranteed resource fit is included." }
+    ]
+  }
+}

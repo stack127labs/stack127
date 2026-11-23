@@ -1,0 +1,17 @@
+{
+  "slug": "singular",
+  "name": "Singular",
+  "official_url": "https://www.singular.net/",
+  "image_url": "https://www.singular.net/wp-content/uploads/fbrfg/android-chrome-256x256.png?v=kP3JbwApQO",
+  "source_page": "https://www.singular.net/",
+  "kind": "manifest-icon",
+  "source_host": "singular.net",
+  "original": {
+    "format": "webp",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "62dbfcc01f169601b4046eb6daf960cc16b768622201f7e93bc22c6aeaa42961",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

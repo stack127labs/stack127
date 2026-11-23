@@ -1,0 +1,21 @@
+{
+  "slug": "aws-amplify-hosting",
+  "name": "AWS Amplify Hosting",
+  "url": "https://aws.amazon.com/amplify/hosting/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed Git-based hosting that runs SSR web apps and HTTP APIs through Node or framework routes",
+      "static": "04: static sites are a documented deploy type"
+    }
+  },
+  "line": "Build, deploy, and deliver full-stack web apps from Git.",
+  "free": { "kind": "credits", "text": "Up to $200 credits; six months or until credits run out" },
+  "cells": { "type": "Managed web hosting", "regions": "20 AWS regions; global CloudFront delivery", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$16", "plan": "Build and delivery", "state": "unclear", "math": "20 builds of 5 minutes each at $0.01 a minute, plus 100 GB of delivery at $0.15 per GB = $16 a month. Stored deployment storage (GB-months) is not included." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$16.30, plus $13.8888888889 for each billed GB of memory, plus $0.023 per GB a month for stored deployments, plus logs. Both the memory and storage amounts are unknown." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Hosting uses the small app API's unknown memory and storage formula. Postgres adds unverified RDS database compute, 20 GiB of storage, backups and network charges." }
+  ] }
+}

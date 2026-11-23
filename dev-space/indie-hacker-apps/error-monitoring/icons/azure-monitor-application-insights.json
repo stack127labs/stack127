@@ -1,0 +1,17 @@
+{
+  "slug": "azure-monitor-application-insights",
+  "name": "Azure Monitor Application Insights",
+  "official_url": "https://azure.microsoft.com/products/monitoring/",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "2dfcf8237ebf3821e9563f03e291521dcceb104663bdbcd9aebf93539d94355f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

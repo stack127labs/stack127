@@ -1,0 +1,17 @@
+{
+  "slug": "openreplay",
+  "name": "OpenReplay",
+  "official_url": "https://openreplay.com/",
+  "image_url": "https://openreplay.com/favicons/favicon.svg",
+  "source_page": "https://openreplay.com/",
+  "kind": "svg-icon",
+  "source_host": "openreplay.com",
+  "original": {
+    "format": "svg",
+    "width": 800,
+    "height": 800
+  },
+  "sha256": "b51b75cda09a850ab5c06230b84bc87d051e98f61bc06c4667d176e516c19918",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

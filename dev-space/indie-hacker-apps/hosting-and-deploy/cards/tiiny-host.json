@@ -1,0 +1,27 @@
+{
+  "slug": "tiiny-host",
+  "name": "Tiiny Host",
+  "url": "https://tiiny.host/",
+  "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed website publishing for HTML, CSS and JavaScript sites with provider-operated HTTPS",
+      "paas": "04: paid PHP apps are a listed hosted project type"
+    }
+  },
+  "line": "Publishes static sites and runs paid PHP apps.",
+  "free": { "kind": "free", "text": "1 project, 3 MB, 5,000 visits/mo; log in every 3 months" },
+  "cells": {
+    "type": "Static + paid PHP",
+    "regions": "Not published",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "Pro or Pro Max", "state": "unclear", "math": "No exact total. Pro: $38 a month for up to 500k visits and 100 GB. Pro Max: $89 a month for up to 1 million visits and 200 GB. 100 MB fits storage. 1M requests don't establish visits. Effective cap and tax unclear." },
+      { "v": "Unknown", "plan": "Pro or Pro Max", "state": "unclear", "math": "For 1 million API requests and 100 GB out, paid PHP is supported, but resource fit and the required plan are unknown. $38 and $89 are subtotals that depend on account conditions, not complete API prices." },
+      { "v": "Unknown", "plan": "Tiiny Host + external PostgreSQL", "state": "unclear", "math": "Needs an outside database with 1 GiB of RAM and 10 GB, daily backups kept for 7 days, and 10 GB of traffic. No provider is priced, and the small app API subtotal is not confirmed." }
+    ]
+  }
+}

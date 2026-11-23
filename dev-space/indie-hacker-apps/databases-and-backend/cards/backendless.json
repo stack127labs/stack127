@@ -1,0 +1,33 @@
+{
+  "slug": "backendless",
+  "name": "Backendless",
+  "url": "https://backendless.com/",
+  "jobs": ["backend", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with database, identity, files and server logic; C07: all documented together",
+      "files": "F04: REST file upload API; F01: 1 GB Free and 10 GB Scale storage",
+      "jobs": "J04: once, daily, weekly, monthly and cron timers documented"
+    }
+  },
+  "line": "Build apps with a database, auth, file storage, realtime, and logic.",
+  "free": { "kind": "free", "text": "1 GB files, 1,000 requests/day; inactive apps may end after 2 months" },
+  "cells": {
+    "metered": "Scale Fixed starts at $15/app/month",
+    "regions": "North America, South America, and Europe endpoints",
+    "selfhost": "Yes, with Pro Community"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$15", "plan": "Scale Fixed Tier 1", "state": "unclear", "math": "Fixed Tier 1 at the stated pace. Table size, connection fit, traffic bursts and transfer are still uncertain." },
+      { "v": "$15", "plan": "Scale Fixed Tier 1", "state": "unclear", "math": "A fixed $15 base even with zero calls. Resources that are kept, and inactivity limits, still apply." }
+    ],
+    "files": [
+      { "v": "$235", "plan": "Scale Fixed Tier 4", "state": "unclear", "math": "$55 for Tier 4, plus nine 10 GB packs at $20 each. Transfer and other fees are not known, so they are not included." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Trigger requests can fit within the free pool if they are paced. Worker CPU, memory and concurrency are unknown." }
+    ]
+  }
+}

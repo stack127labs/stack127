@@ -1,0 +1,29 @@
+{
+  "slug": "simple-observability",
+  "name": "Simple Observability",
+  "url": "https://simpleobservability.com/",
+  "jobs": ["logs", "uptime", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: searchable system and application logs, indexed by level and source (L02)",
+      "uptime": "U01, U04: HTTP and HTTPS endpoint checks; incident only after three retries fail",
+      "cron": "C02: scheduled jobs tracked for start, completion, failure and missed runs (J02)"
+    }
+  },
+  "line": "Monitors servers, logs, endpoints, and scheduled jobs.",
+  "free": { "kind": "free", "text": "Free: 1 server, 1 job, 1 endpoint; 5 rules, 50 metrics/server" },
+  "cells": { "interval": "Minimum not published", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Paid", "state": "unclear", "math": "$3 a month covers five endpoints. The shortest check interval isn't published, so whether it matches one minute isn't known." },
+      { "v": "Unknown", "plan": "Paid", "state": "unclear", "math": "5 times $3 comes to $15 a month for 25 endpoints. The shortest check interval isn't published, so whether it matches one minute isn't known." },
+      { "v": "Quote", "plan": "Custom", "state": "not_published", "math": "100 endpoints need 20 server allocations. Businesses above 10 servers are sent to custom pricing." }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "atlantic-net-cloud-vps",
+  "name": "Atlantic.Net Cloud VPS",
+  "url": "https://www.atlantic.net/vps-hosting/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual machine; root or admin access, and the customer operates the application stack"
+    }
+  },
+  "line": "Cloud virtual servers with root access and hourly or monthly billing.",
+  "free": { "kind": "none", "text": "No current recurring free VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Multiple regions; exact set not summarized", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$10", "plan": "G3.2GB Linux", "state": "confirmed", "math": "$10 a month. 100 GB of data sent out is within the included 3 TB. Tax, an outside CI service (automatic builds and tests) and the domain are not included." },
+    { "v": "$10", "plan": "G3.2GB Linux", "state": "confirmed", "math": "The 730 hourly charges in a month go over the 672-hour monthly cap, so the charge stays at $10 a month before tax. Optional backup is not in this price." },
+    { "v": "$24", "plan": "G3.4GB + daily backup", "state": "confirmed", "math": "$20 a month for the server, plus optional daily backup at 20% ($4). Backup retention and tax are not included." }
+  ] }
+}

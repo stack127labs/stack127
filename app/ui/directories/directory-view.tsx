@@ -86,6 +86,8 @@ export type DirectoryListRow = {
   name: ReactNode;
   badge?: ReactNode;
   summary?: string;
+  /** One short muted line under the summary, such as an app directory's main job label. */
+  note?: ReactNode;
   cells: ReactNode[];
   selected?: boolean;
   /** A click anywhere on the row does the same as the name. The name stays the keyboard target. */
@@ -122,6 +124,7 @@ export function DirectoryList({ columns, firstLabel, label, rows }: {
               <span className={styles.copy}>
                 <span className={styles.name}>{row.name}{row.badge}</span>
                 {row.summary ? <span className={styles.summary}>{row.summary}</span> : null}
+                {row.note}
               </span>
             </span>
           </th>

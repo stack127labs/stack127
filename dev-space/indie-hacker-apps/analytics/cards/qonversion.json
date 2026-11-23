@@ -1,0 +1,26 @@
+{
+  "slug": "qonversion",
+  "name": "Qonversion",
+  "url": "https://qonversion.io/",
+  "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is subscription revenue and mobile monetization analytics; F19: Apple, Google, Stripe and Paddle revenue, MRR and LTV"
+    }
+  },
+  "line": "Tracks mobile subscription revenue, paywalls, and experiments.",
+  "free": { "kind": "free", "text": "Pro is free at or below $7,000 monthly tracked revenue" },
+  "cells": {
+    "cookieless": "Unknown, web SDK storage details are unclear",
+    "location": "London, United Kingdom",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Mobile subscription analytics is not priced by website pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Mobile subscription analytics is not priced by website pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Mobile subscription analytics is not priced by website pageviews." }
+    ]
+  }
+}

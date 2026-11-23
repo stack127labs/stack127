@@ -1,0 +1,17 @@
+{
+  "slug": "wasmer-edge",
+  "name": "Wasmer Edge",
+  "official_url": "https://wasmer.io/products/edge",
+  "image_url": "https://wasmer.io/icons/favicon.svg",
+  "source_page": "https://wasmer.io/products/edge",
+  "kind": "svg-icon",
+  "source_host": "wasmer.io",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "20f6ac839b06184bd99db3e38700bce86caab416f8c27ad887363f7cea09bfe9",
+  "note": "parent brand: Wasmer; no distinct Edge icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

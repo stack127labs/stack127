@@ -1,0 +1,17 @@
+{
+  "slug": "feedblitz",
+  "name": "FeedBlitz",
+  "official_url": "https://www.feedblitz.com/",
+  "image_url": "https://www.feedblitz.com/wp-content/uploads/2020/01/fb-icon_270.png",
+  "source_page": "https://www.feedblitz.com/",
+  "kind": "favicon",
+  "source_host": "feedblitz.com",
+  "original": {
+    "format": "png",
+    "width": 270,
+    "height": 270
+  },
+  "sha256": "a1adda4a080ab265da8c76000d09019a0e02d81c8a2d72590b7e2cc793f121ea",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

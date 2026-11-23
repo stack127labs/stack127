@@ -1,0 +1,21 @@
+{
+  "slug": "sevalla",
+  "name": "Sevalla",
+  "url": "https://sevalla.com/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: applications and databases run on managed Kubernetes clusters that Sevalla operates",
+      "static": "03: static files use Sevalla's dedicated static product with delivery at Cloudflare's edge"
+    }
+  },
+  "line": "Host static sites, app containers, and managed databases.",
+  "free": { "kind": "free", "text": "Static sites $0 with shared 100 GB bandwidth and 600 build minutes" },
+  "cells": { "type": "App and static hosting", "regions": "20 OCI regions; Cloudflare edge delivery", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$0", "plan": "Static site", "state": "confirmed", "math": "$0 before tax, within 1 GB of output, 100 GB of data sent out and 600 build minutes." },
+    { "v": "$52", "plan": "S2 app + egress", "state": "confirmed", "math": "$40 for compute + $2 for builds + $10 for data sent out = $52 before tax. 730 hours are billed." },
+    { "v": "$117", "plan": "S2 + DB3", "state": "unclear", "math": "$52 for the app + $65 for the database = $117. Backups and dump storage are extra." }
+  ] }
+}

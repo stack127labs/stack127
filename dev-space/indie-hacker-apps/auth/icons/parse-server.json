@@ -1,0 +1,17 @@
+{
+  "slug": "parse-server",
+  "name": "Parse Server",
+  "official_url": "https://docs.parseplatform.org/js/guide/#users",
+  "image_url": "https://docs.parseplatform.org/img/favicon/favicon-192x192.png",
+  "source_page": "https://docs.parseplatform.org/js/guide/",
+  "kind": "favicon",
+  "source_host": "docs.parseplatform.org",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "960b3335aa22613f8f5861d584b298259371841a40d2041032bac24ce2bf0cc4",
+  "note": "parent brand: Parse Platform; the server has no separate mark in the official docs",
+  "saved_at": "2026-11-14"
+}

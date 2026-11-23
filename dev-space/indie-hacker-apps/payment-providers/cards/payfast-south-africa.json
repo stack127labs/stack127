@@ -1,0 +1,29 @@
+{
+  "slug": "payfast-south-africa",
+  "name": "Payfast",
+  "url": "https://payfast.io/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: aggregation collects for the merchant into a Payfast balance; the seller keeps delivery",
+      "billing": "F14: automatic recurring card subscriptions; F15: amount, date and frequency changes, retries",
+      "links": "F16: emailed Payment Requests can be sent to buyers, alongside Pay Now and Subscribe buttons"
+    }
+  },
+  "line": "South African checkout gateway with payment requests and recurring cards.",
+  "free": { "kind": "none", "text": "No setup/monthly fee; R115 inactivity fee after 12 months" },
+  "cells": {
+    "type": "Payment aggregator and gateway",
+    "countries": "South African bank required; residency not required",
+    "payout": "48-hour hold; bank arrival 1–2 workdays after request"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether US sellers are eligible, and no US rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether UK sellers are eligible, and no UK rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether German sellers are eligible, and no German rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published rate is 3.2% plus R2 (South African rand), for South African merchants. It isn't published whether Indian sellers are eligible, and no India rate is published." }
+    ]
+  }
+}

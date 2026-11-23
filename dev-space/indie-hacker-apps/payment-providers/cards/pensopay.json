@@ -1,0 +1,28 @@
+{
+  "slug": "pensopay",
+  "name": "pensopay",
+  "url": "https://pensopay.com/da/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and hosted gateway; the webshop is the seller",
+      "links": "F16: individual payment links created in the account and sent by email, SMS or chat"
+    }
+  },
+  "line": "Online gateway for card payments, recurring charges, and payment links.",
+  "free": { "kind": "none", "text": "Basic is €0/month; transaction and acquiring fees apply" },
+  "cells": {
+    "type": "Payment service provider and gateway",
+    "countries": "EU27, Norway, Switzerland",
+    "payout": "Weekly, usually Thursday; daily on request takes 3–5 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Clearhaus only accepts businesses registered in the 27 EU countries, Norway or Switzerland. The US isn't in that group." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Clearhaus only accepts businesses registered in the 27 EU countries, Norway or Switzerland. The UK isn't in that group." },
+      { "v": "€0.70 + 1.25%", "plan": "English Basic", "state": "unclear", "math": "The Basic plan adds €0.70 per transaction. Clearhaus charges 1.25% on EU consumer Visa or Mastercard cards from the seller's own country. The EUR authorization fee (to approve each payment) isn't published." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Clearhaus only accepts businesses registered in the 27 EU countries, Norway or Switzerland. India isn't in that group." }
+    ]
+  }
+}

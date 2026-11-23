@@ -1,0 +1,31 @@
+{
+  "slug": "garage",
+  "name": "Garage",
+  "url": "https://garagehq.deuxfleurs.fr/",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: self-hosted S3-compatible object storage is the primary type; F05: S3 HTTP API"
+    }
+  },
+  "line": "Run an S3-compatible object store across self-managed servers.",
+  "free": { "kind": "selfhost", "text": "Free AGPLv3; capacity set by your disks; no hosted idle policy applies" },
+  "cells": {
+    "metered": "No vendor usage fee; host, disks, and network cost extra",
+    "regions": "Operator chooses node locations and cluster zones",
+    "selfhost": "Yes, self-hosted AGPLv3 software"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Garage is object storage, not a database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Garage is object storage, not a database service" }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "Three copies of 100 GB need 300 GB of raw data. Server, disk, backup and network prices are not chosen yet." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Garage stores objects and does not run background jobs" }
+    ]
+  }
+}

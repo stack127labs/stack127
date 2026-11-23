@@ -1,0 +1,17 @@
+{
+  "slug": "openiddict",
+  "name": "OpenIddict",
+  "official_url": "https://documentation.openiddict.com/",
+  "image_url": "https://documentation.openiddict.com/favicon.ico",
+  "source_page": "https://documentation.openiddict.com/",
+  "kind": "favicon",
+  "source_host": "documentation.openiddict.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "4ed64d0c4476e6ff319b7132fe732346543aaa427f36e256ee8f407271587672",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

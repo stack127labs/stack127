@@ -1,0 +1,17 @@
+{
+  "slug": "mariadb-server",
+  "name": "MariaDB Server",
+  "official_url": "https://mariadb.org/",
+  "image_url": "https://mariadb.org/wp-content/uploads/2026/11/cropped-mariaDB_icon-192x192.png",
+  "source_page": "https://mariadb.org/",
+  "kind": "favicon",
+  "source_host": "mariadb.org",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "0bb7c3888107fd895c11ecd0e184193714d5572ec8f5549e661e2452805e8e13",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

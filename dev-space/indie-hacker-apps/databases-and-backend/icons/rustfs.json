@@ -1,0 +1,17 @@
+{
+  "slug": "rustfs",
+  "name": "RustFS",
+  "official_url": "https://rustfs.com/",
+  "image_url": "https://rustfs.com/android-chrome-512x512.png",
+  "source_page": "https://rustfs.com/",
+  "kind": "manifest-icon",
+  "source_host": "rustfs.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "f0477bcb3d5e1e0667448b5fd235adab6ccfa126301f380b0b87f8f2fadabb02",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

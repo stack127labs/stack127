@@ -1,0 +1,17 @@
+{
+  "slug": "revenuecat",
+  "name": "RevenueCat",
+  "official_url": "https://www.revenuecat.com/",
+  "image_url": "https://www.revenuecat.com/favicon/favicon.png",
+  "source_page": "https://www.revenuecat.com/",
+  "kind": "favicon",
+  "source_host": "revenuecat.com",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "4f29a7fd4ba75910a1abad3bb496082cc58d061167dda3fb0112fbac2d5dad79",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

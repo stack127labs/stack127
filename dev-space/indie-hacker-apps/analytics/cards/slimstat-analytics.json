@@ -1,0 +1,48 @@
+{
+  "slug": "slimstat-analytics",
+  "name": "SlimStat Analytics",
+  "url": "https://wp-slimstat.com/",
+  "jobs": [
+    "web",
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is self-hosted WordPress website analytics; F15: access log, pageviews, popular pages, referrers and geography",
+      "revenue": "F19: WooCommerce order, net sales and average order value reports on the free plan"
+    }
+  },
+  "line": "Self-hosted WordPress analytics with campaigns, goals and heatmaps.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free software; no pageview cap, hosting required"
+  },
+  "cells": {
+    "cookieless": "Optional (cookie tracking on by default)",
+    "location": "Your WordPress database",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The software license is free. Your hosting, database and upkeep cost extra."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The software license is free. Your hosting, database and upkeep cost extra."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The software license is free. Your hosting, database and upkeep cost extra."
+      }
+    ]
+  }
+}

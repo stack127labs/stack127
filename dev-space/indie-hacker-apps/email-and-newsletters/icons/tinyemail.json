@@ -1,0 +1,17 @@
+{
+  "slug": "tinyemail",
+  "name": "tinyEmail",
+  "official_url": "https://www.tinyemail.com/",
+  "image_url": "https://cdn.prod.website-files.com/66e9622abcfd6e59d8380b22/683ec3c6f799b784518c2889_Vector.svg",
+  "source_page": "https://www.tinyemail.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "svg",
+    "width": 1365,
+    "height": 1365
+  },
+  "sha256": "1edf2cc6c1c5f33f19928788be2d17b981b3f5ab763acf601f104d148d7629c0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

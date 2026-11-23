@@ -1,0 +1,17 @@
+{
+  "slug": "azure-static-web-apps",
+  "name": "Azure Static Web Apps",
+  "official_url": "https://azure.microsoft.com/en-us/products/app-service/static/",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "aaab83075f4a5ad57277bd9b9b91d82b71a650e920b607e73de37b243f10f9e5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

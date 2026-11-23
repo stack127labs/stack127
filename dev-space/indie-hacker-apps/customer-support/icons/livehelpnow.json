@@ -1,0 +1,17 @@
+{
+  "slug": "livehelpnow",
+  "name": "LiveHelpNow",
+  "official_url": "https://livehelpnow.net/",
+  "image_url": "https://livehelpnow.net/blog/favicon.svg",
+  "source_page": "https://livehelpnow.net/",
+  "kind": "svg-icon",
+  "source_host": "livehelpnow.net",
+  "original": {
+    "format": "svg",
+    "width": 315,
+    "height": 315
+  },
+  "sha256": "4c64f74f221aab28890ce68f1598fb537a18f73a3b206e30cb63b3f8d0d0481f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

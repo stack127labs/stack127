@@ -1,0 +1,17 @@
+{
+  "slug": "sakura-cloud",
+  "name": "Sakura Cloud",
+  "official_url": "https://cloud.sakura.ad.jp/",
+  "image_url": "https://www.sakura.ad.jp/resource/favicon/sakura_logo.png",
+  "source_page": "https://cloud.sakura.ad.jp/",
+  "kind": "favicon",
+  "source_host": "sakura.ad.jp",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "dd040c51e09ca3dc071beaac6c3f55ecdcc7092e0a02c4a27e903bd349577ce4",
+  "note": "parent brand: Sakura Internet; no distinct Sakura Cloud icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

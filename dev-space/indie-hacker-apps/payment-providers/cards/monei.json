@@ -1,0 +1,29 @@
+{
+  "slug": "monei",
+  "name": "MONEI",
+  "url": "https://monei.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and institution; the merchant remains responsible to the buyer",
+      "billing": "F14: automatic card subscriptions on set intervals; F15: trials, pause and retries",
+      "links": "F16: Pay by Link created in the dashboard or by API and sent by email, WhatsApp or SMS"
+    }
+  },
+  "line": "Spanish payment gateway with checkout, links and recurring card payments.",
+  "free": { "kind": "none", "text": "No setup or monthly minimum; €0.15 per active day" },
+  "cells": {
+    "type": "Payment gateway and payment institution",
+    "countries": "Businesses registered in Spain and Andorra",
+    "payout": "30-day first hold; then D+7 by default"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "MONEI only accepts businesses registered in Spain and Andorra, so US sellers can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "MONEI only accepts businesses registered in Spain and Andorra, so UK sellers can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "MONEI only accepts businesses registered in Spain and Andorra, so German sellers can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "MONEI only accepts businesses registered in Spain and Andorra, so Indian sellers can't sign up." }
+    ]
+  }
+}

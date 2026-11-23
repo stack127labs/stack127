@@ -1,0 +1,17 @@
+{
+  "slug": "flarewarden",
+  "name": "FlareWarden",
+  "official_url": "https://flarewarden.com/",
+  "image_url": "https://flarewarden.com/static/fw-icon.svg",
+  "source_page": "https://flarewarden.com/",
+  "kind": "svg-icon",
+  "source_host": "flarewarden.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "d9e8eeb96549561f9cebed50dbaf610fbbf5cd9911b62faa91c41e92e913cdac",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

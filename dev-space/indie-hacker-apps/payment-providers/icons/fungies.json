@@ -1,0 +1,17 @@
+{
+  "slug": "fungies",
+  "name": "Fungies",
+  "official_url": "https://fungies.io/",
+  "image_url": "https://fungies.io/favicon/favicon.svg",
+  "source_page": "https://fungies.io/",
+  "kind": "svg-icon",
+  "source_host": "fungies.io",
+  "original": {
+    "format": "svg",
+    "width": 1651,
+    "height": 1651
+  },
+  "sha256": "2afd080961aac519be87e825a2e85f300e09bbfac0f93fd838461054c9d9fd5d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

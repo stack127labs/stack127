@@ -1,0 +1,17 @@
+{
+  "slug": "transip-vps",
+  "name": "TransIP VPS",
+  "official_url": "https://www.transip.eu/vps/",
+  "image_url": "https://www.transip.eu/apple-touch-icon.png",
+  "source_page": "https://www.transip.eu/vps/",
+  "kind": "apple-touch-icon",
+  "source_host": "transip.eu",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "3791f3b501ef23517dd7b3f6ed9bf5b0ef5e3d7039181947a60c8fda12fbf148",
+  "note": "Official square icon is a TransIP wordmark; no distinct VPS icon found.",
+  "saved_at": "2026-11-14"
+}

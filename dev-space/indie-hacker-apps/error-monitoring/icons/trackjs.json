@@ -1,0 +1,17 @@
+{
+  "slug": "trackjs",
+  "name": "TrackJS",
+  "official_url": "https://trackjs.com/",
+  "image_url": "https://trackjs.com/assets/images/favicon/web-app-manifest-512x512.png",
+  "source_page": "https://trackjs.com/",
+  "kind": "manifest-icon",
+  "source_host": "trackjs.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "b1c7eaf42d77de3117b83934a76605550dbe042b0399bb70170ec9004063dc64",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

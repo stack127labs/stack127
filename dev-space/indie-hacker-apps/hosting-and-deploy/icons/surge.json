@@ -1,0 +1,17 @@
+{
+  "slug": "surge",
+  "name": "Surge",
+  "official_url": "https://surge.sh/",
+  "image_url": "https://surge.sh/android-chrome-512x512.png",
+  "source_page": "https://surge.sh/",
+  "kind": "manifest-icon",
+  "source_host": "surge.sh",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "d88536e9f531234b41c0755844d109f0d31b646b6190bbd7a453981d08cd9242",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

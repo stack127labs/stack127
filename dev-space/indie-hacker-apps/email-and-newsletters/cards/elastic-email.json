@@ -1,0 +1,31 @@
+{
+  "slug": "elastic-email",
+  "name": "Elastic Email",
+  "url": "https://elasticemail.com/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation on Marketing PRO; event-driven campaigns on Email Marketing",
+      "newsletter": "F02: Email Marketing supports newsletters and bulk campaigns",
+      "transactional": "F02: Email API sends application transactional email through the API or SMTP relay"
+    }
+  },
+  "line": "Send newsletters and automated campaigns, or deliver app email through an API or SMTP.",
+  "free": { "kind": "free", "text": "Free marketing up to 1,000 contacts and 3,000 emails/month" },
+  "cells": { "newsletters": "Yes", "api": "Yes, API and SMTP" },
+  "costs": {
+    "subs": [
+      { "v": "$29", "plan": "Marketing Starter, 2,500 contacts", "state": "confirmed", "math": "1,000 subscribers × 4 campaigns = 4,000 emails a month. The free plan allows 3,000, so the Starter plan costs $29 a month." },
+      { "v": "$59", "plan": "Marketing Starter, 5,000 contacts", "state": "confirmed", "math": "5,000 subscribers × 4 campaigns = 20,000 emails a month. Starter includes 75,000 emails and costs $59 a month." },
+      { "v": "$89", "plan": "Marketing Starter, 10,000 contacts", "state": "confirmed", "math": "10,000 subscribers × 4 campaigns = 40,000 emails a month. Starter includes 150,000 emails and costs $89 a month." },
+      { "v": "$319", "plan": "Marketing Starter, 50,000 contacts", "state": "confirmed", "math": "50,000 subscribers × 4 campaigns = 200,000 emails a month. Starter includes 750,000 emails and costs $319 a month." }
+    ],
+    "appmail": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "3,000 emails a month cost $0 only if they are spread across 30 days at 100 a day, within the free daily limit." },
+      { "v": "$19", "plan": "Email API Starter", "state": "confirmed", "math": "10,000 emails a month fit inside the 50,000-message Starter allowance, which costs $19 a month." },
+      { "v": "$19", "plan": "Email API Starter", "state": "confirmed", "math": "50,000 emails a month use the Starter allowance, which costs $19 a month." },
+      { "v": "Unknown", "plan": "Email API Starter", "state": "unclear", "math": "The Starter plan allows only 50,000 emails a month. The current price for 100,000 emails is not confirmed." }
+    ]
+  }
+}

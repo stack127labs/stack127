@@ -1,0 +1,17 @@
+{
+  "slug": "logrocket",
+  "name": "LogRocket",
+  "official_url": "https://logrocket.com/",
+  "image_url": "https://logrocket.com/favicon/favicon.svg",
+  "source_page": "https://logrocket.com/",
+  "kind": "svg-icon",
+  "source_host": "logrocket.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 347
+  },
+  "sha256": "32ea0f8f8b2e68fdb11fc8b82a80a6720aac22d50d5fa5ad5d8daefe48bbbc08",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

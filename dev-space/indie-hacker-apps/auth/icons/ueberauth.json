@@ -1,0 +1,17 @@
+{
+  "slug": "ueberauth",
+  "name": "Ueberauth",
+  "official_url": "https://github.com/ueberauth/ueberauth",
+  "image_url": "https://github.com/ueberauth.png?size=460",
+  "source_page": "https://github.com/ueberauth",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "72a67d121e2ac2a975437bce29b27a3a37072a8de6d729835d81401340c4cbf8",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

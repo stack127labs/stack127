@@ -1,0 +1,28 @@
+{
+  "slug": "coinpayments",
+  "name": "CoinPayments",
+  "url": "https://www.coinpayments.net/",
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts major coins and USDT and USDC on several networks",
+      "links": "F16: hosted invoice checkout is created in the dashboard and invoice links can be shared"
+    }
+  },
+  "line": "Hosted crypto checkout with invoicing, API and merchant wallets.",
+  "free": { "kind": "none", "text": "No standard subscription fee published; processing fees apply" },
+  "cells": {
+    "type": "Crypto payment gateway",
+    "countries": "Access depends on review; full seller list unpublished",
+    "payout": "Crypto or approved bank withdrawals; timing varies"
+  },
+  "costs": {
+    "fee": [
+      { "v": "0.5% coins; 1% tokens", "plan": "New platform crypto payment", "state": "unclear", "math": "One published rate list covers every country. The full list of countries where sellers can sign up isn't published." },
+      { "v": "0.5% coins; 1% tokens", "plan": "New platform crypto payment", "state": "unclear", "math": "One published rate list covers every country. The full list of countries where sellers can sign up isn't published." },
+      { "v": "0.5% coins; 1% tokens", "plan": "New platform crypto payment", "state": "unclear", "math": "One published rate list covers every country. The full list of countries where sellers can sign up isn't published." },
+      { "v": "0.5% coins; 1% tokens", "plan": "New platform crypto payment", "state": "unclear", "math": "One published rate list covers every country. The full list of countries where sellers can sign up isn't published." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "lightnode-vps",
+  "name": "LightNode VPS",
+  "official_url": "https://www.lightnode.com/",
+  "image_url": "https://www.lightnode.com/favicon.ico",
+  "source_page": "https://www.lightnode.com/",
+  "kind": "favicon",
+  "source_host": "lightnode.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "17ea6a953b1f51f1f62512521c4e6c1e52a96919aff7a86e1ef9121d5504406b",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "hanko",
+  "name": "Hanko",
+  "official_url": "https://www.hanko.io/",
+  "image_url": "https://cdn.prod.website-files.com/6971fcb9a62495657c79e358/6971fcb9a62495657c79e398_Webclip_256x256.png",
+  "source_page": "https://www.hanko.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "f830b1b4b3122e98516f9de9da6c3a508ffce15cb9363f7c2d490754d9b53ae9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

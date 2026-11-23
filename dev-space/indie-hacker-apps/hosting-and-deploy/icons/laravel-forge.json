@@ -1,0 +1,17 @@
+{
+  "slug": "laravel-forge",
+  "name": "Laravel Forge",
+  "official_url": "https://laravel.com/forge",
+  "image_url": "https://laravel.com/images/forge/apple-touch-icon.png",
+  "source_page": "https://laravel.com/forge",
+  "kind": "apple-touch-icon",
+  "source_host": "laravel.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "80ddd62a0da4826d6b0c16a55d5f7c9bac6f80044b23d325668a1eff6662eb02",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

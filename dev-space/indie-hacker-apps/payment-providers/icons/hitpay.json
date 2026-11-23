@@ -1,0 +1,17 @@
+{
+  "slug": "hitpay",
+  "name": "HitPay",
+  "official_url": "https://hitpayapp.com/",
+  "image_url": "https://framerusercontent.com/images/ZYOGxNjIKgqksXk3CutKo6Av5TE.png",
+  "source_page": "https://hitpayapp.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "framerusercontent.com",
+  "original": {
+    "format": "heif",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "a641a76d02cbf6b52df03debc244f7668d542d46ae0aa51290dff11732881bdc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

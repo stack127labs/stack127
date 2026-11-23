@@ -1,0 +1,59 @@
+{
+  "slug": "firebase",
+  "name": "Firebase",
+  "url": "https://firebase.google.com/",
+  "jobs": ["backend", "sql", "nosql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C07: Cloud Firestore document database is part of the bundle; D01: Standard tier is a document database",
+      "backend": "C02: managed backend platform; C07: Firestore, Authentication, Cloud Storage and Functions",
+      "sql": "D01: SQL Connect maps GraphQL onto a managed Cloud SQL for PostgreSQL database",
+      "files": "F04: Cloud Storage with resumable uploads; F01: per-GiB-hour storage classes",
+      "jobs": "C07: Cloud Tasks and Cloud Scheduler functions; J04: cron schedules and task queues",
+      "vector": "V01: Firestore vector kNN search with embeddings up to 2,048 dimensions"
+    }
+  },
+  "line": "Google backend: Firestore, auth, storage, functions and hosting.",
+  "free": {
+    "kind": "free",
+    "text": "1 GiB database; Spark trial DB archives at 90 days, deletes 90 days later"
+  },
+  "cells": {
+    "metered": "$0.03/100K reads, $0.09/100K writes beyond free quotas",
+    "regions": "Choose per product",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$0",
+        "plan": "Spark or Blaze",
+        "state": "unclear",
+        "math": "This is Firestore pricing, not SQL. The estimate shows $0 inside the daily limits, and $0.74457795 at paid rates."
+      },
+      {
+        "v": "$0",
+        "plan": "Spark or Blaze",
+        "state": "unclear",
+        "math": "This is Firestore pricing, not SQL. 1 GB of kept data fits the estimated free allowance."
+      }
+    ],
+    "files": [
+      {
+        "v": "$2.59",
+        "plan": "Blaze",
+        "state": "unclear",
+        "math": "The estimate is USD $2.593482809525 with US free allowances, and $13.912983 with none."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$0",
+        "plan": "Blaze",
+        "state": "unclear",
+        "math": "The estimate is USD $0 with the free allowances, and USD $0.1445 once those allowances are used."
+      }
+    ]
+  }
+}

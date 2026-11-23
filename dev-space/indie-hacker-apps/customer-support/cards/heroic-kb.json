@@ -1,0 +1,25 @@
+{
+  "slug": "heroic-kb",
+  "name": "Heroic Knowledge Base",
+  "url": "https://herothemes.com/plugins/heroic-wordpress-knowledge-base/",
+  "jobs": ["kb"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "kb": "F02: WordPress help centre, documentation and FAQ publishing with search, feedback and analytics"
+    }
+  },
+  "line": "WordPress plugin for customer help articles, FAQs, and documentation.",
+  "free": { "kind": "none", "text": "No free plan; 14-day money-back guarantee" },
+  "cells": {
+    "channels": "Help center, FAQs, article feedback",
+    "ai": "Built-in AI assistant retired; HelpJet is separate",
+    "selfhost": "Yes, WordPress plugin"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base only. It has no built-in email support inbox or staffed live chat." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base only. It has no built-in email support inbox or staffed live chat." }
+    ]
+  }
+}

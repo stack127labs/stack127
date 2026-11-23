@@ -1,0 +1,32 @@
+{
+  "slug": "customer-io",
+  "name": "Customer.io",
+  "url": "https://customer.io/",
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing automation for customer journeys",
+      "newsletter": "F02: one-time newsletter and broadcast sending",
+      "transactional": "F02: API-triggered transactional email is supported",
+      "multichannel": "F02: email combined with push, in-app, SMS, WhatsApp and webhooks"
+    }
+  },
+  "line": "Customer journeys and broadcasts across email and other messaging channels.",
+  "free": {"kind": "trial", "text": "14-day trial; up to 5,000 total messages"},
+  "cells": {"newsletters": "Yes", "api": "Yes"},
+  "costs": {
+    "subs": [
+      {"v": "$100", "plan": "Essentials", "state": "confirmed", "math": "4,000 sends a month. The Essentials base price is $100 a month."},
+      {"v": "$100", "plan": "Essentials", "state": "confirmed", "math": "20,000 sends a month. The Essentials base price is $100 a month."},
+      {"v": "$145", "plan": "Essentials", "state": "confirmed", "math": "40,000 sends a month. The estimated Essentials total is $145 a month."},
+      {"v": "$505", "plan": "Essentials", "state": "confirmed", "math": "200,000 sends a month. The estimated Essentials total is $505 a month."}
+    ],
+    "appmail": [
+      {"v": "$100", "plan": "Essentials", "state": "confirmed", "math": "3,000 app emails a month, with 5,000 or fewer profiles. The Essentials plan includes 1M emails a month."},
+      {"v": "$100", "plan": "Essentials", "state": "confirmed", "math": "10,000 app emails a month, with 5,000 or fewer profiles. The Essentials plan includes 1M emails a month."},
+      {"v": "$100", "plan": "Essentials", "state": "confirmed", "math": "50,000 app emails a month, with 5,000 or fewer profiles. The Essentials plan includes 1M emails a month."},
+      {"v": "$100", "plan": "Essentials", "state": "confirmed", "math": "100,000 app emails a month, with 5,000 or fewer profiles. The Essentials plan includes 1M emails a month."}
+    ]
+  }
+}

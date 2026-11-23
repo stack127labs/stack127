@@ -1,0 +1,17 @@
+{
+  "slug": "skycloak",
+  "name": "Skycloak",
+  "official_url": "https://skycloak.io/",
+  "image_url": "https://skycloak.io/wp-content/uploads/2024/01/cropped-cropped-logo.png",
+  "source_page": "https://skycloak.io/",
+  "kind": "logo-mark",
+  "source_host": "skycloak.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "31b5fa8152aab84d9c45c93e097ba5a2798d3b1ec8d260e50d1305b9102e8394",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

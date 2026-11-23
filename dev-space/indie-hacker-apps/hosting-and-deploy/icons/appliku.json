@@ -1,0 +1,17 @@
+{
+  "slug": "appliku",
+  "name": "Appliku",
+  "official_url": "https://appliku.com/",
+  "image_url": "https://appliku.com/static/mainapp/logo.png",
+  "source_page": "https://appliku.com/",
+  "kind": "logo-mark",
+  "source_host": "appliku.com",
+  "original": {
+    "format": "png",
+    "width": 170,
+    "height": 169
+  },
+  "sha256": "e24ee50deff996f0eaa20087202d3411d2708f9cc7d59592336d11777d9597b0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

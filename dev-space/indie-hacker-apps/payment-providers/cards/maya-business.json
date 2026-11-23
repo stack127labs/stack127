@@ -1,0 +1,28 @@
+{
+  "slug": "maya-business",
+  "name": "Maya Business",
+  "url": "https://www.maya.ph/business",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acquirer; the merchant keeps the sale and delivery",
+      "links": "F16: no-code Payment Links and Email Invoice, sent without a merchant website"
+    }
+  },
+  "line": "Philippine payment gateway for checkout, invoices and payment links.",
+  "free": { "kind": "none", "text": "No fixed monthly price published; processing fees apply" },
+  "cells": {
+    "type": "Payment gateway and acquirer",
+    "countries": "Philippines seller market",
+    "payout": "Cards typically settle T+1 banking day"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The Philippines is the only documented seller market. It isn't published whether US sellers can sign up, and no US card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The Philippines is the only documented seller market. It isn't published whether UK sellers can sign up, and no UK card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The Philippines is the only documented seller market. It isn't published whether German sellers can sign up, and no German card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The Philippines is the only documented seller market. It isn't published whether Indian sellers can sign up, and no India card rate is published." }
+    ]
+  }
+}

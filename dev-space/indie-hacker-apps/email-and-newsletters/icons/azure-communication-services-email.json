@@ -1,0 +1,17 @@
+{
+  "slug": "azure-communication-services-email",
+  "name": "Azure Communication Services Email",
+  "official_url": "https://azure.microsoft.com/en-us/products/communication-services",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "ebc7b4ac3bdad6e66e46496984c7845aabe6a3319c16308e2f3b35f2468afbd6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

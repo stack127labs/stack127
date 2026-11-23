@@ -1,0 +1,56 @@
+{
+  "slug": "paguelofacil",
+  "name": "PagueloFacil",
+  "url": "https://www.paguelofacil.com/",
+  "jobs": [
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online gateway that receives and remits merchant funds; the merchant is the seller",
+      "billing": "F15: recurring plans with a billing period and amount; scheduled automatic card charges",
+      "links": "F16: payment links shared by messaging or social channels, plus email payment requests"
+    }
+  },
+  "line": "Panama gateway for online checkout, payment links and recurring cards.",
+  "free": {
+    "kind": "none",
+    "text": "Transaction pricing; separate monthly amount is not stated"
+  },
+  "cells": {
+    "type": "Online payment gateway and payment provider",
+    "countries": "Panama only",
+    "payout": "Withdrawal processed in 48–72 business hours"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Panama."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Panama."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Panama."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Panama."
+      }
+    ]
+  }
+}

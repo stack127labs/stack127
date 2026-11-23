@@ -1,0 +1,51 @@
+{
+  "slug": "coinbase-business",
+  "name": "Coinbase Business",
+  "url": "https://www.coinbase.com/business",
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts USDC and USDT checkout payments on named networks",
+      "links": "F16: sellers create single-use or reusable payment links and QR codes"
+    }
+  },
+  "line": "Crypto account with USDC payment links, invoices and checkout.",
+  "free": {
+    "kind": "none",
+    "text": "No monthly fee; 1% for migrating Commerce users"
+  },
+  "cells": {
+    "type": "Crypto",
+    "countries": "US and Singapore",
+    "payout": "Seconds in; ACH 1 to 3 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Unknown",
+        "plan": "Stablecoin payment",
+        "state": "not_published",
+        "math": "The rate for new accounts is shown only during account setup. Only Commerce users who are moving over have a published 1% rate."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Coinbase Business only accepts businesses based in the US and Singapore."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Coinbase Business only accepts businesses based in the US and Singapore."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Coinbase Business only accepts businesses based in the US and Singapore."
+      }
+    ]
+  }
+}

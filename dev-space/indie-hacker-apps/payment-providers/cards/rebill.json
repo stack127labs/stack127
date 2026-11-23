@@ -1,0 +1,29 @@
+{
+  "slug": "rebill",
+  "name": "Rebill",
+  "url": "https://www.rebill.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment orchestrator and gateway; the merchant remains the seller",
+      "billing": "F14: automated recurring subscriptions and card renewals; F15: trials, plan changes, retries",
+      "links": "F16: one-time and subscription payment links, plus branded hosted pages"
+    }
+  },
+  "line": "Orchestrate payments, checkout, subscription billing, and payment links.",
+  "free": { "kind": "none", "text": "Local prices show no monthly fee; USD route may have a $500 minimum" },
+  "cells": {
+    "type": "Payment orchestrator and gateway",
+    "countries": "US, Latin America; full seller list unpublished",
+    "payout": "Local timing varies; USD route 15 days (Brazil 30)"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2.90% + USD 0.30", "plan": "US local", "state": "confirmed", "math": "For US local cards: 2.90% plus USD 0.30 per transaction, before applicable taxes." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The list of eligible seller countries isn't complete. No UK card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The list of eligible seller countries isn't complete. No German card rate is published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The list of eligible seller countries isn't complete. No India card rate is published." }
+    ]
+  }
+}

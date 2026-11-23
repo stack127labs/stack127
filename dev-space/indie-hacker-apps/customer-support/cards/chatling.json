@@ -1,0 +1,26 @@
+{
+  "slug": "chatling",
+  "name": "Chatling",
+  "url": "https://chatling.ai/",
+  "jobs": ["ai", "chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: AI Agent answers customers autonomously from configured knowledge and actions",
+      "chat": "F17: Native website widget with live chat; a human agent can take over from the AI"
+    }
+  },
+  "line": "AI agents answer website and messaging questions with human handoff.",
+  "free": { "kind": "free", "text": "Free: 1 seat, 1 agent, 200 AI credits/month" },
+  "cells": {
+    "channels": "Website chat, messaging, email replies",
+    "ai": "Credit-based; model choice changes usage",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "The free plan includes one seat and unlimited chats. A setup with the AI turned off and people answering first is not confirmed." },
+      { "v": "$35", "plan": "Starter", "state": "unclear", "math": "$25 Starter plan + $10 for one extra seat. A setup with the AI turned off and people answering first is not confirmed." }
+    ]
+  }
+}

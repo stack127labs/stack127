@@ -1,0 +1,17 @@
+{
+  "slug": "paykickstart",
+  "name": "PayKickstart",
+  "official_url": "https://paykickstart.com/",
+  "image_url": "https://paykickstart.com/wp-content/uploads/2025/11/cropped-favicon-192x192.png",
+  "source_page": "https://paykickstart.com/",
+  "kind": "favicon",
+  "source_host": "paykickstart.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "4d95a1fd5511c5eca094e471d2db15cdd647ebfebf24196421d99a17d6e3dddb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

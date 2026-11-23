@@ -1,0 +1,44 @@
+{
+  "slug": "proprofs-help-desk",
+  "name": "ProProfs Help Desk",
+  "url": "https://www.proprofsdesk.com/",
+  "jobs": [
+    "helpdesk",
+    "ai",
+    "inbox"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Support ticketing and shared inboxes with a customer portal; F17: native email tickets",
+      "ai": "F22: Autonomous role resolves routine tickets, sending answers and closing them; listed on the Suite plan",
+      "inbox": "F18: Ticket assignment, team inbox access, round-robin routing and internal notes are documented"
+    }
+  },
+  "line": "Support ticketing and shared inbox with workflow automation and a portal.",
+  "free": {
+    "kind": "free",
+    "text": "Free for 1 agent and 100 tickets/month"
+  },
+  "cells": {
+    "channels": "Email, website chat, WhatsApp, customer portal",
+    "ai": "50 AI drafts included; extra-draft rate unknown",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "One agent fits the free plan. 100 conversations may create more than 100 tickets."
+      },
+      {
+        "v": "$119.97",
+        "plan": "Essentials",
+        "state": "unclear",
+        "math": "3 seats at $39.99 a month each, but only under conditions. Checkout did not confirm capacity for three seats."
+      }
+    ]
+  }
+}

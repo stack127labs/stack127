@@ -1,0 +1,17 @@
+{
+  "slug": "asiapay",
+  "name": "AsiaPay",
+  "official_url": "https://www.asiapay.com/",
+  "image_url": "https://www.asiapay.com/images/asiapay_logo.svg",
+  "source_page": "https://www.asiapay.com/",
+  "kind": "svg-icon",
+  "source_host": "asiapay.com",
+  "original": {
+    "format": "svg",
+    "width": 2523,
+    "height": 2577
+  },
+  "sha256": "d7c6546c304f1460d0514c99d096d162360e6fee63254677d00d901c7f6afca7",
+  "note": "official site only provides a stacked wordmark, not a square mark",
+  "saved_at": "2026-11-14"
+}

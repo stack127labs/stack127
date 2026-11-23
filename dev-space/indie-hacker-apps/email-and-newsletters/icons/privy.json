@@ -1,0 +1,17 @@
+{
+  "slug": "privy",
+  "name": "Privy",
+  "official_url": "https://www.privy.com/",
+  "image_url": "https://www.privy.com/static/images/favicons/apple-icon.png",
+  "source_page": "https://www.privy.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "privy.com",
+  "original": {
+    "format": "png",
+    "width": 360,
+    "height": 360
+  },
+  "sha256": "baca50ea5c589a51501f17577bb0dd63cd073e0c0bda5b0b7aafd3149718bfef",
+  "note": "Official square asset contains the Privy wordmark; no separate square mark was found.",
+  "saved_at": "2026-11-14"
+}

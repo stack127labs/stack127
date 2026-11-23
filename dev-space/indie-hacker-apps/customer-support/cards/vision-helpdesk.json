@@ -1,0 +1,27 @@
+{
+  "slug": "vision-helpdesk",
+  "name": "Vision Helpdesk",
+  "url": "https://www.visionhelpdesk.com/",
+  "jobs": ["helpdesk", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F17: the configurable widget offers knowledge-base search with the help desk tiers",
+      "helpdesk": "F17: Native email ticketing on all help-desk plans, with a web ticket form and knowledge base search (F21)",
+      "inbox": "F18: Assignment to multiple staff, private notes, canned responses and custom views on all help-desk plans"
+    }
+  },
+  "line": "Email ticketing and customer support with a separate live chat product.",
+  "free": { "kind": "trial", "text": "30-day trial, no card" },
+  "cells": {
+    "channels": "Email, customer portal, website live chat",
+    "ai": "No native AI billing unit established",
+    "selfhost": "Yes, paid Download edition"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$15", "plan": "SaaS Starter", "state": "confirmed", "math": "1 agent at $15 a month for email ticketing." },
+      { "v": "$45", "plan": "SaaS Starter", "state": "confirmed", "math": "3 agents at $15 a month each for email ticketing." }
+    ]
+  }
+}

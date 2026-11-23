@@ -1,0 +1,26 @@
+{
+  "slug": "missive",
+  "name": "Missive",
+  "url": "https://missiveapp.com/",
+  "jobs": ["inbox", "chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F18: Shared conversations with assignment, private comments and shared drafts; F17: native email accounts",
+      "chat": "F17: Native website Live Chat widget on all paid plans, powered by a connected Twilio account"
+    }
+  },
+  "line": "Shared team email with private discussion, chat, and customer messaging.",
+  "free": { "kind": "trial", "text": "30-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, SMS, WhatsApp, social",
+    "ai": "Bring your own key or pay 1.25× provider cost",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$18", "plan": "Starter", "state": "confirmed", "math": "1 user at $18 a month, with one shared email account and 100 conversations." },
+      { "v": "$54", "plan": "Starter", "state": "confirmed", "math": "3 users at $18 a month each, with one shared email account and 100 conversations." }
+    ]
+  }
+}

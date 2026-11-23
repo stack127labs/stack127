@@ -1,0 +1,17 @@
+{
+  "slug": "gitlab-pages",
+  "name": "GitLab Pages",
+  "official_url": "https://docs.gitlab.com/user/project/pages/",
+  "image_url": "https://docs.gitlab.com/apple-touch-icon.png",
+  "source_page": "https://docs.gitlab.com/user/project/pages/",
+  "kind": "apple-touch-icon",
+  "source_host": "docs.gitlab.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "27b43cc4db6bb37dfd7ae56d18424bc4afb79bb97675628fe42ce12a0e5ae0dc",
+  "note": "parent brand: GitLab; no distinct Pages icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "dbos",
+  "name": "DBOS",
+  "official_url": "https://www.dbos.dev/",
+  "image_url": "https://www.dbos.dev/assets/images/67346bd73374d61e8a40f563_dbos-256.png",
+  "source_page": "https://www.dbos.dev/",
+  "kind": "apple-touch-icon",
+  "source_host": "dbos.dev",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "29a74fe64b41da47ec32ea3664939173267c7a2a393426f0b7a6e0697422b179",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

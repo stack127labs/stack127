@@ -1,0 +1,20 @@
+{
+  "slug": "ovhcloud-vps",
+  "name": "OVHcloud VPS",
+  "url": "https://www.ovhcloud.com/en/vps/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: one virtual machine with its own OS; the customer configures and maintains the guest OS and apps"
+    }
+  },
+  "line": "Rent a virtual server and manage its operating system and apps.",
+  "free": { "kind": "none", "text": "No ongoing free VPS allowance" },
+  "cells": { "type": "VPS/VM", "regions": "Europe, North America and APAC; plan availability varies", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "VPS-1, no commitment", "state": "unclear", "math": "The UK Erith 12-month quote is £39.72 upfront = £3.31 a month before tax. The no-commit price is unknown. VPS-1 has 2 vCores, 4 GB and 40 GB. Builds are self-managed." },
+    { "v": "Unknown", "plan": "VPS-1, no commitment", "state": "unclear", "math": "The UK Erith 12-month quote is £39.72 divided by 12 = £3.31 a month before tax. The no-commit price is unknown. 2 vCores and 4 GB meet the minimum. 100 GB is below the APAC 500 GB quota. Capacity is untested." },
+    { "v": "Unknown", "plan": "VPS-1 + Premium backup, no commitment", "state": "unclear", "math": "12-month UK quote: £3.31 a month for the VPS + £0.96 for Premium backup with 7 restore points. The no-commit price and off-site database dumps that match the database state are unknown." }
+  ] }
+}

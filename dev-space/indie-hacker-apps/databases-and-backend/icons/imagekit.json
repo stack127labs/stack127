@@ -1,0 +1,17 @@
+{
+  "slug": "imagekit",
+  "name": "ImageKit",
+  "official_url": "https://imagekit.io/",
+  "image_url": "https://imagekit.io/light-icon.png",
+  "source_page": "https://imagekit.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "imagekit.io",
+  "original": {
+    "format": "heif",
+    "width": 1067,
+    "height": 1067
+  },
+  "sha256": "ed1f38b824894a235464761515642271acf40dca6a556dea014f48f28bdbad0f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

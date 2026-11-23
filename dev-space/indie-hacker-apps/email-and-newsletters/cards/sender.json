@@ -1,0 +1,35 @@
+{
+  "slug": "sender",
+  "name": "Sender",
+  "url": "https://www.sender.net/",
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F01: email marketing and transactional platform; lifecycle workflows listed in F02",
+      "newsletter": "F02: newsletters and campaigns to consented subscribers",
+      "transactional": "F02: REST API and SMTP relay for transactional app email",
+      "multichannel": "F02: SMS is listed with campaigns, lifecycle workflows and transactional mail"
+    }
+  },
+  "line": "Email campaigns, lifecycle workflows and transactional API/SMTP.",
+  "free": { "kind": "free", "text": "Free for 2,500 subscribers and 15,000 emails per month" },
+  "cells": {
+    "newsletters": "Yes, campaigns to consented subscribers",
+    "api": "Yes, REST API and SMTP relay"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 0/month", "plan": "Free Forever", "state": "confirmed", "math": "1,000 subscribers × 4 sends = 4,000 emails. This is within the 2,500 subscriber and 15,000 send limits. Branding is required." },
+      { "v": "USD 39/month", "plan": "Standard 5,000", "state": "confirmed", "math": "5,000 subscribers × 4 sends = 20,000 emails. This is within the 60,000 monthly sends." },
+      { "v": "USD 69/month", "plan": "Standard 10,000", "state": "confirmed", "math": "10,000 subscribers × 4 sends = 40,000 emails. This is within the 120,000 monthly sends." },
+      { "v": "USD 259/month", "plan": "Standard 50,000", "state": "confirmed", "math": "50,000 subscribers × 4 sends = 200,000 emails. This is within the 600,000 monthly sends." }
+    ],
+    "appmail": [
+      { "v": "USD 0/month", "plan": "Free", "state": "confirmed", "math": "3,000 app sends to 1,000 contacts. The Free plan allows 2,500 subscribers and 15,000 monthly sends." },
+      { "v": "USD 0/month", "plan": "Free", "state": "confirmed", "math": "10,000 app sends to 1,000 contacts. The Free plan allows 2,500 subscribers and 15,000 monthly sends." },
+      { "v": "USD 39/month", "plan": "Standard 5,000", "state": "confirmed", "math": "50,000 app sends to 1,000 contacts. The 5,000-contact tier includes 60,000 monthly sends." },
+      { "v": "USD 69/month", "plan": "Standard 10,000", "state": "confirmed", "math": "100,000 app sends to 1,000 contacts. The 10,000-contact tier includes 120,000 monthly sends." }
+    ]
+  }
+}

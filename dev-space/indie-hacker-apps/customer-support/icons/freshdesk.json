@@ -1,0 +1,17 @@
+{
+  "slug": "freshdesk",
+  "name": "Freshdesk",
+  "official_url": "https://www.freshworks.com/freshdesk/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a7/9b/fc/a79bfcbb-fc98-9503-5a22-f577a899f3e9/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/freshdesk/id849713306?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "179b16905d8313b7f71992b28cd77081a0a486579019fd6d1399610035f5097c",
+  "note": "App Store app 'Freshdesk' by Freshworks Technologies Private Limited; product icon",
+  "saved_at": "2026-11-14"
+}

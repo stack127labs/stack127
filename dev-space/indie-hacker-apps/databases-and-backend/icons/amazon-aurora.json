@@ -1,0 +1,17 @@
+{
+  "slug": "amazon-aurora",
+  "name": "Amazon Aurora",
+  "official_url": "https://aws.amazon.com/rds/aurora/",
+  "image_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+  "source_page": "https://aws.amazon.com/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "d1.awsstatic.com",
+  "original": {
+    "format": "svg",
+    "width": 427,
+    "height": 427
+  },
+  "sha256": "b627eb8d150e9618e0a78d744bedbba35c794a76fc17aa3d33fb5579a2312704",
+  "note": "official AWS Architecture Icons: Amazon Aurora",
+  "saved_at": "2026-11-14"
+}

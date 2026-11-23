@@ -1,0 +1,17 @@
+{
+  "slug": "whos-amung-us",
+  "name": "whos.amung.us",
+  "official_url": "https://whos.amung.us/",
+  "image_url": "https://whos.amung.us/apple-touch-icon.png",
+  "source_page": "https://whos.amung.us/",
+  "kind": "apple-touch-icon",
+  "source_host": "whos.amung.us",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "ed16140b6be5da1b8821de4033fb38df5d80abd2967359b8c005cd5fb273a108",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

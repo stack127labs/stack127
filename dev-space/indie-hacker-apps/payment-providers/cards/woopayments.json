@@ -1,0 +1,51 @@
+{
+  "slug": "woopayments",
+  "name": "WooPayments",
+  "url": "https://woocommerce.com/payments/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway built into WooCommerce; the store merchant is the seller",
+      "links": "F16: WooCommerce sends links to pay pending orders; the app shares order-payment links and QR codes"
+    }
+  },
+  "line": "Card, wallet, local, and payment-link checkout for WooCommerce.",
+  "free": {
+    "kind": "none",
+    "text": "No setup or monthly processing fee; requires WooCommerce"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "US, UK, Germany, and many other countries",
+    "payout": "US 2 days; new accounts wait 7 days plus pending time"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "2.90% + $0.30",
+        "plan": "Pay as you go",
+        "state": "confirmed",
+        "math": "The rate for online payments made with cards from the US."
+      },
+      {
+        "v": "1.50% + £0.25",
+        "plan": "Pay as you go",
+        "state": "confirmed",
+        "math": "The rate for online payments made with cards from the UK."
+      },
+      {
+        "v": "1.50% + €0.25",
+        "plan": "Pay as you go",
+        "state": "confirmed",
+        "math": "The rate for online payments made with cards from Germany and other listed euro-area countries."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "India isn't one of the 38 published seller countries."
+      }
+    ]
+  }
+}

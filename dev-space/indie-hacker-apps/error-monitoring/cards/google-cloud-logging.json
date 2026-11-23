@@ -1,0 +1,30 @@
+{
+  "slug": "google-cloud-logging",
+  "name": "Google Cloud Logging",
+  "url": "https://cloud.google.com/logging",
+  "jobs": ["logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: collects, routes, stores and searches logs with Logs Explorer (L02)"
+    }
+  },
+  "line": "Collects, stores and searches application and cloud service logs.",
+  "free": { "kind": "free", "text": "50 GiB/project/month included for ordinary logs" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Stores logs; Error Reporting is a separate product" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Stores logs; Error Reporting is a separate product" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Stores logs; Error Reporting is a separate product" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

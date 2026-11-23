@@ -1,0 +1,17 @@
+{
+  "slug": "monnify",
+  "name": "Monnify",
+  "official_url": "https://monnify.com/",
+  "image_url": "https://monnify.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmonnify-mint.16vfvb_7khs5u.png&w=640&q=75",
+  "source_page": "https://monnify.com/",
+  "kind": "logo-mark",
+  "source_host": "monnify.com",
+  "original": {
+    "format": "png",
+    "width": 160,
+    "height": 100
+  },
+  "sha256": "be99aaada29fd97996fbbc6a761882c5a99c72b865f2aa864605fc7a8a8ada70",
+  "note": "mark cropped from the official Monnify logo; no square icon is published",
+  "saved_at": "2026-11-14"
+}

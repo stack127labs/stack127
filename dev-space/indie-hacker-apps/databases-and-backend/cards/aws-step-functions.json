@@ -1,0 +1,27 @@
+{
+  "slug": "aws-step-functions",
+  "name": "AWS Step Functions",
+  "url": "https://aws.amazon.com/step-functions/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: hosted workflow orchestration with retries, waits and parallel work is the primary role; J04: Wait states up to one year"
+    }
+  },
+  "line": "Coordinates cloud workflows with states, retries, waits and branches.",
+  "free": { "kind": "free", "text": "4,000 Standard state transitions each month" },
+  "cells": {
+    "metered": "$0.025 per 1,000 Standard transitions",
+    "regions": "Many AWS Regions; integration support varies",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Workflow service, not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Workflow service, not a database" }
+    ],
+    "files": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Does not store app files" }],
+    "jobs": [{ "v": "$1.15", "plan": "Standard", "state": "unclear", "math": "Each of 10,000 workflows has 5 transitions (steps). The first 4,000 transitions are free, and the rest cost $0.025 per 1,000. Connected services are not included. The total is $1.15." }]
+  }
+}

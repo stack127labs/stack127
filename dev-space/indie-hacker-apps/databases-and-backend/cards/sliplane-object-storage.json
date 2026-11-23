@@ -1,0 +1,51 @@
+{
+  "slug": "sliplane-object-storage",
+  "name": "Sliplane Object Storage",
+  "url": "https://sliplane.io/object-storage",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted S3-compatible object storage for files and objects is the primary type; F05: standard S3 API"
+    }
+  },
+  "line": "S3-compatible object storage with bucket-scoped keys and versioning.",
+  "free": { "kind": "free", "text": "1GB avg/team; free requests/egress; no idle expiry; bucket deletion waits 24h" },
+  "cells": {
+    "metered": "€5 per 250 GB block after 1 GB per team",
+    "regions": "Germany (Frankfurt) and US East (New York)",
+    "selfhost": "No, Sliplane hosts the storage"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Sliplane Object Storage is not a database"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Sliplane Object Storage is not a database"
+      }
+    ],
+    "files": [
+      {
+        "v": "€5",
+        "plan": "Sliplane Object Storage",
+        "state": "confirmed",
+        "math": "(100 GB − 1 GB) ÷ 250 GB, rounded up, is 1 block, which costs €5. Requests and egress are free. VAT is not included."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Sliplane Object Storage does not run background jobs"
+      }
+    ]
+  }
+}

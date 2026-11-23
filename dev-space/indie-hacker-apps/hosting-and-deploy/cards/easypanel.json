@@ -1,0 +1,21 @@
+{
+  "slug": "easypanel",
+  "name": "Easypanel",
+  "url": "https://easypanel.io/",
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: self-hosted control panel the customer installs on a server they choose; free license for up to 3 projects",
+      "static": "18: the app builder can produce containers for static-site workloads"
+    }
+  },
+  "line": "Build and deploy apps on a Linux server you provide.",
+  "free": { "kind": "selfhost", "text": "Free license for up to three projects; bring your server" },
+  "cells": { "type": "Self-hosted deployment panel", "regions": "Your server's region", "selfhost": "Yes; install on your supported Linux server" },
+  "costs": { "work": [
+    { "v": "$0", "plan": "Free panel", "state": "confirmed", "math": "The panel is free ($0). Server charges for the workload are separate." },
+    { "v": "Unknown", "plan": "Hobby + server", "state": "unclear", "math": "$10.9 per server a month, but only on annual billing. Server and network costs are not priced." },
+    { "v": "Unknown", "plan": "Hobby + server", "state": "unclear", "math": "$10.9 per server a month, but only on annual billing. Server and database resource costs are not priced." }
+  ] }
+}

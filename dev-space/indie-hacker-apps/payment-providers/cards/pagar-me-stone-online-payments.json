@@ -1,0 +1,52 @@
+{
+  "slug": "pagar-me-stone-online-payments",
+  "name": "Pagar.me / Stone online payments",
+  "url": "https://www.pagar.me/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and gateway; the merchant sells the goods and services",
+      "billing": "F14: plans and subscriptions automate recurring card and boleto charges; F15: trials, intervals",
+      "links": "F02: Essencial is the online checkout and link product; F16: payment links can be created"
+    }
+  },
+  "line": "Brazilian gateway for online checkout, payment links and recurring sales.",
+  "free": {
+    "kind": "free",
+    "text": "Essencial has no monthly price; transaction fees apply"
+  },
+  "cells": {
+    "type": "Payment service provider and gateway",
+    "countries": "Brazil only",
+    "payout": "From next day; new-seller review may hold funds 30 days"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Brazil."
+      }
+    ]
+  }
+}

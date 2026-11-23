@@ -1,0 +1,21 @@
+{
+  "slug": "amazon-lightsail",
+  "name": "Amazon Lightsail",
+  "url": "https://aws.amazon.com/lightsail/",
+  "jobs": ["vps", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: Lightsail instances are virtual private servers; the customer controls the guest OS and app",
+      "paas": "03: managed Linux container services run the customer's container images"
+    }
+  },
+  "line": "Simple virtual servers with separate managed database and container options.",
+  "free": { "kind": "credits", "text": "No repeating free VM tier; AWS credits may apply" },
+  "cells": { "type": "VPS and managed services", "regions": "AWS Regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$5", "plan": "Linux VM", "state": "unclear", "math": "$5 a month for the known server cost. Building from source, domain registration and any outside builder cost extra." },
+    { "v": "$7", "plan": "Linux VM", "state": "unclear", "math": "The bundle costs at most $7 a month. Builds and the domain are not in this amount." },
+    { "v": "$22", "plan": "VM + managed PostgreSQL", "state": "unclear", "math": "$7 for the server + $15 for the database = $22 a month. Builds, the domain and tax are not included." }
+  ] }
+}

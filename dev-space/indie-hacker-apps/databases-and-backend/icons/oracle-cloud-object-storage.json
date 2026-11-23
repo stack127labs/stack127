@@ -1,0 +1,17 @@
+{
+  "slug": "oracle-cloud-object-storage",
+  "name": "Oracle Cloud Object Storage",
+  "official_url": "https://www.oracle.com/cloud/storage/object-storage/",
+  "image_url": "https://www.oracle.com/asset/web/favicons/favicon-192.png",
+  "source_page": "https://www.oracle.com/cloud/storage/object-storage/",
+  "kind": "favicon",
+  "source_host": "oracle.com",
+  "original": {
+    "format": "heif",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "42588f7fd1b2af6b9e2cdeb47bde5712b1821dd637b914d015b7a613155b0fe6",
+  "note": "Parent brand: Oracle Cloud; the product site publishes the shared Oracle mark.",
+  "saved_at": "2026-11-14"
+}

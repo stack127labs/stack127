@@ -65,7 +65,7 @@ Category data uses the existing self-host and CLI source tags. The directory rec
 1. A source-table trigger calls `stack127_touch_page(slug, reason)` for a meaningful public change, then queues its dataset event with `stack127_enqueue_revalidation(entity_type, slug, source)`. This adds a row to `public.stack127_revalidation_events`.
 2. The Supabase `cache-worker` function claims events. It uses `scripts/stack127/cache/targets.mjs` to map them to Next.js tags, paths, Cloudflare tags, and pages to warm.
 3. It calls `POST /api/cache/revalidate`, which runs `revalidateTag` and `revalidatePath`.
-4. It verifies origin pages and the self-host search and CLI index against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
+4. It verifies origin pages and the self-host search, CLI index, and app directory indexes against their sources before purging Cloudflare. It then warms the verified responses. A stale response leaves the event queued for retry.
 
 A release purges `stack127-public` and `stack127-assets`, then warms the main pages.
 
@@ -89,6 +89,7 @@ The source tags live in `lib/cache-tags.ts`. `scripts/stack127/cache/targets.mjs
 | `launch_directories` | `stack127-launch-directories` | `page:launch-directories` |
 | `cli_apps` | `stack127-terminal-apps` | `cli-apps-catalog` |
 | `self_host_app`, `self_host_catalog` | `stack127-self-host-apps` and app detail tags | `self-host-catalog` and app detail tags |
+| `indie_hacker_apps` (one event per published app directory, such as `file-storage`; none while unpublished) | `stack127-indie-hacker-apps:<research category>` | `app-directory:<slug>`, on the JSON routes; see [the import README](../scripts/indie-hacker-apps/README.md) |
 
 Keyboard-shortcut and ad-network child headings can inherit their parent directory icon. A parent `page` event also purges `keyboard-shortcuts-catalog` or `ad-networks-catalog`, shared by the parent and child responses. A child-only edit keeps its page-specific purge.
 

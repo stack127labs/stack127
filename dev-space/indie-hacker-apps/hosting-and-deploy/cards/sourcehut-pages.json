@@ -1,0 +1,20 @@
+{
+  "slug": "sourcehut-pages",
+  "name": "sourcehut pages",
+  "url": "https://srht.site/",
+  "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static website hosting; the customer supplies generated files and SourceHut serves them"
+    }
+  },
+  "line": "Publish static sites from sourcehut repositories with automatic TLS.",
+  "free": { "kind": "free", "text": "Alpha payment optional; site limit 1 GiB; no permanent free promise" },
+  "cells": { "type": "Static hosting", "regions": "Netherlands/EU processing; encrypted US backups", "selfhost": "Yes; AGPLv3, self-host guide is work in progress" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Amateur hackers account", "state": "unclear", "math": "$4 a month or €4 account fee before tax. Bandwidth, request and build allowances are not quantified, so the full static-site total is unknown." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Pages does not provide an application runtime for APIs." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Requires external application hosting and PostgreSQL/backup services." }
+  ] }
+}

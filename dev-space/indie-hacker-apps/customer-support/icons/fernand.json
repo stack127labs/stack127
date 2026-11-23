@@ -1,0 +1,17 @@
+{
+  "slug": "fernand",
+  "name": "Fernand",
+  "official_url": "https://getfernand.com/",
+  "image_url": "https://app.getfernand.com/images/favicon/icon_512.png",
+  "source_page": "https://getfernand.com/",
+  "kind": "manifest-icon",
+  "source_host": "app.getfernand.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "37b312b7306e8c061e4e373a3e28b0b6e1cbb5f8fbe06eaded0a7365a5bced45",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

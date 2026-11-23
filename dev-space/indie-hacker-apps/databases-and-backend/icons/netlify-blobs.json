@@ -1,0 +1,17 @@
+{
+  "slug": "netlify-blobs",
+  "name": "Netlify Blobs",
+  "official_url": "https://docs.netlify.com/build/data-and-storage/netlify-blobs/",
+  "image_url": "https://docs.netlify.com/apple-touch-icon.png",
+  "source_page": "https://docs.netlify.com/build/data-and-storage/netlify-blobs/",
+  "kind": "apple-touch-icon",
+  "source_host": "docs.netlify.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "2fdb3371d54c982538a9db59a504bd5e9077807dc22712ee051c638dcc7428ca",
+  "note": "Parent brand: Netlify; product documentation publishes the shared Netlify icon.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "mailtrap",
+  "name": "Mailtrap",
+  "official_url": "https://mailtrap.io/",
+  "image_url": "https://mailtrap.io/app/uploads/2018/11/cropped-512px-mailtrap-logo-1.png",
+  "source_page": "https://mailtrap.io/",
+  "kind": "logo-mark",
+  "source_host": "mailtrap.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "e6d2f66693653ecd865bd725c599241292546126741921c6e1ffa1a77cf9d990",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

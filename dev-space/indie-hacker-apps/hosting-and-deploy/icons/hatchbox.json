@@ -1,0 +1,17 @@
+{
+  "slug": "hatchbox",
+  "name": "Hatchbox",
+  "official_url": "https://hatchbox.io/",
+  "image_url": "https://hatchbox.io/icon.svg",
+  "source_page": "https://hatchbox.io/",
+  "kind": "svg-icon",
+  "source_host": "hatchbox.io",
+  "original": {
+    "format": "svg",
+    "width": 2667,
+    "height": 2667
+  },
+  "sha256": "7b33c122533df6894b4fad91b4126b3a476e3ee76c49c4fb31b5d7d900fba5ef",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

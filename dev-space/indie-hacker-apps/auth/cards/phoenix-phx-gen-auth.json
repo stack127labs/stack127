@@ -1,0 +1,26 @@
+{
+  "slug": "phoenix-phx-gen-auth",
+  "name": "Phoenix phx.gen.auth",
+  "url": "https://phoenix.hexdocs.pm/mix_phx_gen_auth.html",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: source generator that adds account code to the developer's app; F05: developer owns the generated code"
+    }
+  },
+  "line": "Phoenix generator for signup, login, email confirmation, and recovery.",
+  "free": { "kind": "selfhost", "text": "Free MIT generator; you run the generated app" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No SSO or SCIM connection plan"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Phoenix software licence costs $0. Hosting, database and delivery for the generated app cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Phoenix software licence costs $0. Hosting, database and delivery for the generated app cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Phoenix software licence costs $0. Hosting, database and delivery for the generated app cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Phoenix software licence costs $0. Hosting, database and delivery for the generated app cost extra." }
+    ]
+  }
+}

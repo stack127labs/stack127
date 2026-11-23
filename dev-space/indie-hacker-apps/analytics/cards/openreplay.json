@@ -1,0 +1,28 @@
+{
+  "slug": "openreplay",
+  "name": "OpenReplay",
+  "url": "https://openreplay.com/",
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary job is session replay with product analytics; F17: DOM-based web replay with filtered heatmaps",
+      "web": "F15: top pages, browsers, countries, referrers and devices, with UTM campaigns",
+      "product": "F16: funnels by sessions or users, paths with entry and exit URLs, and custom events"
+    }
+  },
+  "line": "Records web sessions with product analytics and self-hosted options.",
+  "free": { "kind": "free", "text": "Free: 1,000 sessions/month, 1 project, 2 users, 7-day retention" },
+  "cells": {
+    "cookieless": "Unknown, tracker cookie details are not published",
+    "location": "EU for account data; session region unclear",
+    "selfhost": "Yes, community self-hosted edition"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by recorded sessions. The free plan covers 1,000 a month. The paid Serverless plan is $5.95 per 1,000 sessions a month. Pageviews do not set the session count." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by recorded sessions. The free plan covers 1,000 a month. The paid Serverless plan is $5.95 per 1,000 sessions a month. Pageviews do not set the session count." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by recorded sessions. The free plan covers 1,000 a month. The paid Serverless plan is $5.95 per 1,000 sessions a month. Pageviews do not set the session count." }
+    ]
+  }
+}

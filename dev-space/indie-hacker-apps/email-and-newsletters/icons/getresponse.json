@@ -1,0 +1,17 @@
+{
+  "slug": "getresponse",
+  "name": "GetResponse",
+  "official_url": "https://www.getresponse.com/",
+  "image_url": "https://www.getresponse.com/global/favicons/android-chrome-192x192.png",
+  "source_page": "https://www.getresponse.com/",
+  "kind": "favicon",
+  "source_host": "getresponse.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "190f38dea7d818982c0a15e605ce6f8715136a712b8cd1a4a11ba1faba4b8fa8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "cloudjiffy",
+  "name": "CloudJiffy",
+  "official_url": "https://cloudjiffy.com/",
+  "image_url": "https://cjnew.fra1-de.cloudjiffy.net/wp-content/uploads/2023/05/Cloudify_favicon-1.png",
+  "source_page": "https://cloudjiffy.com/",
+  "kind": "favicon",
+  "source_host": "cjnew.fra1-de.cloudjiffy.net",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "5a87f5f569a6e6f278cbf7ffc6cd424764ec16fd85554f1633e1c78bfcf0a33e",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

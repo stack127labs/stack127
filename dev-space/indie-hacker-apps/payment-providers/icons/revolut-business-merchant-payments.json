@@ -1,0 +1,17 @@
+{
+  "slug": "revolut-business-merchant-payments",
+  "name": "Revolut Business Merchant Payments",
+  "official_url": "https://www.revolut.com/business/accept-payments/",
+  "image_url": "https://assets.revolut.com/website/images/revolut-logo.png",
+  "source_page": "https://www.revolut.com/business/accept-payments/",
+  "kind": "logo-mark",
+  "source_host": "assets.revolut.com",
+  "original": {
+    "format": "png",
+    "width": 357,
+    "height": 357
+  },
+  "sha256": "33f5c043bccbc48ae7df1e809f95706ebfd7a50d2a9f25502b7069b8c4c6eb77",
+  "note": "parent brand: Revolut",
+  "saved_at": "2026-11-14"
+}

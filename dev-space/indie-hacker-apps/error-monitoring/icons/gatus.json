@@ -1,0 +1,17 @@
+{
+  "slug": "gatus",
+  "name": "Gatus",
+  "official_url": "https://gatus.io/",
+  "image_url": "https://gatus.io/img/logo.svg",
+  "source_page": "https://gatus.io/",
+  "kind": "svg-icon",
+  "source_host": "gatus.io",
+  "original": {
+    "format": "svg",
+    "width": 479,
+    "height": 479
+  },
+  "sha256": "101029abd3733e2f84ce60a3eebff2cd2c334e4d1658feabc8b7d6d81e9e1f88",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

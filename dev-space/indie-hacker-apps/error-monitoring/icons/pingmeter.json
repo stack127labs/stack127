@@ -1,0 +1,17 @@
+{
+  "slug": "pingmeter",
+  "name": "Pingmeter",
+  "official_url": "https://pingmeter.com/",
+  "image_url": "https://pingmeter.com/favicon.png",
+  "source_page": "https://pingmeter.com/",
+  "kind": "favicon",
+  "source_host": "pingmeter.com",
+  "original": {
+    "format": "png",
+    "width": 700,
+    "height": 700
+  },
+  "sha256": "22ed46089372dee111035fb61c07c05dd491ec335082f1be787efe81cb4bf8e5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

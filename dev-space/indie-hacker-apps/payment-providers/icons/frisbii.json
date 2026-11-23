@@ -1,0 +1,17 @@
+{
+  "slug": "frisbii",
+  "name": "Frisbii",
+  "official_url": "https://frisbii.com/",
+  "image_url": "https://frisbii.com/wp-content/uploads/2024/11/FRISBII_ISOTYPE_BLUE-RIBBON.png",
+  "source_page": "https://frisbii.com/",
+  "kind": "favicon",
+  "source_host": "frisbii.com",
+  "original": {
+    "format": "png",
+    "width": 200,
+    "height": 200
+  },
+  "sha256": "676ff44efcbc7b060f08be88e10a870993ba68216bdc94df800d4edcd0f62e72",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

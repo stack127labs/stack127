@@ -1,0 +1,29 @@
+{
+  "slug": "btcpay-server",
+  "name": "BTCPay Server",
+  "url": "https://btcpayserver.org/",
+  "jobs": ["crypto", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts Bitcoin, Litecoin and other chains; C02: payments go to your wallet",
+      "billing": "F15: plans, prices, intervals, trials and a customer portal run inside BTCPay",
+      "links": "F16: payment requests and invoice links can be shared without an online store"
+    }
+  },
+  "line": "Self-hosted crypto checkout and invoicing software.",
+  "free": { "kind": "selfhost", "text": "Free software; you pay for hosting and network costs" },
+  "cells": {
+    "type": "Self-hosted crypto checkout",
+    "countries": "No seller-country allowlist",
+    "payout": "Merchant sends payouts; network timing varies"
+  },
+  "costs": {
+    "fee": [
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "BTCPay takes no fee on each payment. Network and hosting costs are separate." },
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "BTCPay takes no fee on each payment. Network and hosting costs are separate." },
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "BTCPay takes no fee on each payment. Network and hosting costs are separate." },
+      { "v": "0%", "plan": "Crypto payment", "state": "confirmed", "math": "BTCPay takes no fee on each payment. Network and hosting costs are separate." }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "uptimia",
+  "name": "Uptimia",
+  "url": "https://www.uptimia.com/",
+  "jobs": ["uptime", "errors", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: uptime, API chain and browser checks from many probe locations (U01, U03)",
+      "errors": "E01: uncaught JavaScript exceptions captured by the snippet, grouped by name",
+      "status": "S01, S03: customer status pages built from monitors and posted updates (S03)",
+      "cron": "J01, J02: heartbeats with cron schedules, grace and start, success and fail pings"
+    }
+  },
+  "line": "Checks uptime and browser journeys, captures JavaScript errors, and hosts status pages.",
+  "free": { "kind": "free", "text": "Free: 1 uptime + API check at 5 min; listed status page unclear" },
+  "cells": { "interval": "300 s free, 60 s Basic, 30 s Pro", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "RUM", "state": "not_published", "math": "RUM bills by pageviews, not error reports. The report count doesn't set pageviews, and error details are grouped together." },
+      { "v": "Unknown", "plan": "RUM", "state": "not_published", "math": "RUM bills by pageviews, not error reports. The report count doesn't set pageviews, and error details are grouped together." },
+      { "v": "Unknown", "plan": "RUM", "state": "not_published", "math": "RUM bills by pageviews, not error reports. The report count doesn't set pageviews, and error details are grouped together." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Basic", "state": "unclear", "math": "$10 a month is the closest base for 5 endpoints. Custom probe selection needs 6 probes, so the one-location total isn't known." },
+      { "v": "Unknown", "plan": "Professional", "state": "unclear", "math": "$45 a month is the closest base for 25 endpoints. Custom probe selection needs 6 probes, so the one-location total isn't known." },
+      { "v": "Unknown", "plan": "Professional", "state": "unclear", "math": "$45 a month is the closest base for 100 endpoints. Custom probe selection needs 6 probes, so the one-location total isn't known." }
+    ]
+  }
+}

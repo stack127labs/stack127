@@ -1,0 +1,25 @@
+{
+  "slug": "livechat",
+  "name": "LiveChat",
+  "url": "https://www.livechat.com/",
+  "jobs": ["chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native website chat widget and hosted direct chat page; agents handle chats in the LiveChat workspace"
+    }
+  },
+  "line": "Website live chat with an agent workspace and customer messaging tools.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Website chat, messaging integrations",
+    "ai": "Agent suggestions; no autonomous AI agent price",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$25", "plan": "Starter", "state": "confirmed", "math": "One user at $25 a month, with one chat widget and 100 conversations." },
+      { "v": "$177", "plan": "Team", "state": "confirmed", "math": "3 users at $59 a month each. The Starter plan is limited to one user." }
+    ]
+  }
+}

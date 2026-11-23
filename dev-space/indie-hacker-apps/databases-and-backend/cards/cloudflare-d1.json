@@ -1,0 +1,31 @@
+{
+  "slug": "cloudflare-d1",
+  "name": "Cloudflare D1",
+  "url": "https://developers.cloudflare.com/d1/",
+  "jobs": ["sql"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the primary type; D01: SQLite query engine"
+    }
+  },
+  "line": "Use a managed SQLite database with serverless Workers apps.",
+  "free": { "kind": "free", "text": "500 MB/db, 5 GB/account; 5M rows read/day, 100K written/day" },
+  "cells": {
+    "metered": "Workers Paid $5/month; D1 included up to limits",
+    "regions": "Automatic placement; EU, US, and other jurisdiction options",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$5", "plan": "Workers Paid, account minimum", "state": "unclear", "math": "D1 usage fits within the included paid allowances, based on the stated mapping. The $5 account minimum applies before tax." },
+      { "v": "$5", "plan": "Workers Paid, account minimum", "state": "confirmed", "math": "An idle D1 database has no extra row or storage charges in this example. The Workers Paid account minimum stays at $5 a month." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate file storage service." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "D1 is a database, not a service that runs jobs." }
+    ]
+  }
+}

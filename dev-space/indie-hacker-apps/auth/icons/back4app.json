@@ -1,0 +1,17 @@
+{
+  "slug": "back4app",
+  "name": "Back4app",
+  "official_url": "https://www.back4app.com/",
+  "image_url": "https://www.back4app.com/_public/apple-touch-icon.png",
+  "source_page": "https://www.back4app.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "back4app.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "9565912b7a8fe42ce7fba56cdfb62823f5a92135f455faebca698870eb38f3b0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

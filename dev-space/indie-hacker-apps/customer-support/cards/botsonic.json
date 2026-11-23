@@ -1,0 +1,40 @@
+{
+  "slug": "botsonic",
+  "name": "Botsonic",
+  "url": "https://botsonic.com/",
+  "jobs": [
+    "ai"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Autonomous customer-facing answers from configured sources; agentic workflows on Advanced and Enterprise"
+    }
+  },
+  "line": "Builds website chat agents that answer from your business content.",
+  "free": {
+    "kind": "trial",
+    "text": "7-day trial, no card"
+  },
+  "cells": {
+    "channels": "Website chat, WhatsApp, Messenger, Telegram",
+    "ai": "1,000 messages/month on Starter; $25 per 2,000 more",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$19",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "The Starter plan is $19 a month and includes 1 member."
+      },
+      {
+        "v": "$69",
+        "plan": "Starter + 2 members",
+        "state": "unclear",
+        "math": "$19 Starter plan + 2 extra members at $25 each = $69 a month. It is not stated whether extra members are billed yearly."
+      }
+    ]
+  }
+}

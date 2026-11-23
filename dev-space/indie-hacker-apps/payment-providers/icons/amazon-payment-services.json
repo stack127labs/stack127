@@ -1,0 +1,17 @@
+{
+  "slug": "amazon-payment-services",
+  "name": "Amazon Payment Services",
+  "official_url": "https://paymentservices.amazon.com/",
+  "image_url": "https://paymentservices.amazon.com/favicon.ico",
+  "source_page": "https://paymentservices.amazon.com/",
+  "kind": "favicon",
+  "source_host": "paymentservices.amazon.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "7e4b8b0f239d5ab72f5bd8d624159694a0323af6905b0d4301fdbf0b9f3c95c4",
+  "note": "parent brand: Amazon; largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

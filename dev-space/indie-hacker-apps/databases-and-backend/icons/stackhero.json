@@ -1,0 +1,17 @@
+{
+  "slug": "stackhero",
+  "name": "Stackhero",
+  "official_url": "https://www.stackhero.io/en-US",
+  "image_url": "https://www.stackhero.io/favicon-512.png",
+  "source_page": "https://www.stackhero.io/en-US",
+  "kind": "manifest-icon",
+  "source_host": "stackhero.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "afa66cebad72ccaa8635bb479bc96cf2f9330193a9a2417e060b58fd616e5700",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

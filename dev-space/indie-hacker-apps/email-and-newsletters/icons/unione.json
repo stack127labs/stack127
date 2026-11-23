@@ -1,0 +1,17 @@
+{
+  "slug": "unione",
+  "name": "UniOne",
+  "official_url": "https://unione.io/",
+  "image_url": "https://unione.io/assets/unione/favicon.svg",
+  "source_page": "https://unione.io/",
+  "kind": "svg-icon",
+  "source_host": "unione.io",
+  "original": {
+    "format": "svg",
+    "width": 85,
+    "height": 85
+  },
+  "sha256": "9503f96f0b8eae79ecf2ef5dffdc956d6107bce13c6f21eb6d5897c6dda2c8a6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

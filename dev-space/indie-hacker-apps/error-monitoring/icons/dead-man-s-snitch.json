@@ -1,0 +1,17 @@
+{
+  "slug": "dead-man-s-snitch",
+  "name": "Dead Man's Snitch",
+  "official_url": "https://deadmanssnitch.com/",
+  "image_url": "https://deadmanssnitch.com/assets/meta/apple-touch-icon-152-aa24efd7.png",
+  "source_page": "https://deadmanssnitch.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "deadmanssnitch.com",
+  "original": {
+    "format": "png",
+    "width": 152,
+    "height": 152
+  },
+  "sha256": "5680705840f9680bcbdb5bf94b4e0de491211b7ea904c320cb33a59519544520",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

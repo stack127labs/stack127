@@ -1,0 +1,17 @@
+{
+  "slug": "libredesk",
+  "name": "Libredesk",
+  "official_url": "https://libredesk.io/",
+  "image_url": "https://libredesk.io/android-chrome-512x512-v2.png",
+  "source_page": "https://libredesk.io/",
+  "kind": "manifest-icon",
+  "source_host": "libredesk.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "22c41208e5702978945951f55238ada1e546db3f8492b9d976fe06bf9131bf10",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

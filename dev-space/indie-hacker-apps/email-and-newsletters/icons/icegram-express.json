@@ -1,0 +1,17 @@
+{
+  "slug": "icegram-express",
+  "name": "Icegram Express",
+  "official_url": "https://www.icegram.com/express/",
+  "image_url": "https://www.icegram.com/favicon.svg",
+  "source_page": "https://www.icegram.com/express/",
+  "kind": "svg-icon",
+  "source_host": "icegram.com",
+  "original": {
+    "format": "svg",
+    "width": 1184,
+    "height": 1184
+  },
+  "sha256": "aa71875836d442fa0a20ffcc05e6aea63e632b413e513dccbba9d6c1f63d2e5b",
+  "note": "parent brand: Icegram; Express has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

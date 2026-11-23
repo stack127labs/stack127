@@ -12,6 +12,7 @@ import { adNetworkPageKind, getAdNetworkApiVerification } from "@/lib/ad-network
 import { sitePageAvailable } from "@/lib/page-source";
 import { getFeeGroup } from "@/lib/platform-fees/groups";
 import { LAUNCH_DIRECTORY_REVISION_SQL, launchDirectoryRevisionMatches } from "@/lib/launch-directories-data";
+import { getAppDirectory, loadAppDirectoryIndex } from "@/lib/indie-hacker-apps";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 const noStore = { "Cache-Control": "no-store" };
@@ -47,8 +48,14 @@ export async function POST(request: Request) {
         let sourceRevision: string | null = null;
         if (path.startsWith("/api/")) {
           let expected: unknown;
+          const appDirectory = /^\/api\/app-directories\/([a-z0-9-]+)\/index$/.exec(path)?.[1];
           if (adNetworkVerification) expected=adNetworkVerification.expected;
-          else {
+          else if (appDirectory) {
+            // Unknown and unpublished directories answer 404.
+            const visible = getAppDirectory(appDirectory)
+              && (await getPool().query("select is_published from public.stack127_pages where slug=$1", [appDirectory])).rows[0]?.is_published;
+            expected = visible ? await loadAppDirectoryIndex(appDirectory) : null;
+          } else {
             const slug = path.split("/").at(-1)!;
             const parent = (path === "/api/cli-apps/index" ? "cli-apps"
               : path.startsWith("/api/self-host-apps/") ? "self-host-apps" : "self-hosted-app-resource-planner");

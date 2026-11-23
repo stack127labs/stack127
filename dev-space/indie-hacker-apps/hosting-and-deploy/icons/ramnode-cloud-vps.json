@@ -1,0 +1,17 @@
+{
+  "slug": "ramnode-cloud-vps",
+  "name": "RamNode Cloud VPS",
+  "official_url": "https://ramnode.com/products/cloud-vps",
+  "image_url": "https://ramnode.com/lovable-uploads/ramnode-favicon.jpeg",
+  "source_page": "https://ramnode.com/products/cloud-vps",
+  "kind": "favicon",
+  "source_host": "ramnode.com",
+  "original": {
+    "format": "jpeg",
+    "width": 225,
+    "height": 225
+  },
+  "sha256": "8ae097a78b0a08af5c3d013a75e36b7dabafbf06d9cfca29282e85bd30b6590d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

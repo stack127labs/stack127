@@ -1,0 +1,17 @@
+{
+  "slug": "liwan",
+  "name": "liwan",
+  "official_url": "https://liwan.dev/",
+  "image_url": "https://liwan.dev/favicon.ico",
+  "source_page": "https://liwan.dev/",
+  "kind": "favicon",
+  "source_host": "liwan.dev",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "12d73002491dede5dacc87db1edb4ead8e95e262156e0a33c86421a56c135b05",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

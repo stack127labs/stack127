@@ -1,0 +1,29 @@
+{
+  "slug": "useresponse",
+  "name": "UseResponse",
+  "url": "https://www.useresponse.com/",
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: knowledge base is part of the help desk and support workflow",
+      "helpdesk": "F17: Native email-to-ticket with threaded replies, plus hosted or embedded ticket forms",
+      "chat": "F17: Native embedded chat widget with behavior profiles and email alerts for missed replies",
+      "ai": "F22: AI bot generates customer answers from selected articles and FAQs in widgets and the support portal",
+      "inbox": "F18: Round-robin and team routing, private notes, canned replies and reply locks shared by agents"
+    }
+  },
+  "line": "Shared customer support suite with email tickets, live chat, and help center.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, customer feedback",
+    "ai": "Token allowances; 1M included on the base tier",
+    "selfhost": "Yes, paid on-premise edition"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$118", "plan": "Enterprise Cloud", "state": "confirmed", "math": "A two-seat minimum at $59 a month per seat. One agent works, and one seat goes unused." },
+      { "v": "$177", "plan": "Enterprise Cloud", "state": "confirmed", "math": "3 agents at $59 a month each, with email and website chat included." }
+    ]
+  }
+}

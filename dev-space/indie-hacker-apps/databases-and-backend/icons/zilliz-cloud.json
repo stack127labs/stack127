@@ -1,0 +1,17 @@
+{
+  "slug": "zilliz-cloud",
+  "name": "Zilliz Cloud",
+  "official_url": "https://zilliz.com/",
+  "image_url": "https://zilliz.com/favicon.svg",
+  "source_page": "https://zilliz.com/",
+  "kind": "svg-icon",
+  "source_host": "zilliz.com",
+  "original": {
+    "format": "svg",
+    "width": 2133,
+    "height": 2133
+  },
+  "sha256": "0dfe3def1d299008aea947f433fdc11fb6636c8538f11ae07c05d129bd0bd47e",
+  "note": "Zilliz Cloud product uses Zilliz's shared current brand mark.",
+  "saved_at": "2026-11-14"
+}

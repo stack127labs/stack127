@@ -1,0 +1,17 @@
+{
+  "slug": "mailpro",
+  "name": "Mailpro",
+  "official_url": "https://www.mailpro.com/",
+  "image_url": "https://www.mailpro.com/images/favicon/web-app-manifest-512x512.png",
+  "source_page": "https://www.mailpro.com/",
+  "kind": "manifest-icon",
+  "source_host": "mailpro.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "ef743e309d0a0868975726ef800dec2a74ac08bb9ffd1a62026630e1b61f0355",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

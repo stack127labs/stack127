@@ -1,0 +1,29 @@
+{
+  "slug": "paypro-global",
+  "name": "PayPro Global",
+  "url": "https://payproglobal.com/",
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record and authorized reseller; PayPro receives the buyer's payment as principal",
+      "billing": "F14: automatic renewals on cards and PayPal; F15: seat changes, trials and retries",
+      "links": "F16: hosted payment pages and generated checkout links with a no-code start"
+    }
+  },
+  "line": "Merchant of record for software, SaaS, games and digital products.",
+  "free": { "kind": "none", "text": "Setup/integration is free; merchant fees are quoted" },
+  "cells": {
+    "type": "Merchant of record and authorized reseller",
+    "countries": "Global expansion; complete seller-country list unpublished",
+    "payout": "Monthly on the 15th for the prior month's balance"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "The card rate for domestic cards, and the fee base (the amount the fee applies to), need a quote. The list of eligible US sellers isn't published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "The card rate for domestic cards, and the fee base (the amount the fee applies to), need a quote. The list of eligible UK sellers isn't published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "The card rate for domestic cards, and the fee base (the amount the fee applies to), need a quote. The list of eligible German sellers isn't published." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "The card rate for domestic cards, and the fee base (the amount the fee applies to), need a quote. The list of eligible Indian sellers isn't published." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "systeme-io",
+  "name": "systeme.io",
+  "official_url": "https://systeme.io/",
+  "image_url": "https://systeme.io/161/60a777c6b6c23_60a777c6b6c22_favicon.png",
+  "source_page": "https://systeme.io/",
+  "kind": "favicon",
+  "source_host": "systeme.io",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "5da7f1fd3c2b50a271fed3619c0be11ee33dcdd757cd1f2afedc3bdfa81adf1b",
+  "note": "Official favicon is 64 px; no larger icon was found.",
+  "saved_at": "2026-11-14"
+}

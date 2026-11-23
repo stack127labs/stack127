@@ -1,0 +1,17 @@
+{
+  "slug": "devise",
+  "name": "Devise",
+  "official_url": "https://github.com/heartcombo/devise",
+  "image_url": "https://github.com/heartcombo.png?size=460",
+  "source_page": "https://github.com/heartcombo",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 403,
+    "height": 403
+  },
+  "sha256": "c223fda5d3e57f8e7dc23e8f5f9b6b4768d430b48e26a2bef664538cd82e7089",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

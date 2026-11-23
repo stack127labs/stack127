@@ -1,0 +1,48 @@
+{
+  "slug": "hitkeep",
+  "name": "HitKeep",
+  "url": "https://hitkeep.com/",
+  "jobs": [
+    "web",
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary job is web traffic, attribution and conversion analytics; F15: pages, referrers, geography and UTM campaigns",
+      "revenue": "F19: commerce reports for revenue, orders, average order value and refunds; subscriptions not supported"
+    }
+  },
+  "line": "Website traffic and attribution analytics with conversion reports.",
+  "free": {
+    "kind": "free",
+    "text": "Free for 3 sites and 3 members; 60-day history"
+  },
+  "cells": {
+    "cookieless": "Yes (sessionStorage session ID)",
+    "location": "Frankfurt or Virginia, by workspace",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "€0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Free plan is €0 for one site and user, subject to fair-use terms."
+      },
+      {
+        "v": "€0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Free plan is €0 for one site and user, subject to fair-use terms."
+      },
+      {
+        "v": "€0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Free plan is €0 for one site and user, subject to fair-use terms."
+      }
+    ]
+  }
+}

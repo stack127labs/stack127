@@ -1,0 +1,17 @@
+{
+  "slug": "seq",
+  "name": "Seq",
+  "official_url": "https://datalust.co/",
+  "image_url": "https://datalust.co/favicon.png",
+  "source_page": "https://datalust.co/",
+  "kind": "favicon",
+  "source_host": "datalust.co",
+  "original": {
+    "format": "webp",
+    "width": 328,
+    "height": 328
+  },
+  "sha256": "4137c35ecbe173cb911ff7c855bffc2f732860cc956a498776cab6c80fb2f228",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

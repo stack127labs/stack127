@@ -1,0 +1,29 @@
+{
+  "slug": "paycomet",
+  "name": "PAYCOMET",
+  "url": "https://www.paycomet.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway and acquiring; the merchant remains the seller",
+      "billing": "F14: stored-card subscriptions; F15: subscription service with frequency, amount and retries",
+      "links": "F16: Pay-by-link is a no-code link shared by SMS, email, WhatsApp or social channels"
+    }
+  },
+  "line": "EU payment gateway with hosted checkout, payment links and recurring cards.",
+  "free": { "kind": "trial", "text": "New contracts may receive 3 months free, subject to approval" },
+  "cells": {
+    "type": "Online payment gateway and acquiring service",
+    "countries": "European Union only",
+    "payout": "Contract-specific; no universal payout interval published"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers in the European Union." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers in the European Union." },
+      { "v": "0.60% + €0.09", "plan": "EEA Visa/Mastercard", "state": "confirmed", "math": "The published EEA consumer Visa or Mastercard rate, for a German card. It's unclear how IVA (a sales tax, similar to VAT) applies." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers in the European Union." }
+    ]
+  }
+}

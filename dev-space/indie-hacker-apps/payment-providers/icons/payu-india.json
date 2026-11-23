@@ -1,0 +1,17 @@
+{
+  "slug": "payu-india",
+  "name": "PayU India",
+  "official_url": "https://payu.in/",
+  "image_url": "https://payu.in/favicon.ico",
+  "source_page": "https://payu.in/",
+  "kind": "favicon",
+  "source_host": "payu.in",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "725a4ad96658f689fd1b597c85555237182e7f27e36e42fa664dd1e0c2bd655b",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

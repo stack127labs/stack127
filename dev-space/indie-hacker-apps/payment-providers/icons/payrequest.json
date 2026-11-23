@@ -1,0 +1,17 @@
+{
+  "slug": "payrequest",
+  "name": "PayRequest",
+  "official_url": "https://payrequest.io/",
+  "image_url": "https://assets.payreque.st/images/brand/favicon.svg",
+  "source_page": "https://payrequest.io/",
+  "kind": "svg-icon",
+  "source_host": "assets.payreque.st",
+  "original": {
+    "format": "svg",
+    "width": 1179,
+    "height": 1179
+  },
+  "sha256": "e74a8e12de54a3d21d1ca99013fdc292fc53040ff548773cebd9965ef937e5b8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

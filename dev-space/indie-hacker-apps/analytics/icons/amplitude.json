@@ -1,0 +1,17 @@
+{
+  "slug": "amplitude",
+  "name": "Amplitude",
+  "official_url": "https://amplitude.com/",
+  "image_url": "https://amplitude.com/nextjs-public/favicon/android-chrome-512x512.png",
+  "source_page": "https://amplitude.com/",
+  "kind": "manifest-icon",
+  "source_host": "amplitude.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "4f2b929dff8b6941ad5360d6dc8d7250bf0b6aaadce753fb2e3ac41c93d07d1b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

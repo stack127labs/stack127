@@ -1,0 +1,46 @@
+{
+  "slug": "libredesk",
+  "name": "Libredesk",
+  "url": "https://libredesk.io/",
+  "jobs": [
+    "inbox",
+    "helpdesk",
+    "chat",
+    "ai"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F17: Native shared email inbox over Google or Microsoft OAuth or IMAP; teams assign conversations (F18)",
+      "helpdesk": "F02: Self-hostable help desk with email, a knowledge base and AI; F21: public searchable help centers",
+      "chat": "F17: Native embedded live-chat widget with a pre-chat form and trusted domains",
+      "ai": "F22: Beta assistants answer open email and live-chat conversations and hand off to people"
+    }
+  },
+  "line": "Self-hosted support inbox with email, website chat, and WhatsApp.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free AGPL software; you provide hosting"
+  },
+  "cells": {
+    "channels": "Email, website chat, WhatsApp",
+    "ai": "Bring your own AI provider or local model",
+    "selfhost": "Yes, AGPL-3.0"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "getnet-chile",
+  "name": "Getnet Chile",
+  "official_url": "https://www.getnet.cl/",
+  "image_url": "https://banco.santander.cl/uploads/000/015/775/fc90a3ff-ee70-4965-8b5e-ef8498343f9c/C144x144/100x100-2.png",
+  "source_page": "https://www.getnet.cl/",
+  "kind": "apple-touch-icon",
+  "source_host": "banco.santander.cl",
+  "original": {
+    "format": "png",
+    "width": 144,
+    "height": 144
+  },
+  "sha256": "38f6194e5b02767a45d3d665479b7ca5be5dc58ee73e542f9a47b8013cc5f102",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "akamai-cloud-compute-formerly-linode",
+  "name": "Akamai Cloud Compute",
+  "url": "https://www.akamai.com/products/cpu",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented Linux virtual machines; the customer maintains the guest OS and software stack"
+    }
+  },
+  "line": "Run apps on Linux virtual machines managed through Akamai Cloud.",
+  "free": { "kind": "none", "text": "No recurring free compute plan" },
+  "cells": {
+    "type": "Virtual machines",
+    "regions": "25+ regions across five regions",
+    "selfhost": "Yes; you manage the guest OS and apps"
+  },
+  "costs": {
+    "work": [
+      { "v": "US$5", "plan": "Nanode 1 GB", "state": "confirmed", "math": "The price is capped: 730 hours at US$0.0075 an hour, but never more than US$5 a month. So it is US$5. The domain is not included." },
+      { "v": "US$12", "plan": "Shared CPU Linode 2 GB", "state": "confirmed", "math": "The price is capped: 730 hours at US$0.018 an hour, but never more than US$12 a month. So it is US$12 before tax." },
+      { "v": "US$29", "plan": "Shared CPU Linode 4 GB + backup", "state": "unclear", "math": "US$24 for the server + US$5 for backups = US$29. Seven-day database backups are not included." }
+    ]
+  }
+}

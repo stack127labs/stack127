@@ -1,0 +1,17 @@
+{
+  "slug": "sequenzy",
+  "name": "Sequenzy",
+  "official_url": "https://www.sequenzy.com/",
+  "image_url": "https://www.sequenzy.com/logo.png",
+  "source_page": "https://www.sequenzy.com/",
+  "kind": "logo-mark",
+  "source_host": "sequenzy.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "7f924a50dfc974aa6414954b0905c189e4c33492bcf0a0e903a202693fbd3a46",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "laravel-cloud",
+  "name": "Laravel Cloud",
+  "url": "https://laravel.com/cloud",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed app platform; Laravel provisions, builds, deploys and patches the infrastructure",
+      "static": "04: Nuxt generated static sites are a listed use"
+    }
+  },
+  "line": "Build and deploy Laravel apps on managed cloud infrastructure.",
+  "free": { "kind": "trial", "text": "31 days no fee; $5/mo credit; excess billed; payment required; evaluation only" },
+  "cells": { "type": "Managed app platform", "regions": "US/Canada/Europe/APAC; UAE API listing unclear", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Starter + Ohio Flex 1 GiB", "state": "unclear", "math": "$12 a month subtotal for an awake replica running 730 hours, after the $5 credit. Add $0.10 per GB over the earned allowance for 100 GB of data sent out, plus other traffic." },
+    { "v": "Unknown", "plan": "Starter + Ohio Flex 1 GiB", "state": "unclear", "math": "$12 a month subtotal after one $5 credit, for 730 hours. Add $0.10 per GB over the earned allowance. API capacity for 1 million requests is untested." },
+    { "v": "Unknown", "plan": "App + Serverless Postgres", "state": "unclear", "math": "$55.69 a month subtotal: 0.5 compute units (CU) for 730 hours + 10 GB storage after one credit. The 10 GB database traffic, backup rate and 7-day copies are not confirmed." }
+  ] }
+}

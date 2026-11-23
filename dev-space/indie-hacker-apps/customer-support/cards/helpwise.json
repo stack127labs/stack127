@@ -1,0 +1,28 @@
+{
+  "slug": "helpwise",
+  "name": "Helpwise",
+  "url": "https://helpwise.io/",
+  "jobs": ["inbox", "helpdesk", "chat", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: a Help Center is part of the shared inbox and help desk",
+      "inbox": "F17: Native shared email inboxes on all plans; F18: assignment, internal notes and shared drafts on all plans",
+      "helpdesk": "F02: Shared inbox and help desk with email, chat and a Help Center; F21: native public Help Centers",
+      "chat": "F17: Native JavaScript chat inbox included from Standard; add the loader to your website"
+    }
+  },
+  "line": "Shared customer inbox for email, website chat, social, and phone.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, social, phone",
+    "ai": "Credit-based; AI reply draft costs 3 credits",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$30", "plan": "Standard", "state": "confirmed", "math": "A two-seat minimum at $15 per user a month. One person works, and one seat goes unused." },
+      { "v": "$45", "plan": "Standard", "state": "confirmed", "math": "3 seats at $15 per user a month, covering 100 conversations a month." }
+    ]
+  }
+}

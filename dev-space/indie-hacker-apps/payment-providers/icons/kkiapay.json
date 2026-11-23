@@ -1,0 +1,17 @@
+{
+  "slug": "kkiapay",
+  "name": "KKiaPay",
+  "official_url": "https://kkiapay.me/",
+  "image_url": "https://kkiapay.me/wp-content/uploads/2024/04/cropped-favicon-kkiapay-192x192.png",
+  "source_page": "https://kkiapay.me/",
+  "kind": "favicon",
+  "source_host": "kkiapay.me",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "08621e35d67f1cb04ff18c9ee4cce5fd017f274a9fa3117ae03aa6d456c04e7d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

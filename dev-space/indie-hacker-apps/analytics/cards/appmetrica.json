@@ -1,0 +1,27 @@
+{
+  "slug": "appmetrica",
+  "name": "AppMetrica",
+  "url": "https://appmetrica.yandex.com/about",
+  "jobs": ["product", "revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is mobile product analytics; F16: DAU/MAU, retention, custom events and funnels of 1 to 10 steps",
+      "revenue": "F19: in-app purchase revenue, ARPU and MRR guidance from subscription events"
+    }
+  },
+  "line": "Mobile app analytics for usage, retention and purchase revenue.",
+  "free": {"kind": "free", "text": "Free up to 100 million custom events/month"},
+  "cells": {
+    "cookieless": "Yes (native SDK uses device IDs)",
+    "location": "EU and Russia (Yandex servers)",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Native app analytics is not priced by website pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Native app analytics is not priced by website pageviews."},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Native app analytics is not priced by website pageviews."}
+    ]
+  }
+}

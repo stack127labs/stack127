@@ -1,0 +1,17 @@
+{
+  "slug": "chaport",
+  "name": "Chaport",
+  "official_url": "https://www.chaport.com/",
+  "image_url": "https://www.chaport.com/wp-content/uploads/cropped-chaport-favicon-new-300x300.png",
+  "source_page": "https://www.chaport.com/",
+  "kind": "favicon",
+  "source_host": "chaport.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "6c94c93443bdef5eb58c6dd286e02120ff6fd80d034e5f0248d8740144ca5220",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "saveincloud-nuvion",
+  "name": "SaveInCloud Nuvion",
+  "url": "https://saveincloud.com/pt-BR/produtos/computacao/nuvion",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: IaaS virtual machine managed through the Nuvion panel; the customer manages the guest OS and apps"
+    }
+  },
+  "line": "Provision virtual machines and manage their operating systems yourself.",
+  "free": { "kind": "credits", "text": "R$200 credit for 30 days; a 14-day trial is also advertised" },
+  "cells": { "type": "VPS/VM", "regions": "São Paulo/Vinhedo, Fortaleza and Brasília", "selfhost": "Yes; manage the guest OS and apps" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "ST-1-1 + assumed 25-GB volume + IPv4", "state": "unclear", "math": "R$45.33 for the VM + R$5.50 for volume + R$20.44 for an IPv4 address = R$71.27 base. Add R$0 to R$24 for data sent out. Free-traffic claims conflict. The boot disk, domain, HTTPS certificate and tax are not priced." },
+    { "v": "Unknown", "plan": "ST-1-1 + assumed 25-GB volume + IPv4", "state": "unclear", "math": "R$71.27 base. 100 GB of data sent out adds R$0 to R$24 if charged. The price for 1 vCPU and 1 GB is published, but throughput and build use are untested. The boot disk and tax are not priced." },
+    { "v": "Unknown", "plan": "ST-2-2 + volumes + backups", "state": "unclear", "math": "R$92.35 VM + R$7.70 volumes + R$20.44 IPv4 + R$1.80 backup = R$122.29. Seven 10 GB copies (assumed) use R$12.60. Data out adds R$0 to R$24. Backup size, boot disk and tax: unknown. 10 GB private database traffic is free." }
+  ] }
+}

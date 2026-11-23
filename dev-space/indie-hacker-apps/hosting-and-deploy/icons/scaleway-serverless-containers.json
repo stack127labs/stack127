@@ -1,0 +1,17 @@
+{
+  "slug": "scaleway-serverless-containers",
+  "name": "Scaleway Serverless Containers",
+  "official_url": "https://www.scaleway.com/en/serverless-containers/",
+  "image_url": "https://www.scaleway.com/favicon/website/favicon.svg",
+  "source_page": "https://www.scaleway.com/en/serverless-containers/",
+  "kind": "svg-icon",
+  "source_host": "scaleway.com",
+  "original": {
+    "format": "svg",
+    "width": 85,
+    "height": 85
+  },
+  "sha256": "f119969588ef5288c7ad56c093ba90ff7896d8ad70b513d0e608d43c40fc1798",
+  "note": "parent brand: Scaleway; no distinct Serverless Containers icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

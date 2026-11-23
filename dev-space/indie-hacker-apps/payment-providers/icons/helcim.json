@@ -1,0 +1,17 @@
+{
+  "slug": "helcim",
+  "name": "Helcim",
+  "official_url": "https://www.helcim.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9b/3f/39/9b3f395b-3058-4d01-e73c-f5af18265dc8/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/helcim-point-of-sale/id1499525440?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "372f132d811c9afc1970e1c353cc46efab8c982eefff6daa165ad916d4617009",
+  "note": "Helcim Point of Sale merchant app by Helcim Inc.",
+  "saved_at": "2026-11-14"
+}

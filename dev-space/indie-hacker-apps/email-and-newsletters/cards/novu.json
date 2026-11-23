@@ -1,0 +1,32 @@
+{
+  "slug": "novu",
+  "name": "Novu",
+  "url": "https://www.novu.co/",
+  "jobs": ["multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "multichannel": "F02: one workflow routes notifications across email, SMS, push, chat and in-app"
+    }
+  },
+  "line": "Workflow platform for app email and multi-channel notifications.",
+  "free": { "kind": "free", "text": "Free for 10,000 workflow runs/month; connect an email sender" },
+  "cells": {
+    "newsletters": "Yes, build campaigns in your app; supply list and controls",
+    "api": "Yes, workflow API and SDKs; connect an external sender"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$0/month", "plan": "Free", "state": "confirmed", "math": "4,000 workflow runs a month, at one run per subscriber per campaign. Only the Novu platform cost is counted." },
+      { "v": "$30/month", "plan": "Pro", "state": "confirmed", "math": "20,000 runs a month are assumed, within Pro's 30,000 included runs. The sender cost is extra." },
+      { "v": "$42/month", "plan": "Pro + overage", "state": "confirmed", "math": "40,000 runs a month: the Pro starting price, plus 10,000 extra runs. This is the platform minimum only." },
+      { "v": "$234/month", "plan": "Pro + overage", "state": "confirmed", "math": "200,000 runs a month: the Pro starting price, plus 170,000 extra runs. This is the platform minimum only." }
+    ],
+    "appmail": [
+      { "v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Assumes 3,000 single-recipient email steps, which equals 3,000 runs. Platform cost only; the sender cost is extra." },
+      { "v": "$0/month", "plan": "Free", "state": "confirmed", "math": "Assumes 10,000 single-recipient email steps, which equals 10,000 runs. Platform cost only; the sender cost is extra." },
+      { "v": "$54/month", "plan": "Pro + overage", "state": "confirmed", "math": "Assumes 50,000 single-recipient email steps, which equals 50,000 runs. Platform cost only; the sender cost is extra." },
+      { "v": "$114/month", "plan": "Pro + overage", "state": "confirmed", "math": "Assumes 100,000 single-recipient email steps, which equals 100,000 runs. Platform cost only; the sender cost is extra." }
+    ]
+  }
+}

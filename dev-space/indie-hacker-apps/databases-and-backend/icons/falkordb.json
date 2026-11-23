@@ -1,0 +1,17 @@
+{
+  "slug": "falkordb",
+  "name": "FalkorDB",
+  "official_url": "https://www.falkordb.com/",
+  "image_url": "https://falkordb.com/wp-content/uploads/2024/08/favicon-512x512-1.svg",
+  "source_page": "https://www.falkordb.com/",
+  "kind": "logo-mark",
+  "source_host": "falkordb.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "658b2776fb3629eadf8ff261168ac2a4da81f794fa38f615db29d152ed2f0a71",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

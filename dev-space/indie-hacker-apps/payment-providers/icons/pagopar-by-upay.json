@@ -1,0 +1,17 @@
+{
+  "slug": "pagopar-by-upay",
+  "name": "Pagopar by upay",
+  "official_url": "https://upay.com.py/pagopar/",
+  "image_url": "https://upay.com.py/wp-content/uploads/sites/4/2025/11/new-favicon-upay.svg?w=192",
+  "source_page": "https://upay.com.py/pagopar/",
+  "kind": "svg-icon",
+  "source_host": "upay.com.py",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "c3b850ded937bb9eba1db424ac66c9d878dc1de1a9f9bb8e283d7973c35b8f81",
+  "note": "parent brand: upay",
+  "saved_at": "2026-11-14"
+}

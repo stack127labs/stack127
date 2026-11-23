@@ -1,0 +1,17 @@
+{
+  "slug": "uploadcare",
+  "name": "Uploadcare",
+  "official_url": "https://uploadcare.com/",
+  "image_url": "https://uploadcare.com/web-app-manifest-512x512.png",
+  "source_page": "https://uploadcare.com/",
+  "kind": "manifest-icon",
+  "source_host": "uploadcare.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "99148b0ecafd423fb504154ef3faa2eca437150f619a2cc5066d76e4d620ba95",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

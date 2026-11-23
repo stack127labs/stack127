@@ -1,0 +1,26 @@
+{
+  "slug": "pac4j",
+  "name": "pac4j",
+  "url": "https://www.pac4j.org/",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Java security library for login flows and profiles; F05: developer operates the app and storage"
+    }
+  },
+  "line": "Java security library for login, user profiles, and web protection.",
+  "free": { "kind": "selfhost", "text": "Free Apache-licensed library; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "Apache protocol modules; no connection royalty"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The pac4j licence costs $0. App hosting, account storage and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The pac4j licence costs $0. App hosting, account storage and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The pac4j licence costs $0. App hosting, account storage and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The pac4j licence costs $0. App hosting, account storage and operations cost extra." }
+    ]
+  }
+}

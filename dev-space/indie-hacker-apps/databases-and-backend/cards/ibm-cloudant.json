@@ -1,0 +1,31 @@
+{
+  "slug": "ibm-cloudant",
+  "name": "IBM Cloudant",
+  "url": "https://www.ibm.com/products/cloudant",
+  "jobs": ["nosql"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is managed JSON document database; D01: REST document access and Mango queries"
+    }
+  },
+  "line": "Managed JSON document database with CouchDB-compatible APIs and search.",
+  "free": { "kind": "free", "text": "Lite: 1 GB; 20 reads/s, 10 writes/s; legacy 30-day idle deletion rule unclear" },
+  "cells": {
+    "metered": "Standard approx $76.65/month; reference region unknown",
+    "regions": "Dallas, London, Frankfurt, Tokyo, Sydney, Mumbai, and more",
+    "selfhost": "No, IBM Cloudant is hosted; CouchDB is separate"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Classic Standard", "state": "check_failed", "math": "The guide gives an approximate reference of $76.65 a month. The current Dallas capacity price and 5 GB of transfer are not verified." },
+      { "v": "Unknown", "plan": "Classic Standard", "state": "check_failed", "math": "Even when idle, one Standard capacity block is still reserved. The current regional price and the exact 730-hour charge are unknown." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Classic attachment storage", "state": "not_published", "math": "The storage subtotal is $80.64, but the region it is based on is unknown. File requests and transfer have no price." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloudant stores documents and does not run background workers" }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "bunny-net-magic-containers",
+  "name": "bunny.net Magic Containers",
+  "official_url": "https://bunny.net/magic-containers/",
+  "image_url": "https://bunny.net/icons/icon-512x512.png?v=1ca91ab4134c7fdacfd5e433633a1572",
+  "source_page": "https://bunny.net/magic-containers/",
+  "kind": "manifest-icon",
+  "source_host": "bunny.net",
+  "original": {
+    "format": "webp",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "756f18ef77b69c7bb7c4538b878b8fe48fbfb4cfe4f299a7a0e18ef0f51db7dc",
+  "note": "parent brand: bunny.net; no distinct service icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

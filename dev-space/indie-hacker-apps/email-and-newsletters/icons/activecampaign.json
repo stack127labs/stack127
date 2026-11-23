@@ -1,0 +1,17 @@
+{
+  "slug": "activecampaign",
+  "name": "ActiveCampaign",
+  "official_url": "https://www.activecampaign.com/",
+  "image_url": "https://www.activecampaign.com/dist/favicon-192x192.png",
+  "source_page": "https://www.activecampaign.com/",
+  "kind": "favicon",
+  "source_host": "activecampaign.com",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "99030c14976b27c83f5cb8872002ddde1b6501e4c8de1c4c2b078871e25a12c9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

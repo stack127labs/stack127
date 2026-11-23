@@ -1,0 +1,17 @@
+{
+  "slug": "watchcron",
+  "name": "WatchCron",
+  "official_url": "https://watchcron.com/",
+  "image_url": "https://watchcron.com/favicon.svg",
+  "source_page": "https://watchcron.com/",
+  "kind": "svg-icon",
+  "source_host": "watchcron.com",
+  "original": {
+    "format": "svg",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "9112497a4705448172e3b0afcb899cbb1d02ef19b776b2d8af8e1857b675a0d3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "stormkit",
+  "name": "Stormkit",
+  "url": "https://www.stormkit.io/",
+  "jobs": ["static", "panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "04: Stormkit Cloud deploys static front ends and frameworks from source or build files",
+      "panel": "03: self-hosted Stormkit runs on the customer's own infrastructure; the Cloud runtimes for long-running apps are self-hosted only"
+    }
+  },
+  "line": "Build and deploy sites on Stormkit Cloud or your own infrastructure.",
+  "free": { "kind": "free", "text": "Free Cloud plan; advertised unlimited use, no numeric quotas" },
+  "cells": { "type": "Deployment platform", "regions": "Cloud app regions unlisted; self-host uses your server", "selfhost": "Yes; AGPLv3 Community; Enterprise is paid" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Cloud Free, one seat", "state": "unclear", "math": "$0 a month is the listed subscription fee. Numeric build and bandwidth limits, custom-domain plan access and full usage terms are not specified." },
+    { "v": "Unknown", "plan": "Cloud Premium, one seat", "state": "unclear", "math": "$20 a month is the listed seat fee. Functions allow up to 15 seconds per call, but memory, total quotas and full workload fit are not priced." },
+    { "v": "Unknown", "plan": "Cloud + PostgreSQL", "state": "conflicting", "math": "The homepage FAQ says Cloud includes managed Postgres. The current docs and README say the database is self-hosted only, and no database price is published." }
+  ] }
+}

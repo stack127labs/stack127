@@ -1,0 +1,19 @@
+{
+  "slug": "statcounter", "name": "Statcounter", "url": "https://statcounter.com/",
+  "jobs": ["web", "replay"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website analytics; F15: traffic totals, pages, entry and exit paths, referrers, locations and devices",
+      "replay": "F17: reconstructed web playback of pages, clicks, scrolling and form interactions, with form inputs masked"
+    }
+  },
+  "line": "Tracks website visits, individual sessions, replay and heatmaps.",
+  "free": {"kind": "free", "text": "Free Basic: 5,000 sessions/month; older 250K-view cap conflicts"},
+  "cells": {"cookieless": "No (visitor cookies by default)", "location": "Unknown", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "€9", "plan": "Premium 20K", "state": "confirmed", "math": "Assumes 1 pageview per session. 10,000 sessions fit the Premium 20K plan. The free plan includes 5,000 sessions a month. An older claim of 250K views conflicts with this."},
+    {"v": "€29", "plan": "Premium 100K", "state": "confirmed", "math": "Assumes 1 pageview per session. 100,000 sessions fit the Premium 100K plan. The free plan includes 5,000 sessions a month. An older claim of 250K views conflicts with this."},
+    {"v": "€119", "plan": "Premium 1M", "state": "confirmed", "math": "Assumes 1 pageview per session. 1,000,000 sessions fit the Premium 1M plan. The free plan includes 5,000 sessions a month. An older claim of 250K views conflicts with this."}
+  ]}
+}

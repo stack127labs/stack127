@@ -1,0 +1,26 @@
+{
+  "slug": "authboss",
+  "name": "Authboss",
+  "url": "https://github.com/aarondl/authboss",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Go toolkit inside the developer's own web app; no hosted or server product"
+    }
+  },
+  "line": "Go account and login toolkit with selectable auth modules.",
+  "free": { "kind": "selfhost", "text": "Free MIT library; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No hosted SAML or SCIM product"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core library and its bundled modules cost $0 in licence fees. You supply your own storage, sessions, email and hosting." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core library and its bundled modules cost $0 in licence fees. You supply your own storage, sessions, email and hosting." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core library and its bundled modules cost $0 in licence fees. You supply your own storage, sessions, email and hosting." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core library and its bundled modules cost $0 in licence fees. You supply your own storage, sessions, email and hosting." }
+    ]
+  }
+}

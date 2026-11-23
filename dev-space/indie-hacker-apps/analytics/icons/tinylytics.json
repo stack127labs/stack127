@@ -1,0 +1,17 @@
+{
+  "slug": "tinylytics",
+  "name": "Tinylytics",
+  "official_url": "https://tinylytics.app/",
+  "image_url": "https://tinylytics.app/icon.svg",
+  "source_page": "https://tinylytics.app/",
+  "kind": "svg-icon",
+  "source_host": "tinylytics.app",
+  "original": {
+    "format": "svg",
+    "width": 5168,
+    "height": 5168
+  },
+  "sha256": "3368c8de882c7e1271fcd54e582f6f6df9f3d4dde0d0cca5fa6d4d74792455e1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

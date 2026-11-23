@@ -1,0 +1,20 @@
+{
+  "slug": "clouding",
+  "name": "Clouding",
+  "url": "https://clouding.io/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted virtual server; the customer manages the guest OS, app and maintenance"
+    }
+  },
+  "line": "Configure a self-managed virtual server with hourly billing.",
+  "free": { "kind": "credits", "text": "One-time €5 signup balance; no recurring free server plan" },
+  "cells": { "type": "VPS/VM", "regions": "Barcelona, Spain", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€3.00", "plan": "Entry VM", "state": "unclear", "math": "€3 a month. It is €5 if the 25 GB disk minimum applies. 100 GB fits within the 4 TB of transfer. Builds are separate. Before VAT." },
+    { "v": "€8.00", "plan": "1 vCore, 2 GB, 30 GB", "state": "confirmed", "math": "730 hours at €0.011 an hour = €8.03, capped at €8 a month. 100 GB fits within the 4 TB of transfer, before VAT." },
+    { "v": "€17.10", "plan": "1 vCore, 4 GB + backups", "state": "confirmed", "math": "€11.50 for the VM, plus €5.60 for 7 daily copies of 40 GB at €0.02 per GB. Total €17.10 before VAT." }
+  ] }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "hubspot-marketing-hub",
+  "name": "HubSpot Marketing Hub",
+  "official_url": "https://www.hubspot.com/products/marketing",
+  "image_url": "https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png",
+  "source_page": "https://www.hubspot.com/products/marketing",
+  "kind": "favicon",
+  "source_host": "hubspot.com",
+  "original": {
+    "format": "webp",
+    "width": 288,
+    "height": 288
+  },
+  "sha256": "9a57efd22971c9d19aaf907eccabb3701934498da8ae9783cd7ee778f9d899b3",
+  "note": "parent brand: HubSpot; Marketing Hub has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

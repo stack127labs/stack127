@@ -1,0 +1,17 @@
+{
+  "slug": "mailazy",
+  "name": "Mailazy",
+  "official_url": "https://mailazy.com/",
+  "image_url": "https://mailazy.com/favicon.svg",
+  "source_page": "https://mailazy.com/",
+  "kind": "svg-icon",
+  "source_host": "mailazy.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "cad537200e3fd3b2315c5d3f1864f41024cd6c4e2e39be45e85c63be6bd377ed",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "helpwise",
+  "name": "Helpwise",
+  "official_url": "https://helpwise.io/",
+  "image_url": "https://cdn.helpwise.io/assets/images/favicon.png",
+  "source_page": "https://helpwise.io/",
+  "kind": "favicon",
+  "source_host": "cdn.helpwise.io",
+  "original": {
+    "format": "png",
+    "width": 361,
+    "height": 357
+  },
+  "sha256": "6b546602bcbe38c927aed2403dffbdb4d9d89fe6f761b49b74d2ece926e70405",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

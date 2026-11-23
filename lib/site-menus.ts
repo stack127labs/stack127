@@ -13,6 +13,8 @@ export type SiteMenuItem = {
 export type SiteMenus = {
   tools: SiteMenuItem[];
   directories: SiteMenuItem[];
+  /** The app directories (/payment-providers, /hosting, ...), under one heading after the directories. */
+  appStack: { label: string; items: SiteMenuItem[] };
   /** The course and Labs, shown below a divider in the directories menu. */
   more: SiteMenuItem[];
   /** Exact catalog and tool paths that mark the tools menu. */
@@ -32,11 +34,14 @@ type FeatureSource = {
 
 const path = (slug: string) => `/${slug}`;
 
-/** Splits the home feature pages like the home cards: directories first, then the course and Labs. */
-export function buildSiteMenus({ catalogs, features, toolSlugs }: {
+type AppStackSource = { label: string; pages: Array<{ slug: string; name: string; iconKey: string | null; apps: number }> };
+
+/** Splits the home feature pages like the home cards: directories first, then the app directories, then the course and Labs. */
+export function buildSiteMenus({ catalogs, features, toolSlugs, appStack = { label: "", pages: [] } }: {
   catalogs: CatalogSource[];
   features: FeatureSource[];
   toolSlugs: string[];
+  appStack?: AppStackSource;
 }): SiteMenus {
   const featureItem = (page: FeatureSource): SiteMenuItem => ({
     href: path(page.slug),
@@ -54,9 +59,13 @@ export function buildSiteMenus({ catalogs, features, toolSlugs }: {
       count: catalog.toolCount,
     })),
     directories: features.filter((page) => !isMore(page)).map(featureItem),
+    appStack: {
+      label: appStack.label.toLowerCase(),
+      items: appStack.pages.map((page) => ({ href: path(page.slug), label: page.name.toLowerCase(), iconKey: page.iconKey, count: page.apps })),
+    },
     more: features.filter(isMore).map(featureItem),
     toolPaths: [...new Set([...catalogs.map((catalog) => catalog.slug), ...toolSlugs])].map(path).sort(),
-    directoryPaths: features.map((page) => path(page.slug)),
+    directoryPaths: [...features.map((page) => path(page.slug)), ...appStack.pages.map((page) => path(page.slug))],
   };
 }
 

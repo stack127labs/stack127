@@ -1,0 +1,17 @@
+{
+  "slug": "djoser",
+  "name": "Djoser",
+  "official_url": "https://djoser.readthedocs.io/en/latest/",
+  "image_url": "https://github.com/sunscrapers.png?size=460",
+  "source_page": "https://github.com/sunscrapers",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "442042a3da1f15ae994a518b97bfec96b42e9092d8c9bea765a9299c4cf387cd",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

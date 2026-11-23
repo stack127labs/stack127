@@ -1,0 +1,17 @@
+{
+  "slug": "pingzo",
+  "name": "Pingzo",
+  "official_url": "https://www.pingzoapp.com/",
+  "image_url": "https://www.pingzoapp.com/logo.svg?v=3",
+  "source_page": "https://www.pingzoapp.com/",
+  "kind": "svg-icon",
+  "source_host": "pingzoapp.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "f47fd614f66f54aeb52d3586b3fa275a47b4515cbf0dea8fc09a950f8192169d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

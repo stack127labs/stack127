@@ -1,0 +1,27 @@
+{
+  "slug": "aapanel",
+  "name": "aaPanel",
+  "url": "https://www.aapanel.com/",
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: free server-control software installed on a Linux server the user supplies",
+      "static": "04: the free panel can manage static and PHP sites on the user's server"
+    }
+  },
+  "line": "Manage websites, databases, and app deployments on your Linux server.",
+  "free": { "kind": "free", "text": "Free software; you supply the Linux server" },
+  "cells": {
+    "type": "Self-hosted panel",
+    "regions": "Your server",
+    "selfhost": "Yes; install on your Linux server"
+  },
+  "costs": {
+    "work": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Panel is free; needs your own server" }
+    ]
+  }
+}

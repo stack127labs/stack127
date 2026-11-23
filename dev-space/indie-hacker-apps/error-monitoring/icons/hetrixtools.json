@@ -1,0 +1,17 @@
+{
+  "slug": "hetrixtools",
+  "name": "HetrixTools",
+  "official_url": "https://hetrixtools.com/",
+  "image_url": "https://github.com/hetrixtools.png?size=460",
+  "source_page": "https://hetrixtools.com/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 275,
+    "height": 275
+  },
+  "sha256": "7b9d837710c0a8c0bc10250c960659dd3d75e286f73403305a0360925c2c1784",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

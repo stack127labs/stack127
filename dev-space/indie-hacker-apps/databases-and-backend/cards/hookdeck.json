@@ -1,0 +1,31 @@
+{
+  "slug": "hookdeck",
+  "name": "Hookdeck",
+  "url": "https://hookdeck.com/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: Event Gateway provides durable event queueing with retries; J03: at-least-once delivery"
+    }
+  },
+  "line": "Queue and route webhook events with retries and delivery logs.",
+  "free": { "kind": "free", "text": "10K events/mo; 3-day retention; no idle pause or deletion rule" },
+  "cells": {
+    "metered": "Event Gateway Team $39/mo; Outpost 50k deliveries free",
+    "regions": "Gateway region unknown; Outpost Growth has US, EU, and Asia",
+    "selfhost": "Yes, Outpost only under Apache-2.0"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hookdeck handles events, not SQL databases" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hookdeck handles events, not SQL databases" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Hookdeck does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Event Gateway or Outpost", "state": "unclear", "math": "Hookdeck charges for processed events or deliveries to each destination, not for worker seconds. 10,000 jobs do not show either count." }
+    ]
+  }
+}

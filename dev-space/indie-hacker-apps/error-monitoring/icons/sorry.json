@@ -1,0 +1,17 @@
+{
+  "slug": "sorry",
+  "name": "Sorry",
+  "official_url": "https://www.sorryapp.com/",
+  "image_url": "https://www.sorryapp.com/icons/icon-512x512.png?v=05328193a0a7b92ce96bc5477ceb692f",
+  "source_page": "https://www.sorryapp.com/",
+  "kind": "manifest-icon",
+  "source_host": "sorryapp.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "eb9553d2631611dab1b01b1dfd65790223e6f1d4a1a4bf0f540759af9cc9e9d2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

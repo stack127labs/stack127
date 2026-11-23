@@ -1,0 +1,17 @@
+{
+  "slug": "aweber",
+  "name": "AWeber",
+  "official_url": "https://www.aweber.com/",
+  "image_url": "https://assets.aweber-static.com/www/assets/metadata/apple-touch-icon-180x180-precomposed.a86f3087.png",
+  "source_page": "https://www.aweber.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "assets.aweber-static.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "d025d09916b48b4b259d6a96d1ca2855e4e301f941cab36f4c58667f708c8789",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

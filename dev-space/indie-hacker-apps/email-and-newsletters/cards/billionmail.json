@@ -1,0 +1,30 @@
+{
+  "slug": "billionmail",
+  "name": "BillionMail",
+  "url": "https://www.billionmail.com/",
+  "jobs": ["newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletter and campaign tasks in the self-hosted app",
+      "transactional": "F02: individual transactional email through a template-send API; F10 covers single-recipient sends"
+    }
+  },
+  "line": "Self-hosted email campaigns and transactional sending with templates.",
+  "free": {"kind": "selfhost", "text": "Free AGPL software; server and sending cost extra"},
+  "cells": {"newsletters": "Yes", "api": "Yes, template-send API"},
+  "costs": {
+    "subs": [
+      {"v": "$12.65536", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $0.65536 Amazon SES = $12.65536 a month. Assumes one user and one domain, one recipient per email, and 32 KB per email. The software is free."},
+      {"v": "$15.2768", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $3.2768 Amazon SES = $15.2768 a month. Assumes one user and one domain, one recipient per email, and 32 KB per email. The software is free."},
+      {"v": "$18.5536", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $6.5536 Amazon SES = $18.5536 a month. Assumes one user and one domain, one recipient per email, and 32 KB per email. The software is free."},
+      {"v": "$44.768", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $32.768 Amazon SES = $44.768 a month. Assumes one user and one domain, one recipient per email, and 32 KB per email. The software is free."}
+    ],
+    "appmail": [
+      {"v": "$12.49152", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $0.49152 Amazon SES = $12.49152 a month. Assumes 1,000 stored profiles, no automated journeys, one recipient per email, and 32 KB per email."},
+      {"v": "$13.6384", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $1.6384 Amazon SES = $13.6384 a month. Assumes 1,000 stored profiles, no automated journeys, one recipient per email, and 32 KB per email."},
+      {"v": "$20.192", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $8.192 Amazon SES = $20.192 a month. Assumes 1,000 stored profiles, no automated journeys, one recipient per email, and 32 KB per email."},
+      {"v": "$28.384", "plan": "Self-host + SES", "state": "unclear", "math": "$12 hosting + $16.384 Amazon SES = $28.384 a month. Assumes 1,000 stored profiles, no automated journeys, one recipient per email, and 32 KB per email."}
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "heroic-inbox",
+  "name": "Heroic Inbox",
+  "url": "https://herothemes.com/plugins/heroic-inbox/",
+  "jobs": ["inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F18: Conversation assignment, internal notes, collision detection and tags on Essential and above"
+    }
+  },
+  "line": "WordPress shared support inbox for teams answering customer email.",
+  "free": { "kind": "none", "text": "No free plan; 14-day money-back guarantee" },
+  "cells": {
+    "channels": "Email",
+    "ai": "No AI rate or entitlement established",
+    "selfhost": "Yes, WordPress plugin"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$99.50/year", "plan": "Essential", "state": "confirmed", "math": "One site license covers unlimited agents. The first year is a special offer; after that it is $199 a year." },
+      { "v": "$99.50/year", "plan": "Essential", "state": "confirmed", "math": "One site license covers three agents. The first year is a special offer; after that it is $199 a year." }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "pagopar-by-upay",
+  "name": "Pagopar by upay",
+  "url": "https://upay.com.py/pagopar/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online checkout and payment aggregation; the seller remains responsible for the offer",
+      "billing": "F14: subscriptions with seller-set amount and frequency from the panel; F15: card rails only",
+      "links": "F16: payment links shared by social networks, WhatsApp, email or SMS, no website needed"
+    }
+  },
+  "line": "Paraguay payment gateway for checkout, payment links and recurring charges.",
+  "free": {
+    "kind": "free",
+    "text": "upay Base is PYG 0/month; required Pagopar plan is unclear"
+  },
+  "cells": {
+    "type": "Payment aggregation and online checkout platform",
+    "countries": "Paraguay only",
+    "payout": "Tue/Fri batches; newer upay timing also appears"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Paraguay."
+      }
+    ]
+  }
+}

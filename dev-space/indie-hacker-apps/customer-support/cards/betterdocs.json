@@ -1,0 +1,27 @@
+{
+  "slug": "betterdocs",
+  "name": "BetterDocs",
+  "url": "https://betterdocs.co/",
+  "jobs": ["kb", "ai", "chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: self-service help centre and FAQ builder; WordPress plugin is the main form",
+      "ai": "F22: WordPress AI Chatbot add-on gives autonomous visitor replies from your docs; paid, needs Pro and a model key",
+      "chat": "F17: Shopify app has native live chat with replies from its dashboard. WordPress shows no human inbox"
+    }
+  },
+  "line": "Builds a searchable customer help center for WordPress and Shopify.",
+  "free": { "kind": "free", "text": "Free WordPress plugin; Shopify free plan has 12 docs" },
+  "cells": {
+    "channels": "Help center, Shopify chat, WhatsApp, Messenger",
+    "ai": "Own provider key; chatbot add-on is $69/year per site",
+    "selfhost": "Yes, WordPress plugin"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a full email support inbox." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide a full email support inbox." }
+    ]
+  }
+}

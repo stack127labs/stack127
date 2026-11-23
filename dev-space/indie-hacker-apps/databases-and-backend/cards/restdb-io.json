@@ -1,0 +1,53 @@
+{
+  "slug": "restdb-io",
+  "name": "restdb.io",
+  "url": "https://restdb.io/",
+  "jobs": ["nosql", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is hosted NoSQL document database with generated REST and JavaScript APIs",
+      "files": "F01: 20 GB media storage included on Standard; F05: native /media endpoints for upload and fetch",
+      "jobs": "C07: Codehooks & Jobs with scheduled runJob functions are listed on all three plans"
+    }
+  },
+  "line": "NoSQL document database with generated APIs, media storage, and codehooks.",
+  "free": { "kind": "free", "text": "2,500 records, 500 calls/day, 100MB media; no idle pause or deletion rule" },
+  "cells": {
+    "metered": "Standard $29/database/mo; includes Codehooks & Jobs",
+    "regions": "Norway processing stated; managed DB region choice unknown",
+    "selfhost": "No, hosted service; can connect your own MongoDB"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$29+",
+        "plan": "Standard",
+        "state": "unclear",
+        "math": "The likely base is the Standard plan at $29. The total adds unknown transfer and storage fit costs, and a 1 GB data allowance is not confirmed."
+      },
+      {
+        "v": "$29+",
+        "plan": "Standard",
+        "state": "unclear",
+        "math": "The Standard $29 subscription stays due while idle. Whether the kept data fits, and any add-on costs, are unknown."
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "Premium",
+        "state": "not_published",
+        "math": "100 GB is more than Premium's 50 GB media allowance. No rate for extra storage, and no supported single-database total, is published."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$29+",
+        "plan": "Standard",
+        "state": "unclear",
+        "math": "Standard includes Codehooks & Jobs. But the rate for 10,000 worker runs, whether the run time fits, how many run at once, and the full total are unknown."
+      }
+    ]
+  }
+}

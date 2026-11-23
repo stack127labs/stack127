@@ -1,0 +1,17 @@
+{
+  "slug": "measure-events",
+  "name": "Measure",
+  "official_url": "https://measure.events/",
+  "image_url": "https://measure.events/",
+  "source_page": "https://measure.events/",
+  "kind": "svg-icon",
+  "source_host": "measure.events",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "f99be38a3d022420ceee519e1f675745ca0d5600a365119aacd574660c92a241",
+  "note": "inline SVG favicon in the official site HTML (purple tile with three white bars), vector",
+  "saved_at": "2026-11-22"
+}

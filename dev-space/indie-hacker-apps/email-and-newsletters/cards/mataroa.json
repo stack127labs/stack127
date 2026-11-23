@@ -1,0 +1,32 @@
+{
+  "slug": "mataroa",
+  "name": "Mataroa",
+  "url": "https://mataroa.blog/",
+  "jobs": ["newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: blog-post email newsletters and RSS publishing"
+    }
+  },
+  "line": "A hosted blog that sends new posts to newsletter subscribers.",
+  "free": { "kind": "free", "text": "Free; 15,000 email addresses is a soft limit" },
+  "cells": {
+    "newsletters": "Yes, blog-post email newsletters",
+    "api": "Yes, JSON API for posts and pages"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$0/month", "plan": "Free", "state": "unclear", "math": "The listed plan price is $0 for 1,000 contacts. The monthly send allowance is not known." },
+      { "v": "$0/month", "plan": "Free", "state": "unclear", "math": "The listed plan price is $0 for 5,000 contacts. The monthly send allowance is not known." },
+      { "v": "$0/month", "plan": "Free", "state": "unclear", "math": "The listed plan price is $0 for 10,000 contacts. The monthly send allowance is not known." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "50,000 is above the 15,000-subscriber soft limit. The next-tier price and whether it is accepted are unknown." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Only blog newsletter emails were confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Only blog newsletter emails were confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Only blog newsletter emails were confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Only blog newsletter emails were confirmed." }
+    ]
+  }
+}

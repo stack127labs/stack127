@@ -1,0 +1,17 @@
+{
+  "slug": "postgresql",
+  "name": "PostgreSQL",
+  "official_url": "https://www.postgresql.org/",
+  "image_url": "https://www.postgresql.org/media/img/about/press/elephant.png",
+  "source_page": "https://www.postgresql.org/",
+  "kind": "logo-mark",
+  "source_host": "postgresql.org",
+  "original": {
+    "format": "png",
+    "width": 540,
+    "height": 557
+  },
+  "sha256": "08009e6ce2c989b87a897a989931d3c5fc565aebba0b1997057b508c354df11e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

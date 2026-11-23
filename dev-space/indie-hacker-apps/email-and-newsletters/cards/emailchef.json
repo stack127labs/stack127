@@ -1,0 +1,31 @@
+{
+  "slug": "emailchef",
+  "name": "Emailchef",
+  "url": "https://emailchef.com/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: visual automated contact journeys triggered by external events",
+      "newsletter": "F02: newsletters and bulk marketing campaigns",
+      "transactional": "F02: single-recipient email API for application-generated email"
+    }
+  },
+  "line": "Send newsletters and automated campaigns, with a single-recipient email API.",
+  "free": { "kind": "trial", "text": "One-month trial with up to 500 contacts and 1,000 emails" },
+  "cells": { "newsletters": "Yes", "api": "Yes, single-recipient email API" },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "The Demichef base price for this contact tier is €9. The full total is unknown, because the included send quota is unknown." },
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "The Demichef base price for this contact tier is €59. The full total is unknown, because the included send quota is unknown." },
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "The Demichef base price for this contact tier is €109. The full total is unknown, because the included send quota is unknown." },
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "The Demichef base price for this contact tier is €319. The full total is unknown, because the included send quota is unknown." }
+    ],
+    "appmail": [
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "1,000 contacts and 3,000 lifecycle runs. The exact total is unknown, because the paid send and run allowance is unknown." },
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "1,000 contacts and 10,000 lifecycle runs. The exact total is unknown, because the paid send and run allowance is unknown." },
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "1,000 contacts and 50,000 lifecycle runs. The exact total is unknown, because the paid send and run allowance is unknown." },
+      { "v": "Unknown", "plan": "Demichef", "state": "unclear", "math": "1,000 contacts and 100,000 lifecycle runs. The exact total is unknown, because the paid send and run allowance is unknown." }
+    ]
+  }
+}

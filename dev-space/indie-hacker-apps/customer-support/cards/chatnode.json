@@ -1,0 +1,26 @@
+{
+  "slug": "chatnode",
+  "name": "ChatNode",
+  "url": "https://www.chatnode.ai/",
+  "jobs": ["ai", "chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F22: Autonomous answers from trained knowledge sources, with configured actions and lead capture",
+      "chat": "F17: Native website chat widget; human live chat mode starts on the Standard plan"
+    }
+  },
+  "line": "Knowledge-trained website agents with live human chat and handoff.",
+  "free": { "kind": "free", "text": "Free: 1 bot, 1 member, 35 credits/month" },
+  "cells": {
+    "channels": "Website chat",
+    "ai": "Credit-based; model choice changes usage",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$89", "plan": "Standard", "state": "unclear", "math": "Standard is the lowest plan for human chat. Sending chats only to people, with no AI, is not confirmed." },
+      { "v": "$89", "plan": "Standard", "state": "unclear", "math": "Three users fit the Standard plan. Sending chats only to people, with no AI, is not confirmed." }
+    ]
+  }
+}

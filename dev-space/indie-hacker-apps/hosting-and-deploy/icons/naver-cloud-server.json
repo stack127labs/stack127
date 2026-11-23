@@ -1,0 +1,17 @@
+{
+  "slug": "naver-cloud-server",
+  "name": "NAVER Cloud Server",
+  "official_url": "https://www.ncloud.com/product/compute/server",
+  "image_url": "https://www.ncloud.com/favicon.ico",
+  "source_page": "https://www.ncloud.com/product/compute/server",
+  "kind": "favicon",
+  "source_host": "ncloud.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "4c3da495311fde8da1a96bbfa4ebc3e34ddbf88c7267fb043b4c3949e69bf72c",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

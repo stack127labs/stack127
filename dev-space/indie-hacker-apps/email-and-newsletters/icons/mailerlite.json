@@ -1,0 +1,17 @@
+{
+  "slug": "mailerlite",
+  "name": "MailerLite",
+  "official_url": "https://www.mailerlite.com/",
+  "image_url": "https://www.mailerlite.com/site/themes/new/img/favicons/apple-touch-icon.png",
+  "source_page": "https://www.mailerlite.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "mailerlite.com",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "b2fdc709389fafc403df47a61fbb6a0091f4d258ffebee4e4f2900240b2d4bf6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

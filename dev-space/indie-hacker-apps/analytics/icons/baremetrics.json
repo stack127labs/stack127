@@ -1,0 +1,17 @@
+{
+  "slug": "baremetrics",
+  "name": "Baremetrics",
+  "official_url": "https://baremetrics.com/",
+  "image_url": "https://baremetrics.com/hubfs/baremetrics-mark.png",
+  "source_page": "https://baremetrics.com/",
+  "kind": "logo-mark",
+  "source_host": "baremetrics.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "a410cd00da13015e54527680826a5fc7803c23b88bb38dc231982b343b740e17",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

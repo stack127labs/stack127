@@ -1,0 +1,17 @@
+{
+  "slug": "plain",
+  "name": "Plain",
+  "official_url": "https://www.plain.com/",
+  "image_url": "https://framerusercontent.com/images/oPE9BwSE8LUYzrxvpHa5FCmXc.png",
+  "source_page": "https://www.plain.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "framerusercontent.com",
+  "original": {
+    "format": "heif",
+    "width": 238,
+    "height": 238
+  },
+  "sha256": "6c1a9c8c396ffb8ed00d9fc50a997c8f588fe162a0f1955e509a669d19d6479f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

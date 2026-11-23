@@ -1,0 +1,34 @@
+{
+  "slug": "back4app",
+  "name": "Back4App",
+  "url": "https://www.back4app.com/",
+  "jobs": ["backend", "nosql", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: MongoDB document database is the managed data store on Back4App",
+      "backend": "C02: managed backend platform; C07: database, auth, file storage and Cloud Code documented",
+      "files": "F01: included file pool with excess pricing; F04: 20MB default file size",
+      "jobs": "J04: cron-style recurring Cloud Jobs with start time, repeat interval and Run now"
+    }
+  },
+  "line": "Build apps with a managed Parse database, auth, files, and functions.",
+  "free": { "kind": "free", "text": "25K requests, 250 MB database, 1 GB files monthly" },
+  "cells": {
+    "metered": "MVP $15/app/month, billed annually",
+    "regions": "USA on Free; USA, Europe, Asia, Australia on MVP",
+    "selfhost": "Yes, with upstream Parse Server"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$15", "plan": "MVP annual plan", "state": "unclear", "math": "$15 base. The assumed 1 GB of data and 120K requests fit within the included usage for an MVP (a first, basic version)." },
+      { "v": "$15", "plan": "MVP annual plan", "state": "confirmed", "math": "The $15 base still applies with no requests. No compute discount for idle use is published." }
+    ],
+    "files": [
+      { "v": "$20", "plan": "MVP annual plan", "state": "unclear", "math": "$15 base, plus $5 for 50 GB beyond the 50 GB file allowance. Download request charges may raise the total." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The free requests cover the 10K assumed triggers. Worker CPU, memory and concurrency limits are not published, so it is unknown whether they fit." }
+    ]
+  }
+}

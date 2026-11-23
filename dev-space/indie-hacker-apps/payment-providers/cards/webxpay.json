@@ -1,0 +1,51 @@
+{
+  "slug": "webxpay",
+  "name": "WEBXPAY",
+  "url": "https://webxpay.com/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online gateway with cards, wallets and bank payments; seller terms not verified",
+      "links": "F16: XPAYLINK remote collection without a full ecommerce site, in all three packages"
+    }
+  },
+  "line": "Sri Lankan online gateway for cards, wallets, recurring charges, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "No free plan; Starter costs Rs.10,000 for 12 months"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Sri Lanka; wider eligibility unpublished",
+    "payout": "LKR T+1; USD/GBP T+1–2 (conflict)"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "Published card rates cover Sri Lanka. It isn't published whether US sellers can sign up, and no US rate is published."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "Published card rates cover Sri Lanka. It isn't published whether UK sellers can sign up, and no UK rate is published."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "Published card rates cover Sri Lanka. It isn't published whether German sellers can sign up, and no German rate is published."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "Published card rates cover Sri Lanka. It isn't published whether Indian sellers can sign up, and no India rate is published."
+      }
+    ]
+  }
+}

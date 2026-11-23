@@ -1,0 +1,33 @@
+{
+  "slug": "mongodb-atlas",
+  "name": "MongoDB Atlas",
+  "url": "https://www.mongodb.com/products/platform/atlas-database",
+  "jobs": ["nosql", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is managed BSON document database; D01: native MongoDB document queries",
+      "jobs": "J04: scheduled triggers run cron-timed functions on Atlas; C07: database triggers run Functions",
+      "vector": "V01: Atlas Vector Search, up to 8,192 dimensions, is documented on Core clusters"
+    }
+  },
+  "line": "Managed document database with full-text, vector, and hybrid search.",
+  "free": { "kind": "free", "text": "0.5 GB storage; auto-pauses after 30 days without connections" },
+  "cells": {
+    "metered": "Flex $0.011/hour, capped at $30/month",
+    "regions": "AWS, Azure, Google Cloud; regions vary by tier",
+    "selfhost": "No, Atlas is managed; self-managed MongoDB is separate"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$8.03", "plan": "Core Flex, AWS us-east-1", "state": "unclear", "math": "730 hours × $0.0110 an hour for the cluster, at up to 100 operations a second. Vector and index fit, and model charges, are not included." },
+      { "v": "$8.03", "plan": "Core Flex, AWS us-east-1", "state": "confirmed", "math": "730 hours × $0.0110 an hour. Flex cannot pause, so the cluster charge continues with no traffic." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "GridFS on Dedicated", "state": "not_published", "math": "100 GB is more than Flex allows. Totals for a configured cluster, chunk operations and regional transfer are not published for this workload." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Atlas Triggers", "state": "unclear", "math": "The requested 0.5 GB is more than the 350 MB cap. A 256 MB setup is only an illustration, with cluster cost separate." }
+    ]
+  }
+}

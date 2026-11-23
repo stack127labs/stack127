@@ -1,0 +1,14 @@
+/* The app directories card spans the home directories grid, with its links in columns. */
+.card {
+  grid-column: 1 / -1;
+}
+
+/* No hub page, so the heading is plain text, not link-coloured. */
+.card h3 {
+  color: var(--color-text);
+}
+
+.list {
+  column-gap: var(--space-8);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+}

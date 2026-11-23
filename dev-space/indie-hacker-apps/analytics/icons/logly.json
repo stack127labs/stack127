@@ -1,0 +1,17 @@
+{
+  "slug": "logly",
+  "name": "Logly",
+  "official_url": "https://logly.uk/",
+  "image_url": "https://logly.uk/assets/favicon.svg",
+  "source_page": "https://logly.uk/",
+  "kind": "svg-icon",
+  "source_host": "logly.uk",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "2ab6f8a454620870f19a38f006e45fd78a6cddb7ad6cd205fce8526e5f91c5a0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

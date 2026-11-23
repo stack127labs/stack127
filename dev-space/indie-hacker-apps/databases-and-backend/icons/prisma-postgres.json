@@ -1,0 +1,17 @@
+{
+  "slug": "prisma-postgres",
+  "name": "Prisma Postgres",
+  "official_url": "https://www.prisma.io/postgres",
+  "image_url": "https://www.prisma.io/icon.svg?icon.33jj2rcm8g1fz.svg",
+  "source_page": "https://www.prisma.io/postgres",
+  "kind": "svg-icon",
+  "source_host": "prisma.io",
+  "original": {
+    "format": "svg",
+    "width": 1403,
+    "height": 1408
+  },
+  "sha256": "31a3a5fcba9489f8bc9c33b076ae5030e62296e5fc3fc3844422623e4b28a737",
+  "note": "Parent brand: Prisma; the Postgres page uses Prisma's shared mark.",
+  "saved_at": "2026-11-14"
+}

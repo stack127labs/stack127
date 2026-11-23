@@ -1,0 +1,26 @@
+{
+  "slug": "djoser",
+  "name": "Djoser",
+  "url": "https://djoser.readthedocs.io/en/latest/",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Python REST library for account endpoints; F05: developer runs Django and token storage"
+    }
+  },
+  "line": "Django REST Framework endpoints for user accounts and login.",
+  "free": { "kind": "selfhost", "text": "Free MIT library; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No Djoser fee; external OIDC/SAML integrations"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Djoser software licence costs $0. App hosting, database, email delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Djoser software licence costs $0. App hosting, database, email delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Djoser software licence costs $0. App hosting, database, email delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Djoser software licence costs $0. App hosting, database, email delivery and operations cost extra." }
+    ]
+  }
+}

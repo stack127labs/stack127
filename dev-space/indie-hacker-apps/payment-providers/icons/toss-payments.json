@@ -1,0 +1,17 @@
+{
+  "slug": "toss-payments",
+  "name": "Toss Payments",
+  "official_url": "https://www.tosspayments.com/",
+  "image_url": "https://static.toss.im/tds/favicon/favicon-196x196.png",
+  "source_page": "https://www.tosspayments.com/",
+  "kind": "favicon",
+  "source_host": "static.toss.im",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "df0f2bef48bceac0fb2bd2b7630476cd08c9df62b5fdee2cd479af3a2e54d428",
+  "note": "parent brand: Toss",
+  "saved_at": "2026-11-14"
+}

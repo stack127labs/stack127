@@ -1,0 +1,18 @@
+{
+  "slug": "tinylytics", "name": "Tinylytics", "url": "https://tinylytics.app/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is hosted website traffic analytics; F15: hits, top pages, countries, referrers and campaigns"
+    }
+  },
+  "line": "Website analytics with custom events and site health checks.",
+  "free": {"kind": "trial", "text": "14-day full-feature trial, no credit card"},
+  "cells": {"cookieless": "Yes (daily rotating visitor hash)", "location": "Falkenstein, Germany", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "$7", "plan": "Zen", "state": "confirmed", "math": "One site fits the Zen plan's two-site allowance. A monthly option is available."},
+    {"v": "$7", "plan": "Zen", "state": "confirmed", "math": "One site fits the Zen plan's two-site allowance. A monthly option is available."},
+    {"v": "$7", "plan": "Zen", "state": "confirmed", "math": "One site fits the Zen plan's two-site allowance. Traffic is at the 1M fair-use review level."}
+  ]}
+}

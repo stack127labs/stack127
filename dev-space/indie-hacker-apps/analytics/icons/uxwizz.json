@@ -1,0 +1,17 @@
+{
+  "slug": "uxwizz",
+  "name": "UXWizz",
+  "official_url": "https://www.uxwizz.com/",
+  "image_url": "https://www.uxwizz.com/android-chrome-512x512.png",
+  "source_page": "https://www.uxwizz.com/",
+  "kind": "manifest-icon",
+  "source_host": "uxwizz.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "b4a28f669ea3f0fa85cb9b1dc3b53e6b8506dfb244eccfea3a61edc0278f48b4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

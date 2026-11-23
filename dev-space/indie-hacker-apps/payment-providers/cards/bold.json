@@ -1,0 +1,51 @@
+{
+  "slug": "bold",
+  "name": "Bold",
+  "url": "https://bold.co/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment acceptance gateway and aggregator; the merchant sells to the buyer",
+      "links": "F16: hosted payment link in Colombia; in Peru links are created in the Bold app"
+    }
+  },
+  "line": "Colombia and Peru payment links and online card acceptance.",
+  "free": {
+    "kind": "none",
+    "text": "No standard monthly fee published"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Colombia only",
+    "payout": "CO next day or immediate; Peru 24–48 hours"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Colombia."
+      }
+    ]
+  }
+}

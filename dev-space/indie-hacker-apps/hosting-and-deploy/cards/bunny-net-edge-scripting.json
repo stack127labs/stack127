@@ -1,0 +1,20 @@
+{
+  "slug": "bunny-net-edge-scripting",
+  "name": "bunny.net Edge Scripting",
+  "url": "https://bunny.net/edge-scripting/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed JavaScript and TypeScript execution; bunny.net runs the scripts in its isolated runtimes"
+    }
+  },
+  "line": "Run JavaScript and TypeScript scripts across edge locations.",
+  "free": { "kind": "trial", "text": "14-day trial; $20 credit, $50 after verified card" },
+  "cells": { "type": "Edge functions", "regions": "72 scripting PoPs; 119 overall edge locations", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$1.201, plus $0.02 for each block of 1,000 CPU seconds of actual CPU time, rounded up, with at least 1 block. Above 0 and up to 1,000 CPU seconds, the total is $1.221." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "The 256 MiB needed is more than the 128 MB active-memory limit for each isolate (a separate running copy of the code)." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Same memory limit problem as the small app API. No built-in managed PostgreSQL." }
+  ] }
+}

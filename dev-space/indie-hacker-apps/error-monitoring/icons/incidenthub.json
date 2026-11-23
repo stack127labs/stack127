@@ -1,0 +1,17 @@
+{
+  "slug": "incidenthub",
+  "name": "IncidentHub",
+  "official_url": "https://incidenthub.cloud/",
+  "image_url": "https://cdn.incidenthub.cloud/logo64.png",
+  "source_page": "https://incidenthub.cloud/",
+  "kind": "logo-mark",
+  "source_host": "cdn.incidenthub.cloud",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 63
+  },
+  "sha256": "faafa51c60e25f1160d4c75ce5caaeb4e0af2125d48ce114021299fb510ef93b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

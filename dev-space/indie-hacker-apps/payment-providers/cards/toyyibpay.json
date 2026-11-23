@@ -1,0 +1,51 @@
+{
+  "slug": "toyyibpay",
+  "name": "ToyyibPay",
+  "url": "https://www.toyyibpay.com/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and facilitator; the merchant remains responsible for the sale",
+      "links": "F16: dashboard-created bills and hosted bill links, no merchant website needed to open them"
+    }
+  },
+  "line": "Malaysian gateway for FPX, cards, DuitNow QR, payment links, and bills.",
+  "free": {
+    "kind": "none",
+    "text": "No monthly or annual FPX fee; standard B2C costs RM1 per payment"
+  },
+  "cells": {
+    "type": "Payment gateway and facilitator",
+    "countries": "Malaysia only",
+    "payout": "FPX 1–4 business days; card timing conflicts"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Malaysia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Malaysia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Malaysia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Malaysia."
+      }
+    ]
+  }
+}

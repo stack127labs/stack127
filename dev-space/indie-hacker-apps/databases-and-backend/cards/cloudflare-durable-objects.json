@@ -1,0 +1,32 @@
+{
+  "slug": "cloudflare-durable-objects",
+  "name": "Cloudflare Durable Objects",
+  "url": "https://developers.cloudflare.com/durable-objects/",
+  "jobs": ["sql", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: private SQLite databases per object; D01: SQL API over embedded SQLite",
+      "jobs": "J03: native alarms run at least once with up to six retries; C02 lists scheduled jobs"
+    }
+  },
+  "line": "Run stateful Workers objects with private databases and scheduled alarms.",
+  "free": { "kind": "free", "text": "100K requests/day, 5 GB SQLite/account; idle objects hibernate, wake on event" },
+  "cells": {
+    "metered": "$0.15/million requests after the paid allowance",
+    "regions": "Automatic placement; US, EU, and FedRAMP jurisdictions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$0", "plan": "Workers Free, SQLite Durable Objects", "state": "unclear", "math": "The 1 GB and the assumed monthly reads and writes fit the published account allowances. The Free plan's per-object size limit is in conflict, so the total is unclear." },
+      { "v": "$0", "plan": "Workers Free, SQLite Durable Objects", "state": "unclear", "math": "No row operations. The 1 GB kept fits the 5 GB account allowance, but the Free per-object limit is in conflict." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "This is private database storage, not a file bucket." }
+    ],
+    "jobs": [
+      { "v": "$0", "plan": "Workers Free, SQLite Durable Objects", "state": "unclear", "math": "10,000 alarms, each one second long, use about 1,250 GB-seconds at the 128 MB billed allocation. That fits within daily limits if they all run in one day." }
+    ]
+  }
+}

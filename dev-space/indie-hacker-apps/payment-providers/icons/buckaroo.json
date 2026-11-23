@@ -1,0 +1,17 @@
+{
+  "slug": "buckaroo",
+  "name": "Buckaroo",
+  "official_url": "https://www.buckaroo.eu/",
+  "image_url": "https://www.buckaroo.eu/dist/assets/favicons/mkb/favicon-32x32.png?v=3",
+  "source_page": "https://www.buckaroo.eu/",
+  "kind": "favicon",
+  "source_host": "buckaroo.eu",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "f37262fb00acfcf7902703b40ba029855db4e0be1962d28bbbd49501060c3715",
+  "note": "current linked favicon (v=3); largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

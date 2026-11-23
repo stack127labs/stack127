@@ -1,0 +1,17 @@
+{
+  "slug": "reclaim-cloud",
+  "name": "Reclaim Cloud",
+  "official_url": "https://www.reclaimhosting.com/product-overview/",
+  "image_url": "https://www.reclaimhosting.com/wp-content/uploads/2018/09/RHprofilelogo-300x300.png",
+  "source_page": "https://www.reclaimhosting.com/product-overview/",
+  "kind": "manifest-icon",
+  "source_host": "reclaimhosting.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "a5208352ed4797c8b6d64303de71cac8bcbe0376755892524a652a957b01ef51",
+  "note": "parent brand: Reclaim Hosting; no distinct Reclaim Cloud icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "zoho-desk",
+  "name": "Zoho Desk",
+  "official_url": "https://www.zoho.com/desk/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/e6/b6/1be6b692-1288-b334-770e-0ca912cce7a7/AppIcon-0-0-1x_U007emarketing-0-0-0-8-0-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/zoho-desk/id692742510?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "c936a03b1c3d12ee154159f23c5300147b3caf2000e2c1b32a4fa8871ac92803",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

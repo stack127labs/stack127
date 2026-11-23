@@ -1,0 +1,29 @@
+{
+  "slug": "tawk-to",
+  "name": "tawk.to",
+  "url": "https://www.tawk.to/",
+  "jobs": ["chat", "helpdesk", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help articles are part of the live chat and shared inbox product",
+      "chat": "F17: Native free website widget with unlimited human chat volume",
+      "helpdesk": "F17: Native tickets from forwarded support email; F21: Knowledge Base with public and private articles",
+      "ai": "F22: AI Assist gives autonomous support replies across channels as a paid add-on; transfers to a person on request (F24)",
+      "inbox": "F18: Agent and department assignment, priorities and Open, Pending or Closed status in one shared history"
+    }
+  },
+  "line": "Free live chat and shared support inbox with email tickets and help articles.",
+  "free": { "kind": "free", "text": "Free forever; unlimited agents, chats, and sites" },
+  "cells": {
+    "channels": "Website chat, email tickets, knowledge base",
+    "ai": "Free 100 credits/month; Growth is $29/month",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The core support software is free. Unlimited agents and 100 conversations fit." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The core support software is free. Unlimited agents and 100 conversations fit." }
+    ]
+  }
+}

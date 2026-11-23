@@ -1,0 +1,1428 @@
+{
+ "comment": "Where each research field goes in the app panel. place: H headline cost, L card cell, S status, D1-D5 panel sections, K kept but not shown, Z dropped.",
+ "sections": {
+  "D1": "Price and limits",
+  "D2": "Who can use it",
+  "D3": "What it does",
+  "D4": "Your data and leaving",
+  "D5": "Company and history"
+ },
+ "fields": {
+  "payment-providers": {
+   "F01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "F02": {
+    "place": "L",
+    "label": "Type (who sells to the buyer)"
+   },
+   "F03": {
+    "place": "L",
+    "label": "Can sign up from"
+   },
+   "F04": {
+    "place": "D2",
+    "label": "Individuals and sole traders allowed"
+   },
+   "F05": {
+    "place": "D2",
+    "label": "Local company and bank needed"
+   },
+   "F06": {
+    "place": "D2",
+    "label": "Documents for review"
+   },
+   "F07": {
+    "place": "D2",
+    "label": "Open signup or invite only"
+   },
+   "F08": {
+    "place": "D2",
+    "label": "What you can sell"
+   },
+   "F09": {
+    "place": "D2",
+    "label": "Banned business types"
+   },
+   "F10": {
+    "place": "D2",
+    "label": "Buyer countries blocked"
+   },
+   "F11": {
+    "place": "D3",
+    "label": "Currencies buyers pay in"
+   },
+   "F12": {
+    "place": "D3",
+    "label": "Payment methods"
+   },
+   "F13": {
+    "place": "D3",
+    "label": "One-time sales"
+   },
+   "F14": {
+    "place": "D3",
+    "label": "Subscriptions"
+   },
+   "F15": {
+    "place": "D3",
+    "label": "Billing features"
+   },
+   "F16": {
+    "place": "D3",
+    "label": "Checkout options"
+   },
+   "F17": {
+    "place": "D3",
+    "label": "API, webhooks, test mode"
+   },
+   "F18": {
+    "place": "D1",
+    "label": "Other accounts you must pay for"
+   },
+   "F19": {
+    "place": "L",
+    "label": "Monthly fee"
+   },
+   "F20": {
+    "place": "H",
+    "label": "Card fee, your country"
+   },
+   "F21": {
+    "place": "D1",
+    "label": "Card fee, foreign card"
+   },
+   "F22": {
+    "place": "D1",
+    "label": "Currency conversion fee"
+   },
+   "F23": {
+    "place": "D1",
+    "label": "Local method fees"
+   },
+   "F24": {
+    "place": "D1",
+    "label": "Subscription billing fee"
+   },
+   "F25": {
+    "place": "D1",
+    "label": "Tax and checkout add-ons"
+   },
+   "F26": {
+    "place": "D1",
+    "label": "Refund cost"
+   },
+   "F27": {
+    "place": "D1",
+    "label": "Dispute cost"
+   },
+   "F28": {
+    "place": "D1",
+    "label": "Payout fee"
+   },
+   "F29": {
+    "place": "D3",
+    "label": "Who handles sales tax"
+   },
+   "F30": {
+    "place": "D3",
+    "label": "Receipts and invoices"
+   },
+   "F31": {
+    "place": "D3",
+    "label": "Payout methods"
+   },
+   "F32": {
+    "place": "D3",
+    "label": "Payout currencies"
+   },
+   "F33": {
+    "place": "L",
+    "label": "Payout time"
+   },
+   "F34": {
+    "place": "D1",
+    "label": "Minimum payout"
+   },
+   "F35": {
+    "place": "D1",
+    "label": "Payment and account limits"
+   },
+   "F36": {
+    "place": "D2",
+    "label": "Holds and reserves"
+   },
+   "F37": {
+    "place": "D4",
+    "label": "Export and moving providers"
+   },
+   "F38": {
+    "place": "D5",
+    "label": "Support"
+   },
+   "F39": {
+    "place": "S",
+    "label": "Status and recent changes"
+   },
+   "F40": {
+    "place": "D4",
+    "label": "Closing your account"
+   },
+   "F41": {
+    "place": "D5",
+    "label": "Legal entity and licences"
+   },
+   "F42": {
+    "place": "D3",
+    "label": "Digital delivery"
+   },
+   "F43": {
+    "place": "D3",
+    "label": "Split payments"
+   },
+   "F44": {
+    "place": "Z",
+    "label": "Exact reserve %"
+   },
+   "F45": {
+    "place": "D2",
+    "label": "Approval time"
+   },
+   "C01": {
+    "place": "D3",
+    "label": "Crypto: coins and networks"
+   },
+   "C02": {
+    "place": "D3",
+    "label": "Crypto: who holds funds"
+   },
+   "C03": {
+    "place": "D3",
+    "label": "Crypto: conversion and payout"
+   },
+   "C04": {
+    "place": "D3",
+    "label": "Crypto: confirmations and refunds"
+   },
+   "C05": {
+    "place": "D3",
+    "label": "Crypto: hosted or self-run"
+   }
+  },
+  "hosting-and-deploy": {
+   "01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "02": {
+    "place": "S",
+    "label": "Status"
+   },
+   "03": {
+    "place": "L",
+    "label": "Type"
+   },
+   "04": {
+    "place": "D3",
+    "label": "What you can run"
+   },
+   "05": {
+    "place": "L",
+    "label": "Paid from"
+   },
+   "06": {
+    "place": "D1",
+    "label": "Included CPU, memory, storage"
+   },
+   "07": {
+    "place": "D1",
+    "label": "Usage prices"
+   },
+   "08": {
+    "place": "L",
+    "label": "Free plan"
+   },
+   "09": {
+    "place": "D2",
+    "label": "Trial and card needed"
+   },
+   "10": {
+    "place": "D2",
+    "label": "Commercial use allowed on free plan"
+   },
+   "11": {
+    "place": "D1",
+    "label": "Bandwidth cost"
+   },
+   "12": {
+    "place": "D1",
+    "label": "Build minutes and limits"
+   },
+   "13": {
+    "place": "D1",
+    "label": "Easy-to-miss charges"
+   },
+   "14": {
+    "place": "D1",
+    "label": "Spend cap"
+   },
+   "15": {
+    "place": "H",
+    "label": "Cost for the example app"
+   },
+   "16": {
+    "place": "L",
+    "label": "Regions"
+   },
+   "17": {
+    "place": "D4",
+    "label": "Data location and privacy terms"
+   },
+   "18": {
+    "place": "D3",
+    "label": "Languages and runtimes"
+   },
+   "19": {
+    "place": "D3",
+    "label": "Framework support"
+   },
+   "20": {
+    "place": "D3",
+    "label": "Deploy from (Git, Docker, CLI)"
+   },
+   "21": {
+    "place": "D3",
+    "label": "Background workers and cron"
+   },
+   "22": {
+    "place": "D3",
+    "label": "WebSockets and networking"
+   },
+   "23": {
+    "place": "D1",
+    "label": "Sleeps when idle"
+   },
+   "24": {
+    "place": "D1",
+    "label": "Timeouts and request limits"
+   },
+   "25": {
+    "place": "D3",
+    "label": "Disk that survives restarts"
+   },
+   "26": {
+    "place": "D3",
+    "label": "Built-in databases and services"
+   },
+   "27": {
+    "place": "D3",
+    "label": "Custom domains and HTTPS"
+   },
+   "28": {
+    "place": "D3",
+    "label": "Previews and rollback"
+   },
+   "29": {
+    "place": "D3",
+    "label": "Logs and monitoring"
+   },
+   "30": {
+    "place": "D3",
+    "label": "Secrets and team access"
+   },
+   "31": {
+    "place": "D4",
+    "label": "Backups and restore"
+   },
+   "32": {
+    "place": "D5",
+    "label": "Uptime promise and incidents"
+   },
+   "33": {
+    "place": "D5",
+    "label": "Support"
+   },
+   "34": {
+    "place": "D4",
+    "label": "Moving away"
+   },
+   "35": {
+    "place": "D5",
+    "label": "Software licence"
+   },
+   "36": {
+    "place": "D3",
+    "label": "Self-host needs and upkeep"
+   },
+   "37": {
+    "place": "K",
+    "label": "Evidence and freshness"
+   }
+  },
+  "databases-and-backend": {
+   "C01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "C02": {
+    "place": "L",
+    "label": "Job"
+   },
+   "C03": {
+    "place": "L",
+    "label": "Hosted or self-host, licence"
+   },
+   "C04": {
+    "place": "S",
+    "label": "Status"
+   },
+   "C05": {
+    "place": "D5",
+    "label": "Company home"
+   },
+   "C06": {
+    "place": "D2",
+    "label": "Signup and use limits"
+   },
+   "C07": {
+    "place": "D3",
+    "label": "Included services (auth, storage, functions)"
+   },
+   "C08": {
+    "place": "D3",
+    "label": "How your app connects"
+   },
+   "C09": {
+    "place": "L",
+    "label": "Free start"
+   },
+   "C10": {
+    "place": "D1",
+    "label": "Free limits"
+   },
+   "C11": {
+    "place": "D1",
+    "label": "Pauses or deletes when idle"
+   },
+   "C12": {
+    "place": "D1",
+    "label": "Paid from"
+   },
+   "C13": {
+    "place": "L",
+    "label": "Billed by"
+   },
+   "C14": {
+    "place": "D1",
+    "label": "Scales to zero"
+   },
+   "C15": {
+    "place": "D1",
+    "label": "Bandwidth cost"
+   },
+   "C16": {
+    "place": "D1",
+    "label": "Overage and spend cap"
+   },
+   "C17": {
+    "place": "D4",
+    "label": "Regions and data location"
+   },
+   "C18": {
+    "place": "D3",
+    "label": "Access controls"
+   },
+   "C19": {
+    "place": "D4",
+    "label": "Leaving and deleting"
+   },
+   "C20": {
+    "place": "D5",
+    "label": "Support and uptime promise"
+   },
+   "C21": {
+    "place": "H",
+    "label": "Small project cost"
+   },
+   "C22": {
+    "place": "K",
+    "label": "Evidence for every fact"
+   },
+   "D01": {
+    "place": "D3",
+    "label": "Engine and query language"
+   },
+   "D02": {
+    "place": "D3",
+    "label": "Transactions"
+   },
+   "D03": {
+    "place": "D1",
+    "label": "Size and connection limits"
+   },
+   "D04": {
+    "place": "D3",
+    "label": "Branches for testing"
+   },
+   "D05": {
+    "place": "D4",
+    "label": "Backups and restore"
+   },
+   "D06": {
+    "place": "D3",
+    "label": "Replicas and failover"
+   },
+   "D07": {
+    "place": "D3",
+    "label": "Realtime and offline sync"
+   },
+   "D08": {
+    "place": "D3",
+    "label": "Extensions"
+   },
+   "F01": {
+    "place": "D1",
+    "label": "Storage price per GB"
+   },
+   "F02": {
+    "place": "D1",
+    "label": "Request and download prices"
+   },
+   "F03": {
+    "place": "D1",
+    "label": "Minimum storage time"
+   },
+   "F04": {
+    "place": "D3",
+    "label": "Upload limits"
+   },
+   "F05": {
+    "place": "D3",
+    "label": "S3 compatible"
+   },
+   "F06": {
+    "place": "D3",
+    "label": "Public and private files"
+   },
+   "F07": {
+    "place": "D4",
+    "label": "File recovery"
+   },
+   "V01": {
+    "place": "D1",
+    "label": "Vector limits"
+   },
+   "V02": {
+    "place": "D3",
+    "label": "Filters and hybrid search"
+   },
+   "V03": {
+    "place": "D1",
+    "label": "Embedding extras"
+   },
+   "J01": {
+    "place": "D3",
+    "label": "How jobs run"
+   },
+   "J02": {
+    "place": "D1",
+    "label": "Run limits and price"
+   },
+   "J03": {
+    "place": "D3",
+    "label": "Retries and failures"
+   },
+   "J04": {
+    "place": "D3",
+    "label": "Schedules and retention"
+   },
+   "J05": {
+    "place": "D3",
+    "label": "Run logs"
+   },
+   "H01": {
+    "place": "D3",
+    "label": "Self-host needs"
+   }
+  },
+  "error-monitoring": {
+   "C01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "C02": {
+    "place": "L",
+    "label": "Jobs"
+   },
+   "C03": {
+    "place": "S",
+    "label": "Status"
+   },
+   "C04": {
+    "place": "D2",
+    "label": "Home country and who can buy"
+   },
+   "C05": {
+    "place": "L",
+    "label": "Hosted or self-host"
+   },
+   "C06": {
+    "place": "D5",
+    "label": "Licence and code"
+   },
+   "C07": {
+    "place": "D1",
+    "label": "How billing works"
+   },
+   "C08": {
+    "place": "L",
+    "label": "Free plan"
+   },
+   "C09": {
+    "place": "D1",
+    "label": "Trial"
+   },
+   "C10": {
+    "place": "D1",
+    "label": "Paid from"
+   },
+   "C11": {
+    "place": "H",
+    "label": "Cost at set usage"
+   },
+   "C12": {
+    "place": "D1",
+    "label": "What happens past the limit"
+   },
+   "C13": {
+    "place": "D1",
+    "label": "Spend cap"
+   },
+   "C14": {
+    "place": "D1",
+    "label": "How long data is kept"
+   },
+   "C15": {
+    "place": "D1",
+    "label": "Seats and projects"
+   },
+   "C16": {
+    "place": "D3",
+    "label": "Languages and frameworks"
+   },
+   "C17": {
+    "place": "D3",
+    "label": "Alert channels"
+   },
+   "C18": {
+    "place": "D3",
+    "label": "Alert noise controls"
+   },
+   "C19": {
+    "place": "D3",
+    "label": "Fits which setup"
+   },
+   "C20": {
+    "place": "D3",
+    "label": "Send data in (SDKs, OpenTelemetry)"
+   },
+   "C21": {
+    "place": "D4",
+    "label": "Export and delete"
+   },
+   "C22": {
+    "place": "D4",
+    "label": "Hide sensitive data"
+   },
+   "C23": {
+    "place": "D4",
+    "label": "Data regions"
+   },
+   "C24": {
+    "place": "D3",
+    "label": "Setup steps"
+   },
+   "C25": {
+    "place": "D5",
+    "label": "Docs and help"
+   },
+   "C26": {
+    "place": "K",
+    "label": "Limits and source conflicts"
+   },
+   "C27": {
+    "place": "K",
+    "label": "Evidence and freshness"
+   },
+   "E01": {
+    "place": "D3",
+    "label": "Errors: grouping"
+   },
+   "E02": {
+    "place": "D3",
+    "label": "Errors: source maps and stack traces"
+   },
+   "E03": {
+    "place": "D3",
+    "label": "Errors: releases"
+   },
+   "E04": {
+    "place": "D3",
+    "label": "Errors: context and replay"
+   },
+   "U01": {
+    "place": "D3",
+    "label": "Uptime: check types"
+   },
+   "U02": {
+    "place": "L",
+    "label": "Check interval"
+   },
+   "U03": {
+    "place": "D3",
+    "label": "Uptime: locations"
+   },
+   "U04": {
+    "place": "D3",
+    "label": "Uptime: false-alarm checks"
+   },
+   "U05": {
+    "place": "D3",
+    "label": "Uptime: SSL and domain expiry"
+   },
+   "L01": {
+    "place": "D1",
+    "label": "Logs: allowance"
+   },
+   "L02": {
+    "place": "D3",
+    "label": "Logs: search and archive"
+   },
+   "L03": {
+    "place": "D1",
+    "label": "Logs: extra charges"
+   },
+   "A01": {
+    "place": "D3",
+    "label": "Performance: slow requests"
+   },
+   "A02": {
+    "place": "D3",
+    "label": "Performance: sampling"
+   },
+   "A03": {
+    "place": "D3",
+    "label": "Performance: real users"
+   },
+   "S01": {
+    "place": "D3",
+    "label": "Status page: limits and branding"
+   },
+   "S02": {
+    "place": "D3",
+    "label": "Status page: subscriber alerts"
+   },
+   "S03": {
+    "place": "D3",
+    "label": "Status page: updates"
+   },
+   "J01": {
+    "place": "D3",
+    "label": "Cron: schedules"
+   },
+   "J02": {
+    "place": "D3",
+    "label": "Cron: failure signals"
+   },
+   "H01": {
+    "place": "D3",
+    "label": "Self-host needs"
+   },
+   "H02": {
+    "place": "Z",
+    "label": "Self-host running cost"
+   },
+   "H03": {
+    "place": "L",
+    "label": "Maintained (last release)"
+   }
+  },
+  "customer-support": {
+   "F01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "F02": {
+    "place": "L",
+    "label": "Type"
+   },
+   "F03": {
+    "place": "D5",
+    "label": "Company home and markets"
+   },
+   "F04": {
+    "place": "D2",
+    "label": "How to buy"
+   },
+   "F05": {
+    "place": "D5",
+    "label": "Editions and licence"
+   },
+   "F06": {
+    "place": "L",
+    "label": "Free plan"
+   },
+   "F07": {
+    "place": "D1",
+    "label": "Free limits"
+   },
+   "F08": {
+    "place": "D1",
+    "label": "Trial"
+   },
+   "F09": {
+    "place": "D1",
+    "label": "Paid plans"
+   },
+   "F10": {
+    "place": "D1",
+    "label": "Billed per"
+   },
+   "F11": {
+    "place": "D1",
+    "label": "Minimum seats or term"
+   },
+   "F12": {
+    "place": "H",
+    "label": "Cost for 1 agent"
+   },
+   "F13": {
+    "place": "H",
+    "label": "Cost for 3 agents"
+   },
+   "F14": {
+    "place": "L",
+    "label": "AI billing"
+   },
+   "F15": {
+    "place": "D1",
+    "label": "AI cost examples"
+   },
+   "F16": {
+    "place": "D1",
+    "label": "Extra charges"
+   },
+   "F17": {
+    "place": "L",
+    "label": "Channels"
+   },
+   "F18": {
+    "place": "D3",
+    "label": "Inbox workflow"
+   },
+   "F19": {
+    "place": "D1",
+    "label": "Remove vendor branding"
+   },
+   "F20": {
+    "place": "D3",
+    "label": "Several sites or brands"
+   },
+   "F21": {
+    "place": "D3",
+    "label": "Help center"
+   },
+   "F22": {
+    "place": "D3",
+    "label": "What the AI does"
+   },
+   "F23": {
+    "place": "D3",
+    "label": "What the AI learns from"
+   },
+   "F24": {
+    "place": "D3",
+    "label": "Hand-off to a human"
+   },
+   "F25": {
+    "place": "D3",
+    "label": "AI actions (refunds, lookups)"
+   },
+   "F26": {
+    "place": "D3",
+    "label": "Integrations"
+   },
+   "F27": {
+    "place": "D3",
+    "label": "API and webhooks"
+   },
+   "F28": {
+    "place": "D4",
+    "label": "Export your data"
+   },
+   "F29": {
+    "place": "D3",
+    "label": "Self-host"
+   },
+   "F30": {
+    "place": "D4",
+    "label": "Data location and AI training"
+   },
+   "F31": {
+    "place": "D4",
+    "label": "Retention and deletion"
+   },
+   "F32": {
+    "place": "D3",
+    "label": "Languages"
+   },
+   "F33": {
+    "place": "Z",
+    "label": "Accessibility"
+   },
+   "F34": {
+    "place": "D3",
+    "label": "Apps and devices"
+   },
+   "F35": {
+    "place": "Z",
+    "label": "Feedback boards"
+   },
+   "F36": {
+    "place": "D3",
+    "label": "Reports"
+   },
+   "F37": {
+    "place": "D5",
+    "label": "Vendor support"
+   },
+   "F38": {
+    "place": "S",
+    "label": "Freshness and changes"
+   },
+   "F39": {
+    "place": "K",
+    "label": "Evidence per fact"
+   },
+   "F40": {
+    "place": "K",
+    "label": "Cost assumptions"
+   },
+   "D01": {
+    "place": "K",
+    "label": "Detection: public signs"
+   },
+   "D02": {
+    "place": "K",
+    "label": "Detection: matching rule"
+   },
+   "D03": {
+    "place": "K",
+    "label": "Detection: rule evidence"
+   },
+   "D04": {
+    "place": "K",
+    "label": "Detection: blind spots"
+   }
+  },
+  "email-and-newsletters": {
+   "F01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "F02": {
+    "place": "L",
+    "label": "Type"
+   },
+   "F03": {
+    "place": "L",
+    "label": "Hosted, self-host or needs a sender"
+   },
+   "F04": {
+    "place": "D2",
+    "label": "Countries and languages"
+   },
+   "F05": {
+    "place": "D2",
+    "label": "Signup and sending approval"
+   },
+   "F06": {
+    "place": "D1",
+    "label": "Billed by"
+   },
+   "F07": {
+    "place": "L",
+    "label": "Free plan"
+   },
+   "F08": {
+    "place": "D1",
+    "label": "Paid from"
+   },
+   "F09": {
+    "place": "H",
+    "label": "Newsletter cost"
+   },
+   "F10": {
+    "place": "H",
+    "label": "App email cost"
+   },
+   "F11": {
+    "place": "D1",
+    "label": "Past the limit"
+   },
+   "F12": {
+    "place": "D1",
+    "label": "Extra costs"
+   },
+   "F13": {
+    "place": "L",
+    "label": "Paid newsletters"
+   },
+   "F14": {
+    "place": "D1",
+    "label": "Fees on paid newsletters"
+   },
+   "F15": {
+    "place": "D4",
+    "label": "Export your list"
+   },
+   "F16": {
+    "place": "D4",
+    "label": "Move paid subscribers"
+   },
+   "F17": {
+    "place": "D3",
+    "label": "Forms, opt-in, unsubscribe"
+   },
+   "F18": {
+    "place": "D3",
+    "label": "Own domain and branding"
+   },
+   "F19": {
+    "place": "D3",
+    "label": "Editor and templates"
+   },
+   "F20": {
+    "place": "D3",
+    "label": "Tags and segments"
+   },
+   "F21": {
+    "place": "D3",
+    "label": "Automations"
+   },
+   "F22": {
+    "place": "L",
+    "label": "API and SMTP"
+   },
+   "F23": {
+    "place": "D3",
+    "label": "Webhooks and logs"
+   },
+   "F24": {
+    "place": "D3",
+    "label": "SPF, DKIM, DMARC"
+   },
+   "F25": {
+    "place": "D3",
+    "label": "Bounces and complaints"
+   },
+   "F26": {
+    "place": "D3",
+    "label": "Separate app and bulk mail"
+   },
+   "F27": {
+    "place": "D1",
+    "label": "Sending limits"
+   },
+   "F28": {
+    "place": "D4",
+    "label": "Data location and privacy terms"
+   },
+   "F29": {
+    "place": "D3",
+    "label": "Reports and tracking"
+   },
+   "F30": {
+    "place": "D4",
+    "label": "Retention and deletion"
+   },
+   "F31": {
+    "place": "D4",
+    "label": "Two-factor and API keys"
+   },
+   "F32": {
+    "place": "D5",
+    "label": "Support and status page"
+   },
+   "F33": {
+    "place": "D5",
+    "label": "Licence"
+   },
+   "F34": {
+    "place": "D3",
+    "label": "Self-host setup"
+   },
+   "F35": {
+    "place": "D3",
+    "label": "Growth and income tools"
+   },
+   "F36": {
+    "place": "K",
+    "label": "Links to other categories"
+   },
+   "F37": {
+    "place": "Z",
+    "label": "Independent inbox tests"
+   },
+   "F38": {
+    "place": "D5",
+    "label": "Size and history"
+   },
+   "F39": {
+    "place": "D5",
+    "label": "Owner and home country"
+   },
+   "F40": {
+    "place": "K",
+    "label": "Evidence and unknowns"
+   }
+  },
+  "analytics": {
+   "F01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "F02": {
+    "place": "L",
+    "label": "Job"
+   },
+   "F03": {
+    "place": "D3",
+    "label": "Web, iOS, Android"
+   },
+   "F04": {
+    "place": "D2",
+    "label": "Who can sign up"
+   },
+   "F05": {
+    "place": "D2",
+    "label": "Signup route"
+   },
+   "F06": {
+    "place": "L",
+    "label": "Hosted or self-host"
+   },
+   "F07": {
+    "place": "D5",
+    "label": "Licence"
+   },
+   "F08": {
+    "place": "D1",
+    "label": "Billed by"
+   },
+   "F09": {
+    "place": "L",
+    "label": "Free plan"
+   },
+   "F10": {
+    "place": "D1",
+    "label": "Trial"
+   },
+   "F11": {
+    "place": "D1",
+    "label": "Paid plans"
+   },
+   "F12": {
+    "place": "H",
+    "label": "Cost at your traffic"
+   },
+   "F13": {
+    "place": "D1",
+    "label": "Past the limit and spend cap"
+   },
+   "F14": {
+    "place": "D1",
+    "label": "Sites and seats"
+   },
+   "F15": {
+    "place": "D3",
+    "label": "Website reports"
+   },
+   "F16": {
+    "place": "D3",
+    "label": "Product reports and user IDs"
+   },
+   "F17": {
+    "place": "D3",
+    "label": "Replays and heatmaps"
+   },
+   "F18": {
+    "place": "D3",
+    "label": "Mobile details"
+   },
+   "F19": {
+    "place": "D3",
+    "label": "Revenue reports"
+   },
+   "F20": {
+    "place": "D3",
+    "label": "Setup"
+   },
+   "F21": {
+    "place": "L",
+    "label": "Cookieless"
+   },
+   "F22": {
+    "place": "D4",
+    "label": "Needs a consent banner?"
+   },
+   "F23": {
+    "place": "L",
+    "label": "Data location"
+   },
+   "F24": {
+    "place": "D4",
+    "label": "Data collected and removal"
+   },
+   "F25": {
+    "place": "D4",
+    "label": "How long data is kept"
+   },
+   "F26": {
+    "place": "D4",
+    "label": "Export and API"
+   },
+   "F27": {
+    "place": "D4",
+    "label": "Import from Google Analytics"
+   },
+   "F28": {
+    "place": "D3",
+    "label": "Sampling and bot filtering"
+   },
+   "F29": {
+    "place": "D3",
+    "label": "Script size"
+   },
+   "F30": {
+    "place": "D3",
+    "label": "Self-host upkeep"
+   },
+   "F31": {
+    "place": "D5",
+    "label": "Demo, docs, support"
+   },
+   "F32": {
+    "place": "K",
+    "label": "Public website detection"
+   },
+   "F33": {
+    "place": "K",
+    "label": "Limits and best use"
+   }
+  },
+  "auth": {
+   "F01": {
+    "place": "D5",
+    "label": "Owner and old names"
+   },
+   "F02": {
+    "place": "L",
+    "label": "Type"
+   },
+   "F03": {
+    "place": "S",
+    "label": "Status"
+   },
+   "F04": {
+    "place": "D5",
+    "label": "Licence"
+   },
+   "F05": {
+    "place": "L",
+    "label": "Hosted or self-run"
+   },
+   "F06": {
+    "place": "D2",
+    "label": "Who can sign up"
+   },
+   "F07": {
+    "place": "D2",
+    "label": "Self-serve and trial"
+   },
+   "F08": {
+    "place": "D1",
+    "label": "Billed by"
+   },
+   "F09": {
+    "place": "L",
+    "label": "Free users"
+   },
+   "F10": {
+    "place": "D1",
+    "label": "Paid from"
+   },
+   "F11": {
+    "place": "D1",
+    "label": "Usage prices"
+   },
+   "F12": {
+    "place": "H",
+    "label": "Cost at your users"
+   },
+   "F13": {
+    "place": "D1",
+    "label": "Business (SSO) cost"
+   },
+   "F14": {
+    "place": "D1",
+    "label": "Organizations: limits and fees"
+   },
+   "F15": {
+    "place": "L",
+    "label": "SSO price"
+   },
+   "F16": {
+    "place": "D1",
+    "label": "Team and project caps"
+   },
+   "F17": {
+    "place": "D1",
+    "label": "Email and SMS costs"
+   },
+   "F18": {
+    "place": "D1",
+    "label": "Past the limit"
+   },
+   "F19": {
+    "place": "D1",
+    "label": "Other billed limits"
+   },
+   "F20": {
+    "place": "D3",
+    "label": "Login methods"
+   },
+   "F21": {
+    "place": "D3",
+    "label": "Social logins"
+   },
+   "F22": {
+    "place": "D3",
+    "label": "Passkeys"
+   },
+   "F23": {
+    "place": "D3",
+    "label": "MFA and recovery"
+   },
+   "F24": {
+    "place": "D3",
+    "label": "Verify and reset"
+   },
+   "F25": {
+    "place": "D3",
+    "label": "Sessions"
+   },
+   "F26": {
+    "place": "D3",
+    "label": "SAML and OIDC"
+   },
+   "F27": {
+    "place": "D3",
+    "label": "Organizations and roles"
+   },
+   "F28": {
+    "place": "D3",
+    "label": "SCIM sync"
+   },
+   "F29": {
+    "place": "D3",
+    "label": "Ready-made screens"
+   },
+   "F30": {
+    "place": "D3",
+    "label": "Branding and own domain"
+   },
+   "F31": {
+    "place": "D3",
+    "label": "Languages and accessibility"
+   },
+   "F32": {
+    "place": "D3",
+    "label": "Frameworks"
+   },
+   "F33": {
+    "place": "D3",
+    "label": "Mobile"
+   },
+   "F34": {
+    "place": "D3",
+    "label": "Database needed"
+   },
+   "F35": {
+    "place": "D3",
+    "label": "Self-host upkeep"
+   },
+   "F36": {
+    "place": "D3",
+    "label": "Hooks and custom logic"
+   },
+   "F37": {
+    "place": "D3",
+    "label": "User admin API"
+   },
+   "F38": {
+    "place": "D3",
+    "label": "Account linking"
+   },
+   "F39": {
+    "place": "D4",
+    "label": "Export users and leave"
+   },
+   "F40": {
+    "place": "D4",
+    "label": "Import users"
+   },
+   "F41": {
+    "place": "D4",
+    "label": "Deletion and retention"
+   },
+   "F42": {
+    "place": "D4",
+    "label": "Data location"
+   },
+   "F43": {
+    "place": "D4",
+    "label": "SOC 2 and audits"
+   },
+   "F44": {
+    "place": "D3",
+    "label": "Bot and abuse protection"
+   },
+   "F45": {
+    "place": "D3",
+    "label": "Rate limits"
+   },
+   "F46": {
+    "place": "D3",
+    "label": "Audit logs"
+   },
+   "F47": {
+    "place": "D5",
+    "label": "Uptime promise"
+   },
+   "F48": {
+    "place": "D5",
+    "label": "Releases and upkeep"
+   },
+   "F49": {
+    "place": "D5",
+    "label": "Support"
+   },
+   "F50": {
+    "place": "K",
+    "label": "Evidence and freshness"
+   }
+  }
+ }
+}

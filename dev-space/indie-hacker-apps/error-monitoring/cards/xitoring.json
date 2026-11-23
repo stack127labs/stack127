@@ -1,0 +1,65 @@
+{
+  "slug": "xitoring",
+  "name": "Xitoring",
+  "url": "https://xitoring.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website, API, ping, DNS and TCP checks from fifteen nodes (U01, U03)",
+      "status": "S01, S02: public and password-protected status pages with incident notes (S02)",
+      "cron": "C02: heartbeat and cronjob monitors detect missed or late scheduled work"
+    }
+  },
+  "line": "Uptime checks, job heartbeats, server alerts, and hosted status pages.",
+  "free": {
+    "kind": "trial",
+    "text": "14-day trial, no card; Free fallback limits unclear"
+  },
+  "cells": {
+    "interval": "60 s plan cards; 30 s claim conflicts",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not do this job"
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$4.99",
+        "plan": "Solo",
+        "state": "unclear",
+        "math": "5 monitors fit the Solo plan at $4.99 a month, from one probe. It isn't clear what currency or tax applies, and own-domain status-page access isn't confirmed."
+      },
+      {
+        "v": "$9.99",
+        "plan": "Starter",
+        "state": "unclear",
+        "math": "25 monitors fit the Starter plan at $9.99 a month, from one probe. It isn't clear what currency or tax applies, and own-domain status-page access isn't confirmed."
+      },
+      {
+        "v": "$19.99",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "100 monitors fit the Pro plan at $19.99 a month, from one probe. It isn't clear what currency or tax applies, and own-domain status-page access isn't confirmed."
+      }
+    ]
+  }
+}

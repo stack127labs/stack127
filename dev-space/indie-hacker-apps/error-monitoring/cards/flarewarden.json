@@ -1,0 +1,32 @@
+{
+  "slug": "flarewarden",
+  "name": "FlareWarden",
+  "url": "https://flarewarden.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U03: HTTP/S and content checks from 17 cities, with SSL and domain expiry (U05)",
+      "status": "S01, S03: status pages with components, incidents and maintenance (S02)",
+      "cron": "J01, J02: cron and heartbeat monitoring with grace periods and /fail signals"
+    }
+  },
+  "line": "Checks websites, domains and dependencies, with cron alerts and status pages.",
+  "free": { "kind": "free", "text": "15 monitors, 5-minute checks, 1 status page; no card" },
+  "cells": {
+    "interval": "30 s Business; 60 s Starter; 5 min free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$29", "plan": "Business", "state": "confirmed", "math": "The Business plan covers 5 endpoints, 60-second checks and one own-domain status page." },
+      { "v": "$29", "plan": "Business", "state": "confirmed", "math": "The Business plan covers 25 endpoints, 60-second checks and one own-domain status page." },
+      { "v": "$29", "plan": "Business", "state": "confirmed", "math": "The Business plan covers 100 endpoints, 60-second checks and one own-domain status page." }
+    ]
+  }
+}

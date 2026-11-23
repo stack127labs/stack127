@@ -1,0 +1,17 @@
+{
+  "slug": "fluent-support",
+  "name": "Fluent Support",
+  "official_url": "https://fluentsupport.com/",
+  "image_url": "https://fluentsupport.com//wp-content//uploads//2021//11//cropped-FS-logo-png-v3-1.png",
+  "source_page": "https://fluentsupport.com/",
+  "kind": "logo-mark",
+  "source_host": "fluentsupport.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "50d7bf1d1ceb7d9a93c523bfe856a99246cf2fdd65a420c3ed2937e517465a76",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "filess-io",
+  "name": "filess.io",
+  "official_url": "https://filess.io/",
+  "image_url": "https://filess.io/favicon.svg",
+  "source_page": "https://filess.io/",
+  "kind": "svg-icon",
+  "source_host": "filess.io",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "878a7eabd2248120db276a0ffc6877a581fb17c83313ab463ea5bd61034a3f5c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

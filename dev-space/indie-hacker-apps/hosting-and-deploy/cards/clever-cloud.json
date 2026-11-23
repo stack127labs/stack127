@@ -1,0 +1,21 @@
+{
+  "slug": "clever-cloud",
+  "name": "Clever Cloud",
+  "url": "https://www.clever.cloud/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed PaaS; the platform provisions and runs the customer's app instances",
+      "static": "04: static files and static site generator output are supported app types"
+    }
+  },
+  "line": "Deploy and run apps on managed cloud instances.",
+  "free": { "kind": "credits", "text": "€20 signup credit; expiry is not published" },
+  "cells": { "type": "Managed app platform", "regions": "Paris example; other cloud regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€4.64", "plan": "Static pico + builder", "state": "confirmed", "math": "A pico server for 730 hours + an S builder for 100 minutes. €4.64 before tax, plus any hours that overlap during deployments." },
+    { "v": "€16.30", "plan": "Node XS + builder", "state": "confirmed", "math": "A Node XS server for 730 hours + an S builder for 100 minutes. €16.30 before tax, plus any overlap during rollouts." },
+    { "v": "€39.11", "plan": "Node XS + Postgres XS", "state": "confirmed", "math": "The small app API's €16.2963, plus €22.8125 for a Postgres XS database running 730 hours. Before tax, and not counting app and build overlap hours." }
+  ] }
+}

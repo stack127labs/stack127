@@ -1,0 +1,26 @@
+{
+  "slug": "cloud-iam",
+  "name": "Cloud-IAM",
+  "url": "https://www.cloud-iam.com/",
+  "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed Keycloak hosting with accounts, login and sessions; F05: vendor runs the infrastructure"
+    }
+  },
+  "line": "Managed Keycloak for app login, accounts, and identity brokering.",
+  "free": { "kind": "free", "text": "Free up to 100 users on one realm" },
+  "cells": {
+    "freeUsers": "100 users; shared hosting and no SLA",
+    "sso": "Native SAML/OIDC; no per-connection fee listed"
+  },
+  "costs": {
+    "mau": [
+      { "v": "€299", "plan": "Starter", "state": "confirmed", "math": "The base is €299, plus €0 for built-in login and API add-ons, so €299 a month before VAT, a tax added on top." },
+      { "v": "€499", "plan": "Starter", "state": "confirmed", "math": "The base is €499, plus €0 for built-in login and API add-ons, so €499 a month before VAT, a tax added on top." },
+      { "v": "€999", "plan": "Starter", "state": "confirmed", "math": "The base is €999, plus €0 for built-in login and API add-ons, so €999 a month before VAT, a tax added on top." },
+      { "v": "€1,799", "plan": "Starter", "state": "confirmed", "math": "The base is €1,799 for the 250,000-user price band, plus €0 for built-in add-ons, so €1,799 a month before VAT, a tax added on top." }
+    ]
+  }
+}

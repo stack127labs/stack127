@@ -1,0 +1,29 @@
+{
+  "slug": "gorgias",
+  "name": "Gorgias",
+  "url": "https://www.gorgias.com/",
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: Help Center is part of the ecommerce help desk",
+      "helpdesk": "F02: Ecommerce help desk with email, web chat and social support; F21: public Help Center on paid plans",
+      "chat": "F17: Native JavaScript chat on all Helpdesk plans, including Starter; works on sites without a store",
+      "ai": "F22: AI Agent answers customers on its own across email, chat, SMS, DMs and WhatsApp on eligible channels",
+      "inbox": "F18: Shared ticket queue with manual or automatic assignment, teams, internal notes and macros"
+    }
+  },
+  "line": "Ecommerce help desk for email, website chat, and social support.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, social, voice, SMS",
+    "ai": "$1.50 per extra AI interaction",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$30", "plan": "Starter", "state": "confirmed", "math": "$10 account fee + 50 tickets over the plan limit at $0.40 each. Three seats are included." },
+      { "v": "$30", "plan": "Starter", "state": "confirmed", "math": "The total is the same. The Starter plan includes three user seats." }
+    ]
+  }
+}

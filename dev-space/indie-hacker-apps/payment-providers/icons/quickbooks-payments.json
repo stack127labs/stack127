@@ -1,0 +1,17 @@
+{
+  "slug": "quickbooks-payments",
+  "name": "QuickBooks Payments",
+  "official_url": "https://quickbooks.intuit.com/payments/",
+  "image_url": "https://quickbooks.intuit.com/cas/dam/IMAGE/A7mjJ5rpg/apple-touch-icon-196x196.png",
+  "source_page": "https://quickbooks.intuit.com/payments/",
+  "kind": "favicon",
+  "source_host": "quickbooks.intuit.com",
+  "original": {
+    "format": "png",
+    "width": 196,
+    "height": 196
+  },
+  "sha256": "d0f6f5a800cbd8645b12c4ddb61c15292768bcf218b77da305f13daf104739e7",
+  "note": "parent brand: QuickBooks",
+  "saved_at": "2026-11-14"
+}

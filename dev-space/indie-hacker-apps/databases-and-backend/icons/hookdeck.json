@@ -1,0 +1,17 @@
+{
+  "slug": "hookdeck",
+  "name": "Hookdeck",
+  "official_url": "https://hookdeck.com/",
+  "image_url": "https://hookdeck.com/favicon.svg",
+  "source_page": "https://hookdeck.com/",
+  "kind": "svg-icon",
+  "source_host": "hookdeck.com",
+  "original": {
+    "format": "svg",
+    "width": 533,
+    "height": 533
+  },
+  "sha256": "25bd3d5a513877db4e3665d022adf711739def52305312162219aca7a7e36e49",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

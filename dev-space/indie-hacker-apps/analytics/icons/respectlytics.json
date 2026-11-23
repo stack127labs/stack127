@@ -1,0 +1,17 @@
+{
+  "slug": "respectlytics",
+  "name": "Respectlytics",
+  "official_url": "https://respectlytics.com/",
+  "image_url": "https://respectlytics.com/static/favicon/android-chrome-512x512.png",
+  "source_page": "https://respectlytics.com/",
+  "kind": "manifest-icon",
+  "source_host": "respectlytics.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "c31107fa792f4e45439f717a183d9ee6a15f3976bf5596558c97ca9d931b6427",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

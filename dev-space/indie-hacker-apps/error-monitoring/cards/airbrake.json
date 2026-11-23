@@ -1,0 +1,28 @@
+{
+  "slug": "airbrake",
+  "name": "Airbrake",
+  "url": "https://www.airbrake.io/",
+  "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error tracking is a main job; error SDKs listed in C16",
+      "performance": "C02: APM is the other main job; APM plans and quotas in C07"
+    }
+  },
+  "line": "Tracks application errors and performance events.",
+  "free": {"kind": "free", "text": "Developer account; error limits not established"},
+  "cells": {"interval": "—", "maintained": "Hosted service"},
+  "costs": {
+    "errors": [
+      {"v": "$19", "plan": "Dev + Error Tier 1", "state": "unclear", "math": "The Dev plan is $0, plus $19 for Error Tier 1. 5,000 errors fit inside that tier's 25,000 quota."},
+      {"v": "$35.25", "plan": "Dev + Error Tier 1", "state": "unclear", "math": "The Dev plan is $0, plus $19 for the first error tier, plus $6.50 for each 10,000 errors above the 25,000 quota, at 50,000 errors. Whether a partial block is billed isn't confirmed."},
+      {"v": "$202", "plan": "Dev + Error Tier 3", "state": "unclear", "math": "The Dev plan is $0, plus $129 for the larger error tier, plus $3.65 for each 10,000 errors above 300,000, at 500,000 errors. This is an estimate."}
+    ],
+    "uptime": [
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Does not do this job"},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Does not do this job"},
+      {"v": "—", "plan": "", "state": "not_applicable", "math": "Does not do this job"}
+    ]
+  }
+}

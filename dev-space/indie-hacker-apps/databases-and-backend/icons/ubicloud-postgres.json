@@ -1,0 +1,17 @@
+{
+  "slug": "ubicloud-postgres",
+  "name": "Ubicloud Postgres",
+  "official_url": "https://www.ubicloud.com/use-cases/postgresql",
+  "image_url": "https://www.ubicloud.com/use-cases/postgresql/webclip.png",
+  "source_page": "https://www.ubicloud.com/use-cases/postgresql",
+  "kind": "apple-touch-icon",
+  "source_host": "ubicloud.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "bba144c51d81c4992c55470755a21d1f7b98e97f3335b83932519ff9abbb2f72",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "telemetrydeck",
+  "name": "TelemetryDeck",
+  "official_url": "https://telemetrydeck.com/",
+  "image_url": "https://telemetrydeck.com/img/logo-512.png",
+  "source_page": "https://telemetrydeck.com/",
+  "kind": "logo-mark",
+  "source_host": "telemetrydeck.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "b478f023a5d8359d2a8578631209dfd355d84b91e76a9ab90b4503b57cedac61",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

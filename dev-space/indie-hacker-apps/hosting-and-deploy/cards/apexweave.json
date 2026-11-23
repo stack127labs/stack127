@@ -1,0 +1,21 @@
+{
+  "slug": "apexweave",
+  "name": "ApexWeave",
+  "url": "https://apexweave.com/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted container application platform with Git builds and a CLI",
+      "static": "04: native static sites are a listed app type on the platform"
+    }
+  },
+  "line": "Deploy container apps with Git builds and managed database options.",
+  "free": { "kind": "trial", "text": "Trial length conflicts; 7 or 14 days, free-tier wording unclear" },
+  "cells": { "type": "Container app platform", "regions": "Japan advertised; selectable locations unpublished", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$5", "plan": "AppForge Starter", "state": "unclear", "math": "A $5 a month subscription. The full total is unknown, and it is not known whether traffic and builds fit this plan." },
+    { "v": "$15", "plan": "AppForge XL", "state": "unclear", "math": "A $15 a month subscription. The full total is unknown, and it is not known whether this plan's capacity fits the workload." },
+    { "v": "$23", "plan": "AppForge XL + Database XXL", "state": "unclear", "math": "$15 for the app + $8 for the database = $23 a month in listed fees. Whether the database meets the workload's memory requirement, and the full total, are not verified." }
+  ] }
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "amazon-aurora",
+  "name": "Amazon Aurora",
+  "url": "https://aws.amazon.com/rds/aurora/",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the main type; D01: MySQL and PostgreSQL engines",
+      "vector": "V01: Aurora PostgreSQL pgvector with HNSW indexes is documented"
+    }
+  },
+  "line": "Managed relational database compatible with PostgreSQL and MySQL.",
+  "free": { "kind": "credits", "text": "Up to $100 signup credit; Aurora PostgreSQL has a 1 GB limit" },
+  "cells": {
+    "metered": "$0.073/instance-hour plus storage and I/O",
+    "regions": "Region-dependent; US East examples",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$54.29", "plan": "On-Demand Standard", "state": "unclear", "math": "730 hours × $0.073 an hour, plus 10 × $0.10 for storage. This is an estimate that depends on conditions. Read and write (I/O) charges and any CPU credits are extra." },
+      { "v": "$1.00", "plan": "On-Demand Standard", "state": "unclear", "math": "If the database is paused at zero ACUs, compute costs $0 and storage is 10 × $0.10. Startup and idle behavior vary, so this is not certain." }
+    ],
+    "files": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer separate file storage." }],
+    "jobs": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide general application job queues" }]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "ownkube",
+  "name": "Ownkube",
+  "official_url": "https://ownkube.io/",
+  "image_url": "https://ownkube.io/favicon.svg",
+  "source_page": "https://ownkube.io/",
+  "kind": "svg-icon",
+  "source_host": "ownkube.io",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "caa91ae2861ea4137a8ea2ebca9f0bc87afb4c4523eb8cbe0126e6b653e462f4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

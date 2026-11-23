@@ -1,0 +1,21 @@
+{
+  "slug": "edgeone-makers-formerly-edgeone-pages",
+  "name": "EdgeOne Makers",
+  "url": "https://pages.edgeone.ai/",
+  "jobs": ["static", "paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: provider-managed static assets and CDN delivery",
+      "paas": "03: request-scoped Edge and Cloud Functions run the customer's code"
+    }
+  },
+  "line": "Build and host static sites, edge functions, and cloud functions.",
+  "free": { "kind": "free", "text": "Static 5GB/20k files; 500 builds/mo; Functions 1M requests/500k GB-s" },
+  "cells": { "type": "Static and serverless hosting", "regions": "China, global network and other listed regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$0", "plan": "Free", "state": "confirmed", "math": "20 builds of 5 minutes fit 500 a month, with a 20-minute limit per build. Files must be up to 25 MB each, up to 20k in total, and within 5 GB of account storage." },
+    { "v": "$0", "plan": "Cloud Functions", "state": "unclear", "math": "1 million requests and 250,000 GB-seconds fit within the 1 million and 500,000 GB-second grants, if each takes 250 ms at 1 GB. Retries and measured performance are not verified." },
+    { "v": "Unknown", "plan": "Free + PostgreSQL", "state": "unclear", "math": "The known Makers subtotal is $0. A separate PostgreSQL and backup service is required." }
+  ] }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "pac4j",
+  "name": "pac4j",
+  "official_url": "https://www.pac4j.org/",
+  "image_url": "https://github.com/pac4j.png?size=460",
+  "source_page": "https://github.com/pac4j",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 354,
+    "height": 354
+  },
+  "sha256": "d2e887b1517091839a191b56b382fb5b09c83ce0600b154d96d8ee44cdf7a6d3",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

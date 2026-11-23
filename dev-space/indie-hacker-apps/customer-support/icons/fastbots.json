@@ -1,0 +1,17 @@
+{
+  "slug": "fastbots",
+  "name": "FastBots",
+  "official_url": "https://fastbots.ai/",
+  "image_url": "https://content.app-sources.com/s/18447925404601697/uploads/Images/favicon-1587714.ico",
+  "source_page": "https://fastbots.ai/",
+  "kind": "favicon",
+  "source_host": "content.app-sources.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "3b02d9170582bb0ccd9a762d09f7a1dc2e65d12d0694e8dda26a2720963fd126",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

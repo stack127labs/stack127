@@ -1,0 +1,27 @@
+{
+  "slug": "polar-analytics-ecommerce",
+  "name": "Polar Analytics",
+  "url": "https://www.polaranalytics.com/",
+  "jobs": ["revenue", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is ecommerce sales and finance reporting; F19: sales, gross profit, AOV, refunds and attribution from connected stores",
+      "product": "F15: Polar Pixel funnel from sessions and product views to add-to-cart, checkout start and checkout completion"
+    }
+  },
+  "line": "Combines ecommerce, marketing, and finance data for reporting.",
+  "free": { "kind": "none", "text": "Demo and paid plans; pricing depends on ecommerce GMV" },
+  "cells": {
+    "cookieless": "Yes, no own cookies; localStorage IDs are used",
+    "location": "US and EU",
+    "selfhost": "No"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Ecommerce revenue analytics is priced by gross merchandise value (GMV), not pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Ecommerce revenue analytics is priced by gross merchandise value (GMV), not pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Ecommerce revenue analytics is priced by gross merchandise value (GMV), not pageviews." }
+    ]
+  }
+}

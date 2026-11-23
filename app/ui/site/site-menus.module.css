@@ -95,6 +95,21 @@
   text-decoration: none;
 }
 
+/* The app directories follow a divider under their own small label. */
+.stack {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+}
+
+.stackLabel {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+}
+
 /* The course and Labs follow a divider in smaller, quieter rows. */
 .more {
   border-top: 1px solid var(--color-border);

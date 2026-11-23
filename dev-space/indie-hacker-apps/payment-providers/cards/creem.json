@@ -1,0 +1,29 @@
+{
+  "slug": "creem",
+  "name": "Creem",
+  "url": "https://www.creem.io/",
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: Creem is the contractual reseller and legal seller to the buyer",
+      "billing": "F14: automatic subscriptions with trials, proration and retries; F15: meters and credits",
+      "links": "F16: no-code reusable product payment links for the hosted store"
+    }
+  },
+  "line": "Merchant of Record checkout and billing for software and digital products.",
+  "free": { "kind": "none", "text": "No monthly fee; transaction fees apply" },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "87 listed seller countries; US, UK, Germany, India",
+    "payout": "7–12 day hold; payout windows on the 1st and 15th"
+  },
+  "costs": {
+    "fee": [
+      { "v": "3.9% + $0.40", "plan": "Standard US card", "state": "confirmed", "math": "The published standard rate for US cards, charged on each successful transaction." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "UK sellers are listed, but no UK card rate or fixed fee is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "German sellers are listed, but no German card rate or fixed fee is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "Indian sellers are listed, but no India card rate or fixed fee is published." }
+    ]
+  }
+}

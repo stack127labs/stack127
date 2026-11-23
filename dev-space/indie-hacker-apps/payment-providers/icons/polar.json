@@ -1,0 +1,17 @@
+{
+  "slug": "polar",
+  "name": "Polar",
+  "official_url": "https://polar.sh/",
+  "image_url": "https://polar.sh/assets/brand/app-icon.png",
+  "source_page": "https://polar.sh/",
+  "kind": "logo-mark",
+  "source_host": "polar.sh",
+  "original": {
+    "format": "png",
+    "width": 466,
+    "height": 466
+  },
+  "sha256": "5d09d56e854fdb13358f36ec5ea482822a26587a60d9e3dd3b17b5f7ce7e8f8c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

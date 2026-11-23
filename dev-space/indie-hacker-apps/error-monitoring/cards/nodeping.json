@@ -1,0 +1,32 @@
+{
+  "slug": "nodeping",
+  "name": "NodePing",
+  "url": "https://nodeping.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, DNS, SMTP and database checks every 15 to 60 s (U03)",
+      "status": "S01, S03: status pages built from monitor state, with custom domains on paid plans",
+      "cron": "J01, J02: PUSH heartbeats that fail when a report is missing (J01)"
+    }
+  },
+  "line": "Checks websites and services, then shows their status and uptime history.",
+  "free": { "kind": "trial", "text": "15-day trial; no card" },
+  "cells": {
+    "interval": "15 s Premiere; 30 s Professional; 60 s base",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "$10", "plan": "Personal", "state": "confirmed", "math": "5 HTTP endpoints checked every 60 seconds. $10 a month includes 5 monitors and a custom-domain report, but not managed SSL for the report." },
+      { "v": "$20", "plan": "Personal with overage", "state": "confirmed", "math": "$10 a month, plus 20 extra monitors beyond the included ones at $0.50 each, comes to $20 for 25 active monitors. Each endpoint uses one primary probe." },
+      { "v": "$25", "plan": "Professional", "state": "confirmed", "math": "$25 a month includes up to 200 active monitors. 100 endpoints at 60 seconds, with managed SSL for the report." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "better-stack",
+  "name": "Better Stack",
+  "official_url": "https://betterstack.com/",
+  "image_url": "https://betterstack.com/assets/favicon-64296699.png",
+  "source_page": "https://betterstack.com/",
+  "kind": "favicon",
+  "source_host": "betterstack.com",
+  "original": {
+    "format": "webp",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "575aeb0c3aac145c068566c322b360ac4df26deae03c8fbcede95cc03a1cca31",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

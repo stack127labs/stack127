@@ -1,0 +1,17 @@
+{
+  "slug": "enchant",
+  "name": "Enchant",
+  "official_url": "https://www.enchant.com/",
+  "image_url": "https://www.enchant.com/android-chrome-512x512.png",
+  "source_page": "https://www.enchant.com/",
+  "kind": "manifest-icon",
+  "source_host": "enchant.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "3f741304bc330add302efba38cc73093456349a0c36cecb6953a23eda414c4f9",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

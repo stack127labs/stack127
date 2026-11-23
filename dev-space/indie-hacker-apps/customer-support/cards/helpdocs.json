@@ -1,0 +1,26 @@
+{
+  "slug": "helpdocs",
+  "name": "HelpDocs",
+  "url": "https://www.helpdocs.io/",
+  "jobs": ["kb", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: dedicated help center and documentation platform with cited generative search",
+      "ai": "F22: Ask AI gives readers cited, generative answers in the help center, shown above search results"
+    }
+  },
+  "line": "Hosted customer help center with contact forms and AI search.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Help center, contact form, AI search",
+    "ai": "1 shared credit per AI search summary",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Contact forms do not provide a staffed email inbox or live chat." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Contact forms do not provide a staffed email inbox or live chat." }
+    ]
+  }
+}

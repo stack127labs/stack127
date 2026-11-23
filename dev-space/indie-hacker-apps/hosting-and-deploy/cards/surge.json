@@ -1,0 +1,20 @@
+{
+  "slug": "surge",
+  "name": "Surge",
+  "url": "https://surge.sh/",
+  "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static-file hosting on Surge's CDN; the customer uploads the built output"
+    }
+  },
+  "line": "Publish static websites from a command line to Surge's CDN.",
+  "free": { "kind": "free", "text": "Free, no card; verify email before new surge.sh sites pause at 90 min" },
+  "cells": { "type": "Static hosting", "regions": "US, Canada, Europe, India, Asia-Pacific and Australia", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Free", "state": "unclear", "math": "$0 a month published Free subtotal. 100 MB, 1 million requests and 100 GB of data sent out fit only if the file count and publish timing meet the limits. Commercial permission and fair-use fit are unclear." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Surge does not provide a backend runtime for API execution." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Needs an external API host and separate PostgreSQL/backup service." }
+  ] }
+}

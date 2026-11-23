@@ -1,0 +1,17 @@
+{
+  "slug": "chatwoot",
+  "name": "Chatwoot",
+  "official_url": "https://www.chatwoot.com/",
+  "image_url": "https://www.chatwoot.com/favicon/android-chrome-512x512.png",
+  "source_page": "https://www.chatwoot.com/",
+  "kind": "favicon",
+  "source_host": "chatwoot.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "a8235e0533f4b7e9d5f78ba2b34bd2fe46924cb0e2fe93a4f334f9d5ed6a4ae1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

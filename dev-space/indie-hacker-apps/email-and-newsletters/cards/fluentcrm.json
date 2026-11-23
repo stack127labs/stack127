@@ -1,0 +1,31 @@
+{
+  "slug": "fluentcrm",
+  "name": "FluentCRM",
+  "url": "https://fluentcrm.com/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: drip sequences and behavior-driven marketing workflows; F01 calls it an email marketing plugin",
+      "newsletter": "F02: campaigns and newsletters, scheduled and recurring",
+      "transactional": "F02: REST custom-email endpoint sends one-off email from your code; delivery via wp_mail or FluentSMTP"
+    }
+  },
+  "line": "Run newsletters and marketing automation on WordPress, with external email delivery.",
+  "free": { "kind": "selfhost", "text": "Free plugin; you provide WordPress hosting and an email sender" },
+  "cells": { "newsletters": "Yes", "api": "Yes, REST API" },
+  "costs": {
+    "subs": [
+      { "v": "US$12.65536", "plan": "Free + hosting + SES", "state": "unclear", "math": "4 campaigns a month to 1,000 contacts. $12 server (DigitalOcean 2GB) plus Amazon SES at $0.16 per 1k emails, with each email 32 KB at $0.12 per GB. Production access assumed; add-ons and tax excluded." },
+      { "v": "US$15.2768", "plan": "Free + hosting + SES", "state": "unclear", "math": "4 campaigns a month to 5,000 contacts. $12 server (DigitalOcean 2GB) plus Amazon SES at $0.16 per 1k emails, with each email 32 KB at $0.12 per GB. Production access assumed; add-ons and tax excluded." },
+      { "v": "US$18.5536", "plan": "Free + hosting + SES", "state": "unclear", "math": "4 campaigns a month to 10,000 contacts. $12 server (DigitalOcean 2GB) plus Amazon SES at $0.16 per 1k emails, with each email 32 KB at $0.12 per GB. Production access assumed; add-ons and tax excluded." },
+      { "v": "US$44.768", "plan": "Free + hosting + SES", "state": "unclear", "math": "4 campaigns a month to 50,000 contacts. $12 server (DigitalOcean 2GB) plus Amazon SES at $0.16 per 1k emails, with each email 32 KB at $0.12 per GB. Production access assumed; add-ons and tax excluded." }
+    ],
+    "appmail": [
+      { "v": "US$12.49152", "plan": "Free + hosting + SES", "state": "unclear", "math": "3,000 sends a month to 1,000 profiles, each by one API request. $12 server (DigitalOcean 2GB) plus Amazon SES, with each email 32 KB. Production access assumed; add-ons and tax excluded." },
+      { "v": "US$13.6384", "plan": "Free + hosting + SES", "state": "unclear", "math": "10,000 sends a month to 1,000 profiles, each by one API request. $12 server (DigitalOcean 2GB) plus Amazon SES, with each email 32 KB. Production access assumed; add-ons and tax excluded." },
+      { "v": "US$20.192", "plan": "Free + hosting + SES", "state": "unclear", "math": "50,000 sends a month to 1,000 profiles, each by one API request. $12 server (DigitalOcean 2GB) plus Amazon SES, with each email 32 KB. Production access assumed; add-ons and tax excluded." },
+      { "v": "US$28.384", "plan": "Free + hosting + SES", "state": "unclear", "math": "100,000 sends a month to 1,000 profiles, each by one API request. $12 server (DigitalOcean 2GB) plus Amazon SES, with each email 32 KB. Production access assumed; add-ons and tax excluded." }
+    ]
+  }
+}

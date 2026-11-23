@@ -1,0 +1,17 @@
+{
+  "slug": "putler",
+  "name": "Putler",
+  "official_url": "https://www.putler.com/",
+  "image_url": "https://www.putler.com/favicon.svg",
+  "source_page": "https://www.putler.com/",
+  "kind": "svg-icon",
+  "source_host": "putler.com",
+  "original": {
+    "format": "svg",
+    "width": 779,
+    "height": 901
+  },
+  "sha256": "5bf01cbb717726be0b6fc850f0543f2dbcec9072758098e0d2568f94fb074381",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

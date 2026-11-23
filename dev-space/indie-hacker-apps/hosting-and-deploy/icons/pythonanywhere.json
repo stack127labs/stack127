@@ -1,0 +1,17 @@
+{
+  "slug": "pythonanywhere",
+  "name": "PythonAnywhere",
+  "official_url": "https://www.pythonanywhere.com/",
+  "image_url": "https://www.pythonanywhere.com/favicon.ico",
+  "source_page": "https://www.pythonanywhere.com/",
+  "kind": "favicon",
+  "source_host": "pythonanywhere.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "009ff873204f75c544acdafd4f11f5f3a3dbc31c4c1fd6bcae3ae47e7b29752a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

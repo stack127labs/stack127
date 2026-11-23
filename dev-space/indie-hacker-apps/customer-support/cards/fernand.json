@@ -1,0 +1,28 @@
+{
+  "slug": "fernand",
+  "name": "Fernand",
+  "url": "https://getfernand.com/",
+  "jobs": ["inbox", "chat", "ai", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help center is part of the hosted support inbox",
+      "inbox": "F17: Email forwards into the shared inbox on Free and paid; contact-form requests also join the inbox",
+      "chat": "F17: Native real-time chat widget on Free and paid plans, with conversation history and contact forms",
+      "ai": "F22: AI chat agent answers in the live-chat widget; off by default, turned on in Chat settings"
+    }
+  },
+  "line": "Support inbox with email, live chat, help center, and AI replies.",
+  "free": { "kind": "free", "text": "Free forever; 100 sent messages/month" },
+  "cells": {
+    "channels": "Email, website chat, help center",
+    "ai": "Included; no per-resolution price advertised",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29", "plan": "Do more", "state": "confirmed", "math": "1 active responder at $29 a month. Paid message volume is unlimited." },
+      { "v": "$87", "plan": "Do more", "state": "confirmed", "math": "3 active responders at $29 a month each. Paid message volume is unlimited." }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "thrivedesk",
+  "name": "ThriveDesk",
+  "url": "https://www.thrivedesk.com/",
+  "jobs": ["inbox", "helpdesk", "chat", "ai", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help centers are part of the hosted shared inbox and help desk",
+      "inbox": "F17: Native shared inbox with forwarded email and replies from the app, included on Basic and above",
+      "helpdesk": "F02: Hosted shared inbox and help desk with help centers; F17: forms and forwarded email reach the inbox",
+      "chat": "F17: Native live-chat Assistant on websites and web apps, included on Basic and above",
+      "ai": "F22: Neo autonomously answers email and chat using configured knowledge and actions, then escalates"
+    }
+  },
+  "line": "Shared customer support inbox for email, website chat, and forms.",
+  "free": { "kind": "trial", "text": "7-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, forms, help center",
+    "ai": "Credit-based; included allowance and rates unclear",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29", "plan": "Basic", "state": "confirmed", "math": "The Basic plan includes two teammates and one inbox. One person works." },
+      { "v": "$69", "plan": "Standard", "state": "confirmed", "math": "The Standard plan includes five teammates and two inboxes. Three people work." }
+    ]
+  }
+}

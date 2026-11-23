@@ -1,0 +1,17 @@
+{
+  "slug": "wordpress-com-newsletter",
+  "name": "WordPress.com Newsletter",
+  "official_url": "https://wordpress.com/newsletter/",
+  "image_url": "https://wordpress.com/wp-content/uploads/2024/04/wp_favicon_512x512px.png?w=192",
+  "source_page": "https://wordpress.com/newsletter/",
+  "kind": "favicon",
+  "source_host": "wordpress.com",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "1391557efbda9139c22855fff40905ad012a2e7b35b103ecc60898f9e33936df",
+  "note": "parent brand: WordPress.com; Newsletter has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

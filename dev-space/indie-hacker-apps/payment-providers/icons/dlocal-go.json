@@ -1,0 +1,17 @@
+{
+  "slug": "dlocal-go",
+  "name": "dLocal Go",
+  "official_url": "https://dlocalgo.com/",
+  "image_url": "https://dlocalgo.com/wp-content/uploads/2024/08/favicon.png",
+  "source_page": "https://dlocalgo.com/",
+  "kind": "favicon",
+  "source_host": "dlocalgo.com",
+  "original": {
+    "format": "webp",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "587aca0ea596c9ded2de03d00d38fed0cdddb47f59eae1a9f60daec9353038ee",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

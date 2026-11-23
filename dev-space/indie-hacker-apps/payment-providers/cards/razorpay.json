@@ -1,0 +1,52 @@
+{
+  "slug": "razorpay",
+  "name": "Razorpay",
+  "url": "https://razorpay.com/payment-gateway/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and gateway; the merchant sells the goods or services",
+      "billing": "F14: automatic card, UPI AutoPay and eNACH mandates; F15: plan changes, trials, retries",
+      "links": "F16: shareable Payment Links and hosted Payment Pages"
+    }
+  },
+  "line": "India payment gateway with UPI, cards and subscriptions.",
+  "free": {
+    "kind": "none",
+    "text": "No setup or monthly fee"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "India; overseas via Import Stack",
+    "payout": "Domestic payouts: T+1 or T+2 (sources differ)"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "Overseas sellers can apply through Import Stack. It isn't published which countries are eligible, and no US card rate is published."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "Overseas sellers can apply through Import Stack. It isn't published which countries are eligible, and no UK card rate is published."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "Overseas sellers can apply through Import Stack. It isn't published which countries are eligible, and no German card rate is published."
+      },
+      {
+        "v": "2% + GST",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "The headline India rate is 2% of each successful payment, plus 18% GST (India's goods and services tax) on the fee. There's no fixed fee on top."
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "cloudflare-workers-observability",
+  "name": "Cloudflare Workers Observability",
+  "url": "https://www.cloudflare.com/products/workers-observability/",
+  "jobs": ["logs", "errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: Worker logs with near-real-time tail and dashboard search (L02)",
+      "errors": "E01: uncaught exceptions and 5xx responses grouped into issues",
+      "performance": "A01: traces for handlers, fetches and bindings; CPU and wall-time metrics"
+    }
+  },
+  "line": "Collects Worker logs, traces, metrics and exceptions in Cloudflare.",
+  "free": { "kind": "free", "text": "Workers Free includes 200,000 log events/day through Nov 30" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Workers Observability", "state": "unclear", "math": "The error count alone doesn't show how much telemetry data is sent, or total account usage." },
+      { "v": "Unknown", "plan": "Workers Observability", "state": "unclear", "math": "The error count alone doesn't show how much telemetry data is sent, or total account usage." },
+      { "v": "Unknown", "plan": "Workers Observability", "state": "unclear", "math": "The error count alone doesn't show how much telemetry data is sent, or total account usage." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide synthetic uptime checks" }
+    ]
+  }
+}

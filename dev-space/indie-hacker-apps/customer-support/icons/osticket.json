@@ -1,0 +1,17 @@
+{
+  "slug": "osticket",
+  "name": "osTicket",
+  "official_url": "https://osticket.com/",
+  "image_url": "https://osticket.com/wp-content/uploads/2021/03/cropped-ost-icon-512-192x192.png",
+  "source_page": "https://osticket.com/",
+  "kind": "favicon",
+  "source_host": "osticket.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "4a3e712f2b81718bfd98c10df6125b141c3a5a6163dd6a1687cacb589a290cbd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

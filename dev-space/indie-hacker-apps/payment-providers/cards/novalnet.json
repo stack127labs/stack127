@@ -1,0 +1,29 @@
+{
+  "slug": "novalnet",
+  "name": "Novalnet",
+  "url": "https://www.novalnet.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider and gateway; the merchant remains the seller",
+      "billing": "F14: subscription billing for supported methods; F15: amounts, intervals, pause and cancel",
+      "links": "F16: payment links created in the dashboard and shared without a webshop"
+    }
+  },
+  "line": "German payment gateway with checkout, payment links and subscription billing.",
+  "free": { "kind": "none", "text": "Instant account: €99 setup fee and €25 monthly" },
+  "cells": {
+    "type": "Payment service provider and gateway",
+    "countries": "120 markets marketed; seller-country list unpublished",
+    "payout": "Every 3 days, weekly, fortnightly or monthly by agreement"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The visible price table is only for Germany. It isn't published whether US sellers are eligible, and no US card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The visible price table is only for Germany. It isn't published whether UK sellers are eligible, and no UK card rate is published." },
+      { "v": "€0.24 + 1.70%", "plan": "German Visa/Mastercard base rate", "state": "confirmed", "math": "The published base Visa or Mastercard fee for each successful payment, from the German EUR price table." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The visible price table is only for Germany. It isn't published whether Indian sellers are eligible, and no India card rate is published." }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "mailerlite",
+  "name": "MailerLite",
+  "url": "https://www.mailerlite.com/",
+  "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and marketing campaigns",
+      "marketing": "F02: automated subscriber journeys"
+    }
+  },
+  "line": "Email newsletters, marketing campaigns and subscriber automations.",
+  "free": { "kind": "free", "text": "Free for 250 active subscribers and 2,500 emails per month" },
+  "cells": {
+    "newsletters": "Yes, newsletters and campaigns",
+    "api": "Yes, paid plan required for API sends"
+  },
+  "costs": {
+    "subs": [
+      { "v": "Unknown", "plan": "Comfort", "state": "check_failed", "math": "The price for the Comfort tier covering 1,000 readers is unknown. That is 4,000 emails a month." },
+      { "v": "Unknown", "plan": "Comfort", "state": "check_failed", "math": "The price for the Comfort 5,000 tier is unknown. That is 20,000 emails a month." },
+      { "v": "Unknown", "plan": "Comfort", "state": "check_failed", "math": "The price for the Comfort tier covering 10,000 readers is unknown. That is 40,000 emails a month." },
+      { "v": "Unknown", "plan": "Comfort", "state": "check_failed", "math": "The current quote for the Comfort tier covering 50,000 readers is not verified. That is 200,000 emails a month." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate price comparison for app email delivery was confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate price comparison for app email delivery was confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate price comparison for app email delivery was confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate price comparison for app email delivery was confirmed." }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "monitive",
+  "name": "Monitive",
+  "url": "https://monitive.com/",
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP, HTTPS, API, ICMP and TCP checks with escalating alerts (U01, U02)",
+      "status": "S01, S03: public status pages built from monitors; unlimited on Pro (S01)"
+    }
+  },
+  "line": "Checks websites and APIs for downtime, response problems and incidents.",
+  "free": { "kind": "free", "text": "1 HTTP monitor with 10-minute checks; free forever" },
+  "cells": {
+    "interval": "60 s Pro; 10 min free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$7", "plan": "Pro 5", "state": "unclear", "math": "This is the published price for the monitors. Whether one-location checks and an own-domain page apply isn't confirmed." },
+      { "v": "$30.60", "plan": "Pro 30", "state": "unclear", "math": "This is the published price for the monitors. Whether one-location checks and an own-domain page apply isn't confirmed." },
+      { "v": "$72", "plan": "Pro 100", "state": "unclear", "math": "This is the published price for the monitors. Whether one-location checks and an own-domain page apply isn't confirmed." }
+    ]
+  }
+}

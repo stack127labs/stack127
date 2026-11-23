@@ -1,0 +1,17 @@
+{
+  "slug": "lastping",
+  "name": "LastPing",
+  "official_url": "https://lastping.dev/",
+  "image_url": "https://lastping.dev/icon-512.png",
+  "source_page": "https://lastping.dev/",
+  "kind": "manifest-icon",
+  "source_host": "lastping.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "44f48be06c32e2ac2788e953e01da18964ab35e4a76cd6cedad1775f4164a8ed",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

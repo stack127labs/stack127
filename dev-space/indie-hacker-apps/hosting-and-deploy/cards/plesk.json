@@ -1,0 +1,20 @@
+{
+  "slug": "plesk",
+  "name": "Plesk",
+  "url": "https://www.plesk.com/",
+  "jobs": ["panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: self-hosted control-panel software installed on the customer's or host's server; paid per-server license with a trial"
+    }
+  },
+  "line": "Manage websites and databases with a panel installed on your server.",
+  "free": { "kind": "trial", "text": "14-day license trial, no card; once per person/server; provide server" },
+  "cells": { "type": "Hosting control panel", "regions": "Your server provider's region", "selfhost": "Yes; install on your own server" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Web Admin VPS license + server", "state": "unclear", "math": "The 2026 Web Admin license is $16.99 a month. The VPS, 100 GB of data sent out, builds and domain registration are separate and not priced." },
+    { "v": "Unknown", "plan": "Web Admin VPS license + 730h server", "state": "unclear", "math": "The 2026 license is $16.99 a month. A server with 1 vCPU and 1 GiB, and its transfer, are not priced, so the workload total is unknown." },
+    { "v": "Unknown", "plan": "Web Pro VPS license + server + PostgreSQL", "state": "unclear", "math": "The 2026 Web Pro license is $29.99 a month. The server, database storage and remote 7-day backups are not priced. The license alone is not a workload total." }
+  ] }
+}

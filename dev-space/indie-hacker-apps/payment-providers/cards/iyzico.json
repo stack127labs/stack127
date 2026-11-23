@@ -1,0 +1,52 @@
+{
+  "slug": "iyzico",
+  "name": "iyzico",
+  "url": "https://www.iyzico.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and provider; the merchant sells and invoices its own goods",
+      "billing": "F14: Subscription Method charges saved cards automatically; F15: trials and plan intervals",
+      "links": "F16: Link offers hosted payment pages with no website or code required"
+    }
+  },
+  "line": "Turkish gateway with checkout, payment links and subscriptions.",
+  "free": {
+    "kind": "none",
+    "text": "No setup or monthly fee for the standard offer"
+  },
+  "cells": {
+    "type": "Payment gateway and service provider",
+    "countries": "Turkey only",
+    "payout": "Next-day advertised; help docs show weekly settlement"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Turkey."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Turkey."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Turkey."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Turkey."
+      }
+    ]
+  }
+}

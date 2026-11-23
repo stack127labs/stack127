@@ -1,0 +1,17 @@
+{
+  "slug": "leancloud",
+  "name": "LeanCloud",
+  "official_url": "https://leancloud.app/",
+  "image_url": "https://leancloud.app/favicon.png",
+  "source_page": "https://leancloud.app/",
+  "kind": "manifest-icon",
+  "source_host": "leancloud.app",
+  "original": {
+    "format": "png",
+    "width": 1200,
+    "height": 1200
+  },
+  "sha256": "8b9e3ef7dc61401c4e7111b3785b068fb0a55814d11078044263bc33e53ba705",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

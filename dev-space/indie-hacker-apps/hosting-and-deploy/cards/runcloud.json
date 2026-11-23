@@ -1,0 +1,20 @@
+{
+  "slug": "runcloud",
+  "name": "RunCloud",
+  "url": "https://runcloud.io/",
+  "jobs": ["panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted SaaS control layer that installs its agent on the customer's own server; paid, not free self-hosted software"
+    }
+  },
+  "line": "Manage web apps and servers from a hosted control panel.",
+  "free": { "kind": "trial", "text": "7-day trial; payment method required; charge starts day 8" },
+  "cells": { "type": "Server management panel", "regions": "App uses provider region; dashboard region unlisted", "selfhost": "No; hosted SaaS with proprietary server agent" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Essentials + provider server", "state": "unclear", "math": "Essentials is $9 a month. 20 builds of five minutes each use the server or outside CI, while the provider's server, domain, storage and transfer costs are separate." },
+    { "v": "Unknown", "plan": "Essentials + provider server", "state": "unclear", "math": "$9 a month for Essentials covers one server. The provider's server with 1 vCPU and 1 GiB for 730 hours is not priced. RunCloud recommends 2 GB or more of RAM for significant traffic." },
+    { "v": "Unknown", "plan": "Business Docker Stacks + server", "state": "unclear", "math": "Business Docker Stacks is $49 a month for a custom app and Postgres stack. RunCloud has no hosted Postgres. The server, storage, network and outside backups cost extra." }
+  ] }
+}

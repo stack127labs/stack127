@@ -1,0 +1,32 @@
+{
+  "slug": "kuvasz-uptime",
+  "name": "Kuvasz Uptime",
+  "url": "https://kuvasz-uptime.dev/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, SSL, ICMP, TCP and DNS checks, self-hosted from your server (U01)",
+      "status": "S01, S03: custom status pages built from named monitors and incidents",
+      "cron": "J01, J02: push heartbeats mark Down when missed; /failure reports a job error"
+    }
+  },
+  "line": "Self-hosted website and SSL checks, heartbeats and public status pages.",
+  "free": { "kind": "selfhost", "text": "Free AGPL software with unlimited monitors" },
+  "cells": {
+    "interval": "5 s HTTP/TCP/DNS; 10 s push",
+    "maintained": "Last release 2026-10-25"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" }
+    ],
+    "uptime": [
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "The chosen server and weekly backups are priced here. Email, domain and other costs aren't known." },
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "The chosen server and weekly backups are priced here. Email, domain and other costs aren't known." },
+      { "v": "$28.80", "plan": "Self-host + server", "state": "unclear", "math": "The chosen server and weekly backups are priced here. Email, domain and other costs aren't known." }
+    ]
+  }
+}

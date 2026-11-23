@@ -1,0 +1,17 @@
+{
+  "slug": "valkey",
+  "name": "Valkey",
+  "official_url": "https://valkey.io/",
+  "image_url": "https://valkey.io/img/favicon/android-chrome-512x512.png",
+  "source_page": "https://valkey.io/",
+  "kind": "manifest-icon",
+  "source_host": "valkey.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "65f5430fccd916023b8711bff65abeba78adb3891ef656b3b3d24c7acc77bd1c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

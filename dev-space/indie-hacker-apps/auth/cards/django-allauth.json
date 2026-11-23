@@ -1,0 +1,26 @@
+{
+  "slug": "django-allauth",
+  "name": "django-allauth",
+  "url": "https://allauth.org/",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Django apps for accounts, social login and MFA; F05: developer runs account data"
+    }
+  },
+  "line": "Django account, registration, and social-login toolkit.",
+  "free": { "kind": "selfhost", "text": "Free MIT library; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "MIT SAML and OIDC code; no licence fee"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The allauth software licence costs $0. Hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The allauth software licence costs $0. Hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The allauth software licence costs $0. Hosting, database, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The allauth software licence costs $0. Hosting, database, delivery and operations cost extra." }
+    ]
+  }
+}

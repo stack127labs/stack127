@@ -1,0 +1,17 @@
+{
+  "slug": "mojoauth",
+  "name": "MojoAuth",
+  "official_url": "https://mojoauth.com/",
+  "image_url": "https://mojoauth.com/favicon.svg",
+  "source_page": "https://mojoauth.com/",
+  "kind": "svg-icon",
+  "source_host": "mojoauth.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "1d45a7be8d41324d08605cde425e031878f7fad3608bc939840b02c0ed999f0e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

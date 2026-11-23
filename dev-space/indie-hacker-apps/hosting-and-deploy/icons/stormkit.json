@@ -1,0 +1,17 @@
+{
+  "slug": "stormkit",
+  "name": "Stormkit",
+  "official_url": "https://www.stormkit.io/",
+  "image_url": "https://www.stormkit.io/stormkit-logo.png",
+  "source_page": "https://www.stormkit.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "stormkit.io",
+  "original": {
+    "format": "png",
+    "width": 299,
+    "height": 299
+  },
+  "sha256": "29e7175b879cbd462351982f1fe7e5c395c8bc5f3a40557ca0e746ed37162e0e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

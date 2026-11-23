@@ -1,0 +1,20 @@
+{
+  "slug": "sakura-cloud",
+  "name": "Sakura Cloud",
+  "url": "https://cloud.sakura.ad.jp/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted IaaS virtual servers; the customer creates and administers them and installs the app stack"
+    }
+  },
+  "line": "Create and manage virtual servers on Sakura's cloud infrastructure.",
+  "free": { "kind": "none", "text": "No ongoing free production server plan" },
+  "cells": { "type": "Cloud virtual servers", "regions": "Ishikari (3 zones), Tokyo (2); disks must match zone", "selfhost": "Yes; customer manages the VM and apps" },
+  "costs": { "work": [
+    { "v": "¥1980", "plan": "1-vCPU VM + 20-GB SSD", "state": "confirmed", "math": "¥1,540 for the VM + ¥440 for SSD = ¥1,980 a month with tax. 100 GB of data sent out is below the 1.6 TB guideline. Builds run on the VM or outside CI." },
+    { "v": "¥1980", "plan": "1-vCPU VM + 20-GB SSD", "state": "confirmed", "math": "¥1,540 for the VM + ¥440 for SSD = ¥1,980 a month with tax, for 730 hours. 100 GB is below the 1.6 TB guideline, but throughput is not verified." },
+    { "v": "¥4215", "plan": "1-vCPU/2-GB VM + 20-GB SSD + backups", "state": "confirmed", "math": "¥2,145 for the VM + ¥440 for SSD + 30 runs at ¥3 + 7 archives at ¥220 = ¥4,215 a month with tax. Assumes 30 runs and seven full 20 GB archives kept all month. Whether the database fits is not verified." }
+  ] }
+}

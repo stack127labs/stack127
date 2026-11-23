@@ -1,0 +1,17 @@
+{
+  "slug": "racknerd-kvm-vps",
+  "name": "RackNerd KVM VPS",
+  "official_url": "https://www.racknerd.com/kvm-vps",
+  "image_url": "https://www.racknerd.com/favicon.png",
+  "source_page": "https://www.racknerd.com/kvm-vps",
+  "kind": "favicon",
+  "source_host": "racknerd.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "555cefb16ed14582ce0c1cff064ded2c68ae2d358c055abe1c496aaf4ac80342",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

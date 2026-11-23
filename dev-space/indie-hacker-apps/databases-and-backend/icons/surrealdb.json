@@ -1,0 +1,17 @@
+{
+  "slug": "surrealdb",
+  "name": "SurrealDB",
+  "official_url": "https://surrealdb.com/",
+  "image_url": "https://surrealdb.com/assets/static/favicon.BZXDGLvO.svg",
+  "source_page": "https://surrealdb.com/",
+  "kind": "svg-icon",
+  "source_host": "surrealdb.com",
+  "original": {
+    "format": "svg",
+    "width": 981,
+    "height": 1141
+  },
+  "sha256": "c842062224470bd0a81bb8259928fc405f29d8d039b8e5f9119c37e9eeba52c0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

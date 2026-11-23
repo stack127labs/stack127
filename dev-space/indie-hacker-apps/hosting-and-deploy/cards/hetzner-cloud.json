@@ -1,0 +1,46 @@
+{
+  "slug": "hetzner-cloud",
+  "name": "Hetzner Cloud",
+  "url": "https://www.hetzner.com/cloud/",
+  "jobs": [
+    "vps"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: self-managed virtual machines with full admin rights; the customer manages and secures the OS and app"
+    }
+  },
+  "line": "Rented virtual servers in Europe, the US and Singapore. You run the software.",
+  "free": {
+    "kind": "none",
+    "text": "No free plan; billed by the hour with monthly caps"
+  },
+  "cells": {
+    "type": "Virtual server",
+    "regions": "6 locations",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "€6.49",
+        "plan": "CPX02, Nuremberg",
+        "state": "confirmed",
+        "math": "One server running 730 hours, excluding VAT."
+      },
+      {
+        "v": "€11.99",
+        "plan": "CPX12, Nuremberg",
+        "state": "confirmed",
+        "math": "The lower of €11.49 or 730 hours at €0.0184 an hour, plus the lower of €0.50 or 730 hours at €0.0008 an hour, plus €0 for transfer."
+      },
+      {
+        "v": "€43.088",
+        "plan": "CPX32 + backups",
+        "state": "confirmed",
+        "math": "€35.49 + €0.50 + €7.098, with Postgres self-managed on the server. Excludes VAT."
+      }
+    ]
+  }
+}

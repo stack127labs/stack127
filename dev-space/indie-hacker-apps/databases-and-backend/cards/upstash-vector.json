@@ -1,0 +1,51 @@
+{
+  "slug": "upstash-vector",
+  "name": "Upstash Vector",
+  "url": "https://upstash.com/pricing/vector",
+  "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: managed vector database is the primary type; V01: dense vectors up to 1,536 dimensions on Free"
+    }
+  },
+  "line": "Managed vector database for semantic search, metadata filtering and hybrid retrieval.",
+  "free": { "kind": "free", "text": "10K queries + updates/day; 1 GB; idle Free index may be deleted after 1 week" },
+  "cells": {
+    "metered": "$0.40/100K ops + $0.25/GB storage",
+    "regions": "Unclear: AWS US/EU and GCP US Central listed",
+    "selfhost": "No (none found), managed hosted service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$0.6192",
+        "plan": "Pay as You Go",
+        "state": "confirmed",
+        "math": "100K queries + 10K upserts (adding or updating vectors) cost $0.44. 0.7168 GB of raw vectors and metadata adds $0.1792. The total is $0.6192, before index overhead."
+      },
+      {
+        "v": "$0.1792",
+        "plan": "Pay as You Go",
+        "state": "confirmed",
+        "math": "0.7168 GB of raw vector and metadata storage × $0.25 a GB a month. Index overhead may add more storage."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Upstash Vector is not a file-storage service."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Upstash Vector is not a job or workflow service."
+      }
+    ]
+  }
+}

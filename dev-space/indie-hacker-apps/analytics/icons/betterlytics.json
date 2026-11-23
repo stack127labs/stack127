@@ -1,0 +1,17 @@
+{
+  "slug": "betterlytics",
+  "name": "Betterlytics",
+  "official_url": "https://betterlytics.io/",
+  "image_url": "https://betterlytics.io/icon0.svg",
+  "source_page": "https://betterlytics.io/",
+  "kind": "svg-icon",
+  "source_host": "betterlytics.io",
+  "original": {
+    "format": "svg",
+    "width": 5333,
+    "height": 5333
+  },
+  "sha256": "1232566d49542cffb7a46a700321293cfb232cb4e4df4409a9194e0c8064754f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

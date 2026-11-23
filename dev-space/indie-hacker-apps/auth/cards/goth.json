@@ -1,0 +1,26 @@
+{
+  "slug": "goth",
+  "name": "Goth",
+  "url": "https://github.com/markbates/goth",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Go library for external login providers; F35: developer builds and deploys the app"
+    }
+  },
+  "line": "Go library for adding login through external providers.",
+  "free": { "kind": "selfhost", "text": "Free MIT library; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "Bundled OIDC adapters; no managed SAML or SCIM"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Goth software licence costs $0. Your app's accounts, sessions, hosting and database cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Goth software licence costs $0. Your app's accounts, sessions, hosting and database cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Goth software licence costs $0. Your app's accounts, sessions, hosting and database cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Goth software licence costs $0. Your app's accounts, sessions, hosting and database cost extra." }
+    ]
+  }
+}

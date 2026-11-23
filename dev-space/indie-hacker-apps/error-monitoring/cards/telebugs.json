@@ -1,0 +1,27 @@
+{
+  "slug": "telebugs",
+  "name": "Telebugs",
+  "url": "https://telebugs.com/",
+  "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: production error capture, grouping and alerts; no logs, APM or uptime (E01)"
+    }
+  },
+  "line": "Captures and groups application errors with source maps and alerts.",
+  "free": { "kind": "trial", "text": "14-day Managed trial; card required; then $99/month unless cancelled" },
+  "cells": { "interval": "—", "maintained": "Last release 2026-11-07" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Managed", "state": "unclear", "math": "The $99 a month base has no fee per report. Instance capacity and 30-day full-detail retention aren't guaranteed." },
+      { "v": "Unknown", "plan": "Managed", "state": "unclear", "math": "The $99 a month base has no fee per report. Instance capacity and 30-day full-detail retention aren't guaranteed." },
+      { "v": "Unknown", "plan": "Managed", "state": "unclear", "math": "The $99 a month base has no fee per report. Instance capacity and 30-day full-detail retention aren't guaranteed." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" }
+    ]
+  }
+}

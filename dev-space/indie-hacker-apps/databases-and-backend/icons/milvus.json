@@ -1,0 +1,17 @@
+{
+  "slug": "milvus",
+  "name": "Milvus",
+  "official_url": "https://milvus.io/",
+  "image_url": "https://milvus.io/images/milvus-logo-group.png",
+  "source_page": "https://milvus.io/",
+  "kind": "logo-mark",
+  "source_host": "milvus.io",
+  "original": {
+    "format": "png",
+    "width": 878,
+    "height": 260
+  },
+  "sha256": "37915ed066fb9ea8b651b2343db62303fcb18dbee21b9e8ef15379f5855e2c7f",
+  "note": "Official logo combines the Milvus mark with its wordmark; no square candidate at 64 px or larger was available.",
+  "saved_at": "2026-11-14"
+}

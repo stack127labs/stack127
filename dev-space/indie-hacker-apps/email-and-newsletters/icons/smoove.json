@@ -1,0 +1,17 @@
+{
+  "slug": "smoove",
+  "name": "smoove",
+  "official_url": "https://www.smoove.io/",
+  "image_url": "https://www.smoove.io/wp-content/uploads/2024/04/Group-137.svg",
+  "source_page": "https://www.smoove.io/",
+  "kind": "svg-icon",
+  "source_host": "smoove.io",
+  "original": {
+    "format": "svg",
+    "width": 1141,
+    "height": 1141
+  },
+  "sha256": "853b4d5e9e319e8c5f3a74dbda090e08657df61cef8ff82be4e557b9da3a7be8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

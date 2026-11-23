@@ -1,0 +1,17 @@
+{
+  "slug": "mailercloud",
+  "name": "Mailercloud",
+  "official_url": "https://www.mailercloud.com/",
+  "image_url": "https://www.mailercloud.com/favicon/android-chrome-512x512.png",
+  "source_page": "https://www.mailercloud.com/",
+  "kind": "favicon",
+  "source_host": "mailercloud.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "db8cfc398609933c43f0c93e9f4cabeaeb6ddf334634f3ee7668edc332549151",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

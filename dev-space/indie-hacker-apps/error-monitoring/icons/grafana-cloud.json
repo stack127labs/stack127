@@ -1,0 +1,17 @@
+{
+  "slug": "grafana-cloud",
+  "name": "Grafana Cloud",
+  "official_url": "https://grafana.com/products/cloud/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1a/d7/9d/1ad79d36-8142-fb4a-0b83-61747215388e/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/grafana/id1669759048?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "48cb8c26546343d6d3cdd18fe73201e479108a74546b44ce23ee9c07181f3103",
+  "note": "parent brand: Grafana",
+  "saved_at": "2026-11-14"
+}

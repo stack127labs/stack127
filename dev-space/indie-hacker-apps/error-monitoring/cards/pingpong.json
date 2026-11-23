@@ -1,0 +1,31 @@
+{
+  "slug": "pingpong",
+  "name": "PingPong",
+  "url": "https://pingpong.one/",
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website uptime and response-time checks with SSL expiry alerts (U01, U05)",
+      "status": "C02: hosted public and private status pages with incidents and maintenance (S03)"
+    }
+  },
+  "line": "Checks website uptime and certificates, with public status pages and incidents.",
+  "free": { "kind": "free", "text": "Free hosted status page; uptime allowance unknown" },
+  "cells": {
+    "interval": "1 min supported; free interval unknown",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Usage-based", "state": "unclear", "math": "The endpoint count doesn't match the priced usage allowances of 5, 20 or 40. The total isn't known." },
+      { "v": "Unknown", "plan": "Usage-based", "state": "unclear", "math": "The endpoint count doesn't match the priced usage allowances of 5, 20 or 40. The total isn't known." },
+      { "v": "Unknown", "plan": "Usage-based", "state": "unclear", "math": "The endpoint count doesn't match the priced usage allowances of 5, 20 or 40. The total isn't known." }
+    ]
+  }
+}

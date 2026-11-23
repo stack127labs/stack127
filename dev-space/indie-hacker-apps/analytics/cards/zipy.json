@@ -1,0 +1,19 @@
+{
+  "slug": "zipy", "name": "Zipy", "url": "https://www.zipy.ai/",
+  "jobs": ["replay", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is session replay and user behavior analytics; F17: DOM replay with error, log and inactivity timeline",
+      "product": "F16: funnels of two or more steps, custom events, and segments of identified users"
+    }
+  },
+  "line": "Links session replay and user behavior to frontend and network issues.",
+  "free": {"kind": "free", "text": "Free: 1,000 sessions/month, 2 projects, 15-day history"},
+  "cells": {"cookieless": "Unknown (tracker storage details not established)", "location": "EU/UK storage; US/India processing also listed (unclear)", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed by captured sessions. The free plan covers 1,000 sessions a month. Pageviews do not decide session counts."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed by captured sessions. The free plan covers 1,000 sessions a month. Pageviews do not decide session counts."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Billed by captured sessions. The free plan covers 1,000 sessions a month. Pageviews do not decide session counts."}
+  ]}
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "enchant",
+  "name": "Enchant",
+  "url": "https://www.enchant.com/",
+  "jobs": [
+    "helpdesk",
+    "chat",
+    "ai",
+    "inbox",
+    "kb"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: hosted omnichannel helpdesk with knowledge bases",
+      "helpdesk": "F02: Hosted omnichannel helpdesk with knowledge bases; F17: native email and contact forms that route to the inbox",
+      "chat": "F17: Native Messenger with real-time live chat and asynchronous modes; Free includes chat Messenger",
+      "ai": "F14: AI Agent in beta on the Standard plan with no extra Agent fee, capped at 100 chats a month",
+      "inbox": "F18: Shared inbox with assignment, private notes, canned responses and collision indicators"
+    }
+  },
+  "line": "Omnichannel help desk with shared inbox, website chat, and help center.",
+  "free": {
+    "kind": "free",
+    "text": "Free for 2 users, 3 messengers, and 3 help centers"
+  },
+  "cells": {
+    "channels": "Email, website chat, social, SMS, voice",
+    "ai": "From $30/month by customers helped",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The free plan supports up to two users. The monthly chat limit is not published."
+      },
+      {
+        "v": "$60",
+        "plan": "Standard",
+        "state": "confirmed",
+        "math": "3 users at $20 a month each. The comparison uses 100 conversations."
+      }
+    ]
+  }
+}

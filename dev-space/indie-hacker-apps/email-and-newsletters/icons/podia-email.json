@@ -1,0 +1,17 @@
+{
+  "slug": "podia-email",
+  "name": "Podia Email",
+  "official_url": "https://www.podia.com/email",
+  "image_url": "https://www.podia.com/Podia-Favicon.png",
+  "source_page": "https://www.podia.com/email",
+  "kind": "favicon",
+  "source_host": "podia.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "36b2dd40ac533eb477f0c4f34141c303dfc34a0c4627cce13b436cca90cef515",
+  "note": "parent brand: Podia; largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

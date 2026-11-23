@@ -1,0 +1,17 @@
+{
+  "slug": "insforge",
+  "name": "InsForge",
+  "official_url": "https://insforge.dev/",
+  "image_url": "https://github.com/InsForge.png?size=256",
+  "source_page": "https://github.com/InsForge/InsForge",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "7322581f8e64f1f32706dc4f240c74d5687ba3b1214da7682696bd6b1b8f9028",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

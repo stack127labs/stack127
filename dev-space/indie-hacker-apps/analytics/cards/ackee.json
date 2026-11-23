@@ -1,0 +1,26 @@
+{
+  "slug": "ackee",
+  "name": "Ackee",
+  "url": "https://ackee.electerious.com/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is self-hosted website traffic analytics; F15: visits, pageviews and referrers are default reports"
+    }
+  },
+  "line": "Self-hosted website analytics with daily visitor and pageview reports.",
+  "free": {"kind": "selfhost", "text": "Free software; you run the server and database"},
+  "cells": {
+    "cookieless": "Yes",
+    "location": "Your server and MongoDB",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "pv": [
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "Free license; hosting, database, network, backups and maintenance are extra."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The license is free. The exact running cost depends on setup details that this price does not cover."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The license is free. No capacity test or promised resource cost supports a full total."}
+    ]
+  }
+}

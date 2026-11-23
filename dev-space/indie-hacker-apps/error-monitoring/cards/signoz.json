@@ -1,0 +1,29 @@
+{
+  "slug": "signoz",
+  "name": "SigNoz",
+  "url": "https://signoz.io/",
+  "jobs": ["performance", "errors", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: APM and distributed traces are the first listed jobs (A01)",
+      "errors": "E01: exceptions view groups trace exception events by service, type and message",
+      "logs": "L02: structured and text log filters with a live view"
+    }
+  },
+  "line": "Collects application exceptions, traces, logs, and metrics.",
+  "free": { "kind": "selfhost", "text": "Free self-hosted Community software under MIT" },
+  "cells": { "interval": "—", "maintained": "Last release 2026-11-04" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Teams; 30-day traces", "state": "unclear", "math": "The Cloud minimum is $49 a month. Report counts don't show trace GB, so the exact total isn't known." },
+      { "v": "Unknown", "plan": "Teams; 30-day traces", "state": "unclear", "math": "The Cloud minimum is $49 a month. Report counts don't show trace GB, so the exact total isn't known." },
+      { "v": "Unknown", "plan": "Teams; 30-day traces", "state": "unclear", "math": "The Cloud minimum is $49 a month. Report counts don't show trace GB, so the exact total isn't known." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

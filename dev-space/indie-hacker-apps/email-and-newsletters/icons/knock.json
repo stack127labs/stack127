@@ -1,0 +1,17 @@
+{
+  "slug": "knock",
+  "name": "Knock",
+  "official_url": "https://knock.app/",
+  "image_url": "https://knock.app/favicon/favicon-dark.svg",
+  "source_page": "https://knock.app/",
+  "kind": "svg-icon",
+  "source_host": "knock.app",
+  "original": {
+    "format": "svg",
+    "width": 1387,
+    "height": 1387
+  },
+  "sha256": "39663f94c8f2c4ae0e04a0b04fef49917e1c2dce7a182a4c8f6889de9ef2d8b1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

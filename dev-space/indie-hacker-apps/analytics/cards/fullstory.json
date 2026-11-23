@@ -1,0 +1,22 @@
+{
+  "slug": "fullstory",
+  "name": "Fullstory",
+  "url": "https://www.fullstory.com/",
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is digital experience and product analytics with replay; F17: web and native replay with masking",
+      "web": "F15: visited pages, referrer URL, geography and device filters on sessions and events",
+      "product": "F16: ordered funnels, journeys of up to ten steps, retention cohorts and custom events"
+    }
+  },
+  "line": "Product analytics with session replay and behavioral reports.",
+  "free": { "kind": "free", "text": "Free up to 30,000 web sessions/month" },
+  "cells": { "cookieless": "No", "location": "US or Germany (GCP); US default", "selfhost": "No (none found)" },
+  "costs": { "pv": [
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers up to 30,000 sessions a month. Pageviews do not decide the session count." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers up to 30,000 sessions a month. Pageviews do not decide the session count." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers up to 30,000 sessions a month. Pageviews do not decide the session count." }
+  ] }
+}

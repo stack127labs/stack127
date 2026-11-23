@@ -1,0 +1,26 @@
+{
+  "slug": "otpless",
+  "name": "OTPless",
+  "url": "https://otpless.com/",
+  "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted phone, email, social and passkey authentication; F35: documented SaaS, not a downloadable server"
+    }
+  },
+  "line": "Hosted phone, email, social, and passkey login components.",
+  "free": { "kind": "none", "text": "No current public free allowance or trial terms found" },
+  "cells": {
+    "freeUsers": "No recurring free production allowance published",
+    "sso": "No public customer SSO or SCIM price found"
+  },
+  "costs": {
+    "mau": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The Google social-login price and what it is billed on need a quote. No current public price list was found." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The Google social-login price and what it is billed on need a quote. No current public price list was found." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The Google social-login price and what it is billed on need a quote. No current public price list was found." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The Google social-login price and what it is billed on need a quote. No current public price list was found." }
+    ]
+  }
+}

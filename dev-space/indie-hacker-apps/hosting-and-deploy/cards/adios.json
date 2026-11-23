@@ -1,0 +1,27 @@
+{
+  "slug": "adios",
+  "name": "Adios",
+  "url": "https://www.adios.dev/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted runtimes deployed by CLI or Git; Adios runs the control plane and runtime hosts",
+      "static": "19: static output is served from the hosted runtime with edge caching; static sites are a documented use"
+    }
+  },
+  "line": "Build and run app services in hosted cloud workspaces.",
+  "free": { "kind": "free", "text": "Free, no expiry or card; runtimes sleep after 4 idle hours" },
+  "cells": {
+    "type": "App platform",
+    "regions": "Hosted cloud; region details not specified",
+    "selfhost": "No; Adios operates the runtime hosts"
+  },
+  "costs": {
+    "work": [
+      { "v": "$10", "plan": "Plus", "state": "unclear", "math": "1 subscription at $10 a month. Builds, data transfer and fit with the full workload are not priced." },
+      { "v": "$50", "plan": "Dev", "state": "unclear", "math": "1 subscription at $50 a month. How much compute each running environment gets, and whether it fits the workload, still needs confirming." },
+      { "v": "$50", "plan": "Dev", "state": "unclear", "math": "$50 a month for a possible plan. The backup schedule, how data transfer is counted, and fit with the full workload are not verified." }
+    ]
+  }
+}

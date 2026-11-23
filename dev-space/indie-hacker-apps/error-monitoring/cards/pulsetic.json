@@ -1,0 +1,33 @@
+{
+  "slug": "pulsetic",
+  "name": "Pulsetic",
+  "url": "https://pulsetic.com/",
+  "jobs": ["uptime", "errors", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external uptime, network, API, SSL and domain checks (U01)",
+      "errors": "E01: uncaught JavaScript exceptions and failed fetches with occurrence counts",
+      "status": "S01, S03: status pages with incidents and monitor-driven components",
+      "cron": "J01, J02: heartbeats with expected interval, grace and offline state"
+    }
+  },
+  "line": "Checks site uptime and tracks browser errors with real-user monitoring and status pages.",
+  "free": { "kind": "free", "text": "Free: 10 checks, 5-minute interval; 1,000 RUM pageviews" },
+  "cells": {
+    "interval": "30 s Team/Organization; 60 s Solo; 5 min free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "Error reports are billed by pageview, and no ratio of reports to pageviews shows how much usage is needed." },
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "Error reports are billed by pageview, and no ratio of reports to pageviews shows how much usage is needed." },
+      { "v": "Unknown", "plan": "Free or paid", "state": "unclear", "math": "Error reports are billed by pageview, and no ratio of reports to pageviews shows how much usage is needed." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Solo plus add-ons", "state": "unclear", "math": "One check location isn't supported. The closest estimate, using 3 locations, is $9 a month for 5 endpoints." },
+      { "v": "Unknown", "plan": "Solo plus add-ons", "state": "unclear", "math": "One check location isn't supported. The closest estimate, using 3 locations, is $12 a month for 25 endpoints." },
+      { "v": "Unknown", "plan": "Solo plus add-ons", "state": "unclear", "math": "One check location isn't supported. The closest estimate, using 3 locations, is $27 a month for 100 endpoints." }
+    ]
+  }
+}

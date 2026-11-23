@@ -1,0 +1,17 @@
+{
+  "slug": "ory",
+  "name": "Ory",
+  "official_url": "https://www.ory.com/",
+  "image_url": "https://www.ory.com/icon.svg?c4370a965aac90e8",
+  "source_page": "https://www.ory.com/",
+  "kind": "svg-icon",
+  "source_host": "ory.com",
+  "original": {
+    "format": "svg",
+    "width": 1600,
+    "height": 1600
+  },
+  "sha256": "87956f05948a48dd5416d2a0dcfe03c2fe0b2e63afe251c4a42ed7f25060fd16",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

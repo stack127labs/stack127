@@ -1,0 +1,17 @@
+{
+  "slug": "plerdy",
+  "name": "Plerdy",
+  "official_url": "https://www.plerdy.com/",
+  "image_url": "https://www.plerdy.com/wp-content/themes/twentytwenty/images/favicon/favicon.svg",
+  "source_page": "https://www.plerdy.com/",
+  "kind": "svg-icon",
+  "source_host": "plerdy.com",
+  "original": {
+    "format": "svg",
+    "width": 683,
+    "height": 683
+  },
+  "sha256": "76056c418ec776d9fea983030668bb29e73cb3ed119ac4033509978f9ebdf4da",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

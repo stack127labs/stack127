@@ -1,0 +1,17 @@
+{
+  "slug": "robotalp",
+  "name": "Robotalp",
+  "official_url": "https://robotalp.com/",
+  "image_url": "https://robotalp.com/favicon.png",
+  "source_page": "https://robotalp.com/",
+  "kind": "favicon",
+  "source_host": "robotalp.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "72ed0b36f095c4c07d157c5e77892c14a490f6fa6d312f64d5e888b97ff6a71e",
+  "note": "The square official icon contains the product wordmark.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "wasmer-edge",
+  "name": "Wasmer Edge",
+  "url": "https://wasmer.io/products/edge",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed Wasm application hosting; Wasmer operates the runtime, gateway and scaling",
+      "static": "04: static sites are a listed app type"
+    }
+  },
+  "line": "Runs WebAssembly apps, APIs and static sites at the edge.",
+  "free": { "kind": "free", "text": "Free Hobby: 1M req, 150 GB, 6 CPU h, 1k build min; no card" },
+  "cells": {
+    "type": "Wasm app platform",
+    "regions": "12 advertised; 6 documented",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "US$10 a month for the Pro base. 1M requests, 100 GB and 100 build minutes fit the listed allowances. Hobby commercial terms are unverified. CPU over 6 hours, provisioned memory, stored packages and tax are unknown." },
+      { "v": "Unknown", "plan": "Pro", "state": "unclear", "math": "US$10 + 21.78 excess CPU hours × US$0.10 = US$12.18 known subtotal. 1 million requests, 100 GB and 100 build minutes fit the allowances. Provisioned memory, package storage period, tax and workload fit are not confirmed." },
+      { "v": "Unknown", "plan": "Pro + managed PostgreSQL", "state": "unclear", "math": "DB storage comes to US$99 only if 10 GB means 10,000 MB and the extra 9,900 MB is charged. The billing period is not published. Database RAM, seven-day backups, internal 10 GB traffic, app cost and tax are not confirmed." }
+    ]
+  }
+}

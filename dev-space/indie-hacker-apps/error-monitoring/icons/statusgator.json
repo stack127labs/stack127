@@ -1,0 +1,17 @@
+{
+  "slug": "statusgator",
+  "name": "StatusGator",
+  "official_url": "https://statusgator.com/",
+  "image_url": "https://static.statusgator.com/assets/favicon-e1da350e1afc97132f1902311d78c2d5fc0cbbb9be1c866e4e15d93d9a7bac0a.png",
+  "source_page": "https://statusgator.com/",
+  "kind": "favicon",
+  "source_host": "static.statusgator.com",
+  "original": {
+    "format": "png",
+    "width": 160,
+    "height": 160
+  },
+  "sha256": "a10946e14c21a2f3490cd8804935156e6cc2a2da10044690416eda10271dfb34",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

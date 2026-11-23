@@ -1,0 +1,17 @@
+{
+  "slug": "acymailing",
+  "name": "AcyMailing",
+  "official_url": "https://www.acymailing.com/",
+  "image_url": "https://www.acymailing.com/wp-content/uploads/2020/01/acymailing_fav.ico",
+  "source_page": "https://www.acymailing.com/",
+  "kind": "favicon",
+  "source_host": "acymailing.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "7e5c00d66f8eaad9419ce234664a092d2fddace596c72b1642d31e6abe6d933a",
+  "note": "Official site favicon; 128 px ICO conversion.",
+  "saved_at": "2026-11-14"
+}

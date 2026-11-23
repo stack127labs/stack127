@@ -1,0 +1,29 @@
+{
+  "slug": "hiver",
+  "name": "Hiver",
+  "url": "https://hiverhq.com/",
+  "jobs": ["inbox", "helpdesk", "chat", "ai", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: self-service content is part of the shared inbox and help desk",
+      "inbox": "F18: Assignment, private notes, shared drafts and collision detection in current shared-inbox plans",
+      "helpdesk": "F17: Omni web forms create tickets in a connected email inbox; F21: Help Center on Growth and above",
+      "chat": "F17: Native Chat Inbox and web widget on Omni Growth, Pro and Elite",
+      "ai": "F22: Native autonomous AI agents answer customers in chat and, since the October release, in email"
+    }
+  },
+  "line": "Shared inbox and support workspace for email, chat, and customer help.",
+  "free": { "kind": "trial", "text": "7-day trial, no card; free-plan offer conflicts" },
+  "cells": {
+    "channels": "Email, website chat, messaging",
+    "ai": "AI Agent requires higher plan; usage price unknown",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$70", "plan": "Omni Growth", "state": "conflicting", "math": "The current Omni pricing requires two seats at $35 each. The Gmail buying guide starts at five seats." },
+      { "v": "$175", "plan": "Omni Growth", "state": "conflicting", "math": "The current Omni pricing lists five seats at $35 each. Seat rules vary by edition." }
+    ]
+  }
+}

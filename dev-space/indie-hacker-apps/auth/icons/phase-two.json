@@ -1,0 +1,17 @@
+{
+  "slug": "phase-two",
+  "name": "Phase Two",
+  "official_url": "https://phasetwo.io/",
+  "image_url": "https://phasetwo.io/img/favicon.svg",
+  "source_page": "https://phasetwo.io/",
+  "kind": "svg-icon",
+  "source_host": "phasetwo.io",
+  "original": {
+    "format": "svg",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "801710bf36270756f6aa5c5fc8fa9863946471b4c243e4109f00e034cccac81f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

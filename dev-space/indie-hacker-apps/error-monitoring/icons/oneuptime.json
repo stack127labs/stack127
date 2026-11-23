@@ -1,0 +1,17 @@
+{
+  "slug": "oneuptime",
+  "name": "OneUptime",
+  "official_url": "https://oneuptime.com/",
+  "image_url": "https://oneuptime.com/oneuptime-assets/brand/favicons/oneuptime-up-v1.svg",
+  "source_page": "https://oneuptime.com/",
+  "kind": "svg-icon",
+  "source_host": "oneuptime.com",
+  "original": {
+    "format": "svg",
+    "width": 2000,
+    "height": 2000
+  },
+  "sha256": "ab18dd9de046cce43b49b9768a4c046fafc4649f1b30abfa5f1c477ba0e96eaa",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "kener",
+  "name": "Kener",
+  "official_url": "https://kener.ing/",
+  "image_url": "https://kener.ing/logo96.png",
+  "source_page": "https://kener.ing/",
+  "kind": "favicon",
+  "source_host": "kener.ing",
+  "original": {
+    "format": "png",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "f1c5cc0d6ddea4852ece09e31e3de1e8d0d1fe4539d1872e62248ad83c3d6c97",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

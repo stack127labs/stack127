@@ -1,0 +1,17 @@
+{
+  "slug": "bugsink",
+  "name": "Bugsink",
+  "official_url": "https://www.bugsink.com/",
+  "image_url": "https://www.bugsink.com/favicon.ico",
+  "source_page": "https://www.bugsink.com/",
+  "kind": "favicon",
+  "source_host": "bugsink.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "adc40e3474cb59b5085c50d2005b6133f77932a2798b2d01dab79a69f2887413",
+  "note": "64 px favicon, the largest official icon candidate available.",
+  "saved_at": "2026-11-14"
+}

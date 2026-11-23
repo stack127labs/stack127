@@ -1,0 +1,29 @@
+{
+  "slug": "ntt-data-adaptis-e-commerce",
+  "name": "NTT DATA ADAPTIS e-Commerce",
+  "url": "https://my.nttdatapay.com/en/payment-services/adaptis-e-commerce",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acquiring facilitator; the merchant remains the seller in Malaysia",
+      "billing": "F14: Malaysia automated recurring card collection with stored tokens; F15: scheduled charges",
+      "links": "F16: Malaysia Direct Link and email payment links; Philippines payment links"
+    }
+  },
+  "line": "Southeast Asian payment gateway for checkout, links and subscriptions.",
+  "free": { "kind": "none", "text": "Current setup and monthly fees are not published" },
+  "cells": {
+    "type": "Payment gateway and payment facilitator",
+    "countries": "Malaysia, Thailand and Philippines; foreign rules unclear",
+    "payout": "Malaysia schedule is agreed by contract; others unpublished"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "No current card rate is published for the three local markets. It's unclear whether US sellers can sign up." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "No current card rate is published for the three local markets. It's unclear whether UK sellers can sign up." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "No current card rate is published for the three local markets. It's unclear whether German sellers can sign up." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "No current card rate is published for the three local markets. It's unclear whether Indian sellers can sign up." }
+    ]
+  }
+}

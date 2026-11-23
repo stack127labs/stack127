@@ -1,0 +1,17 @@
+{
+  "slug": "paytm-payment-gateway",
+  "name": "Paytm Payment Gateway",
+  "official_url": "https://business.paytm.com/",
+  "image_url": "https://business.paytm.com/assets/images/logo-business3x512.png",
+  "source_page": "https://business.paytm.com/",
+  "kind": "manifest-icon",
+  "source_host": "business.paytm.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "29c5f594974b4edbc0113873f8eae0aee973e78af48a79c102eab320efab07a3",
+  "note": "official Paytm wordmark in square app asset",
+  "saved_at": "2026-11-14"
+}

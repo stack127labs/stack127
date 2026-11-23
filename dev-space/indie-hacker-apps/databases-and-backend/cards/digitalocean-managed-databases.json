@@ -1,0 +1,34 @@
+{
+  "slug": "digitalocean-managed-databases",
+  "name": "DigitalOcean Managed Databases",
+  "url": "https://www.digitalocean.com/products/managed-databases",
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C02: managed document database (MongoDB) is listed; C12: MongoDB has a displayed plan price",
+      "sql": "C02: managed SQL databases (PostgreSQL, MySQL) are a main type; D01: PostgreSQL 15-18 and MySQL 8.4",
+      "kv": "C02: managed Valkey key/value service; D01: Valkey 8 and 9",
+      "vector": "V01: PostgreSQL vector(1536) supported; OpenSearch k-NN graph indexes"
+    }
+  },
+  "line": "Managed PostgreSQL, MySQL, MongoDB, Valkey, OpenSearch, and Kafka clusters.",
+  "free": { "kind": "credits", "text": "$5 signup credit, expires after 90 days" },
+  "cells": {
+    "metered": "PG/MySQL Standard $15.15/mo table; docs say from $15",
+    "regions": "12 shared locations; some regions have limited plans",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$15.15/month", "plan": "Standard PG, 1 GiB", "state": "conflicting", "math": "The cost is capped at $15.15 a month, because 730 hours × $0.02254 an hour would be more. Engine docs also say from $15." },
+      { "v": "$15.15/month", "plan": "Standard PG, 1 GiB", "state": "conflicting", "math": "The provisioned node still costs $15.15 a month with zero traffic. Engine docs also say from $15." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Managed databases do not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Kafka plus worker", "state": "unclear", "math": "Three Kafka brokers cost $148.80 a month. Separate worker costs are not priced, so the full job total is unknown." }
+    ]
+  }
+}

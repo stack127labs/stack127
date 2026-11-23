@@ -1,0 +1,35 @@
+{
+  "slug": "userlist",
+  "name": "Userlist",
+  "url": "https://userlist.com/",
+  "jobs": ["newsletter", "marketing", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: marketing newsletters and announcements through broadcasts",
+      "marketing": "F02: behavior-triggered lifecycle workflows and lead-nurture email",
+      "transactional": "F02: API-triggered transactional email through the Push API",
+      "multichannel": "F02: in-app messages are offered as a channel separate from email"
+    }
+  },
+  "line": "SaaS lifecycle messaging, newsletters and API-triggered app email.",
+  "free": { "kind": "trial", "text": "14 days, card required; send cap not published" },
+  "cells": {
+    "newsletters": "Yes, for recipients who explicitly signed up",
+    "api": "Yes, Push API for transactional messages; no SMTP"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$149/month", "plan": "Basic", "state": "confirmed", "math": "4,000 messages fit inside the 500,000-message minimum allowance. The $149 Basic plan covers up to 10,000 tracked users." },
+      { "v": "$149/month", "plan": "Basic", "state": "confirmed", "math": "20,000 messages fit inside the 500,000-message minimum allowance. The $149 Basic plan covers up to 10,000 tracked users." },
+      { "v": "$149/month", "plan": "Basic", "state": "confirmed", "math": "40,000 messages fit inside the 500,000-message minimum allowance. The $149 Basic plan covers up to 10,000 tracked users." },
+      { "v": "≈$549/month", "plan": "Basic, indicative", "state": "check_failed", "math": "$149 + (50,000 − 10,000) ÷ 1,000 × $10 = $549 as an indication. The exact total from the selector is not available, and rates decrease at larger lists." }
+    ],
+    "appmail": [
+      { "v": "$149/month", "plan": "Basic", "state": "confirmed", "math": "3,000 emails fit inside the shared 500,000-message allowance. Assumes 5,000 tracked users, no other sends, one recipient per message, across 30 days." },
+      { "v": "$149/month", "plan": "Basic", "state": "confirmed", "math": "10,000 emails fit inside the shared 500,000-message allowance. Assumes 5,000 tracked users, no other sends, one recipient per message, across 30 days." },
+      { "v": "$149/month", "plan": "Basic", "state": "confirmed", "math": "50,000 emails fit inside the shared 500,000-message allowance. Assumes 5,000 tracked users, no other sends, one recipient per message, across 30 days." },
+      { "v": "$149/month", "plan": "Basic", "state": "confirmed", "math": "100,000 emails fit inside the shared 500,000-message allowance. Assumes 5,000 tracked users, no other sends, one recipient per message, across 30 days." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "godaddy-digital-marketing",
+  "name": "GoDaddy Digital Marketing",
+  "official_url": "https://www.godaddy.com/online-marketing/digital-marketing",
+  "image_url": "https://img6.wsimg.com/ux-assets/favicon/apple-icon-144x144.png",
+  "source_page": "https://www.godaddy.com/online-marketing/digital-marketing",
+  "kind": "apple-touch-icon",
+  "source_host": "img6.wsimg.com",
+  "original": {
+    "format": "png",
+    "width": 144,
+    "height": 144
+  },
+  "sha256": "d1f31e761546eabf88cabf9264da2af67558e824745fef1af8d6a20d1d9d49fd",
+  "note": "parent brand: GoDaddy; Digital Marketing has no distinct icon in the official site assets.",
+  "saved_at": "2026-11-14"
+}

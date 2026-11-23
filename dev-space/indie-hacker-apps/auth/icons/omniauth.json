@@ -1,0 +1,17 @@
+{
+  "slug": "omniauth",
+  "name": "OmniAuth",
+  "official_url": "https://github.com/omniauth/omniauth",
+  "image_url": "https://github.com/omniauth.png?size=460",
+  "source_page": "https://github.com/omniauth",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 182,
+    "height": 182
+  },
+  "sha256": "364a2aff0d6d781e6313b542ee66244da072a143f7f6121b86e6c5b2f13b930a",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

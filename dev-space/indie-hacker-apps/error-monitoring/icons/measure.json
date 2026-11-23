@@ -1,0 +1,17 @@
+{
+  "slug": "measure",
+  "name": "Measure",
+  "official_url": "https://measure.sh/",
+  "image_url": "https://measure.sh/images/measure_logo.png",
+  "source_page": "https://measure.sh/",
+  "kind": "manifest-icon",
+  "source_host": "measure.sh",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "79a6eba5d3af7212f7f5e26e894684e407ef814daf65d83377a556d546f296cd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "unity-analytics",
+  "name": "Unity Analytics",
+  "official_url": "https://docs.unity.com/en-us/analytics",
+  "image_url": "https://docs.unity.com/icon.png?d68ca17536dde246",
+  "source_page": "https://docs.unity.com/en-us/analytics",
+  "kind": "favicon",
+  "source_host": "docs.unity.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "7f87155ed7caef0d4d33a62781577553e0990b5cb1597dc9df8df48697ad9c81",
+  "note": "parent brand: Unity; Analytics has no separate product mark",
+  "saved_at": "2026-11-14"
+}

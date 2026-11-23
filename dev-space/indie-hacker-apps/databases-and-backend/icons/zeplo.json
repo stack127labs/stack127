@@ -1,0 +1,17 @@
+{
+  "slug": "zeplo",
+  "name": "Zeplo",
+  "official_url": "https://zeplo.io/",
+  "image_url": "https://github.com/zeplo.png?size=256",
+  "source_page": "https://github.com/zeplo/zeplo",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "551fe0b2760151a86a64f6ef5480f3a5242d4c0a233b98ea5af4aadc8251d25a",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

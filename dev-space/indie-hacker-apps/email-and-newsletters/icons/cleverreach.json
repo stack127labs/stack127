@@ -1,0 +1,17 @@
+{
+  "slug": "cleverreach",
+  "name": "CleverReach",
+  "official_url": "https://www.cleverreach.com/",
+  "image_url": "https://www.cleverreach.com/wp-content/themes/cleverpress/assets/img/favicons/apple-touch-icon-180x180.png",
+  "source_page": "https://www.cleverreach.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "cleverreach.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "6610a23779867c51bf7ccd15b4fbf6e8ce1b0cf800e4009aa6b2708a0d0f04de",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

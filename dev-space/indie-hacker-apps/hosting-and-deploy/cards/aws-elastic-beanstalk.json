@@ -1,0 +1,20 @@
+{
+  "slug": "aws-elastic-beanstalk",
+  "name": "AWS Elastic Beanstalk",
+  "url": "https://aws.amazon.com/elasticbeanstalk/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: you deploy the application and AWS runs the platform, EC2 scaling and load balancing in your account"
+    }
+  },
+  "line": "Deploy applications on AWS resources that Beanstalk manages for you.",
+  "free": { "kind": "credits", "text": "$100 initial + up to $100 earned; up to six months" },
+  "cells": { "type": "Managed deployment platform", "regions": "AWS regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$11.88", "plan": "Single instance base", "state": "confirmed", "math": "A t3.micro server for 730 hours ($7.592), plus about $0.64 for an 8 GB disk, plus an IPv4 address for 730 hours ($3.65). Assumes the CloudFront allowance is unused." },
+    { "v": "$35.61", "plan": "Load-balanced base", "state": "confirmed", "math": "About $8.232 for compute and disk, plus $16.425 for load balancer (ALB) hours, plus $10.95 for 3 IPv4 addresses. Excludes load balancer capacity units (LCU) and rollout resources." },
+    { "v": "$49.59", "plan": "Load-balanced + RDS", "state": "confirmed", "math": "About $35.607 for the app base, plus $11.68 for RDS (the managed database), plus $2.30 for 20 GiB of storage. Excludes variable load balancer (ALB) use and backup excess." }
+  ] }
+}

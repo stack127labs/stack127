@@ -1,0 +1,53 @@
+{
+  "slug": "payrexx",
+  "name": "Payrexx",
+  "url": "https://www.payrexx.com/en/",
+  "jobs": ["gateway", "billing", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway, hosted checkout and payment processing; the merchant remains the seller",
+      "billing": "F15: Payrexx-managed subscriptions with daily to annual periods and seven days of retries",
+      "links": "F16: Paylink and Pages are no-code online payment tools",
+      "crypto": "C01: a Crypto payment method is listed at 1.45%; the supported coins are not published"
+    }
+  },
+  "line": "European payment gateway with hosted pages, links and recurring cards.",
+  "free": {
+    "kind": "free",
+    "text": "Free plan CHF 0/EUR 0 monthly; per-payment fees apply"
+  },
+  "cells": {
+    "type": "Payment gateway and online processing platform",
+    "countries": "Switzerland only",
+    "payout": "Weekly Monday; new online merchants have a 4-day delay"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Switzerland."
+      }
+    ]
+  }
+}

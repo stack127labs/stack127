@@ -1,0 +1,17 @@
+{
+  "slug": "doku",
+  "name": "DOKU",
+  "official_url": "https://www.doku.com/",
+  "image_url": "https://cdn.prod.website-files.com/674ab654de930b217c6389c1/6756a9f7ba44cad5543f87e2_doku-logo-red.svg",
+  "source_page": "https://www.doku.com/",
+  "kind": "logo-mark",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "svg",
+    "width": 2667,
+    "height": 2667
+  },
+  "sha256": "36634aa3a2950caf088a96f0b95d8e1042f06a445a2ca1b9408e28374fd4af33",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

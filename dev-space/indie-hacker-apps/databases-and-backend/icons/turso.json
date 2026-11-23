@@ -1,0 +1,17 @@
+{
+  "slug": "turso",
+  "name": "Turso",
+  "official_url": "https://turso.tech/",
+  "image_url": "https://turso.tech/apple-touch-icon.png",
+  "source_page": "https://turso.tech/",
+  "kind": "apple-touch-icon",
+  "source_host": "turso.tech",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "7ee7f7b665b10656150ef6cbcf4b025bada61cdc130d5cca6d2dba727fecc245",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

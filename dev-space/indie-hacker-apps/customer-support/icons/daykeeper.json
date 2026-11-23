@@ -1,0 +1,17 @@
+{
+  "slug": "daykeeper",
+  "name": "Daykeeper",
+  "official_url": "https://www.mydaykeeper.com/",
+  "image_url": "https://www.mydaykeeper.com/favicon.svg",
+  "source_page": "https://www.mydaykeeper.com/",
+  "kind": "svg-icon",
+  "source_host": "mydaykeeper.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "a9f58724d20b6fd38468031047ae7bdd892db410f9a24b788920b365b915e6a4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

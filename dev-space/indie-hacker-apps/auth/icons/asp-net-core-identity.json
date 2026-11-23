@@ -1,0 +1,17 @@
+{
+  "slug": "asp-net-core-identity",
+  "name": "ASP.NET Core Identity",
+  "official_url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity",
+  "image_url": "https://github.com/dotnet.png?size=460",
+  "source_page": "https://github.com/dotnet",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 155,
+    "height": 155
+  },
+  "sha256": "01aca033c600ef79137569f97d949d01f455d3a67fb512f088bc0ed461cc6f66",
+  "note": "official GitHub organization avatar (dotnet): the .NET mark; ASP.NET Core Identity is part of .NET",
+  "saved_at": "2026-11-14"
+}

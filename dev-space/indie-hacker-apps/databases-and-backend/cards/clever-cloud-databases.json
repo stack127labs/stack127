@@ -1,0 +1,34 @@
+{
+  "slug": "clever-cloud-databases",
+  "name": "Clever Cloud databases",
+  "url": "https://www.clever.cloud/product/postgresql/",
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C12: managed MongoDB plans have displayed prices; C01 lists MongoDB among the managed databases",
+      "sql": "D01: dedicated PostgreSQL and MySQL versions listed; the card URL is the PostgreSQL page",
+      "kv": "C01: managed Redis is one of the listed databases; C12: Redis S plan priced per hour",
+      "vector": "V01: dedicated PostgreSQL lists pgvector with IVFFlat and HNSW indexes"
+    }
+  },
+  "line": "Run managed SQL, key-value, document, search, and time-series databases.",
+  "free": { "kind": "free", "text": "PostgreSQL DEV testing plan: 256 MB and 5 connections" },
+  "cells": {
+    "metered": "PostgreSQL from €0.00729/hour in Paris",
+    "regions": "Multiple zones; Paris, Montreal, London, Singapore, and more",
+    "selfhost": "Yes, with On-Premises by arrangement"
+  },
+  "costs": {
+    "sql": [
+      { "v": "€5.32", "plan": "PostgreSQL XXS Small, Paris", "state": "unclear", "math": "730 hours × €0.00729166666666667 an hour, which is €5.32 rounded. Transfer and optional charges are not included, because their rates are not yet confirmed." },
+      { "v": "€5.32", "plan": "PostgreSQL XXS Small, Paris", "state": "unclear", "math": "730 hours × €0.00729166666666667 an hour while provisioned. Idle resources are still billed." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Object storage is sold as a separate service." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "pg_cron (a scheduler inside the database) uses database resources. There is no separate worker price, and no setup fee has been confirmed." }
+    ]
+  }
+}

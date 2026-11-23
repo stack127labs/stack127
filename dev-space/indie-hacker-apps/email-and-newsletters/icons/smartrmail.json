@@ -1,0 +1,17 @@
+{
+  "slug": "smartrmail",
+  "name": "SmartrMail",
+  "official_url": "https://www.smartrmail.com/",
+  "image_url": "https://cdn.prod.website-files.com/6a47895a5c4366d9037f3e0b/6a8c22ea8996d359cc961139_Webclip%20512x512.png",
+  "source_page": "https://www.smartrmail.com/",
+  "kind": "favicon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "e5048afdd953b558e30a9128c672fda4957fe080e30b0d9c98589326b5ae0fe3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

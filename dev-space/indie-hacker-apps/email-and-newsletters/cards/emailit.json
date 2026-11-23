@@ -1,0 +1,31 @@
+{
+  "slug": "emailit",
+  "name": "Emailit",
+  "url": "https://emailit.com/",
+  "jobs": ["transactional", "newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and app email through the Email API or SMTP",
+      "newsletter": "F02: campaigns sent to subscribers in audiences",
+      "marketing": "F02: welcome and onboarding sequences with delays and email event triggers"
+    }
+  },
+  "line": "Send app email through an API or SMTP, plus newsletters and automated campaigns.",
+  "free": { "kind": "free", "text": "3,000 credits/month; 100 recipients/day before top-up" },
+  "cells": { "newsletters": "Yes, production approval required", "api": "Yes, production approval required" },
+  "costs": {
+    "subs": [
+      { "v": "$20", "plan": "Pay as you go", "state": "confirmed", "math": "4,000 campaign recipients a month × 2 credits each = 8,000 credits. The 5,000 paid credits cost $1 in usage. The first top-up is $20." },
+      { "v": "$20", "plan": "Pay as you go", "state": "confirmed", "math": "20,000 campaign recipients a month × 2 credits each = 40,000 credits. That is $7.40 in usage. The first top-up is $20." },
+      { "v": "$20", "plan": "Pay as you go", "state": "confirmed", "math": "40,000 campaign recipients a month × 2 credits each = 80,000 credits. That is $15.40 in usage. The first top-up is $20." },
+      { "v": "$55", "plan": "Pro + extra credits", "state": "confirmed", "math": "$25 for the Pro plan, plus $30 for 300,000 extra credits, which is $55 a month." }
+    ],
+    "appmail": [
+      { "v": "$0", "plan": "Pay as you go", "state": "confirmed", "math": "3,000 API or SMTP recipients use 3,000 included credits, so the cost is $0." },
+      { "v": "$20", "plan": "Pay as you go", "state": "confirmed", "math": "10,000 recipients use 7,000 paid credits, which is $1.40 in usage. The first top-up is $20." },
+      { "v": "$20", "plan": "Pay as you go", "state": "confirmed", "math": "50,000 recipients use 47,000 paid credits, which is $9.40 in usage. The first top-up is $20." },
+      { "v": "$20", "plan": "Pay as you go", "state": "confirmed", "math": "100,000 recipients use 97,000 paid credits, which is $19.40 in usage. The first top-up is $20." }
+    ]
+  }
+}

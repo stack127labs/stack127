@@ -1,0 +1,31 @@
+{
+  "slug": "cloudflare-vectorize",
+  "name": "Cloudflare Vectorize",
+  "url": "https://developers.cloudflare.com/vectorize/",
+  "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: managed vector database is the primary role; V01: up to 1,536 dimensions and 20 million vectors per index"
+    }
+  },
+  "line": "Store embeddings and search them by vector similarity.",
+  "free": { "kind": "free", "text": "30M queried and 5M stored vector dimensions monthly" },
+  "cells": {
+    "metered": "$0.01/M queried; $0.05/100M stored dimensions after limits",
+    "regions": "Account-level rates; no region-specific price listed",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$7.6438", "plan": "Vectorize on Workers Paid", "state": "unclear", "math": "$2.6438 for Vectorize usage, plus the $5 Workers Paid account minimum. Worker compute is extra." },
+      { "v": "$5.0718", "plan": "Vectorize on Workers Paid", "state": "unclear", "math": "$0.0718 for stored vectors, plus the $5 Workers Paid account minimum. Worker compute is extra." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Vector records are not a general file store." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Vectorize does not execute scheduled jobs" }
+    ]
+  }
+}

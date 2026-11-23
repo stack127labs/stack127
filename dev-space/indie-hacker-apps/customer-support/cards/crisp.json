@@ -1,0 +1,48 @@
+{
+  "slug": "crisp",
+  "name": "Crisp",
+  "url": "https://crisp.chat/en/",
+  "jobs": [
+    "chat",
+    "helpdesk",
+    "ai",
+    "inbox",
+    "kb"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F17: help center is included on the Essentials and Plus plans",
+      "chat": "F06: Free plan includes website live chat, shared inbox, contact form and chat SDKs",
+      "helpdesk": "F17: Plus Ticket Center lets customers create and reply to requests; help center on Essentials and Plus",
+      "ai": "F24: Hugo answers customers, escalates to people and allows manual takeover; Mini includes Hugo credits",
+      "inbox": "F17: Shared support email starts on Mini; forward a support mailbox to Crisp and reply from the shared inbox"
+    }
+  },
+  "line": "Website chat, shared inbox, help center and AI.",
+  "free": {
+    "kind": "free",
+    "text": "Free forever: 2 seats, 100 customer profiles"
+  },
+  "cells": {
+    "channels": "Chat, email, Messenger, Telegram, WhatsApp",
+    "ai": "Vendor estimate about $0.05\u2013$0.10 per chat",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "Uses 1 of the 2 free seats for website chat. Support email needs the Mini plan at $45 a month."
+      },
+      {
+        "v": "$45",
+        "plan": "Mini",
+        "state": "confirmed",
+        "math": "The Mini plan at $45 a month per workspace covers 3 of its 4 seats. The free plan has only 2 seats."
+      }
+    ]
+  }
+}

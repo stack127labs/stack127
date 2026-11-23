@@ -1,0 +1,17 @@
+{
+  "slug": "zitadel",
+  "name": "ZITADEL",
+  "official_url": "https://zitadel.com/",
+  "image_url": "https://github.com/zitadel.png?size=460",
+  "source_page": "https://github.com/zitadel",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "e0b8d142466fa42d62266e99086fa4a62bf3a7d13431f036e422d43aa4e0f93e",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

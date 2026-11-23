@@ -1,0 +1,28 @@
+{
+  "slug": "chargily-pay",
+  "name": "Chargily Pay",
+  "url": "https://chargily.com/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway; the merchant sells the goods to the final consumer",
+      "links": "F16: dashboard payment links are for sellers without a website"
+    }
+  },
+  "line": "Algerian gateway for online payments and hosted payment links.",
+  "free": { "kind": "free", "text": "0% until 300 transactions or 300,000 DZD volume" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "Algeria; US signup marked coming soon",
+    "payout": "Balance hold is 24–72 hours by plan"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The terms only let Algerian nationals or residents, or businesses under Algerian law, sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The terms only let Algerian nationals or residents, or businesses under Algerian law, sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The terms only let Algerian nationals or residents, or businesses under Algerian law, sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "The terms only let Algerian nationals or residents, or businesses under Algerian law, sign up." }
+    ]
+  }
+}

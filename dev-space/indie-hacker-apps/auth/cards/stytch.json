@@ -1,0 +1,51 @@
+{
+  "slug": "stytch",
+  "name": "Stytch",
+  "url": "https://stytch.com/",
+  "jobs": [
+    "hosted"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted consumer and B2B accounts, login, verification and sessions; F05: vendor operates the identity API"
+    }
+  },
+  "line": "API-first auth for consumer apps and B2B SaaS.",
+  "free": {
+    "kind": "free",
+    "text": "10,000 MAU free; $0 monthly base"
+  },
+  "cells": {
+    "freeUsers": "10,000 MAU",
+    "sso": "5 connections free, then $125 each"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Pay as you go",
+        "state": "confirmed",
+        "math": "The base is $0. 1,000 users is within the 10,000 free users."
+      },
+      {
+        "v": "$0",
+        "plan": "Pay as you go",
+        "state": "confirmed",
+        "math": "The base is $0, and 10,000 users is exactly the free limit."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "40,000 users are above the free limit. The current rate could not be read."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "90,000 users are above the free limit. The current rate could not be read."
+      }
+    ]
+  }
+}

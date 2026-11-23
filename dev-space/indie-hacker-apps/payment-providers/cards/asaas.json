@@ -1,0 +1,23 @@
+{
+  "slug": "asaas",
+  "name": "Asaas",
+  "url": "https://www.asaas.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment institution and PSP; the merchant remains the seller to the customer",
+      "billing": "F14: subscriptions create future charges on a set schedule; F15: amount, periodicity, reminders",
+      "links": "F16: hosted payment link takes a fixed or open amount, one-time or recurring"
+    }
+  },
+  "line": "Collect card and Pix payments for a Brazil-based business.",
+  "free": { "kind": "none", "text": "No monthly fee; R$ 19,90 monthly after 180 inactive days" },
+  "cells": { "type": "Payment service provider", "countries": "Brazil; local CPF/CNPJ and bank account required", "payout": "Pix transfers free for PF and MEI" },
+  "costs": { "fee": [
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "Asaas only operates in Brazil, so US sellers can't sign up." },
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "Asaas only operates in Brazil, so UK sellers can't sign up." },
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "Asaas only operates in Brazil, so German sellers can't sign up." },
+    { "v": "Not available", "plan": "", "state": "confirmed", "math": "Asaas only operates in Brazil, so Indian sellers can't sign up." }
+  ] }
+}

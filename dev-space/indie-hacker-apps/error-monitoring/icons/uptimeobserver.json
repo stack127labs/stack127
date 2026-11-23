@@ -1,0 +1,17 @@
+{
+  "slug": "uptimeobserver",
+  "name": "UptimeObserver",
+  "official_url": "https://uptimeobserver.com/",
+  "image_url": "https://uptimeobserver.com/fav.svg",
+  "source_page": "https://uptimeobserver.com/",
+  "kind": "svg-icon",
+  "source_host": "uptimeobserver.com",
+  "original": {
+    "format": "svg",
+    "width": 2419,
+    "height": 2419
+  },
+  "sha256": "b8fdeec117efbf639237dfd1879796be3f7805169e94f4aa1dd128f882a5aa8c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "planetscale",
+  "name": "PlanetScale",
+  "url": "https://planetscale.com/",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational databases are the primary type; D01: PostgreSQL and MySQL via Vitess",
+      "vector": "V01: managed Postgres lists pgvector 0.8.5 and pgvectorscale 0.9.0"
+    }
+  },
+  "line": "Managed Postgres and MySQL (Vitess) with branching.",
+  "free": {
+    "kind": "none",
+    "text": "No free plan since the April 2024 retirement"
+  },
+  "cells": {
+    "metered": "$5/month single-node Postgres",
+    "regions": "22 regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$5",
+        "plan": "Base, PS-5",
+        "state": "confirmed",
+        "math": "$5 + $0 for extra disk + $0 for excess egress. Over a 730-hour span the figure is $5.067204301."
+      },
+      {
+        "v": "$5",
+        "plan": "Base, PS-5",
+        "state": "confirmed",
+        "math": "$5 for the kept 10 GB node. There is no sleep discount based on requests."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "This is a database product, not file storage, so there is no total."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "not_published",
+        "math": "pg_cron is included, but no per-job price is published for the 10,000-job workload."
+      }
+    ]
+  }
+}

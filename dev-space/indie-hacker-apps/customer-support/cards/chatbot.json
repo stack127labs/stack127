@@ -1,0 +1,28 @@
+{
+  "slug": "chatbot",
+  "name": "ChatBot.com (Text AI Agent)",
+  "url": "https://www.chatbot.com/",
+  "jobs": ["ai", "helpdesk", "chat", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F02: Customer-facing AI support and sales automation; the current route is the Text AI Agent",
+      "helpdesk": "F17: Incoming email forwards into Text tickets; all current plans include contact forms and ticketing",
+      "chat": "F17: Website widget and in-app chat are included on all listed current plans",
+      "inbox": "F18: All current plans have assignment, transfers, internal notes and canned replies in one inbox"
+    }
+  },
+  "line": "Text combines AI agents with human support chat, email, and tickets.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, tickets, messaging",
+    "ai": "10 included; packs of 50 more cost $49.50",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$25", "plan": "Essential", "state": "confirmed", "math": "1 user at $25 a month, using the human inbox and chat with the AI turned off." },
+      { "v": "$75", "plan": "Essential", "state": "confirmed", "math": "3 users at $25 a month each, using the human inbox and chat with the AI turned off." }
+    ]
+  }
+}

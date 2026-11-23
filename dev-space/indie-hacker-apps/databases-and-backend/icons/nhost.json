@@ -1,0 +1,17 @@
+{
+  "slug": "nhost",
+  "name": "Nhost",
+  "official_url": "https://nhost.io/",
+  "image_url": "https://nhost.io/favicon.ico",
+  "source_page": "https://nhost.io/",
+  "kind": "favicon",
+  "source_host": "nhost.io",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "3175db7b5e3f0f1bfb70cdd217b54883fcbac4f22d2e4199969f44def8adef23",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

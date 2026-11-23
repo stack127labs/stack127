@@ -1,0 +1,17 @@
+{
+  "slug": "freemius",
+  "name": "Freemius",
+  "official_url": "https://freemius.com/",
+  "image_url": "https://freemius.com/wp-content/uploads/2024/11/freemius-favicon-300x300.png",
+  "source_page": "https://freemius.com/",
+  "kind": "favicon",
+  "source_host": "freemius.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "6c2230b1901427a652931d862274176bf413e85f98d8ac82d7a5b2d6283f18b3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

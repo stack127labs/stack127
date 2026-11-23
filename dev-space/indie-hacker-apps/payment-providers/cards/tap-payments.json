@@ -1,0 +1,29 @@
+{
+  "slug": "tap-payments",
+  "name": "Tap Payments",
+  "url": "https://developers.tap.company/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant sells its own goods",
+      "billing": "F14: card subscriptions with daily to annual cycles; Tap sends recurring charge events",
+      "links": "F16: goCollect payment links and bills sent by email, SMS, WhatsApp or social, no website"
+    }
+  },
+  "line": "GCC gateway for card and local payments, invoices, subscriptions, and links.",
+  "free": { "kind": "none", "text": "Plans and fixed fees vary by market; processing fees apply" },
+  "cells": {
+    "type": "Payment gateway and service provider",
+    "countries": "Saudi Arabia, Kuwait, Bahrain, UAE, Oman, Qatar",
+    "payout": "3–5 workdays to available balance; payout schedule varies"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Tap's payout service only covers businesses in six GCC countries (Gulf Cooperation Council). US sellers are outside those countries." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Tap's payout service only covers businesses in six GCC countries (Gulf Cooperation Council). UK sellers are outside those countries." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Tap's payout service only covers businesses in six GCC countries (Gulf Cooperation Council). German sellers are outside those countries." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Tap's payout service only covers businesses in six GCC countries (Gulf Cooperation Council). Indian sellers are outside those countries." }
+    ]
+  }
+}

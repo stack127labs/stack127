@@ -1,0 +1,17 @@
+{
+  "slug": "fullstory",
+  "name": "Fullstory",
+  "official_url": "https://www.fullstory.com/",
+  "image_url": "https://images.ctfassets.net/dkgr2j75jrom/4NftHzy5FtnaLKtb6I9tPa/f22b45118a1dcafa634f08b1ecbbd6dd/fullstory-logo-512.png",
+  "source_page": "https://www.fullstory.com/",
+  "kind": "logo-mark",
+  "source_host": "images.ctfassets.net",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "9558ad1158de14d6c3705d68552a9acafd2e073b83194f2504064b14399c4eb2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

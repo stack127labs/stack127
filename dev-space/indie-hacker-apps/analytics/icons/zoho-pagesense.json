@@ -1,0 +1,17 @@
+{
+  "slug": "zoho-pagesense",
+  "name": "Zoho PageSense",
+  "official_url": "https://www.zoho.com/pagesense/",
+  "image_url": "https://www.zohowebstatic.com/sites/zweb/images/favicon.ico",
+  "source_page": "https://www.zoho.com/pagesense/",
+  "kind": "favicon",
+  "source_host": "zohowebstatic.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "6d1f81bbfe66994d35a1fd6b9e3e48f388365d915d7e722e4211db42c1e61517",
+  "note": "parent brand: Zoho; PageSense has only a wordmark",
+  "saved_at": "2026-11-14"
+}

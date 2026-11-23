@@ -1,0 +1,27 @@
+{
+  "slug": "xhostd",
+  "name": "xhostd",
+  "url": "https://xhostd.com/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed, always-on container hosting; each app environment runs on xhostd's infrastructure",
+      "static": "04: static files are a listed app type with their own environment"
+    }
+  },
+  "line": "Runs static sites, apps and APIs with managed Postgres.",
+  "free": { "kind": "free", "text": "Free Basic, no card: 3 channels, 128 MiB RAM, 500 MiB DB, 2 GB objects" },
+  "cells": {
+    "type": "App platform",
+    "regions": "Not published",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      { "v": "Unknown", "plan": "Basic", "state": "unclear", "math": "Basic static delivery is $0 a month within 3 channels, 0.1 CPU and 128 MiB, and 2 GB objects. 1 million requests and 100 GB have no listed charge. The 100-minute build needs unpriced outside tools or custom Docker." },
+      { "v": "$20", "plan": "Indie", "state": "confirmed", "math": "$20 a month before tax. Indie has a soft limit of 1 core and 2 GiB for 730 hours, with no listed fee for requests or data sent out. 1M requests and 100 GB add no listed charge. CPU throughput and build limits: untested." },
+      { "v": "Unknown", "plan": "Studio", "state": "unclear", "math": "Studio plan at $40 a month before tax is a possible option: 40 GB database and 7-day backups. But database memory is only 'up to 1,088 MB', not a guaranteed 1 GiB. Internal 10 GB traffic price and fit are not verified." }
+    ]
+  }
+}

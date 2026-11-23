@@ -1,0 +1,27 @@
+{
+  "slug": "amazon-s3-vectors",
+  "name": "Amazon S3 Vectors",
+  "url": "https://aws.amazon.com/s3/features/vectors/",
+  "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: hosted vector storage and approximate similarity search is the primary type; V01: 1-4096 dimensions"
+    }
+  },
+  "line": "Managed vector storage and similarity search in AWS S3.",
+  "free": { "kind": "credits", "text": "AWS credits may apply; account closes at 6 months, data erased after 90 days" },
+  "cells": {
+    "metered": "$0.06/GB-month storage; $2.50/million queries",
+    "regions": "Region-dependent; US East rates shown",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Vector search product, not a SQL database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Vector search product, not a SQL database" }
+    ],
+    "files": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Vector indexes are not a general file store." }],
+    "jobs": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide background job execution" }]
+  }
+}

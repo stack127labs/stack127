@@ -1,0 +1,46 @@
+{
+  "slug": "front",
+  "name": "Front",
+  "url": "https://front.com/",
+  "jobs": [
+    "inbox",
+    "helpdesk",
+    "chat",
+    "ai"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "inbox": "F18: Shared inbox with assignments, private comments, templates, shared drafts and collision indicators",
+      "helpdesk": "F02: Shared inbox and help desk with ticketing and Help Centers; F21: hosted searchable Help Center",
+      "chat": "F17: Resolve gives human live website chat on all plans; the Autopilot agent is optional and paid",
+      "ai": "F22: Autopilot triages, drafts and replies to customers on its own; Copilot assists a teammate"
+    }
+  },
+  "line": "Team inbox for email and messaging with Autopilot AI.",
+  "free": {
+    "kind": "trial",
+    "text": "14-day trial on Professional; no free plan"
+  },
+  "cells": {
+    "channels": "Starter: one channel type; email, chat, messaging, SMS",
+    "ai": "$0.89 per resolution",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$35",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "1 seat at $35 a month, or $300 a year paid upfront, which is $25 a month. Up to ten seats."
+      },
+      {
+        "v": "$105",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "3 seats at $35 a month each = $105 a month, or $900 a year paid upfront ($75 a month)."
+      }
+    ]
+  }
+}

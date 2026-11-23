@@ -1,0 +1,51 @@
+{
+  "slug": "vultr-object-storage",
+  "name": "Vultr Object Storage",
+  "url": "https://docs.vultr.com/products/storage/object-storage",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object and file storage is the primary type; F05: S3 matrix for bucket and object operations"
+    }
+  },
+  "line": "S3-compatible object storage with standard, performance and archive tiers.",
+  "free": { "kind": "credits", "text": "No recurring quota; signup credits up to 30 days; no idle rule found" },
+  "cells": {
+    "metered": "Standard $18/mo: 1TB storage/outbound; inbound unlimited",
+    "regions": "Multiple Vultr locations; select one at setup",
+    "selfhost": "No (none found), hosted object storage"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Vultr Object Storage is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Vultr Object Storage is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "$18+",
+        "plan": "Standard",
+        "state": "unclear",
+        "math": "Standard plan, $18 a month: 1,000 GB of storage and outbound data included, inbound unlimited. Extra storage $0.018 per GB, extra outbound $0.01 per GB. Region and traffic vary; PUT/GET rates are not published."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Vultr Object Storage does not run application jobs."
+      }
+    ]
+  }
+}

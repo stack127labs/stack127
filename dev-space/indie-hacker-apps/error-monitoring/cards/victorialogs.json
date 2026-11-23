@@ -1,0 +1,27 @@
+{
+  "slug": "victorialogs",
+  "name": "VictoriaLogs",
+  "url": "https://victoriametrics.com/products/victorialogs/",
+  "jobs": ["logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: log storage, full-text and field search, and live tail (L02)"
+    }
+  },
+  "line": "Stores and searches structured or unstructured logs with LogsQL.",
+  "free": { "kind": "selfhost", "text": "Free Community, Apache-2.0; 7-day default retention" },
+  "cells": { "interval": "—", "maintained": "Last release 2026-10-01" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide dedicated crash or exception tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide dedicated crash or exception tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide dedicated crash or exception tracking" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

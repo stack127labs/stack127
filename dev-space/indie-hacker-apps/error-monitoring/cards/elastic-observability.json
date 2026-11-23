@@ -1,0 +1,33 @@
+{
+  "slug": "elastic-observability",
+  "name": "Elastic Observability",
+  "url": "https://www.elastic.co/observability",
+  "jobs": ["logs", "errors", "uptime", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: log analysis, search and dashboards in Logs Essentials (L02)",
+      "errors": "E01: APM captures unhandled errors and groups them by stack trace",
+      "uptime": "U01, U03: Synthetics HTTP, TCP and ping checks from selectable locations",
+      "performance": "A01: APM traces, service maps and database query timings"
+    }
+  },
+  "line": "Searches logs and traces, investigates errors and runs synthetic checks.",
+  "free": { "kind": "selfhost", "text": "Free Basic self-managed software; hosting costs extra" },
+  "cells": {
+    "interval": "Set in minutes; minimum unknown",
+    "maintained": "Last release 2026-10-22"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Serverless or self-managed", "state": "not_published", "math": "Elastic doesn't list a price by error count. Hosted and self-managed costs depend on usage and system size." },
+      { "v": "Unknown", "plan": "Serverless or self-managed", "state": "not_published", "math": "Elastic doesn't list a price by error count. Hosted and self-managed costs depend on usage and system size." },
+      { "v": "Unknown", "plan": "Serverless or self-managed", "state": "not_published", "math": "Elastic doesn't list a price by error count. Hosted and self-managed costs depend on usage and system size." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Synthetics", "state": "not_published", "math": "Elastic doesn't publish a monthly total for a 60-second endpoint check." },
+      { "v": "Unknown", "plan": "Synthetics", "state": "not_published", "math": "Elastic doesn't publish a monthly total for a 60-second endpoint check." },
+      { "v": "Unknown", "plan": "Synthetics", "state": "not_published", "math": "Elastic doesn't publish a monthly total for a 60-second endpoint check." }
+    ]
+  }
+}

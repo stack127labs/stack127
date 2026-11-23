@@ -1,0 +1,17 @@
+{
+  "slug": "inspector",
+  "name": "Inspector",
+  "official_url": "https://inspector.dev/",
+  "image_url": "https://inspector.dev/images/favicon.png",
+  "source_page": "https://inspector.dev/",
+  "kind": "favicon",
+  "source_host": "inspector.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "41e22e28970c0ac9a008bebe30cd46a9a71b0db9e34fcac56512d5d6f6924759",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

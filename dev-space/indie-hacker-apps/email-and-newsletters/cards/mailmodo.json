@@ -1,0 +1,33 @@
+{
+  "slug": "mailmodo",
+  "name": "Mailmodo",
+  "url": "https://www.mailmodo.com/",
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle journeys in the marketing product",
+      "newsletter": "F02: newsletters and marketing campaigns"
+    }
+  },
+  "line": "Email newsletters, automated journeys and API-triggered messages.",
+  "free": { "kind": "free", "text": "500 contacts; free credits listed as 2,000 or 4,000" },
+  "cells": {
+    "newsletters": "Yes, newsletters and marketing campaigns",
+    "api": "Yes, REST API triggers campaigns and journeys"
+  },
+  "costs": {
+    "subs": [
+      { "v": "US$34/month", "plan": "Lite", "state": "confirmed", "math": "1,000 contacts and 4,000 emails a month. The plan includes 4,000 credits." },
+      { "v": "US$64/month", "plan": "Lite", "state": "confirmed", "math": "5,000 contacts and 20,000 emails a month. The plan includes 20,000 credits." },
+      { "v": "US$74/month", "plan": "Lite", "state": "confirmed", "math": "10,000 contacts and 40,000 emails a month. The plan includes 40,000 credits." },
+      { "v": "US$249/month", "plan": "Lite", "state": "confirmed", "math": "50,000 contacts and 200,000 emails a month. The plan includes 200,000 credits." }
+    ],
+    "appmail": [
+      { "v": "US$64/month", "plan": "Lite / 5,000 contacts", "state": "confirmed", "math": "3,000 trigger runs a month, with zero Journey runs. The plan has 5,000 stored contacts and 20,000 credits." },
+      { "v": "US$64/month", "plan": "Lite / 5,000 contacts", "state": "confirmed", "math": "10,000 trigger runs a month, with zero Journey runs. The plan has 5,000 stored contacts and 20,000 credits." },
+      { "v": "US$89/month", "plan": "Lite / 12,500 contacts", "state": "confirmed", "math": "50,000 trigger runs a month, with zero Journey runs. The plan has 5,000 stored contacts and 50,000 credits." },
+      { "v": "US$149/month", "plan": "Lite / 25,000 contacts", "state": "confirmed", "math": "100,000 trigger runs a month, with zero Journey runs. The plan has 5,000 stored contacts and 100,000 credits." }
+    ]
+  }
+}

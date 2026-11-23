@@ -1,0 +1,17 @@
+{
+  "slug": "neocities",
+  "name": "Neocities",
+  "official_url": "https://neocities.org/",
+  "image_url": "https://neocities.org/img/neocitieslogo.svg",
+  "source_page": "https://neocities.org/",
+  "kind": "logo-mark",
+  "source_host": "neocities.org",
+  "original": {
+    "format": "svg",
+    "width": 1349,
+    "height": 1184
+  },
+  "sha256": "cec21840b3e411f22628c1dfd587963f77310ba303f5c7c6c813eeb8ae9f609b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

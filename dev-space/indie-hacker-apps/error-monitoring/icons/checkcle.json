@@ -1,0 +1,17 @@
+{
+  "slug": "checkcle",
+  "name": "CheckCle",
+  "official_url": "https://docs.checkcle.io/",
+  "image_url": "https://github.com/operacle.png?size=460",
+  "source_page": "https://docs.checkcle.io/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "065329d49525c584f5a544a63b928529973a00f0cd079ad3c702d1c057d6c24e",
+  "note": "parent brand: Operacle; official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

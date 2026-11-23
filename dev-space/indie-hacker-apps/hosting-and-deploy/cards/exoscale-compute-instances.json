@@ -1,0 +1,20 @@
+{
+  "slug": "exoscale-compute-instances",
+  "name": "Exoscale Compute Instances",
+  "url": "https://www.exoscale.com/compute/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: managed KVM virtual machines; the customer manages the guest OS, runtime and app"
+    }
+  },
+  "line": "Run KVM virtual machines in Exoscale zones.",
+  "free": { "kind": "credits", "text": "Eligible new accounts: €20/CHF20 credit; no recurring free VM allowance" },
+  "cells": { "type": "VPS/VM", "regions": "8 EU/Swiss zones; Madrid shown as coming soon", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€11.51", "plan": "Standard Tiny + disk", "state": "unclear", "math": "720 hours × (€0.01458 + 10 GB at €0.00014 per GB) = €11.5056. 100 GB of data sent out is free only if spread within the hourly allowance. Before tax." },
+    { "v": "€11.51", "plan": "Standard Tiny + disk", "state": "unclear", "math": "720 hours × (€0.01458 + 10 GB at €0.00014 per GB). The Tiny plan is 1 core and 1 GB. Request capacity and whether 1 GiB fits are not verified." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Standard Medium with 2 cores and 4 GB, plus a 20 GB disk = €35.61 subtotal. The daily 7-day backup and storage prices could not be read." }
+  ] }
+}

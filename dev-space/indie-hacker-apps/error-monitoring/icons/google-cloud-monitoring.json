@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-monitoring",
+  "name": "Google Cloud Monitoring",
+  "official_url": "https://cloud.google.com/monitoring",
+  "image_url": "https://services.google.com/fh/files/misc/core-products-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "b3fb9a138f2427fad91089059e64557bc9891c9f905255c78774dff0a41914f3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

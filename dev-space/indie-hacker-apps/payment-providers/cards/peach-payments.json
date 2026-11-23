@@ -1,0 +1,29 @@
+{
+  "slug": "peach-payments",
+  "name": "Peach Payments",
+  "url": "https://www.peachpayments.com/",
+  "jobs": ["gateway", "links", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and payment facilitator; the merchant remains the legal seller",
+      "links": "F16: no-code Payment Links and a reusable branded Payment Page",
+      "crypto": "C01: buyers can pay with Bitcoin Lightning and exchange wallets; C03: merchant is paid in ZAR"
+    }
+  },
+  "line": "African payment gateway for online checkout, recurring cards, and payment links.",
+  "free": { "kind": "none", "text": "South Africa Growth has no monthly fee; transaction fees apply" },
+  "cells": {
+    "type": "Gateway and payment facilitator",
+    "countries": "South Africa, Kenya, Mauritius",
+    "payout": "SA Growth daily after 2 weeks; Enterprise next business day"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The US isn't one of the three markets Peach has confirmed. Its sign-up eligibility and fee aren't published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The UK isn't one of the three markets Peach has confirmed. Its sign-up eligibility and fee aren't published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "Germany isn't one of the three markets Peach has confirmed. Its sign-up eligibility and fee aren't published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "India isn't one of the three markets Peach has confirmed. Its sign-up eligibility and fee aren't published." }
+    ]
+  }
+}

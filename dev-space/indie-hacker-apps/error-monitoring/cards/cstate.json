@@ -1,0 +1,30 @@
+{
+  "slug": "cstate",
+  "name": "cState",
+  "url": "https://cstate.uncascade.com/",
+  "jobs": ["status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "status": "C02: static public status page for incidents, maintenance and history (S01, S03)"
+    }
+  },
+  "line": "Builds a static status page for incidents, maintenance and service history.",
+  "free": { "kind": "selfhost", "text": "Free MIT software; hosting and any custom domain are separate" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-10-15"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Core publishes status updates but does not check endpoint uptime" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Core publishes status updates but does not check endpoint uptime" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Core publishes status updates but does not check endpoint uptime" }
+    ]
+  }
+}

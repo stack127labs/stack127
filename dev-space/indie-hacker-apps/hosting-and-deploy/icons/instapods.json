@@ -1,0 +1,17 @@
+{
+  "slug": "instapods",
+  "name": "InstaPods",
+  "official_url": "https://instapods.com/",
+  "image_url": "https://instapods.com/favicon.svg",
+  "source_page": "https://instapods.com/",
+  "kind": "svg-icon",
+  "source_host": "instapods.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "4cca073151c913815067e72ae8f4ab0a21282039e29e8ab0812be6da2ca3d367",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

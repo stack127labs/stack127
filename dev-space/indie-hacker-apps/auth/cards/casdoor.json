@@ -1,0 +1,27 @@
+{
+  "slug": "casdoor",
+  "name": "Casdoor",
+  "url": "https://casdoor.ai/",
+  "jobs": ["hosted", "server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: managed dedicated Cloud plans; F05: vendor hosts the dedicated instance and database",
+      "server": "F02: free Apache-2.0 self-host server; F05: builder runs the server and database"
+    }
+  },
+  "line": "Open-source identity server with a managed Cloud option.",
+  "free": { "kind": "selfhost", "text": "Free Apache server; you run it" },
+  "cells": {
+    "freeUsers": "No free Cloud plan; $4 trial credit for 30 days",
+    "sso": "Cloud tiers list unlimited SSO connections"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$9", "plan": "Basic", "state": "unclear", "math": "The Basic plan is $9, plus $0 in monthly user fees. Which plan is cheapest is unclear because how organization slots are counted is not published." },
+      { "v": "$9", "plan": "Basic", "state": "unclear", "math": "The Basic plan is $9, plus 10,000 users at $0 each, so $9 in total. Which plan is cheapest is unclear because how organization slots are counted is not published." },
+      { "v": "$9", "plan": "Basic", "state": "unclear", "math": "The Basic plan is $9, plus 50,000 users at $0 each, so $9 in total. Which plan is cheapest is unclear because how organization slots are counted is not published." },
+      { "v": "$9", "plan": "Basic", "state": "unclear", "math": "The Basic plan is $9, plus 100,000 users at $0 each, so $9 in total. Which plan is cheapest is unclear because how organization slots are counted is not published." }
+    ]
+  }
+}

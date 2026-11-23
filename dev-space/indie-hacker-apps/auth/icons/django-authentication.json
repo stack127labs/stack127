@@ -1,0 +1,17 @@
+{
+  "slug": "django-authentication",
+  "name": "Django authentication",
+  "official_url": "https://docs.djangoproject.com/en/stable/topics/auth/",
+  "image_url": "https://static.djangoproject.com/img/icon-touch.e4872c4da341.png",
+  "source_page": "https://docs.djangoproject.com/en/stable/topics/auth/",
+  "kind": "apple-touch-icon",
+  "source_host": "static.djangoproject.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "0c18aa63ea9c575cda2cee2347eac4cbe26727ef8a5a0ea7d8d49842ecfd3dff",
+  "note": "parent brand: Django; authentication is a Django framework component",
+  "saved_at": "2026-11-14"
+}

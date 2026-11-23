@@ -1,0 +1,52 @@
+{
+  "slug": "payu-india",
+  "name": "PayU India",
+  "url": "https://payu.in/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and gateway; the merchant remains the seller",
+      "billing": "F15: Zion runs trials, plans, automatic charges and retries; enabled by account manager",
+      "links": "F16: no-code links, invoices and buttons, shared by email, SMS or WhatsApp"
+    }
+  },
+  "line": "Indian gateway for recurring payments, subscription billing, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "₹0 setup and annual maintenance; monthly minimum unpublished"
+  },
+  "cells": {
+    "type": "Payment aggregator and gateway",
+    "countries": "India only",
+    "payout": "India T+2 business days; priority 15 minutes–24 hours"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "2% + 18% GST on fee",
+        "plan": "Standard domestic card",
+        "state": "confirmed",
+        "math": "Example: on ₹1,000, the 2% fee is ₹20. GST (India's goods and services tax) at 18% adds ₹3.60, for ₹23.60 in total, which is 2.36% overall."
+      }
+    ]
+  }
+}

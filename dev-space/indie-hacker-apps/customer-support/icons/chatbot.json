@@ -1,0 +1,17 @@
+{
+  "slug": "chatbot",
+  "name": "ChatBot.com (Text AI Agent)",
+  "official_url": "https://www.chatbot.com/",
+  "image_url": "https://www.chatbot.com/favicon.ico",
+  "source_page": "https://www.chatbot.com/",
+  "kind": "favicon",
+  "source_host": "chatbot.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "280fa223243628ada4567d2eada57a7052afe10c6482c31b4e7e68ec61d162bd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

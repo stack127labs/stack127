@@ -1,0 +1,17 @@
+{
+  "slug": "takepayments",
+  "name": "takepayments",
+  "official_url": "https://www.takepayments.com/",
+  "image_url": "https://www.takepayments.com/android-icon-192x192.png",
+  "source_page": "https://www.takepayments.com/",
+  "kind": "favicon",
+  "source_host": "takepayments.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "19c355391213a3e9dc62c47a065477a44f657cdbe7079d18f990b650cef8700e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

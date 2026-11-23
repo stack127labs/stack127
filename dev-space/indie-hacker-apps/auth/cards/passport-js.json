@@ -1,0 +1,26 @@
+{
+  "slug": "passport-js",
+  "name": "Passport.js",
+  "url": "https://www.passportjs.org/",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Node.js middleware; the application supplies the account database and lifecycle"
+    }
+  },
+  "line": "Node.js login middleware with a large set of provider plugins.",
+  "free": { "kind": "selfhost", "text": "Free MIT middleware; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "MIT strategy plugins; no hosted connection billing"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Passport and passport-local licence fees are $0. Account storage, hosting and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Passport and passport-local licence fees are $0. Account storage, hosting and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Passport and passport-local licence fees are $0. Account storage, hosting and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Passport and passport-local licence fees are $0. Account storage, hosting and operations cost extra." }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "dokku",
+  "name": "Dokku",
+  "url": "https://dokku.com/",
+  "jobs": ["panel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: Dokku core is free software the user installs and runs on their own server to deploy apps"
+    }
+  },
+  "line": "Run a Heroku-style deployment platform on your own server.",
+  "free": { "kind": "selfhost", "text": "Free open-source core; provide your own server" },
+  "cells": { "type": "Self-hosted deployment panel", "regions": "Your server or cluster region", "selfhost": "Yes; install Dokku on your server" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Dokku + server", "state": "unclear", "math": "$0 for the software. Server, domain and data transfer prices depend on your providers." },
+    { "v": "Unknown", "plan": "Dokku + server", "state": "unclear", "math": "$0 for the software. Server and network costs for 730 hours are not priced." },
+    { "v": "Unknown", "plan": "Dokku + server", "state": "unclear", "math": "$0 for the software. Server, Postgres and backup costs from your providers are not priced." }
+  ] }
+}

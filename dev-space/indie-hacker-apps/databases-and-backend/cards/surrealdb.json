@@ -1,0 +1,54 @@
+{
+  "slug": "surrealdb",
+  "name": "SurrealDB",
+  "url": "https://surrealdb.com/",
+  "jobs": ["nosql", "files", "backend", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C02: multi-model database with document and graph queries; D01: SurrealQL records and graph relations",
+      "backend": "C07: database, custom signin and JWT access, file buckets and custom functions in one product",
+      "files": "F01: file buckets on self-hosted and hosted tiers; F04: HTTP upload default up to 5 GiB",
+      "vector": "V01: HNSW vector indexes with declared dimensions; V02: vector search with filters and RRF"
+    }
+  },
+  "line": "Multi-model database with auth, file buckets, functions, and vector indexes.",
+  "free": { "kind": "free", "text": "Earth Free: 3M units, 10GB, 100h/mo; pauses at quota until next month" },
+  "cells": {
+    "metered": "$0.135/node-hr General Purpose Medium; $98.55/730h",
+    "regions": "AWS and Azure regions; region locked at creation",
+    "selfhost": "Yes, BSL 1.1; service-hosting rights are restricted"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$98.91+",
+        "plan": "Cloud General Purpose Medium",
+        "state": "unclear",
+        "math": "$98.55 for compute + $0.36 for egress. Disk, backup and tax costs are still unknown."
+      },
+      {
+        "v": "$0",
+        "plan": "Manually paused Cloud instance",
+        "state": "confirmed",
+        "math": "A manual pause keeps the data and stops instance usage charges, but the database address (endpoint) is unavailable."
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "SurrealDB file buckets",
+        "state": "unclear",
+        "math": "File buckets are included, but their storage price is unclear. Earth Pro's $33.75 applies only if its database usage charge applies."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "SurrealDB events/functions",
+        "state": "unclear",
+        "math": "Jobs use database capacity. No separate worker price exists, and whether five jobs running at once fit, and the total, are unknown."
+      }
+    ]
+  }
+}

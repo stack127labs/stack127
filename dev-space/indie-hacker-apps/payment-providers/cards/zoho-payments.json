@@ -1,0 +1,51 @@
+{
+  "slug": "zoho-payments",
+  "name": "Zoho Payments",
+  "url": "https://www.zoho.com/payments/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment service provider in the US and aggregator in India; the merchant sells",
+      "links": "F16: standalone payment links that collect a sale without a full storefront"
+    }
+  },
+  "line": "Online payments for US and Indian sellers, with cards, UPI, and links.",
+  "free": {
+    "kind": "none",
+    "text": "No setup or annual fee; transaction fees apply"
+  },
+  "cells": {
+    "type": "Gateway",
+    "countries": "United States, India",
+    "payout": "US cards T+2; India cards T+2"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "2.90% + $0.30",
+        "plan": "Standard online cards",
+        "state": "confirmed",
+        "math": "The standard online price for cards from the US."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Seller sign-up is only offered in the US and India. UK sellers can't sign up."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Seller sign-up is only offered in the US and India. German sellers can't sign up."
+      },
+      {
+        "v": "2%",
+        "plan": "Ordinary domestic online card",
+        "state": "confirmed",
+        "math": "The rate for cards from India. Corporate credit cards are 2.75%."
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "paytabs",
+  "name": "PayTabs",
+  "url": "https://paytabs.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and platform; the merchant sells its own approved goods",
+      "billing": "F14: Repeat Billing automatically charges a saved card on weekly, monthly or yearly schedules",
+      "links": "F16: PayLinks and invoices collect payment without a custom checkout build"
+    }
+  },
+  "line": "Regional payment gateway with hosted checkout, links and recurring cards.",
+  "free": {
+    "kind": "none",
+    "text": "KSA: SAR 999 setup and SAR 199/month; other markets vary"
+  },
+  "cells": {
+    "type": "Payment gateway and payment platform",
+    "countries": "the UAE and nearby markets only",
+    "payout": "Monday default; bank receipt typically 24–48 hours"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Saudi Arabia, Egypt, Oman, Jordan, Iraq and Kuwait."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "multisafepay",
+  "name": "MultiSafepay",
+  "official_url": "https://www.multisafepay.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/98/40/659840a7-50db-8871-63b0-24fe06eaed70/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/multisafepay-control/id929955963?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "a12d6ffd002e338bf66eee2cd0ba2f03db3085ad75b893e68680190d14d01b12",
+  "note": "MultiSafepay Control merchant app by MultiSafepay B.V.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "scaleway-instances",
+  "name": "Scaleway Instances",
+  "url": "https://www.scaleway.com/en/virtual-instances/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: public-cloud virtual machines; Scaleway manages the hardware and the customer manages the guest OS and app"
+    }
+  },
+  "line": "Launch virtual machines in Scaleway availability zones.",
+  "free": { "kind": "none", "text": "No recurring free CPU Instance allowance" },
+  "cells": { "type": "Cloud instances", "regions": "Paris, Amsterdam, Warsaw, Milan; family availability differs", "selfhost": "Yes; root access, manage the guest OS" },
+  "costs": { "work": [
+    { "v": "€5.037", "plan": "STARDUST1-S + 10-GB volume + IPv4", "state": "confirmed", "math": "€0.438 for compute + €0.949 for volume + €3.65 for an IPv4 address = €5.037 a month before tax. 100 GB of data sent out is included, and builds run on the VM. Scaleway DNS adds €5.11." },
+    { "v": "€16.2644", "plan": "DEV1-S + 10-GB volume + IPv4 + DNS", "state": "confirmed", "math": "€6.5554 for compute + €0.949 for volume + €3.65 for an IPv4 address + €5.11 for Scaleway DNS = €16.2644 a month before tax. 100 GB of data sent out is included, but throughput is untested." },
+    { "v": "€20.8561", "plan": "DEV1-M + 20-GB volume + IPv4 + 70-GB backup", "state": "unclear", "math": "€14.746 compute + €1.898 volume + €3.65 IPv4 + €0.5621 for 70 GB of backups = €20.8561 before tax. Assumes seven full 10 GB dumps; actual size unknown. Same-VM database traffic adds no cost. Scaleway DNS adds €5.11." }
+  ] }
+}

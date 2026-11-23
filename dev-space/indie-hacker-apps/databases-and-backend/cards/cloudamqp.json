@@ -1,0 +1,31 @@
+{
+  "slug": "cloudamqp",
+  "name": "CloudAMQP",
+  "url": "https://www.cloudamqp.com/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed message queue and broker is the primary type; J04: held-message limits per plan"
+    }
+  },
+  "line": "Use managed RabbitMQ or LavinMQ message brokers for app queues.",
+  "free": { "kind": "free", "text": "1M events/month, 20 connections; may delete after 2 months idle" },
+  "cells": {
+    "metered": "Shared plans from $19/month as displayed",
+    "regions": "Regions across AWS, Google Cloud, Azure, and Scaleway",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No SQL database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No SQL database service" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No object-storage service" }
+    ],
+    "jobs": [
+      { "v": "$0", "plan": "Little Lemur, RabbitMQ", "state": "confirmed", "math": "10,000 jobs, each with 1 publish (send) and 1 consume (receive), make 20,000 counted events. That is within the 1 million free events a month." }
+    ]
+  }
+}

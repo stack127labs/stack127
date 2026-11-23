@@ -1,0 +1,17 @@
+{
+  "slug": "pagelens",
+  "name": "PageLens",
+  "official_url": "https://pagelens.io/",
+  "image_url": "https://pagelens.io/logo.svg",
+  "source_page": "https://pagelens.io/",
+  "kind": "svg-icon",
+  "source_host": "pagelens.io",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "2345bd5d1bfca87c34c583830344d72e2f4fd8fd9d6637f95f24543f452876c8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

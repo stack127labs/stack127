@@ -1,0 +1,17 @@
+{
+  "slug": "slimstat-analytics",
+  "name": "SlimStat Analytics",
+  "official_url": "https://wp-slimstat.com/",
+  "image_url": "https://wp-slimstat.com/favicons/fav-icon-192x192.png",
+  "source_page": "https://wp-slimstat.com/",
+  "kind": "favicon",
+  "source_host": "wp-slimstat.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "1cbf81e5d4621e44982c256219ed3b5453ccd13e657203f778c68ee1655b1934",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

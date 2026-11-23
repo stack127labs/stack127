@@ -1,0 +1,21 @@
+{
+  "slug": "hostinger-managed-node-js-hosting",
+  "name": "Hostinger managed Node.js hosting",
+  "url": "https://www.hostinger.com/nodejs-hosting",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted managed app service; Hostinger runs the Node.js runtime and server stack",
+      "static": "04: frontend projects can publish static output without a Node process"
+    }
+  },
+  "line": "Deploy Node.js applications on managed web and cloud plans.",
+  "free": { "kind": "none", "text": "No ongoing free managed Node.js allowance" },
+  "cells": { "type": "Managed Node.js hosting", "regions": "Europe, India, Southeast Asia, USA and Brazil", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Unlimited", "state": "unclear", "math": "The 48-month offer is $2.79 a month equivalent. The normal one-month price and setup fee are unknown." },
+    { "v": "Unknown", "plan": "Unlimited", "state": "unclear", "math": "The plan has 2 cores and 3 GB. The one-month rate is not published, and billing for 730 hours is not stated." },
+    { "v": "Unknown", "plan": "Cloud + external PostgreSQL", "state": "unclear", "math": "An outside PostgreSQL database is required. The full price and a regular monthly quote are unknown." }
+  ] }
+}

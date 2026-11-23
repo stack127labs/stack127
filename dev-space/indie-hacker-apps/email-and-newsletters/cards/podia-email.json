@@ -1,0 +1,33 @@
+{
+  "slug": "podia-email",
+  "name": "Podia Email",
+  "url": "https://www.podia.com/email",
+  "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and broadcasts sent through Podia",
+      "marketing": "F02: creator lifecycle sequences and scheduled marketing campaigns"
+    }
+  },
+  "line": "Creator newsletters, scheduled campaigns and lifecycle sequences.",
+  "free": { "kind": "trial", "text": "14-day trial, no card; no standalone free email plan" },
+  "cells": {
+    "newsletters": "Yes, broadcasts and scheduled campaigns",
+    "api": "No public general API or SMTP relay listed"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 179/month", "plan": "Earthquaker bundle", "state": "confirmed", "math": "The verified full bundle covers 1,000 subscribers. The email increment is USD 0." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The base Mover plan is USD 49 a month, plus an upgrade price for 5,000 subscribers that is not published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The base Mover plan is USD 49 a month, plus an upgrade price for 10,000 subscribers that is not published." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "We could not confirm whether the 50,000-subscriber tier is available now, or its total price." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No general service for sending app emails is documented." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No general service for sending app emails is documented." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No general service for sending app emails is documented." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No general service for sending app emails is documented." }
+    ]
+  }
+}

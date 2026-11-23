@@ -1,0 +1,31 @@
+{
+  "slug": "oracle-cloud-object-storage",
+  "name": "Oracle Cloud Object Storage",
+  "url": "https://www.oracle.com/cloud/storage/object-storage/",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed regional object storage for files is the primary role; F05: native and S3 Compatibility APIs"
+    }
+  },
+  "line": "Regional object storage for files, backups, and static assets.",
+  "free": { "kind": "free", "text": "20GB total, 50K requests/mo; use account within 60d; object expiry unclear" },
+  "cells": {
+    "metered": "Standard $0.0255/GB-month after 10 GB free",
+    "regions": "Global storage rates; transfer price varies by region",
+    "selfhost": "No, Oracle-hosted OCI Object Storage"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Object Storage is not a SQL database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Object Storage is not a SQL database" }
+    ],
+    "files": [
+      { "v": "$2.312", "plan": "Pay As You Go, Standard", "state": "confirmed", "math": "$2.295 for storage, plus $0.017 for requests, plus $0 for outbound transfer. The total is $2.312 a month." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Oracle Cloud Object Storage does not run jobs" }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-pub-sub",
+  "name": "Google Cloud Pub/Sub",
+  "official_url": "https://cloud.google.com/pubsub",
+  "image_url": "https://cloud.google.com/icons",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "cloud.google.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "fc126138335b465490a1f51a85e979d4eec35eb070cbb5cddb21493c9926f0d7",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

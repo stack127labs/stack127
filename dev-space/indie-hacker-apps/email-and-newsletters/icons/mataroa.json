@@ -1,0 +1,17 @@
+{
+  "slug": "mataroa",
+  "name": "Mataroa",
+  "official_url": "https://mataroa.blog/",
+  "image_url": "https://github.com/mataroablog.png?size=460",
+  "source_page": "https://github.com/mataroablog",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "51568f415acf6c831316475ebecae589f90748438eeb7a3300d4cd0e81e63a57",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

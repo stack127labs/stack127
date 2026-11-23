@@ -1,0 +1,17 @@
+{
+  "slug": "cyfuture-cloud-compute",
+  "name": "Cyfuture Cloud Compute",
+  "official_url": "https://cyfuture.cloud/compute",
+  "image_url": "https://cyfuture.cloud/frontImg/images/favicon-32x32.png",
+  "source_page": "https://cyfuture.cloud/compute",
+  "kind": "favicon",
+  "source_host": "cyfuture.cloud",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "c8bc054b103dd7f7543bad8c4601234d6187478fab3ef234c5e8b625c313ce43",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

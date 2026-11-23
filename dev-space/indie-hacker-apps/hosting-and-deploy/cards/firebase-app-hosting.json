@@ -1,0 +1,21 @@
+{
+  "slug": "firebase-app-hosting",
+  "name": "Firebase App Hosting",
+  "url": "https://firebase.google.com/products/app-hosting",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed build and container runtime; Google runs server-rendered and full-stack apps",
+      "static": "04: static sites and single-page apps also fit the product"
+    }
+  },
+  "line": "Build and host full-stack web apps with Google's managed platform.",
+  "free": { "kind": "free", "text": "Blaze required; first 10GiB App Hosting delivery/month is free" },
+  "cells": { "type": "Managed full-stack hosting", "regions": "Iowa, Virginia, Ohio, Taiwan, Singapore, Netherlands", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Delivery alone is $12.4698 if cached, or $16.6265 if not cached, after the 10 GiB allowance. Cloud Run, images, logs and storage prevent an exact total." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "A subtotal of $19.5065 that depends on conditions. It assumes 300,000 billed CPU seconds and uncached delivery. Request pattern, startup, images and logs vary." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The small app API subtotal of $19.5065, plus $27.2500 for Cloud SQL compute and storage = $46.7565 before backups, logs, images and other missing charges." }
+  ] }
+}

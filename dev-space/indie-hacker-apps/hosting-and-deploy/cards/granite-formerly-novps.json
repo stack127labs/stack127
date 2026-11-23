@@ -1,0 +1,46 @@
+{
+  "slug": "granite-formerly-novps",
+  "name": "Granite",
+  "url": "https://granite.so/",
+  "jobs": [
+    "paas"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: provider-hosted container platform; web apps, workers and cron jobs run on the provider's platform"
+    }
+  },
+  "line": "Deploy multi-service apps with managed databases and storage.",
+  "free": {
+    "kind": "none",
+    "text": "No permanent free hosting tier; Hobby starts at $9/project/month"
+  },
+  "cells": {
+    "type": "Managed app platform",
+    "regions": "App regions unpublished; storage in Europe, US and Japan",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "The Hobby plan costs $9 a month and includes 15 credits. XS uses 5 credits. Registry use at $0.035 per unit and build usage are not priced."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "$9 a month for Hobby, which includes 15 credits. XS uses 5 credits. Prorating 730 hours, registry use and build usage prevent an exact total."
+      },
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "29 credits means a $23 minimum ($9 plan + 14 excess). Add $0.05 per GB of backup, $0.035 per unit of registry use, and build usage."
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "convoy",
+  "name": "Convoy",
+  "url": "https://www.getconvoy.io/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: webhook gateway that queues and delivers events with automatic retries (J03)"
+    }
+  },
+  "line": "Receive webhooks and deliver events to subscribed endpoints.",
+  "free": { "kind": "selfhost", "text": "1 user, 1 org, 2 projects; no idle pause; payment failure can lead to deletion" },
+  "cells": {
+    "metered": "$99/month Cloud Pro fallback; checkout catalog may differ",
+    "regions": "US or EU Cloud regions",
+    "selfhost": "Yes, Community edition"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Convoy is a webhook gateway, not an app database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Convoy is a webhook gateway, not an app database" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No general-purpose file storage service" }
+    ],
+    "jobs": [
+      { "v": "$99", "plan": "Cloud Pro fallback", "state": "unclear", "math": "10K events a month is below the fallback limit of 25 events a second. The live billing catalog may differ." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "parse-server",
+  "name": "Parse Server",
+  "official_url": "https://github.com/parse-community/parse-server",
+  "image_url": "https://github.com/parse-community/parse-server",
+  "source_page": "https://github.com/parse-community/parse-server",
+  "kind": "favicon",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "d888db952a46829e1bb95b7322e592fefa0a82f332d57e7eff8758c066352757",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

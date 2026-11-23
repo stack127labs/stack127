@@ -1,0 +1,27 @@
+{
+  "slug": "blackfire",
+  "name": "Blackfire",
+  "url": "https://www.blackfire.io/",
+  "jobs": ["performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: APM and deterministic profiling are the main jobs; see A01"
+    }
+  },
+  "line": "Profiles application code and measures performance across requests and traces.",
+  "free": { "kind": "none", "text": "No general free monitoring plan" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not offer dedicated error tracking" }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Blackfire has no fixed hosted uptime-check product and no price per endpoint." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Blackfire has no fixed hosted uptime-check product and no price per endpoint." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Blackfire has no fixed hosted uptime-check product and no price per endpoint." }
+    ]
+  }
+}

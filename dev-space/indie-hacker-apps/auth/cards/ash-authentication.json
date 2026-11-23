@@ -1,0 +1,26 @@
+{
+  "slug": "ash-authentication",
+  "name": "Ash Authentication",
+  "url": "https://ash-authentication.hexdocs.pm/readme.html",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Elixir extension for Ash apps; developer supplies resources and data"
+    }
+  },
+  "line": "Elixir account and login tools for Ash apps.",
+  "free": { "kind": "selfhost", "text": "Free MIT library; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "Free MIT OIDC strategy; SAML not included"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "Licence fees for the MIT core, per-user software and optional MIT Phoenix UI add up to $0. Operating costs are not priced." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "Licence fees for the MIT core, per-user software and optional MIT Phoenix UI add up to $0. Operating costs are not priced." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "Licence fees for the MIT core, per-user software and optional MIT Phoenix UI add up to $0. Operating costs are not priced." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "Licence fees for the MIT core, per-user software and optional MIT Phoenix UI add up to $0. Operating costs are not priced." }
+    ]
+  }
+}

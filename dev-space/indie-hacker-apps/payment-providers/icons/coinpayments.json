@@ -1,0 +1,17 @@
+{
+  "slug": "coinpayments",
+  "name": "CoinPayments",
+  "official_url": "https://www.coinpayments.net/",
+  "image_url": "https://cdn.prod.website-files.com/6a255356106f95f64b6c77fd/6ace185aa8d8469b5215c87c_6a50d99488ee23d28c77adf7_Group%2074.webp",
+  "source_page": "https://www.coinpayments.net/",
+  "kind": "favicon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "c0094f615505a738d21cc52bb8cae4503b4ef9a86870b641ec01fed7902643f6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

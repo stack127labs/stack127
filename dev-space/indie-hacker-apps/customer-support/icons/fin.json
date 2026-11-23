@@ -1,0 +1,17 @@
+{
+  "slug": "fin",
+  "name": "Fin AI Agent",
+  "official_url": "https://fin.ai/",
+  "image_url": "https://fin.ai/favicons/favicon-black.png",
+  "source_page": "https://fin.ai/",
+  "kind": "logo-mark",
+  "source_host": "fin.ai",
+  "original": {
+    "format": "png",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "b416931bc8644183a6109981030cbb1708842e9a81fa88954fe9370f31dcf262",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

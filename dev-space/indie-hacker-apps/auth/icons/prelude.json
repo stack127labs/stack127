@@ -1,0 +1,17 @@
+{
+  "slug": "prelude",
+  "name": "Prelude",
+  "official_url": "https://prelude.so/",
+  "image_url": "https://framerusercontent.com/images/gJT73B9I0Y1Va3d20E9m2DYEd8.png",
+  "source_page": "https://prelude.so/",
+  "kind": "favicon",
+  "source_host": "framerusercontent.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "c249a4f04978b3cc3ec72344a504882a4764eba639a6321ac3368a6222494b48",
+  "note": "Only official 64×64 icon found",
+  "saved_at": "2026-11-14"
+}

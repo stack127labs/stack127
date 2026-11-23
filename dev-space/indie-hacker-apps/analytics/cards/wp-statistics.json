@@ -1,0 +1,18 @@
+{
+  "slug": "wp-statistics", "name": "WP Statistics", "url": "https://wp-statistics.com/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is WordPress website traffic and content analytics; F15: views, visitors, pages, sources and devices"
+    }
+  },
+  "line": "A WordPress plugin for website traffic and content reports.",
+  "free": {"kind": "selfhost", "text": "Free software with unlimited pageviews and visitors"},
+  "cells": {"cookieless": "Yes by default", "location": "Your WordPress database/server", "selfhost": "Yes"},
+  "costs": {"pv": [
+    {"v": "$0", "plan": "Free", "state": "confirmed", "math": "Free software has no pageview charge; hosting, backups and maintenance are extra."},
+    {"v": "$0", "plan": "Free", "state": "confirmed", "math": "Free software has no pageview charge; hosting, backups and maintenance are extra."},
+    {"v": "$0", "plan": "Free", "state": "confirmed", "math": "Free software has no pageview charge; allowance does not guarantee host capacity."}
+  ]}
+}

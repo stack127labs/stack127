@@ -1,0 +1,26 @@
+{
+  "slug": "authorizer",
+  "name": "Authorizer",
+  "url": "https://www.authorizer.dev/",
+  "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted Apache-2.0 authentication server; F05: developer deploys binary or container"
+    }
+  },
+  "line": "Self-hosted account and login server with organization features.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 server; you run it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "SAML and SCIM included; no connection licence fee"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Apache-2.0", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, cache, delivery, backup and running costs are unknown." },
+      { "v": "$0", "plan": "Apache-2.0", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, cache, delivery, backup and running costs are unknown." },
+      { "v": "$0", "plan": "Apache-2.0", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, cache, delivery, backup and running costs are unknown." },
+      { "v": "$0", "plan": "Apache-2.0", "state": "unclear", "math": "The software licence part is $0. Server capacity, database, cache, delivery, backup and running costs are unknown." }
+    ]
+  }
+}

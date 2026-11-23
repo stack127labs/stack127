@@ -1,0 +1,17 @@
+{
+  "slug": "pocketbase",
+  "name": "PocketBase",
+  "official_url": "https://pocketbase.io/",
+  "image_url": "https://pocketbase.io/images/favicon/android-chrome-512x512.png",
+  "source_page": "https://pocketbase.io/",
+  "kind": "manifest-icon",
+  "source_host": "pocketbase.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "d123a9077cfa70201834b9abb9184bf0ae69cfdaf8e6ab493dddb54c0b3c3eae",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

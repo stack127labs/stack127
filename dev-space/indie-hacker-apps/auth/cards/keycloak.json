@@ -1,0 +1,51 @@
+{
+  "slug": "keycloak",
+  "name": "Keycloak",
+  "url": "https://www.keycloak.org/",
+  "jobs": [
+    "server"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted Keycloak IAM and SSO server; F05: developer or contracted host runs it"
+    }
+  },
+  "line": "Open-source identity server you host yourself.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free Apache-2.0 software; you pay for hosting"
+  },
+  "cells": {
+    "freeUsers": "No limit; you host",
+    "sso": "No fee; SAML and OIDC are built in"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The software licence costs US$0. Servers, database and maintenance are not included."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The software licence costs US$0. Servers, database and maintenance are not included."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The software licence costs US$0. Servers, database and maintenance are not included."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-host",
+        "state": "unclear",
+        "math": "The software licence costs US$0. Servers, database and maintenance are not included."
+      }
+    ]
+  }
+}

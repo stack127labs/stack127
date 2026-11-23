@@ -1,0 +1,29 @@
+{
+  "slug": "payrequest",
+  "name": "PayRequest",
+  "url": "https://payrequest.io/",
+  "jobs": ["links", "billing", "crypto"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "links": "F16: hosted payment links and pages with QR codes, shared by email or SMS, no website needed",
+      "billing": "F14: Business plan subscriptions with stored card or SEPA mandate; F15: retries and portal",
+      "crypto": "C01: native USDC checkout on Base and Solana; C02: seller's own wallet, no custody"
+    }
+  },
+  "line": "Payment links, invoices and subscriptions through connected providers.",
+  "free": { "kind": "free", "text": "Free: €0/month; 2% per payment, capped at €25" },
+  "cells": {
+    "type": "Payment-link, billing and checkout software",
+    "countries": "Follows connected-provider markets; no full allowlist",
+    "payout": "Connected provider pays out; no universal schedule"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2% + connected gateway fee", "plan": "Free plan; €25 cap on PayRequest fee", "state": "unclear", "math": "The Free plan adds 2% per successful payment, capped at €25. Payment processing fees from Stripe, Mollie or PayPal vary by country." },
+      { "v": "2% + connected gateway fee", "plan": "Free plan; €25 cap on PayRequest fee", "state": "unclear", "math": "The Free plan adds 2% per successful payment, capped at €25. Payment processing fees from Stripe, Mollie or PayPal vary by country." },
+      { "v": "2% + connected gateway fee", "plan": "Free plan; €25 cap on PayRequest fee", "state": "unclear", "math": "The Free plan adds 2% per successful payment, capped at €25. Payment processing fees from Stripe, Mollie or PayPal vary by country." },
+      { "v": "2% + connected gateway fee", "plan": "Free plan; €25 cap on PayRequest fee", "state": "unclear", "math": "The Free plan adds 2% per successful payment, capped at €25. Payment processing fees from Stripe, Mollie or PayPal vary by country." }
+    ]
+  }
+}

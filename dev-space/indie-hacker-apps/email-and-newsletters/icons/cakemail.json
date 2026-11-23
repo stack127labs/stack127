@@ -1,0 +1,17 @@
+{
+  "slug": "cakemail",
+  "name": "Cakemail",
+  "official_url": "https://www.cakemail.com/",
+  "image_url": "https://www.cakemail.com/apple-icon.png?icon.26w0v6_kft3hc.png",
+  "source_page": "https://www.cakemail.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "cakemail.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "b6f2475ec0fc585598825fd0af9c800f59a93356c85a2611f28b0a96c206f463",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

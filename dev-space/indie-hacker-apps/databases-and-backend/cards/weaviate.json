@@ -1,0 +1,51 @@
+{
+  "slug": "weaviate",
+  "name": "Weaviate",
+  "url": "https://weaviate.io/",
+  "jobs": ["vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vector": "C02: vector database for AI applications is the primary role; V02: dense vector, BM25F and hybrid search"
+    }
+  },
+  "line": "Managed vector database for semantic, hybrid and keyword search.",
+  "free": { "kind": "free", "text": "100K objects; 1GB RAM/10GB disk; suspend at 7d inactive; delete at 30d inactive" },
+  "cells": {
+    "metered": "$45/mo Flex minimum; dimensions, storage and backups extra",
+    "regions": "AWS/GCP shared plans; Azure on Dedicated; region list varies",
+    "selfhost": "Yes, BSD-3-Clause Community Edition"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$45+",
+        "plan": "Flex",
+        "state": "unclear",
+        "math": "$45 monthly minimum, plus backup. Vector and index storage, replication and region rates are not yet confirmed."
+      },
+      {
+        "v": "$45+",
+        "plan": "Flex",
+        "state": "unclear",
+        "math": "Active idle clusters keep the $45 minimum. Backup volume and any other usage are extra."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Weaviate does not provide general object storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Weaviate does not provide a job or workflow runner."
+      }
+    ]
+  }
+}

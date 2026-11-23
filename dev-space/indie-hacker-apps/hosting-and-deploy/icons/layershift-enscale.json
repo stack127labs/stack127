@@ -1,0 +1,17 @@
+{
+  "slug": "layershift-enscale",
+  "name": "Layershift Enscale",
+  "official_url": "https://www.layershift.com/enscale-paas-hosting",
+  "image_url": "https://static.layershift.com/logos/layershift/favicon/android-chrome-512x512.png",
+  "source_page": "https://www.layershift.com/enscale-paas-hosting",
+  "kind": "manifest-icon",
+  "source_host": "static.layershift.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "cd6edcbf1969d46696f242b016c4b2e53e7d99661c24ba87d2ee3e324b7545a8",
+  "note": "parent brand: Layershift; no distinct Enscale mark found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

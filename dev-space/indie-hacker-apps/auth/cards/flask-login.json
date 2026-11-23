@@ -1,0 +1,26 @@
+{
+  "slug": "flask-login",
+  "name": "Flask-Login",
+  "url": "https://flask-login.readthedocs.io/en/latest/",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Flask session library; no bundled identity database or hosted account service"
+    }
+  },
+  "line": "Python session management for Flask login flows.",
+  "free": { "kind": "selfhost", "text": "Free MIT library; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No SSO or SCIM connection plan"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Flask-Login licence costs $0. You supply your own accounts, sign-in checks, database and hosting." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Flask-Login licence costs $0. You supply your own accounts, sign-in checks, database and hosting." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Flask-Login licence costs $0. You supply your own accounts, sign-in checks, database and hosting." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Flask-Login licence costs $0. You supply your own accounts, sign-in checks, database and hosting." }
+    ]
+  }
+}

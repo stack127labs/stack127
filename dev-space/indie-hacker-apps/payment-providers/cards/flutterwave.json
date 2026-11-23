@@ -1,0 +1,29 @@
+{
+  "slug": "flutterwave",
+  "name": "Flutterwave",
+  "url": "https://flutterwave.com/ng/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment facilitator and gateway; the merchant sells the goods or services",
+      "billing": "F14: Payment Plans auto-renew cards; F15: plan intervals, cancellation and retries",
+      "links": "F16: no-code payment links and invoices, alongside hosted checkout and Store"
+    }
+  },
+  "line": "Payment gateway with online checkout, links and subscriptions.",
+  "free": { "kind": "none", "text": "No signup or setup cost; transaction fees apply" },
+  "cells": {
+    "type": "Gateway and payment infrastructure",
+    "countries": "African markets plus US and UK; coverage varies",
+    "payout": "Local T+1; international T+5 business days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "No US card rate is listed in the regional pricing info that was checked." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "No UK card rate is listed in the regional pricing info that was checked." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "No European card rate is listed in the regional pricing info that was checked." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't confirmed whether Indian sellers can sign up, and no India card rate is listed in the sources checked." }
+    ]
+  }
+}

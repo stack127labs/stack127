@@ -1,0 +1,17 @@
+{
+  "slug": "greencloud-vps",
+  "name": "GreenCloud VPS",
+  "official_url": "https://greencloudvps.com/",
+  "image_url": "https://greencloudvps.com/img/site/favicon.png",
+  "source_page": "https://greencloudvps.com/",
+  "kind": "favicon",
+  "source_host": "greencloudvps.com",
+  "original": {
+    "format": "webp",
+    "width": 100,
+    "height": 100
+  },
+  "sha256": "ec662dafeabf06a0d6d847eb95ce5b70616debf3b29bdec0aaccf889a9740828",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

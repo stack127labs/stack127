@@ -1,0 +1,30 @@
+{
+  "slug": "google-cloud-error-reporting",
+  "name": "Google Cloud Error Reporting",
+  "url": "https://cloud.google.com/products/error-reporting",
+  "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: collects, aggregates and triages application errors (E01, E03)"
+    }
+  },
+  "line": "Groups application errors and links them to their Cloud Logging entries.",
+  "free": { "kind": "free", "text": "No separate Error Reporting fee; Logging includes 50 GiB/project/month" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Standard", "state": "unclear", "math": "The report count doesn't show the billable log size or the usage your project already has. The exact total isn't known." },
+      { "v": "Unknown", "plan": "Standard", "state": "unclear", "math": "The report count doesn't show the billable log size or the usage your project already has. The exact total isn't known." },
+      { "v": "Unknown", "plan": "Standard", "state": "unclear", "math": "The report count doesn't show the billable log size or the usage your project already has. The exact total isn't known." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

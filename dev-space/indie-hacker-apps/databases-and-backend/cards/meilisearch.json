@@ -1,0 +1,32 @@
+{
+  "slug": "meilisearch",
+  "name": "Meilisearch",
+  "url": "https://www.meilisearch.com/",
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is hosted and self-hosted search engine that indexes JSON documents",
+      "vector": "V01: vectors are stored in documents with named embedders; C02 lists vector search as a core role"
+    }
+  },
+  "line": "Hosted and self-hosted search engine for full-text, vector, and hybrid search.",
+  "free": { "kind": "selfhost", "text": "MIT Community has no product limit; Cloud trial 14 days; no idle pause stated" },
+  "cells": {
+    "metered": "Cloud from $20/mo; usage or provisioned resources",
+    "regions": "9 clusters; Paris and Frankfurt EU, London UK",
+    "selfhost": "Yes, free MIT Community Edition"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Meilisearch is a search engine, not a SQL database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Meilisearch is a search engine, not a SQL database" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Meilisearch does not provide general file storage." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Meilisearch indexes records; it does not run customer jobs" }
+    ]
+  }
+}

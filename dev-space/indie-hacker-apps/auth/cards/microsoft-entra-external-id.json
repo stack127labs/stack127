@@ -1,0 +1,26 @@
+{
+  "slug": "microsoft-entra-external-id",
+  "name": "Microsoft Entra External ID",
+  "url": "https://www.microsoft.com/en-us/security/business/identity/microsoft-entra-external-id",
+  "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: hosted customer directory with registration, login and federation; F05: Microsoft operates the infrastructure"
+    }
+  },
+  "line": "Microsoft hosted customer identity service for app login.",
+  "free": { "kind": "free", "text": "Basic includes first 50,000 MAU each month" },
+  "cells": {
+    "freeUsers": "50,000 MAU/month on Basic",
+    "sso": "SAML/OIDC available; connection pricing not published"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Basic", "state": "confirmed", "math": "Users above the 50,000 included cost $0.03 each. With 1,000 users, none are above it, so the cost is $0 a month." },
+      { "v": "$0", "plan": "Basic", "state": "confirmed", "math": "Users above the 50,000 included cost $0.03 each. With 10,000 users, none are above it, so the cost is $0 a month." },
+      { "v": "$0.03", "plan": "Basic", "state": "confirmed", "math": "With one active builder, there are 50,001 users, and the one user above the 50,000 included is billed at $0.03. That totals $0.03 a month. With no active builder, the total is $0." },
+      { "v": "$1,500.03", "plan": "Basic", "state": "confirmed", "math": "With one active builder, there are 100,001 users, and the users above the 50,000 included are billed at $0.03 each. That totals $1,500.03 a month. With no active builder, the total is $1,500." }
+    ]
+  }
+}

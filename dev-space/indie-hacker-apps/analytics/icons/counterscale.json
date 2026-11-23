@@ -1,0 +1,17 @@
+{
+  "slug": "counterscale",
+  "name": "Counterscale",
+  "official_url": "https://counterscale.dev/",
+  "image_url": "https://counterscale.dev/img/arrow.svg",
+  "source_page": "https://counterscale.dev/",
+  "kind": "svg-icon",
+  "source_host": "counterscale.dev",
+  "original": {
+    "format": "svg",
+    "width": 1632,
+    "height": 1125
+  },
+  "sha256": "6b4c7cf7afa6f2ddb1565892fcb7fda1c18cffe7ec3c603a2598ea6d8917f348",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

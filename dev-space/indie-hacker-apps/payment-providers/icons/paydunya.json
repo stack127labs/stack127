@@ -1,0 +1,17 @@
+{
+  "slug": "paydunya",
+  "name": "PayDunya",
+  "official_url": "https://paydunya.com/",
+  "image_url": "https://paydunya.com/refont/images/favicon/apple-icon-180x180.png",
+  "source_page": "https://paydunya.com/",
+  "kind": "favicon",
+  "source_host": "paydunya.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "1ad53d964e61f9ea07808727e99e7d0bab7a3b963f56c09ef321fe2903b5d810",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

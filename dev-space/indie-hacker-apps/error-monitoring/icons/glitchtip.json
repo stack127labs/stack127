@@ -1,0 +1,17 @@
+{
+  "slug": "glitchtip",
+  "name": "GlitchTip",
+  "official_url": "https://glitchtip.com/",
+  "image_url": "https://glitchtip.com/favicon.ico",
+  "source_page": "https://glitchtip.com/",
+  "kind": "favicon",
+  "source_host": "glitchtip.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "6348dc619dd3bb987218ee03c47bb5b2210427e61f7017b1dcfa6703a256063c",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

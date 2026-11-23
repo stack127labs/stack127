@@ -1,0 +1,17 @@
+{
+  "slug": "netlify",
+  "name": "Netlify",
+  "official_url": "https://www.netlify.com/",
+  "image_url": "https://www.netlify.com/favicon/icon.svg",
+  "source_page": "https://www.netlify.com/",
+  "kind": "svg-icon",
+  "source_host": "netlify.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "e513add60278cfc8c5aea83ad58f0690397cb6d3b1eb45bde6fa220f15e5d084",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

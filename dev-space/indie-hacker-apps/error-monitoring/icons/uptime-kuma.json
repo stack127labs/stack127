@@ -1,0 +1,17 @@
+{
+  "slug": "uptime-kuma",
+  "name": "Uptime Kuma",
+  "official_url": "https://uptime.kuma.pet/",
+  "image_url": "https://uptime.kuma.pet/img/icon.svg",
+  "source_page": "https://uptime.kuma.pet/",
+  "kind": "svg-icon",
+  "source_host": "uptime.kuma.pet",
+  "original": {
+    "format": "svg",
+    "width": 3413,
+    "height": 3413
+  },
+  "sha256": "1805b49322d6793a9be0dc49f53776325a5ac453c54c1006c7e65d3efe983256",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

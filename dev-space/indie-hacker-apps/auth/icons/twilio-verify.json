@@ -1,0 +1,17 @@
+{
+  "slug": "twilio-verify",
+  "name": "Twilio Verify",
+  "official_url": "https://www.twilio.com/en-us/user-authentication-identity/verify",
+  "image_url": "https://www.twilio.com/content/dam/twilio-com/core-assets/social/android-chrome-512x512.png",
+  "source_page": "https://www.twilio.com/en-us/user-authentication-identity/verify",
+  "kind": "manifest-icon",
+  "source_host": "twilio.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "392a6c70247b560ec96da4de53e67cde0d41ee1c7a3623b7b54a550bee91da47",
+  "note": "parent brand: Twilio; Verify is a Twilio product",
+  "saved_at": "2026-11-14"
+}

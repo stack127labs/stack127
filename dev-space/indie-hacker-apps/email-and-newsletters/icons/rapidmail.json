@@ -1,0 +1,17 @@
+{
+  "slug": "rapidmail",
+  "name": "rapidmail",
+  "official_url": "https://www.rapidmail.com/",
+  "image_url": "https://www.rapidmail.com/images/assets/favicon.svg?v=4",
+  "source_page": "https://www.rapidmail.com/",
+  "kind": "svg-icon",
+  "source_host": "rapidmail.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "393c8cb484428cfebfbe84b10d98d9eea2bf439130fb98d6aa1c63e920d2196f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

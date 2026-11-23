@@ -1,0 +1,20 @@
+{
+  "slug": "cloudflare-web-analytics",
+  "name": "Cloudflare Web Analytics",
+  "url": "https://www.cloudflare.com/web-analytics/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is client-side website traffic analytics; F15: visits, pageviews, referrers, countries and devices"
+    }
+  },
+  "line": "Website traffic and performance reports without visitor cookies.",
+  "free": { "kind": "free", "text": "Free Web Analytics; numeric traffic limit not published" },
+  "cells": { "cookieless": "Yes", "location": "Nearest Cloudflare data center; varies", "selfhost": "No (none found)" },
+  "costs": { "pv": [
+    { "v": "$0", "plan": "Free", "state": "confirmed", "math": "Web Analytics is free. This scenario is 10,000 pageviews a month." },
+    { "v": "$0", "plan": "Free", "state": "confirmed", "math": "Web Analytics is free. This scenario is 100,000 pageviews a month." },
+    { "v": "$0", "plan": "Free", "state": "confirmed", "math": "Web Analytics is free. This scenario is 1,000,000 pageviews a month." }
+  ] }
+}

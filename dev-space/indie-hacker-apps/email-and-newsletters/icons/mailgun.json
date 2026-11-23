@@ -1,0 +1,17 @@
+{
+  "slug": "mailgun",
+  "name": "Mailgun",
+  "official_url": "https://www.mailgun.com/",
+  "image_url": "https://www.mailgun.com/wp-content/uploads/2025/06/cropped-android-chrome-512x512-1-1-300x300.png",
+  "source_page": "https://www.mailgun.com/",
+  "kind": "favicon",
+  "source_host": "mailgun.com",
+  "original": {
+    "format": "webp",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "34c9483aec8d723d32184d00edfe2f1189f9cf2a39995e3c4d6e76630d993edc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

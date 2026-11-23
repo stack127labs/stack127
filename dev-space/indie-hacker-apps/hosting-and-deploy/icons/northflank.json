@@ -1,0 +1,17 @@
+{
+  "slug": "northflank",
+  "name": "Northflank",
+  "official_url": "https://northflank.com/",
+  "image_url": "https://northflank.com/favicon.ico",
+  "source_page": "https://northflank.com/",
+  "kind": "favicon",
+  "source_host": "northflank.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "f7ed5183b479dab15dda6039bf98334c150a339654e820bda63e828b3c6618f1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "vipps-mobilepay",
+  "name": "Vipps MobilePay",
+  "official_url": "https://developer.vippsmobilepay.com/",
+  "image_url": "https://developer.vippsmobilepay.com/img/logos/favicon.svg",
+  "source_page": "https://developer.vippsmobilepay.com/",
+  "kind": "svg-icon",
+  "source_host": "developer.vippsmobilepay.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "57bde4ecd5a564d19e36350df9cc18bb98ca6f4c191d2c0fbed2c4a0737c7a17",
+  "note": "combined Vipps MobilePay brand icon",
+  "saved_at": "2026-11-14"
+}

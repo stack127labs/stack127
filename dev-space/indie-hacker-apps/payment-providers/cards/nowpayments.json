@@ -1,0 +1,29 @@
+{
+  "slug": "nowpayments",
+  "name": "NOWPayments",
+  "url": "https://nowpayments.io/",
+  "jobs": ["crypto", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: accepts many coins and tokens on listed networks; C02: standard flow sends to your wallet",
+      "billing": "F15: plans and subscribers managed in the dashboard and API; balance-based renewals",
+      "links": "F16: hosted invoice links from the dashboard or API, plus payment buttons"
+    }
+  },
+  "line": "Crypto payment gateway with hosted checkout, links and wallet settlement.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; single-currency payments cost 1%" },
+  "cells": {
+    "type": "Crypto gateway and payment links",
+    "countries": "US, UK and EU excluded; other seller markets vary",
+    "payout": "Wallet settlement after processing; average under 5 minutes"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Terms exclude US residents and citizens from the service." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Terms exclude UK residents and citizens from the service." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Terms exclude EU residents and citizens from the service." },
+      { "v": "1%", "plan": "Single-currency crypto payment", "state": "unclear", "math": "The published 1% rate isn't set by country. The full list of allowed seller countries isn't published, so it's unclear whether India is on it." }
+    ]
+  }
+}

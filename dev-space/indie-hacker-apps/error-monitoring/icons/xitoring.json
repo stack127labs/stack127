@@ -1,0 +1,17 @@
+{
+  "slug": "xitoring",
+  "name": "Xitoring",
+  "official_url": "https://xitoring.com/",
+  "image_url": "https://xitoring.com/assets/icon-dark.svg",
+  "source_page": "https://xitoring.com/",
+  "kind": "manifest-icon",
+  "source_host": "xitoring.com",
+  "original": {
+    "format": "svg",
+    "width": 1067,
+    "height": 1067
+  },
+  "sha256": "4549f1979f1f38e20f10b6c0ce2451959a749425cd1fe7e5799abadef74921e6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

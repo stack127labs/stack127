@@ -1,0 +1,33 @@
+{
+  "slug": "cronitor",
+  "name": "Cronitor",
+  "url": "https://cronitor.io/",
+  "jobs": ["cron", "errors", "uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "cron": "C02: missed, failed and late job detection via heartbeat monitors (J01, J02)",
+      "errors": "E01: website RUM collects JavaScript error events; server exceptions not described",
+      "uptime": "U01, U02: HTTP and TCP checks with assertions and frequency options",
+      "status": "S01, S03: hosted status pages with incidents and components from monitors"
+    }
+  },
+  "line": "Monitors scheduled jobs and endpoints, browser errors, and status pages.",
+  "free": { "kind": "free", "text": "5 monitors, 1 basic status page, 50 subscribers; no card" },
+  "cells": {
+    "interval": "30 s Business; 5 min free",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Hacker", "state": "unclear", "math": "The pricing page lists 100,000 error events as free, but doesn't say how often that count resets." },
+      { "v": "Unknown", "plan": "Business", "state": "not_published", "math": "Cronitor doesn't publish a price per error event, or a monthly price for a given error volume." },
+      { "v": "Unknown", "plan": "Business", "state": "not_published", "math": "Cronitor doesn't publish a price per error event, or a monthly price for a given error volume." }
+    ],
+    "uptime": [
+      { "v": "$40", "plan": "Business", "state": "confirmed", "math": "5 monitors at $2 each, plus $5 for a user, plus $25 for a branded own-domain page." },
+      { "v": "$80", "plan": "Business", "state": "confirmed", "math": "25 monitors at $2 each, plus $5 for a user, plus $25 for a branded own-domain page." },
+      { "v": "$230", "plan": "Business", "state": "confirmed", "math": "100 monitors at $2 each, plus $5 for a user, plus $25 for a branded own-domain page." }
+    ]
+  }
+}

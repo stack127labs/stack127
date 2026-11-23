@@ -1,0 +1,31 @@
+{
+  "slug": "bug-recorder",
+  "name": "Bug Recorder",
+  "url": "https://bugrecorder.com/",
+  "jobs": ["errors", "uptime", "status", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "E01: frontend and server errors with stack traces and a sendError API",
+      "uptime": "U01, U02: URL and API checks with response assertions and schedules",
+      "status": "S01: public or private status pages bound to selected health checks",
+      "logs": "L02: server log viewer with domain, time range and level filters",
+      "performance": "C02: CPU and memory metrics from the server SDK; traces not shown (A01)"
+    }
+  },
+  "line": "Tracks app errors with replay, logs, uptime checks, and status pages.",
+  "free": { "kind": "trial", "text": "14-day trial" },
+  "cells": { "interval": "1 min", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "$19", "plan": "Indie", "state": "unclear", "math": "5,000 reports fit inside the $19 plan's 10,000 quota. This assumes each error counts as one report." },
+      { "v": "$29", "plan": "Indie", "state": "unclear", "math": "50,000 reports fit the $29 plan's quota. How reports are counted, and how long they're kept, is still unclear." },
+      { "v": "$79", "plan": "Indie", "state": "unclear", "math": "500,000 reports fit the $79 plan's quota. How reports are counted, and how long they're kept, is still unclear." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Bug Recorder doesn't publish an endpoint limit, a probe count (check locations), or a price for 5 checks." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Bug Recorder doesn't publish an endpoint limit, a probe count (check locations), or a price for 25 checks." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "Bug Recorder doesn't publish an endpoint limit, a probe count (check locations), or a price for 100 checks." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "monei",
+  "name": "MONEI",
+  "official_url": "https://monei.com/",
+  "image_url": "https://assets.monei.com/images/icon.png",
+  "source_page": "https://monei.com/",
+  "kind": "favicon",
+  "source_host": "assets.monei.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "8590952efc3020521a671c7fcc1f3bca47afa4c7f5b2cd14a70788dac09769e0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

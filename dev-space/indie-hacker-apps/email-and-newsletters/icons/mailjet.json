@@ -1,0 +1,17 @@
+{
+  "slug": "mailjet",
+  "name": "Mailjet",
+  "official_url": "https://www.mailjet.com/",
+  "image_url": "https://www.mailjet.com/wp-content/uploads/2025/04/cropped-mailjet-favicon-300x300.png",
+  "source_page": "https://www.mailjet.com/",
+  "kind": "favicon",
+  "source_host": "mailjet.com",
+  "original": {
+    "format": "png",
+    "width": 300,
+    "height": 300
+  },
+  "sha256": "9c2440a96893103f1088d0677fb8e85f9f845f9095543a42f3c418339fa411b1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

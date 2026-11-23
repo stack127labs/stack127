@@ -1,0 +1,27 @@
+{
+  "slug": "assertible",
+  "name": "Assertible",
+  "url": "https://assertible.com/",
+  "jobs": ["uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: scheduled HTTP monitoring from hosted runners, with assertions (U01, U02)"
+    }
+  },
+  "line": "Runs scheduled HTTP tests and checks responses against assertions.",
+  "free": { "kind": "free", "text": "Free for 2 services and 2 standard monitors" },
+  "cells": { "interval": "30 min free, 1 min paid", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors" }
+    ],
+    "uptime": [
+      { "v": "$25", "plan": "Standard", "state": "unclear", "math": "One Standard account. Its published service and test limits fit 5 endpoints at $25 a month." },
+      { "v": "$25", "plan": "Standard", "state": "unclear", "math": "One Standard account. 25 tests fit one service at $25 a month. The full status-page cost isn't known." },
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "100 services go over the 50-service Business limit. How they'd be grouped, and the full cost of this setup, aren't known." }
+    ]
+  }
+}

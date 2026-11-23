@@ -1,0 +1,53 @@
+{
+  "slug": "sevalla-database-hosting",
+  "name": "Sevalla Database Hosting",
+  "url": "https://sevalla.com/database-hosting/",
+  "jobs": ["sql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL and in-memory databases are the primary type; D01: PostgreSQL, MySQL and MariaDB versions",
+      "kv": "C02: managed Redis and Valkey; D01: Redis 8.6 and Valkey 9.0 defaults",
+      "vector": "V01: official PostgreSQL vector example with HNSW and GIN indexes"
+    }
+  },
+  "line": "Managed PostgreSQL, MySQL, MariaDB, Redis, and vector-enabled Postgres.",
+  "free": { "kind": "credits", "text": "One-off $20 credit; expiry says 2 or 30 days; services bill after it ends" },
+  "cells": {
+    "metered": "$5/mo DB1; production recommends DB2 at $34/mo",
+    "regions": "20 OCI or 25 Google regions, by company migration",
+    "selfhost": "No, Sevalla hosts the databases"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$34+",
+        "plan": "DB2, OCI",
+        "state": "unclear",
+        "math": "$34 for the DB2 runtime, + $0.02 per GB of backup storage a month, for an amount not yet known. The 5 GB of database transfer is free, but how much backup space is used is unknown."
+      },
+      {
+        "v": "$34+",
+        "plan": "DB2, OCI",
+        "state": "unclear",
+        "math": "While online, DB2 stays at $34, plus $0.02 per GB of backup storage a month. A manual suspension stops the database runtime, but the data stays unavailable."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Sevalla database hosting is separate from its object storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Database hosting does not run worker jobs."
+      }
+    ]
+  }
+}

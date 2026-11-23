@@ -1,0 +1,17 @@
+{
+  "slug": "inspectlet",
+  "name": "Inspectlet",
+  "official_url": "https://www.inspectlet.com/",
+  "image_url": "https://d2ues8mtn1tc1i.cloudfront.net/img/favicon-new.png",
+  "source_page": "https://www.inspectlet.com/",
+  "kind": "favicon",
+  "source_host": "d2ues8mtn1tc1i.cloudfront.net",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "78bfa6b9f5fceeab4555e77d27186e71dc2afa5f9786b7cb9c53c516ddb2171a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

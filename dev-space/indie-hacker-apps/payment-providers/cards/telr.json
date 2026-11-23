@@ -1,0 +1,52 @@
+{
+  "slug": "telr",
+  "name": "Telr",
+  "url": "https://telr.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and aggregator; the merchant remains responsible for its sale",
+      "billing": "F14: repeat billing agreements with weekly or monthly automatic card debits; F15: intervals and terms",
+      "links": "F16: QuickLinks create shareable payment URLs and QR codes; unlimited links on UAE and KSA plans"
+    }
+  },
+  "line": "Regional gateway with hosted checkout, recurring billing, invoices, and links.",
+  "free": {
+    "kind": "none",
+    "text": "UAE and Saudi plans include monthly fees; other prices vary by market"
+  },
+  "cells": {
+    "type": "Payment gateway and service provider",
+    "countries": "the UAE, Jordan, Bahrain and Saudi Arabia only",
+    "payout": "Standard timing is account-specific; no public day count"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in the United Arab Emirates (UAE), Jordan, Bahrain and Saudi Arabia."
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "mrr-io",
+  "name": "MRR.io",
+  "url": "https://mrr.io/",
+  "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is recurring subscription revenue tracking; F19: MRR, churn and revenue metrics from Stripe and Paddle integrations"
+    }
+  },
+  "line": "Tracks recurring revenue, customer counts, and churn for SaaS.",
+  "free": { "kind": "free", "text": "Free up to 100 paying customers; 3 team members" },
+  "cells": {
+    "cookieless": "No, service cookies are required",
+    "location": "Unknown; hosting region not published",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by paying customers. The free plan covers up to 100 customers. Pageviews do not set the price." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by paying customers. The free plan covers up to 100 customers. Pageviews do not set the price." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by paying customers. The free plan covers up to 100 customers. Pageviews do not set the price." }
+    ]
+  }
+}

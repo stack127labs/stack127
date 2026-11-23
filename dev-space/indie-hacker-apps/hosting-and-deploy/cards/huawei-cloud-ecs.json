@@ -1,0 +1,20 @@
+{
+  "slug": "huawei-cloud-ecs",
+  "name": "Huawei Cloud ECS",
+  "url": "https://www.huaweicloud.com/intl/en-us/product/ecs.html",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented provider-hosted virtual machines; the customer manages the guest OS, runtime and app"
+    }
+  },
+  "line": "Run virtual machines and manage the operating system and apps.",
+  "free": { "kind": "none", "text": "No recurring always-free ECS allowance established" },
+  "cells": { "type": "VPS/VM", "regions": "Singapore, Hong Kong and other China/overseas regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The Singapore T6 compute reference is $6.13 a month. Rates for disk, 100 GB of data sent out, builds and CI, and the domain are missing." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The Singapore T6 compute reference, with 1 vCPU and 1 GiB, is $6.13 a month. 100 GB of data sent out, disk and other costs are not priced. Throughput is untested." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The Hong Kong C6s compute reference is $42.25 a month. Add disk, self-managed PostgreSQL, daily 7-day backups and traffic charges." }
+  ] }
+}

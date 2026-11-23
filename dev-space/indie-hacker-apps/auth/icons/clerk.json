@@ -1,0 +1,17 @@
+{
+  "slug": "clerk",
+  "name": "Clerk",
+  "official_url": "https://clerk.com/",
+  "image_url": "https://github.com/clerk.png?size=460",
+  "source_page": "https://github.com/clerk",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "31dd0b83c75ba37421fced2de97ebb5e3d043f5dbe104c94a3922cf9310c7c3c",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

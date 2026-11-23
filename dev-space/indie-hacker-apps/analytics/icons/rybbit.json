@@ -1,0 +1,17 @@
+{
+  "slug": "rybbit",
+  "name": "Rybbit",
+  "official_url": "https://rybbit.com/",
+  "image_url": "https://rybbit.com/apple-icon.png?6397d04f1a6e86b6",
+  "source_page": "https://rybbit.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "rybbit.com",
+  "original": {
+    "format": "png",
+    "width": 950,
+    "height": 950
+  },
+  "sha256": "bca6c509b34ed736a0985629bad1de08aeaf9e65214ed7af20836484a0691965",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

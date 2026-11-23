@@ -1,0 +1,22 @@
+{
+  "slug": "alibaba-cloud-ecs",
+  "name": "Alibaba Cloud ECS",
+  "url": "https://www.alibabacloud.com/en/product/ecs",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: ECS virtual machines; the customer manages the guest OS, runtimes and applications"
+    }
+  },
+  "line": "Virtual machines for running websites, APIs, and databases.",
+  "free": { "kind": "trial", "text": "One-year t5 trial for eligible new users" },
+  "cells": { "type": "VPS/VM", "regions": "China, Asia, Europe, Americas, Middle East", "selfhost": "No" },
+  "costs": {
+    "work": [
+      { "v": "$11.08", "plan": "Economy ECS", "state": "unclear", "math": "$11.08 is the advertised base price for compute. Costs for the region, data sent out, disk and builds are unknown." },
+      { "v": "$86.724", "plan": "Singapore ecs.g7.large", "state": "confirmed", "math": "$0.1188 an hour for 730 hours = $86.724 for compute. Bandwidth (data transfer), disk, image, builds and logs are not included." },
+      { "v": "$86.724", "plan": "Singapore ecs.g7.large", "state": "unclear", "math": "$86.724 is the known compute cost. PostgreSQL runs on the same server, but extra capacity, snapshots and the exact total are unknown." }
+    ]
+  }
+}

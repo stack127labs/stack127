@@ -1,0 +1,17 @@
+{
+  "slug": "cloudflare-workers",
+  "name": "Cloudflare Workers",
+  "official_url": "https://www.cloudflare.com/products/workers/",
+  "image_url": "https://www.cloudflare.com/favicon.ico",
+  "source_page": "https://www.cloudflare.com/products/workers/",
+  "kind": "favicon",
+  "source_host": "cloudflare.com",
+  "original": {
+    "format": "png",
+    "width": 99,
+    "height": 96
+  },
+  "sha256": "133d378ed42b1d8d318cbfecbebdcdbbf3cd6d6f4cd9b12f8663d55448411adf",
+  "note": "parent brand: Cloudflare; no distinct service icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

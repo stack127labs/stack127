@@ -1,0 +1,17 @@
+{
+  "slug": "missive",
+  "name": "Missive",
+  "official_url": "https://missiveapp.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/2f/64/ea2f64bc-30a0-f80e-d515-ac47c8ec6ca1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/missive-email-chat-tasks/id1231206084?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "7bc671d3811de47e5d161ca0609fc3ad4aa5aaab394361056caa4353538344ce",
+  "note": "App Store app by Heliom Inc. (Missive's developer); has its own background, unlike the white site mark",
+  "saved_at": "2026-11-14"
+}

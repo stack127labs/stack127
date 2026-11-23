@@ -1,0 +1,17 @@
+{
+  "slug": "callbell",
+  "name": "Callbell",
+  "official_url": "https://www.callbell.eu/",
+  "image_url": "https://www.callbell.eu/assets/img/favicon-192.png",
+  "source_page": "https://www.callbell.eu/en/",
+  "kind": "favicon",
+  "source_host": "callbell.eu",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "90b125b40b984214f6cc92f52ee969952061bf8cc5fa8300530a341907b7e81e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

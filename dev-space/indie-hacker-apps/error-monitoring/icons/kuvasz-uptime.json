@@ -1,0 +1,17 @@
+{
+  "slug": "kuvasz-uptime",
+  "name": "Kuvasz Uptime",
+  "official_url": "https://kuvasz-uptime.dev/",
+  "image_url": "https://kuvasz-uptime.dev/images/kuvasz-logo.webp",
+  "source_page": "https://kuvasz-uptime.dev/",
+  "kind": "logo-mark",
+  "source_host": "kuvasz-uptime.dev",
+  "original": {
+    "format": "webp",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "e949a7cae9143898d566565f0da7c8f1050e61327e2b4ab24d1b69c53775bb1b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

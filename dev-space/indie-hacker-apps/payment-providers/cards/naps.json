@@ -1,0 +1,51 @@
+{
+  "slug": "naps",
+  "name": "NAPS",
+  "url": "https://naps.ma/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and acceptance; the merchant sells its own goods and services",
+      "links": "F16: ePay Link creates a secure URL from the dashboard; sent without a store website"
+    }
+  },
+  "line": "Moroccan payment provider for online checkout and no-website payment links.",
+  "free": {
+    "kind": "none",
+    "text": "Go setup from 6,900 DH HT plus 2,900 DH/year"
+  },
+  "cells": {
+    "type": "Payment institution and online gateway",
+    "countries": "Morocco only",
+    "payout": "Processed J+1; bank transfer on J+2"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Morocco."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Morocco."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Morocco."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Morocco."
+      }
+    ]
+  }
+}

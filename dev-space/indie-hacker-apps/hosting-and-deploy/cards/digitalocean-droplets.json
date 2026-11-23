@@ -1,0 +1,20 @@
+{
+  "slug": "digitalocean-droplets",
+  "name": "DigitalOcean Droplets",
+  "url": "https://www.digitalocean.com/products/droplets",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: Linux virtual server; the customer maintains the OS, applications and data"
+    }
+  },
+  "line": "Run Linux virtual servers and manage their operating systems and apps.",
+  "free": { "kind": "credits", "text": "No recurring free CPU plan; signup credits expire" },
+  "cells": { "type": "VPS/VM", "regions": "North America, Europe, Asia-Pacific, Australia", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$6", "plan": "Basic Regular", "state": "confirmed", "math": "$6 a month before tax for a VM with 1 vCPU and 1 GiB." },
+    { "v": "$6", "plan": "Basic Regular", "state": "confirmed", "math": "$6 a month before tax. The selected plan meets the minimum of 1 vCPU and 1 GiB." },
+    { "v": "$21.60", "plan": "DB VM + backup", "state": "unclear", "math": "$21.60 combined before tax for a separate database VM with 2 GiB and daily disk backups." }
+  ] }
+}

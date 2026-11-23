@@ -1,0 +1,17 @@
+{
+  "slug": "crazy-egg",
+  "name": "Crazy Egg",
+  "official_url": "https://www.crazyegg.com/",
+  "image_url": "https://www.crazyegg.com/favicon.ico",
+  "source_page": "https://www.crazyegg.com/",
+  "kind": "favicon",
+  "source_host": "crazyegg.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "b89c480419173e5db3b906e4ddd03abc74f9e42371de34273c66a219b6b942c9",
+  "note": "largest official square icon is 48 px; official SVG is a wordmark",
+  "saved_at": "2026-11-14"
+}

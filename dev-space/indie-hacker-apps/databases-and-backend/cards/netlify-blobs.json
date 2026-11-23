@@ -1,0 +1,32 @@
+{
+  "slug": "netlify-blobs",
+  "name": "Netlify Blobs",
+  "url": "https://docs.netlify.com/build/data-and-storage/netlify-blobs/",
+  "jobs": ["files", "kv"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage is a primary type; C07: Blobs store files with optional metadata",
+      "kv": "C02: hosted key-value storage is a primary type; C07: key-value records"
+    }
+  },
+  "line": "Store objects and key-value data for Netlify sites and functions.",
+  "free": { "kind": "free", "text": "300 shared credits/mo; Blob quota unknown; pauses at 0 credits; no idle timer" },
+  "cells": {
+    "metered": "No Blob rate; usage draws from shared credits",
+    "regions": "5 regions; no regional price differences published",
+    "selfhost": "No, Netlify hosts the storage service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Free", "state": "not_published", "math": "There is no Blob storage rate or operation-to-credit formula, so the 1 GB workload cannot be priced." },
+      { "v": "Unknown", "plan": "Free", "state": "not_published", "math": "Site-wide stores do not expire automatically. But charges for kept storage and idle time are not published." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Free or paid Netlify plan", "state": "not_published", "math": "100 GB of storage and 1 million reads cannot be priced without the Blob rate per GB a month and the rate for each operation in credits." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Netlify Blobs stores data; it does not run jobs" }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "dpo-pay-by-network",
+  "name": "DPO Pay by Network",
+  "official_url": "https://dpogroup.com/",
+  "image_url": "https://dpogroup.com/wp-content/uploads/2024/10/Network_Favicon.webp",
+  "source_page": "https://dpogroup.com/",
+  "kind": "favicon",
+  "source_host": "dpogroup.com",
+  "original": {
+    "format": "webp",
+    "width": 270,
+    "height": 270
+  },
+  "sha256": "0db9dfbdf31e2cb33f8406d15c61a16204ac2f67ca7637fed5225c5db2e5eddd",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "datafast",
+  "name": "DataFast",
+  "official_url": "https://datafa.st/",
+  "image_url": "https://datafa.st/icon.png?3a869d3d4374401f",
+  "source_page": "https://datafa.st/",
+  "kind": "favicon",
+  "source_host": "datafa.st",
+  "original": {
+    "format": "png",
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "249f391f2d666af9c07e6d28386f29e228c9da22c5a7341a7e621f03bd44ba8c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

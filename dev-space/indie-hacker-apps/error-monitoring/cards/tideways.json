@@ -1,0 +1,29 @@
+{
+  "slug": "tideways",
+  "name": "Tideways",
+  "url": "https://tideways.com/",
+  "jobs": ["performance", "errors", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: PHP APM with timelines, callgraphs and profiling (A01)",
+      "errors": "E01: PHP fatal errors and uncaught exceptions grouped by class and stack",
+      "cron": "J01, J02: transaction heartbeats for cron jobs and workers, with missed-run alerts"
+    }
+  },
+  "line": "Tracks PHP exceptions and profiles requests, database work, and jobs.",
+  "free": { "kind": "trial", "text": "14-day trial; no credit card or phone required" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Business", "state": "not_published", "math": "€159 or $189 a month covers 5M monitored requests. Error counts don't show the full request and job volume." },
+      { "v": "Unknown", "plan": "Business", "state": "not_published", "math": "€159 or $189 a month covers 5M monitored requests. Error counts don't show the full request and job volume." },
+      { "v": "Unknown", "plan": "Business", "state": "not_published", "math": "€159 or $189 a month covers 5M monitored requests. Error counts don't show the full request and job volume." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

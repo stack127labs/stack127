@@ -1,0 +1,17 @@
+{
+  "slug": "iugu",
+  "name": "iugu",
+  "official_url": "https://www.iugu.com/",
+  "image_url": "https://www.iugu.com/hubfs/raw_assets/public/iugu-theme/assets/favicon/apple-touch-icon.png",
+  "source_page": "https://www.iugu.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "iugu.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "8d1a8a21bd2850f91aece6ac091c254c86fc4267d2e2efe9f5c5fe642f81711f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

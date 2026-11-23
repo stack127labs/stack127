@@ -1,0 +1,17 @@
+{
+  "slug": "virtualmin",
+  "name": "Virtualmin",
+  "official_url": "https://www.virtualmin.com/",
+  "image_url": "https://www.virtualmin.com/apple-touch-icon.png",
+  "source_page": "https://www.virtualmin.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "virtualmin.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "f9e088f60c31ea097f85946ca02e73d45724d63a13d9091cd95be817c9ce5c2b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

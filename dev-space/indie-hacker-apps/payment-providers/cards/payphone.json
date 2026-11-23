@@ -1,0 +1,29 @@
+{
+  "slug": "payphone",
+  "name": "PayPhone",
+  "url": "https://payphone.app/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment aggregator and infrastructure; the merchant is the seller",
+      "billing": "F14: optional Business subscription module runs periodic charges after consent; needs activation",
+      "links": "F16: shareable Payphone Business payment links with fixed or editable amounts"
+    }
+  },
+  "line": "Ecuador payment gateway and wallet with links, QR and online checkout.",
+  "free": { "kind": "none", "text": "No setup, monthly, affiliation or maintenance fee" },
+  "cells": {
+    "type": "Payment aggregator, gateway and digital wallet",
+    "countries": "Ecuador; other markets are enabled selectively",
+    "payout": "Cash-out up to 1 workday; bank posting takes 1–3 more"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published 5% fee is for Ecuador accounts. It isn't published whether US sellers are eligible, and no US card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published 5% fee is for Ecuador accounts. It isn't published whether UK sellers are eligible, and no UK card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published 5% fee is for Ecuador accounts. It isn't published whether German sellers are eligible, and no German card rate is published." },
+      { "v": "Unknown", "plan": "Domestic online card", "state": "not_published", "math": "The published 5% fee is for Ecuador accounts. It isn't published whether Indian sellers are eligible, and no India card rate is published." }
+    ]
+  }
+}

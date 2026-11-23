@@ -1,0 +1,56 @@
+{
+  "slug": "tencent-cloudbase",
+  "name": "Tencent CloudBase",
+  "url": "https://www.tencentcloud.com/products/tcb",
+  "jobs": ["backend", "sql", "nosql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C07: China-site matrix offers the classic document mode in Shanghai; Singapore is PG only",
+      "backend": "C02: backend platform with PostgreSQL, auth, files and functions; C07: hosted PG bundle",
+      "sql": "D01: native PostgreSQL with full SQL, tables, views and extensions",
+      "files": "F04: PG buckets enforce file size limits and MIME types; F05: Storage API",
+      "jobs": "J04: seven-field cron timer triggers for functions",
+      "vector": "V01: vector extension supports IVFFlat and HNSW similarity search"
+    }
+  },
+  "line": "Hosted backend with PostgreSQL, auth, file storage, functions, APIs, and realtime.",
+  "free": { "kind": "free", "text": "China dev/test: 3,000 pts/mo; renew every 6mo; published mini-app deleted day 15" },
+  "cells": {
+    "metered": "$20/mo Pro list; $15 limited-time offer with 200k credits",
+    "regions": "International: Singapore; China: Shanghai and Singapore",
+    "selfhost": "No, hosted service; private WeDa edition differs"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$20+",
+        "plan": "International Pro",
+        "state": "unclear",
+        "math": "At 30 active hours, PG usage is $1.046. At 730 hours, it is $22.046. The Pro plan is $20 at list price, or $15 on promotion. Egress and logs are not priced."
+      },
+      {
+        "v": "$20",
+        "plan": "International Pro",
+        "state": "unclear",
+        "math": "With no active PG slots, 1 GB of storage is $0.146. Unused Pro credits leave the $20 list price or the $15 promotional subscription."
+      }
+    ],
+    "files": [
+      {
+        "v": "$20+",
+        "plan": "International Pro",
+        "state": "unclear",
+        "math": "Known file usage is $18.42001. If API requests also count, it is $20.07001. The Pro plan is $20 at list price, or $15 on promotion. Metadata and other meters are not yet priced."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$20",
+        "plan": "International Pro",
+        "state": "unclear",
+        "math": "10K functions cost $0.0855 for runtime and calls, or $0.105 with API or gateway calls. Pro credits cover this, but whether everything fits is unknown."
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "github-pages",
+  "name": "GitHub Pages",
+  "url": "https://pages.github.com/",
+  "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed static hosting; a repository's HTML, CSS and JavaScript become a published website"
+    }
+  },
+  "line": "Publish static websites from a GitHub repository.",
+  "free": { "kind": "free", "text": "$0 for public repository Pages on Free account" },
+  "cells": { "type": "Static hosting", "regions": "Not published", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "GitHub Free or paid plan", "state": "unclear", "math": "Commercial use policy, private-source eligibility and soft delivery limits mean no total can be given." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "GitHub Pages cannot run the required server API." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "GitHub Pages has no app runtime or managed PostgreSQL." }
+  ] }
+}

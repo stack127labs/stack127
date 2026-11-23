@@ -1,0 +1,52 @@
+{
+  "slug": "typesense",
+  "name": "Typesense",
+  "url": "https://typesense.org/",
+  "jobs": ["nosql", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is typo-tolerant full-text search engine and search database",
+      "vector": "C07: the server provides text and vector search with collections and REST APIs"
+    }
+  },
+  "line": "Open-source search engine for text, vector, faceted and geospatial search.",
+  "free": { "kind": "credits", "text": "720 node-h/10GB out once; 0.5GB RAM/2vCPU; idle billed; terminate deletes data" },
+  "cells": {
+    "metered": "Cloud node rate varies; outbound $0.09–0.12/GB",
+    "regions": "North and South America, Europe, Africa and Asia-Pacific",
+    "selfhost": "Yes, GPL-3.0 Server"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "Unknown",
+        "plan": "Typesense Cloud",
+        "state": "not_published",
+        "math": "A vector workload needs a set configuration and region. Exact node rates can only be read with a logged-in billing API key."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Typesense Cloud",
+        "state": "not_published",
+        "math": "Idle clusters still have node-hour charges. Exact configuration and region rates are not public."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Typesense does not provide general file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Typesense does not provide a job or workflow service."
+      }
+    ]
+  }
+}

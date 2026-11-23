@@ -1,0 +1,17 @@
+{
+  "slug": "mixpanel",
+  "name": "Mixpanel",
+  "official_url": "https://mixpanel.com/",
+  "image_url": "https://github.com/mixpanel.png?size=460",
+  "source_page": "https://github.com/mixpanel",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "d84004e5e2203a86f864375f9597da5cf7d04442fdecbf6a2764b67c83dc881f",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

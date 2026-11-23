@@ -1,0 +1,20 @@
+{
+  "slug": "magalu-cloud-virtual-machines",
+  "name": "Magalu Cloud Virtual Machines",
+  "url": "https://magalu.cloud/virtual-machines/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: isolated rented virtual machines; the customer manages the guest OS, app, patches and backups"
+    }
+  },
+  "line": "Create virtual machines and manage the guest OS and applications.",
+  "free": { "kind": "credits", "text": "R$100 credit expires at grant-month end; CPF/CNPJ and card required" },
+  "cells": { "type": "Virtual machines", "regions": "Southeast and Northeast Brazil", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "1 vCPU/1 GB VM", "state": "unclear", "math": "R$34.99 a month VM subtotal for 730 hours. Build time runs on the VM, but the build size needed and outside CI cost are unknown." },
+    { "v": "R$44.99", "plan": "1 vCPU/2 GB VM", "state": "confirmed", "math": "R$44.99 a month for 730 hours. It meets the minimum of 1 GiB. The current 100 GB of data sent out and public IP are R$0, but may change. Throughput is untested." },
+    { "v": "Unknown", "plan": "VM + PostgreSQL DBaaS", "state": "unclear", "math": "R$44.99 for the VM + R$94.22 for a managed database = R$139.21 a month subtotal. The database has 1 vCPU, 4 GB and 10 GB, but backup and 10 GB of private traffic costs are unknown." }
+  ] }
+}

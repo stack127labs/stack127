@@ -1,0 +1,32 @@
+{
+  "slug": "dragonfly",
+  "name": "Dragonfly",
+  "url": "https://www.dragonflydb.io/",
+  "jobs": ["kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: key-value database and cache is the primary type; D01: Redis-compatible in-memory engine",
+      "vector": "V01: native vector indexes with FLAT and HNSW types"
+    }
+  },
+  "line": "Redis-compatible key-value storage with managed Cloud and self-hosted options.",
+  "free": { "kind": "selfhost", "text": "Self-host: 100 production vCPUs; Cloud bills active; no idle pause/deletion" },
+  "cells": {
+    "metered": "Cloud Flex from USD $36/month; region-dependent",
+    "regions": "AWS, GCP, or Azure; choose a region per datastore",
+    "selfhost": "Yes, DSAL free up to 100 aggregate production vCPUs"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Dragonfly Cloud Flex", "state": "unclear", "math": "3 GB development instances cost about USD $36 a month. Whether the data fits, transfer and the exact total are unknown." },
+      { "v": "Unknown", "plan": "Dragonfly Cloud", "state": "unclear", "math": "The 12.5 GB example costs USD $137.50 a month while active. Whether the minimum size fits and network charges are unknown." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Dragonfly has no file storage product." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Cloud broker plus worker", "state": "unclear", "math": "Workers run separately. A 12.5 GB broker adds USD $137.50 a month, if it is big enough. Worker cost and the full total are unknown." }
+    ]
+  }
+}

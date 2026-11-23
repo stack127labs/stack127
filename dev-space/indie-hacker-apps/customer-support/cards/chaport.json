@@ -1,0 +1,27 @@
+{
+  "slug": "chaport",
+  "name": "Chaport",
+  "url": "https://www.chaport.com/",
+  "jobs": ["chat", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: public knowledge base is part of the website chat and messaging product",
+      "chat": "F17: Native website chat widget on all plans, with unlimited chats and websites",
+      "inbox": "F17: Pro forwards email into the chat inbox; operators reply from Chaport as regular email"
+    }
+  },
+  "line": "Website chat and customer messaging with a shared operator inbox.",
+  "free": { "kind": "free", "text": "Free for 2 operators; unlimited chats and sites" },
+  "cells": {
+    "channels": "Website chat, email, Messenger, Viber, Telegram",
+    "ai": "Rule-based bots; generative AI cost not established",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "€0", "plan": "Free", "state": "confirmed", "math": "The free plan includes two operators and unlimited website chats, so 100 chats fit." },
+      { "v": "€39", "plan": "Pro", "state": "confirmed", "math": "The Pro package is €39 a month and includes four operators. 100 conversations fit." }
+    ]
+  }
+}

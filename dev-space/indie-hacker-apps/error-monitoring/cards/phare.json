@@ -1,0 +1,31 @@
+{
+  "slug": "phare",
+  "name": "Phare",
+  "url": "https://phare.io/",
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external HTTP, TCP and ICMP uptime checks from many regions (U03)",
+      "status": "S01, S03: unlimited public status pages with incidents and maintenance (S03)"
+    }
+  },
+  "line": "Checks public sites and APIs from several regions, with status pages and alerts.",
+  "free": { "kind": "free", "text": "Hobby: 100,000 checks/month; 30 s minimum" },
+  "cells": {
+    "interval": "30 s minimum; 60 s default",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application errors or logs" }
+    ],
+    "uptime": [
+      { "v": "€5.00", "plan": "Scale", "state": "confirmed", "math": "5 endpoints times 43,200 runs each make 216,000 events, within the Scale plan's 500,000 included. The €5 a month base includes a public own-domain page." },
+      { "v": "€10.80", "plan": "Scale + event usage", "state": "confirmed", "math": "€5 base, plus 580,000 additional events at €0.00001 each, comes to €10.80 a month. The total is 1,080,000 events." },
+      { "v": "€43.20", "plan": "Scale + event usage", "state": "confirmed", "math": "€5 base, plus 3,820,000 additional events at €0.00001 each, comes to €43.20 a month. The total is 4,320,000 events." }
+    ]
+  }
+}

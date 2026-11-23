@@ -1,0 +1,51 @@
+{
+  "slug": "tencent-cloud-cos",
+  "name": "Tencent Cloud COS",
+  "url": "https://www.tencentcloud.com/products/cos",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted object storage for files and unstructured data is the primary type; F05: AWS S3-compatible API usage"
+    }
+  },
+  "line": "S3-compatible object storage with lifecycle, versioning, and regional buckets.",
+  "free": { "kind": "trial", "text": "50GB Standard/180d; requests and egress bill; no idle expiry or deletion" },
+  "cells": {
+    "metered": "Usage-billed storage, requests, retrieval, and egress",
+    "regions": "Mainland China and international regions; fixed at creation",
+    "selfhost": "No, Tencent operates the service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Tencent Cloud COS is object storage, not a database"
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Tencent Cloud COS is object storage, not a database"
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "COS Standard, Singapore",
+        "state": "check_failed",
+        "math": "50 GB of Standard storage is free for 180 days. Rates for the other 50 GB, requests and 100 GB of egress were not available."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Tencent Cloud COS does not run background jobs"
+      }
+    ]
+  }
+}

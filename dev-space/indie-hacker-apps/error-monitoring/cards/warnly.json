@@ -1,0 +1,27 @@
+{
+  "slug": "warnly",
+  "name": "Warnly",
+  "url": "https://warnly.io/",
+  "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: primary job is backend exception collection, grouping and webhook alerts (E01)"
+    }
+  },
+  "line": "Groups backend exceptions and sends threshold-based webhook alerts.",
+  "free": { "kind": "selfhost", "text": "Free MIT server; self-hosted; 90-day event retention" },
+  "cells": { "interval": "—", "maintained": "Last release 2026-10-14" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "The license fee is $0. Monthly hosting, storage and backup costs aren't sized for this many reports." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "The license fee is $0. Monthly hosting, storage and backup costs aren't sized for this many reports." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "The license fee is $0. Monthly hosting, storage and backup costs aren't sized for this many reports." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

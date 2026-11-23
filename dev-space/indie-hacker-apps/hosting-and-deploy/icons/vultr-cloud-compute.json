@@ -1,0 +1,17 @@
+{
+  "slug": "vultr-cloud-compute",
+  "name": "Vultr Cloud Compute",
+  "official_url": "https://www.vultr.com/products/cloud-compute/",
+  "image_url": "https://www.vultr.com/apple-touch-icon.png",
+  "source_page": "https://www.vultr.com/products/cloud-compute/",
+  "kind": "apple-touch-icon",
+  "source_host": "vultr.com",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "8d14bef7b76882f8f7114242e9d14355f0242b16a65860c9b651e8cbda33bfcf",
+  "note": "parent brand: Vultr; no distinct Cloud Compute icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

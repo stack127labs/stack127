@@ -1,0 +1,32 @@
+{
+  "slug": "netdata",
+  "name": "Netdata",
+  "url": "https://www.netdata.cloud/",
+  "jobs": ["performance", "uptime", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "A01: OpenTelemetry traces explorer with spans, waterfalls and RED views",
+      "uptime": "U01, U02: HTTP, TCP, ping, DNS and TLS checks run by your agents (U03)",
+      "logs": "L02: searchable system logs with full-text search and live tail"
+    }
+  },
+  "line": "Monitors infrastructure metrics and runs synthetic endpoint checks.",
+  "free": { "kind": "selfhost", "text": "Free Agent; Cloud Community covers up to 5 nodes" },
+  "cells": {
+    "interval": "5 s HTTP default; fastest unknown",
+    "maintained": "Last release 2026-11-04"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Netdata isn't a dedicated application error tracker." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Netdata isn't a dedicated application error tracker." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Netdata isn't a dedicated application error tracker." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Cloud or self-hosted", "state": "not_published", "math": "Netdata's published examples price infrastructure nodes, not fixed sets of endpoint checks." },
+      { "v": "Unknown", "plan": "Cloud or self-hosted", "state": "not_published", "math": "Netdata's published examples price infrastructure nodes, not fixed sets of endpoint checks." },
+      { "v": "Unknown", "plan": "Cloud or self-hosted", "state": "not_published", "math": "Netdata's published examples price infrastructure nodes, not fixed sets of endpoint checks." }
+    ]
+  }
+}

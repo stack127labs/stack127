@@ -1,0 +1,52 @@
+{
+  "slug": "netopia-payments",
+  "name": "NETOPIA Payments",
+  "url": "https://netopia-payments.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment processor and gateway; the merchant is the seller to the payer",
+      "billing": "F14: automatic recurring card collection on amounts and intervals the merchant sets",
+      "links": "F16: Link2Pay is the no-code option for direct payment requests"
+    }
+  },
+  "line": "Romanian payment gateway for checkout, payment links and recurring cards.",
+  "free": {
+    "kind": "none",
+    "text": "0 RON account opening and card-service maintenance"
+  },
+  "cells": {
+    "type": "Payment processor, administrator and gateway",
+    "countries": "Romania only",
+    "payout": "3 calendar days; holidays shift transfers to next workday"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Romania."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Romania."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Romania."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Romania."
+      }
+    ]
+  }
+}

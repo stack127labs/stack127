@@ -1,0 +1,17 @@
+{
+  "slug": "helpkit",
+  "name": "HelpKit",
+  "official_url": "https://www.helpkit.so/",
+  "image_url": "https://www.helpkit.so/favicons/apple-touch-icon.png",
+  "source_page": "https://www.helpkit.so/",
+  "kind": "apple-touch-icon",
+  "source_host": "helpkit.so",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "1c96ff0753d2c705a2e8e06094673d8980884706deb5550e80e88ac5b2c694c5",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

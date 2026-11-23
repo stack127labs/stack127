@@ -1,0 +1,36 @@
+{
+  "slug": "leancloud",
+  "name": "LeanCloud",
+  "url": "https://leancloud.app/",
+  "jobs": ["backend", "sql", "nosql", "kv", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: LeanStorage stores schema-free JSON objects in Classes, queried with REST constraints",
+      "backend": "C02: backend platform with accounts, files and functions; C07: LeanStorage, LiveQuery and LeanEngine",
+      "sql": "C02: optional managed SQL; D01: optional LeanDB MySQL, separately provisioned",
+      "kv": "D01: optional LeanCache Redis 6 with native clients from LeanEngine",
+      "files": "F01: 1 GB included file capacity; F04: SDK upload route documented",
+      "jobs": "J04: six-field cron schedules and delayed tasks; J01: Cloud Queue (experimental, free)"
+    }
+  },
+  "line": "Backend platform for data, files, user accounts, and server functions.",
+  "free": { "kind": "none", "text": "Existing: 30K req/day, 1GB DB; archives after 30d idle; closes Jan 12, 2027" },
+  "cells": {
+    "metered": "Existing apps: $5/day intl floor; RMB30/day China",
+    "regions": "International or China; region terms differ",
+    "selfhost": "No, LeanCloud runs managed or private clusters"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Business", "state": "unclear", "math": "$155 is the known minimum for 31 days on the international Business plan. API and database rates mean the exact total is not known." },
+      { "v": "$155", "plan": "Business", "state": "unclear", "math": "The Business minimum, 31 × $5 a day, continues with no traffic for existing international apps. The service closes January 12, 2027." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "Developer", "state": "unclear", "math": "$12.871 is the 30-day subtotal for capacity and delivery. File request charges, metadata and the exact total are not known." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Developer engine", "state": "unclear", "math": "A worker with 1 CPU and 512 MB costs $49.60 over 31 days. But the queue runs one job at a time, and five are required." }
+    ]
+  }
+}

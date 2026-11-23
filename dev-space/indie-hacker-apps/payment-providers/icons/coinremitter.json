@@ -1,0 +1,17 @@
+{
+  "slug": "coinremitter",
+  "name": "Coinremitter",
+  "official_url": "https://coinremitter.com/",
+  "image_url": "https://coinremitter.com/favicon.ico?favicon.34d09fqn_dpgt.ico",
+  "source_page": "https://coinremitter.com/",
+  "kind": "favicon",
+  "source_host": "coinremitter.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "7a65119676aa2db59677c99533a10c55d5d998cda7a2e2be57b46b9c8b3a435e",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

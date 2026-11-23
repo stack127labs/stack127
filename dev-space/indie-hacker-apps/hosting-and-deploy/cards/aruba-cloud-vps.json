@@ -1,0 +1,20 @@
+{
+  "slug": "aruba-cloud-vps",
+  "name": "Aruba Cloud VPS",
+  "url": "https://www.arubacloud.com/vps/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual machine; the customer administers the guest OS, software and security"
+    }
+  },
+  "line": "Rent a virtual server and manage its operating system and apps.",
+  "free": { "kind": "none", "text": "No ongoing free VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Italy storefront; other regions not summarized", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€2.49", "plan": "VPS O1I1", "state": "confirmed", "math": "€2.49 a month before VAT. 100 GB of data sent out fits within the 2 TB monthly allowance." },
+    { "v": "€2.49", "plan": "VPS O1I1", "state": "unclear", "math": "€2.49 a month before VAT, plus a Starter IPv4 address option that is not priced. Capacity is 1 vCPU and 1 GB RAM." },
+    { "v": "€6.29", "plan": "VPS O2A4", "state": "unclear", "math": "€6.29 a month before VAT for the server. PostgreSQL you set up and run yourself, and backup resources, cost extra." }
+  ] }
+}

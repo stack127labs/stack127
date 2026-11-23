@@ -1,0 +1,17 @@
+{
+  "slug": "cpanel",
+  "name": "cPanel",
+  "official_url": "https://www.cpanel.net/",
+  "image_url": "https://www.cpanel.net/wp-content/uploads/2025/06/brand-cP-logomark.svg",
+  "source_page": "https://www.cpanel.net/",
+  "kind": "logo-mark",
+  "source_host": "cpanel.net",
+  "original": {
+    "format": "svg",
+    "width": 453,
+    "height": 267
+  },
+  "sha256": "56dfe34cf4c3679b7351fc496ba9ca8a836fed39ac7c9d52a9cf107f56eb901a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

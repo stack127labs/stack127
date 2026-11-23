@@ -1,0 +1,17 @@
+{
+  "slug": "beszel",
+  "name": "Beszel",
+  "official_url": "https://beszel.dev/",
+  "image_url": "https://beszel.dev/icon.svg",
+  "source_page": "https://beszel.dev/",
+  "kind": "svg-icon",
+  "source_host": "beszel.dev",
+  "original": {
+    "format": "svg",
+    "width": 299,
+    "height": 373
+  },
+  "sha256": "72b9f2a3ec8987bf55158bba8a849face7a5f26f9c4fa22a67ebb28e9b1887a8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "re-amaze",
+  "name": "Re:amaze",
+  "official_url": "https://www.reamaze.com/",
+  "image_url": "https://www.reamaze.com/apple-touch-icon.png",
+  "source_page": "https://www.reamaze.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "reamaze.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "8256a019f5e3f380b3ddf32ae4d9995192a6ef5e4412d99272adde9839282582",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

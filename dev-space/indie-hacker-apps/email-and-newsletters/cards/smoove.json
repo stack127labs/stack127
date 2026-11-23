@@ -1,0 +1,35 @@
+{
+  "slug": "smoove",
+  "name": "smoove",
+  "url": "https://www.smoove.io/",
+  "jobs": ["marketing", "newsletter", "transactional", "multichannel"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: welcome and nurture sequences plus purchase and cart recovery",
+      "newsletter": "F02: newsletters and scheduled campaigns",
+      "transactional": "F02: REST API sends single-recipient emails from a template or HTML",
+      "multichannel": "F02: multichannel journeys; included SMS use is Israel only (F04)"
+    }
+  },
+  "line": "Email campaigns, customer journeys and API-triggered messages.",
+  "free": { "kind": "free", "text": "Free: 100 contacts, 100 emails and 100 API calls/month" },
+  "cells": {
+    "newsletters": "Yes; Free has 100 emails/month; paid send allowance unclear",
+    "api": "Yes, REST; Free has 100 API calls/month; no SMTP"
+  },
+  "costs": {
+    "subs": [
+      { "v": "NIS 144/month", "plan": "Standard 1,000", "state": "unclear", "math": "The known subscription price for 1,000 contacts is listed, but the send allowance and final total still need confirmation." },
+      { "v": "NIS 329/month", "plan": "Standard 5,000", "state": "unclear", "math": "The known subscription price for 5,000 contacts is listed, but the send allowance and final total still need confirmation." },
+      { "v": "NIS 519/month", "plan": "Standard 10,000", "state": "unclear", "math": "The known subscription price for 10,000 contacts is listed, but the send allowance and final total still need confirmation." },
+      { "v": "Quote", "plan": "", "state": "confirmed", "math": "50,000 contacts are more than the largest published numeric tier of 20,000." }
+    ],
+    "appmail": [
+      { "v": "NIS 144 + unknown/month", "plan": "Standard 1,000", "state": "unclear", "math": "NIS 144 subscription + extra cost for 3,000 API sends, which exceed 500 monthly operations at 1,000 contacts. The extra price is unknown." },
+      { "v": "NIS 144 + unknown/month", "plan": "Standard 1,000", "state": "unclear", "math": "NIS 144 subscription + extra cost for 10,000 API sends, which exceed 500 monthly operations at 1,000 contacts. The extra price is unknown." },
+      { "v": "NIS 144 + unknown/month", "plan": "Standard 1,000", "state": "unclear", "math": "NIS 144 subscription + extra cost for 50,000 API sends, which exceed 500 monthly operations at 1,000 contacts. The extra price is unknown." },
+      { "v": "NIS 144 + unknown/month", "plan": "Standard 1,000", "state": "unclear", "math": "NIS 144 subscription + extra cost for 100,000 sends, which average 3,334 a day, above 3,000 a day at 1,000 contacts. The extra cost is unknown." }
+    ]
+  }
+}

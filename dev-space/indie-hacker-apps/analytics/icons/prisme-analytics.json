@@ -1,0 +1,17 @@
+{
+  "slug": "prisme-analytics",
+  "name": "Prisme Analytics",
+  "official_url": "https://www.prismeanalytics.com/",
+  "image_url": "https://www.prismeanalytics.com/favicon/android-chrome-512x512.png",
+  "source_page": "https://www.prismeanalytics.com/",
+  "kind": "manifest-icon",
+  "source_host": "prismeanalytics.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "b63bb723588a3486be45d5e60063fd2550b211f587dc7d469d71731eea911408",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "scaleway-serverless-containers",
+  "name": "Scaleway Serverless Containers",
+  "url": "https://www.scaleway.com/en/serverless-containers/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed serverless container hosting; Scaleway runs the infrastructure and scaling"
+    }
+  },
+  "line": "Run stateless HTTP containers with managed scaling and deployment.",
+  "free": { "kind": "free", "text": "Per account/month: 200,000 vCPU-s + 400,000 GB-s" },
+  "cells": { "type": "Serverless containers", "regions": "Paris, Amsterdam, Warsaw and Milan", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "70-mvCPU/128-MB instance + 1-GB registry", "state": "unclear", "math": "One instance for 730 hours uses €0 of compute under unused monthly allowances. The assumed 1 GB registry adds €0.027. This allocation has not been load-tested for 1 million requests." },
+    { "v": "Unknown", "plan": "1000-mvCPU/1024-MB instance + 1-GB registry", "state": "unclear", "math": "Compute for 730 hours is €24.28 for CPU + €4.456 for RAM. The assumed 1 GB registry adds €0.027. Assumes free quotas are unused elsewhere. The billing FAQ conflicts on how runtime and requests are metered." },
+    { "v": "Unknown", "plan": "Container + DB-DEV-S + 10-GB volume", "state": "unclear", "math": "Known subtotal €41.144, plus €0.03 times the average retained backup GB. Assumes 730 hours and a 10 GB database volume. Actual snapshots and private database traffic costs are not confirmed." }
+  ] }
+}

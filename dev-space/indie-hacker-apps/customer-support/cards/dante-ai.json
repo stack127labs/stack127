@@ -1,0 +1,26 @@
+{
+  "slug": "dante-ai",
+  "name": "Dante AI",
+  "url": "https://www.dante-ai.com/",
+  "jobs": ["ai", "chat"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "ai": "F02: Customer-support AI that answers website visitors from trained knowledge; one agent on Free",
+      "chat": "F17: Native website chat launcher or inline embed on every plan; human takeover on Advanced and higher"
+    }
+  },
+  "line": "Knowledge-trained website agents with human handoff and voice support.",
+  "free": { "kind": "free", "text": "Free: 1 agent, 100 AI credits/month" },
+  "cells": {
+    "channels": "Website chat, voice",
+    "ai": "Credit-based; model determines credit use",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$120", "plan": "Advanced", "state": "confirmed", "math": "The Advanced plan covers one human Inbox agent. The AI can be left unused." },
+      { "v": "$120", "plan": "Advanced", "state": "confirmed", "math": "The Advanced plan includes three working users. Human handoff is included, and AI generations are not used." }
+    ]
+  }
+}

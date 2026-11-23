@@ -1,0 +1,17 @@
+{
+  "slug": "konnect",
+  "name": "Konnect",
+  "official_url": "https://konnect.network/",
+  "image_url": "https://konnect.network/icon.svg?3612b4d35ed226c8",
+  "source_page": "https://konnect.network/",
+  "kind": "svg-icon",
+  "source_host": "konnect.network",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "678b8eb5d0f0eccfe4891bda99fd15aff024bdb6c90ff3c9b6541cdbeb719439",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

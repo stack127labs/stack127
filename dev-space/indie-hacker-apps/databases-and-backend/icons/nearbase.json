@@ -1,0 +1,17 @@
+{
+  "slug": "nearbase",
+  "name": "Nearbase",
+  "official_url": "https://nearbase.dev/",
+  "image_url": "https://nearbase.dev/android-chrome-512x512.png",
+  "source_page": "https://nearbase.dev/",
+  "kind": "manifest-icon",
+  "source_host": "nearbase.dev",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "cf1fcdc39a68a247de8d239d6230fd8b5733e879ac94db7c7bbc07decd1252ba",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

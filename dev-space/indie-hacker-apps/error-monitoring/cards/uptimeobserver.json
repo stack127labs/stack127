@@ -1,0 +1,29 @@
+{
+  "slug": "uptimeobserver",
+  "name": "UptimeObserver",
+  "url": "https://uptimeobserver.com/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP, DNS, TCP and ICMP monitoring from up to four regions (U01, U03)",
+      "status": "S02, S03: hosted status pages with email subscribers and incident history",
+      "cron": "J02: heartbeat URLs that record success or failure with duration (J02)"
+    }
+  },
+  "line": "Checks websites and networks, tracks heartbeats, and hosts status pages.",
+  "free": { "kind": "free", "text": "Free: 20 monitors, 5-min checks, 1 page, 1 email contact" },
+  "cells": { "interval": "300 s free, 60 s Indie, 30 s Pro", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "€6", "plan": "Indie", "state": "unclear", "math": "The Indie base is €6 a month for 5 one-minute endpoints, one location, one builder and an own-domain page." },
+      { "v": "€6", "plan": "Indie", "state": "unclear", "math": "The Indie base is €6 a month for 25 one-minute endpoints, one location, one builder and an own-domain page." },
+      { "v": "€24", "plan": "Pro", "state": "unclear", "math": "The Pro base is €24 a month for 100 one-minute endpoints, one location, one builder and an own-domain page." }
+    ]
+  }
+}

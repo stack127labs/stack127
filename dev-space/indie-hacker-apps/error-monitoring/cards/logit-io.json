@@ -1,0 +1,31 @@
+{
+  "slug": "logit-io",
+  "name": "Logit.io",
+  "url": "https://logit.io/",
+  "jobs": ["logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: hosted Logstash pipelines, OpenSearch search and dashboards (L02)",
+      "performance": "A01: distributed traces in Jaeger with latency comparison views"
+    }
+  },
+  "line": "Collects and searches logs with managed OpenSearch and alerting.",
+  "free": { "kind": "trial", "text": "14-day trial; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Logit.io doesn't have a dedicated error tracker that groups errors into issues." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Logit.io doesn't have a dedicated error tracker that groups errors into issues." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Logit.io doesn't have a dedicated error tracker that groups errors into issues." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

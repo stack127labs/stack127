@@ -1,0 +1,17 @@
+{
+  "slug": "neo4j-auradb-neo4j",
+  "name": "Neo4j AuraDB",
+  "official_url": "https://neo4j.com/product/auradb/",
+  "image_url": "https://neo4j.com/android-chrome-512x512.png",
+  "source_page": "https://neo4j.com/product/auradb/",
+  "kind": "manifest-icon",
+  "source_host": "neo4j.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "e9f5f9885bcd4dd2804327c94831050168b1be60ac2f727cad982e10d01f637f",
+  "note": "Neo4j brand mark used for AuraDB; the product page publishes the shared mark.",
+  "saved_at": "2026-11-14"
+}

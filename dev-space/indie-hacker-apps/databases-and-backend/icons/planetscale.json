@@ -1,0 +1,17 @@
+{
+  "slug": "planetscale",
+  "name": "PlanetScale",
+  "official_url": "https://planetscale.com/",
+  "image_url": "https://planetscale.com/icon-512.png",
+  "source_page": "https://planetscale.com/",
+  "kind": "manifest-icon",
+  "source_host": "planetscale.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "3802a3424d9046dda20f5738dcef4cad9ba389913e596a111273c71c52184b99",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

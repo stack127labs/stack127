@@ -1,0 +1,17 @@
+{
+  "slug": "flask-security",
+  "name": "Flask-Security (Flask-Security-Too)",
+  "official_url": "https://flask-security-too.readthedocs.io/en/stable/",
+  "image_url": "https://github.com/pallets-eco.png?size=460",
+  "source_page": "https://github.com/pallets-eco",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "37f6fb524360175af40b92a63d2d9906da8936a44f3f5d8b6bb3b5bc80aff833",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,58 @@
+{
+  "slug": "xsolla",
+  "name": "Xsolla",
+  "url": "https://xsolla.com/",
+  "jobs": [
+    "mor",
+    "gateway",
+    "billing",
+    "links"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: Pay Station merchant of record; Xsolla sells to the player on its own behalf",
+      "gateway": "F02: separate Xsolla Payment Service Provider; the publisher stays merchant of record",
+      "billing": "F14: subscriptions auto-renew from a saved account; F15: trials, plan changes and retries",
+      "links": "F16: Site Builder storefront and game-key payment links are documented"
+    }
+  },
+  "line": "Game checkout with subscriptions, tax handling, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "No upfront fee; 5% per transaction plus payment-channel costs"
+  },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "Global; license review and sanctions apply",
+    "payout": "Monthly; schedule depends on contract and minimum"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Standard Pay Station",
+        "state": "not_published",
+        "math": "Xsolla's own fee is 5%. The card processing costs on top aren't published, so the total isn't public."
+      }
+    ]
+  }
+}

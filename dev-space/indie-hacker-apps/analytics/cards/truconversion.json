@@ -1,0 +1,20 @@
+{
+  "slug": "truconversion", "name": "TruConversion", "url": "https://www.truconversion.com/",
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is session replay, heatmaps and funnel analytics; F17: DOM-based recording with passwords and card-like numbers not recorded",
+      "web": "F15: sessions, users, pageviews and pages per session, with source and campaign filters",
+      "product": "F16: branching funnels and visitor journeys with goal conversions and per-visit activity"
+    }
+  },
+  "line": "Tracks website sessions, heatmaps, funnels and form behavior.",
+  "free": {"kind": "trial", "text": "14-day trial; no permanent free plan"},
+  "cells": {"cookieless": "No (visitor cookies by default)", "location": "AWS; exact region unknown", "selfhost": "No (none found)"},
+  "costs": {"pv": [
+    {"v": "$49", "plan": "Business Basic", "state": "confirmed", "math": "10,000 tracked pageviews fit the 100,000 monthly allowance."},
+    {"v": "$49", "plan": "Business Basic", "state": "confirmed", "math": "100,000 tracked pageviews fit the 100,000 monthly allowance."},
+    {"v": "$490", "plan": "Agency Basic", "state": "confirmed", "math": "1,000,000 tracked pageviews fit the 1,000,000 monthly allowance."}
+  ]}
+}

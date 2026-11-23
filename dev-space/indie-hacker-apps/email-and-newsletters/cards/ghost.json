@@ -1,0 +1,30 @@
+{
+  "slug": "ghost",
+  "name": "Ghost",
+  "url": "https://ghost.org/",
+  "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: website posts, newsletters and email-only posts",
+      "marketing": "F02: welcome, upgrade and win-back sequences for members; general Automations is still beta"
+    }
+  },
+  "line": "Publish a website and send newsletters with managed hosting or your own server.",
+  "free": { "kind": "selfhost", "text": "Free MIT software; you run a server and connect Mailgun for bulk email" },
+  "cells": { "newsletters": "Yes", "api": "Yes; hosted Admin API on Publisher+" },
+  "costs": {
+    "subs": [
+      { "v": "USD 49.40", "plan": "Self-hosted + Mailgun", "state": "confirmed", "math": "1,000 subscribers: 4,000 bulk emails plus an assumed 1,000 system emails. $12 server (DigitalOcean 2GB), $2.40 backup, and $35 Mailgun Foundation plan for 50,000 emails, before extras and tax." },
+      { "v": "USD 49.40", "plan": "Self-hosted + Mailgun", "state": "confirmed", "math": "5,000 subscribers: 20,000 bulk emails plus an assumed 1,000 system emails. $12 server (DigitalOcean 2GB), $2.40 backup, and $35 Mailgun Foundation plan for 50,000 emails, before extras and tax." },
+      { "v": "USD 49.40", "plan": "Self-hosted + Mailgun", "state": "confirmed", "math": "10,000 subscribers: 40,000 bulk emails plus an assumed 1,000 system emails. $12 server (DigitalOcean 2GB), $2.40 backup, and $35 Mailgun Foundation plan for 50,000 emails, before extras and tax." },
+      { "v": "USD 215.50", "plan": "Self-hosted + Mailgun Scale", "state": "unclear", "math": "50,000 subscribers: 200,000 bulk emails plus an assumed 1,000 system emails. $12 server, $2.40 backup, and $90 Mailgun Scale plan, plus 101,000 extra emails at $1.10 per 1,000 if that rate applies. This is not exact." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general service for sending app emails from your code." }
+    ]
+  }
+}

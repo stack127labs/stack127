@@ -1,0 +1,17 @@
+{
+  "slug": "cyberpanel",
+  "name": "CyberPanel",
+  "official_url": "https://cyberpanel.net/",
+  "image_url": "https://cyberpanel.net/wp-content/uploads/cyberpanel-design/brand-20260909/favicon.svg",
+  "source_page": "https://cyberpanel.net/",
+  "kind": "svg-icon",
+  "source_host": "cyberpanel.net",
+  "original": {
+    "format": "svg",
+    "width": 533,
+    "height": 533
+  },
+  "sha256": "93f4c1d1eb34b3c26ef06c9e6c02dafa17e0446e082c9375f5d0080cbb183298",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

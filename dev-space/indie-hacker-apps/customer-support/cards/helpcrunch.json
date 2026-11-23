@@ -1,0 +1,29 @@
+{
+  "slug": "helpcrunch",
+  "name": "HelpCrunch",
+  "url": "https://helpcrunch.com/",
+  "jobs": ["chat", "helpdesk", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: self-service KB is part of the live chat and inbox product",
+      "chat": "F17: Native real-time website chat widget on Basic, Pro and Unlimited, with pre-chat forms",
+      "helpdesk": "F17: Native email ticketing by forwarding into HelpCrunch; F21: public help center articles and search",
+      "ai": "F22: Pro and Unlimited AI agents answer customers within chatbot flows, fed by the knowledge base",
+      "inbox": "F18: Manual assignment, departments, statuses, tags, private notes and saved responses in one inbox"
+    }
+  },
+  "line": "Live chat, shared support inbox, help center, and email campaigns.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Website chat, email, WhatsApp, social",
+    "ai": "Plan includes 50 AI conversations; add-ons available",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$15", "plan": "Basic", "state": "confirmed", "math": "One member at $15 a month for human website chat." },
+      { "v": "$45", "plan": "Basic", "state": "confirmed", "math": "Three members at $15 a month each for human website chat." }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "robotalp",
+  "name": "Robotalp",
+  "url": "https://robotalp.com/",
+  "jobs": ["uptime", "status", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: website availability checks with content rules and fixed schedules (U01, U02)",
+      "status": "S01, S03: public status pages with state from property measurements (S03)",
+      "performance": "C02: lab page-speed tests and real Chrome visitor speed data (U01)"
+    }
+  },
+  "line": "Checks website availability and page speed, then publishes status pages.",
+  "free": { "kind": "free", "text": "Free: 3 properties; 5-minute checks; 1 branded status page" },
+  "cells": {
+    "interval": "5 min free; 60 s paid",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Page-speed monitoring isn't application error tracking." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Page-speed monitoring isn't application error tracking." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Page-speed monitoring isn't application error tracking." }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Solo candidate", "state": "unclear", "math": "The Solo plan fits 5 sites at 60-second checks. Its current price and a fixed one-location setup aren't published." },
+      { "v": "Unknown", "plan": "Team candidate", "state": "unclear", "math": "The Team plan fits 25 sites at 60-second checks. Its current price and a fixed one-location setup aren't published." },
+      { "v": "Unknown", "plan": "Agency or special plan", "state": "unclear", "math": "The Agency plan's exact site limit and price aren't public. Whether 100 sites fit isn't confirmed." }
+    ]
+  }
+}

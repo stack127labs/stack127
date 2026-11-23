@@ -1,0 +1,26 @@
+{
+  "slug": "koko-analytics",
+  "name": "Koko Analytics",
+  "url": "https://www.kokoanalytics.com/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is WordPress website traffic analytics; F15: visitors, pageviews, popular pages, referrers and campaigns"
+    }
+  },
+  "line": "Stores WordPress traffic reports on your own server.",
+  "free": { "kind": "free", "text": "Free WordPress plugin; no pageview limit stated" },
+  "cells": {
+    "cookieless": "Optional; default uses a short-lived cookie",
+    "location": "Your WordPress server",
+    "selfhost": "Yes, runs on your WordPress server"
+  },
+  "costs": {
+    "pv": [
+      { "v": "€0", "plan": "Core plugin", "state": "confirmed", "math": "Core plugin costs €0; hosting, upkeep, and any applicable tax are separate." },
+      { "v": "€0", "plan": "Core plugin", "state": "confirmed", "math": "Core plugin costs €0; hosting, upkeep, and any applicable tax are separate." },
+      { "v": "€0", "plan": "Core plugin", "state": "confirmed", "math": "Core plugin costs €0; hosting, upkeep, and any applicable tax are separate." }
+    ]
+  }
+}

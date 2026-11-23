@@ -1,0 +1,46 @@
+{
+  "slug": "baremetrics",
+  "name": "Baremetrics",
+  "url": "https://baremetrics.com/",
+  "jobs": [
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary category is subscription revenue analytics; F19: MRR, net revenue, churn and retention from billing and store sources"
+    }
+  },
+  "line": "Subscription revenue metrics from Stripe and other billing tools.",
+  "free": {
+    "kind": "free",
+    "text": "Free through $180,000 tracked ARR"
+  },
+  "cells": {
+    "cookieless": "Unknown",
+    "location": "US servers (region not named)",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Billed by annual recurring revenue (ARR). Free up to $180,000 of tracked ARR, not pageviews."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Billed by annual recurring revenue (ARR). Free up to $180,000 of tracked ARR, not pageviews."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Billed by annual recurring revenue (ARR). Free up to $180,000 of tracked ARR, not pageviews."
+      }
+    ]
+  }
+}

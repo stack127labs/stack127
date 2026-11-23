@@ -1,0 +1,17 @@
+{
+  "slug": "paytr",
+  "name": "PayTR",
+  "official_url": "https://www.paytr.com/",
+  "image_url": "https://www.paytr.com/wp-content/uploads/favicon.png",
+  "source_page": "https://www.paytr.com/",
+  "kind": "favicon",
+  "source_host": "paytr.com",
+  "original": {
+    "format": "webp",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "57f8c688625338e2042f3144d0ccce6c5949cf7fbd6c4622a6a529088f3a0fe0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "cstate",
+  "name": "cState",
+  "official_url": "https://cstate.uncascade.com/",
+  "image_url": "https://github.com/cstate.png?size=460",
+  "source_page": "https://cstate.uncascade.com/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "853bcb422a9b1f8a05b12bf9799df767e2f7797a4a9b74da61720153c95e0e9d",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

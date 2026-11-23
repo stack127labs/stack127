@@ -1,0 +1,17 @@
+{
+  "slug": "stytch",
+  "name": "Stytch",
+  "official_url": "https://stytch.com/",
+  "image_url": "https://github.com/stytchauth.png?size=460",
+  "source_page": "https://github.com/stytchauth",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "aac3741aeaaad44ca768aeb35dff748419072778ffa680b721ec59e85e7789ff",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

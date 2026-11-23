@@ -1,0 +1,17 @@
+{
+  "slug": "hyperping",
+  "name": "Hyperping",
+  "official_url": "https://hyperping.com/",
+  "image_url": "https://hyperping.com/assets/hyperping/favicon-192.png",
+  "source_page": "https://hyperping.com/",
+  "kind": "favicon",
+  "source_host": "hyperping.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "1b118341f51739fd946c30a8f20a2ff6012378400d25da87c183d01df9a645e8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

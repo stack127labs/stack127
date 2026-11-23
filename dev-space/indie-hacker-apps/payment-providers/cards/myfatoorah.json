@@ -1,0 +1,52 @@
+{
+  "slug": "myfatoorah",
+  "name": "MyFatoorah",
+  "url": "https://www.myfatoorah.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant sells and delivers",
+      "billing": "F14: MyFatoorah-managed recurring charges with intervals and up to five retries; needs activation",
+      "links": "F16: payment links and product links usable without a separate online store"
+    }
+  },
+  "line": "Regional payment gateway for checkout, links, invoices and recurring charges.",
+  "free": {
+    "kind": "none",
+    "text": "Free account registration; live processing price is quoted"
+  },
+  "cells": {
+    "type": "Payment gateway and payment service provider",
+    "countries": "Kuwait and nearby markets only",
+    "payout": "Usually within 24 business hours or next business day"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Kuwait, Saudi Arabia, the United Arab Emirates (UAE), Bahrain, Qatar, Oman, Egypt and Jordan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Kuwait, Saudi Arabia, the United Arab Emirates (UAE), Bahrain, Qatar, Oman, Egypt and Jordan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Kuwait, Saudi Arabia, the United Arab Emirates (UAE), Bahrain, Qatar, Oman, Egypt and Jordan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Kuwait, Saudi Arabia, the United Arab Emirates (UAE), Bahrain, Qatar, Oman, Egypt and Jordan."
+      }
+    ]
+  }
+}

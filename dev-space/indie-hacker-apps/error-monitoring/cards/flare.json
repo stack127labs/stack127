@@ -1,0 +1,32 @@
+{
+  "slug": "flare",
+  "name": "Flare",
+  "url": "https://flareapp.io/",
+  "jobs": ["errors", "logs", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: application error tracking is the first job (E01, E03)",
+      "logs": "L02: live log stream searchable by message, host and severity (L01)",
+      "performance": "A01: request, query and queued-job spans with per-trace waterfalls"
+    }
+  },
+  "line": "Tracks Laravel errors, logs and performance traces in production.",
+  "free": { "kind": "trial", "text": "10-day trial, no card; no ongoing free plan" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$29", "plan": "Standard", "state": "confirmed", "math": "5,000 reports fit the Standard plan's 100,000 monthly occurrences, for three projects." },
+      { "v": "$29", "plan": "Standard", "state": "confirmed", "math": "50,000 reports fit the Standard plan's 100,000 monthly occurrences, for three projects." },
+      { "v": "$279", "plan": "Premium", "state": "confirmed", "math": "500,000 is more than the Growth plan's 300,000, so the Premium plan is needed, which covers 2,000,000 occurrences." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

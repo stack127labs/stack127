@@ -1,0 +1,17 @@
+{
+  "slug": "cashfree-payments",
+  "name": "Cashfree Payments",
+  "official_url": "https://www.cashfree.com/payment-links/",
+  "image_url": "https://www.cashfree.com/favicon.svg",
+  "source_page": "https://www.cashfree.com/payment-links/",
+  "kind": "svg-icon",
+  "source_host": "cashfree.com",
+  "original": {
+    "format": "svg",
+    "width": 811,
+    "height": 811
+  },
+  "sha256": "f9f048b7277b26d0b089bcd1e65444455d60f6cf143a6140333cadd1ab9fb7b6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

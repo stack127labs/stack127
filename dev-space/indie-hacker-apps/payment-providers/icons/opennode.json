@@ -1,0 +1,17 @@
+{
+  "slug": "opennode",
+  "name": "OpenNode",
+  "official_url": "https://opennode.com/",
+  "image_url": "https://opennode.com/icons/icon-512x512.png",
+  "source_page": "https://opennode.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "opennode.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "94f25fbaf82005a87c7170ba91d9c89efcc2d3522a9daadd4f8e95c0e247d5c3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

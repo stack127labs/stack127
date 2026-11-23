@@ -1,0 +1,34 @@
+{
+  "slug": "ovhcloud-managed-databases",
+  "name": "OVHcloud Managed Databases",
+  "url": "https://www.ovhcloud.com/en/public-cloud/databases/",
+  "jobs": ["sql", "nosql", "kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "C02: current product cards include managed MongoDB; C03: both MongoDB plans are included in the service",
+      "sql": "C02: managed database catalogue with PostgreSQL and MySQL; D01: PostgreSQL 15-18 and MySQL 8.4",
+      "kv": "D01: managed Valkey 8.1 and 9.1 clusters",
+      "vector": "V01: managed PostgreSQL offers pgvector"
+    }
+  },
+  "line": "Managed PostgreSQL, MySQL, MongoDB, and Valkey database clusters.",
+  "free": { "kind": "credits", "text": "UK: £175/1mo credit; idle clusters bill; projects may delete after 6mo unbilled" },
+  "cells": {
+    "metered": "SQL Business: £0.1632/hour for 2 nodes",
+    "regions": "UK prices shown; tiers and availability vary by region",
+    "selfhost": "No, OVHcloud operates the managed clusters"
+  },
+  "costs": {
+    "sql": [
+      { "v": "£119.136", "plan": "PostgreSQL Business DB1-4, GRA", "state": "confirmed", "math": "2 nodes × £0.0816 per node an hour × 730 hours = £119.136. The total excludes VAT." },
+      { "v": "£119.136", "plan": "PostgreSQL Business DB1-4, GRA", "state": "confirmed", "math": "2 × £0.0816 × 730 hours = £119.136, excluding VAT. The running allocation costs the same with no queries." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Managed Databases does not provide separate object storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "PostgreSQL Business DB1-4", "state": "unclear", "math": "£119.136 is the kept database part. pg_cron (a scheduler inside the database) shares its resources and has no separate job price." }
+    ]
+  }
+}

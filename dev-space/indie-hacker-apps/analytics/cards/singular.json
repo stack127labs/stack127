@@ -1,0 +1,18 @@
+{
+  "slug": "singular", "name": "Singular", "url": "https://www.singular.net/",
+  "jobs": ["product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F16: standard and custom events, install-date cohorts, retention and cumulative revenue; main job is attribution, which no job covers"
+    }
+  },
+  "line": "Measures mobile ad attribution, campaign results and conversion costs.",
+  "free": {"kind": "credits", "text": "Free: first 15,000 attributed conversions"},
+  "cells": {"cookieless": "No (web ID stored in localStorage)", "location": "US (AWS storage)", "selfhost": "No"},
+  "costs": {"pv": [
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Priced by conversions it can credit to a source, not pageviews."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Priced by conversions it can credit to a source, not pageviews."},
+    {"v": "—", "plan": "", "state": "not_applicable", "math": "Priced by conversions it can credit to a source, not pageviews."}
+  ]}
+}

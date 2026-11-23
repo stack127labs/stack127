@@ -1,0 +1,20 @@
+{
+  "slug": "azure-storage-static-website-hosting",
+  "name": "Azure Storage static website hosting",
+  "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website",
+  "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "04: static HTML, CSS, JavaScript and images served from blob storage; no server-rendered apps"
+    }
+  },
+  "line": "Serve static website files from Azure Blob Storage.",
+  "free": { "kind": "credits", "text": "$200 trial credit for 30 days; ongoing first 100GB egress free" },
+  "cells": { "type": "Object storage hosting", "regions": "Azure storage regions; Front Door is global", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The cost depends on where files are delivered and on Blob reads, writes, lists and upstream data. Example: 1 million reads, 2,000 writes, 20 lists and 1 GB of upstream data = $44.63203715 a month." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Blob website mode serves static files and does not run API code." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Blob website mode does not provide API execution or PostgreSQL." }
+  ] }
+}

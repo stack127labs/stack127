@@ -1,0 +1,26 @@
+{
+  "slug": "putler",
+  "name": "Putler",
+  "url": "https://www.putler.com/",
+  "jobs": ["revenue"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "revenue": "F02: primary job is consolidating sales and customer data from payment and store sources; F19: gross and net sales, MRR and ARR"
+    }
+  },
+  "line": "Combines sales and customer data from payment and store sources.",
+  "free": { "kind": "trial", "text": "14-day no-card trial; unlimited accounts/orders; 90-day reports" },
+  "cells": {
+    "cookieless": "Unknown, visitor cookie claims conflict",
+    "location": "Europe; exact data region not published",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Revenue reports are priced by tracked monthly revenue, not pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Revenue reports are priced by tracked monthly revenue, not pageviews." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Revenue reports are priced by tracked monthly revenue, not pageviews." }
+    ]
+  }
+}

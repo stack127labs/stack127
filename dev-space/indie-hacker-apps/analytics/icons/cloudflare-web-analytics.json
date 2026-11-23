@@ -1,0 +1,17 @@
+{
+  "slug": "cloudflare-web-analytics",
+  "name": "Cloudflare Web Analytics",
+  "official_url": "https://www.cloudflare.com/web-analytics/",
+  "image_url": "https://www.cloudflare.com/favicon.ico",
+  "source_page": "https://www.cloudflare.com/web-analytics/",
+  "kind": "favicon",
+  "source_host": "cloudflare.com",
+  "original": {
+    "format": "png",
+    "width": 99,
+    "height": 96
+  },
+  "sha256": "133d378ed42b1d8d318cbfecbebdcdbbf3cd6d6f4cd9b12f8663d55448411adf",
+  "note": "parent brand: Cloudflare; Web Analytics has no separate product mark",
+  "saved_at": "2026-11-14"
+}

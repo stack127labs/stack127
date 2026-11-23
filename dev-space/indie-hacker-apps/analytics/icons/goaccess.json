@@ -1,0 +1,17 @@
+{
+  "slug": "goaccess",
+  "name": "GoAccess",
+  "official_url": "https://goaccess.io/",
+  "image_url": "https://raw.githubusercontent.com/allinurl/goaccess/master/resources/goaccess.svg",
+  "source_page": "https://github.com/allinurl/goaccess",
+  "kind": "other",
+  "source_host": "raw.githubusercontent.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "989a8996c383b64ae90c210a390b0f75f25c192c5c7929dbf6744be9dcb4ad8b",
+  "note": "project logo from its GitHub repo (resources/goaccess.svg)",
+  "saved_at": "2026-11-22"
+}

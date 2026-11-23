@@ -1,0 +1,17 @@
+{
+  "slug": "edesk",
+  "name": "eDesk",
+  "official_url": "https://www.edesk.com/",
+  "image_url": "https://www.edesk.com/apple-touch-icon.png",
+  "source_page": "https://www.edesk.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "edesk.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "207473501ca1042e24360c87415eb6e9b2512960dfd0413beb40f850e937a063",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

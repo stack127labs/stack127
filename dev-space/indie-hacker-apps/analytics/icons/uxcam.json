@@ -1,0 +1,17 @@
+{
+  "slug": "uxcam",
+  "name": "UXCam",
+  "official_url": "https://uxcam.com/",
+  "image_url": "https://uxcam.com/favicon.svg?v=ff209d027d9e4e30b508eab9f66d1db1",
+  "source_page": "https://uxcam.com/",
+  "kind": "svg-icon",
+  "source_host": "uxcam.com",
+  "original": {
+    "format": "svg",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "3e0767dd01a338cc9df88c3e138f8328b211f2c5c767e0dfe85ee0cc74b9939b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "khalti-by-ime",
+  "name": "Khalti by IME",
+  "official_url": "https://khalti.com/",
+  "image_url": "https://khalti-static.s3.ap-south-1.amazonaws.com/cloudfront-cdn/jamara/web19/images/favicon.png",
+  "source_page": "https://khalti.com/",
+  "kind": "favicon",
+  "source_host": "khalti-static.s3.ap-south-1.amazonaws.com",
+  "original": {
+    "format": "png",
+    "width": 692,
+    "height": 692
+  },
+  "sha256": "77405b7325ac84ba31a86cf4886a7c348625bb9603d065b59e1d18b2a9622e71",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

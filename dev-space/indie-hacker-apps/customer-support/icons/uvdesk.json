@@ -1,0 +1,17 @@
+{
+  "slug": "uvdesk",
+  "name": "UVdesk",
+  "official_url": "https://www.uvdesk.com/",
+  "image_url": "https://github.com/uvdesk.png?size=460",
+  "source_page": "https://github.com/uvdesk",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 150,
+    "height": 150
+  },
+  "sha256": "e32774bd54e875581af78455235c366b23423a15fb01ca93b044e2a60498d95c",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "errbit",
+  "name": "Errbit",
+  "official_url": "https://errbit.com/",
+  "image_url": "https://github.com/errbit.png?size=460",
+  "source_page": "https://errbit.com/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "jpeg",
+    "width": 121,
+    "height": 121
+  },
+  "sha256": "361826ea08f12649a77cd8c0aad86a0c9c51b668a55e3b149d9361b70e361cff",
+  "note": "official GitHub organization avatar; only available logo is a wordmark",
+  "saved_at": "2026-11-14"
+}

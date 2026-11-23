@@ -1,0 +1,20 @@
+{
+  "slug": "infomaniak-public-cloud",
+  "name": "Infomaniak Public Cloud",
+  "url": "https://www.infomaniak.com/en/hosting/public-cloud",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: IaaS virtual machines on OpenStack; the customer is the sole administrator of the guest OS and apps"
+    }
+  },
+  "line": "Provision OpenStack virtual machines and manage their software yourself.",
+  "free": { "kind": "credits", "text": "CHF300 one-time credit; up to 3 months; card and matching phone required" },
+  "cells": { "type": "IaaS virtual machines", "regions": "Switzerland", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "CHF 8.0081", "plan": "1 vCPU/2 GB/20 GB + IPv4", "state": "confirmed", "math": "(CHF 0.0064 + CHF 0.00457) × 730 hours. 100 GB of transfer is listed as free. No backup or load balancer is included. VAT depends on the billing country." },
+    { "v": "CHF 8.0081", "plan": "1 vCPU/2 GB/20 GB + IPv4", "state": "confirmed", "math": "A VM for 730 hours + an IPv4 address. 100 GB of transfer is listed as free, with no request meter. VAT treatment differs across official sources." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The VM and IPv4 address subtotal is CHF 13.5488 a month. The 10 GB volume rate and daily 7-day backup storage are not priced." }
+  ] }
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "measure-events",
+  "name": "Measure",
+  "url": "https://measure.events/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is website traffic analytics; F15: pageviews, unique visitors, top pages, referrers and countries"
+    }
+  },
+  "line": "Tracks website visitors, AI agents, bots, and server events.",
+  "free": { "kind": "trial", "text": "14-day trial; then $29/month" },
+  "cells": {
+    "cookieless": "Yes, no analytics cookies or local storage",
+    "location": "Germany",
+    "selfhost": "No"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$29", "plan": "Monthly plan", "state": "confirmed", "math": "$29 a month covers up to 40 sites. Pageview volume does not change the fee." },
+      { "v": "$29", "plan": "Monthly plan", "state": "confirmed", "math": "$29 a month covers up to 40 sites. Pageview volume does not change the fee." },
+      { "v": "$29", "plan": "Monthly plan", "state": "confirmed", "math": "$29 a month covers up to 40 sites. Pageview volume does not change the fee." }
+    ]
+  }
+}

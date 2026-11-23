@@ -1,0 +1,27 @@
+{
+  "slug": "chatra",
+  "name": "Chatra",
+  "url": "https://chatra.com/",
+  "jobs": ["chat", "helpdesk", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native online and offline website chat widget on all plans; Free allows five chats a month",
+      "helpdesk": "F17: Essential and Pro include an email helpdesk; forward the support email in and answer in Chatra",
+      "inbox": "F02: Website chat and messaging with a shared email and social inbox that agents work from"
+    }
+  },
+  "line": "Website chat and email messaging with a shared agent inbox.",
+  "free": { "kind": "free", "text": "Free for 1 agent, limited to 5 chats/month" },
+  "cells": {
+    "channels": "Website chat, email, Messenger, Instagram",
+    "ai": "No generative AI; scripted bots",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$31", "plan": "Essential", "state": "confirmed", "math": "One agent at $31 a month. The free plan is limited to five chats, which is fewer than 100." },
+      { "v": "$93", "plan": "Essential", "state": "confirmed", "math": "Three agents at $31 a month each. 100 conversations fit in the paid chat allowance." }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "feathers-authentication",
+  "name": "Feathers Authentication",
+  "url": "https://feathersjs.com/api/authentication/",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Node.js authentication service in the developer's app; F05: developer runs the app and database"
+    }
+  },
+  "line": "Node.js authentication plugins for REST and Socket.io apps.",
+  "free": { "kind": "selfhost", "text": "Free MIT packages; you run them" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No hosted SSO fee or connection plan"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core and local package licences cost $0. Database, hosting, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core and local package licences cost $0. Database, hosting, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core and local package licences cost $0. Database, hosting, delivery and operations cost extra." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The core and local package licences cost $0. Database, hosting, delivery and operations cost extra." }
+    ]
+  }
+}

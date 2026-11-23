@@ -41,7 +41,7 @@ function sourceProbe({published=true,domainRating=null}={}) {
 }
 function refreshRoute({probe,fetch,query=async()=>({rows:[]})}) {
   const ignored=['apps','terminal-apps','self-host-apps-search-data','self-host-apps-search',
-    'self-hosted-app-resource-planner/data','platform-fees/groups','launch-directories-data'];
+    'self-hosted-app-resource-planner/data','platform-fees/groups','launch-directories-data','indie-hacker-apps'];
   return load('../../../app/api/cache/refresh/route.ts',{
     ...Object.fromEntries(ignored.map(name=>[`@/lib/${name}`,{}])),
     'next/server':{NextResponse:{json:(body,options)=>Response.json(body,options)}},

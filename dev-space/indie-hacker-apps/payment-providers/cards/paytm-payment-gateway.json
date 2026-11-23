@@ -1,0 +1,51 @@
+{
+  "slug": "paytm-payment-gateway",
+  "name": "Paytm Payment Gateway",
+  "url": "https://business.paytm.com/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment aggregation and gateway; the merchant remains the seller",
+      "links": "F16: links and invoices collect payment without a website; shared by SMS, email or WhatsApp"
+    }
+  },
+  "line": "Indian online gateway with checkout, payment links and recurring payments.",
+  "free": {
+    "kind": "none",
+    "text": "₹0 setup and annual maintenance; transaction charges apply"
+  },
+  "cells": {
+    "type": "Online payment aggregation and gateway",
+    "countries": "India only",
+    "payout": "T+2 business days in agreement; marketing also says T+1"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in India."
+      },
+      {
+        "v": "2.95% effective",
+        "plan": "Domestic credit card including fee GST",
+        "state": "unclear",
+        "math": "Add 0.51% for card processing and 1.99% for extra services, then multiply by 1.18 for GST (India's goods and services tax). That gives 2.95%."
+      }
+    ]
+  }
+}

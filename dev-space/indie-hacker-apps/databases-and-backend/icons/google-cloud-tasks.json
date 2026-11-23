@@ -1,0 +1,17 @@
+{
+  "slug": "google-cloud-tasks",
+  "name": "Google Cloud Tasks",
+  "official_url": "https://docs.cloud.google.com/tasks/docs",
+  "image_url": "https://services.google.com/fh/files/misc/google-cloud-legacy-icons.zip",
+  "source_page": "https://cloud.google.com/icons",
+  "kind": "press-kit",
+  "source_host": "services.google.com",
+  "original": {
+    "format": "svg",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "41f31cdc4e2963af9b4aef655cb3437e4de2391028e67cbd8bfa2b750bd8b189",
+  "note": "official Google Cloud icons: Cloud Tasks",
+  "saved_at": "2026-11-14"
+}

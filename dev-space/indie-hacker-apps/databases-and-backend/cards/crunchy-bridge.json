@@ -1,0 +1,32 @@
+{
+  "slug": "crunchy-bridge",
+  "name": "Crunchy Bridge",
+  "url": "https://www.crunchydata.com/products/crunchy-bridge",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: native PostgreSQL",
+      "vector": "V01: pgvector available on all Bridge clusters after enablement"
+    }
+  },
+  "line": "Run managed PostgreSQL with vector search and SQL scheduling.",
+  "free": { "kind": "none", "text": "No free tier; bills under $5 are waived; no idle deletion rule; suspend manually" },
+  "cells": {
+    "metered": "AWS East Standard-4 from $70/month, plus storage",
+    "regions": "AWS, Azure, and Google Cloud regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$71", "plan": "AWS East Standard-4", "state": "unclear", "math": "$70 for compute, plus 10 GB of allocated storage at $0.10 per GB a month. Tax is not included. The total is $71." },
+      { "v": "$71", "plan": "AWS East Standard-4, online", "state": "unclear", "math": "The Standard-4 compute, provisioned for 730 hours, and 10 GB of storage keep billing while idle." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate file storage service." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "The SQL scheduler runs inside the database. Standalone job-worker resources and prices per run are not published." }
+    ]
+  }
+}

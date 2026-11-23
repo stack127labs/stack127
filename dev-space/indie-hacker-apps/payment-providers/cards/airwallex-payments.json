@@ -1,0 +1,23 @@
+{
+  "slug": "airwallex-payments",
+  "name": "Airwallex Payments",
+  "url": "https://www.airwallex.com/global/payments",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and acquirer; for standard Payments you remain the legal seller",
+      "billing": "F15: Billing supports subscriptions, seat, tiered and usage pricing, trials",
+      "links": "F16: no-code payment links and QR codes are documented"
+    }
+  },
+  "line": "Accept card payments through an online payment gateway.",
+  "free": { "kind": "none", "text": "US, Singapore, and Hong Kong plans have no monthly fee" },
+  "cells": { "type": "Payment gateway and processor", "countries": "US, UK, EEA, AU, SG, HK and more", "payout": "Local transfers free in listed markets" },
+  "costs": { "fee": [
+    { "v": "2.80% + USD 0.30", "plan": "Explore", "state": "confirmed", "math": "Rate for a Visa or Mastercard card from the US, paid to a US seller." },
+    { "v": "1.30% + GBP 0.20", "plan": "Explore", "state": "confirmed", "math": "Rate for a Visa or Mastercard card from the UK, paid to a UK seller." },
+    { "v": "1.30% + EUR 0.25", "plan": "Explore", "state": "confirmed", "math": "Rate for a Visa or Mastercard card from a consumer in the European Economic Area (EEA)." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "India is not on Airwallex's list of seller locations, so no rate is shown." }
+  ] }
+}

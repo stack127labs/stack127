@@ -1,0 +1,17 @@
+{
+  "slug": "mailersend",
+  "name": "MailerSend",
+  "official_url": "https://www.mailersend.com/",
+  "image_url": "https://www.mailersend.com/favicon/favicon.svg",
+  "source_page": "https://www.mailersend.com/",
+  "kind": "svg-icon",
+  "source_host": "mailersend.com",
+  "original": {
+    "format": "svg",
+    "width": 427,
+    "height": 427
+  },
+  "sha256": "52c757b1c43e64273a7f088b929bdfa11d2986bc1e1e2fe61dc22db9473681a3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "upptime",
+  "name": "Upptime",
+  "url": "https://upptime.js.org/",
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: external uptime and response-time checks run from GitHub Actions (U01, U02)",
+      "status": "S01, S03: public status site generated from monitor failures and issues"
+    }
+  },
+  "line": "Runs uptime checks and publishes status through GitHub repositories.",
+  "free": { "kind": "selfhost", "text": "Free MIT app; unlimited sites on public repos and standard runners" },
+  "cells": { "interval": "300 s minimum", "maintained": "Last release 2026-10-25" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The documented minimum of 300 seconds doesn't allow 60-second checks. Costs for slower checks on public runners are a separate workload." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The documented minimum of 300 seconds doesn't allow 60-second checks. Costs for slower checks on public runners are a separate workload." },
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "The documented minimum of 300 seconds doesn't allow 60-second checks. Costs for slower checks on public runners are a separate workload." }
+    ]
+  }
+}

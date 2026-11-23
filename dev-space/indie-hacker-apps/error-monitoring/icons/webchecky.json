@@ -1,0 +1,17 @@
+{
+  "slug": "webchecky",
+  "name": "WebChecky",
+  "official_url": "https://webchecky.com/",
+  "image_url": "https://webchecky.com/static/images/favicon.png",
+  "source_page": "https://webchecky.com/",
+  "kind": "favicon",
+  "source_host": "webchecky.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "974b29d801a68e761b801e1fa6408a380a86d1508fa565d253097ed3312ab3d2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

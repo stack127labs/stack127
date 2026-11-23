@@ -1,0 +1,32 @@
+{
+  "slug": "maileroo",
+  "name": "Maileroo",
+  "url": "https://maileroo.com/",
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional app email through the SMTP relay and REST API"
+    }
+  },
+  "line": "Hosted SMTP relay and email API for transactional messages.",
+  "free": { "kind": "free", "text": "3,000 emails/month after approval; starts with 100 test sends" },
+  "cells": {
+    "newsletters": "No, use CampaignLark for newsletter campaigns",
+    "api": "Yes, REST Email API and SMTP relay"
+  },
+  "costs": {
+    "subs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Maileroo is an app email service. CampaignLark is a separate marketing product." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Maileroo is an app email service. CampaignLark is a separate marketing product." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Maileroo is an app email service. CampaignLark is a separate marketing product." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Maileroo is an app email service. CampaignLark is a separate marketing product." }
+    ],
+    "appmail": [
+      { "v": "$0/month", "plan": "Maileroo Free", "state": "confirmed", "math": "3,000 single-recipient emails a month fit the monthly quota, after domain and account approval. New accounts start with 100 test emails to 7 recipients." },
+      { "v": "$10/month", "plan": "Maileroo Basic", "state": "confirmed", "math": "10,000 single-recipient emails a month fit inside Basic's 25,000 monthly quota, after domain and account approval." },
+      { "v": "$15/month", "plan": "Maileroo Starter", "state": "confirmed", "math": "50,000 single-recipient emails a month use Starter's 50,000 monthly quota, after domain and account approval." },
+      { "v": "$30/month", "plan": "Maileroo Premium", "state": "confirmed", "math": "100,000 single-recipient emails a month use Premium's 100,000 monthly quota, after domain and account approval." }
+    ]
+  }
+}

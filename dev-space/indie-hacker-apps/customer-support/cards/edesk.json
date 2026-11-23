@@ -1,0 +1,29 @@
+{
+  "slug": "edesk",
+  "name": "eDesk",
+  "url": "https://www.edesk.com/",
+  "jobs": ["helpdesk", "chat", "ai", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: help articles are part of the ecommerce help desk",
+      "helpdesk": "F10: Per-user plans include unlimited tickets; F17: built-in connected support email and ticket forms",
+      "chat": "F17: Native browser widget with live human chat and an optional chatbot",
+      "ai": "F14: AI Agent is included in every plan and billed per completed outcome at 0.99",
+      "inbox": "F18: Shared inbox with one ticket owner at a time, manual, bulk and rule assignment, and private notes"
+    }
+  },
+  "line": "Ecommerce help desk that brings store and marketplace support together.",
+  "free": { "kind": "trial", "text": "14-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, marketplaces, social",
+    "ai": "$0.99 per billable automated outcome",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$55", "plan": "Essential", "state": "confirmed", "math": "1 agent at $55 a month, with email support and 100 conversations." },
+      { "v": "$165", "plan": "Essential", "state": "confirmed", "math": "3 agents at $55 a month each, with email support and 100 conversations." }
+    ]
+  }
+}

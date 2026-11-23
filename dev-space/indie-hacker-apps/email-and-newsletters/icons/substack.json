@@ -1,0 +1,17 @@
+{
+  "slug": "substack",
+  "name": "Substack",
+  "official_url": "https://substack.com/",
+  "image_url": "https://substackcdn.com/icons/substack/icon.svg",
+  "source_page": "https://substack.com/",
+  "kind": "svg-icon",
+  "source_host": "substackcdn.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "16edf59c16084bbcfcb0b9bf34d1aa42ee9b8bebeef9b02189c0f6dc3ae18318",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

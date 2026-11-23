@@ -1,0 +1,31 @@
+{
+  "slug": "backblaze-b2",
+  "name": "Backblaze B2",
+  "url": "https://www.backblaze.com/cloud-storage",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: managed file and object storage is the primary role; F05: S3-compatible subset plus Native API"
+    }
+  },
+  "line": "Store files in hosted object storage with S3-compatible APIs.",
+  "free": { "kind": "free", "text": "First 10 GB stored free per account" },
+  "cells": {
+    "metered": "$6.95/TB per 30 days; another official page differs",
+    "regions": "4 regions; one region per classic account",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No database service" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No database service" }
+    ],
+    "files": [
+      { "v": "$0.6255", "plan": "B2 standard, 30 days", "state": "unclear", "math": "(100 GB − 10 GB always free) ÷ 1,000 to get TB, × $6.95 per TB. This conflicts with the transactions page's $0.005 per GB rate, so the total is unclear." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No queue or workflow service" }
+    ]
+  }
+}

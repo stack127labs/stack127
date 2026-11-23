@@ -1,0 +1,35 @@
+{
+  "slug": "codehooks",
+  "name": "Codehooks",
+  "url": "https://codehooks.io/",
+  "jobs": ["backend", "nosql", "kv", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: JSON document collections with a MongoDB-style query subset; C07: NoSQL is in the project",
+      "backend": "C02: managed backend platform with NoSQL, API functions, files, queues and workflows",
+      "kv": "D01: Redis-like string and object operations, counters and optional TTL",
+      "files": "F01: 1 GB files included; F04: saveFile accepts binary streams",
+      "jobs": "J01: managed queue workers, cron jobs and workflow steps run on the platform"
+    }
+  },
+  "line": "Build APIs with document data, functions, files, and job queues.",
+  "free": { "kind": "free", "text": "1 dev, 1 Space; 1 req/s, 500/day; DB 150 MB, files 1 GB; no idle rule" },
+  "cells": {
+    "metered": "Pro $19/month; extra storage billed separately",
+    "regions": "EU hosting in Amsterdam and Ireland; no region choice",
+    "selfhost": "No, local Docker only"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$19", "plan": "Pro", "state": "unclear", "math": "1 GB needs the Pro plan. If 120K reads and writes a month are sent as HTTP calls, that is 4K a day, compared with 500 a day on Free. Peak capacity is unknown." },
+      { "v": "$19", "plan": "Pro", "state": "confirmed", "math": "The Pro subscription stays at $19 a month with zero calls. No discount for idle compute is listed." }
+    ],
+    "files": [
+      { "v": "$20.50", "plan": "Pro", "state": "unclear", "math": "$19 base, plus (100 GB − 25 GB) × $0.02 a GB. The add-on's billing period and transfer charges are unknown." }
+    ],
+    "jobs": [
+      { "v": "$19", "plan": "Pro", "state": "unclear", "math": "10K jobs, each one second long, with a peak of 5 at once, fit Pro's 5 workers and 3-minute timeout. Whether CPU, RAM and queue rates fit is still unknown." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "emailit",
+  "name": "Emailit",
+  "official_url": "https://emailit.com/",
+  "image_url": "https://emailit.com/favicon.svg",
+  "source_page": "https://emailit.com/",
+  "kind": "svg-icon",
+  "source_host": "emailit.com",
+  "original": {
+    "format": "svg",
+    "width": 1503,
+    "height": 1183
+  },
+  "sha256": "0abad494655eeabfbebe48f8867dd38ebb1d33e4fc0b7dd8b94f17729812ff88",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

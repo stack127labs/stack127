@@ -1,0 +1,17 @@
+{
+  "slug": "azul",
+  "name": "AZUL",
+  "official_url": "https://www.azul.com.do/",
+  "image_url": "https://www.azul.com.do/SiteCollectionImages/icons/android-chrome-512x512.png",
+  "source_page": "https://www.azul.com.do/",
+  "kind": "manifest-icon",
+  "source_host": "azul.com.do",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "979bc237d5fbc981c99fb664d8b5080e92a0f84536fbef760ac1b94e2673f428",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

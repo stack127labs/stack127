@@ -1,0 +1,17 @@
+{
+  "slug": "billplz",
+  "name": "Billplz",
+  "official_url": "https://main.billplz.com/",
+  "image_url": "https://main.billplz.com/assets/favicon/favicon.svg?v=1.1",
+  "source_page": "https://main.billplz.com/",
+  "kind": "svg-icon",
+  "source_host": "main.billplz.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "50f6a23d980a939e58891f5ca7d9da5ed750039d5c0ade139d0b3e51645f85c8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

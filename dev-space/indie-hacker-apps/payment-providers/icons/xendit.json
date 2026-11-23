@@ -1,0 +1,17 @@
+{
+  "slug": "xendit",
+  "name": "Xendit",
+  "official_url": "https://www.xendit.co/en/",
+  "image_url": "https://www.xendit.co/wp-content/uploads/2025/09/xd-favicon.png",
+  "source_page": "https://www.xendit.co/en/",
+  "kind": "favicon",
+  "source_host": "xendit.co",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 503
+  },
+  "sha256": "d7b6f6496221706fa19d72e33b43cc5ed998473694264d29bb2fd966769107d6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

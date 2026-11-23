@@ -1,0 +1,31 @@
+{
+  "slug": "encharge",
+  "name": "Encharge",
+  "url": "https://encharge.io/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle and behavior-based email sequences through flows",
+      "newsletter": "F02: one-off newsletters and marketing broadcasts to a segment",
+      "transactional": "F02: transactional messages such as resets and receipts, sent through a flow or API on Premium"
+    }
+  },
+  "line": "Build marketing email journeys and send newsletters or transactional messages.",
+  "free": { "kind": "trial", "text": "14-day trial for up to 1,000 subscribers; no card" },
+  "cells": { "newsletters": "Yes", "api": "Yes, transactional email on Premium" },
+  "costs": {
+    "subs": [
+      { "v": "$99", "plan": "Growth, 2,000 subscribers", "state": "confirmed", "math": "1,000 subscribers × 4 campaigns = 4,000 sends a month. Growth costs $99 a month at the 2,000-subscriber tier shown." },
+      { "v": "Unknown", "plan": "Growth", "state": "unclear", "math": "20,000 sends a month fit the published ratio. The exact price for the 5,000-subscriber tier needs the pricing page's selector." },
+      { "v": "Unknown", "plan": "Growth", "state": "unclear", "math": "40,000 sends a month fit the published ratio. The exact price for the 10,000-subscriber tier needs the pricing page's selector." },
+      { "v": "Unknown", "plan": "Growth", "state": "unclear", "math": "200,000 sends a month fit the published ratio. The exact price for the 50,000-subscriber tier needs the pricing page's selector." }
+    ],
+    "appmail": [
+      { "v": "$159", "plan": "Premium, 2,000 subscribers", "state": "confirmed", "math": "3,000 app sends a month are below the 24,000 included monthly sends. Premium costs $159 a month." },
+      { "v": "$159", "plan": "Premium, 2,000 subscribers", "state": "confirmed", "math": "10,000 app sends a month are below the 24,000 included monthly sends. Premium costs $159 a month." },
+      { "v": "$185", "plan": "Premium + estimated overage", "state": "unclear", "math": "$159 for Premium, plus 26,000 sends over the included limit at $100 per 100,000 = $185 estimated. How partial blocks are billed is unclear." },
+      { "v": "$235", "plan": "Premium + estimated overage", "state": "unclear", "math": "$159 for Premium, plus 76,000 sends over the included limit at $100 per 100,000 = $235 estimated. How partial blocks are billed is unclear." }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "slug": "upstash-qstash",
+  "name": "Upstash QStash",
+  "url": "https://upstash.com/qstash",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: HTTP messaging with queues, retries, delayed and scheduled delivery; J04: cron schedules with time zones"
+    }
+  },
+  "line": "Managed HTTP messaging for queues, retries, scheduled delivery and webhooks.",
+  "free": { "kind": "free", "text": "1,000 msgs/day; 50 GB/mo; Terms may delete idle Free resources after 1 week" },
+  "cells": {
+    "metered": "$1/100K attempts; over 50 GB: $0.05/GB",
+    "regions": "EU Central and US East",
+    "selfhost": "No (none found), hosted HTTP delivery service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "QStash is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "QStash is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "QStash is not a file-storage service."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$0.10+",
+        "plan": "Pay as You Go",
+        "state": "unclear",
+        "math": "Assumes 10,000 jobs create 10,000 first attempts, with no retries, fan-out (one message sent to many places) or callbacks. $1 × 10,000 ÷ 100,000 = $0.10. Bandwidth over 50 GB and destination hosting are extra."
+      }
+    ]
+  }
+}

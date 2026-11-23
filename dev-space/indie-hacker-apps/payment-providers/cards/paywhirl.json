@@ -1,0 +1,28 @@
+{
+  "slug": "paywhirl",
+  "name": "PayWhirl",
+  "url": "https://paywhirl.com/",
+  "jobs": ["billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F15: plans, trials, installments, retries and a customer portal; F14: automatic charges via your gateway",
+      "links": "F16: payment forms on a PayWhirl-hosted subdomain collect one-time or recurring payments"
+    }
+  },
+  "line": "Manage recurring billing and checkout forms using your own payment gateway.",
+  "free": { "kind": "free", "text": "Starter is $0/month with a 3% PayWhirl fee; gateway charges extra" },
+  "cells": {
+    "type": "Subscription billing software",
+    "countries": "No country-by-country seller list published",
+    "payout": "Gateway pays; PayWhirl does not settle funds"
+  },
+  "costs": {
+    "fee": [
+      { "v": "3% + gateway fee", "plan": "Multi-Platform Starter", "state": "unclear", "math": "The Starter plan adds a 3% PayWhirl fee. Gateway processing is separate and varies by provider and country." },
+      { "v": "3% + gateway fee", "plan": "Multi-Platform Starter", "state": "unclear", "math": "The Starter plan adds a 3% PayWhirl fee. Gateway processing is separate and varies by provider and country." },
+      { "v": "3% + gateway fee", "plan": "Multi-Platform Starter", "state": "unclear", "math": "The Starter plan adds a 3% PayWhirl fee. Gateway processing is separate and varies by provider and country." },
+      { "v": "3% + gateway fee", "plan": "Multi-Platform Starter", "state": "unclear", "math": "The Starter plan adds a 3% PayWhirl fee. Gateway processing is separate and varies by provider and country." }
+    ]
+  }
+}

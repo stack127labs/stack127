@@ -1,0 +1,51 @@
+{
+  "slug": "tappay",
+  "name": "TapPay",
+  "url": "https://www.tappaysdk.com/taiwan-zhtw",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and collection service; the merchant remains the seller",
+      "links": "F16: no-code Link Pay links with batch creation, expiry and a merchant message"
+    }
+  },
+  "line": "Gateway for online card and local payments with hosted links.",
+  "free": {
+    "kind": "none",
+    "text": "No free tier; Taiwan fees vary by plan, setup, and usage"
+  },
+  "cells": {
+    "type": "Payment gateway and facilitator",
+    "countries": "Taiwan only",
+    "payout": "Taiwan: next workday after request; Japan timing unpublished"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Taiwan."
+      }
+    ]
+  }
+}

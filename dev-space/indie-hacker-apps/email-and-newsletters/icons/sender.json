@@ -1,0 +1,17 @@
+{
+  "slug": "sender",
+  "name": "Sender",
+  "official_url": "https://www.sender.net/",
+  "image_url": "https://www.sender.net/assets/touchicon-180.png?v=1",
+  "source_page": "https://www.sender.net/",
+  "kind": "apple-touch-icon",
+  "source_host": "sender.net",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "df0285d9c302244125ba67149eccb96376f1a54bc71b64160f95d959cf0c6088",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

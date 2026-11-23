@@ -1,0 +1,17 @@
+{
+  "slug": "rollbar",
+  "name": "Rollbar",
+  "official_url": "https://rollbar.com/",
+  "image_url": "https://rollbar.com/favicon.ico",
+  "source_page": "https://rollbar.com/",
+  "kind": "favicon",
+  "source_host": "rollbar.com",
+  "original": {
+    "format": "png",
+    "width": 500,
+    "height": 500
+  },
+  "sha256": "be06f4c294d534a2e85d889b5606a9972cae2bdc45e095709e112ee67281cfc3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

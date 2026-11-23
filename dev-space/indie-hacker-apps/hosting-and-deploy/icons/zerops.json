@@ -1,0 +1,17 @@
+{
+  "slug": "zerops",
+  "name": "Zerops",
+  "official_url": "https://zerops.io/",
+  "image_url": "https://zerops.io/favicon.ico",
+  "source_page": "https://zerops.io/",
+  "kind": "favicon",
+  "source_host": "zerops.io",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "31db8b3f04f70bad07172442835e2e6730357ea9c8c987bfcf97088f0cba75e6",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

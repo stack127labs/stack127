@@ -1,0 +1,17 @@
+{
+  "slug": "posthog",
+  "name": "PostHog",
+  "official_url": "https://posthog.com/",
+  "image_url": "https://posthog.com/icons/icon-512x512.png?v=b269535480be66be70f82b8086587ec6",
+  "source_page": "https://posthog.com/",
+  "kind": "manifest-icon",
+  "source_host": "posthog.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "9a60c7c35a58775092910c91f85cd8d67cdbdc9d413a8731a0666039acaf227e",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

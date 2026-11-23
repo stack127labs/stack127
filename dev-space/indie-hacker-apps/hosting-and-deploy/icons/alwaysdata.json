@@ -1,0 +1,17 @@
+{
+  "slug": "alwaysdata",
+  "name": "alwaysdata",
+  "official_url": "https://www.alwaysdata.com/en/",
+  "image_url": "https://static.alwaysdata.com/aldjango/website/favicon-DHsIQaRH.png",
+  "source_page": "https://www.alwaysdata.com/en/",
+  "kind": "favicon",
+  "source_host": "static.alwaysdata.com",
+  "original": {
+    "format": "png",
+    "width": 150,
+    "height": 150
+  },
+  "sha256": "94f8833993b108e943c1eca24c9c7b16c2f9d763b17b138f44f7c1293c57f8bb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

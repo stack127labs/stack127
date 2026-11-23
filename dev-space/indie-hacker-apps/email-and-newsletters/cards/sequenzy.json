@@ -1,0 +1,34 @@
+{
+  "slug": "sequenzy",
+  "name": "Sequenzy",
+  "url": "https://www.sequenzy.com/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle sequences triggered by subscriber, product, billing and commerce events",
+      "newsletter": "F02: newsletters and one-off marketing campaigns to lists or segments",
+      "transactional": "F02: transactional and app-generated email through the REST API and SMTP relay"
+    }
+  },
+  "line": "SaaS email campaigns, lifecycle sequences and transactional delivery.",
+  "free": { "kind": "free", "text": "Free: 2,500 emails/month; card requirement for sending is unclear" },
+  "cells": {
+    "newsletters": "Yes, lists and segments; Free includes 2,500 emails/month",
+    "api": "Yes, API/SMTP; sends need domain, payment method, review"
+  },
+  "costs": {
+    "subs": [
+      { "v": "$19/month", "plan": "15k tier", "state": "confirmed", "math": "1,000 subscribers × 4 campaigns = 4,000 emails. The Free plan's 2,500-email cap is too low for this. The 15k tier is $19 a month, or $205 a year prepaid." },
+      { "v": "$29/month", "plan": "30k tier", "state": "confirmed", "math": "5,000 subscribers × 4 campaigns = 20,000 emails. The 30k tier is $29 a month, or $313 a year prepaid." },
+      { "v": "$49/month", "plan": "60k tier", "state": "confirmed", "math": "10,000 subscribers × 4 campaigns = 40,000 emails. The 60k tier is $49 a month, or $529 a year prepaid." },
+      { "v": "$199/month", "plan": "300k tier", "state": "confirmed", "math": "50,000 subscribers × 4 campaigns = 200,000 emails. The 300k tier is $199 a month, or $2,149 a year prepaid." }
+    ],
+    "appmail": [
+      { "v": "$19/month", "plan": "15k tier", "state": "confirmed", "math": "3,000 app emails. The 15k tier is $19 a month, or $205 a year prepaid. One verified domain and a shared IP are used, with no campaigns." },
+      { "v": "$19/month", "plan": "15k tier", "state": "confirmed", "math": "10,000 app emails. The 15k tier is $19 a month, or $205 a year prepaid. One verified domain and a shared IP are used, with no campaigns." },
+      { "v": "$49/month", "plan": "60k tier", "state": "confirmed", "math": "50,000 app emails. The 60k tier is $49 a month, or $529 a year prepaid. One verified domain and a shared IP are used, with no campaigns." },
+      { "v": "$99/month", "plan": "120k tier", "state": "confirmed", "math": "100,000 app emails. The 120k tier is $99 a month, or $1,069 a year prepaid. One verified domain and a shared IP are used, with no campaigns. This is below the 300k-per-24-hours cap." }
+    ]
+  }
+}

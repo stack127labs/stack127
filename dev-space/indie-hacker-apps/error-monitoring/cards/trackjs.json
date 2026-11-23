@@ -1,0 +1,27 @@
+{
+  "slug": "trackjs",
+  "name": "TrackJS",
+  "url": "https://trackjs.com/",
+  "jobs": ["errors"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: browser and Node.js JavaScript error monitoring is the main job (E01)"
+    }
+  },
+  "line": "Captures browser and Node.js errors with context and alerts.",
+  "free": { "kind": "trial", "text": "Free trial, no card; trial duration is not published" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Business", "state": "unclear", "math": "The $199 a month price depends on an assumed 100,000 page views. The report count alone doesn't set the page-view tier." },
+      { "v": "Unknown", "plan": "Business", "state": "unclear", "math": "The $199 a month price depends on an assumed 1,000,000 page views. The report count alone doesn't set the page-view tier." },
+      { "v": "Unknown", "plan": "Business", "state": "unclear", "math": "The $199 a month price depends on an assumed 5,000,000 page views. The report count alone doesn't set the page-view tier." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

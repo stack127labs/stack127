@@ -1,0 +1,17 @@
+{
+  "slug": "azure-functions",
+  "name": "Azure Functions",
+  "official_url": "https://azure.microsoft.com/en-us/products/functions/",
+  "image_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip",
+  "source_page": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "arch-center.azureedge.net",
+  "original": {
+    "format": "svg",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "e7416327f59f29d59044af03ded898b7cccd5efb37b0ee8a4226312c93243741",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

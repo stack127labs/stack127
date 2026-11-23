@@ -1,0 +1,28 @@
+{
+  "slug": "livesession",
+  "name": "LiveSession",
+  "url": "https://livesession.io/",
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is session replay and product analytics; F17: DOM-based replay with masking controls",
+      "web": "F15: country, device, referrer, landing and exit URL and UTM breakdowns",
+      "product": "F16: autocapture and custom events with up to 50 typed properties; F15: event-based funnels"
+    }
+  },
+  "line": "Records visitor sessions with product analytics and debugging tools.",
+  "free": { "kind": "free", "text": "Free: 1,000 sessions/month, 2 projects, 3 members, 1-month history" },
+  "cells": {
+    "cookieless": "No, uses visitor and session cookies",
+    "location": "US (Iowa); processing also in Poland",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 1,000 a month. Basic starts at $65 a month for 5,000 sessions." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 1,000 a month. Basic starts at $65 a month for 5,000 sessions." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by sessions. The free plan covers 1,000 a month. Basic starts at $65 a month for 5,000 sessions." }
+    ]
+  }
+}

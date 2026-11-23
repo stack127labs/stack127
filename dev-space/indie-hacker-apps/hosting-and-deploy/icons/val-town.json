@@ -1,0 +1,17 @@
+{
+  "slug": "val-town",
+  "name": "Val Town",
+  "official_url": "https://www.val.town/",
+  "image_url": "https://www.val.town/favicon.svg",
+  "source_page": "https://www.val.town/",
+  "kind": "logo-mark",
+  "source_host": "val.town",
+  "original": {
+    "format": "svg",
+    "width": 85,
+    "height": 85
+  },
+  "sha256": "0c5e20c581d8dfc343b5579052462668810228335aae0b028c0aa5768d49fb8c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

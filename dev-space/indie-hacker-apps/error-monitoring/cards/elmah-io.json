@@ -1,0 +1,33 @@
+{
+  "slug": "elmah-io",
+  "name": "elmah.io",
+  "url": "https://elmah.io/",
+  "jobs": ["errors", "uptime", "logs", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error monitoring for .NET and JavaScript; grouping in E01",
+      "uptime": "U01, U02: HTTP and MCP checks every 5 minutes from selected regions (U03)",
+      "logs": "L02: full-text and field search over stored log messages",
+      "cron": "J01, J02: expected interval with grace period and missing-heartbeat errors"
+    }
+  },
+  "line": "Collects .NET errors and logs, plus uptime checks and job heartbeats.",
+  "free": { "kind": "trial", "text": "21-day trial; payment is required afterward" },
+  "cells": {
+    "interval": "5 min documented",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$29", "plan": "Business", "state": "confirmed", "math": "5,000 messages fit the Business plan's allowance, for one builder and three apps." },
+      { "v": "$49", "plan": "Business+", "state": "confirmed", "math": "50,000 messages fit the Business+ plan, with 30-day detail." },
+      { "v": "$289", "plan": "Business+ + top-ups", "state": "confirmed", "math": "500,000 messages need the Business+ plan plus 10 manual top-ups." }
+    ],
+    "uptime": [
+      { "v": "$49", "plan": "Business", "state": "unclear", "math": "Only a partial bundle with five-minute checks is priced. The 60-second checks and own-domain page you need aren't priced." },
+      { "v": "$299", "plan": "Enterprise", "state": "unclear", "math": "Only a partial bundle with five-minute checks is priced. The 60-second checks and own-domain page you need aren't priced." },
+      { "v": "Quote", "plan": "Custom", "state": "unclear", "math": "100 checks are more than the public maximum of 50. The custom allowance and full price for this setup aren't known." }
+    ]
+  }
+}

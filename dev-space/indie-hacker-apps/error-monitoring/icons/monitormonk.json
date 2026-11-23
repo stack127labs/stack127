@@ -1,0 +1,17 @@
+{
+  "slug": "monitormonk",
+  "name": "MonitorMonk",
+  "official_url": "https://monitormonk.com/",
+  "image_url": "https://monitormonk.com/favicon.ico",
+  "source_page": "https://monitormonk.com/",
+  "kind": "favicon",
+  "source_host": "monitormonk.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "06a3841069e60254bb2c4d2e2d6c6d43b63f6f8d801e32ab6add1432816ebc75",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

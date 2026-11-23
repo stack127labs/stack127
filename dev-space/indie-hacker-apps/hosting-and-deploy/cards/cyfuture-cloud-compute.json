@@ -1,0 +1,20 @@
+{
+  "slug": "cyfuture-cloud-compute",
+  "name": "Cyfuture Cloud Compute",
+  "url": "https://cyfuture.cloud/compute",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted VPS; Cyfuture provisions the VM and the customer controls the guest OS and app"
+    }
+  },
+  "line": "Provision virtual machines on Cyfuture's public cloud.",
+  "free": { "kind": "trial", "text": "FAQ: 1-month trial, $1 auth; pricing says contact sales" },
+  "cells": { "type": "VPS/VM", "regions": "Delhi NCR/Jaipur; region selection unclear", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "₹1,165", "plan": "1 vCPU, 1 GB + transfer", "state": "conflicting", "math": "A subtotal from the FAQ that depends on conditions: ₹690 for the VM + (100 minus 5) GB × ₹5 = ₹1,165 a month. The pricing cards show another entry plan. Tax and HTTPS are not confirmed." },
+    { "v": "₹1,165", "plan": "1 vCPU, 1 GB + transfer", "state": "conflicting", "math": "A subtotal from the FAQ that depends on conditions: ₹690 for the VM + 95 GB of overage × ₹5 = ₹1,165 a month. The price cards' scope conflicts, and throughput is untested." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "A 4 vCPU, 4 GB VM for ₹1,900, plus Silver backup for ₹499 = ₹2,399 partial base. Seven-day retention and transfer are not published." }
+  ] }
+}

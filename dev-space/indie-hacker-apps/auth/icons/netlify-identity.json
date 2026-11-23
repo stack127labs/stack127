@@ -1,0 +1,17 @@
+{
+  "slug": "netlify-identity",
+  "name": "Netlify Identity",
+  "official_url": "https://docs.netlify.com/manage/security/secure-access-to-sites/identity/overview/",
+  "image_url": "https://docs.netlify.com/favicon.svg",
+  "source_page": "https://docs.netlify.com/manage/security/secure-access-to-sites/identity/overview/",
+  "kind": "svg-icon",
+  "source_host": "docs.netlify.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "e513add60278cfc8c5aea83ad58f0690397cb6d3b1eb45bde6fa220f15e5d084",
+  "note": "parent brand: Netlify; Identity is a Netlify feature",
+  "saved_at": "2026-11-14"
+}

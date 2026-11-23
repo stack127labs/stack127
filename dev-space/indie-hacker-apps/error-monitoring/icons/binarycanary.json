@@ -1,0 +1,17 @@
+{
+  "slug": "binarycanary",
+  "name": "BinaryCanary",
+  "official_url": "https://www.binarycanary.com/",
+  "image_url": "https://www.binarycanary.com/assets/icon-512.png",
+  "source_page": "https://www.binarycanary.com/",
+  "kind": "manifest-icon",
+  "source_host": "binarycanary.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "d116efaac7e38c5ce0e4dd609198382719474f72bb3074d7424f1e72d599856a",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

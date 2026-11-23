@@ -1,0 +1,17 @@
+{
+  "slug": "clip",
+  "name": "Clip",
+  "official_url": "https://www.clip.mx/",
+  "image_url": "https://assets-global.website-files.com/640a110ff475260ce6551685/640b3788ce1a575625fd9f45_Logo-Clip.svg",
+  "source_page": "https://www.clip.mx/",
+  "kind": "svg-icon",
+  "source_host": "assets-global.website-files.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "d8440744e8e20ee0f734fd460a0ef8c40d4414fa48fef0467ef650be21deb55c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

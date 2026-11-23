@@ -1,0 +1,17 @@
+{
+  "slug": "ssd-nodes",
+  "name": "SSD Nodes",
+  "official_url": "https://www.ssdnodes.com/",
+  "image_url": "https://www.ssdnodes.com/wp-content/uploads/2024/09/fav.svg",
+  "source_page": "https://www.ssdnodes.com/",
+  "kind": "svg-icon",
+  "source_host": "ssdnodes.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "5f13b7e2a67350958b2b88a048aba996a4ef2f1c57989eb6c209cece0d2f93a3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

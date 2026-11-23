@@ -1,0 +1,28 @@
+{
+  "slug": "paymentwall",
+  "name": "Paymentwall",
+  "url": "https://www.paymentwall.com/",
+  "jobs": ["gateway", "billing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment processor; the merchant keeps product and tax duties",
+      "billing": "F14: checkout and Brick subscriptions with trials; F15: retries and cancellation"
+    }
+  },
+  "line": "Global payment processor for online checkout, local methods and subscriptions.",
+  "free": { "kind": "none", "text": "No public setup/monthly schedule; processing needs a quote" },
+  "cells": {
+    "type": "Payment processor and checkout platform",
+    "countries": "EU businesses may apply; non-EU rules unclear",
+    "payout": "Mostly Net 30; monthly payout; bank takes 3–7 days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "No public card rate is listed for the merchant countries it defines. The US processing price needs a quote." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "No public card rate is listed for the merchant countries it defines. The UK processing price needs a quote." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "No public card rate is listed for the merchant countries it defines. The German processing price needs a quote." },
+      { "v": "Quote", "plan": "Domestic online card", "state": "not_published", "math": "No public card rate is listed for the merchant countries it defines. The Indian processing price needs a quote." }
+    ]
+  }
+}

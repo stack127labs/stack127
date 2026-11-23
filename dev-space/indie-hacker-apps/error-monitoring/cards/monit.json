@@ -1,0 +1,30 @@
+{
+  "slug": "monit",
+  "name": "Monit",
+  "url": "https://mmonit.com/monit/",
+  "jobs": ["uptime"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: remote host, port, HTTP and TLS checks with alerts (U01, U02)"
+    }
+  },
+  "line": "Self-hosted process, system and remote-service checks with automatic actions.",
+  "free": { "kind": "selfhost", "text": "Free AGPL Monit software; M/Monit has a paid license" },
+  "cells": {
+    "interval": "Configurable seconds; no published minimum",
+    "maintained": "Last release 2026-06-15"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide application error tracking" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "Monit publishes no monthly price for the host, delivery or a customer status page." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "Monit publishes no monthly price for the host, delivery or a customer status page." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "not_published", "math": "Monit publishes no monthly price for the host, delivery or a customer status page." }
+    ]
+  }
+}

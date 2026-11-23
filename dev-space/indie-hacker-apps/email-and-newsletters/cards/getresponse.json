@@ -1,0 +1,31 @@
+{
+  "slug": "getresponse",
+  "name": "GetResponse",
+  "url": "https://www.getresponse.com/",
+  "jobs": ["marketing", "newsletter", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: autoresponders and visual automation on the hosted platform",
+      "newsletter": "F02: broadcast newsletters on the hosted platform",
+      "transactional": "F02: SMTP and API transactional sending is a paid add-on on the MAX plan only"
+    }
+  },
+  "line": "Send newsletters and automated marketing, with transactional email on MAX.",
+  "free": { "kind": "free", "text": "Up to 500 contacts and 2,500 newsletter emails/month" },
+  "cells": { "newsletters": "Yes", "api": "Yes, REST; transactional SMTP add-on on MAX" },
+  "costs": {
+    "subs": [
+      { "v": "USD 19", "plan": "Starter", "state": "confirmed", "math": "1,000 contacts × 4 campaigns = 4,000 sends a month. Starter costs USD 19 a month." },
+      { "v": "USD 54", "plan": "Starter", "state": "check_failed", "math": "An official comparison lists USD 54 a month, but we could not verify the current Starter price for this size." },
+      { "v": "USD 79", "plan": "Starter", "state": "check_failed", "math": "An official comparison lists USD 79 a month, but we could not verify the current Starter price for this size." },
+      { "v": "USD 299", "plan": "Starter", "state": "check_failed", "math": "An official comparison lists USD 299 a month, but we could not verify the current Starter price for this size." }
+    ],
+    "appmail": [
+      { "v": "Quote", "plan": "MAX / Enterprise", "state": "confirmed", "math": "MAX is a paid Enterprise product. A subscription plus an add-on for app email volume needs a quote for 3,000 messages a month." },
+      { "v": "Quote", "plan": "MAX / Enterprise", "state": "confirmed", "math": "MAX is a paid Enterprise product. A subscription plus an add-on for app email volume needs a quote for 10,000 messages a month." },
+      { "v": "Quote", "plan": "MAX / Enterprise", "state": "confirmed", "math": "MAX is a paid Enterprise product. A subscription plus an add-on for app email volume needs a quote for 50,000 messages a month." },
+      { "v": "Quote", "plan": "MAX / Enterprise", "state": "confirmed", "math": "MAX is a paid Enterprise product. A subscription plus an add-on for app email volume needs a quote for 100,000 messages a month." }
+    ]
+  }
+}

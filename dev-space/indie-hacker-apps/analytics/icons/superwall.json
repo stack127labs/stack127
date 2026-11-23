@@ -1,0 +1,17 @@
+{
+  "slug": "superwall",
+  "name": "Superwall",
+  "official_url": "https://superwall.com/",
+  "image_url": "https://superwall.com/favicon.svg",
+  "source_page": "https://superwall.com/",
+  "kind": "svg-icon",
+  "source_host": "superwall.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "7c1b10d748f5f26cdfa1d3d7c3e47c59cac4b25542fdbd0ee8705f96a3bbb900",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

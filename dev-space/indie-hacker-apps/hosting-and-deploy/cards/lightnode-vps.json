@@ -1,0 +1,20 @@
+{
+  "slug": "lightnode-vps",
+  "name": "LightNode VPS",
+  "url": "https://www.lightnode.com/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented KVM virtual machine; LightNode operates the host and the customer manages the guest OS and app"
+    }
+  },
+  "line": "Provision a virtual server with configurable CPU, memory, and traffic.",
+  "free": { "kind": "credits", "text": "New users may receive up to $15 credit; eligibility and expiry unknown" },
+  "cells": { "type": "VPS/VM", "regions": "41 active nodes/8 regions; other pages say 44 (unclear)", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$7.71", "plan": "Washington Start monthly", "state": "confirmed", "math": "100 GB fits the 1 TB plan. 20 builds of 5 minutes each run on the VPS. $0.012 an hour for 672 hours gives $8.064, but the monthly price is capped at $7.71. Domain and tax are not included." },
+    { "v": "$7.71", "plan": "Washington Start monthly", "state": "confirmed", "math": "1 vCPU and 2 GB meets the minimum of 1 vCPU and 1 GiB. 100 GB fits within 1 TB. $0.012 an hour for 672 hours conflicts with the $7.71 monthly cap. Performance is untested. Domain and tax are not included." },
+    { "v": "Unknown", "plan": "Start + self-managed Postgres", "state": "unclear", "math": "$7.71 a month server base. 10 GB of same-zone private traffic is free, but the disk price, database fit and daily 7-day backup cost are unknown." }
+  ] }
+}

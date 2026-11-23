@@ -1,0 +1,51 @@
+{
+  "slug": "windmill",
+  "name": "Windmill",
+  "url": "https://www.windmill.dev/",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: primary type is a job and workflow runner; J04: scripts and flows with cron schedules and delayed runs"
+    }
+  },
+  "line": "Code-first platform for jobs, workflows, scheduled tasks and internal apps.",
+  "free": { "kind": "free", "text": "1,000 executions/month; no card; no idle pause/deletion rule stated" },
+  "cells": {
+    "metered": "Team $10/mo builder, $5/mo non-builder; 10K exec/seat",
+    "regions": "Shared Cloud US; dedicated Enterprise US or EU",
+    "selfhost": "Yes, Community Edition; hosting is separate"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Windmill uses PostgreSQL for its own state but is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Windmill uses PostgreSQL for its own state but is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Customer file storage is external. Windmill is not a general file store."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "$10",
+        "plan": "Cloud Team, 1 builder",
+        "state": "confirmed",
+        "math": "1 builder costs $10 a month and includes 10,000 executions, each one second long."
+      }
+    ]
+  }
+}

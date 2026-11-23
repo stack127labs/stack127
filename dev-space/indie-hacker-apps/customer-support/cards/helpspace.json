@@ -1,0 +1,27 @@
+{
+  "slug": "helpspace",
+  "name": "HelpSpace",
+  "url": "https://helpspace.com/",
+  "jobs": ["helpdesk", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: public and private help content (Docs) is part of the helpdesk",
+      "helpdesk": "F01: Hosted helpdesk with tickets, Docs and widgets; F17: forwarded support email becomes tickets",
+      "inbox": "F18: All plans have agent or team assignment, internal notes and ticket locks while an agent writes"
+    }
+  },
+  "line": "Email and form help desk with customer docs and shared task boards.",
+  "free": { "kind": "trial", "text": "15-day trial, no card" },
+  "cells": {
+    "channels": "Email, contact forms, website widgets",
+    "ai": "Business plan only; 5-seat minimum",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$30", "plan": "Starter", "state": "confirmed", "math": "A two-seat minimum at $15 per user a month. One person works, and one seat goes unused." },
+      { "v": "$45", "plan": "Starter", "state": "confirmed", "math": "3 seats at $15 per user a month, with 100 email conversations a month." }
+    ]
+  }
+}

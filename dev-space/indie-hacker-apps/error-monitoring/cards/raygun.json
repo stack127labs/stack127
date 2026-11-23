@@ -1,0 +1,31 @@
+{
+  "slug": "raygun",
+  "name": "Raygun",
+  "url": "https://raygun.com/",
+  "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error and crash diagnosis across browser, mobile and server apps (E01)",
+      "performance": "A01: request traces, database queries and external call timings"
+    }
+  },
+  "line": "Groups application errors and crash reports across browser, mobile and server apps.",
+  "free": { "kind": "trial", "text": "14-day trial; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$60", "plan": "Crash Reporting Basic", "state": "confirmed", "math": "5,000 accepted errors fit inside the Basic plan's 100,000 a month allowance. The $60 a month plan includes 180-day retention." },
+      { "v": "$60", "plan": "Crash Reporting Basic", "state": "confirmed", "math": "50,000 accepted errors fit inside the Basic plan's 100,000 a month allowance. The $60 a month plan includes 180-day retention." },
+      { "v": "$420", "plan": "Crash Reporting Team + on-demand", "state": "confirmed", "math": "$120 for the Team plan, plus 300,000 extra errors at $0.001 each, comes to $420 a month for 500,000 accepted errors." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "heroku-postgres",
+  "name": "Heroku Postgres",
+  "official_url": "https://www.heroku.com/postgres/",
+  "image_url": "https://www.heroku.com/wp-content/uploads/2025/01/apple-touch-icon-180x180-1.png?w=180",
+  "source_page": "https://www.heroku.com/postgres/",
+  "kind": "apple-touch-icon",
+  "source_host": "heroku.com",
+  "original": {
+    "format": "webp",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "e1906c9dd264ba94be8ba0f4687bd714febd9410562d1840e89b00fd2ed5c13c",
+  "note": "Heroku brand mark used for its Postgres service.",
+  "saved_at": "2026-11-14"
+}

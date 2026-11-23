@@ -1,0 +1,58 @@
+{
+  "slug": "neon",
+  "name": "Neon",
+  "url": "https://neon.com/",
+  "jobs": ["sql", "files", "jobs", "backend", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed SQL database is the primary type; D01: Postgres 14 to 18",
+      "files": "F01: Object Storage at $0.023/GB-month, 5 GB free; F05: S3 subset API",
+      "jobs": "J04: five-field UTC cron schedules on Functions triggers; J01: scheduled triggers",
+      "backend": "C07: Postgres, Managed Better Auth, Object Storage and Functions offered together",
+      "vector": "V01: pgvector HNSW indexes with vectors up to 2,000 dimensions"
+    }
+  },
+  "line": "Serverless Postgres that sleeps when idle, now part of Databricks.",
+  "free": {
+    "kind": "free",
+    "text": "100 CU-hours/project/month; sleeps after 5 idle minutes"
+  },
+  "cells": {
+    "metered": "$0.106/CU-hour compute",
+    "regions": "8 regions",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$0.35 + $0.106C",
+        "plan": "Launch",
+        "state": "unclear",
+        "math": "$0.35 for storage, plus $0.106 for each compute-unit hour the database runs. The number of compute units is not known, so there is no full total."
+      },
+      {
+        "v": "$0.35",
+        "plan": "Launch",
+        "state": "unclear",
+        "math": "0 × $0.106 for compute, plus 1 GB × $0.35 for storage. Invoices under $0.50 are not collected."
+      }
+    ],
+    "files": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "Object storage is $0.023 per GB a month. No total for 100 GB is given."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "The function size does not match a 0.5 vCPU job, so no comparable total is given."
+      }
+    ]
+  }
+}

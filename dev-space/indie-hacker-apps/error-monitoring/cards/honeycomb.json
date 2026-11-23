@@ -1,0 +1,32 @@
+{
+  "slug": "honeycomb",
+  "name": "Honeycomb",
+  "url": "https://www.honeycomb.io/",
+  "jobs": ["performance", "errors", "logs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "performance": "C02: traces and application observability are the main job (A01)",
+      "errors": "E01: exception events and error log records from instrumented apps",
+      "logs": "L02: query builder filters and searches structured logs with trace links"
+    }
+  },
+  "line": "Explores traces, logs and metrics to investigate application problems.",
+  "free": { "kind": "free", "text": "20 million events/month; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "5,000 reports fit the Free plan, if each report is one event and no other data uses the allowance." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "50,000 reports fit the Free plan, if each report is one event and no other data uses the allowance." },
+      { "v": "$0", "plan": "Free", "state": "unclear", "math": "500,000 reports fit the Free plan, if each report is one event and no other data uses the allowance." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

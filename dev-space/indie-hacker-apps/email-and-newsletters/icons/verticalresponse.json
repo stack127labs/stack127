@@ -1,0 +1,17 @@
+{
+  "slug": "verticalresponse",
+  "name": "VerticalResponse",
+  "official_url": "https://verticalresponse.com/",
+  "image_url": "https://verticalresponse.com//wp-content//uploads//2021//07//chatlogo.jpg",
+  "source_page": "https://verticalresponse.com/",
+  "kind": "logo-mark",
+  "source_host": "verticalresponse.com",
+  "original": {
+    "format": "jpeg",
+    "width": 50,
+    "height": 50
+  },
+  "sha256": "8c510fea46e3bb21fc59b02b793049b8f389b550aa200dd41311f6b88afc698c",
+  "note": "largest official icon is 50 px",
+  "saved_at": "2026-11-14"
+}

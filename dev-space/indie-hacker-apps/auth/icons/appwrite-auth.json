@@ -1,0 +1,17 @@
+{
+  "slug": "appwrite-auth",
+  "name": "Appwrite Auth",
+  "official_url": "https://appwrite.io/products/auth",
+  "image_url": "https://github.com/appwrite.png?size=256",
+  "source_page": "https://appwrite.io/products/auth",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "d308c7154197f44a66693d63fde5ef9da09caf8c17cbe91be529de1ae96445ab",
+  "note": "parent brand: Appwrite; Auth is a product within Appwrite",
+  "saved_at": "2026-11-14"
+}

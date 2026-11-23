@@ -1,0 +1,17 @@
+{
+  "slug": "elmah-io",
+  "name": "elmah.io",
+  "official_url": "https://elmah.io/",
+  "image_url": "https://elmah.io/icons/iTunesArtwork.png",
+  "source_page": "https://elmah.io/",
+  "kind": "logo-mark",
+  "source_host": "elmah.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "df6ae861f2b4486a736eb466efed3775f5e1c2c59a85226497aa8a8c24cfcbbc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

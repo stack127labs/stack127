@@ -1,0 +1,17 @@
+{
+  "slug": "moorline",
+  "name": "Moorline",
+  "official_url": "https://www.moorline.app/",
+  "image_url": "https://www.moorline.app/icon.png",
+  "source_page": "https://www.moorline.app/",
+  "kind": "manifest-icon",
+  "source_host": "moorline.app",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "67fcd9a0ebc66e7ed71f6e779c4348eb2bf598522a12c9e79bdfcf0931b4d6cb",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

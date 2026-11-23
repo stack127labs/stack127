@@ -1,0 +1,51 @@
+{
+  "slug": "wasabi",
+  "name": "Wasabi Hot Cloud Storage",
+  "url": "https://wasabi.com/",
+  "jobs": ["files"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "files": "C02: hosted S3-compatible object storage is the primary role; F05: S3 API compatibility"
+    }
+  },
+  "line": "S3-compatible object storage for files, media and backups.",
+  "free": { "kind": "trial", "text": "Up to 1 TB/30-day trial (limits vary); expiry deletes trial account and data" },
+  "cells": {
+    "metered": "$7.99/TB-mo; 1 TB min; 90-day object min; API free",
+    "regions": "North America, EMEA and APAC locations",
+    "selfhost": "No (none found), vendor-hosted storage service"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Wasabi Hot Cloud Storage is not a database service."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Wasabi Hot Cloud Storage is not a database service."
+      }
+    ],
+    "files": [
+      {
+        "v": "$7.99",
+        "plan": "PAYG",
+        "state": "confirmed",
+        "math": "100 GB is billed as the 1 TB minimum, which costs $7.99. Objects have a 90-day minimum, so early deletes are still billed. This assumes 100 GB of egress fits the active-storage policy. API requests are free."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Wasabi Hot Cloud Storage does not run application jobs."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "chargeover",
+  "name": "ChargeOver",
+  "official_url": "https://chargeover.com/",
+  "image_url": "https://cdn.prod.website-files.com/6321d2582ab71d22a64bc62a/6acd4d2ba1f5a7adb15023f6_out.png",
+  "source_page": "https://chargeover.com/",
+  "kind": "manifest-icon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "950f1b9313830385fbed3b055c7935c083d96ed15e6646922db74082f32d9605",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

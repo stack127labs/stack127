@@ -1,0 +1,17 @@
+{
+  "slug": "fiuu",
+  "name": "Fiuu",
+  "official_url": "https://fiuu.com/",
+  "image_url": "https://fiuu.com/images/uploads/layout/favicon.png",
+  "source_page": "https://fiuu.com/",
+  "kind": "favicon",
+  "source_host": "fiuu.com",
+  "original": {
+    "format": "png",
+    "width": 160,
+    "height": 160
+  },
+  "sha256": "9e39b703b11bda9bcea244e3151f9432e4ea9599e7063fd072c865ad1fdf7f60",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

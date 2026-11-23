@@ -1,0 +1,17 @@
+{
+  "slug": "biznet-gio-cloud-compute",
+  "name": "Biznet GIO Cloud Compute",
+  "official_url": "https://www.biznetgio.com/product/neo-virtual-compute/",
+  "image_url": "https://www.biznetgio.com/favicon.ico",
+  "source_page": "https://www.biznetgio.com/product/neo-virtual-compute/",
+  "kind": "favicon",
+  "source_host": "biznetgio.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "9cfbeb03c231928917de290b0bd1bd28b621dbf34271a17461aab6146336954d",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

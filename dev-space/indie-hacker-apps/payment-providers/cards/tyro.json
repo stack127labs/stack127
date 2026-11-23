@@ -1,0 +1,28 @@
+{
+  "slug": "tyro",
+  "name": "Tyro",
+  "url": "https://www.tyro.com/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: merchant acquiring and gateway; the merchant remains the seller",
+      "links": "F16: Payment Links created in the Portal and shared by email, SMS or messaging"
+    }
+  },
+  "line": "Australian acquiring and online payment links for cards and wallets.",
+  "free": { "kind": "none", "text": "Links have no added setup/monthly fee; merchant facility fees may apply" },
+  "cells": {
+    "type": "Merchant acquirer and gateway",
+    "countries": "Australia only",
+    "payout": "Tyro account 7 days/week; external bank on banking days"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sign-up is only open to sellers based in Australia." }
+    ]
+  }
+}

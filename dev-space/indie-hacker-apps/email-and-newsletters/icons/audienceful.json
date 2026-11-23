@@ -1,0 +1,17 @@
+{
+  "slug": "audienceful",
+  "name": "Audienceful",
+  "official_url": "https://www.audienceful.com/",
+  "image_url": "https://www.audienceful.com/audienceful-icon.png",
+  "source_page": "https://www.audienceful.com/",
+  "kind": "logo-mark",
+  "source_host": "audienceful.com",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "4d8ae3a4fb6b5e01b0a80ca2f3a3479da2e3082d7064bd9cfd4213cc32680171",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

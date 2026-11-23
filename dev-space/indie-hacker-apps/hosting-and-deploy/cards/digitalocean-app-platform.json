@@ -1,0 +1,48 @@
+{
+  "slug": "digitalocean-app-platform",
+  "name": "DigitalOcean App Platform",
+  "url": "https://www.digitalocean.com/products/app-platform",
+  "jobs": [
+    "paas",
+    "static"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: DigitalOcean builds or accepts containers and runs them on its infrastructure; the customer maintains the code",
+      "static": "04: static websites are a listed app type"
+    }
+  },
+  "line": "Build, deploy, and host static sites and dynamic apps.",
+  "free": {
+    "kind": "free",
+    "text": "Up to three static-only apps, each with 1 GiB outbound"
+  },
+  "cells": {
+    "type": "Managed app platform",
+    "regions": "North America, Europe, Singapore, Bangalore, Sydney",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "$1.84",
+        "plan": "Free static app",
+        "state": "confirmed",
+        "math": "100 GB is 93.13 GiB. After 1 GiB free, 92.13 GiB is billed at the published transfer rate."
+      },
+      {
+        "v": "$10",
+        "plan": "apps-s-1vcpu-1gb-fixed",
+        "state": "confirmed",
+        "math": "$10 a month cap. 100 GB fits within the 100 GiB allowance."
+      },
+      {
+        "v": "$25.15",
+        "plan": "App + Managed PostgreSQL",
+        "state": "conflicting",
+        "math": "$10 for the app + $15.15 for the database from the price table. The docs instead imply $15.00."
+      }
+    ]
+  }
+}

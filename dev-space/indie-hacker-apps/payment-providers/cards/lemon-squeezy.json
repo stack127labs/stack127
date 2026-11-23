@@ -1,0 +1,52 @@
+{
+  "slug": "lemon-squeezy",
+  "name": "Lemon Squeezy",
+  "url": "https://www.lemonsqueezy.com/",
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: merchant of record; Lemon Squeezy is the authorized reseller the buyer buys from",
+      "billing": "F14: automatic subscriptions on cards and wallets; F15: trials, plan changes and retries",
+      "links": "F16: hosted shareable checkout links and a no-code storefront"
+    }
+  },
+  "line": "Merchant of record for software and downloads, owned by Stripe.",
+  "free": {
+    "kind": "none",
+    "text": "$0/month; 5% + $0.50 per order"
+  },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "119 payout countries",
+    "payout": "Twice a month; 13-day hold"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "5% + $0.50",
+        "plan": "One-time card",
+        "state": "confirmed",
+        "math": "This is the US reference rate, which includes payment processor costs. It applies to the total including tax."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Domestic online card",
+        "state": "not_published",
+        "math": "UK sellers are supported, but the only published card rate is the US reference rate. No UK card rate is listed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Domestic online card",
+        "state": "not_published",
+        "math": "German sellers are supported, but the only published card rate is the US reference rate. No German card rate is listed."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Domestic online card",
+        "state": "not_published",
+        "math": "Indian sellers are supported, but the only published card rate is the US reference rate. No India card rate is listed."
+      }
+    ]
+  }
+}

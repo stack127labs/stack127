@@ -1,0 +1,17 @@
+{
+  "slug": "zoho-cpaas",
+  "name": "Zoho CPaaS",
+  "official_url": "https://www.zoho.com/cpaas/",
+  "image_url": "https://www.zohowebstatic.com/sites/zweb/images/productlogos/cpaas.svg",
+  "source_page": "https://www.zoho.com/cpaas/",
+  "kind": "logo-mark",
+  "source_host": "zohowebstatic.com",
+  "original": {
+    "format": "svg",
+    "width": 2760,
+    "height": 960
+  },
+  "sha256": "05174a8901bfa4c307d09d23d258711d37fbb2f2f05c7c35ec26bbb3fb48dc07",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

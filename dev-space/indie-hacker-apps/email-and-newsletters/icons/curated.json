@@ -1,0 +1,17 @@
+{
+  "slug": "curated",
+  "name": "Curated",
+  "official_url": "https://www.curated.co/",
+  "image_url": "https://www.curated.co/favicon.ico",
+  "source_page": "https://www.curated.co/",
+  "kind": "favicon",
+  "source_host": "curated.co",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "fca593007ac323278ebaf6db33f7d729bcaab8448b53066ec4ec504f23bacc20",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

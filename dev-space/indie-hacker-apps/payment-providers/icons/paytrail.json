@@ -1,0 +1,17 @@
+{
+  "slug": "paytrail",
+  "name": "Paytrail",
+  "official_url": "https://www.paytrail.com/",
+  "image_url": "https://www.paytrail.com/hs-fs/hub/335946/file-399315309.ico",
+  "source_page": "https://www.paytrail.com/",
+  "kind": "favicon",
+  "source_host": "paytrail.com",
+  "original": {
+    "format": "png",
+    "width": 32,
+    "height": 32
+  },
+  "sha256": "714e30217c13de1b935690b8a606822aee8050432165c5ae03065d487976ea8e",
+  "note": "largest official icon is 32 px",
+  "saved_at": "2026-11-14"
+}

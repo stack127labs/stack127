@@ -1,0 +1,17 @@
+{
+  "slug": "pingpong",
+  "name": "PingPong",
+  "official_url": "https://pingpong.one/",
+  "image_url": "https://pingpong.one/static/images/favicons/main.svg",
+  "source_page": "https://pingpong.one/",
+  "kind": "svg-icon",
+  "source_host": "pingpong.one",
+  "original": {
+    "format": "svg",
+    "width": 811,
+    "height": 907
+  },
+  "sha256": "271c7417d571789ce3b2acbd00773a35e2762f08efaed618a46c3011ce0c7f0f",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "serverpilot",
+  "name": "ServerPilot",
+  "official_url": "https://serverpilot.io/",
+  "image_url": "https://serverpilot.io/static/images/favicon/android-chrome-512x512.png",
+  "source_page": "https://serverpilot.io/",
+  "kind": "manifest-icon",
+  "source_host": "serverpilot.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "8142cf38b9756511461b986f88bdf2548e3195d931bbf912908629779d1fc07d",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

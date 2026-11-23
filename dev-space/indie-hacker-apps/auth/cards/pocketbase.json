@@ -1,0 +1,26 @@
+{
+  "slug": "pocketbase",
+  "name": "PocketBase",
+  "url": "https://pocketbase.io/",
+  "jobs": ["server"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "server": "F02: self-hosted backend with auth collections, login and user administration; F05: self-hosted only"
+    }
+  },
+  "line": "Self-hosted Go backend with accounts, login, and SQLite.",
+  "free": { "kind": "selfhost", "text": "Free MIT server; you run it" },
+  "cells": {
+    "freeUsers": "No vendor user cap; deployment resources limit use",
+    "sso": "OIDC included; no native SAML or SCIM product"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "MIT software", "state": "confirmed", "math": "The PocketBase software licence costs $0. The server, backups, delivery and operations are separate costs." },
+      { "v": "$0", "plan": "MIT software", "state": "confirmed", "math": "The PocketBase software licence costs $0. The server, backups, delivery and operations are separate costs." },
+      { "v": "$0", "plan": "MIT software", "state": "confirmed", "math": "The PocketBase software licence costs $0. The server, backups, delivery and operations are separate costs." },
+      { "v": "$0", "plan": "MIT software", "state": "confirmed", "math": "The PocketBase software licence costs $0. The server, backups, delivery and operations are separate costs." }
+    ]
+  }
+}

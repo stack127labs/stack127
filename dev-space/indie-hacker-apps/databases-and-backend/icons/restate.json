@@ -1,0 +1,17 @@
+{
+  "slug": "restate",
+  "name": "Restate",
+  "official_url": "https://restate.dev/",
+  "image_url": "https://restate.dev/favicon.ico?favicon.3bmkgbibuxtpi.ico",
+  "source_page": "https://restate.dev/",
+  "kind": "favicon",
+  "source_host": "restate.dev",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "0c485db688a812f4cd79bb703c7adfde7573cde92b81c066edbf2e77b47a710a",
+  "note": "square mark; largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

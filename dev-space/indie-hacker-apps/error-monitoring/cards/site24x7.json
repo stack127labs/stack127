@@ -1,0 +1,32 @@
+{
+  "slug": "site24x7",
+  "name": "Site24x7",
+  "url": "https://www.site24x7.com/",
+  "jobs": ["uptime", "errors", "status", "logs", "performance", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: uptime and synthetic checks from many public locations (U01, U03)",
+      "errors": "E01: APM exception types and RUM JavaScript error lists with filters",
+      "status": "S01, S03: status pages with incidents, maintenance and monitor sync (S03)",
+      "logs": "L02: query-language log search with saved searches and scheduled reports",
+      "performance": "A01: APM traces, SQL performance and service maps",
+      "cron": "J01, J02: cron schedules with grace periods and job start and end pings"
+    }
+  },
+  "line": "Monitors sites, applications, logs, and infrastructure, with status pages.",
+  "free": { "kind": "free", "text": "50 monitors, 5-min checks, 1 location, 1 public status page" },
+  "cells": { "interval": "10 s poller (eligible packs); 60 s paid; 300 s free", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "APM/RUM", "state": "unclear", "math": "APM (app performance) and RUM (real user monitoring) are priced by instances or pageviews. Report counts don't set those numbers for three apps with 30-day detail." },
+      { "v": "Unknown", "plan": "APM/RUM", "state": "unclear", "math": "APM (app performance) and RUM (real user monitoring) are priced by instances or pageviews. Report counts don't set those numbers for three apps with 30-day detail." },
+      { "v": "Unknown", "plan": "APM/RUM", "state": "unclear", "math": "APM (app performance) and RUM (real user monitoring) are priced by instances or pageviews. Report counts don't set those numbers for three apps with 30-day detail." }
+    ],
+    "uptime": [
+      { "v": "$10", "plan": "Web Uptime", "state": "unclear", "math": "$10 a month covers 5 endpoints, 60-second checks, one polling location, email and a Basic own-domain status page. The location is random." },
+      { "v": "$10", "plan": "Web Uptime", "state": "unclear", "math": "$10 a month covers 25 endpoints, 60-second checks, one polling location, email and a Basic own-domain status page. The location is random." },
+      { "v": "$46", "plan": "Web Uptime", "state": "unclear", "math": "$10, plus 2 times $18, comes to $46 a month for 100 endpoints. It has one polling location and a Basic own-domain page. The location is random." }
+    ]
+  }
+}

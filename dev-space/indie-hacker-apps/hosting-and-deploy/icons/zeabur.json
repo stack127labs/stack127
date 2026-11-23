@@ -1,0 +1,17 @@
+{
+  "slug": "zeabur",
+  "name": "Zeabur",
+  "official_url": "https://zeabur.com/",
+  "image_url": "https://zeabur.com/logo.svg",
+  "source_page": "https://zeabur.com/",
+  "kind": "svg-icon",
+  "source_host": "zeabur.com",
+  "original": {
+    "format": "svg",
+    "width": 171,
+    "height": 171
+  },
+  "sha256": "8c3f23c6e112ce7c0cc6538c3ad1855ebc93aece99b19468230861c331dad5be",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

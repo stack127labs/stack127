@@ -1,0 +1,58 @@
+{
+  "slug": "supabase",
+  "name": "Supabase",
+  "url": "https://supabase.com/",
+  "jobs": ["backend", "sql", "files", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "backend": "C02: backend platform with Postgres, auth, file storage and functions; C07 confirmed",
+      "sql": "D01: full PostgreSQL database per project with native SQL",
+      "files": "F01: 1 GB Free and 100 GB Pro file storage; F05: TUS and partial S3 API",
+      "jobs": "C07: Cron and pgmq queues are hosted features; J03: logged queues persist messages",
+      "vector": "V01: pgvector HNSW indexes up to 2,000 dimensions; V02: hybrid search in SQL"
+    }
+  },
+  "line": "Postgres, auth, file storage and functions in one hosted backend.",
+  "free": {
+    "kind": "free",
+    "text": "500 MB database per project; may pause after 7 idle days"
+  },
+  "cells": {
+    "metered": "$25/month Pro plus usage",
+    "regions": "17 regions",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$25",
+        "plan": "Pro, Micro",
+        "state": "unclear",
+        "math": "$25 base + the higher of (730 hours × $0.01344 an hour − $10) or $0 + $0 extra egress = $25 a month. The Free plan fails the 500 MB limit."
+      },
+      {
+        "v": "$25",
+        "plan": "Pro, Micro",
+        "state": "unclear",
+        "math": "Pro cannot pause. 730 hours of Micro stay allocated, so the total is $25 + $0 for included disk."
+      }
+    ],
+    "files": [
+      {
+        "v": "$25",
+        "plan": "Pro",
+        "state": "unclear",
+        "math": "$25 base + $0 for allowance charges. Requests and minimums are not published."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "Unknown",
+        "plan": "",
+        "state": "unclear",
+        "math": "The 0.5 GB worker is more than the 256 MB limit, and there is no matching job price."
+      }
+    ]
+  }
+}

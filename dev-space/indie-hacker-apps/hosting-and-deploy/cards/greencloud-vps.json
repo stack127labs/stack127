@@ -1,0 +1,20 @@
+{
+  "slug": "greencloud-vps",
+  "name": "GreenCloud VPS",
+  "url": "https://greencloudvps.com/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: KVM VPS; the customer administers the OS and applications on GreenCloud's infrastructure"
+    }
+  },
+  "line": "Rent KVM virtual servers with SSD or NVMe storage.",
+  "free": { "kind": "none", "text": "No free VPS tier; promotional annual plans are listed" },
+  "cells": { "type": "VPS/VM", "regions": "USA, Europe, Asia-Pacific", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "The published offer is $25 a year, not a monthly rate. It includes 4 TB of transfer a month and one IPv4 address for the yearly term." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "The $25 a year Chicago DC2 plan includes 4 TB of transfer a month. No monthly billing rate is published, and no request meter is listed." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "The $25 a year plan has 35 GB of NVMe storage and one snapshot. The price for daily scheduled backups is not published." }
+  ] }
+}

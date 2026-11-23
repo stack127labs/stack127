@@ -1,0 +1,34 @@
+{
+  "slug": "mailster",
+  "name": "Mailster",
+  "url": "https://mailster.co/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: manual campaigns and RSS or post newsletters",
+      "marketing": "F02: welcome, birthday and follow-up emails plus visual email workflows",
+      "transactional": "F02: can replace WordPress wp_mail delivery, including third-party plugin mail"
+    }
+  },
+  "line": "WordPress newsletter campaigns, automations and site email delivery.",
+  "free": { "kind": "trial", "text": "14-day trial; trial sending quota is not published" },
+  "cells": {
+    "newsletters": "Yes, campaigns and automated newsletters",
+    "api": "Yes, local PHP API and SMTP; no public REST API found"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 19.23869333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 1,000 contacts × 4 sends. Production access; extras and tax excluded." },
+      { "v": "USD 21.86013333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 5,000 contacts × 4 sends. Production access; extras and tax excluded." },
+      { "v": "USD 25.13693333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 10,000 contacts × 4 sends. Production access; extras and tax excluded." },
+      { "v": "USD 51.35133333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 50,000 contacts × 4 sends. Production access; extras and tax excluded." }
+    ],
+    "appmail": [
+      { "v": "USD 19.07485333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 3,000 wp_mail sends, 0 lists or flows. Production access." },
+      { "v": "USD 20.22173333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 10,000 wp_mail sends, 0 lists or flows. Production access." },
+      { "v": "USD 26.77533333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 50,000 wp_mail sends, 0 lists or flows. Production access." },
+      { "v": "USD 34.96733333/month", "plan": "Starter + host + SES", "state": "unclear", "math": "$79 a year for Starter, split over 12 months + $12 server (2GB) + Amazon SES at $0.16 per 1k emails, with 32 KB per email at $0.12 per GB. 100,000 wp_mail sends, 0 lists or flows. Production access." }
+    ]
+  }
+}

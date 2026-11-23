@@ -1,0 +1,17 @@
+{
+  "slug": "postmark",
+  "name": "Postmark",
+  "official_url": "https://postmarkapp.com/",
+  "image_url": "https://postmarkapp.com/images/logo-stamp-social.png",
+  "source_page": "https://postmarkapp.com/",
+  "kind": "logo-mark",
+  "source_host": "postmarkapp.com",
+  "original": {
+    "format": "png",
+    "width": 240,
+    "height": 240
+  },
+  "sha256": "0350ab30b67d26d7b34358900e02084095509d2d1dc1c1ec1bbcba2c8b31779c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

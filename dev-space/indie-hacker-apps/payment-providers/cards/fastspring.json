@@ -1,0 +1,29 @@
+{
+  "slug": "fastspring",
+  "name": "FastSpring",
+  "url": "https://fastspring.com/",
+  "jobs": ["mor", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "mor": "F02: Digital Retailer; FastSpring is the legal seller and handles transaction taxes",
+      "billing": "F15: managed subscriptions with trials, coupons, proration and card-style retries",
+      "links": "F16: hosted web checkout and direct product links need no coding"
+    }
+  },
+  "line": "Merchant of Record for software and digital products with subscriptions.",
+  "free": { "kind": "free", "text": "Free test store; live transaction pricing is quoted" },
+  "cells": {
+    "type": "Merchant of record",
+    "countries": "Global, with published seller-country restrictions",
+    "payout": "45-day first hold; 14-day accrual then scheduled payout"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The domestic card rate (for cards from the seller's own country) and fixed fee are set in the Order Form. No public rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The domestic card rate (for cards from the seller's own country) and fixed fee are set in the Order Form. No public rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The domestic card rate (for cards from the seller's own country) and fixed fee are set in the Order Form. No public rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "The domestic card rate (for cards from the seller's own country) and fixed fee are set in the Order Form. No public rate is published." }
+    ]
+  }
+}

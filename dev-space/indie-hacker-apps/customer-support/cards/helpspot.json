@@ -1,0 +1,27 @@
+{
+  "slug": "helpspot",
+  "name": "HelpSpot",
+  "url": "https://www.helpspot.com/",
+  "jobs": ["helpdesk", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: knowledge books are part of the shared inbox and ticketing product",
+      "helpdesk": "F17: Native two-way email ticketing with unlimited mailboxes; F21: unlimited knowledge books",
+      "inbox": "F18: Shared Inbox and My Queue with one owner per ticket, notes, mentions and batch actions"
+    }
+  },
+  "line": "Email-first help desk with ticketing, customer portal, and knowledge base.",
+  "free": { "kind": "trial", "text": "21-day trial, no card" },
+  "cells": {
+    "channels": "Email, forms, customer portal",
+    "ai": "Included; fair-use limit not published",
+    "selfhost": "Yes, paid subscription licence"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$899/year", "plan": "3-agent bundle", "state": "confirmed", "math": "The minimum is a 3-agent annual bundle. One working agent leaves two seats unused." },
+      { "v": "$899/year", "plan": "3-agent bundle", "state": "confirmed", "math": "One annual bundle includes three working agents and unlimited tickets." }
+    ]
+  }
+}

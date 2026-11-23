@@ -1,0 +1,17 @@
+{
+  "slug": "spring-security",
+  "name": "Spring Security",
+  "official_url": "https://spring.io/projects/spring-security/",
+  "image_url": "https://spring.io/favicon.svg?v=96334d577af708644f6f0495dd1c7bc8",
+  "source_page": "https://spring.io/projects/spring-security/",
+  "kind": "svg-icon",
+  "source_host": "spring.io",
+  "original": {
+    "format": "svg",
+    "width": 574,
+    "height": 574
+  },
+  "sha256": "6b1d24834252ac928a84f249535327c46ea227db845abc50eb4c0cabad3a7c43",
+  "note": "parent brand: Spring; Security is a Spring framework project",
+  "saved_at": "2026-11-14"
+}

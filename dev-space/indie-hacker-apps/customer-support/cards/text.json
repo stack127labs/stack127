@@ -1,0 +1,46 @@
+{
+  "slug": "text",
+  "name": "Text",
+  "url": "https://www.text.com/",
+  "jobs": [
+    "chat",
+    "helpdesk",
+    "ai",
+    "inbox"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native Text website widget and in-app surfaces across Essential, Growth and Enterprise plans",
+      "helpdesk": "F17: Incoming email forwards into Text and is handled as a ticket in the shared inbox",
+      "ai": "F22: AI Agent answers customers autonomously, can create tickets and hands off to a person",
+      "inbox": "F18: Unified inbox with live chats, AI chats and tickets; assignment, transfers and internal notes"
+    }
+  },
+  "line": "Chat, inbox, ticketing and AI agent from the LiveChat company.",
+  "free": {
+    "kind": "trial",
+    "text": "14-day trial, no card; no ongoing free plan"
+  },
+  "cells": {
+    "channels": "Chat, email, Messenger, Instagram, SMS, WhatsApp",
+    "ai": "Included; monthly resolution limit",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$25",
+        "plan": "Essential",
+        "state": "confirmed",
+        "math": "1 seat at $25 a month, or $228 a year when paid yearly ($19 a month)."
+      },
+      {
+        "v": "$75",
+        "plan": "Essential",
+        "state": "confirmed",
+        "math": "3 seats at $25 a month each = $75 a month, or $684 a year when paid yearly."
+      }
+    ]
+  }
+}

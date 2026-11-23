@@ -1,0 +1,20 @@
+{
+  "slug": "scalahosting-managed-cloud",
+  "name": "ScalaHosting managed cloud",
+  "url": "https://www.scalahosting.com/managed-cloud-hosting.html",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: hosted virtual private server with dedicated plan resources; ScalaHosting operates the server"
+    }
+  },
+  "line": "Run apps on a managed virtual server with SPanel and support.",
+  "free": { "kind": "none", "text": "No recurring free managed-cloud plan" },
+  "cells": { "type": "Managed cloud VPS", "regions": "US, Canada, EU, Asia, Australia; selector unclear", "selfhost": "Yes; run apps on the managed VPS" },
+  "costs": { "work": [
+    { "v": "$54.95", "plan": "Build #1 monthly", "state": "confirmed", "math": "$54.95 a month on the standard one-month rate. 100 GB of transfer is within the unmetered feature. Private-repo setup is handled by you or arranged with support." },
+    { "v": "$54.95", "plan": "Build #1 monthly", "state": "confirmed", "math": "The fixed plan for 730 hours has 2 dedicated cores and 4 GB of RAM. 100 GB is within unmetered transfer, but performance for one million requests is untested." },
+    { "v": "Unknown", "plan": "Build #1 + PostgreSQL", "state": "unclear", "math": "$54.95 a month is the VPS subtotal. Whether the app and database fit in 4 GB of RAM and 50 GB of storage is not verified. Included backup retention conflicts between 1 and 7 copies." }
+  ] }
+}

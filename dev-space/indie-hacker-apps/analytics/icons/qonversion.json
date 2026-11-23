@@ -1,0 +1,17 @@
+{
+  "slug": "qonversion",
+  "name": "Qonversion",
+  "official_url": "https://qonversion.io/",
+  "image_url": "https://qonversion.io/favicon.png",
+  "source_page": "https://qonversion.io/",
+  "kind": "favicon",
+  "source_host": "qonversion.io",
+  "original": {
+    "format": "png",
+    "width": 500,
+    "height": 500
+  },
+  "sha256": "45cd3e5627adb58ee130e07b5f08d677e9df6943c6545ecf9c250793d9429eb4",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

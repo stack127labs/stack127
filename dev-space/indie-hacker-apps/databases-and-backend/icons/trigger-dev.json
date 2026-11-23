@@ -1,0 +1,17 @@
+{
+  "slug": "trigger-dev",
+  "name": "Trigger.dev",
+  "official_url": "https://trigger.dev/",
+  "image_url": "https://github.com/triggerdotdev.png?size=256",
+  "source_page": "https://github.com/triggerdotdev/trigger.dev",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "jpeg",
+    "width": 247,
+    "height": 247
+  },
+  "sha256": "da5cda8395dfd57a02283a74a1f2018ee9a82e8b14d0545b010b93f3127dfb00",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

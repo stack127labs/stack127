@@ -1,0 +1,26 @@
+{
+  "slug": "devise",
+  "name": "Devise",
+  "url": "https://github.com/heartcombo/devise",
+  "jobs": ["library"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "library": "F02: embedded Rails engine the developer runs in their own app; F05: developer runs it"
+    }
+  },
+  "line": "Rails account toolkit for passwords, registration, and sessions.",
+  "free": { "kind": "selfhost", "text": "Free MIT gem; you host it" },
+  "cells": {
+    "freeUsers": "No licence user cap; you host",
+    "sso": "No Devise connection fee; SAML needs a plugin"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Devise licence costs $0. Rails hosting, database, delivery and operations are separate costs." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Devise licence costs $0. Rails hosting, database, delivery and operations are separate costs." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Devise licence costs $0. Rails hosting, database, delivery and operations are separate costs." },
+      { "v": "$0", "plan": "Self-host", "state": "confirmed", "math": "The Devise licence costs $0. Rails hosting, database, delivery and operations are separate costs." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "payfast-south-africa",
+  "name": "Payfast",
+  "official_url": "https://payfast.io/",
+  "image_url": "https://payfast.io/wp-content/uploads/2024/05/cropped-network_favicon-192x192.png",
+  "source_page": "https://payfast.io/",
+  "kind": "favicon",
+  "source_host": "payfast.io",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "fa897e0bd279604f8af2c4707b7b90e58207ef39b8ad7694a834513069150752",
+  "note": "parent brand: Network",
+  "saved_at": "2026-11-14"
+}

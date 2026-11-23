@@ -1,0 +1,17 @@
+{
+  "slug": "papertrail",
+  "name": "SolarWinds Papertrail",
+  "official_url": "https://www.papertrail.com/",
+  "image_url": "https://www.papertrail.com/wp-content/uploads/2024/01/cropped-SW_Logo_Stacked_Web_Orange-180x180.png",
+  "source_page": "https://www.papertrail.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "papertrail.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "6bf6fe66aa251c051e5c896054a78fc81b955aec1b8d3985d0e48b1b45486af4",
+  "note": "parent brand: SolarWinds; no Papertrail-specific icon was among the downloaded candidates.",
+  "saved_at": "2026-11-14"
+}

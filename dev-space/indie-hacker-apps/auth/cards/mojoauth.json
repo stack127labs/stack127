@@ -1,0 +1,51 @@
+{
+  "slug": "mojoauth",
+  "name": "MojoAuth",
+  "url": "https://mojoauth.com/",
+  "jobs": [
+    "hosted"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: shared hosted cloud for accounts and passwordless login; F05: vendor operates the shared Cloud"
+    }
+  },
+  "line": "Hosted passwordless login with email, passkeys, and social sign-in.",
+  "free": {
+    "kind": "free",
+    "text": "Pricing lists 25,000 MAU; FAQ conflicts at 1,000"
+  },
+  "cells": {
+    "freeUsers": "25,000 MAU per pricing; FAQ says 1,000",
+    "sso": "Enterprise SSO; public connection price unknown"
+  },
+  "costs": {
+    "mau": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "The published user cost is $0, within the current 25,000-user allowance. The exact total is not settled because of requests-per-second (RPS) billing."
+      },
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "unclear",
+        "math": "The published user cost is $0, within the current 25,000-user allowance. The exact total is not settled because of requests-per-second (RPS) billing."
+      },
+      {
+        "v": "$2,400",
+        "plan": "Business Pro",
+        "state": "unclear",
+        "math": "The tier fee is $2,400, plus 0 extra users at $0.06 each. The exact total is not settled because of requests-per-second (RPS) billing."
+      },
+      {
+        "v": "$4,800",
+        "plan": "Business Pro",
+        "state": "unclear",
+        "math": "The tier fee is $4,800, plus 0 extra users at $0.06 each. The exact total is not settled because of requests-per-second (RPS) billing."
+      }
+    ]
+  }
+}

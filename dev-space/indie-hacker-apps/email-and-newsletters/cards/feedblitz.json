@@ -1,0 +1,31 @@
+{
+  "slug": "feedblitz",
+  "name": "FeedBlitz",
+  "url": "https://www.feedblitz.com/",
+  "jobs": ["newsletter", "marketing", "transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and RSS-to-email",
+      "marketing": "F02: automated funnels",
+      "transactional": "F02: transactional API for receipts and account messages; needs the Accel or Enterprise plan"
+    }
+  },
+  "line": "Send newsletters and automated campaigns, with a transactional email API.",
+  "free": { "kind": "trial", "text": "30-day trial; no ongoing free plan listed" },
+  "cells": { "newsletters": "Yes", "api": "Yes, REST; transactional API on Accel/Enterprise" },
+  "costs": {
+    "subs": [
+      { "v": "$29", "plan": "Core", "state": "confirmed", "math": "1,000 subscribers × 4 campaigns = 4,000 recipient emails a month. Core costs $29 a month." },
+      { "v": "$49", "plan": "Core", "state": "confirmed", "math": "5,000 subscribers × 4 campaigns = 20,000 recipient emails a month. Core costs $49 a month." },
+      { "v": "$69", "plan": "Core", "state": "confirmed", "math": "10,000 subscribers × 4 campaigns = 40,000 recipient emails a month. Core costs $69 a month." },
+      { "v": "$299", "plan": "Core", "state": "confirmed", "math": "50,000 subscribers × 4 campaigns = 200,000 recipient emails a month. Core costs $299 a month." }
+    ],
+    "appmail": [
+      { "v": "$35", "plan": "Accel, conditional", "state": "unclear", "math": "3,000 messages, with 1,000 billable recipients assumed. The Accel base price for subscribers is $35, plus any partner or license charge and tax, so this is not an exact quote." },
+      { "v": "$35", "plan": "Accel, conditional", "state": "unclear", "math": "10,000 messages, with 1,000 billable recipients assumed. The Accel base price for subscribers is $35, plus any partner or license charge and tax, so this is not an exact quote." },
+      { "v": "$35", "plan": "Accel, conditional", "state": "unclear", "math": "50,000 messages, with 1,000 billable recipients assumed. The Accel base price for subscribers is $35, plus any partner or license charge and tax, so this is not an exact quote." },
+      { "v": "$35", "plan": "Accel, conditional", "state": "unclear", "math": "100,000 messages, with 1,000 billable recipients assumed. The Accel base price for subscribers is $35, plus any partner or license charge and tax, so this is not an exact quote." }
+    ]
+  }
+}

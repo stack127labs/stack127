@@ -1,0 +1,17 @@
+{
+  "slug": "idcloudhost-cloud-vps",
+  "name": "IDCloudHost Cloud VPS",
+  "official_url": "https://idcloudhost.com/cloud-vps/",
+  "image_url": "https://idcloudhost.com/wp-content/uploads/2018/12/Logo-IDcloudhost.png",
+  "source_page": "https://idcloudhost.com/cloud-vps/",
+  "kind": "logo-mark",
+  "source_host": "idcloudhost.com",
+  "original": {
+    "format": "png",
+    "width": 400,
+    "height": 401
+  },
+  "sha256": "ee360ce03ba16e96957f5d491c4ee344de1efab0b87a15eca01e90fc1c1584c9",
+  "note": "Square official asset includes the IDCloudHost wordmark.",
+  "saved_at": "2026-11-14"
+}

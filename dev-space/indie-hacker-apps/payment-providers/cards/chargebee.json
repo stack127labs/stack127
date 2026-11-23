@@ -1,0 +1,51 @@
+{
+  "slug": "chargebee",
+  "name": "Chargebee",
+  "url": "https://www.chargebee.com/",
+  "jobs": ["billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "billing": "F15: plans, trials, proration, seats, usage and a self-serve portal run inside Chargebee",
+      "links": "F16: payment links for subscription and one-time checkouts; the creation steps are not stated"
+    }
+  },
+  "line": "Subscription billing software that runs on your own gateway.",
+  "free": {
+    "kind": "none",
+    "text": "Flow plan: $0/month platform fee plus 0.80%"
+  },
+  "cells": {
+    "type": "Subscription billing",
+    "countries": "Not published",
+    "payout": "Depends on your gateway"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Chargebee is billing software, not a card processor. Your payment gateway sets the card fee."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Chargebee is billing software, not a card processor. Your payment gateway sets the card fee."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Chargebee is billing software, not a card processor. Your payment gateway sets the card fee."
+      },
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Chargebee is billing software, not a card processor. Your payment gateway sets the card fee."
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "frappe-helpdesk",
+  "name": "Frappe Helpdesk",
+  "url": "https://frappe.io/helpdesk",
+  "jobs": [
+    "helpdesk",
+    "inbox"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Help desk with email tickets, agent and customer portals, and a knowledge base",
+      "inbox": "F18: Team assigns tickets and shares private notes and saved replies; email accounts feed one ticket system (F17)"
+    }
+  },
+  "line": "Open-source email ticketing and customer portals for support teams.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free software; you run the server"
+  },
+  "cells": {
+    "channels": "Email, customer portal, phone integrations",
+    "ai": "No bundled AI answer rate established",
+    "selfhost": "Yes, AGPL-3.0"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

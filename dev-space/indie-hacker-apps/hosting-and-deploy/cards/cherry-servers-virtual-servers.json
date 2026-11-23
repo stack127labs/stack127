@@ -1,0 +1,20 @@
+{
+  "slug": "cherry-servers-virtual-servers",
+  "name": "Cherry Servers virtual servers",
+  "url": "https://www.cherryservers.com/virtual-servers",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented server with root access; the customer installs, configures and secures the stack"
+    }
+  },
+  "line": "Rent virtual servers with root access and monthly or hourly billing.",
+  "free": { "kind": "none", "text": "No recurring free Cloud VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Rate card: 5 regions; docs also list Frankfurt", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€3", "plan": "Cloud VPS 1 Gen 2", "state": "confirmed", "math": "€3 a month before tax. No extra data transfer is required at 100 GB a month." },
+    { "v": "€3", "plan": "Cloud VPS 1 Gen 2", "state": "confirmed", "math": "€3 a month, before tax. A 1 vCore, 1 GB server meets the minimum capacity. How many requests it handles is not verified." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "€6 a month for the Cloud VPS 2 base. The price of seven-day VM backups is not published, so the full total is unknown." }
+  ] }
+}

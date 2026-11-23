@@ -1,0 +1,27 @@
+{
+  "slug": "chatway",
+  "name": "Chatway",
+  "url": "https://chatway.app/",
+  "jobs": ["chat", "ai", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native website widget installed with JavaScript on all plans, subject to conversation limits",
+      "ai": "F22: Native AI Support Agent answers customers autonomously from connected knowledge on several channels",
+      "inbox": "F17: Email is forwarded in and each email becomes a conversation that agents answer in Chatway"
+    }
+  },
+  "line": "Shared email and website chat inbox with team and AI tools.",
+  "free": { "kind": "free", "text": "Free for 1 seat and 50 conversations/month" },
+  "cells": {
+    "channels": "Email, website chat, Messenger, Instagram",
+    "ai": "$0.50 per resolved conversation",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$39", "plan": "Business", "state": "confirmed", "math": "The Business plan covers 100 conversations a month and includes two seats." },
+      { "v": "$58", "plan": "Business", "state": "confirmed", "math": "$39 Business plan + $19 for one extra seat a month. It covers three agents." }
+    ]
+  }
+}

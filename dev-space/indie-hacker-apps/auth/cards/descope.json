@@ -1,0 +1,26 @@
+{
+  "slug": "descope",
+  "name": "Descope",
+  "url": "https://www.descope.com/",
+  "jobs": ["hosted"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "hosted": "F02: public SaaS for accounts, login, sessions and SSO; F05: Descope runs the identity service"
+    }
+  },
+  "line": "Hosted login flows, account management, and developer APIs.",
+  "free": { "kind": "free", "text": "Free up to 7,500 MAU" },
+  "cells": {
+    "freeUsers": "7,500 MAU; 10 tenants and 3 SSO connections",
+    "sso": "Free includes up to 3 configured SSO connections"
+  },
+  "costs": {
+    "mau": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "1,000 monthly users fit within the 7,500-user free allowance, so it is free." },
+      { "v": "$249", "plan": "Pro", "state": "confirmed", "math": "This is the Pro plan as a monthly price. The published annual base price is $2,988." },
+      { "v": "$2,049", "plan": "Growth", "state": "confirmed", "math": "The Growth plan is $799 base, plus $0.05 for each user above the 25,000 included. For 50,000 users, that works out to $2,049 a month." },
+      { "v": "$4,549", "plan": "Growth", "state": "confirmed", "math": "The Growth plan is $799 base, plus $0.05 for each user above the 25,000 included. For 100,000 users, that works out to $4,549 a month." }
+    ]
+  }
+}

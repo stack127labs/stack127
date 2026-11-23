@@ -1,0 +1,17 @@
+{
+  "slug": "acecloud-compute",
+  "name": "AceCloud Compute",
+  "official_url": "https://acecloud.ai/cloud/compute/",
+  "image_url": "https://cdn-ileefae.nitrocdn.com/qTiNNwyIirYnFHXabokqyJpZszfDiMsb/assets/images/optimized/rev-a2afed1/acecloud.ai/wp-content/uploads/2023/10/cropped-unnamed-2-192x192.png",
+  "source_page": "https://acecloud.ai/cloud/compute/",
+  "kind": "apple-touch-icon",
+  "source_host": "cdn-ileefae.nitrocdn.com",
+  "original": {
+    "format": "webp",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "7df0a5dad4ed1819e0aee892583e8709e496118f8ea6c3ac39e3e3c0f4113e72",
+  "note": "parent brand: AceCloud",
+  "saved_at": "2026-11-14"
+}

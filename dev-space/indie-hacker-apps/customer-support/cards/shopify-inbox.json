@@ -1,0 +1,26 @@
+{
+  "slug": "shopify-inbox",
+  "name": "Shopify Inbox",
+  "url": "https://www.shopify.com/inbox",
+  "jobs": ["chat", "ai"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "chat": "F17: Native online-store live chat, staffed by people or by an optional autonomous agent",
+      "ai": "F22: Opt-in autonomous Inbox agent answers shoppers; staff can switch it off per chat (F24)"
+    }
+  },
+  "line": "Free storefront chat and customer messaging for Shopify merchants.",
+  "free": { "kind": "free", "text": "Free app; requires an eligible Shopify store" },
+  "cells": {
+    "channels": "Shopify storefront chat",
+    "ai": "Optional AI agent; no separate app fee",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$39", "plan": "Shopify Basic", "state": "confirmed", "math": "The Inbox app is free, but it needs the Basic store plan. This covers one owner." },
+      { "v": "$105", "plan": "Shopify Grow", "state": "confirmed", "math": "The Inbox app is free, but it needs the Grow store plan. This covers one owner and two staff accounts." }
+    ]
+  }
+}

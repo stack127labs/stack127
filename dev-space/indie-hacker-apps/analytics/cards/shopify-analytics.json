@@ -1,0 +1,48 @@
+{
+  "slug": "shopify-analytics",
+  "name": "Shopify Analytics",
+  "url": "https://www.shopify.com/",
+  "jobs": [
+    "web",
+    "revenue"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is commerce website analytics; F15: sessions by referrer, landing pages, devices and country",
+      "revenue": "F19: Shopify store sales, net and total sales, refunds and subscription sales reports"
+    }
+  },
+  "line": "Built-in store reports for traffic, sales, customers and marketing.",
+  "free": {
+    "kind": "trial",
+    "text": "3-day trial, then paid Shopify plan"
+  },
+  "cells": {
+    "cookieless": "No (storefront analytics cookies)",
+    "location": "Global processing; Canada, US and Singapore",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$39",
+        "plan": "Basic",
+        "state": "confirmed",
+        "math": "Covers 1 US Basic store subscription, with analytics included, before tax."
+      },
+      {
+        "v": "$39",
+        "plan": "Basic",
+        "state": "confirmed",
+        "math": "Covers 1 US Basic store subscription, with analytics included, before tax."
+      },
+      {
+        "v": "$39",
+        "plan": "Basic",
+        "state": "confirmed",
+        "math": "Covers 1 US Basic store subscription, with analytics included, before tax."
+      }
+    ]
+  }
+}

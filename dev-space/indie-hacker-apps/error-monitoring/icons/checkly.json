@@ -1,0 +1,17 @@
+{
+  "slug": "checkly",
+  "name": "Checkly",
+  "official_url": "https://www.checklyhq.com/",
+  "image_url": "https://www.checklyhq.com/logos/checkly/checkly.svg",
+  "source_page": "https://www.checklyhq.com/",
+  "kind": "logo-mark",
+  "source_host": "checklyhq.com",
+  "original": {
+    "format": "svg",
+    "width": 267,
+    "height": 277
+  },
+  "sha256": "3aaa7abf7e3cc9ee370a7c796bb71bfd180004a07676b81be59457e88dbc271c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

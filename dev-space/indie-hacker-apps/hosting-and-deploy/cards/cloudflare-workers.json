@@ -1,0 +1,45 @@
+{
+  "slug": "cloudflare-workers",
+  "name": "Cloudflare Workers",
+  "url": "https://www.cloudflare.com/products/workers/",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed serverless compute; the customer deploys code and Cloudflare runs it on its network",
+      "static": "04: static sites and SPAs are a listed use of Workers"
+    }
+  },
+  "line": "Serverless code and static assets on Cloudflare's network.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 100,000 requests a day"
+  },
+  "cells": {
+    "type": "Edge platform",
+    "regions": "Global network",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "USD 0",
+        "plan": "Workers Free + Static Assets",
+        "state": "confirmed",
+        "math": "USD 0 if the free site's pages do not collect or process credit card details. Usage fits the listed limits."
+      },
+      {
+        "v": "—",
+        "plan": "Workers Paid",
+        "state": "not_applicable",
+        "math": "The Workers pricing example does not cover this server API workload."
+      },
+      {
+        "v": "—",
+        "plan": "Workers Paid + external DB",
+        "state": "not_applicable",
+        "math": "The Workers pricing example does not cover this app plus Postgres workload."
+      }
+    ]
+  }
+}

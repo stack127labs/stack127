@@ -1,0 +1,17 @@
+{
+  "slug": "courier",
+  "name": "Courier",
+  "official_url": "https://www.courier.com/",
+  "image_url": "https://www.courier.com/favicon.svg",
+  "source_page": "https://www.courier.com/",
+  "kind": "svg-icon",
+  "source_host": "courier.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "12cc62d5208bb9de82842d3c70f30d84f038261404196f05bc0bc676e84cbf31",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

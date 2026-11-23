@@ -1,0 +1,28 @@
+{
+  "slug": "microsoft-clarity",
+  "name": "Microsoft Clarity",
+  "url": "https://clarity.microsoft.com/",
+  "jobs": ["replay", "web", "product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "replay": "F02: primary category is visitor behavior recording and review; F17: web replay and click, scroll and attention heatmaps",
+      "web": "F15: traffic, pages, engagement and sources with browser, device, country and campaign dimensions",
+      "product": "F16: smart events and ordered page or event funnels with conversion rates"
+    }
+  },
+  "line": "Records visitor behavior with heatmaps and session replays.",
+  "free": { "kind": "free", "text": "Free ongoing service; no traffic-based charge stated" },
+  "cells": {
+    "cookieless": "No, uses first-party cookies",
+    "location": "Azure; exact data region not published",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "pv": [
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The free service has no traffic-based charge at 10,000 pageviews a month." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The free service has no traffic-based charge at 100,000 pageviews a month." },
+      { "v": "$0", "plan": "Free", "state": "confirmed", "math": "The free service has no traffic-based charge at 1,000,000 pageviews a month." }
+    ]
+  }
+}

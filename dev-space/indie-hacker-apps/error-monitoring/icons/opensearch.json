@@ -1,0 +1,17 @@
+{
+  "slug": "opensearch",
+  "name": "OpenSearch",
+  "official_url": "https://opensearch.org/",
+  "image_url": "https://github.com/opensearch-project.png?size=460",
+  "source_page": "https://opensearch.org/",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 360,
+    "height": 360
+  },
+  "sha256": "d9e3bb2a67b2b4466b443c90cdffb419b5493c9d0efae2ed2f5ac48ec254d2dd",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

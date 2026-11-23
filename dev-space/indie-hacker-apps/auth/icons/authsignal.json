@@ -1,0 +1,17 @@
+{
+  "slug": "authsignal",
+  "name": "Authsignal",
+  "official_url": "https://www.authsignal.com/",
+  "image_url": "https://cdn.prod.website-files.com/65dcf9e96671d9019ac99f4c/6a47be1cd21b09ef64c0c211_fav.png",
+  "source_page": "https://www.authsignal.com/",
+  "kind": "favicon",
+  "source_host": "cdn.prod.website-files.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "ca60c005ce993a97f647f696d6b5e924095bdf940b41e9e6d8d134cf06a71de1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

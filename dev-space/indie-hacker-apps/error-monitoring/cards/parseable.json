@@ -1,0 +1,32 @@
+{
+  "slug": "parseable",
+  "name": "Parseable",
+  "url": "https://www.parseable.com/",
+  "jobs": ["logs", "errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "logs": "C02: telemetry data lake for logs with SQL search and dashboards (L02)",
+      "errors": "E01: commercial Errors view groups trace exceptions; not in the free edition",
+      "performance": "A01: commercial APM with trace waterfalls and RED metrics"
+    }
+  },
+  "line": "Collects logs and groups trace-based application errors in its hosted APM.",
+  "free": { "kind": "selfhost", "text": "Free OSS logs; Cloud trial 14 days; APM is paid" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Last release 2026-10-26"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Cloud", "state": "not_published", "math": "5,000 reports can't be used to price the bill. The ingested bytes, query volume and bytes per report aren't known." },
+      { "v": "Unknown", "plan": "Cloud", "state": "not_published", "math": "50,000 reports can't be used to price the bill. The ingested bytes, query volume and bytes per report aren't known." },
+      { "v": "Unknown", "plan": "Cloud", "state": "not_published", "math": "500,000 reports can't be used to price the bill. The ingested bytes, query volume and bytes per report aren't known." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide uptime checks" }
+    ]
+  }
+}

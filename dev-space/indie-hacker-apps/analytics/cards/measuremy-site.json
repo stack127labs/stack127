@@ -1,0 +1,46 @@
+{
+  "slug": "measuremy-site",
+  "name": "measuremy.site",
+  "url": "https://measuremy.site/",
+  "jobs": [
+    "web"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary job is website traffic, sources and signup drop-off analysis; F15: visitors, pageviews, sources, UTM campaigns and countries"
+    }
+  },
+  "line": "Tracks website traffic, campaigns, and signup drop-off.",
+  "free": {
+    "kind": "selfhost",
+    "text": "MIT self-host: 1 site, no full dashboard; hosted 30-day trial"
+  },
+  "cells": {
+    "cookieless": "Yes, no tracker cookies or local storage",
+    "location": "Asia-Pacific (Cloudflare primary database)",
+    "selfhost": "Yes, 1 site; no full dashboard"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$9",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "Starter covers 100,000 pageviews a month and costs $9 a month."
+      },
+      {
+        "v": "$9",
+        "plan": "Starter",
+        "state": "confirmed",
+        "math": "Starter covers 100,000 pageviews a month and costs $9 a month."
+      },
+      {
+        "v": "$79",
+        "plan": "Scale",
+        "state": "confirmed",
+        "math": "Scale covers 2,000,000 pageviews a month and costs $79 a month."
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "deployhq",
+  "name": "DeployHQ",
+  "url": "https://www.deployhq.com/",
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted control panel and build service that sends code to the customer's own targets; not free self-hosted software",
+      "static": "03: Managed Static Hosting add-on can be attached to a plan; the research file marks it as beta"
+    }
+  },
+  "line": "Build and deploy code to servers and storage you choose.",
+  "free": { "kind": "free", "text": "Free personal: 1 project, 5 servers, 30 build min, 3 deploys/day" },
+  "cells": { "type": "Deployment service", "regions": "Your selected server or storage region", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "$10 a month for the Solo subscription, which covers 1 project and 100 build minutes. Your own storage bucket and CDN, domain, HTTPS certificate, requests and data sent out cost extra." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "$10 a month for the Solo subscription, plus a customer server running 730 hours, domain and data sent out. The target provider and region are not selected." },
+    { "v": "Unknown", "plan": "", "state": "not_published", "math": "$10 a month for the Solo subscription. The customer server, Postgres, 10 GB of storage, daily 7-day backups and network are billed separately." }
+  ] }
+}

@@ -14,3 +14,4 @@ export const LAUNCH_DIRECTORIES_TAG = "stack127-launch-directories";
 export const SITEMAP_TAG = "stack127-sitemap-pages";
 export const DIRECTORY_PAGES_TAG = "stack127-directory-page";
 export const COURSE_PAGES_TAG = "stack127-course-pages";
+export const INDIE_HACKER_APPS_TAG = "stack127-indie-hacker-apps";

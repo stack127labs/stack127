@@ -1,0 +1,29 @@
+{
+  "slug": "fiuu",
+  "name": "Fiuu",
+  "url": "https://fiuu.com/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and acquiring; the merchant sells the goods and services",
+      "billing": "F15: enabled recurring portal runs plans, subscribers, charging periods and retries; needs enabling",
+      "links": "F16: payment links from the dashboard or Virtual Terminal, shared by email or SMS"
+    }
+  },
+  "line": "Asian payment gateway with checkout, links and recurring collections.",
+  "free": { "kind": "free", "text": "Malaysia signup and first-year maintenance fees waived" },
+  "cells": {
+    "type": "Gateway and acquiring",
+    "countries": "Malaysia, Singapore, Philippines and other Asian markets",
+    "payout": "Malaysia cards settle weekly on Thursday"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether US sellers can sign up, and no US card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether UK sellers can sign up, and no UK card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether German sellers can sign up, and no German card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It isn't published whether Indian sellers can sign up, and no India card rate is published." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "contentsquare-including-former-hotjar-offering",
+  "name": "Contentsquare",
+  "official_url": "https://contentsquare.com/",
+  "image_url": "https://contentsquare.com/favicons/android-chrome-512x512.png",
+  "source_page": "https://contentsquare.com/",
+  "kind": "manifest-icon",
+  "source_host": "contentsquare.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "73de30713e39e03dbff7684c9d9a337fd22a51f4a510c6c630ab863be06d81c8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

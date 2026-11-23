@@ -1,0 +1,17 @@
+{
+  "slug": "telebugs",
+  "name": "Telebugs",
+  "official_url": "https://telebugs.com/",
+  "image_url": "https://telebugs.com/assets/images/favicons/apple-touch-icon.png?v=3",
+  "source_page": "https://telebugs.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "telebugs.com",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "ae7bfc6c646667b4fb55f7f9ca082fbe581a778f6d058e349cb20fbf2286b4c8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,44 @@
+{
+  "slug": "osticket",
+  "name": "osTicket",
+  "url": "https://osticket.com/",
+  "jobs": [
+    "helpdesk",
+    "inbox",
+    "kb"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F21: public categories and FAQs form the knowledge base",
+      "helpdesk": "F17: Native email tickets and replies, with a customer portal; F21: public categories and FAQs",
+      "inbox": "F18: Assignment to agents and teams, internal notes, saved replies and collision locks on tickets"
+    }
+  },
+  "line": "Open-source email ticketing and customer portal with a knowledge base.",
+  "free": {
+    "kind": "selfhost",
+    "text": "Free GPL software; you provide hosting"
+  },
+  "cells": {
+    "channels": "Email, web forms, customer portal",
+    "ai": "No native AI billing offer established",
+    "selfhost": "Yes, GPL-2.0"
+  },
+  "costs": {
+    "agents": [
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      },
+      {
+        "v": "$0",
+        "plan": "Self-hosted",
+        "state": "confirmed",
+        "math": "License only. Hosting and email are not priced."
+      }
+    ]
+  }
+}

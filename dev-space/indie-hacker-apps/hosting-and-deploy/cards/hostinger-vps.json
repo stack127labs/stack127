@@ -1,0 +1,20 @@
+{
+  "slug": "hostinger-vps",
+  "name": "Hostinger VPS",
+  "url": "https://www.hostinger.com/vps-hosting",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented self-managed KVM virtual server with root access; the customer maintains the OS and app"
+    }
+  },
+  "line": "Rent a KVM server with root access and manage your apps yourself.",
+  "free": { "kind": "none", "text": "No ongoing free VPS plan" },
+  "cells": { "type": "VPS/VM", "regions": "Europe, India, Southeast Asia, USA and Brazil", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "KVM 1", "state": "not_published", "math": "$6.49 a month equivalent, billed as $155.76 upfront for 24 months. The normal one-month rate is not published." },
+    { "v": "Unknown", "plan": "KVM 1", "state": "not_published", "math": "24-month offer: $155.76 upfront, then $287.76 at renewal. The one-month rate is not published. 100 GB fits within 4 TB if outbound traffic counts." },
+    { "v": "Unknown", "plan": "", "state": "conflicting", "math": "KVM 1 is $155.76 upfront for 24 months. Daily backup retention terms conflict, and the add-on rate is not published." }
+  ] }
+}

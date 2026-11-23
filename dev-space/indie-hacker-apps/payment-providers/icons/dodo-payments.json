@@ -1,0 +1,17 @@
+{
+  "slug": "dodo-payments",
+  "name": "Dodo Payments",
+  "official_url": "https://dodopayments.com/",
+  "image_url": "https://dodopayments.com/favicon.svg",
+  "source_page": "https://dodopayments.com/",
+  "kind": "svg-icon",
+  "source_host": "dodopayments.com",
+  "original": {
+    "format": "svg",
+    "width": 160,
+    "height": 160
+  },
+  "sha256": "a714fd44efe9ae204d162d89d2d8b0321c3ad2b5b31d4bee8d1793791ca562ec",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

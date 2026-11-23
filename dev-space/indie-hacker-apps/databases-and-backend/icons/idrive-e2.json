@@ -1,0 +1,17 @@
+{
+  "slug": "idrive-e2",
+  "name": "IDrive e2",
+  "official_url": "https://www.idrive.com/s3-storage-e2/",
+  "image_url": "https://www.idrive.com/favicon.ico",
+  "source_page": "https://www.idrive.com/s3-storage-e2/",
+  "kind": "favicon",
+  "source_host": "idrive.com",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "b0222caf3957685010a43b943143df5afb7f73c240e6e6673d6944a6072d1af2",
+  "note": "IDrive E2 product site did not provide a larger icon; using its official shared IDrive mark at 64 px.",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "sentry",
+  "name": "Sentry",
+  "url": "https://sentry.io/",
+  "jobs": [
+    "errors",
+    "uptime",
+    "logs",
+    "performance",
+    "cron"
+  ],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "errors": "E01: SDK exception events become grouped issues; the core product",
+      "uptime": "U01, U02: outside HTTP checks; 1 monitor included, more on paid plans",
+      "logs": "L02: structured logs with search, export and trace links",
+      "performance": "A01: tracing with spans and profiling; tracing is billed in spans",
+      "cron": "J01, J02: cron monitors with check-ins for scheduled jobs"
+    }
+  },
+  "line": "Error tracking, plus logs, tracing, uptime and cron monitors.",
+  "free": {
+    "kind": "free",
+    "text": "Developer plan: 5k errors a month, 1 user, 30-day history"
+  },
+  "cells": {
+    "interval": "1 minute (fastest interval listed)",
+    "maintained": "Last release 2026-11-18"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "$0",
+        "plan": "Developer",
+        "state": "confirmed",
+        "math": "Developer plan is $0. It includes 5k errors a month, which exactly covers 5,000 errors. Developer has no pay-as-you-go budget, so extra errors are dropped."
+      },
+      {
+        "v": "$29",
+        "plan": "Team, monthly",
+        "state": "confirmed",
+        "math": "Team is $29 a month when billed monthly ($26 a month billed yearly). It includes 50k errors, which exactly covers 50,000 errors."
+      },
+      {
+        "v": "$134.65",
+        "plan": "Team + pay-as-you-go",
+        "state": "unclear",
+        "math": "Team $29 + 50,000 errors at $0.0003625 + 400,000 errors at $0.0002188 = $134.65 estimate. Docs don't say whether band rates apply to all errors or only inside each band, so this may be high."
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$33",
+        "plan": "Team + 4 extra monitors",
+        "state": "conflicting",
+        "math": "Team $29 + 4 extra uptime monitors at $1 each = $33 a month. Pricing page says $1 per uptime alert; docs say $1 per monitor. Developer has one monitor and no pay-as-you-go budget."
+      },
+      {
+        "v": "$53",
+        "plan": "Team + 24 extra monitors",
+        "state": "conflicting",
+        "math": "Team $29 + 24 extra uptime monitors at $1 each = $53 a month. Same pricing conflict as the 5-endpoint row. The docs price monitors, not check runs."
+      },
+      {
+        "v": "$128",
+        "plan": "Team + 99 extra monitors",
+        "state": "conflicting",
+        "math": "Team $29 + 99 extra uptime monitors at $1 each = $128 a month. Same pricing conflict. Sentry does not offer the own-domain status page in this scenario."
+      }
+    ]
+  }
+}

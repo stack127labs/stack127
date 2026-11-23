@@ -1,0 +1,17 @@
+{
+  "slug": "asaas",
+  "name": "Asaas",
+  "official_url": "https://www.asaas.com/",
+  "image_url": "https://www.asaas.com/staticboto/web-app-manifest-512x512.png",
+  "source_page": "https://www.asaas.com/",
+  "kind": "manifest-icon",
+  "source_host": "asaas.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "d7650a8952e441847971520f30e81a3abf288bbebf3cc2c93f495317c0784dba",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

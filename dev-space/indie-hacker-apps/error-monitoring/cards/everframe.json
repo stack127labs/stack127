@@ -1,0 +1,31 @@
+{
+  "slug": "everframe",
+  "name": "Everframe",
+  "url": "https://everframe.dev/",
+  "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: automatic errors and crashes with issue triage (E01, E03)",
+      "performance": "A03: real-user playback startup, buffering and Vitals signals"
+    }
+  },
+  "line": "Collects app crashes and user bug reports with replay and issue triage.",
+  "free": { "kind": "free", "text": "1,000 active installs/month; unlimited crash reports; no card" },
+  "cells": {
+    "interval": "—",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Starter or Pro", "state": "unclear", "math": "The price depends on combined monthly active installs, and the report count doesn't show how many there are." },
+      { "v": "Unknown", "plan": "Starter or Pro", "state": "unclear", "math": "The price depends on combined monthly active installs, and the report count doesn't show how many there are." },
+      { "v": "Unknown", "plan": "Starter or Pro", "state": "unclear", "math": "The price depends on combined monthly active installs, and the report count doesn't show how many there are." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime monitoring" }
+    ]
+  }
+}

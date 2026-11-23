@@ -1,0 +1,32 @@
+{
+  "slug": "smtpeter",
+  "name": "SMTPeter",
+  "url": "https://www.smtpeter.com/en",
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: transactional and application email through SMTP or the REST API"
+    }
+  },
+  "line": "Hosted SMTP and REST relay for application-generated email.",
+  "free": { "kind": "none", "text": "No free plan; pre-approval test limits are not listed" },
+  "cells": {
+    "newsletters": "No native newsletters; software can send opt-in bulk mail",
+    "api": "Yes, REST/SMTP; license and verified sender domain required"
+  },
+  "costs": {
+    "subs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no built-in newsletter list or campaign plan. Bulk email is sent from your own software." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no built-in newsletter list or campaign plan. Bulk email is sent from your own software." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no built-in newsletter list or campaign plan. Bulk email is sent from your own software." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no built-in newsletter list or campaign plan. Bulk email is sent from your own software." }
+    ],
+    "appmail": [
+      { "v": "€55/month before VAT", "plan": "Base license", "state": "confirmed", "math": "3,000 one-recipient emails a month fit inside the 25,000 included. One domain and IP, and one user." },
+      { "v": "€55/month before VAT", "plan": "Base license", "state": "confirmed", "math": "10,000 one-recipient emails a month fit inside the 25,000 included. One domain and IP, and one user." },
+      { "v": "€60.75/month before VAT", "plan": "Base + overage", "state": "confirmed", "math": "€55 + 25 × €0.23 per 1,000 emails over 25,000. One domain and IP, one user, and one recipient per email." },
+      { "v": "€71.75/month before VAT", "plan": "Base + tiered overage", "state": "confirmed", "math": "€55 + 25 × €0.23 per 1,000 + 50 × €0.22 per 1,000 (tiered extra charges). One domain and IP, one user, and one recipient per email." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "publytics",
+  "name": "Publytics",
+  "official_url": "https://publytics.net/",
+  "image_url": "https://publytics.net/favicon.svg",
+  "source_page": "https://publytics.net/",
+  "kind": "svg-icon",
+  "source_host": "publytics.net",
+  "original": {
+    "format": "svg",
+    "width": 683,
+    "height": 683
+  },
+  "sha256": "916a7fa1d2ff7f5cff3da62a7a4b23db27efadb0a9b61a311188a400cfe19cd2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

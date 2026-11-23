@@ -1,0 +1,17 @@
+{
+  "slug": "wati",
+  "name": "Wati",
+  "official_url": "https://www.wati.io/",
+  "image_url": "https://www.wati.io/_astro/images/wati-icon.svg",
+  "source_page": "https://www.wati.io/",
+  "kind": "svg-icon",
+  "source_host": "wati.io",
+  "original": {
+    "format": "svg",
+    "width": 672,
+    "height": 579
+  },
+  "sha256": "48707f7b1db3e07313d1683a82ec79f045c6b42727824cc062982b9041ce37e8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

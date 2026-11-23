@@ -1,0 +1,17 @@
+{
+  "slug": "para",
+  "name": "Para",
+  "official_url": "https://paraio.org/",
+  "image_url": "https://paraio.org/web-app-manifest-512x512.png",
+  "source_page": "https://paraio.org/",
+  "kind": "manifest-icon",
+  "source_host": "paraio.org",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "5e55e98c29d776dbe3604d329b8ac8388487b4b14c553758bc9f8ad2f7c575e8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

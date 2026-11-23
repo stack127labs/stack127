@@ -1,0 +1,20 @@
+{
+  "slug": "donweb-cloud-servers",
+  "name": "DonWeb Cloud Servers",
+  "url": "https://donweb.com/es-ar/hosting-cloud-servers-vps",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented cloud VM with root or admin access; the customer controls the OS, packages and apps"
+    }
+  },
+  "line": "Rent virtual servers with configurable compute, storage, and transfer.",
+  "free": { "kind": "none", "text": "No recurring free Cloud Server plan" },
+  "cells": { "type": "VPS/VM", "regions": "Argentina; four data centers", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "ARS 5164.83", "plan": "1 vCPU, 1 GB VM", "state": "confirmed", "math": "The promotional monthly price includes IVA (value-added tax). 100 GB of data sent out fits the 1 TB allowance. Build performance is untested." },
+    { "v": "ARS 5164.83", "plan": "1 vCPU, 1 GB VM", "state": "confirmed", "math": "The 1 vCPU and 1 GB VM includes 1 TB of transfer. The promotion includes IVA (value-added tax), but the vendor recommends 2 vCPU and 2 GB for app stacks." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "2 × ARS 9,708.67 = ARS 19,417.34 a month, including IVA. The price of seven-day Premium Daily backups is not published." }
+  ] }
+}

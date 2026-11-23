@@ -1,0 +1,20 @@
+{
+  "slug": "kamatera-cloud-servers",
+  "name": "Kamatera Cloud Servers",
+  "url": "https://www.kamatera.com/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: infrastructure as a service; the customer chooses and administers the guest OS and app stack"
+    }
+  },
+  "line": "Configure cloud servers with selectable compute, storage, and regions.",
+  "free": { "kind": "trial", "text": "One-time 30-day trial: 1 server ≤$100, 1 TB; card required" },
+  "cells": { "type": "Cloud servers", "regions": "Multiple Kamatera data-center zones", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$4", "plan": "Basic Type A", "state": "confirmed", "math": "1 Type A VM = $4 a month server subtotal. 100 GB fits its 5 TB allowance (1 TB in some zones). Builds, domain and tax are not included." },
+    { "v": "$25", "plan": "Standard Type B", "state": "confirmed", "math": "1 Type B VM = $25 a month for 730 hours. 2 vCPU and 2 GB, and 5 TB, cover 100 GB, but request capacity is untested. Domain and tax are not included." },
+    { "v": "Unknown", "plan": "2 Standard Type B VMs + daily backup", "state": "unclear", "math": "2 × $25 = $50 a month server subtotal. The 7-day daily backup needs a quote, and private-network traffic pricing is not verified." }
+  ] }
+}

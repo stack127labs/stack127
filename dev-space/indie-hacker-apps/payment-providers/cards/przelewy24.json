@@ -1,0 +1,51 @@
+{
+  "slug": "przelewy24",
+  "name": "Przelewy24",
+  "url": "https://www.przelewy24.pl/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: online payment gateway and payment institution; the merchant is the seller",
+      "links": "F16: merchant-generated payment links shared by email, SMS, social media or QR code"
+    }
+  },
+  "line": "Polish online gateway for cards, BLIK, bank transfers, and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "PLN 59 activation; PLN 39/month at turnover ≤ PLN 2,000"
+  },
+  "cells": {
+    "type": "Payment gateway and service provider",
+    "countries": "Poland only",
+    "payout": "Funds available by next business day; bank arrival varies"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Poland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Poland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Poland."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "Sign-up is only open to sellers based in Poland."
+      }
+    ]
+  }
+}

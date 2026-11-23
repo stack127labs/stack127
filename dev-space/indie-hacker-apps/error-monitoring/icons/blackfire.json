@@ -1,0 +1,17 @@
+{
+  "slug": "blackfire",
+  "name": "Blackfire",
+  "official_url": "https://www.blackfire.io/",
+  "image_url": "https://www.blackfire.io/icons/icon-512x512.png?v=6a65885400d0207f9f97809002e4ab2c",
+  "source_page": "https://www.blackfire.io/",
+  "kind": "manifest-icon",
+  "source_host": "blackfire.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "032733ac72ba8a5f177ef13c7ff01b9245635c8edfa2be95008870d7e25e96bc",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

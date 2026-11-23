@@ -1,0 +1,17 @@
+{
+  "slug": "the-newsletter-plugin",
+  "name": "The Newsletter Plugin",
+  "official_url": "https://www.thenewsletterplugin.com/",
+  "image_url": "https://www.thenewsletterplugin.com/wp-content/uploads/2021/04/logo-128x128-1.png",
+  "source_page": "https://www.thenewsletterplugin.com/",
+  "kind": "favicon",
+  "source_host": "thenewsletterplugin.com",
+  "original": {
+    "format": "png",
+    "width": 128,
+    "height": 128
+  },
+  "sha256": "e267e202ea55a88b0f6370682ac8f5cfc57bf1ecae679d4c10b007dd10a1eeb0",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

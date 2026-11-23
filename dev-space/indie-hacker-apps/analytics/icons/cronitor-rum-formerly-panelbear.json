@@ -1,0 +1,17 @@
+{
+  "slug": "cronitor-rum-formerly-panelbear",
+  "name": "Cronitor RUM",
+  "official_url": "https://cronitor.io/rum",
+  "image_url": "https://cdn.cronitor.io/static/img/favicon.png",
+  "source_page": "https://cronitor.io/rum",
+  "kind": "favicon",
+  "source_host": "cdn.cronitor.io",
+  "original": {
+    "format": "png",
+    "width": 64,
+    "height": 64
+  },
+  "sha256": "d60285d31236298909199c2664acfc055b0373dc89417b98d3cd645673587fe7",
+  "note": "parent brand: Cronitor; RUM uses the Cronitor brand mark",
+  "saved_at": "2026-11-14"
+}

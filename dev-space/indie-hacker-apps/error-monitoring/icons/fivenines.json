@@ -1,0 +1,17 @@
+{
+  "slug": "fivenines",
+  "name": "Fivenines",
+  "official_url": "https://fivenines.io/",
+  "image_url": "https://fivenines.io/assets/logo-e0bdd45fdc5a10c7fb0582e7b692e5fced45fa251b57eed6d7955430cb212ff6.svg",
+  "source_page": "https://fivenines.io/",
+  "kind": "logo-mark",
+  "source_host": "fivenines.io",
+  "original": {
+    "format": "svg",
+    "width": 363,
+    "height": 363
+  },
+  "sha256": "d700c690288734c7125198b41894c9e2b70fb0527e3aaecf69ddca336f465b63",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

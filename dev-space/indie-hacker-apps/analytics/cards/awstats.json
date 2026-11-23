@@ -1,0 +1,26 @@
+{
+  "slug": "awstats",
+  "name": "AWStats",
+  "url": "https://www.awstats.org/",
+  "jobs": ["web"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is server-log web analytics; F15: visits, unique visitors, pages, referrers and countries"
+    }
+  },
+  "line": "Website traffic reports generated from your server logs.",
+  "free": {"kind": "selfhost", "text": "Free software; you supply logs and hosting"},
+  "cells": {
+    "cookieless": "Yes, log-only; optional helper cookies",
+    "location": "Your chosen server and log host",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "pv": [
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The software fee is 0. Computing power, log storage, backups and operator work are not estimated."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The software fee is 0. Servers and running costs depend on how it is set up."},
+      {"v": "Unknown", "plan": "", "state": "unclear", "math": "The software fee is 0. Servers and running costs depend on how it is set up."}
+    ]
+  }
+}

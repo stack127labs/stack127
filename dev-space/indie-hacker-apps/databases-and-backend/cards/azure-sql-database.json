@@ -1,0 +1,33 @@
+{
+  "slug": "azure-sql-database",
+  "name": "Azure SQL Database",
+  "url": "https://azure.microsoft.com/en-us/products/azure-sql/database",
+  "jobs": ["sql", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: managed relational SQL database is the primary type; D01: managed SQL Server engine with T-SQL",
+      "jobs": "J01: Elastic Jobs, a managed agent that runs scheduled T-SQL jobs; J03: default retries",
+      "vector": "C07: native VECTOR type and vector search; V01: 1-1,998 float32 dimensions"
+    }
+  },
+  "line": "Run managed SQL Server databases with vector search and job scheduling.",
+  "free": { "kind": "free", "text": "100K vCore seconds, 32 GB data/backups; pauses after 15 idle minutes" },
+  "cells": {
+    "metered": "Basic from $0.161/day; serverless billed by use",
+    "regions": "Azure regions; options vary by region",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$4.90", "plan": "Basic DTU, East US", "state": "unclear", "math": "730 hours ÷ 24 gives the number of days, then × $0.161 a day. That is $4.897... before rounding to $4.90. Tax is not included." },
+      { "v": "$0", "plan": "Free SQL tier", "state": "unclear", "math": "Idle database within the monthly data and backup limits. Covered compute can pause when unused, so the cost can be $0." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Has no separate object-storage service." }
+    ],
+    "jobs": [
+      { "v": "$22.63", "plan": "JA100 Elastic Jobs agent", "state": "unclear", "math": "730 hours × $0.031 an hour. Metadata and target databases are billed separately." }
+    ]
+  }
+}

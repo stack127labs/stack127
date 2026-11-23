@@ -1,0 +1,54 @@
+{
+  "slug": "ozow",
+  "name": "Ozow",
+  "url": "https://ozow.com/",
+  "jobs": [
+    "gateway",
+    "links"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway and service provider; the merchant sells and fulfils",
+      "links": "F16: no-code payment requests and links by SMS, QR, e-billing or WhatsApp"
+    }
+  },
+  "line": "South African payment gateway for bank payments, cards and payment links.",
+  "free": {
+    "kind": "none",
+    "text": "Standard package has no setup or monthly subscription fee"
+  },
+  "cells": {
+    "type": "Payment gateway and payment service provider",
+    "countries": "South Africa is the only supported merchant country",
+    "payout": "Cards typically weekly; bank payments next day"
+  },
+  "costs": {
+    "fee": [
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "One API guide lists South Africa as the only supported merchant country, so US sellers can't sign up."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "One API guide lists South Africa as the only supported merchant country, so UK sellers can't sign up."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "One API guide lists South Africa as the only supported merchant country, so German sellers can't sign up."
+      },
+      {
+        "v": "Not available",
+        "plan": "",
+        "state": "confirmed",
+        "math": "One API guide lists South Africa as the only supported merchant country, so Indian sellers can't sign up."
+      }
+    ]
+  }
+}

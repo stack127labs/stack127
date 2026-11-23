@@ -1,0 +1,20 @@
+{
+  "slug": "static-app",
+  "name": "Static.app",
+  "url": "https://static.app/",
+  "jobs": ["static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "static": "03: managed file hosting for built HTML, CSS and JavaScript, with the provider operating the serving infrastructure"
+    }
+  },
+  "line": "Upload and host static website files with managed HTTPS.",
+  "free": { "kind": "trial", "text": "7-day trial, no card; 1 website, 50 MB storage" },
+  "cells": { "type": "Static file hosting", "regions": "US hosting; Cloudflare delivery; no selectable region", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "$6", "plan": "Starter", "state": "unclear", "math": "$6 a month for Starter. 1 site and 100 MB fit the 2-site, 500 MB limits. Builds (100 minutes) are local. Traffic is listed as unlimited. Business-use terms conflict with pricing, so this is conditional. Tax extra." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Static.app does not host an arbitrary application runtime." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Needs external application and PostgreSQL/backup hosting." }
+  ] }
+}

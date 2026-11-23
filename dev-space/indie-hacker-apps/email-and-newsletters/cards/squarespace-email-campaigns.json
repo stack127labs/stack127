@@ -1,0 +1,33 @@
+{
+  "slug": "squarespace-email-campaigns",
+  "name": "Squarespace Email Campaigns",
+  "url": "https://www.squarespace.com/email-marketing",
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: subscriber journeys and website-linked customer automations; F01 says email marketing product",
+      "newsletter": "F02: blast newsletters to subscribers"
+    }
+  },
+  "line": "Hosted newsletters and website-linked marketing and transactional automations.",
+  "free": { "kind": "trial", "text": "Up to 3 trial blast campaigns; recipient limits unknown" },
+  "cells": {
+    "newsletters": "Yes, newsletters and subscriber journeys",
+    "api": "No, no general API/SMTP send for app messages"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 20/month", "plan": "5,000 sends", "state": "confirmed", "math": "1,000 subscribers × 4 campaigns = 4,000 emails. This fits the 5,000-send plan. It is a standalone email plan; a website subscription is not required." },
+      { "v": "USD 40/month", "plan": "25,000 sends", "state": "confirmed", "math": "5,000 subscribers × 4 campaigns = 20,000 emails. This fits the 25,000-send plan. It is a standalone email plan; a website subscription is not required." },
+      { "v": "USD 48/month", "plan": "50,000 sends", "state": "confirmed", "math": "10,000 subscribers × 4 campaigns = 40,000 emails. This fits the 50,000-send plan. It is a standalone email plan; a website subscription is not required." },
+      { "v": "USD 96/month", "plan": "250,000 sends", "state": "confirmed", "math": "50,000 subscribers × 4 campaigns = 200,000 emails. This fits the 250,000-send plan. It is a standalone email plan; a website subscription is not required." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API or SMTP sending for app messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API or SMTP sending for app messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API or SMTP sending for app messages." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "There is no general API or SMTP sending for app messages." }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "librekb",
+  "name": "LibreKB",
+  "url": "https://github.com/michaelstaake/LibreKB",
+  "jobs": ["kb"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "kb": "F02: self-service help center and self-hosted knowledge base for customer articles"
+    }
+  },
+  "line": "Self-hosted GPL knowledge base for publishing customer help articles.",
+  "free": { "kind": "selfhost", "text": "Free software; you provide hosting" },
+  "cells": {
+    "channels": "Knowledge base and articles",
+    "ai": "No native AI feature established",
+    "selfhost": "Yes, GPL-3.0"
+  },
+  "costs": {
+    "agents": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base only. It has no support inbox or staffed chat." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Knowledge base only. It has no support inbox or staffed chat." }
+    ]
+  }
+}

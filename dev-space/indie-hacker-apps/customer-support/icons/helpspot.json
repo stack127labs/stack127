@@ -1,0 +1,17 @@
+{
+  "slug": "helpspot",
+  "name": "HelpSpot",
+  "official_url": "https://www.helpspot.com/",
+  "image_url": "https://www.helpspot.com/android-chrome-192x192.png",
+  "source_page": "https://www.helpspot.com/",
+  "kind": "manifest-icon",
+  "source_host": "helpspot.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "d31d85d2753ba8538adc33f567fa3d404bc9f8b68789c150a5bf042a7569b8d8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

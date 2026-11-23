@@ -1,0 +1,17 @@
+{
+  "slug": "caprover",
+  "name": "CapRover",
+  "official_url": "https://caprover.com/",
+  "image_url": "https://caprover.com/homepage-assets/caprover-logo.png",
+  "source_page": "https://caprover.com/",
+  "kind": "logo-mark",
+  "source_host": "caprover.com",
+  "original": {
+    "format": "png",
+    "width": 585,
+    "height": 588
+  },
+  "sha256": "f2ce099e9e5991800e6384e22224008f51d2dbb01054cedc081bcabdb5ad2fd3",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

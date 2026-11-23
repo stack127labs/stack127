@@ -1,0 +1,17 @@
+{
+  "slug": "upstash-vector",
+  "name": "Upstash Vector",
+  "official_url": "https://upstash.com/pricing/vector",
+  "image_url": "https://upstash.com/icons/android-chrome-512x512.png",
+  "source_page": "https://upstash.com/pricing/vector",
+  "kind": "manifest-icon",
+  "source_host": "upstash.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "fe30f1f98e64293c097aa761ee436822ed518bdcc951a31737162057140eddaf",
+  "note": "Parent brand: Upstash; Vector has no separate icon in its official site candidates.",
+  "saved_at": "2026-11-14"
+}

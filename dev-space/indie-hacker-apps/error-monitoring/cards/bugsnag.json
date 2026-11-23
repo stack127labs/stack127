@@ -1,0 +1,28 @@
+{
+  "slug": "bugsnag",
+  "name": "BugSnag",
+  "url": "https://www.bugsnag.com/",
+  "jobs": ["errors", "performance"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: primary job is detecting and triaging app exceptions and crashes (E01)",
+      "performance": "C02: distributed traces and real-user performance; see A01, A03"
+    }
+  },
+  "line": "Collects and triages application crashes with diagnostic context.",
+  "free": { "kind": "free", "text": "Free for 7,500 events/month; one user" },
+  "cells": { "interval": "—", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "Unknown", "plan": "Select", "state": "check_failed", "math": "The price couldn't be loaded from the pricing page, so the price isn't known. A paid plan is needed for 30-day detail." },
+      { "v": "Unknown", "plan": "Select", "state": "check_failed", "math": "The price couldn't be loaded, so the paid event-pack price and the overage terms (charges above the included amount) aren't known." },
+      { "v": "Unknown", "plan": "Select", "state": "check_failed", "math": "The price couldn't be loaded, so the paid capacity and rate aren't known." }
+    ],
+    "uptime": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not provide external uptime checks" }
+    ]
+  }
+}

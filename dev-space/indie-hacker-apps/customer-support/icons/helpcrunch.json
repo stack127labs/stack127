@@ -1,0 +1,17 @@
+{
+  "slug": "helpcrunch",
+  "name": "HelpCrunch",
+  "official_url": "https://helpcrunch.com/",
+  "image_url": "https://helpcrunch.com/img/_mobile-icons/icon_192.png",
+  "source_page": "https://helpcrunch.com/",
+  "kind": "favicon",
+  "source_host": "helpcrunch.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "5cf702497fa47e3769a8811bc545e7f0ef5ffc6f0238f38414f6407d672b4a67",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

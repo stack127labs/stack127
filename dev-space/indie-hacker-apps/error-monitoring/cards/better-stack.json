@@ -1,0 +1,75 @@
+{
+  "slug": "better-stack",
+  "name": "Better Stack",
+  "url": "https://betterstack.com/",
+  "jobs": [
+    "uptime",
+    "errors",
+    "status",
+    "logs",
+    "performance",
+    "cron"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01: HTTP, TCP, DNS, ping and browser checks from selectable regions (U03)",
+      "errors": "E01: SDK exceptions grouped with stack presets and occurrence counts",
+      "status": "S03: status updates from incidents or by hand, with subscribers (S01, S02)",
+      "logs": "L02: live tail, SQL search and retained log storage (L01, L03)",
+      "performance": "A01: distributed traces and service map for slow requests",
+      "cron": "J02: missing completion ping and explicit /fail signal (J01)"
+    }
+  },
+  "line": "Uptime, logs, errors and status pages in one hosted tool.",
+  "free": {
+    "kind": "free",
+    "text": "10 monitors, 100,000 exceptions/month free"
+  },
+  "cells": {
+    "interval": "180 s free, 30 s paid",
+    "maintained": "Hosted service"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "$0",
+        "plan": "Usage only",
+        "state": "unclear",
+        "math": "Reports above 100,000 cost $0.00005 each, with a minimum of $0. This level comes to $0, and whether the free plan covers it isn't confirmed."
+      },
+      {
+        "v": "$0",
+        "plan": "Usage only",
+        "state": "unclear",
+        "math": "Reports above 100,000 cost $0.00005 each, with a minimum of $0. This level comes to $0, and whether the free plan covers it isn't confirmed."
+      },
+      {
+        "v": "$20",
+        "plan": "Usage only",
+        "state": "unclear",
+        "math": "Usage only: 500,000 reports minus the first 100,000, at $0.00005 each, comes to $20. Any plan fee isn't included."
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$34",
+        "plan": "Paid + responder",
+        "state": "unclear",
+        "math": "$34 for the responder, plus $0 for extra 50-monitor blocks. 60-second checks need a paid plan."
+      },
+      {
+        "v": "$59",
+        "plan": "Paid + responder",
+        "state": "unclear",
+        "math": "$34 for the responder, plus $25 for each block of 50 extra monitors, rounded up. 15 extra monitors need one block, so the total is $59."
+      },
+      {
+        "v": "$84",
+        "plan": "Paid + responder",
+        "state": "unclear",
+        "math": "$34 for the responder, plus $25 for each block of 50 extra monitors, rounded up. 90 extra monitors need two blocks, so the total is $84."
+      }
+    ]
+  }
+}

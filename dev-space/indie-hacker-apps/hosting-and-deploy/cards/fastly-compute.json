@@ -1,0 +1,21 @@
+{
+  "slug": "fastly-compute",
+  "name": "Fastly Compute",
+  "url": "https://www.fastly.com/products/edge-compute",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: Fastly runs the request-driven Wasm functions at its edge from code the builder supplies",
+      "static": "04: static sites are a listed use of Compute"
+    }
+  },
+  "line": "Run WebAssembly apps at the edge on Fastly's network.",
+  "free": { "kind": "free", "text": "10 million requests and 100 million vCPU milliseconds monthly" },
+  "cells": { "type": "Edge functions", "regions": "Fastly global edge network", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Compute + KV", "state": "unclear", "math": "A zero subtotal assumes files up to 25 MB each, up to 1 GB stored, up to 100k key-value writes and 1 million reads, and CPU use up to 100 ms. Commercial eligibility is unclear." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "100 ms of CPU per request is more than the 50 ms default. 256 MiB of working memory is more than the 128 MB heap limit (the memory space for the app's data)." },
+    { "v": "—", "plan": "", "state": "not_applicable", "math": "Has the same limits as the small app API and needs an outside PostgreSQL database." }
+  ] }
+}

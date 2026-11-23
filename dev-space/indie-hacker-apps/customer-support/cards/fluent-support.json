@@ -1,0 +1,26 @@
+{
+  "slug": "fluent-support",
+  "name": "Fluent Support",
+  "url": "https://fluentsupport.com/",
+  "jobs": ["helpdesk", "inbox"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "helpdesk": "F02: Self-hosted WordPress help desk with a customer ticket portal; F17: email piping creates tickets on Pro",
+      "inbox": "F18: Agents share the inbox with assignment, permissions and internal notes on Free; email piping adds Pro (F17)"
+    }
+  },
+  "line": "WordPress ticketing and support portal with email piping on paid plans.",
+  "free": { "kind": "free", "text": "Free plugin: unlimited agents and tickets" },
+  "cells": {
+    "channels": "Web portal, email piping, Slack, WhatsApp",
+    "ai": "Own provider costs; per-answer rate unknown",
+    "selfhost": "Yes, WordPress plugin"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$103/year", "plan": "Single Site", "state": "confirmed", "math": "The annual email plan, at its first-year price, includes ten piping addresses (addresses that create tickets from email) and unlimited agents." },
+      { "v": "$103/year", "plan": "Single Site", "state": "confirmed", "math": "One site license covers three agents, on the annual first-year email plan." }
+    ]
+  }
+}

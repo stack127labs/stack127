@@ -1,0 +1,17 @@
+{
+  "slug": "stax-payments",
+  "name": "Stax Payments",
+  "official_url": "https://staxpayments.com/",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/49/9b/f3/499bf3da-58a0-64bb-17ad-e6dabac855d2/Stax-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/stax-pay/id1089292339?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "430f1191e2c503edfd0db2ca2d0454151a24afe61b1a83f883cae6bbd8f8fac7",
+  "note": "Stax Pay product app; developer is Fattmerchant Inc., Stax’s former company name.",
+  "saved_at": "2026-11-14"
+}

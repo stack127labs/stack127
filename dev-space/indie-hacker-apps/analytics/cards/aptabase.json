@@ -1,0 +1,26 @@
+{
+  "slug": "aptabase",
+  "name": "Aptabase",
+  "url": "https://aptabase.com/",
+  "jobs": ["product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is privacy-focused app event analytics; F16: custom events with properties, real-time view and in-session event timeline"
+    }
+  },
+  "line": "Open-source analytics for web, desktop and mobile app events.",
+  "free": {"kind": "free", "text": "Free up to 20,000 events/month (availability unclear)"},
+  "cells": {
+    "cookieless": "Yes",
+    "location": "EU (Germany) or US (Virginia)",
+    "selfhost": "Yes"
+  },
+  "costs": {
+    "pv": [
+      {"v": "USD 0/month", "plan": "Free", "state": "confirmed", "math": "Assumes one page_view event sent manually for each pageview, and no other calls. 10,000 events fit the free plan."},
+      {"v": "USD 10/month", "plan": "Cloud", "state": "confirmed", "math": "Assumes one page_view event sent manually for each pageview, and no other calls. 100,000 events fall in the 200,000-event plan."},
+      {"v": "USD 20/month", "plan": "Cloud", "state": "confirmed", "math": "Assumes one page_view event sent manually for each pageview, and no other calls. 1,000,000 events fall in the 1,000,000-event plan."}
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "evennode",
+  "name": "EvenNode",
+  "url": "https://www.evennode.com/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: provider-managed app platform; the customer uploads Node.js or Python source and the platform runs it"
+    }
+  },
+  "line": "Host Node.js and Python apps with managed runtime tools.",
+  "free": { "kind": "trial", "text": "Signup trial; ongoing free hosting allowance not established" },
+  "cells": { "type": "Managed app platform", "regions": "Europe and US; cities not listed", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€4.50", "plan": "512 MB tier", "state": "confirmed", "math": "€4.50 a month before VAT, if counted app storage stays up to 2 GB and total traffic stays within the 2 TB soft limit. Extra disk is billed separately." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "€34 a month for the tier with 2 GB and 50 processes is a possible option. The standard tier's vCPU allocation is not published, so whether 1 vCPU fits is not verified." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "€34 a month for the app example, plus outside PostgreSQL with at least 1 GiB and 10 GB, daily 7-day backups and transfer. Whether the provider and CPU fit is unknown." }
+  ] }
+}

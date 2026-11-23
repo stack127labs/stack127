@@ -1,0 +1,29 @@
+{
+  "slug": "authorize-net",
+  "name": "Authorize.net",
+  "url": "https://www.authorize.net/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: card gateway; the merchant sells the goods and services",
+      "billing": "F14: ARB automatically collects scheduled card recurring payments; F15: trials and intervals",
+      "links": "F16: New Experience Simple Checkout gives copyable item links and QR codes"
+    }
+  },
+  "line": "Card gateway with hosted checkout, payment links and recurring billing.",
+  "free": { "kind": "none", "text": "$25/month on the published US plan" },
+  "cells": {
+    "type": "Gateway",
+    "countries": "US and Canada; outside directed to Cybersource",
+    "payout": "Typically 2–3 business days; depends on the MSP"
+  },
+  "costs": {
+    "fee": [
+      { "v": "2.9% + $0.30", "plan": "All-in-one", "state": "confirmed", "math": "The published rate for US cards. A $25 monthly fee also applies." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It is unclear whether new UK sellers can sign up, and no UK card rate is published." },
+      { "v": "Quote", "plan": "", "state": "not_published", "math": "It is unclear whether new sellers in Europe can sign up, and no German card rate is published." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Businesses outside the US and Canada are sent to Cybersource instead." }
+    ]
+  }
+}

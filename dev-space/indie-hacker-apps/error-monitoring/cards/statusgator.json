@@ -1,0 +1,28 @@
+{
+  "slug": "statusgator",
+  "name": "StatusGator",
+  "url": "https://statusgator.com/",
+  "jobs": ["uptime", "status"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: customer website, API and ping checks at 1 to 5 minute intervals (U01, U02)",
+      "status": "S01: hosted status boards that show monitored services and incidents"
+    }
+  },
+  "line": "Tracks provider incidents and website checks, with hosted status pages.",
+  "free": { "kind": "free", "text": "Free: 3 monitors, 1 page, 100 subscribers, 10 alerts/month" },
+  "cells": { "interval": "60 s website checks; plan eligibility unclear", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "$79 a month covers 5 checks. The custom-domain cost, and whether the plan allows 60-second checks, aren't stated." },
+      { "v": "Unknown", "plan": "Starter", "state": "unclear", "math": "$79 a month covers 25 checks. The custom-domain cost, and whether the plan allows 60-second checks, aren't stated." },
+      { "v": "Unknown", "plan": "Corporate", "state": "unclear", "math": "$299 a month covers 100 checks. The custom-domain cost, and whether the plan allows 60-second checks, aren't stated." }
+    ]
+  }
+}

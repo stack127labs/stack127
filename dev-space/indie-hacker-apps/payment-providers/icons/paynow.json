@@ -1,0 +1,17 @@
+{
+  "slug": "paynow",
+  "name": "PayNow",
+  "official_url": "https://paynow.gg/",
+  "image_url": "https://paynow.gg/apple-touch-icon.png",
+  "source_page": "https://paynow.gg/",
+  "kind": "apple-touch-icon",
+  "source_host": "paynow.gg",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "a0afcf429f2510a887e95af5137727d880bc0f7d4999a491a101ec09414179fe",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "marionetteops",
+  "name": "MarionetteOps",
+  "official_url": "https://www.marionetteops.com/",
+  "image_url": "https://www.marionetteops.com/favicon.svg",
+  "source_page": "https://www.marionetteops.com/",
+  "kind": "svg-icon",
+  "source_host": "marionetteops.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "c17f3221bdf18f07a3d4c69962db0d302efd7688442654ff54c94b8e40ccf22c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

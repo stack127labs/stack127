@@ -1,0 +1,17 @@
+{
+  "slug": "offen-fair-web-analytics",
+  "name": "Offen Fair Web Analytics",
+  "official_url": "https://www.offen.dev/",
+  "image_url": "https://github.com/offen.png?size=460",
+  "source_page": "https://github.com/offen",
+  "kind": "github-avatar",
+  "source_host": "github.com",
+  "original": {
+    "format": "png",
+    "width": 460,
+    "height": 460
+  },
+  "sha256": "8879c34ad50b89b3b5a640bf1aabe1d3530c59b6113851cd6132ab7afb187724",
+  "note": "official GitHub organization avatar",
+  "saved_at": "2026-11-14"
+}

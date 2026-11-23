@@ -1,0 +1,34 @@
+{
+  "slug": "base44-backend",
+  "name": "Base44 Backend",
+  "url": "https://base44.com/developers",
+  "jobs": ["backend", "nosql", "files", "jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "nosql": "D01: managed NoSQL documents with MongoDB-compatible operators through the Base44 SDK",
+      "backend": "C02: managed backend platform; C07: entities, auth, realtime, files and functions",
+      "files": "F04: live uploads of 50-100 MB by file type; F05: UploadFile documented",
+      "jobs": "J04: workflow recurring schedules at most once per 5 minutes, timezone-aware"
+    }
+  },
+  "line": "Build apps with hosted data, auth, files, realtime, and functions.",
+  "free": { "kind": "free", "text": "100 integration credits monthly; up to 5 apps" },
+  "cells": {
+    "metered": "Starter $16/month equivalent, billed annually",
+    "regions": "US default; EU, UK, Australia on Business/Enterprise",
+    "selfhost": "No"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$16", "plan": "Starter annual plan", "state": "unclear", "math": "$16 a month equivalent. The 1 GB database fits the first published plan size. Transfer terms are unknown and not included." },
+      { "v": "$16", "plan": "Starter annual plan", "state": "unclear", "math": "The annual Starter subscription stays at $192 a year (a $16 a month equivalent) while data is kept." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "No separate file storage price is published, so the cost of 100 GB is not known." }
+    ],
+    "jobs": [
+      { "v": "$40", "plan": "Builder annual plan", "state": "unclear", "math": "The Builder plan is $40 a month equivalent. 10K function calls are estimated at about 100 credits. Whether the plan includes them, and whether the workers fit, is uncertain." }
+    ]
+  }
+}

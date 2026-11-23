@@ -1,0 +1,17 @@
+{
+  "slug": "opensearch",
+  "name": "OpenSearch",
+  "official_url": "https://opensearch.org/",
+  "image_url": "https://opensearch.org/wp-content/uploads/2024/11/cropped-favicon-192x192.webp",
+  "source_page": "https://opensearch.org/",
+  "kind": "favicon",
+  "source_host": "opensearch.org",
+  "original": {
+    "format": "heif",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "141376ac759ef98c213eabbe98c7b5060d384688889b03c0e383d3eb61b09245",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

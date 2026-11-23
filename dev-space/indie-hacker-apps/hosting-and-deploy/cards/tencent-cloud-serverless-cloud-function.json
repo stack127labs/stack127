@@ -1,0 +1,20 @@
+{
+  "slug": "tencent-cloud-serverless-cloud-function",
+  "name": "Tencent Cloud Serverless Cloud Function",
+  "url": "https://www.tencentcloud.com/products/scf",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully hosted function-as-a-service; Tencent manages execution and scaling for the customer's code"
+    }
+  },
+  "line": "Run event driven or HTTP functions on managed serverless compute.",
+  "free": { "kind": "trial", "text": "3 activation months: 1M GB-s, 1M event + 1M HTTP calls, 2 GB/mo" },
+  "cells": { "type": "Serverless functions", "regions": "16 compute regions, including Singapore, US, Europe, Asia", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "HTTP file-serving function", "state": "unclear", "math": "$13.93 a month is only the Singapore subtotal after the trial. Compute duration is not specified, and log, HTTPS certificate and direct-URL billing costs are not confirmed." },
+    { "v": "Unknown", "plan": "1280 MB CPU function", "state": "unclear", "math": "$17.47875 a month Singapore subtotal after the trial, for 1 million calls × 250 ms. Add log and HTTPS certificate costs, which are not confirmed. CPU capacity is untested." },
+    { "v": "Unknown", "plan": "Function + TencentDB PostgreSQL", "state": "check_failed", "math": "The Singapore PostgreSQL instance and disk price could not be retrieved. A 20 GB minimum disk, seven-day backups, logs and HTTPS certificates prevent a complete monthly total." }
+  ] }
+}

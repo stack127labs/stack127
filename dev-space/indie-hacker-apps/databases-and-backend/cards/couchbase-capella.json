@@ -1,0 +1,33 @@
+{
+  "slug": "couchbase-capella",
+  "name": "Couchbase Capella",
+  "url": "https://www.couchbase.com/pricing/",
+  "jobs": ["nosql", "jobs", "vector"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: primary type is document database; D01: JSON/key-value engine queried with SQL++",
+      "jobs": "J04: Eventing timers run scheduled callbacks inside the managed cluster; J01 Eventing runs on changes",
+      "vector": "V01: Search vector indexes, up to 4,096 elements, are documented for Capella clusters"
+    }
+  },
+  "line": "Run managed document databases with search, vector, and eventing features.",
+  "free": { "kind": "free", "text": "1 cluster/org; 8 GB GCP or 10 GB AWS/Azure; turns off after 72 idle hours" },
+  "cells": {
+    "metered": "AWS N. Virginia Basic node from $0.15/hour",
+    "regions": "AWS, GCP, or Azure regions selected at creation",
+    "selfhost": "No, Couchbase Server is separate"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$109.50", "plan": "Basic 2-vCPU/8-GB node, AWS us-east-1", "state": "unclear", "math": "If the listed 50 GB node fits: 730 hours × $0.15 an hour = $109.50. Workload capacity, backup, transfer, add-ons and tax are extra." },
+      { "v": "$109.50", "plan": "Basic 2-vCPU/8-GB node, AWS us-east-1", "state": "unclear", "math": "The 2 vCPUs (virtual CPU cores) and 8 GB node, with 50 GB allocated, costs $109.50 for 730 hours while idle. Backup, transfer and add-ons are extra." }
+    ],
+    "files": [
+      { "v": "Unknown", "plan": "", "state": "unclear", "math": "100 GB is more than the listed 50 GB node allocation. A larger cluster, plus App Services and transfer, would be needed." }
+    ],
+    "jobs": [
+      { "v": "$211.70", "plan": "Basic 4-vCPU/16-GB Search/Eventing node, AWS us-east-1", "state": "unclear", "math": "If this node fits: 730 hours × $0.29 an hour = $211.70. Eventing capacity, data, backup, transfer and the full total are not verified." }
+    ]
+  }
+}

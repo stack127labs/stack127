@@ -1,0 +1,17 @@
+{
+  "slug": "beehiiv",
+  "name": "beehiiv",
+  "official_url": "https://www.beehiiv.com/",
+  "image_url": "https://beehiiv-marketing-images.s3.amazonaws.com/Redesign2023/favicon.png",
+  "source_page": "https://www.beehiiv.com/",
+  "kind": "favicon",
+  "source_host": "beehiiv-marketing-images.s3.amazonaws.com",
+  "original": {
+    "format": "png",
+    "width": 999,
+    "height": 999
+  },
+  "sha256": "a2af84d63451373ce875cc7714865fc7fcb5c7939f9b3d380b814b3fd4303fd8",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

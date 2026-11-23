@@ -31,7 +31,8 @@ function apiRoutes(directory, prefix = '/api') {
   return readdirSync(directory, {withFileTypes: true}).flatMap(entry => {
     if (!entry.isDirectory() || ['mcp', 'v1', '[...path]'].includes(entry.name)) return [];
     const nested = new URL(entry.name + '/', directory);
-    const path = prefix + '/' + entry.name.replace('[slug]', 'example-app');
+    // Dynamic segments get a sample value: [slug] -> example-app, [directory] -> example-directory.
+    const path = prefix + '/' + entry.name.replace('[slug]', 'example-app').replace(/^\[(\w+)\]$/, 'example-$1');
     return [
       ...(readdirSync(nested).includes('route.ts') ? [path] : []),
       ...apiRoutes(nested, path),
@@ -47,6 +48,8 @@ function mainHeaders(path, query) {
   if ((path.startsWith('/api/self-host-apps/') && path !== '/api/self-host-apps/search') || path.startsWith('/api/resource-planner-app/')) tags.push('self-host-detail');
   if (path === '/api/cli-apps/index') tags.push('cli-apps-catalog');
   if (path.startsWith('/api/ad-networks/')) tags.push('ad-networks-catalog');
+  const appDirectory = /^\/api\/app-directories\/([a-z0-9-]+)\//.exec(path)?.[1];
+  if (appDirectory) tags.push('app-directory:' + appDirectory);
   const filters = new URLSearchParams(query);
   filters.delete('_rsc'); filters.delete('page');
   const headers = new Headers({

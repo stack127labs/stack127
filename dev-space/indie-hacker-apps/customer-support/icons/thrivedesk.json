@@ -1,0 +1,17 @@
+{
+  "slug": "thrivedesk",
+  "name": "ThriveDesk",
+  "official_url": "https://www.thrivedesk.com/",
+  "image_url": "https://www.thrivedesk.com/favicon.svg",
+  "source_page": "https://www.thrivedesk.com/",
+  "kind": "svg-icon",
+  "source_host": "thrivedesk.com",
+  "original": {
+    "format": "svg",
+    "width": 341,
+    "height": 341
+  },
+  "sha256": "8a37d9b77330b203366e0fb3dd53d29d2a88e0eca196a5529403f94b98db23da",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

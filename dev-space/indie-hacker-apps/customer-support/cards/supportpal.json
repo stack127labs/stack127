@@ -1,0 +1,29 @@
+{
+  "slug": "supportpal",
+  "name": "SupportPal",
+  "url": "https://www.supportpal.com/",
+  "jobs": ["inbox", "helpdesk", "chat", "ai", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: self-service articles are part of the shared inbox product",
+      "inbox": "F18: Assign and take tickets, private notes, mentions, watchers and a draft indicator that prevents duplicate replies",
+      "helpdesk": "F17: Native email-to-ticket processing and a Help Widget that creates tickets; F21: self-service articles",
+      "chat": "F17: Free official Chat channel with rich messages, persistent history and operator replies",
+      "ai": "F22: AI Assistant plugin can switch a chat to automatic AI replies; the AI hands off when a person is asked for (F24)"
+    }
+  },
+  "line": "Self-hosted support inbox with email tickets and website messaging.",
+  "free": { "kind": "trial", "text": "30-day evaluation, no card" },
+  "cells": {
+    "channels": "Email, website chat, optional messaging add-ons",
+    "ai": "No plugin fee; model and hosting costs are extra",
+    "selfhost": "Yes, paid proprietary licence"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$29.95", "plan": "Monthly licence", "state": "confirmed", "math": "One installation includes one brand and unlimited operators." },
+      { "v": "$29.95", "plan": "Monthly licence", "state": "confirmed", "math": "The same installation supports three operators. The license is not charged per seat." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "naps",
+  "name": "NAPS",
+  "official_url": "https://naps.ma/",
+  "image_url": "https://naps.ma/wp-content/uploads/2024/06/cropped-favicon-32x32-1-192x192.png",
+  "source_page": "https://naps.ma/",
+  "kind": "favicon",
+  "source_host": "naps.ma",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "1c0ebc441f4e67bf6022a19762c5c987d8e6516a29ceee4ed81888962b06bc0c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

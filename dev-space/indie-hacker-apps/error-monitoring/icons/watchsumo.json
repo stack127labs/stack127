@@ -1,0 +1,17 @@
+{
+  "slug": "watchsumo",
+  "name": "WatchSumo",
+  "official_url": "https://www.watchsumo.com/",
+  "image_url": "https://www.watchsumo.com/assets/icons/icon-228-fdab87ad5b395728ffde48df8220d32623547d8fb6ccf43e9d93c428586daf8e.png",
+  "source_page": "https://www.watchsumo.com/",
+  "kind": "favicon",
+  "source_host": "watchsumo.com",
+  "original": {
+    "format": "png",
+    "width": 228,
+    "height": 228
+  },
+  "sha256": "3bca51fa4eb5455ba8820c566479266e8773b5cfd133bdcaf9aa86d52b77456c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

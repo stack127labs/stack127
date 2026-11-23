@@ -1,0 +1,17 @@
+{
+  "slug": "new-relic",
+  "name": "New Relic",
+  "official_url": "https://newrelic.com/",
+  "image_url": "https://newrelic.com/themes/custom/erno/assets/images/metadata/android-chrome-512x512.png",
+  "source_page": "https://newrelic.com/",
+  "kind": "manifest-icon",
+  "source_host": "newrelic.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "893190865a22a71ed016954064c91e37e81c0e67b19fb9dc27d6a3863bc9b0a2",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

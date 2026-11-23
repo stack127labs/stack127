@@ -1,0 +1,33 @@
+{
+  "slug": "kajabi-email-marketing",
+  "name": "Kajabi Email Marketing",
+  "url": "https://www.kajabi.com/features/email-marketing",
+  "jobs": ["marketing", "newsletter"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: marketing broadcasts and automated sequences",
+      "newsletter": "F02: native newsletter publishing and broadcasts"
+    }
+  },
+  "line": "Email campaigns and automated sequences in Kajabi's creator suite.",
+  "free": { "kind": "trial", "text": "14-day trial; exact send quota is not published" },
+  "cells": {
+    "newsletters": "Yes, broadcasts and native newsletter publishing",
+    "api": "No, no general app-email send API established"
+  },
+  "costs": {
+    "subs": [
+      { "v": "USD 179/month", "plan": "Basic", "state": "confirmed", "math": "1,000 contacts fit within Basic's 2,500-contact capacity. That is 4,000 emails a month." },
+      { "v": "USD 249/month or USD 204/month", "plan": "Growth or Basic + contact blocks", "state": "conflicting", "math": "For 5,000 contacts, the website's 25K-block pricing gives USD 249. The help center's 5K blocks give USD 179 plus one block at USD 25, which is USD 204." },
+      { "v": "USD 249/month or USD 229/month", "plan": "Growth or Basic + contact blocks", "state": "conflicting", "math": "For 10,000 contacts, the website pricing gives USD 249. The help center's 5K blocks give USD 179 plus 2 blocks at USD 25 each, which is USD 229." },
+      { "v": "USD 374/month", "plan": "Growth + 25,000 extra contacts", "state": "confirmed", "math": "The Growth plan is USD 249, plus USD 125 for one 25,000-contact block, for 50,000 contacts." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general app-email service. Sending app emails at this volume is not confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general app-email service. Sending app emails at this volume is not confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general app-email service. Sending app emails at this volume is not confirmed." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Not a general app-email service. Sending app emails at this volume is not confirmed." }
+    ]
+  }
+}

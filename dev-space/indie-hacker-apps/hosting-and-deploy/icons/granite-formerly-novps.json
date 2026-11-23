@@ -1,0 +1,17 @@
+{
+  "slug": "granite-formerly-novps",
+  "name": "Granite",
+  "official_url": "https://granite.so/",
+  "image_url": "https://granite.so/web-app-manifest-512x512.png",
+  "source_page": "https://granite.so/",
+  "kind": "manifest-icon",
+  "source_host": "granite.so",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "4c247334746bb059df91be8f60eebe9081ca754a8a45dcb376cffded2c81b356",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

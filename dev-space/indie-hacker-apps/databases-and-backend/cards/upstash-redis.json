@@ -1,0 +1,55 @@
+{
+  "slug": "upstash-redis",
+  "name": "Upstash Redis",
+  "url": "https://upstash.com/redis",
+  "jobs": ["kv", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kv": "C02: managed key-value database and cache is the primary type; D01: Redis-compatible serverless service",
+      "vector": "V01: VECTOR.* commands with up to 32,768 dimensions; V02: HYBRID search with vector ranking"
+    }
+  },
+  "line": "Serverless Redis with pay-per-command or fixed plans.",
+  "free": {
+    "kind": "free",
+    "text": "500,000 commands/month; archives after 30 idle days"
+  },
+  "cells": {
+    "metered": "$0.20/100,000 commands",
+    "regions": "18 regions",
+    "selfhost": "No (none found)"
+  },
+  "costs": {
+    "sql": [
+      {
+        "v": "$20",
+        "plan": "Fixed 1 GB",
+        "state": "unclear",
+        "math": "$20 a month if the data fits 1 GB and bandwidth fits 100 GB. There are no read regions in this figure."
+      },
+      {
+        "v": "$20",
+        "plan": "Fixed 1 GB",
+        "state": "unclear",
+        "math": "$20 a month while idle, if the data fits 1 GB and bandwidth fits 100 GB. There are no read regions in this figure."
+      }
+    ],
+    "files": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not provide file storage."
+      }
+    ],
+    "jobs": [
+      {
+        "v": "—",
+        "plan": "",
+        "state": "not_applicable",
+        "math": "Does not run jobs."
+      }
+    ]
+  }
+}

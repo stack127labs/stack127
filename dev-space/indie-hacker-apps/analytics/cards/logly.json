@@ -1,0 +1,46 @@
+{
+  "slug": "logly",
+  "name": "Logly",
+  "url": "https://logly.uk/",
+  "jobs": [
+    "web"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "web": "F02: primary category is hosted website traffic analytics; F15: pageviews, sessions, pages, referrers and countries"
+    }
+  },
+  "line": "Tracks website pageviews and separates bot traffic.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 10,000 views/month, 1 site, 1-month history; badge"
+  },
+  "cells": {
+    "cookieless": "Yes, no persistent browser storage",
+    "location": "EU",
+    "selfhost": "No"
+  },
+  "costs": {
+    "pv": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "The free plan covers up to 10,000 pageviews a month on one site."
+      },
+      {
+        "v": "$9",
+        "plan": "Starter early access",
+        "state": "unclear",
+        "math": "Starter is $9 a month if you qualify for early access. The later published price is $15 a month."
+      },
+      {
+        "v": "$29",
+        "plan": "Pro early access",
+        "state": "unclear",
+        "math": "Pro is $29 a month if you qualify for early access. The later published price is $49 a month."
+      }
+    ]
+  }
+}

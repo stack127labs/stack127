@@ -1,0 +1,17 @@
+{
+  "slug": "livechat",
+  "name": "LiveChat",
+  "official_url": "https://www.livechat.com/",
+  "image_url": "https://www.livechat.com/icon-512.png",
+  "source_page": "https://www.livechat.com/",
+  "kind": "manifest-icon",
+  "source_host": "livechat.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "45c0035aa93341ecb623e83fd739f7995c80d41008605b1d40b231f969a45034",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

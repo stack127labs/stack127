@@ -1,0 +1,17 @@
+{
+  "slug": "huawei-cloud-ecs",
+  "name": "Huawei Cloud ECS",
+  "official_url": "https://www.huaweicloud.com/intl/en-us/product/ecs.html",
+  "image_url": "https://www.huaweicloud.com/favicon.ico",
+  "source_page": "https://www.huaweicloud.com/intl/en-us/product/ecs.html",
+  "kind": "favicon",
+  "source_host": "huaweicloud.com",
+  "original": {
+    "format": "png",
+    "width": 96,
+    "height": 96
+  },
+  "sha256": "c25ff4af6a8bd57cf004c60a1e2919c2f3c539724c6082938b0a2620e972bd2f",
+  "note": "parent brand: Huawei Cloud; no distinct ECS icon found in the official page assets.",
+  "saved_at": "2026-11-14"
+}

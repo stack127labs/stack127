@@ -1,0 +1,17 @@
+{
+  "slug": "memcachier",
+  "name": "MemCachier",
+  "official_url": "https://www.memcachier.com/",
+  "image_url": "https://www.memcachier.com/assets/logo-40x40.png",
+  "source_page": "https://www.memcachier.com/",
+  "kind": "logo-mark",
+  "source_host": "memcachier.com",
+  "original": {
+    "format": "png",
+    "width": 40,
+    "height": 40
+  },
+  "sha256": "1755cc797c59c4c5a04664b285c20055b3e1ab4f4b5eb9368e8f2004c27dff85",
+  "note": "largest official icon is 40 px",
+  "saved_at": "2026-11-14"
+}

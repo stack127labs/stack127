@@ -1,0 +1,20 @@
+{
+  "slug": "biznet-gio-cloud-compute",
+  "name": "Biznet GIO Cloud Compute",
+  "url": "https://www.biznetgio.com/product/neo-virtual-compute/",
+  "jobs": ["vps"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "vps": "03: rented virtual compute; the customer chooses the OS image and manages the guest OS and app"
+    }
+  },
+  "line": "Prepaid virtual machines with customer managed operating systems.",
+  "free": { "kind": "none", "text": "No ongoing free compute plan" },
+  "cells": { "type": "VPS/VM", "regions": "Indonesia; price region unspecified", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Rp179000", "plan": "NVC SS2.1", "state": "confirmed", "math": "The known VM rate is Rp179,000 a month before tax. Whether new customers can get this rate now, and the region pricing, are not confirmed." },
+    { "v": "Rp179000", "plan": "NVC SS2.1", "state": "confirmed", "math": "The listed monthly VM rate of Rp179,000 is lower than 730 hours at Rp360 an hour. Data transfer has no separate charge." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "Rp359,000 for the VM + Rp90,000 for one manual snapshot = Rp449,000 partial subtotal. Snapshot scope and daily backups are not yet confirmed." }
+  ] }
+}

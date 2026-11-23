@@ -1,0 +1,32 @@
+{
+  "slug": "sendlayer",
+  "name": "SendLayer",
+  "url": "https://sendlayer.com/",
+  "jobs": ["transactional"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "transactional": "F02: application-triggered transactional messages through the SMTP relay or REST API"
+    }
+  },
+  "line": "Transactional email API and SMTP relay for application messages.",
+  "free": { "kind": "credits", "text": "Free trial includes up to 200 emails; renewal is not published" },
+  "cells": {
+    "newsletters": "No, newsletters, mass email and promotions are prohibited",
+    "api": "Yes, REST API and SMTP relay"
+  },
+  "costs": {
+    "subs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The acceptable use policy bans newsletters, mass email and promotional sends." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The acceptable use policy bans newsletters, mass email and promotional sends." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The acceptable use policy bans newsletters, mass email and promotional sends." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "The acceptable use policy bans newsletters, mass email and promotional sends." }
+    ],
+    "appmail": [
+      { "v": "$180/year, billed annually", "plan": "Business", "state": "confirmed", "math": "3,000 emails a month. The Business plan includes 5,000. That is the $15 a month equivalent. An existing website and sender domain are assumed; their costs and tax are extra." },
+      { "v": "$300/year, billed annually", "plan": "Growth", "state": "confirmed", "math": "10,000 emails a month. The Growth plan includes 10,000. That is the $25 a month equivalent. An existing website and sender domain are assumed; their costs and tax are extra." },
+      { "v": "Quote", "plan": "Scale 20,000+", "state": "not_published", "math": "50,000 emails a month. The Scale plan starts at 20,000+. The price is not available. An existing website and sender domain are assumed." },
+      { "v": "Quote", "plan": "Scale 20,000+", "state": "not_published", "math": "100,000 emails a month. The Scale plan starts at 20,000+. The price is not available. An existing website and sender domain are assumed." }
+    ]
+  }
+}

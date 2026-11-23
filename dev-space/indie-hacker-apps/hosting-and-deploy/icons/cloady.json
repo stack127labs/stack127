@@ -1,0 +1,17 @@
+{
+  "slug": "cloady",
+  "name": "Cloady",
+  "official_url": "https://cloady.com/",
+  "image_url": "https://cloady.com/favicon.ico",
+  "source_page": "https://cloady.com/",
+  "kind": "favicon",
+  "source_host": "cloady.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "9e61394639a9b0fd3aaab2fdbcfc3b3e036112a8a7617bc816df5738fe10fabd",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

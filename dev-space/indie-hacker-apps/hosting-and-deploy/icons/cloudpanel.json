@@ -1,0 +1,17 @@
+{
+  "slug": "cloudpanel",
+  "name": "CloudPanel",
+  "official_url": "https://www.cloudpanel.io/",
+  "image_url": "https://www.cloudpanel.io/assets/images/apple-touch-icon.png?v=2.0.12",
+  "source_page": "https://www.cloudpanel.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "cloudpanel.io",
+  "original": {
+    "format": "png",
+    "width": 180,
+    "height": 180
+  },
+  "sha256": "c5f89df9841d3ed457f2317b066aa0be2f40fdbe3ea98e4c5688af511d774f2b",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

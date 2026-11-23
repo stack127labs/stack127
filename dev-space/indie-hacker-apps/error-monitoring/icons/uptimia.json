@@ -1,0 +1,17 @@
+{
+  "slug": "uptimia",
+  "name": "Uptimia",
+  "official_url": "https://www.uptimia.com/",
+  "image_url": "https://www.uptimia.com/website/img/fav/android-icon-192x192.png",
+  "source_page": "https://www.uptimia.com/",
+  "kind": "favicon",
+  "source_host": "uptimia.com",
+  "original": {
+    "format": "png",
+    "width": 192,
+    "height": 192
+  },
+  "sha256": "f935e3c44f40c1ad97474d3ba2de3674911dd17cd7e4eb254c3ad660255c1041",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

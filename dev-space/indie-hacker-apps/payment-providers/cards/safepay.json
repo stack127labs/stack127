@@ -1,0 +1,29 @@
+{
+  "slug": "safepay",
+  "name": "Safepay",
+  "url": "https://getsafepay.pk/",
+  "jobs": ["gateway", "billing", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: gateway and payment facilitator; the merchant remains responsible for the sale",
+      "billing": "F14: automatic recurring saved-card charges; F15: plans, trials, pause and three retries",
+      "links": "F16: no-code dashboard and API payment links with expiry and reminders"
+    }
+  },
+  "line": "Pakistan gateway for cards, Raast, subscriptions, and payment links.",
+  "free": { "kind": "none", "text": "Standard has no setup or monthly fee; transaction fees apply" },
+  "cells": {
+    "type": "Gateway and payment facilitator",
+    "countries": "Pakistan businesses",
+    "payout": "Per agreement; optional instant payout within minutes"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be set up or authorized under Pakistan law. US businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be set up or authorized under Pakistan law. UK businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be set up or authorized under Pakistan law. German businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Sellers must be set up or authorized under Pakistan law. Indian businesses can't sign up." }
+    ]
+  }
+}

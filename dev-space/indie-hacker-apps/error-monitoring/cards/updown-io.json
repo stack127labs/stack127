@@ -1,0 +1,29 @@
+{
+  "slug": "updown-io",
+  "name": "updown.io",
+  "url": "https://updown.io/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "C02: HTTP, TCP, TLS and ICMP availability checks from ten probes (U01, U03)",
+      "status": "S01, S03: hosted single- and multi-site availability pages (S03)",
+      "cron": "J01, J02: pulses with a duration, a missed-pulse Down state and POST bodies"
+    }
+  },
+  "line": "Checks site uptime and cron heartbeats, with hosted status pages.",
+  "free": { "kind": "credits", "text": "One-time 100,000-credit trial; no fixed time limit" },
+  "cells": { "interval": "15 s minimum; 60 s default", "maintained": "Hosted service" },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application exception reports" }
+    ],
+    "uptime": [
+      { "v": "Unknown", "plan": "Prepaid credits", "state": "unclear", "math": "The usage equivalent is €5.40 per 30 days. One-location access, how confirmation checks are billed, and page capacity aren't verified." },
+      { "v": "Unknown", "plan": "Prepaid credits", "state": "unclear", "math": "The usage equivalent is €27 per 30 days. One-location access, how confirmation checks are billed, and page capacity aren't verified." },
+      { "v": "Unknown", "plan": "Prepaid credits", "state": "unclear", "math": "The usage equivalent is €108 per 30 days. One-location access, how confirmation checks are billed, and page capacity aren't verified." }
+    ]
+  }
+}

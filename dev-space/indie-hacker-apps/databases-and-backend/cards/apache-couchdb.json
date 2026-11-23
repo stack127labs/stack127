@@ -1,0 +1,27 @@
+{
+  "slug": "apache-couchdb",
+  "name": "Apache CouchDB",
+  "url": "https://couchdb.apache.org/",
+  "jobs": ["nosql"],
+  "job_check": {
+    "checked": "2026-11-23",
+    "evidence": {
+      "nosql": "C02: self-hosted JSON document database; D01: JSON documents with Mango selectors and indexes"
+    }
+  },
+  "line": "Self-hosted JSON document database with HTTP APIs and replication.",
+  "free": { "kind": "selfhost", "text": "Free Apache-licensed software; hosting costs extra" },
+  "cells": {
+    "metered": "No hosted price; you pay for infrastructure",
+    "regions": "Set by your hosting provider",
+    "selfhost": "Yes, Apache License 2.0"
+  },
+  "costs": {
+    "sql": [
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "No hosting provider or setup is chosen yet. Hosting, disk space, backups and transfer decide the total." },
+      { "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "Even with no requests, hosting, stored data and backup costs remain. The host and its rates are not stated." }
+    ],
+    "files": [{ "v": "Unknown", "plan": "Self-hosted", "state": "unclear", "math": "Files can be stored as attachments, but the rates for hosting, copies, disk, backups and transfer are not stated." }],
+    "jobs": [{ "v": "—", "plan": "", "state": "not_applicable", "math": "Database software does not execute general background jobs" }]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "ovhcloud-managed-databases",
+  "name": "OVHcloud Managed Databases",
+  "official_url": "https://www.ovhcloud.com/en/public-cloud/databases/",
+  "image_url": "https://www.ovhcloud.com/android-icon-512x512.png",
+  "source_page": "https://www.ovhcloud.com/en/public-cloud/databases/",
+  "kind": "manifest-icon",
+  "source_host": "ovhcloud.com",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "d31cddff04f56ebbb3afffc0b1582d1304da52b68bcb24edca56fed556514cbf",
+  "note": "OVHcloud brand mark used for Managed Databases.",
+  "saved_at": "2026-11-14"
+}

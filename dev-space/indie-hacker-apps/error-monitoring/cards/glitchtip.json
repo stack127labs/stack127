@@ -1,0 +1,75 @@
+{
+  "slug": "glitchtip",
+  "name": "GlitchTip",
+  "url": "https://glitchtip.com/",
+  "jobs": [
+    "errors",
+    "uptime",
+    "status",
+    "logs",
+    "performance",
+    "cron"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "errors": "C02: error tracking is the first job; SDK events become grouped issues (E01)",
+      "uptime": "U01, U02: HTTP and TCP checks with expected status and body match",
+      "status": "C02, S01, S03: status pages group monitors, public or organization-only",
+      "logs": "L02: severity, service and full-text log filters with trace links",
+      "performance": "A01: transaction groups with p50 and p95 timings and span breakdowns",
+      "cron": "J02: missing heartbeat marks a check down; success pings restore it"
+    }
+  },
+  "line": "Open source Sentry-compatible errors, uptime and logs.",
+  "free": {
+    "kind": "free",
+    "text": "1,000 events/month free; self-host is free"
+  },
+  "cells": {
+    "interval": "1 s fastest; 60 s default",
+    "maintained": "Last release 2026-08-07"
+  },
+  "costs": {
+    "errors": [
+      {
+        "v": "$15",
+        "plan": "Small",
+        "state": "confirmed",
+        "math": "5,000 errors fit the Small plan, which includes 100,000 events, at $15 a month."
+      },
+      {
+        "v": "$15",
+        "plan": "Small",
+        "state": "confirmed",
+        "math": "50,000 errors fit the Small plan, which includes 100,000 events, at $15 a month."
+      },
+      {
+        "v": "$50",
+        "plan": "Medium",
+        "state": "confirmed",
+        "math": "500,000 errors fit the Medium plan, which includes 500,000 events, at $50 a month."
+      }
+    ],
+    "uptime": [
+      {
+        "v": "$15",
+        "plan": "Small",
+        "state": "unclear",
+        "math": "21,600 events if each event covers 10 checks. The sources conflict: another one says 1 request per event. The Small plan is $15."
+      },
+      {
+        "v": "$16.36",
+        "plan": "Small + overage",
+        "state": "unclear",
+        "math": "108,000 events if each event covers 10 checks. The sources conflict: another one says 1 request per event. The Small plan is $15, plus 8,000 extra events at $0.00017 each."
+      },
+      {
+        "v": "$50",
+        "plan": "Medium",
+        "state": "unclear",
+        "math": "432,000 events if each event covers 10 checks. The sources conflict: another one says 1 request per event. The Medium plan is $50."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "vultr-managed-databases",
+  "name": "Vultr Managed Databases",
+  "official_url": "https://docs.vultr.com/products/storage/databases",
+  "image_url": "https://docs.vultr.com/favicon.ico",
+  "source_page": "https://docs.vultr.com/products/storage/databases",
+  "kind": "favicon",
+  "source_host": "docs.vultr.com",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "70a5e2ee1dfd11f82638abb69fadb01109ddec1ac5b25a32a065423c3e7c95e9",
+  "note": "largest official icon is 48 px; parent brand: Vultr",
+  "saved_at": "2026-11-14"
+}

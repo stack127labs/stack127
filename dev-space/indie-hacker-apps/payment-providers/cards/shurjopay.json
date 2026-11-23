@@ -1,0 +1,28 @@
+{
+  "slug": "shurjopay",
+  "name": "shurjoPay",
+  "url": "https://shurjopay.com.bd/",
+  "jobs": ["gateway", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "gateway": "F02: payment gateway aggregator; the merchant remains the legal seller",
+      "links": "F16: Payment Link Generator, with links shared by email, SMS or WhatsApp"
+    }
+  },
+  "line": "Bangladesh gateway for local wallets, online banking, and card checkout.",
+  "free": { "kind": "none", "text": "Commercial fees by quote; no published setup or monthly amount" },
+  "cells": {
+    "type": "Gateway and payment aggregator",
+    "countries": "Bangladesh",
+    "payout": "Weekly withdrawal to the registered bank"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Merchants must be based in Bangladesh, so US businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Merchants must be based in Bangladesh, so UK businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Merchants must be based in Bangladesh, so German businesses can't sign up." },
+      { "v": "Not available", "plan": "", "state": "confirmed", "math": "Merchants must be based in Bangladesh, so Indian businesses can't sign up." }
+    ]
+  }
+}

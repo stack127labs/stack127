@@ -1,0 +1,30 @@
+{
+  "slug": "acellemail",
+  "name": "AcelleMail",
+  "url": "https://acellesend.com/",
+  "jobs": ["newsletter", "marketing"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "newsletter": "F02: newsletters and campaigns sent from the app; the mail goes out through a sender you connect (F03)",
+      "marketing": "F02: welcome and drip sequences plus recurring or date-based automation"
+    }
+  },
+  "line": "Self-hosted software for newsletters, campaigns, and email sequences.",
+  "free": { "kind": "none", "text": "No free licence established" },
+  "cells": { "newsletters": "Yes", "api": "Yes" },
+  "costs": {
+    "subs": [
+      { "v": "$375.86432", "plan": "Regular + host + SES", "state": "confirmed", "math": "First year: $80 license, plus 12 months of $24 hosting and 4,000 emails a month at $0.00016384 each through Amazon SES." },
+      { "v": "$407.3216", "plan": "Regular + host + SES", "state": "confirmed", "math": "First year: $80 license, plus 12 months of $24 hosting and 20,000 emails a month at $0.00016384 each through Amazon SES." },
+      { "v": "$446.6432", "plan": "Regular + host + SES", "state": "confirmed", "math": "First year: $80 license, plus 12 months of $24 hosting and 40,000 emails a month at $0.00016384 each through Amazon SES." },
+      { "v": "$761.216", "plan": "Regular + host + SES", "state": "confirmed", "math": "First year: $80 license, plus 12 months of $24 hosting and 200,000 emails a month at $0.00016384 each through Amazon SES." }
+    ],
+    "appmail": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not do this job" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not do this job" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not do this job" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not do this job" }
+    ]
+  }
+}

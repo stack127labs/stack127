@@ -1,0 +1,17 @@
+{
+  "slug": "text",
+  "name": "Text",
+  "official_url": "https://www.text.com/",
+  "image_url": "https://www.text.com/favicon.svg?v=20260331",
+  "source_page": "https://www.text.com/",
+  "kind": "svg-icon",
+  "source_host": "text.com",
+  "original": {
+    "format": "svg",
+    "width": 2731,
+    "height": 2731
+  },
+  "sha256": "4209ca9c322343fe7009d4b236b7bd5935fe900bfad3b747eed03def67d2efa1",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

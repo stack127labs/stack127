@@ -1,0 +1,46 @@
+{
+  "slug": "fly-io",
+  "name": "Fly.io",
+  "url": "https://fly.io/",
+  "jobs": [
+    "paas"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted VMs; Fly Launch deploys the customer's image and runs its processes"
+    }
+  },
+  "line": "Run containers as small virtual machines close to your users.",
+  "free": {
+    "kind": "none",
+    "text": "No free tier for new accounts"
+  },
+  "cells": {
+    "type": "App platform",
+    "regions": "17 regions",
+    "selfhost": "No"
+  },
+  "costs": {
+    "work": [
+      {
+        "v": "About USD 4.22",
+        "plan": "Pay As You Go",
+        "state": "confirmed",
+        "math": "USD 2.224602 + USD 2 = USD 4.224602 before tax. The $2 charge may be waived when total monthly charges are under $5."
+      },
+      {
+        "v": "About USD 8.79",
+        "plan": "Pay As You Go",
+        "state": "unclear",
+        "math": "USD 8.79305556, which depends on the stated memory assumption."
+      },
+      {
+        "v": "About USD 84.63",
+        "plan": "Managed Postgres Starter",
+        "state": "unclear",
+        "math": "USD 8.79305556 + USD 73 + USD 2.83888889, with 10 GB stored."
+      }
+    ]
+  }
+}

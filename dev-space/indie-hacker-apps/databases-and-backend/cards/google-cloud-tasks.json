@@ -1,0 +1,31 @@
+{
+  "slug": "google-cloud-tasks",
+  "name": "Google Cloud Tasks",
+  "url": "https://docs.cloud.google.com/tasks/docs",
+  "jobs": ["jobs"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "jobs": "C02: managed asynchronous task queue with retries and scheduling; J04: one-time schedule up to 30 days ahead"
+    }
+  },
+  "line": "Schedule and dispatch HTTP tasks to your own worker endpoints.",
+  "free": { "kind": "free", "text": "1M ops/month; queue inactive after 30 idle days; tasks deleted at 31 days" },
+  "cells": {
+    "metered": "1M operations free; then $0.40 per million",
+    "regions": "Queue regions: Americas, Europe, Asia Pacific, Middle East",
+    "selfhost": "No, Google-managed queue service"
+  },
+  "costs": {
+    "sql": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud Tasks is a queue service, not a database" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud Tasks is a queue service, not a database" }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Cloud Tasks does not provide file storage." }
+    ],
+    "jobs": [
+      { "v": "Unknown", "plan": "Cloud Tasks plus worker", "state": "unclear", "math": "10,000 tasks at the maximum size of 1 MiB, each with 32 units and 2 calls, make 640,000 operations. That is within the 1 million free operations. Worker and transfer costs are unknown." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "encharge",
+  "name": "Encharge",
+  "official_url": "https://encharge.io/",
+  "image_url": "https://encharge.io/favicon.ico",
+  "source_page": "https://encharge.io/",
+  "kind": "favicon",
+  "source_host": "encharge.io",
+  "original": {
+    "format": "png",
+    "width": 150,
+    "height": 150
+  },
+  "sha256": "1c899bc2f934c3e6e8d629c6b06d00c45b14ffe9380de698d9accffaec0cd0d6",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

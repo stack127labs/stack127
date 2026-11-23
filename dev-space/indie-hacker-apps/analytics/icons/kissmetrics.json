@@ -1,0 +1,17 @@
+{
+  "slug": "kissmetrics",
+  "name": "Kissmetrics",
+  "official_url": "https://kissmetrics.io/",
+  "image_url": "https://kissmetrics.io/favicon-512.png",
+  "source_page": "https://kissmetrics.io/",
+  "kind": "manifest-icon",
+  "source_host": "kissmetrics.io",
+  "original": {
+    "format": "png",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "9c3180a72bd705b8bc58b2c603966ebec47b43fcd0f450c9b52ff4827f35d68c",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "ploi",
+  "name": "Ploi",
+  "url": "https://ploi.io/",
+  "jobs": ["panel", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "panel": "03: hosted control plane that sets up and manages the customer's own servers; paid, not free self-hosted software",
+      "static": "04: static HTML is a listed site type on the customer's server"
+    }
+  },
+  "line": "Manage and deploy apps to servers you rent or already own.",
+  "free": { "kind": "free", "text": "Free: 1 server, 1 site, 5 deploys/mo; 5-day Pro trial, no card" },
+  "cells": { "type": "Deployment panel", "regions": "Apps use provider regions; Ploi control plane in Europe", "selfhost": "No; hosted panel; Core requires Unlimited" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Basic + provider server", "state": "unclear", "math": "20 builds of five minutes each exceed Free's 5 site deploys a month. Basic is €8 a month for Ploi, while the server, IP address, domain and network costs are separate." },
+    { "v": "Unknown", "plan": "Basic + provider server", "state": "unclear", "math": "Basic is €8 a month for Ploi. The server with 1 core and 1 GB, 100 GB of data sent out and the domain are provider costs, so the workload total is unknown." },
+    { "v": "Unknown", "plan": "Pro + provider servers", "state": "unclear", "math": "Pro is €13 a month for Ploi and includes backup scheduling. Provider servers, PostgreSQL storage, backup storage and traffic are not priced." }
+  ] }
+}

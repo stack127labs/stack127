@@ -1,0 +1,20 @@
+{
+  "slug": "google-cloud-run",
+  "name": "Google Cloud Run",
+  "url": "https://cloud.google.com/run",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: fully managed container platform; Google runs the services and jobs the customer deploys"
+    }
+  },
+  "line": "Run containerized services and jobs on managed infrastructure.",
+  "free": { "kind": "free", "text": "Request-based: 180k vCPU-s, 360k GiB-s, 2M requests/month" },
+  "cells": { "type": "Managed containers", "regions": "Iowa example; multiple US, Europe and Asia regions", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$30.05 for the load balancer and domain, plus Cloud Run usage. That usage depends on instance time (rounded up to 100 ms, including startup), inbound traffic and extras, which are not known." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "$30.05 for the load balancer and domain, plus $2.88 for CPU, assuming 300k billed seconds one after another and unused free grants. Startup, inbound traffic and extras vary." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "The small app API example, plus $51.01 for the Cloud SQL base, plus $0.000109589 for each backup GiB-hour. The number of backup GiB-hours, startup, inbound traffic and extras are unknown." }
+  ] }
+}

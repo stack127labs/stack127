@@ -1,0 +1,17 @@
+{
+  "slug": "paguelofacil",
+  "name": "PagueloFacil",
+  "official_url": "https://www.paguelofacil.com/",
+  "image_url": "https://www.paguelofacil.com/images/webclip.jpg",
+  "source_page": "https://www.paguelofacil.com/",
+  "kind": "apple-touch-icon",
+  "source_host": "paguelofacil.com",
+  "original": {
+    "format": "jpeg",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "7ef410677db006fa2d58a9145ece8ffb5252ec38a8622509198ae61db96a57ce",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

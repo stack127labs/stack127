@@ -1,0 +1,28 @@
+{
+  "slug": "teamwork-desk",
+  "name": "Teamwork Desk",
+  "url": "https://www.teamwork.com/desk/",
+  "jobs": ["helpdesk", "chat", "inbox", "kb"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "kb": "F02: Help Docs are part of the email help desk",
+      "helpdesk": "F17: Native email ticketing on all plans; web forms and a customer portal create tickets",
+      "chat": "F17: Native live chat in the contact widget on Pro, Premium and Enterprise",
+      "inbox": "F18: Assign and reassign tickets, with private notes, followers and collision detection"
+    }
+  },
+  "line": "Email help desk with a customer portal, help docs, and optional live chat.",
+  "free": { "kind": "trial", "text": "30-day trial, no card" },
+  "cells": {
+    "channels": "Email, website chat, customer portal",
+    "ai": "$69/month for 100 AI drafts; extra draft rate unclear",
+    "selfhost": "No"
+  },
+  "costs": {
+    "agents": [
+      { "v": "$9.50", "plan": "Starter", "state": "confirmed", "math": "1 seat at the equivalent of $9.50 a month, paid yearly ($114 upfront)." },
+      { "v": "$28.50", "plan": "Starter", "state": "confirmed", "math": "3 seats at the equivalent of $9.50 a month each, paid yearly ($342 upfront)." }
+    ]
+  }
+}

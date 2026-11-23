@@ -1,0 +1,17 @@
+{
+  "slug": "cleavr",
+  "name": "Cleavr",
+  "official_url": "https://cleavr.io/",
+  "image_url": "https://cleavr.io/favicon.ico",
+  "source_page": "https://cleavr.io/",
+  "kind": "favicon",
+  "source_host": "cleavr.io",
+  "original": {
+    "format": "png",
+    "width": 256,
+    "height": 256
+  },
+  "sha256": "d630cffe33ce1bd1ba8a2d52931a8f992c009e80a9c85914d5abea7a02bc1a61",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "saveincloud-cloudlets",
+  "name": "SaveInCloud Cloudlets",
+  "url": "https://saveincloud.com/pt-BR/produtos/computacao/cloudlets-app-platform",
+  "jobs": ["paas", "static"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: hosted app and container platform; the provider advertises the infrastructure and OS management",
+      "static": "04: static websites are a listed app type"
+    }
+  },
+  "line": "Run apps in managed container environments across Brazil.",
+  "free": { "kind": "credits", "text": "R$200 credit for 30 days; 14-day trial also advertised" },
+  "cells": { "type": "Managed app platform", "regions": "Standard: SP/Vinhedo, Fortaleza, Brasília; Premium: Vinhedo", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "Unknown", "plan": "Standard 2 cloudlets + IPv4", "state": "unclear", "math": "Standard subtotal R$78.093 = 2 × R$0.023 × 730 hours + R$0.028 × 730 hours for IP + 100 × R$0.24 for data sent out + 0.1 × R$0.73 for disk. Builds, inbound traffic, system and log disk, and tax are extra." },
+    { "v": "Unknown", "plan": "Standard 8 cloudlets + IPv4", "state": "unclear", "math": "Standard subtotal R$155.473 = 8 × R$0.019 × 730 + R$20.44 for IP + R$24 for data sent out + R$0.073 for files. 1 vCPU is not verified, and builder, inbound and system disk costs are extra." },
+    { "v": "Unknown", "plan": "Standard 8-cloudlet app + database", "state": "unclear", "math": "Subtotal R$273.733 = 16 × R$0.019 × 730 hours + R$20.44 IP + R$24 data sent out + 10.1 × R$0.73 disk. 10 GB private database traffic is free. Seven dumps add 7 × R$0.73 (dump size unknown). Backup node and tax are extra." }
+  ] }
+}

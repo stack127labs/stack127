@@ -1,0 +1,17 @@
+{
+  "slug": "coolify",
+  "name": "Coolify",
+  "official_url": "https://coolify.io/",
+  "image_url": "https://coolify.io/apple-touch-icon.png",
+  "source_page": "https://coolify.io/",
+  "kind": "apple-touch-icon",
+  "source_host": "coolify.io",
+  "original": {
+    "format": "png",
+    "width": 144,
+    "height": 144
+  },
+  "sha256": "11fa34e6e6d82c5eb554e5d12e2827cf38056306a085064a72d963696911f1fe",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

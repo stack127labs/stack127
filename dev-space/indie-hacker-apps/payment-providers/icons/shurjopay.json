@@ -1,0 +1,17 @@
+{
+  "slug": "shurjopay",
+  "name": "shurjoPay",
+  "official_url": "https://shurjopay.com.bd/",
+  "image_url": "https://shurjopay.com.bd/frontend/assets/img/apple-touch-icon-60x60.png",
+  "source_page": "https://shurjopay.com.bd/",
+  "kind": "favicon",
+  "source_host": "shurjopay.com.bd",
+  "original": {
+    "format": "png",
+    "width": 60,
+    "height": 60
+  },
+  "sha256": "497bad7c3611d84ec44f71f64bffc210e0d5f3e47911cca48f67d9c99aeda743",
+  "note": "largest official icon is 60 px",
+  "saved_at": "2026-11-14"
+}

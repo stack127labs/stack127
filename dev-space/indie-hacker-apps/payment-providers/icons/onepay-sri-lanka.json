@@ -1,0 +1,17 @@
+{
+  "slug": "onepay-sri-lanka",
+  "name": "OnePay Sri Lanka",
+  "official_url": "https://www.onepay.lk/",
+  "image_url": "https://www.onepay.lk/favicon.ico?favicon.0ud1tydrwlc64.ico",
+  "source_page": "https://www.onepay.lk/",
+  "kind": "favicon",
+  "source_host": "onepay.lk",
+  "original": {
+    "format": "png",
+    "width": 48,
+    "height": 48
+  },
+  "sha256": "edf7d64887c8475a05720f410e4f8053b1bbcfacb3de1f6ccba4a15c3795a08d",
+  "note": "largest official icon is 48 px",
+  "saved_at": "2026-11-14"
+}

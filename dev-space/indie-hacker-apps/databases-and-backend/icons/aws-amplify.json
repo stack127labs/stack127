@@ -1,0 +1,17 @@
+{
+  "slug": "aws-amplify",
+  "name": "AWS Amplify",
+  "official_url": "https://aws.amazon.com/amplify/",
+  "image_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+  "source_page": "https://aws.amazon.com/architecture/icons/",
+  "kind": "press-kit",
+  "source_host": "d1.awsstatic.com",
+  "original": {
+    "format": "svg",
+    "width": 427,
+    "height": 427
+  },
+  "sha256": "89f83d8c12060a7db6bb3e52b7ce12f1c820406441e4837301fd02a1cba4c132",
+  "note": "",
+  "saved_at": "2026-11-14"
+}

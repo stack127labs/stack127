@@ -1,0 +1,81 @@
+{
+  "slug": "brevo",
+  "name": "Brevo",
+  "url": "https://www.brevo.com/",
+  "jobs": [
+    "marketing",
+    "newsletter",
+    "transactional"
+  ],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "marketing": "F02: lifecycle automation; F07 lets 2,000 contacts into free-plan automations",
+      "newsletter": "F02: campaign newsletters sent from the platform",
+      "transactional": "F02: transactional app email through the API or SMTP; activation is separate (F05)"
+    }
+  },
+  "line": "Campaigns, automation and app email in one service.",
+  "free": {
+    "kind": "free",
+    "text": "Free: 300 emails/day, 100,000 contacts"
+  },
+  "cells": {
+    "newsletters": "Yes",
+    "api": "Yes"
+  },
+  "costs": {
+    "subs": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "1,000 subscribers × 4 campaigns = 4,000 emails a month. It is free only if each campaign is queued again by hand over four days."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Starter",
+        "state": "check_failed",
+        "math": "5,000 subscribers × 4 campaigns = 20,000 emails a month. The Starter plan's 20,000-email tier fits, but the exact total was not verified."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Starter",
+        "state": "check_failed",
+        "math": "10,000 subscribers × 4 campaigns = 40,000 emails a month. A Starter volume tier fits, but the exact total was not verified."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Standard",
+        "state": "check_failed",
+        "math": "50,000 subscribers × 4 campaigns = 200,000 emails a month. A Standard volume tier fits, but the exact total was not verified."
+      }
+    ],
+    "appmail": [
+      {
+        "v": "$0",
+        "plan": "Free",
+        "state": "confirmed",
+        "math": "3,000 emails a month, which is 30 days × 100 a day, one recipient per message. Assumes 500 stored contacts, one user and one domain, a shared IP, no attachments, and no marketing sends or workflow runs."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Starter",
+        "state": "check_failed",
+        "math": "10,000 emails a month. A Starter tier covers it, but the exact total was not verified."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Starter",
+        "state": "check_failed",
+        "math": "50,000 emails a month. A Starter tier covers it, but the exact total was not verified."
+      },
+      {
+        "v": "Unknown",
+        "plan": "Starter",
+        "state": "check_failed",
+        "math": "100,000 emails a month. The Starter plan's ceiling is 100,000 emails, and the exact total was not verified."
+      }
+    ]
+  }
+}

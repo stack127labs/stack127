@@ -1,0 +1,26 @@
+{
+  "slug": "respectlytics",
+  "name": "Respectlytics",
+  "url": "https://respectlytics.com/",
+  "jobs": ["product"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "product": "F02: primary category is mobile app and session-based product analytics; F16: custom ordered funnels, event totals and conversion paths"
+    }
+  },
+  "line": "Tracks app events and funnels with a session-based identifier.",
+  "free": { "kind": "free", "text": "Free: 20,000 events/month, 1 app, 30-day history" },
+  "cells": {
+    "cookieless": "Yes, app session ID stays in memory",
+    "location": "EU; exact country not published",
+    "selfhost": "Yes, Community Edition"
+  },
+  "costs": {
+    "pv": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by events. The free plan covers 20,000 a month. Indie starts at $19 a month for 100,000 events." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by events. The free plan covers 20,000 a month. Indie starts at $19 a month for 100,000 events." },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Billed by events. The free plan covers 20,000 a month. Indie starts at $19 a month for 100,000 events." }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "cockroachdb",
+  "name": "CockroachDB",
+  "url": "https://www.cockroachlabs.com/pricing/",
+  "jobs": ["sql", "vector"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "sql": "C02: distributed SQL database is the primary type; D01: native distributed SQL engine",
+      "vector": "V01: VECTOR type with approximate nearest-neighbor indexes"
+    }
+  },
+  "line": "Run distributed SQL databases in the cloud or on your own servers.",
+  "free": { "kind": "credits", "text": "$400/30-day trial; pauses at end, deleted after 30-day grace" },
+  "cells": {
+    "metered": "From $0.092/vCPU-hour, plus provisioned storage",
+    "regions": "Standard: AWS/GCP; Azure on Mission Critical",
+    "selfhost": "Yes, with eligible free Enterprise software license"
+  },
+  "costs": {
+    "sql": [
+      { "v": "$135.05", "plan": "Continuum Standard, AWS us-east-1", "state": "unclear", "math": "2 × 730 hours × $0.092 an hour, plus 0.9313 GiB × $0.32, plus 4.657 GiB × $0.09216. The total is $135.05. Backup is extra." },
+      { "v": "$134.62", "plan": "Continuum Standard, AWS us-east-1", "state": "unclear", "math": "2 × 730 hours × $0.092 an hour, plus 0.9313 GiB × $0.32. The total is $134.62. Backup is extra." }
+    ],
+    "files": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate file storage service." }
+    ],
+    "jobs": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "No separate job runner or queue service." }
+    ]
+  }
+}

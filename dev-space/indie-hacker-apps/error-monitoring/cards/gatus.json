@@ -1,0 +1,32 @@
+{
+  "slug": "gatus",
+  "name": "Gatus",
+  "url": "https://gatus.io/",
+  "jobs": ["uptime", "status", "cron"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "uptime": "U01, U02: HTTP, TCP, ICMP, DNS and TLS checks with status and body conditions",
+      "status": "S01, S03: hosted and self-hosted status pages with manual incident notices",
+      "cron": "J01, J02: external heartbeat alerts when no update arrives in time"
+    }
+  },
+  "line": "Checks endpoints and publishes status pages, with a self-hosted option.",
+  "free": { "kind": "selfhost", "text": "Free Apache-2.0 software; hosting is your cost" },
+  "cells": {
+    "interval": "30 s managed; 30 s–1 h self-hosted",
+    "maintained": "Last release 2026-10-28"
+  },
+  "costs": {
+    "errors": [
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" },
+      { "v": "—", "plan": "", "state": "not_applicable", "math": "Does not track application error events" }
+    ],
+    "uptime": [
+      { "v": "$20", "plan": "Premium", "state": "unclear", "math": "The Premium plan fits one page and 5 endpoints. Full email and location costs aren't known." },
+      { "v": "$20", "plan": "Premium", "state": "unclear", "math": "The Premium plan fits one page and 25 endpoints. Full email and location costs aren't known." },
+      { "v": "$50", "plan": "Business", "state": "unclear", "math": "The Business plan fits 100 endpoints on one page. Full email and location costs aren't known." }
+    ]
+  }
+}

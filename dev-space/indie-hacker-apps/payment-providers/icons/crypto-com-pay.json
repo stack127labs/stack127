@@ -1,0 +1,17 @@
+{
+  "slug": "crypto-com-pay",
+  "name": "Crypto.com Pay",
+  "official_url": "https://crypto.com/pay-merchant",
+  "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/c9/66/a4c9660b-a304-befc-f1ed-0ed56c0149c7/AppIcon-0-0-1x_U007ephone-0-0-85-220.png/512x512bb.jpg",
+  "source_page": "https://apps.apple.com/us/app/crypto-com-pay-for-business/id6503112183?uo=4",
+  "kind": "app-store",
+  "source_host": "is1-ssl.mzstatic.com",
+  "original": {
+    "format": "jpeg",
+    "width": 512,
+    "height": 512
+  },
+  "sha256": "95d28de0266b07b28fe6a207285291a790957a01339a429f2734161bb31bb922",
+  "note": "Crypto.com Pay for Business, official same company app",
+  "saved_at": "2026-11-14"
+}

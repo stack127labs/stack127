@@ -1,0 +1,28 @@
+{
+  "slug": "coingate",
+  "name": "CoinGate",
+  "url": "https://coingate.com/",
+  "jobs": ["crypto", "links"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "crypto": "C01: merchant checkout accepts BTC, ETH, USDC, LTC and other coins on named networks",
+      "links": "F16: payment links and dashboard payment requests can be emailed or shared directly"
+    }
+  },
+  "line": "Crypto checkout with invoices, payment links and recurring billing.",
+  "free": { "kind": "none", "text": "No setup or monthly fee; 1% per merchant payment" },
+  "cells": {
+    "type": "Crypto payment processor",
+    "countries": "Published seller list includes UK, Germany and India",
+    "payout": "Weekly by default; withdrawals usually within hours"
+  },
+  "costs": {
+    "fee": [
+      { "v": "Unknown", "plan": "", "state": "not_published", "math": "It isn't confirmed whether US sellers can sign up. The published seller list doesn't show they are excluded." },
+      { "v": "1%", "plan": "Crypto payment", "state": "confirmed", "math": "The standard plan charges 1% on each payment. A risk margin that can vary may also apply." },
+      { "v": "1%", "plan": "Crypto payment", "state": "confirmed", "math": "The standard plan charges 1% on each payment. A risk margin that can vary may also apply." },
+      { "v": "1%", "plan": "Crypto payment", "state": "confirmed", "math": "The standard plan charges 1% on each payment. A risk margin that can vary may also apply." }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "fortrabbit",
+  "name": "fortrabbit",
+  "url": "https://www.fortrabbit.com/",
+  "jobs": ["paas"],
+  "job_check": {
+    "checked": "2026-11-22",
+    "evidence": {
+      "paas": "03: managed PHP application hosting; fortrabbit runs the components and the customer deploys the code"
+    }
+  },
+  "line": "Host PHP applications on managed cloud infrastructure.",
+  "free": { "kind": "trial", "text": "7-day per-app trial; app/data deleted at end without payment" },
+  "cells": { "type": "Managed PHP hosting", "regions": "Ireland and Virginia", "selfhost": "No" },
+  "costs": { "work": [
+    { "v": "€12", "plan": "PHP components", "state": "confirmed", "math": "€1 for PHP + €0.50 for storage + €10 for traffic + €0.50 for backup. Assumes up to 512 MiB of storage and total traffic up to 128 GiB." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "€23 a month host subtotal (PHP €12 + storage €0.50 + traffic €10 + backup €0.50). It has 1 GiB of RAM, but the 1 vCPU allocation is not documented." },
+    { "v": "Unknown", "plan": "", "state": "unclear", "math": "€23 for the host + $42.19 for Neon compute and storage + backup at $0.09 per unit + history at $0.20 per unit, with the number of units unknown. Whether the host's vCPU fits is not verified." }
+  ] }
+}

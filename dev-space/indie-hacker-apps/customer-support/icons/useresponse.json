@@ -1,0 +1,17 @@
+{
+  "slug": "useresponse",
+  "name": "UseResponse",
+  "official_url": "https://www.useresponse.com/",
+  "image_url": "https://www.useresponse.com/assets/images/logo.png",
+  "source_page": "https://www.useresponse.com/",
+  "kind": "logo-mark",
+  "source_host": "useresponse.com",
+  "original": {
+    "format": "png",
+    "width": 195,
+    "height": 35
+  },
+  "sha256": "4271377b39b11a7b63f38521caf1826ca6a3067ab3b967e44912b3f49e35a14d",
+  "note": "official product wordmark; no square icon found",
+  "saved_at": "2026-11-14"
+}
