@@ -1,5 +1,6 @@
 import { SELF_HOST_INDEX_TAG, SELF_HOST_DETAILS_TAG, SELF_HOST_APP_TAG } from "./cache-tags";
 import { unstable_cache } from "next/cache";
+import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import { getPool } from "./db";
 
 export type AppCategory = {
@@ -527,7 +528,26 @@ async function loadDirectoryAppIndexBatch(offset: number): Promise<DirectoryAppI
   }));
 }
 
-const getDirectoryAppIndexBatch = unstable_cache(loadDirectoryAppIndexBatch, ["stack127-directory-app-index-batch"], {
+const buildReads = new Map<string, Promise<unknown>>();
+
+/**
+ * `next build` renders several pages at once, and each one misses the empty data cache.
+ * Share an index read that is already running, so parallel self-host pages don't queue
+ * copies of the slow index queries on the small pool (seen as "timeout exceeded when trying
+ * to connect" in static builds). At runtime every cache miss still reads the database.
+ */
+function shareBuildRead<T>(key: string, load: () => Promise<T>): Promise<T> {
+  if (process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD) return load();
+  let read = buildReads.get(key) as Promise<T> | undefined;
+  if (!read) {
+    read = load().finally(() => buildReads.delete(key));
+    buildReads.set(key, read);
+  }
+  return read;
+}
+
+const getDirectoryAppIndexBatch = unstable_cache((offset: number) =>
+  shareBuildRead(`directory-app-index-batch:${offset}`, () => loadDirectoryAppIndexBatch(offset)), ["stack127-directory-app-index-batch"], {
   revalidate: false,
   tags: [SELF_HOST_INDEX_TAG],
 });
@@ -541,7 +561,8 @@ async function loadDirectoryAppIndexCount() {
   return Number(result.rows[0]?.app_count ?? 0);
 }
 
-const getDirectoryAppIndexCount = unstable_cache(loadDirectoryAppIndexCount, ["stack127-directory-app-index-count"], {
+const getDirectoryAppIndexCount = unstable_cache(() =>
+  shareBuildRead("directory-app-index-count", loadDirectoryAppIndexCount), ["stack127-directory-app-index-count"], {
   revalidate: false,
   tags: [SELF_HOST_INDEX_TAG],
 });
@@ -686,8 +707,15 @@ export async function getDirectoryAppsBySlugs(slugs: string[]): Promise<Director
     return [];
   }
 
+  // Each app keeps its own cache entry and tags, but the misses of one call share one query,
+  // so a cold page loads its apps in one read instead of one read per app.
+  let missing: Promise<Map<string, DirectoryApp>> | undefined;
+  const loadMissing = async (slug: string) => {
+    missing ??= loadDirectoryAppsBySlugs(slugs).then(apps => new Map(apps.map(app => [app.slug, app])));
+    return (await missing).get(slug) ?? null;
+  };
   const apps = await Promise.all(slugs.map(slug => unstable_cache(
-    async () => (await loadDirectoryAppsBySlugs([slug]))[0] ?? null,
+    () => loadMissing(slug),
     ["stack127-self-host-app", slug],
     { revalidate: false, tags: [SELF_HOST_DETAILS_TAG, `${SELF_HOST_APP_TAG}:${slug}`] },
   )()));
