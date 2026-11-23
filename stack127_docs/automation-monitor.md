@@ -8,7 +8,7 @@ For each job it shows what the job does, when it runs, its last result, 90 days 
 
 The dashboard takes each stack127 job's name and description from [`monitoring.json`](monitoring.json), read from the homelab main checkout. When a change adds, moves, renames or removes a scheduled job, a GitHub workflow, an Edge Function schedule or a server timer, update its entry in the same pull request.
 
-BaseBuddy is its own project on the dashboard. Its jobs (the `stack127labs/basebuddy` and `stack127labs/basebuddy-website` workflows, and the demo and GitHub traffic jobs on the Bloxodes VPS) are described in `implementation_docs/monitoring.json` in `stack127labs/basebuddy-website`, not here.
+BaseBuddy is its own project on the dashboard. Its jobs (the `stack127labs/basebuddy` and `stack127labs/basebuddy-website` workflows, the Dokploy demo reset on OVH, and the GitHub traffic jobs on the Bloxodes VPS) are described in `implementation_docs/monitoring.json` in `stack127labs/basebuddy-website`, not here.
 
 One entry per job:
 
@@ -30,7 +30,7 @@ A job with no entry still shows up, marked "No description yet".
 
 ## What the dashboard can't see
 
-- On OVH, the `ubuntu` account can't read Docker or the system journal. So containers aren't listed, and timer logs are empty.
+- On OVH, the `ubuntu` account can't read Docker or the system journal. So containers aren't listed, and timer logs are empty. The one exception is Dokploy: the dashboard reads Dokploy's schedules, backups and their run history from its database with `sudo -n docker exec` in a read-only transaction, so Dokploy schedules show up with real results.
 - Ad network and self-host app jobs report through `/srv/stack127-data/logs/<job>.log`. The dashboard reads the `== <time> start <job>` and `== <time> end <job> exit <code>` lines that `run-job.sh` writes.
 - Self-host data jobs keep their nominal cron schedules. Completed-period checks do not write run markers. The separate `self-host-catch-up` entry records hourly update, drift and retry results.
 - Exit 76 means a job lock or checkout lock is busy. It shows as skipped when logged; self-host data jobs that have not started work stay silent.
